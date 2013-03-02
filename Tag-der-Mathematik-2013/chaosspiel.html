@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Chaosspiel</title>
+
+<style type="text/css" media="screen">
+  body {
+    background: #fff;
+    font-family: Verdana, sans-serif;
+    font-size: 1em;
+    line-height: 1.3em;
+    margin: 10px;
+  }
+  #page { background: #ffffff; margin: 50px; border: 2px solid #c0c0c0; padding: 10px; }
+  #header { background: #4b6983; border: 2px solid #7590ae; text-align: center; padding: 10px; color: #ffffff; }
+  #header h1 { color: #ffffff; }
+  #body { padding: 10px; }
+  a:link { text-decoration: none; color: #C00; background: #ffc; }
+  a:visited { text-decoration: none; color: #500; background: #ffc; }
+  a:active { text-decoration: none; color: #F00; background: #FC0; }
+  a:hover { text-decoration: none; color: #C00; background: #FC0; }
+  h2 { padding-top: 1em; }
+  h3 { padding-top: 1em; }
+  .noskip { padding-top: 0em; }
+  ul p { margin-top: 0.3em; margin-bottom: 0.3em; }
+
+  td { border: 1px solid #ccc; }
+</style>
+</head>
+
+<body>
+
+<canvas id="canvas">
+  Dieser Browser kann kein HTML5-canvas-Element darstellen.
+</canvas>
+
+<script type="text/javascript" src="chaosspiel.js"></script>
+
+Vollständiger Durchlauf mit
+<input type="range" min="1" max="10000" value="10" style="width: 30em" onchange="
+  document.getElementById('numPoints').innerText = this.value;
+  var ctx = document.getElementById('canvas').getContext('2d');
+  doReset(ctx);
+  doFullGame(ctx, this.value);
+" />
+<span id="numPoints">&ndash;</span>
+Punkten<br />
+
+<input type="submit" onclick="
+  var ctx = document.getElementById('canvas').getContext('2d');
+  var j = Math.floor(Math.random() * vertices.length);
+  var p = vertices[j];
+
+  globalR = doStep(ctx, globalR, p, j);
+" />
+
+</body>
+</html>
