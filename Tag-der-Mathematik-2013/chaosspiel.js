@@ -1,3 +1,82 @@
+function ChaosGame(xmax, ymax, numVertices, lambda) {
+  this.trackLines  = false;
+  this.lambda      = lambda;
+  this.numVertices = numVertices;
+  this.lastPos     = undefined;
+
+  this.xmax = xmax;
+  this.ymax = ymax;
+
+  this.backgroundColor = "lightblue";
+  this.foregroundColor = "darkblue";
+  this.hilightColor    = "black";
+  this.vertexColors    = ["red", "green", "blue", "yellow", "magenta", "orange"];
+
+  this.ptRadius        = 4;
+
+  this.initVertices();
+}
+
+ChaosGame.prototype.initVertices = function () {
+  this.vertices = [];
+
+  for(var i = 0; i < this.numVertices; i++) {
+    this.vertices.push([
+      this.xmax/2 + this.xmax/2 * Math.cos(Math.PI/2 + 2*Math.PI / this.numVertices * i),
+      this.ymax/2 - this.ymax/2 * Math.sin(Math.PI/2 + 2*Math.PI / this.numVertices * i)
+    ]);
+  }
+}
+
+ChaosGame.prototype.doReset = function (ctx) {
+  ctx.fillStyle   = this.backgroundColor;
+  ctx.strokeStyle = this.foregroundColor;
+
+  ctx.clearRect(0,0, this.xmax, this.ymax);
+
+  ctx.beginPath();
+  multiTo(ctx, this.vertices);
+  ctx.fill();
+
+  ctx.beginPath();
+  multiTo(ctx, this.vertices);
+  ctx.closePath();
+  ctx.stroke();
+};
+
+ChaosGame.prototype.doStep = function (ctx, newVertex, colorIndex) {
+  var c = this.vertexColors[colorIndex];
+
+  var r = this.lastPos;
+  var v = newVertex;
+  var q = [ (1-this.lambda)*r[0] + this.lambda*v[0], (1-this.lambda)*r[1] + this.lambda*v[1] ];
+  drawDot(ctx, q[0], q[1], this.ptRadius, c);
+
+  if(this.trackLines) {
+    ctx.beginPath();
+    ctx.moveTo(r[0], r[1]);
+    ctx.lineTo(q[0], q[1]);
+    ctx.lineWidth = 0.3;
+    ctx.stroke();
+    ctx.lineWidth = 4;
+  }
+
+  this.lastPos = q;
+};
+
+ChaosGame.prototype.doFullGame = function (ctx, numIter) {
+  this.lastPos = randomConvexComb(this.vertices);
+
+  drawDot(ctx, this.lastPos[0], this.lastPos[1], this.ptRadius, this.hilightColor);
+
+  for(var i = 0; i < numIter - 1; i++) {
+    var j = Math.floor(Math.random() * this.vertices.length);
+    var p = this.vertices[j];
+
+    this.doStep(ctx, p, j);
+  }
+};
+
 function multiTo(ctx, points) {
   if(points.length == 0) return;
   ctx.moveTo(points[0][0], points[0][1]);
@@ -24,67 +103,3 @@ function drawDot(ctx, x,y, radius, color) {
   ctx.arc(x, y, radius, 0, 2*Math.PI, true);
   ctx.fill();
 }
-
-function doReset(ctx) {
-  ctx.fillStyle = "lightblue";
-  ctx.strokeStyle = "darkblue";
-
-  ctx.clearRect(0,0, xmax, ymax);
-
-  ctx.beginPath();
-  multiTo(ctx, vertices);
-  ctx.fill();
-
-  ctx.beginPath();
-  multiTo(ctx, vertices);
-  ctx.closePath();
-  ctx.stroke();
-}
-
-function doStep(ctx, r, v, j) {
-  var c = ["red", "green", "blue", "yellow"][j];
-
-  var q = [ 0.5*r[0] + 0.5*v[0], 0.5*r[1] + 0.5*v[1] ];
-  drawDot(ctx, q[0], q[1], ptRadius, c);
-  
-  ctx.beginPath();
-  ctx.moveTo(r[0], r[1]);
-  ctx.lineTo(q[0], q[1]);
-  ctx.lineWidth = 0.3;
-  ctx.stroke();
-  ctx.lineWidth = 4;
-
-  return q;
-}
-
-function doFullGame(ctx, numIter) {
-  var r = randomConvexComb(vertices);
-
-  ctx.fillStyle = "darkblue";
-  drawDot(ctx, r[0], r[1], ptRadius, colorHilight);
-
-  for(var i = 0; i < numIter - 1; i++) {
-    var j = Math.floor(Math.random() * vertices.length);
-    var p = vertices[j];
-
-    r = doStep(ctx, r, p, j);
-  }
-}
-
-var xmax = 1000, ymax = 1000;
-var ptRadius = 4;
-var colorNormal = "darkblue";
-var colorHilight = "yellow";
-
-var vertices = [ [ xmax/2, 0 ], [ xmax, ymax ], [ 0, ymax ] ];
-//var vertices = [ [ 0, 0 ], [ xmax, 0 ], [ xmax, ymax ], [0, ymax] ];
-
-var canvas = document.getElementById('canvas');
-canvas.setAttribute('width', xmax);
-canvas.setAttribute('height', ymax);
-var ctx = canvas.getContext('2d');
-ctx.lineWidth = 4;
-
-doReset(ctx);
-
-globalR = randomConvexComb(vertices);

@@ -16,16 +16,8 @@
   #header { background: #4b6983; border: 2px solid #7590ae; text-align: center; padding: 10px; color: #ffffff; }
   #header h1 { color: #ffffff; }
   #body { padding: 10px; }
-  a:link { text-decoration: none; color: #C00; background: #ffc; }
-  a:visited { text-decoration: none; color: #500; background: #ffc; }
-  a:active { text-decoration: none; color: #F00; background: #FC0; }
-  a:hover { text-decoration: none; color: #C00; background: #FC0; }
-  h2 { padding-top: 1em; }
-  h3 { padding-top: 1em; }
-  .noskip { padding-top: 0em; }
-  ul p { margin-top: 0.3em; margin-bottom: 0.3em; }
 
-  td { border: 1px solid #ccc; }
+  th { text-align: right; }
 </style>
 </head>
 
@@ -37,23 +29,77 @@
 
 <script type="text/javascript" src="chaosspiel.js"></script>
 
-Vollständiger Durchlauf mit
-<input type="range" min="1" max="10000" value="10" style="width: 30em" onchange="
-  document.getElementById('numPoints').innerText = this.value;
-  var ctx = document.getElementById('canvas').getContext('2d');
-  doReset(ctx);
-  doFullGame(ctx, this.value);
-" />
-<span id="numPoints">&ndash;</span>
-Punkten<br />
+<script type="text/javascript">
+  var chaosGame = new ChaosGame(1000,1000,3,1/2);
 
-<input type="submit" onclick="
-  var ctx = document.getElementById('canvas').getContext('2d');
-  var j = Math.floor(Math.random() * vertices.length);
-  var p = vertices[j];
+  var canvas = document.getElementById('canvas');
+  var ctx    = canvas.getContext('2d');
+  canvas.setAttribute('width', 1000);
+  canvas.setAttribute('height', 1000);
+  ctx.lineWidth = 4;
 
-  globalR = doStep(ctx, globalR, p, j);
-" />
+  chaosGame.doReset(ctx);
+</script>
+
+<table style="float: right">
+  <tr>
+    <th>Anzahl Ecken</th>
+    <td>
+      <input type="range" min="3" max="10" value="3" style="width: 30em" onchange="
+        document.getElementById('numVertices').innerText = this.value;
+        chaosGame.numVertices = this.value;
+        chaosGame.initVertices();
+        chaosGame.doReset(ctx);
+        chaosGame.doFullGame(ctx, document.getElementById('numPoints').innerText);
+      " />
+      <span id="numVertices">3</span>
+    </td>
+  </tr>
+  <tr>
+    <th>Verhältnis</th>
+    <td>
+      <input type="range" min="0" max="100" value="50" style="width: 30em" onchange="
+        document.getElementById('lambda').innerText = this.value;
+        chaosGame.lambda = this.value / 100;
+        chaosGame.doReset(ctx);
+        chaosGame.doFullGame(ctx, document.getElementById('numPoints').innerText);
+      " />
+      <span id="lambda">50</span>
+    </td>
+  </tr>
+  <tr>
+    <th>Automatischer Durchlauf</th>
+    <td>
+      mit
+      <input type="range" min="1" max="10000" value="1" style="width: 30em" onchange="
+        document.getElementById('numPoints').innerText = this.value;
+        chaosGame.doReset(ctx);
+        chaosGame.doFullGame(ctx, this.value);
+      " />
+      <span id="numPoints">1</span>
+      Punkten
+    </td>
+  </tr>
+  <tr>
+    <th>Manueller Durchlauf</th>
+    <td>
+      <input type="submit" value="Ein Schritt bitte!" onclick="
+        var j = Math.floor(Math.random() * chaosGame.vertices.length);
+        var p = chaosGame.vertices[j];
+
+        chaosGame.doStep(ctx, p, j);
+      " />
+    </td>
+  </tr>
+  <tr>
+    <th>Hilfslinien einzeichnen</th>
+    <td>
+      <input type="checkbox" onchange="
+        chaosGame.trackLines = this.checked;
+      " />
+    </td>
+  </tr>
+</table>
 
 </body>
 </html>
