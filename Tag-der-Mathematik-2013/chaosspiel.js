@@ -3,6 +3,7 @@ function ChaosGame(xmax, ymax, numVertices, lambda) {
   this.lambda      = lambda;
   this.numVertices = numVertices;
   this.lastPos     = undefined;
+  this.initPos     = undefined;
 
   this.xmax = xmax;
   this.ymax = ymax;
@@ -12,7 +13,9 @@ function ChaosGame(xmax, ymax, numVertices, lambda) {
   this.hilightColor    = "black";
   this.vertexColors    = ["red", "green", "blue", "yellow", "magenta", "orange"];
 
-  this.ptRadius        = 4;
+  this.ptRadius        = 3;
+
+  this.seed = Math.random();
 
   this.initVertices();
 }
@@ -65,7 +68,9 @@ ChaosGame.prototype.doStep = function (ctx, newVertex, colorIndex) {
 };
 
 ChaosGame.prototype.doFullGame = function (ctx, numIter) {
-  this.lastPos = randomConvexComb(this.vertices);
+  this.lastPos = this.initPos ? this.initPos : randomConvexComb(this.vertices);
+
+  if(this.initPos) Math.seedrandom(this.seed);
 
   drawDot(ctx, this.lastPos[0], this.lastPos[1], this.ptRadius, this.hilightColor);
 

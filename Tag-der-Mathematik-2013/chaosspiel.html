@@ -27,6 +27,7 @@
   Dieser Browser kann kein HTML5-canvas-Element darstellen.
 </canvas>
 
+<script type="text/javascript" src="seedrandom.js"></script>
 <script type="text/javascript" src="chaosspiel.js"></script>
 
 <script type="text/javascript">
@@ -39,13 +40,19 @@
   ctx.lineWidth = 4;
 
   chaosGame.doReset(ctx);
+
+  canvas.addEventListener("click", function (ev) {
+    chaosGame.initPos = [event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop];
+    chaosGame.doReset(ctx);
+    chaosGame.doFullGame(ctx, document.getElementById('numPoints').innerText);
+  }, false);
 </script>
 
 <table style="float: right">
   <tr>
     <th>Anzahl Ecken</th>
     <td>
-      <input type="range" min="3" max="10" value="3" style="width: 30em" onchange="
+      <input type="range" min="3" max="100" value="3" style="width: 30em" onchange="
         document.getElementById('numVertices').innerText = this.value;
         chaosGame.numVertices = this.value;
         chaosGame.initVertices();
