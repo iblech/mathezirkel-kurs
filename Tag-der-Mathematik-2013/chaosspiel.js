@@ -48,6 +48,8 @@ ChaosGame.prototype.doReset = function (ctx) {
 };
 
 ChaosGame.prototype.doStep = function (ctx, newVertex, colorIndex) {
+  this.lastPos = this.initPos ? this.initPos : randomConvexComb(this.vertices);
+
   var c = this.vertexColors[colorIndex];
 
   var r = this.lastPos;

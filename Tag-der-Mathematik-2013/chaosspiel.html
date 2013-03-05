@@ -23,6 +23,29 @@
 
 <body>
 
+<audio controls autoplay loop id="audio">
+  <source src="tetris.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<script type="text/javascript">
+  var intensity = 0;
+  function recordStep () {
+    intensity = intensity + 1;
+    updatePlackbackRate();
+  }
+  function updatePlaybackRate () {
+    if(document.getElementById('audio'))
+      document.getElementById('audio').playbackRate =
+        intensity > 0 ? 0.4 + intensity / 10 : 0;
+  }
+  updatePlaybackRate();
+  window.setInterval(function () {
+    intensity = 0.7 * intensity;
+    updatePlaybackRate();
+  }, 1000);
+</script>
+
 <canvas id="canvas">
   Dieser Browser kann kein HTML5-canvas-Element darstellen.
 </canvas>
@@ -95,7 +118,10 @@
         var p = chaosGame.vertices[j];
 
         chaosGame.doStep(ctx, p, j);
+        recordStep();
       " />
+<div id="a">abc</div>
+
     </td>
   </tr>
   <tr>
