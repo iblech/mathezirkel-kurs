@@ -1,0 +1,108 @@
+\documentclass[a4paper,ngerman]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+
+\usepackage[ngerman]{babel}
+\usepackage{hyperref}
+
+\usepackage{graphicx}
+
+\usepackage[protrusion=true,expansion=true]{microtype}
+
+\usepackage{lmodern}
+\usepackage{tabto}
+
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
+
+\usepackage{geometry}
+\geometry{tmargin=1.5cm,bmargin=2cm,lmargin=1.5cm,rmargin=1.5cm}
+
+\pagestyle{empty}
+
+\setlength{\fboxrule}{2pt}
+\setlength{\fboxsep}{-3pt}
+
+\newcommand{\drawHere}{%
+  \begin{center}%
+    \fbox{\parbox[c][0.9\textwidth]{0.9\textwidth}{\ }}%
+  \end{center}}
+
+\newcommand{\header}{%
+  \begin{raggedleft}
+  \tiny Universität Augsburg \\
+  Tag der Mathematik 2013 \par
+  \end{raggedleft}}
+
+\begin{document}
+
+\header
+
+\begin{center}
+  \Huge\bf
+  Die Kochsche Schneeflocke
+\end{center}
+
+\vfill
+\drawHere
+
+\vfill
+\Large
+
+\renewcommand{\labelitemi}{$\bigstar$}
+
+\begin{itemize}
+  \item So konstruiert man die Kochsche Schneeflocke:
+
+  \begin{center}
+    \includegraphics[scale=0.5]{koch}
+  \end{center}
+  \item Was ist ihr Umfang?
+  \item Was ist ihr Flächeninhalt?
+  \item Dafür ist sie gut: XXX
+\end{itemize}
+
+\newpage
+
+\header
+
+\begin{center}
+  \Huge\bf
+  Das Sierpinski-Dreieck
+\end{center}
+
+\vfill
+\drawHere
+
+\vfill
+\Large
+
+\renewcommand{\labelitemi}{$\blacktriangle$}
+
+\begin{itemize}
+  \item Spiele folgendes \emph{Chaosspiel}:
+  \begin{enumerate}
+    \item Zeichne ein großes Dreieck.
+    \item Wähle einen beliebigen Startpunkt im Dreieck.
+    \item Such dir zufällig eine der drei Ecken aus.
+    \item Markiere als neuen Punkt die Mitte zwischen deiner Ecke und dem
+    vorherigen Punkt.
+    \item Fahre mit dem neuen Punkt bei Schritt 3 fort.
+  \end{enumerate}
+  \item Obwohl man den Startpunkt und die Ecken völlig zufällig wählt, ergibt
+  sich erstaunlicherweise eine regelmäßige Figur: das \emph{Sierpinski-Dreieck}.
+  \item Deterministisch (ohne Zufall) kann man es auch so konstruieren:
+
+  \begin{center}
+    \includegraphics[scale=0.1]{sierpinski-1}\hfill
+    \includegraphics[scale=0.1]{sierpinski-2}\hfill
+    \includegraphics[scale=0.1]{sierpinski-3}\hfill
+    \includegraphics[scale=0.1]{sierpinski-4}
+  \end{center}
+  \item Was ist sein Umfang?
+  \item Was ist sein Flächeninhalt?
+  \item Dafür ist es gut: XXX
+\end{itemize}
+
+\end{document}
