@@ -4,6 +4,7 @@ function ChaosGame(xmax, ymax, numVertices, lambda) {
   this.numVertices = numVertices;
   this.lastPos     = undefined;
   this.initPos     = undefined;
+  this.stats       = undefined;
 
   this.xmax = xmax;
   this.ymax = ymax;
@@ -22,16 +23,21 @@ function ChaosGame(xmax, ymax, numVertices, lambda) {
 
 ChaosGame.prototype.initVertices = function () {
   this.vertices = [];
+  this.stats    = [];
 
   for(var i = 0; i < this.numVertices; i++) {
     this.vertices.push([
       this.xmax/2 + this.xmax/2 * Math.cos(Math.PI/2 + 2*Math.PI / this.numVertices * i),
       this.ymax/2 - this.ymax/2 * Math.sin(Math.PI/2 + 2*Math.PI / this.numVertices * i)
     ]);
+
+    this.stats.push(0);
   }
 }
 
 ChaosGame.prototype.doReset = function (ctx) {
+  for(var i = 0; i < this.numVertices; i++) this.stats[i] = 0;
+
   ctx.fillStyle   = this.backgroundColor;
   ctx.strokeStyle = this.foregroundColor;
 
@@ -48,9 +54,14 @@ ChaosGame.prototype.doReset = function (ctx) {
 };
 
 ChaosGame.prototype.doStep = function (ctx, newVertex, colorIndex) {
-  this.lastPos = this.initPos ? this.initPos : randomConvexComb(this.vertices);
+  if(! this.lastPos) {
+    if(this.initPos) Math.seedrandom(this.seed);
+    this.lastPos = this.initPos ? this.initPos : randomConvexComb(this.vertices);
+    drawDot(ctx, this.lastPos[0], this.lastPos[1], this.ptRadius, this.hilightColor);
+  }
 
   var c = this.vertexColors[colorIndex];
+  this.stats[colorIndex] = this.stats[colorIndex] + 1;
 
   var r = this.lastPos;
   var v = newVertex;

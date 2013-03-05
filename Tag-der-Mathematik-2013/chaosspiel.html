@@ -30,18 +30,19 @@ Your browser does not support the audio element.
 
 <script type="text/javascript">
   var intensity = 0;
-  function recordStep () {
-    intensity = intensity + 1;
-    updatePlackbackRate();
-  }
   function updatePlaybackRate () {
     if(document.getElementById('audio'))
       document.getElementById('audio').playbackRate =
         intensity > 0 ? 0.4 + intensity / 10 : 0;
   }
+  function recordStep () {
+    intensity = intensity + 1;
+    updatePlaybackRate();
+    updateStats();
+  }
   updatePlaybackRate();
   window.setInterval(function () {
-    intensity = 0.7 * intensity;
+    intensity = 0.5 * intensity;
     updatePlaybackRate();
   }, 1000);
 </script>
@@ -49,6 +50,12 @@ Your browser does not support the audio element.
 <canvas id="canvas">
   Dieser Browser kann kein HTML5-canvas-Element darstellen.
 </canvas>
+
+<div style="float: right">
+  <div id="nr0">0</div>
+  <div id="nr1">0</div>
+  <div id="nr2">0</div>
+</div>
 
 <script type="text/javascript" src="seedrandom.js"></script>
 <script type="text/javascript" src="chaosspiel.js"></script>
@@ -68,6 +75,33 @@ Your browser does not support the audio element.
     chaosGame.initPos = [event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop];
     chaosGame.doReset(ctx);
     chaosGame.doFullGame(ctx, document.getElementById('numPoints').innerText);
+  }, false);
+
+  var key2vertex = {
+    'Y': 0,
+    'X': 1,
+    'C': 2,
+    'I': 0,
+    'O': 1,
+    'P': 2
+  };
+
+  function updateStats () {
+    if(chaosGame.numVertices != 3) return;
+
+    for(var j = 0; j < chaosGame.numVertices; j++) {
+      document.getElementById("nr" + j).innerText = chaosGame.stats[j];
+    }
+  }
+
+  document.getElementsByTagName("body")[0].addEventListener("keyup", function (ev) {
+    var j = key2vertex[String.fromCharCode(ev.which)];
+    if(j != undefined) {
+      var p = chaosGame.vertices[j];
+
+      chaosGame.doStep(ctx, p, j);
+      recordStep();
+    }
   }, false);
 </script>
 
@@ -118,6 +152,7 @@ Your browser does not support the audio element.
         var p = chaosGame.vertices[j];
 
         chaosGame.doStep(ctx, p, j);
+        recordVertex(j);
         recordStep();
       " />
 <div id="a">abc</div>
