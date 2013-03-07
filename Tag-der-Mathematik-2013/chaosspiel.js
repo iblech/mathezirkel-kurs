@@ -25,10 +25,14 @@ ChaosGame.prototype.initVertices = function () {
   this.vertices = [];
   this.stats    = [];
 
+  var pad = 16;
+  var xmax = this.xmax - pad;
+  var ymax = this.ymax - pad;
+
   for(var i = 0; i < this.numVertices; i++) {
     this.vertices.push([
-      this.xmax/2 + this.xmax/2 * Math.cos(Math.PI/2 + 2*Math.PI / this.numVertices * i),
-      this.ymax/2 - this.ymax/2 * Math.sin(Math.PI/2 + 2*Math.PI / this.numVertices * i)
+      pad/2 + xmax/2 + xmax/2 * Math.cos(Math.PI/2 + 2*Math.PI / this.numVertices * i),
+      pad/2 + ymax/2 - ymax/2 * Math.sin(Math.PI/2 + 2*Math.PI / this.numVertices * i)
     ]);
 
     this.stats.push(0);
