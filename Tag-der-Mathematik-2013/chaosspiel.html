@@ -139,18 +139,19 @@
   function updatePlaybackRate () {
     if(document.getElementById('audio'))
       document.getElementById('audio').playbackRate =
-        intensity > 0 ? 0.4 + intensity / 10 : 0;
+        intensity > 0 ? 0.4 + intensity / 5 : 0;
   }
+  function unrecordStep () { intensity = intensity - 1; }
   function recordStep () {
     intensity = intensity + 1;
     updatePlaybackRate();
     updateStats();
+    window.setTimeout(unrecordStep, 400);
   }
   updatePlaybackRate();
   window.setInterval(function () {
-    intensity = 0.5 * intensity;
     updatePlaybackRate();
-  }, 1000);
+  }, 100);
 </script>
 
 <div>
