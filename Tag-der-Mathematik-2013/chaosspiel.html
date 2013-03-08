@@ -98,6 +98,10 @@
         recordVertex(j);
         recordStep();
       " />
+      <input type="submit" value="Reset" onclick="
+        chaosGame.doReset(ctx);
+        updateStats();
+      " />
     </td>
   </tr>
   <tr>
@@ -139,19 +143,19 @@
   function updatePlaybackRate () {
     if(document.getElementById('audio'))
       document.getElementById('audio').playbackRate =
-        intensity > 0 ? 0.4 + intensity / 5 : 0;
+        intensity > 0 ? 0.4 + intensity / 7 : 0;
+    document.getElementById('intensity').innerText = intensity;
   }
-  function unrecordStep () { intensity = intensity - 1; }
+  function unrecordStep () {
+    intensity = intensity - 1;
+    updatePlaybackRate();
+  }
   function recordStep () {
     intensity = intensity + 1;
     updatePlaybackRate();
     updateStats();
     window.setTimeout(unrecordStep, 400);
   }
-  updatePlaybackRate();
-  window.setInterval(function () {
-    updatePlaybackRate();
-  }, 100);
 </script>
 
 <div>
@@ -163,17 +167,18 @@
   </canvas>
 </div>
 
-<div id="stats" style="float: right; font-weight: bold; text-align: right; font-size:
+<div id="stats" style="float: left; font-weight: bold; text-align: right; font-size:
 200%; font-family: monospace; line-height: 200%">
   <div id="nr0"></div>
   <div id="nr1"></div>
   <div id="nr2"></div>
+  <div id="intensity"></div>
 </div>
 
 <script type="text/javascript" src="seedrandom.js"></script>
 <script type="text/javascript" src="chaosspiel.js"></script>
 
-<script type="text/javascript">
+<script type="text/javascript">//<![CDATA[
   var chaosGame = new ChaosGame(1000,1000,3,1/2);
 
   var canvas = document.getElementById('canvas');
@@ -202,10 +207,16 @@
     'C': 2,
     'I': 0,
     'O': 1,
-    'P': 2
+    'P': 2,
+    '#': 0,
+    '(': 1,
+    '"': 2,
+    '1': 0,
+    '2': 1,
+    '3': 2
   };
 
-  var beschriftung = [ "Ecke 1, Y I:", "Ecke 2, X O:", "Ecke 3, C P:" ];
+  var beschriftung = [ "Ecke 1 Y I:", "Ecke 2 X O:", "Ecke 3 C P:" ];
 
   function updateStats () {
     if(chaosGame.numVertices != 3) {
@@ -238,6 +249,9 @@
       recordStep();
     }
   }, false);
+ 
+  updatePlaybackRate();
+//]]
 </script>
 
 </body>

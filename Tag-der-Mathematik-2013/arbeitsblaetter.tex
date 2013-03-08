@@ -4,7 +4,7 @@
 \usepackage{amssymb}
 
 \usepackage[ngerman]{babel}
-\usepackage{hyperref}
+\usepackage{pdfpages}
 
 \usepackage{graphicx}
 
@@ -97,17 +97,17 @@
     \item Zeichne ein großes gleichseitiges Dreieck.
     \item Wähle einen beliebigen Startpunkt im Dreieck.
     \item Such dir zufällig eine der drei Ecken aus.
-    \item Markiere als neuen Punkt die Mitte zwischen deiner Ecke und \\ dem
+    \item Markiere als neuen Punkt die Mitte zwischen deiner gewählten Ecke und \\ dem
     vorherigen Punkt.
     \item Fahre mit dem neuen Punkt bei Schritt 3 fort.
   \end{enumerate}
 \end{itemize}
 
-\begin{minipage}{0.8\textwidth}
+\begin{minipage}{0.9\textwidth}
 
 \begin{itemize}
   \item Obwohl man den Startpunkt und die Ecken völlig zufällig wählt, ergibt
-  sich erstaunlicherweise eine regelmäßige Figur: das \emph{Sierpinski-Dreieck}.
+  sich erstaunlicherweise näherungsweise eine regelmäßige Figur: das \emph{Sierpinski-Dreieck}.
   \item Deterministisch (ohne Zufall) kann man es auch so konstruieren:
 
   \begin{center}
@@ -116,8 +116,18 @@
     \includegraphics[scale=0.1]{sierpinski-3}\hfill
     \includegraphics[scale=0.1]{sierpinski-4}
   \end{center}
-  \item Was ist sein Umfang?
-  \item Was ist sein Flächeninhalt?
+  \item Wieso ergibt sich beim Chaosspiel dieses Sierpinski-Dreieck?
+  Der Abstand der Punkte beim Chaosspiel zum tatsächlichen, völlig regelmäßigen
+  Sierpinski-Dreieck halbiert sich mit jedem Schritt. Für das bloße Auge liegen
+  daher alle Punkte (bis auf einige wenige zu Beginn) auf dem
+  Sierpinski-Dreieck. Durch die zufällige Eckenwahl wird das ganze Dreieck
+  gleichmäßig gefüllt.
+  
+  \begin{center}
+    \includegraphics[scale=0.45]{sierpinski-beweis}
+  \end{center}
+  \item Was ist der Umfang des Sierpinski-Dreiecks?
+  \item Was ist der Flächeninhalt des Sierpinski-Dreiecks?
   \item Die Kochsche Schneeflocke und das Sierpinski-Dreieck sind Beispiele für
   sog. \emph{Fraktale} (von lateinisch \emph{fractus}, "`gebrochen"').
   Annäherungen an Fraktale findet man an vielen Stellen in der Natur,
