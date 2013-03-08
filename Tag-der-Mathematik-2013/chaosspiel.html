@@ -144,7 +144,8 @@
     if(document.getElementById('audio'))
       document.getElementById('audio').playbackRate =
         intensity > 0 ? 0.4 + intensity / 7 : 0;
-    document.getElementById('intensity').innerText = intensity;
+    if(document.getElementById('intensity'))
+      document.getElementById('intensity').innerText = intensity;
   }
   function unrecordStep () {
     intensity = intensity - 1;
@@ -156,6 +157,7 @@
     updateStats();
     window.setTimeout(unrecordStep, 400);
   }
+  updatePlaybackRate();
 </script>
 
 <div>
@@ -172,7 +174,7 @@
   <div id="nr0"></div>
   <div id="nr1"></div>
   <div id="nr2"></div>
-  <div id="intensity"></div>
+  <div id="intensity" style="display: none"></div>
 </div>
 
 <script type="text/javascript" src="seedrandom.js"></script>
