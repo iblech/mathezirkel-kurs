@@ -1,0 +1,20 @@
+===== Erstes Treffen vom 30.11.2013
+
+* Vorstellungsrunde:
+  Name, Schule, Klassenstufe, coolste Sache in Mathematik, Anzahl auswendig
+  gelernter pi-Ziffern
+
+* Conways Armee:
+  Spielen lassen, dann Beweis angefangen. Änderung der Bewertung unter
+  erlaubten Zügen schon thematisiert, aber noch nicht Summen ausgerechnet.
+
+* Themen-Brainstorm
+
+* Hilberts Hotel als Rätsel zum Abschluss
+
+
+-- Kritik
+
+* Das Ausprobieren hat sehr gut funktioniert.
+
+* Kein Spannungsbogen, am Ende war es etwas langweilig (?).

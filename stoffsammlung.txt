@@ -1,0 +1,19 @@
+Surreale Zahlen
+* Zahlen finden und einordnen
+* Rechenregeln beweisen
+* Spiele bewerten
+* On_2 ausfüllen
+* Lemmas über Spiele beweisen
+
+Ordinalzahlen und Kardinalzahlen
+* Interpretation über Spiele
+* Goodstein
+* Hydra
+* Hilberts Hotel
+* Rechenregeln beweisen
+
+Rätsel
+* 100 Blauäugige
+* 100 Gefangene
+
+Conways Armee
