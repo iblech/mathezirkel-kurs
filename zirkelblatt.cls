@@ -51,19 +51,17 @@
 }{\vspace{\aufgabenskip}}
 \newenvironment{aufgabeE}[1]{\begin{aufgabe}{#1}\begin{enumerate}}{\end{enumerate}\end{aufgabe}}
 
-\definecolor{shadecolor}{rgb}{.93,.93,.93}
-
-\NewEnviron{loesung}{%
-  \ifloesungen%
-    \begin{shaded}\textbf{Lösung. }\BODY\end{shaded}%
-  \fi%
-}
-\NewEnviron{loesungE}{%
-  \ifloesungen%
-    \begin{shaded}\textbf{Lösung. }\begin{enumerate}\BODY\end{enumerate}\end{shaded}%
-  \fi%
-}
+\newenvironment{block}[1]{
+  \begin{center}\textbf{#1}\end{center}
+}{\vspace{\aufgabenskip}}
 
 \clubpenalty=10000
 \widowpenalty=10000
 \displaywidowpenalty=10000
+
+\newcommand{\NN}{\mathbb{N}}
+\DeclareMathOperator{\mex}{mex}
+\newcommand{\sur}[2]{\{ #1 \,|\, #2 \}}
+
+\definecolor{hicolor}{rgb}{.55,.12,.55}
+\newcommand{\hil}[1]{\textcolor{hicolor}{#1}}

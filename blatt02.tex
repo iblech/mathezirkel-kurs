@@ -1,0 +1,150 @@
+\documentclass{zirkelblatt}
+\geometry{tmargin=2cm,bmargin=2cm,lmargin=3cm,rmargin=3cm}
+\begin{document}
+
+\maketitle{Klasse 11./12., Gruppe 2}{21. Dezember 2013}
+
+\begin{block}{Konventionen}
+\begin{itemize}
+\item[]
+Die \emph{Menge der natürlichen Zahlen} ist~$\NN := \{ 0, 1, 2, 3, \ldots \}$.
+\item[]
+Die \emph{leere Menge} $\{ \} = \emptyset$ enthält kein einziges Element.
+\item[]
+Alle Elemente der Menge der Elefanten in diesem Raum können~$\pi$ auswendig.
+\end{itemize}
+\end{block}
+
+\begin{block}{Regeln für surreale Zahlen}
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\begin{enumerate}
+\item \emph{Konstruktionsprinzip.}
+Sind~$L$ und~$R$ Mengen surrealer Zahlen und \hil{ist kein Element von~$L$
+$\geq$ irgendeinem Element von~$R$}, so ist~$\sur{L}{R}$ ebenfalls eine surreale
+Zahl. Alle surrealen Zahlen entstehen auf diese Art.
+
+\item \emph{Notation.}
+Für~$x = \sur{L}{R}$ bezeichnen wir ein typisches Element von~$L$
+mit~"`$x^L$"', ein typisches Element von~$R$ mit~"`$x^R$"'. Wenn
+wir~"`$\sur{a,b,c,\ldots}{d,e,f,\ldots}$"' schreiben, meinen wir die
+Zahl~$\sur{L}{R}$, sodass~$a,b,c,\ldots$ die typischen Elemente von~$L$
+und~$d,e,f,\ldots$ die typischen Elemente von~$R$ sind.
+
+\item \emph{Anordnung.}
+
+Wir sagen genau dann~$x \geq y$, falls kein $x^R \leq y$ und~$x \leq$
+keinem $y^L$.
+
+Wir sagen genau dann~$x \not\leq y$, wenn~$x \leq y$ nicht gilt.
+
+Wir sagen genau dann~$x < y$, wenn $x \leq y$ und~$y \not\leq x$.
+
+Wir sagen genau dann~$x \leq y$, wenn~$y \geq x$.
+
+Wir sagen genau dann~$x > y$, wenn~$y < x$.
+
+\item \emph{Gleichheit.}
+Wir sagen genau dann~$x = y$, wenn~$x \leq y$ und~$y \leq x$.
+
+\item \emph{Addition.} $x + y := \sur{x^L + y, x + y^L}{x^R + y, x + y^R}$.
+
+\item \emph{Negation.} $-x := \sur{-x^R}{-x^L}$.
+
+\item \emph{Multiplikation.}
+$xy = \sur{x^Ly + xy^L - x^Ly^L, x^Ry + xy^R - x^Ry^R}{x^Ly + xy^R -
+x^Ly^R, x^Ry + xy^L - x^Ry^L}$.
+\end{enumerate}
+\end{block}
+
+\newpage
+
+\begin{aufgabe}{Erste Beispiele für surreale Zahlen}
+Zu Beginn ist uns keine einzige surreale Zahl bekannt. Trotzdem kennen wir
+eine \emph{Menge} surrealer Zahlen: nämlich die leere Menge. So können wir nach
+dem Konstruktionsprinzip eine erste surreale Zahl bauen:
+\begin{align*}
+  0 &:= \sur{}{} \quad\text{(also $L = R = \emptyset$)} \\
+\intertext{Wir haben diese Zahl~"`$0$"' genannt, weil sie die Rolle der Null einnehmen
+wird. Mit dieser Zahl an der Hand können wir eine weitere surreale Zahl bauen:}
+  1 &:= \sur{0}{} \quad\text{(also $L = \{ 0 \}, R = \emptyset$)}
+\end{align*}
+
+\begin{enumerate}
+\item Überzeuge dich davon, dass sie so definierte Zahlen~$0$ und~$1$ wirklich
+surreale Zahlen sind, dass also die \hil{Voraussetzung} in der Konstruktionsvorschrift
+jeweils erfüllt war.
+
+\item Überprüfe, dass gemäß der Definitionen tatsächlich~$0 \leq 1$ gilt.
+
+\item Mit der bereits konstruierten Zahl~$0$ kann man insgesamt drei Ausdrücke
+angeben:
+\[ \sur{0}{}, \quad \sur{}{0}, \quad \sur{0}{0}. \]
+Welche der beiden hinteren Ausdrücke sind Zahlen?
+
+\item Sortiere alle bis jetzt gefundenen Zahlen und überlege dir so geeignete
+Bezeichnungen für die neuen Zahlen aus~c).
+
+\item Konstruiere ein paar weitere Zahlen, sortiere sie in die bereits
+gefundenen Zahlen ein und überlege dir geeignete Namen für sie.
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Erste Rechnungen mit surrealen Zahlen (benötigt Aufgabe 1)}
+\begin{enumerate}
+\item Überprüfe, dass gemäß der Definitionen gilt: $0 + 1 = 1$.
+\item Berechne~$(-1) + 1$ und vergleiche das Ergebnis mit~$0$.
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Mex-Operation}
+Ist~$S$ eine endliche Menge natürlicher Zahlen, so ist~$\mex S$ die \emph{kleinste}
+natürliche Zahl, die \emph{nicht} in~$S$ liegt (minimum excluded number).
+\begin{enumerate}
+\item Überzeuge dich von der Richtigkeit folgender Beispiele:
+\[
+  \mex \{ 0,1,4,7 \} = 2, \quad
+  \mex \{ 1,4,7 \} = 0, \quad
+  \mex \emptyset = 0. \]
+\item Berechne das Mex von deiner Lieblingsteilmenge natürlicher Zahlen.
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Nimber-Addition (benötigt Aufgabe 3)}
+Die \emph{Nimber-Addition} ist in mengentheoretischer Notation wie folgt rekursiv definiert:
+\[ n \oplus m := \mex\Bigl(\left\{n' \oplus m \,|\, n' < n\right\} \cup
+\left\{n \oplus m' \,|\, m' < m\right\}\Bigr). \]
+Wenn man also den Wert von~$n \oplus m$ herausfinden möchte, muss man zunächst
+die Werte von~$n' \oplus m$ für alle kleineren Zahlen~$n' < n$ und die Werte
+von~$n \oplus m'$ für alle kleineren Zahlen~$m' < m$ herausfinden. Der Wert
+von~$n \oplus m$ ergibt sich dann als Mex dieser Zahlen.
+\begin{enumerate}
+\item Ergänze unten stehende Tabelle für die Nim-Addition.
+\item[$\star$ b)] Wenn du schon die Beweistechnik der Induktion kennst, kannst
+du dich an folgenden Behauptungen für alle~$n \in \NN$ versuchen:
+\begin{align*}
+  0 \oplus n &= n \\
+  n \oplus n &= 0
+\end{align*}
+\end{enumerate}
+\begin{center}
+  \begin{tabular}{r|ccccccccl}
+    $n \setminus m$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & $\cdots$ \\\hline
+    0 & 0 & 1 & 2 \\
+    1 &   & 0 & 3 \\
+    2 & \\
+    3 & & & & & & & 4 \\
+    4 & & & 6 \\
+    5 & \\
+    6 & \\
+    7 & & & & & & 2 \\
+    \vdots
+  \end{tabular}
+\end{center}
+\end{aufgabe}
+
+\begin{aufgabe}{Falsche binomische Formel}
+\ldots wäre schön, benötigt aber Multiplikation; hat daher hohen technischen
+Aufwand.
+\end{aufgabe}
+
+\end{document}
