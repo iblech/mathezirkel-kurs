@@ -13,7 +13,7 @@
 \RequirePackage{hyperref}
 
 \RequirePackage{geometry}
-\geometry{tmargin=1.5cm,bmargin=1cm,lmargin=3cm,rmargin=3cm}
+\geometry{tmargin=1.5cm,bmargin=0.8cm,lmargin=3cm,rmargin=3cm}
 
 \setlength{\unitlength}{1cm}
 

@@ -9,15 +9,16 @@ Der \emph{goldene Schnitt} ist die positive Lösung der quadratischen Gleichung
 \[ \Phi^2 - \Phi - 1 = 0. \]
 \begin{enumerate}
 \item Stelle~$\Phi$ als Wurzelausdruck dar.
-\item Weise folgende kuriose Beziehung nach: $\Phi = 1 + \frac{1}{\Phi}$.
+\item Weise folgende kuriose Beziehungen nach:
+$\Phi = 1 + \frac{1}{\Phi}$,$\ $
+$(1/\Phi)^2 = 1 - (1/\Phi)$.
 \item Informiere dich über geometrische Interpretationen von~$\Phi$.
 \end{enumerate}
 \end{aufgabe}
 
 \begin{aufgabe}{Geometrische Reihe}
-Sei~$q$ eine beliebige Zahl.
 \begin{enumerate}
-\item Beweise folgende Formel über eine endliche Summe von Potenzen von~$q$:
+\item Beweise folgende Summenformel für Potenzen einer beliebigen Zahl~$q$:
 \[ q^0 + q^1 + q^2 + \cdots + q^{n-2} + q^{n-1} + q^n = \frac{1 - q^{n+1}}{1 -
 q}. \]
 \emph{Tipp:} Multipliziere beide Seiten mit~$(1-q)$.
@@ -29,6 +30,9 @@ Summe} plausibel:
 \item Gilt diese Formel auch, wenn~$-1 < q \leq 0$?
 
 \item Was passiert bei~$q \geq 1$ oder $q \leq -1$?
+
+\item Berechne~$q^2 + q^3 + \cdots$ im Spezialfall~$q := 1/\Phi$.
+{(Konventionsgemäß gilt~$q^0 := 1$.)}
 \end{enumerate}
 \end{aufgabe}
 
@@ -59,15 +63,14 @@ entfernt.
 \item Mit wie vielen Steinen in der unteren Bretthälfte muss man beginnen, um
 Höhe~1, Höhe~2, Höhe~3 oder Höhe~4 über der Trennlinie zu erreichen?
 \end{enumerate}
-Nun führen wir folgende \emph{Bewertung} von Spielzuständen ein: Wenn ein Stein die
-Entfernung~$n$ zum angepeilten Zielstein hat, weisen wir ihm den Wert~$x^n$ zu.
+Wenn ein Stein die
+"`Taxi"'-Entfernung~$n$ zum angepeilten Zielstein hat, weisen wir ihm den \emph{Wert}~$x^n$ zu.
 Dabei ist~$x$ eine Konstante, die wir später festlegen werden.
 Der angepeilte Zielstein selbst hat also den Wert~$x^0 = 1$, seine vier
 unmittelbaren Nachbarn haben den Wert~$x^1 = x$.
 \begin{enumerate}
 \addtocounter{enumi}{1}
-\item Wie ändert sich die Summe der Steinwerte bei einem Vorwärts-, Rückwärts-
-oder Seitwärtszug?
+\item Wie ändert sich die Summe der Steinwerte bei einem Zug? (Unterscheide drei Arten von Sprüngen.)
 \end{enumerate}
 Wir setzen nun~$x := 1/\Phi$, wobei~$\Phi$ der goldene Schnitt aus Aufgabe~1
 ist.
@@ -77,7 +80,7 @@ Steinen besetzten Zeile}, die sich eine Ebene unterhalb des Zielsteins befindet.
 \item[$\star$ d)] Was ist der Gesamtwert einer \emph{vollständig besetzten unteren Bretthälfte}?
 \item[$\star$ e)] Folgere: Höhe~$5$ ist sogar mit unendlich vielen Steinen
 nicht erreichbar.
-\item[$\star$ f)] Implementiere Conways Armee im Computer, falls dir das Spaß macht.
+\item[$\star$ f)] Vielleicht möchtest du Conways Armee im Computer implementieren.
 \end{enumerate}
 \end{aufgabe}
 
@@ -87,7 +90,7 @@ nicht erreichbar.
 \newcommand*{\xMax}{6}%
 \newcommand*{\yMin}{0}%
 \newcommand*{\yMax}{6}%
-\hspace*{-1.3cm}%
+\hspace*{-1.8cm}%
 \begin{tikzpicture}
     \draw[step=2cm,gray,very thin] (-0.3,-0.3) grid (18.3,26.3);
     \draw[thick] (8,-0.3) -- (8,26.3);
