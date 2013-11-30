@@ -17,3 +17,16 @@ Rätsel
 * 100 Gefangene
 
 Conways Armee
+
+Fraktale
+
+Verschlüsselung
+
+Gödels Unvollständigkeitssatz
+
+Geometrie
+* Pflasterungen, Penrose
+* nichteuklidische Geometrie
+* Konstruierbarkeit
+
+Lösungsformeln für polynomielle Gleichungen
