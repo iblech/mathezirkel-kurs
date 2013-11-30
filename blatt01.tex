@@ -1,0 +1,96 @@
+\documentclass{zirkelblatt}
+\usepackage{tikz}
+\begin{document}
+
+\maketitle{Klasse 11./12., Gruppe 2}{30. November 2013}
+
+\begin{aufgabe}{Goldener Schnitt}
+Der \emph{goldene Schnitt} ist die positive Lösung der quadratischen Gleichung
+\[ \Phi^2 - \Phi - 1 = 0. \]
+\begin{enumerate}
+\item Stelle~$\Phi$ als Wurzelausdruck dar.
+\item Weise folgende kuriose Beziehung nach: $\Phi = 1 + \frac{1}{\Phi}$.
+\item Informiere dich über geometrische Interpretationen von~$\Phi$.
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Geometrische Reihe}
+Sei~$q$ eine beliebige Zahl.
+\begin{enumerate}
+\item Beweise folgende Formel über eine endliche Summe von Potenzen von~$q$:
+\[ q^0 + q^1 + q^2 + \cdots + q^{n-2} + q^{n-1} + q^n = \frac{1 - q^{n+1}}{1 -
+q}. \]
+\emph{Tipp:} Multipliziere beide Seiten mit~$(1-q)$.
+
+\item Sei~$0 \leq q < 1$. Mache folgende Formel über eine \emph{unendliche
+Summe} plausibel:
+\[ q^0 + q^1 + q^2 + \cdots = \frac{1}{1 - q}. \]
+
+\item Gilt diese Formel auch, wenn~$-1 < q \leq 0$?
+
+\item Was passiert bei~$q \geq 1$ oder $q \leq -1$?
+\end{enumerate}
+\end{aufgabe}
+
+%\begin{aufgabe}{Fibonaccizahlen}
+%Die Folge der \emph{Fibonaccizahlen} wird für~$n \geq 2$ rekursiv durch
+%\[ f_{n+1} := f_n + f_{n-1} \]
+%definiert, mit den Anfangswerten~$f_1 := 1$ und~$f_2 := 1$.
+%\begin{enumerate}
+%\item Bestimme so viele Fibonaccizahlen, wie du möchtest.
+%\item Zeige, dass der Quotient~$f_{n+1}/f_n$ zweier aufeinander folgender Fibonaccizahlen
+%folgende Beziehung erfüllt:
+%\[ \frac{f_{n+1}}{f_n} = 1 + \frac{f_{n-1}}{f_n}. \]
+%\item Man kann beweisen, dass die Folge der Quotienten einen Grenzwert besitzt:
+%\[ \lim_{n \to \infty} \frac{f_{n+1}}{f_n} =: q. \]
+%Beweise, dass dieser Grenzwert gleich~$\Phi$ ist.
+%\end{enumerate}
+%\end{aufgabe}
+
+\begin{aufgabe}{Conways Armee}
+Ein unendlich ausgedehntes Damebrett sei in zwei Hälften zerteilt (siehe
+Rückseite). Im unteren Teil darf man beliebig viele Damesteine platzieren. Ziel
+des Spiels ist es, einen Damestein möglichst hoch in das obere Spielfeld zu
+bringen. Dabei darf nur folgender Spielzug angewendet werden: Ein Stein
+darf einen (horizontal oder vertikal) benachbarten Stein überspringen, wenn das
+Zielfeld unbesetzt ist. Der übersprungene Stein wird dann aus dem Spiel
+entfernt.
+\begin{enumerate}
+\item Mit wie vielen Steinen in der unteren Bretthälfte muss man beginnen, um
+Höhe~1, Höhe~2, Höhe~3 oder Höhe~4 über der Trennlinie zu erreichen?
+\end{enumerate}
+Nun führen wir folgende \emph{Bewertung} von Spielzuständen ein: Wenn ein Stein die
+Entfernung~$n$ zum angepeilten Zielstein hat, weisen wir ihm den Wert~$x^n$ zu.
+Dabei ist~$x$ eine Konstante, die wir später festlegen werden.
+Der angepeilte Zielstein selbst hat also den Wert~$x^0 = 1$, seine vier
+unmittelbaren Nachbarn haben den Wert~$x^1 = x$.
+\begin{enumerate}
+\addtocounter{enumi}{1}
+\item Wie ändert sich die Summe der Steinwerte bei einem Vorwärts-, Rückwärts-
+oder Seitwärtszug?
+\end{enumerate}
+Wir setzen nun~$x := 1/\Phi$, wobei~$\Phi$ der goldene Schnitt aus Aufgabe~1
+ist.
+\begin{enumerate}
+\item[$\star$ c)] Berechne den Gesamtwert einer \emph{vollständig mit
+Steinen besetzten Zeile}, die sich eine Ebene unterhalb des Zielsteins befindet.
+\item[$\star$ d)] Was ist der Gesamtwert einer \emph{vollständig besetzten unteren Bretthälfte}?
+\item[$\star$ e)] Folgere: Höhe~$5$ ist sogar mit unendlich vielen Steinen
+nicht erreichbar.
+\item[$\star$ f)] Implementiere Conways Armee im Computer, falls dir das Spaß macht.
+\end{enumerate}
+\end{aufgabe}
+
+\newpage
+
+\newcommand*{\xMin}{0}%
+\newcommand*{\xMax}{6}%
+\newcommand*{\yMin}{0}%
+\newcommand*{\yMax}{6}%
+\hspace*{-1.3cm}%
+\begin{tikzpicture}
+    \draw[step=2cm,gray,very thin] (-0.3,-0.3) grid (18.3,26.3);
+    \draw[thick] (8,-0.3) -- (8,26.3);
+\end{tikzpicture}
+
+\end{document}
