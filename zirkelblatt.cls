@@ -61,7 +61,7 @@
 
 \newcommand{\NN}{\mathbb{N}}
 \DeclareMathOperator{\mex}{mex}
-\newcommand{\sur}[2]{\{ #1 \,|\, #2 \}}
+\newcommand{\sur}[2]{\{ #1 \mathrel{|} #2 \}}
 
 \definecolor{hicolor}{rgb}{.55,.12,.55}
 \newcommand{\hil}[1]{\textcolor{hicolor}{#1}}
