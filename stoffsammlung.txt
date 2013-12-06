@@ -30,3 +30,23 @@ Geometrie
 * Konstruierbarkeit
 
 Lösungsformeln für polynomielle Gleichungen
+
+
+--- nicht beim ersten Treffen angeschrieben:
+
+Mengenlehre
+
+Nim-Spiele, p-adische Bewertung
+
+E-Technik
+
+Finanzmathematik
+
+IFS
+
+lineare Optimierung (Simplex)
+
+Rätsel
+* Smullyan
+
+Newton-Verfahren
