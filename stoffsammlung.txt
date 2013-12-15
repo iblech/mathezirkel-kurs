@@ -50,3 +50,6 @@ Rätsel
 * Smullyan
 
 Newton-Verfahren
+
+Große Zahlen nennen!
+http://www.scottaaronson.com/writings/bignumbers.html
