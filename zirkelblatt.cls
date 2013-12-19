@@ -6,6 +6,7 @@
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[ngerman]{babel}
 \RequirePackage{amsmath,amsthm,amssymb,amscd,color,graphicx,environ}
+\RequirePackage{environ}
 \RequirePackage{framed}
 \RequirePackage[protrusion=true,expansion=true]{microtype}
 \RequirePackage{lmodern}
@@ -65,3 +66,12 @@
 
 \definecolor{hicolor}{rgb}{.55,.12,.55}
 \newcommand{\hil}[1]{\textcolor{hicolor}{#1}}
+
+\definecolor{shadecolor}{rgb}{.93,.93,.93}
+
+\newif\ifloesungen\loesungenfalse
+\NewEnviron{loesung}{%
+  \ifloesungen%
+    \begin{shaded}\textbf{Lösung. }\BODY\end{shaded}%
+  \fi%
+}

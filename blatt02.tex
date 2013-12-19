@@ -46,13 +46,13 @@ Wir sagen genau dann~$x > y$, wenn~$y < x$.
 \item \emph{Gleichheit.}
 Wir sagen genau dann~$x = y$, wenn~$x \leq y$ und~$y \leq x$.
 
-\item \emph{Addition.} $x + y := \sur{x^L + y, x + y^L}{x^R + y, x + y^R}$.
-
-\item \emph{Negation.} $-x := \sur{-x^R}{-x^L}$.
-
-\item \emph{Multiplikation.}
-$xy = \sur{x^Ly + xy^L - x^Ly^L, x^Ry + xy^R - x^Ry^R}{x^Ly + xy^R -
-x^Ly^R, x^Ry + xy^L - x^Ry^L}$.
+\item \emph{Rechenoperationen.}
+\begin{align*}
+  x + y &:= \sur{x^L + y, x + y^L}{x^R + y, x + y^R}. \\
+  -x &:= \sur{-x^R}{-x^L}. \\
+  xy &:= \sur{x^Ly + xy^L - x^Ly^L, x^Ry + xy^R - x^Ry^R}{\\&\qquad\qquad\qquad x^Ly + xy^R -
+x^Ly^R, x^Ry + xy^L - x^Ry^L}.
+\end{align*}
 \end{enumerate}
 \end{block}
 
@@ -96,6 +96,31 @@ gefundenen Zahlen ein und überlege dir geeignete Namen für sie.
 \end{enumerate}
 \end{aufgabe}
 
+\begin{aufgabe}{Geburtstage von Zahlen (benötigt Aufgabe 1)}
+Der \emph{Geburtstag}~$b(x)$ einer surrealen Zahl ist wiederum eine surreale
+Zahl, definiert als
+\[ b(x) := \sur{b(x^L), b(x^R)}{}. \]
+Wir sagen auch: "`Die Zahl~$x$ wurde am Tag~$b(x)$ geboren."'
+\begin{enumerate}
+\item Überzeuge dich davon, dass die Zahl~$0$ am Tag~$0$ geboren wurde.
+\item Berechne den Geburtstag von einigen surrealen Zahlen.
+\item Wieso ergibt die Bezeichnung Sinn? (Vergleiche mit deiner Lösung von
+Aufgabe~1.)
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Unendlich große Zahlen (benötigt Aufgabe~1)}
+Wir definieren die surreale Zahl
+\[ \omega := \sur{0, 1, 2, \ldots}{}. \]
+\begin{enumerate}
+\item Überzeuge dich davon, dass~$\omega$ wirklich eine surreale Zahl ist.
+\item Zeige: Für jede natürliche Zahl~$n$ gilt~$n < \omega$.
+\item Berechne $\omega + 1$.
+\item Berechne $\omega - 1$.
+\item Zeige: Für jede natürliche Zahl~$n$ gilt~$n < \omega - 1$.
+\end{enumerate}
+\end{aufgabe}
+
 \begin{aufgabe}{Mex-Operation}
 Ist~$S$ eine endliche Menge natürlicher Zahlen, so ist~$\mex S$ die \emph{kleinste}
 natürliche Zahl, die \emph{nicht} in~$S$ liegt (minimum excludant).
@@ -109,7 +134,7 @@ natürliche Zahl, die \emph{nicht} in~$S$ liegt (minimum excludant).
 \end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}{Nimber-Addition (benötigt Aufgabe 3)}
+\begin{aufgabe}{Nimber-Addition (benötigt Aufgabe 5)}
 Die \emph{Nimber-Addition} ist in mengentheoretischer Notation wie folgt rekursiv definiert:
 \[ n \oplus m := \mex\Bigl(\left\{n' \oplus m \,|\, n' < n\right\} \cup
 \left\{n \oplus m' \,|\, m' < m\right\}\Bigr). \]
@@ -147,7 +172,30 @@ du dich an folgenden Behauptungen für alle~$n \in \NN$ versuchen:
 Aufwand.
 \end{aufgabe}
 
+\loesungentrue
+
+\begin{aufgabe}{Unmenge surrealer Zahlen (benötigt Aufgabe~1)}
+In einem gewissen Sinn gibt es \emph{zu viele} surreale Zahlen, als dass sie
+noch eine Menge bilden könnten; sie bilden nur noch etwas, was man \emph{echte
+Klasse} nennt.
+
+Zeige: Wenn die surrealen Zahlen eine Menge bilden würden, gäbe es eine
+surreale Zahl, die größer als alle surrealen Zahlen wäre, insbesondere also auch
+größer als sich selbst.
+\end{aufgabe}
+\begin{loesung}
+Angenommen, die surrealen Zahlen bilden eine Menge. Dann können wir eine surreale
+Zahl~$\Omega$ mit~$L := \text{Menge aller surrealen Zahlen}$ und~$R :=
+\emptyset$ bilden. Denn da~$R$ keine Elemente enthält, ist die
+\hil{Voraussetzung} in der Konstruktionsvorschrift erfüllt. Durch Induktion
+können wir zeigen, dass~$\Omega > x$ für alle surrealen Zahlen~$x$.
+\end{loesung}
+
 \end{document}
+
+Geburtstag
+
+Ist die zweite Induktionsaufgabe einfach lösbar?
 
 Vorne als Deckblatt: Baum der Zahlen
 
@@ -155,4 +203,21 @@ Beispiele mit Bewertungen von Spielen
 
 insbesondere: Nim-Spiele
 
-Surreale Zahlen bilden keine Menge: Zeige, dass Omega < Omega sonst.
+Zeige: Die Summe surrealer Zahlen ist wirklich wieder eine surreale Zahl.
+
+Vergleich mit rationalen Zahlen
+
+\varepsilon &:= \sur{}{\tfrac{1}{1},\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{8},\ldots}.
+
+Subtraktion
+
+Vereinfachungsregel
+
+Schnelle Regel, wann zwei Zahlen kleinergleich sind.
+
+Benötige natürliche und ganze Zahlen, bevor ich über omega reden kann!
+
+Benötige Bruchzahlen, um über epsilon reden zu können.
+
+Motto: {xL|xR} ist einfachste (frühest-geborene) Zahl, die mehr als alle xL und
+kleiner als alle xR sind.
