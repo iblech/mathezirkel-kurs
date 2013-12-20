@@ -1,10 +1,11 @@
 \documentclass{zirkelblatt}
 \geometry{tmargin=2cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
 \usepackage{lscape}
-\setlength{\aufgabenskip}{2em}
+\newcommand{\head}[1]{\begin{center}\large \textbf{#1}\end{center}}
 \begin{document}
 
 \maketitle{Klasse 11./12., Gruppe 2}{21. Dezember 2013}
+\enlargethispage{3cm}
 
 \begin{block}{Konventionen}
 \begin{itemize}
@@ -52,6 +53,7 @@ Wir sagen genau dann~$x = y$, wenn~$x \leq y$ und~$y \leq x$.
 \begin{align*}
   x + y &:= \sur{x^L + y,\ x + y^L}{x^R + y,\ x + y^R}. \\
   -x &:= \sur{-x^R}{-x^L}. \\
+  x - y &:= x + (-y). \\
   xy &:= \sur{x^Ly + xy^L - x^Ly^L,\ x^Ry + xy^R - x^Ry^R}{\\&\qquad\qquad\qquad x^Ly + xy^R -
 x^Ly^R,\ x^Ry + xy^L - x^Ry^L}.
 \end{align*}
@@ -81,6 +83,8 @@ Abbildung 0 aus Conways Buch: Wann die ersten Zahlen geboren wurden.
 \end{landscape}
 
 \addtocounter{aufgabennummer}{-1}
+
+\head{Der kuriose Rechenbereich der surrealen Zahlen}
 
 \begin{aufgabe}{Erste Beispiele für surreale Zahlen}
 \label{aufg0}
@@ -117,6 +121,7 @@ gefundenen Zahlen ein und überlege dir geeignete Namen für sie.
 \begin{aufgabe}{Erste Rechnungen mit surrealen Zahlen (benötigt Aufgabe \ref{aufg0})}
 \label{erste-rechnungen}
 \begin{enumerate}
+\item Überprüfe, dass gemäß der Definitionen gilt: $0 + 0 = 0$.
 \item Überprüfe, dass gemäß der Definitionen gilt: $0 + 1 = 1$.
 \item Berechne~$(-1) + 1$ und vergleiche das Ergebnis mit~$0$.
 \item Erkläre, wieso im Lichte von Teilaufgabe~b) die spezielle
@@ -186,6 +191,49 @@ Wir definieren die surreale Zahl
 \end{enumerate}
 \end{aufgabe}
 
+\begin{aufgabe}{Unmenge surrealer Zahlen (benötigt Aufgabe~\ref{aufg0})}
+\label{unmenge}
+In einem gewissen Sinn gibt es \emph{zu viele} surreale Zahlen, als dass sie
+noch eine Menge bilden könnten; sie bilden nur noch etwas, was man \emph{echte
+Klasse} nennt.
+
+Zeige: Wenn die surrealen Zahlen doch eine Menge bilden würden, gäbe es eine
+surreale Zahl, die größer als alle surrealen Zahlen wäre, insbesondere also auch
+größer als sich selbst.
+\end{aufgabe}
+\begin{loesung}
+Angenommen, die surrealen Zahlen bilden eine Menge. Dann können wir eine surreale
+Zahl~$\Omega$ mit~$L := \text{Menge aller surrealen Zahlen}$ und~$R :=
+\emptyset$ bilden. Denn da~$R$ keine Elemente enthält, ist die
+\hil{Voraussetzung} in der Konstruktionsvorschrift erfüllt. Durch Induktion
+können wir zeigen, dass~$\Omega > x$ für alle surrealen Zahlen~$x$.
+\end{loesung}
+
+
+
+\head{Kombinatorische Spiele}
+
+In diesem Abschnitt wollen wir rundenbasierte Zwei-Personen-Spiele betrachten,
+die von einem \emph{linken} und einem \emph{rechten Spieler} bestritten werden.
+Verlierer ist derjenige, der keinen Zug mehr tätigen kann. Die jeweils
+vorliegende Spielsituation, genannt \emph{Position}, wollen wir
+mathematisch mit sog. \emph{Games} beschreiben, einer
+leichten Verallgemeinerung der surrealen Zahlen.
+Die Konstruktionsregel der Games ist im Vergleich zur surrealen Variante freigiebiger:
+
+\emph{Konstruktionsregel für Games.}
+Sind~$L$ und~$R$ Mengen von Games,
+so ist~$\sur{L}{R}$ ebenfalls ein Game. Alle Games entstehen auf diese Art.
+
+Die restlichen Regeln für Games sind dieselben wie für die surrealen Zahlen.
+Die linke Menge eines Games stellen wir uns als die Menge derjenigen Positionen
+vor, in die der linke Spieler ziehen darf, wenn er am Zug ist. Analog
+beschreibt die rechte Menge eines Games diejenigen Positionen, in die der rechte
+Spieler ziehen darf, wenn er am Zug ist.
+
+
+\head{Nimbers}
+
 \begin{aufgabe}{Mex-Operation}
 \label{mex}
 Ist~$S$ eine endliche Menge natürlicher Zahlen, so ist~$\mex S$ die \emph{kleinste}
@@ -234,6 +282,30 @@ du dich an folgenden Behauptungen für alle~$n \in \NN$ versuchen:
 \end{center}
 \end{aufgabe}
 
+\begin{aufgabe}{Interpretation der Nimber-Addition im Binärsystem
+(benötigt Aufgabe~\ref{nimber-addition})}
+\label{nimber-addition-binaer}
+Im gewöhnlichen Zehnersystem gibt es die Ziffern von~$0$ bis~$9$. Der Wert
+einer Ziffer ergibt sich von rechts nach links über die Zehnerpotenzen: Einer,
+Zehner, Hunderter, Tausender, usw. Das Binärsystem ist viel einfacher: Da gibt
+es nur die Ziffern~$0$ und~$1$. Der Wert einer Ziffer ergibt sich dann von
+rechts nach links über die Zweierpotenzen: Einer, Zweier, Vierer, Achter,
+Sechszehner, usw.
+\begin{enumerate}
+\item Überzeuge dich von der Richtigkeit folgender Beispiele:
+\[ 3 = 11_2, \qquad
+  6 = 101_2, \qquad
+  10 = 1010_2, \qquad
+  16 = 10000_2. \]
+\item Überlege dir, wie man im Binärsystem schriftlich addieren kann, und
+rechne einige Beispiele.
+\item Die Nimber-Addition funktioniert nun genau wie die schriftliche
+Binäraddition, nur dass man \emph{alle Überträge ignoriert}. Rechne mit dieser
+Einsicht so viele Einträge der Tabelle aus Aufgabe~\ref{nimber-addition} nach,
+wie du magst.
+\end{enumerate}
+\end{aufgabe}
+
 %\begin{aufgabe}{Falsche binomische Formel}
 %\ldots wäre schön, benötigt aber Multiplikation; hat daher hohen technischen
 %Aufwand.
@@ -241,31 +313,9 @@ du dich an folgenden Behauptungen für alle~$n \in \NN$ versuchen:
 
 \loesungenfalse
 
-\begin{aufgabe}{Unmenge surrealer Zahlen (benötigt Aufgabe~\ref{aufg0})}
-\label{unmenge}
-In einem gewissen Sinn gibt es \emph{zu viele} surreale Zahlen, als dass sie
-noch eine Menge bilden könnten; sie bilden nur noch etwas, was man \emph{echte
-Klasse} nennt.
-
-Zeige: Wenn die surrealen Zahlen eine Menge bilden würden, gäbe es eine
-surreale Zahl, die größer als alle surrealen Zahlen wäre, insbesondere also auch
-größer als sich selbst.
-\end{aufgabe}
-\begin{loesung}
-Angenommen, die surrealen Zahlen bilden eine Menge. Dann können wir eine surreale
-Zahl~$\Omega$ mit~$L := \text{Menge aller surrealen Zahlen}$ und~$R :=
-\emptyset$ bilden. Denn da~$R$ keine Elemente enthält, ist die
-\hil{Voraussetzung} in der Konstruktionsvorschrift erfüllt. Durch Induktion
-können wir zeigen, dass~$\Omega > x$ für alle surrealen Zahlen~$x$.
-\end{loesung}
-
 \end{document}
 
-Geburtstag
-
 Ist die zweite Induktionsaufgabe einfach lösbar?
-
-Vorne als Deckblatt: Baum der Zahlen
 
 Beispiele mit Bewertungen von Spielen
 
@@ -277,17 +327,12 @@ Vergleich mit rationalen Zahlen
 
 \varepsilon &:= \sur{}{\tfrac{1}{1},\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{8},\ldots}.
 
-Subtraktion
-
-Vereinfachungsregel
-
 Schnelle Regel, wann zwei Zahlen kleinergleich sind.
 
 Benötige natürliche und ganze Zahlen, bevor ich über omega reden kann!
 
 Benötige Bruchzahlen, um über epsilon reden zu können.
 
-Motto: {xL|xR} ist einfachste (frühest-geborene) Zahl, die mehr als alle xL und
-kleiner als alle xR sind.
-
 Induktionsproblematik...
+
+Trichotomie-Regeln äußern
