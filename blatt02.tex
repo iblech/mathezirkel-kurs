@@ -1,5 +1,7 @@
 \documentclass{zirkelblatt}
-\geometry{tmargin=2cm,bmargin=2cm,lmargin=3cm,rmargin=3cm}
+\geometry{tmargin=2cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+\usepackage{lscape}
+\setlength{\aufgabenskip}{2em}
 \begin{document}
 
 \maketitle{Klasse 11./12., Gruppe 2}{21. Dezember 2013}
@@ -48,17 +50,40 @@ Wir sagen genau dann~$x = y$, wenn~$x \leq y$ und~$y \leq x$.
 
 \item \emph{Rechenoperationen.}
 \begin{align*}
-  x + y &:= \sur{x^L + y, x + y^L}{x^R + y, x + y^R}. \\
+  x + y &:= \sur{x^L + y,\ x + y^L}{x^R + y,\ x + y^R}. \\
   -x &:= \sur{-x^R}{-x^L}. \\
-  xy &:= \sur{x^Ly + xy^L - x^Ly^L, x^Ry + xy^R - x^Ry^R}{\\&\qquad\qquad\qquad x^Ly + xy^R -
-x^Ly^R, x^Ry + xy^L - x^Ry^L}.
+  xy &:= \sur{x^Ly + xy^L - x^Ly^L,\ x^Ry + xy^R - x^Ry^R}{\\&\qquad\qquad\qquad x^Ly + xy^R -
+x^Ly^R,\ x^Ry + xy^L - x^Ry^L}.
 \end{align*}
 \end{enumerate}
 \end{block}
 
-\newpage
+\begin{block}{Literatur}
+J. H. Conway. \emph{On Numbers and Games.} Zweite Auflage. A K Peters, 2001.
+
+D. Knuth. \emph{Surreal Numbers.} Addison Wesley, 1974.
+
+C. Tøndering. \emph{Surreal Numbers.} 2013.
+\url{http://www.tondering.dk/claus/sur16.pdf}
+\end{block}
+
+\begin{landscape}
+\thispagestyle{empty}
+\ 
+\vfill
+\begin{center}
+\includegraphics[scale=0.6]{stammbaum-der-surrealen-zahlen}
+
+Abbildung 0 aus Conways Buch: Wann die ersten Zahlen geboren wurden.
+\end{center}
+\vfill
+\ \\
+\end{landscape}
+
+\addtocounter{aufgabennummer}{-1}
 
 \begin{aufgabe}{Erste Beispiele für surreale Zahlen}
+\label{aufg0}
 Zu Beginn ist uns keine einzige surreale Zahl bekannt. Trotzdem kennen wir
 eine \emph{Menge} surrealer Zahlen: nämlich die leere Menge. So können wir nach
 dem Konstruktionsprinzip eine erste surreale Zahl bauen:
@@ -89,14 +114,33 @@ gefundenen Zahlen ein und überlege dir geeignete Namen für sie.
 \end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}{Erste Rechnungen mit surrealen Zahlen (benötigt Aufgabe 1)}
+\begin{aufgabe}{Erste Rechnungen mit surrealen Zahlen (benötigt Aufgabe \ref{aufg0})}
+\label{erste-rechnungen}
 \begin{enumerate}
 \item Überprüfe, dass gemäß der Definitionen gilt: $0 + 1 = 1$.
 \item Berechne~$(-1) + 1$ und vergleiche das Ergebnis mit~$0$.
+\item Erkläre, wieso im Lichte von Teilaufgabe~b) die spezielle
+Gleichheitsregel nötig ist: Wieso nennt man zwei surreale Zahlen nicht einfach
+genau dann gleich, wenn ihre linken und rechten Mengen übereinstimmen?
 \end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}{Geburtstage von Zahlen (benötigt Aufgabe 1)}
+\begin{aufgabe}{Eine praktische Vereinfachungsregel (benötigt Aufgabe \ref{aufg0})}
+\label{vereinfachungsregel}
+Es gilt folgendes Lemma: Ohne den Zahlenwert zu verändern, kann man aus der
+linken Menge einer surrealen Zahl eine Zahl~$a$ entfernen, sofern es in der
+linken Menge noch eine größere Zahl als~$a$ gibt. Analog kann man aus der
+rechten Menge einer surrealen Zahl eine Zahl~$b$ entfernen, sofern es in der
+rechten Menge noch eine kleinere Zahl als~$b$ gibt.
+\begin{enumerate}
+\item Überzeuge dich davon, dass folgende Beispielrechnung stimmt:
+\[ \sur{0,1,2}{6,7,11} = \sur{0,2}{6} = \sur{2}{6}. \]
+\item Vereinfache nach Lust und Laune weitere Zahlen.
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Geburtstage von Zahlen (benötigt Aufgabe \ref{aufg0})}
+\label{geburtstage}
 Der \emph{Geburtstag}~$b(x)$ einer surrealen Zahl ist wiederum eine surreale
 Zahl, definiert als
 \[ b(x) := \sur{b(x^L), b(x^R)}{}. \]
@@ -106,10 +150,31 @@ Wir sagen auch: "`Die Zahl~$x$ wurde am Tag~$b(x)$ geboren."'
 \item Berechne den Geburtstag von einigen surrealen Zahlen.
 \item Wieso ergibt die Bezeichnung Sinn? (Vergleiche mit deiner Lösung von
 Aufgabe~1.)
+\item[$\star$ d)] Beweise, dass der Geburtstag einer Zahl stets $\geq 0$ ist.
+(Geht einfacher mit Aufgabe~\ref{zahlenraten}.)
 \end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}{Unendlich große Zahlen (benötigt Aufgabe~1)}
+\begin{aufgabe}{Zahlenwerte erraten (benötigt Aufgabe \ref{geburtstage})}
+\label{zahlenraten}
+Es gilt folgendes Lemma: Eine Zahl~$x = \sur{x^L}{x^R}$ beschreibt die
+\emph{einfachste} -- das heißt \emph{frühest geborene} -- Zahl, die größer als
+alle~$x^L$ und kleiner als alle~$x^R$ ist.
+
+\begin{enumerate}
+\item Überprüfe, dass dieses Lemma bei den dir bereits bekannten Zahlen stimmt.
+\item Errate mit dem Lemma die Werte folgender Zahlen (manche kennst du
+vielleicht auch schon):
+\[ \sur{1}{} \qquad
+  \sur{2}{} \qquad
+  \sur{-3,1}{2} \qquad
+  \sur{0}{\tfrac{1}{2}} \qquad
+  \sur{-1}{-\tfrac{1}{2},0,\tfrac{1}{2}} \]
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Unendlich große Zahlen (benötigt Aufgabe~\ref{zahlenraten})}
+\label{transfinit}
 Wir definieren die surreale Zahl
 \[ \omega := \sur{0, 1, 2, \ldots}{}. \]
 \begin{enumerate}
@@ -122,6 +187,7 @@ Wir definieren die surreale Zahl
 \end{aufgabe}
 
 \begin{aufgabe}{Mex-Operation}
+\label{mex}
 Ist~$S$ eine endliche Menge natürlicher Zahlen, so ist~$\mex S$ die \emph{kleinste}
 natürliche Zahl, die \emph{nicht} in~$S$ liegt (minimum excludant).
 \begin{enumerate}
@@ -134,7 +200,8 @@ natürliche Zahl, die \emph{nicht} in~$S$ liegt (minimum excludant).
 \end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}{Nimber-Addition (benötigt Aufgabe 5)}
+\begin{aufgabe}{Nimber-Addition (benötigt Aufgabe \ref{mex})}
+\label{nimber-addition}
 Die \emph{Nimber-Addition} ist in mengentheoretischer Notation wie folgt rekursiv definiert:
 \[ n \oplus m := \mex\Bigl(\left\{n' \oplus m \,|\, n' < n\right\} \cup
 \left\{n \oplus m' \,|\, m' < m\right\}\Bigr). \]
@@ -167,14 +234,15 @@ du dich an folgenden Behauptungen für alle~$n \in \NN$ versuchen:
 \end{center}
 \end{aufgabe}
 
-\begin{aufgabe}{Falsche binomische Formel}
-\ldots wäre schön, benötigt aber Multiplikation; hat daher hohen technischen
-Aufwand.
-\end{aufgabe}
+%\begin{aufgabe}{Falsche binomische Formel}
+%\ldots wäre schön, benötigt aber Multiplikation; hat daher hohen technischen
+%Aufwand.
+%\end{aufgabe}
 
-\loesungentrue
+\loesungenfalse
 
-\begin{aufgabe}{Unmenge surrealer Zahlen (benötigt Aufgabe~1)}
+\begin{aufgabe}{Unmenge surrealer Zahlen (benötigt Aufgabe~\ref{aufg0})}
+\label{unmenge}
 In einem gewissen Sinn gibt es \emph{zu viele} surreale Zahlen, als dass sie
 noch eine Menge bilden könnten; sie bilden nur noch etwas, was man \emph{echte
 Klasse} nennt.

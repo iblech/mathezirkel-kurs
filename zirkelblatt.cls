@@ -47,7 +47,7 @@
 \setlength{\aufgabenskip}{1.4em}
 \newcounter{aufgabennummer}
 \newenvironment{aufgabe}[1]{
-  \addtocounter{aufgabennummer}{1}
+  \refstepcounter{aufgabennummer}
   \textbf{Aufgabe \theaufgabennummer.} \emph{#1} \par
 }{\vspace{\aufgabenskip}}
 \newenvironment{aufgabeE}[1]{\begin{aufgabe}{#1}\begin{enumerate}}{\end{enumerate}\end{aufgabe}}
