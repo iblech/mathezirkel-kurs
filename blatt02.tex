@@ -1,7 +1,9 @@
 \documentclass{zirkelblatt}
 \geometry{tmargin=2cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
 \usepackage{lscape}
-\newcommand{\head}[1]{\begin{center}\large \textbf{#1}\end{center}}
+\newcommand{\head}[1]{\section*{\rmfamily #1}}%begin{center}\large \textbf{#1}\end{center}}
+\let\raggedsection\centering
+\newcommand{\fuzzy}{\mathrel{||}}
 \begin{document}
 
 \maketitle{Klasse 11./12., Gruppe 2}{21. Dezember 2013}
@@ -170,11 +172,11 @@ alle~$x^L$ und kleiner als alle~$x^R$ ist.
 \item Überprüfe, dass dieses Lemma bei den dir bereits bekannten Zahlen stimmt.
 \item Errate mit dem Lemma die Werte folgender Zahlen (manche kennst du
 vielleicht auch schon):
-\[ \sur{1}{} \qquad
-  \sur{2}{} \qquad
-  \sur{-3,1}{2} \qquad
-  \sur{0}{\tfrac{1}{2}} \qquad
-  \sur{-1}{-\tfrac{1}{2},0,\tfrac{1}{2}} \]
+\[ \sur{1}{}, \qquad
+  \sur{2}{}, \qquad
+  \sur{-3,1}{2}, \qquad
+  \sur{0}{\tfrac{1}{2}}, \qquad
+  \sur{-1}{-\tfrac{1}{2},0,\tfrac{1}{2}}. \]
 \end{enumerate}
 \end{aufgabe}
 
@@ -213,13 +215,18 @@ können wir zeigen, dass~$\Omega > x$ für alle surrealen Zahlen~$x$.
 
 \head{Kombinatorische Spiele}
 
+\begin{center}\includegraphics[scale=0.2]{einfache-spiele}\end{center}
+
 In diesem Abschnitt wollen wir rundenbasierte Zwei-Personen-Spiele betrachten,
-die von einem \emph{linken} und einem \emph{rechten Spieler} bestritten werden.
-Verlierer ist derjenige, der keinen Zug mehr tätigen kann. Die jeweils
-vorliegende Spielsituation, genannt \emph{Position}, wollen wir
-mathematisch mit sog. \emph{Games} beschreiben, einer
-leichten Verallgemeinerung der surrealen Zahlen.
-Die Konstruktionsregel der Games ist im Vergleich zur surrealen Variante freigiebiger:
+die von einem \emph{linken} und einem \emph{rechten Spieler} bestritten werden,
+keinerlei Zufallselemente enthalten und nicht mit verborgenen Informationen
+arbeiten: Alle möglichen Züge sind für beide Spieler erkennbar. Verlierer ist
+derjenige, der keinen Zug mehr tätigen kann.
+
+Die jeweils vorliegenden Spielsituationen, genannt \emph{Positionen}, wollen wir
+mathematisch mit sog. \emph{Games} beschreiben, einer leichten
+Verallgemeinerung der surrealen Zahlen. Die Konstruktionsregel der Games ist
+im Vergleich zur surrealen Variante freigiebiger:
 
 \emph{Konstruktionsregel für Games.}
 Sind~$L$ und~$R$ Mengen von Games,
@@ -231,6 +238,60 @@ vor, in die der linke Spieler ziehen darf, wenn er am Zug ist. Analog
 beschreibt die rechte Menge eines Games diejenigen Positionen, in die der rechte
 Spieler ziehen darf, wenn er am Zug ist.
 
+Das einfachste Zwei-Personen-Spiel ist das sog. \emph{Nullspiel}: Der Spieler,
+der an der Reihe ist, verliert sofort. In diesem Spiel haben also beide Spieler
+keine erlaubten Züge -- die Menge ihrer erlaubten Züge sind also jeweils leer.
+Diese Situation wird daher durch das Game~$\sur{}{} = 0$ beschrieben.
+
+Die zweite Abbildung oben zeigt eine Spielsituation, in dem (ausgehend vom Wurzelknoten
+unten) der linke Spieler einen erlaubten Zug durchführen kann. Das soll die
+nach links geneigte Kante andeuten. Der rechte Spieler hat keinerlei erlaubte
+Züge. Daher ist die rechte Menge des zugehörigen Games leer. Die linke Menge
+enthält genau ein Element, nämlich das Game, das die Spielsituation nach
+Tätigung des einzigen erlaubten Zugs beschreibt. Da diese das Nullspiel ist,
+gilt also~$L = \{ 0 \}$. Somit beschreibt das Game~$\sur{0}{} = 1$ die
+Spielsituation.
+
+Dual zu beschreibt das Game~$\sur{}{0} = -1$ eine Spielsituation, in dem der
+linke Spieler keinerlei erlaubte Züge hat (also sofort verliert, wenn er an der
+Reihe ist) und der rechte mit einem Zug in das Nullspiel ziehen darf.
+
+Die Games~$0$, $1$ und~$-1$ sind sogar surreale Zahlen. Das Game, das die
+Spielsituation der vierten Abbildung oben beschreibt, ist daher unser erstes
+Beispiel für ein Game, das keine surreale Zahl ist. Beide Spieler haben genau
+einen erlaubten Zug, der jeweils zum Nullspiel führt. Als Kurzschreibweise
+definieren wir~$\star := \sur{0}{0}$.
+
+\begin{aufgabe}{Gewinnstrategien bei den vier einfachsten Spielen}
+\label{analyse4}
+Mache dir klar:
+\begin{enumerate}
+\item Im Spiel~$1$ gibt es eine Gewinnstrategie für Links -- unabhängig davon,
+welcher Spieler beginnt.
+\item Im Spiel~$-1$ gibt es eine Gewinnstrategie für Rechts -- unabhängig davon,
+welcher Spieler beginnt.
+\item Im Spiel~$\star$ gibt es eine Gewinnstrategie für beginnenden Spieler.
+\item Im Spiel~$0$ gibt es eine Gewinnstrategie für den zweiten Spieler.
+\end{enumerate}
+\end{aufgabe}
+
+Jede surreale Zahl ist entweder~$> 0$, $= 0$ oder~$< 0$. Bei Games kann es
+vorkommen, dass keine dieser Möglichkeiten eintritt. Wir sagen dann, das Game
+sei \emph{unklar} und schreiben~"`$\fuzzy 0$"'. Allgemein gilt für ein Game~$G$:
+\begin{align*}
+  G > 0 &\text{ genau dann, wenn es eine Gewinnstrategie für Links gibt.} \\
+  G < 0 &\text{ genau dann, wenn es eine Gewinnstrategie für Rechts gibt.} \\
+  G = 0 &\text{ genau dann, wenn es eine Gewinnstrategie für den zweiten Spieler gibt.} \\
+  G \fuzzy 0 &\text{ genau dann, wenn es eine Gewinnstrategie für den ersten Spieler gibt.}
+\end{align*}
+
+\begin{aufgabe}{Gewinnstrategien bei allgemeinen Games}
+\begin{enumerate}
+\item Beweise, dass~$\star \fuzzy 0$.
+\item[$\star$ b)] Beweise die aufgeführten Beobachtungen über die
+Gewinnstrategie mittels Induktion.
+\end{enumerate}
+\end{aufgabe}
 
 \head{Nimbers}
 
