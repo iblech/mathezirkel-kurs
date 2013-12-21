@@ -31,7 +31,7 @@
 \begin{picture}(0,0)
  \put(0,-1){  \vbox{  Mathesch\"ulerzirkel\\
    Universit\"at Augsburg\\
-  Schuljahr 2013/2013\\
+  Schuljahr 2013/2014\\
   #1 }}
  \put(13,-2){\includegraphics[scale=0.10]{cover} }
 \end{picture} \vspace*{1.7cm}

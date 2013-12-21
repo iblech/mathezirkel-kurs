@@ -7,7 +7,6 @@
 \begin{document}
 
 \maketitle{Klasse 11./12., Gruppe 2}{21. Dezember 2013}
-\enlargethispage{3cm}
 
 \begin{block}{Konventionen}
 \begin{itemize}
@@ -62,26 +61,21 @@ x^Ly^R,\ x^Ry + xy^L - x^Ry^L}.
 \end{enumerate}
 \end{block}
 
-\begin{block}{Literatur}
-J. H. Conway. \emph{On Numbers and Games.} Zweite Auflage. A K Peters, 2001.
-
-D. Knuth. \emph{Surreal Numbers.} Addison Wesley, 1974.
-
-C. Tøndering. \emph{Surreal Numbers.} 2013.
-\url{http://www.tondering.dk/claus/sur16.pdf}
-\end{block}
-
 \begin{landscape}
 \thispagestyle{empty}
-\ 
-\vfill
 \begin{center}
 \includegraphics[scale=0.6]{stammbaum-der-surrealen-zahlen}
 
 Abbildung 0 aus Conways Buch: Wann die ersten Zahlen geboren wurden.
 \end{center}
+
 \vfill
-\ \\
+\textbf{Literatur:}
+
+J. H. Conway. \emph{On Numbers and Games.} Zweite Auflage. A K Peters, 2001. \\
+D. Knuth. \emph{Surreal Numbers.} Addison Wesley, 1974. \\
+C. Tøndering. \emph{Surreal Numbers.} 2013.
+\url{http://www.tondering.dk/claus/sur16.pdf}
 \end{landscape}
 
 \addtocounter{aufgabennummer}{-1}
@@ -156,9 +150,11 @@ Wir sagen auch: "`Die Zahl~$x$ wurde am Tag~$b(x)$ geboren."'
 \item Überzeuge dich davon, dass die Zahl~$0$ am Tag~$0$ geboren wurde.
 \item Berechne den Geburtstag von einigen surrealen Zahlen.
 \item Wieso ergibt die Bezeichnung Sinn? (Vergleiche mit deiner Lösung von
-Aufgabe~1.)
-\item[$\star$ d)] Beweise, dass der Geburtstag einer Zahl stets $\geq 0$ ist.
-(Geht einfacher mit Aufgabe~\ref{zahlenraten}.)
+Aufgabe~\ref{aufg0}.)
+\item Beweise, dass der Geburtstag einer surrealen Zahl wirklich eine surreale
+Zahl ist.
+%\item[$\star$ d)] Beweise, dass der Geburtstag einer Zahl stets $\geq 0$ ist.
+%(Geht einfacher mit Aufgabe~\ref{zahlenraten}.)
 \end{enumerate}
 \end{aufgabe}
 
@@ -193,6 +189,37 @@ Wir definieren die surreale Zahl
 \end{enumerate}
 \end{aufgabe}
 
+\begin{aufgabe}{Induktionsbeweise mit surrealen Zahlen (benötigt Aufgabe~\ref{aufg0})}
+\label{induktionsbeweise}
+Wenn man für \emph{alle} surrealen Zahlen~$x = \sur{x^L}{x^R}$ eine bestimmte Aussage
+beweisen möchte, kann man dazu so vorgehen: \emph{Unter der Annahme, dass die Aussage für
+alle~$x^L$ und alle~$x^R$ schon stimmt, zeigt man, dass sie auch für~$x$
+stimmt.} Dieses Beweisprinzip heißt auch \emph{Induktion} und ermöglicht, in
+einem Aufwasch eine Behauptung für alle surrealen Zahlen zu beweisen.
+
+Auf den ersten Blick scheint dieses Prinzip zirkulär -- man kann doch nicht das,
+was man beweisen möchte, schon voraussetzen! Tatsächlich aber ist dieses
+Beweisprinzip durchaus gerechtfertigt. Das wollen wir in dieser Aufgabe verstehen.
+\begin{enumerate}
+\item Welche besondere Annahme darf man laut Induktionsprinzip treffen, wenn
+man den Fall~$x = 0 = \sur{}{}$ beweisen möchte?
+\item Im Sinn von Aufgabe~\ref{geburtstage} sind für jede Zahl~$x =
+\sur{x^L}{x^R}$ die Zahlen~$x^L$ und~$x^R$
+schon \emph{an früheren Tagen} konstruiert worden. Mache dir mit dieser Erkenntnis
+und Teilaufgabe~a) klar, dass das Induktionsprinzip zulässig ist.
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Beispiele für Induktionsbeweise (benötigt
+das Prinzip aus Aufgabe~\ref{induktionsbeweise})}
+\label{induktionsbeispiele}
+\begin{enumerate}
+\item Beweise für alle surrealen Zahlen~$x$: $x + 0 = x$.
+\item Beweise für alle surrealen Zahlen~$x$: $x \cdot 0 = 0$.
+\item Beweise für alle surrealen Zahlen~$x$ und~$y$: $x + y = y + x$.
+\end{enumerate}
+\end{aufgabe}
+
 \begin{aufgabe}{Unmenge surrealer Zahlen (benötigt Aufgabe~\ref{aufg0})}
 \label{unmenge}
 In einem gewissen Sinn gibt es \emph{zu viele} surreale Zahlen, als dass sie
@@ -221,7 +248,8 @@ In diesem Abschnitt wollen wir rundenbasierte Zwei-Personen-Spiele betrachten,
 die von einem \emph{linken} und einem \emph{rechten Spieler} bestritten werden,
 keinerlei Zufallselemente enthalten und nicht mit verborgenen Informationen
 arbeiten: Alle möglichen Züge sind für beide Spieler erkennbar. Verlierer ist
-derjenige, der keinen Zug mehr tätigen kann.
+derjenige, der keinen Zug mehr tätigen kann. Das Mühlespiel ist etwa ein
+solches Spiel, Fußball und viele Kartenspiele nicht.
 
 Die jeweils vorliegenden Spielsituationen, genannt \emph{Positionen}, wollen wir
 mathematisch mit sog. \emph{Games} beschreiben, einer leichten
@@ -232,11 +260,15 @@ im Vergleich zur surrealen Variante freigiebiger:
 Sind~$L$ und~$R$ Mengen von Games,
 so ist~$\sur{L}{R}$ ebenfalls ein Game. Alle Games entstehen auf diese Art.
 
-Die restlichen Regeln für Games sind dieselben wie für die surrealen Zahlen.
+Die restlichen Regeln für Games sind dieselben wie für die surrealen Zahlen,
+und das Induktionsprinzip (siehe Aufgabe~\ref{induktionsbeweise}) gilt
+ebenfalls.
+
 Die linke Menge eines Games stellen wir uns als die Menge derjenigen Positionen
 vor, in die der linke Spieler ziehen darf, wenn er am Zug ist. Analog
 beschreibt die rechte Menge eines Games diejenigen Positionen, in die der rechte
-Spieler ziehen darf, wenn er am Zug ist.
+Spieler ziehen darf, wenn er am Zug ist. Fortan wollen wir den linken Spieler
+auch einfach \emph{Links} und den rechten \emph{Rechts} nennen.
 
 Das einfachste Zwei-Personen-Spiel ist das sog. \emph{Nullspiel}: Der Spieler,
 der an der Reihe ist, verliert sofort. In diesem Spiel haben also beide Spieler
@@ -244,17 +276,18 @@ keine erlaubten Züge -- die Menge ihrer erlaubten Züge sind also jeweils leer.
 Diese Situation wird daher durch das Game~$\sur{}{} = 0$ beschrieben.
 
 Die zweite Abbildung oben zeigt eine Spielsituation, in dem (ausgehend vom Wurzelknoten
-unten) der linke Spieler einen erlaubten Zug durchführen kann. Das soll die
-nach links geneigte Kante andeuten. Der rechte Spieler hat keinerlei erlaubte
+unten) Links einen erlaubten Zug durchführen kann. Das soll die
+nach links geneigte Kante andeuten. Rechts hat keinerlei erlaubte
 Züge. Daher ist die rechte Menge des zugehörigen Games leer. Die linke Menge
 enthält genau ein Element, nämlich das Game, das die Spielsituation nach
 Tätigung des einzigen erlaubten Zugs beschreibt. Da diese das Nullspiel ist,
 gilt also~$L = \{ 0 \}$. Somit beschreibt das Game~$\sur{0}{} = 1$ die
 Spielsituation.
 
-Dual zu beschreibt das Game~$\sur{}{0} = -1$ eine Spielsituation, in dem der
-linke Spieler keinerlei erlaubte Züge hat (also sofort verliert, wenn er an der
-Reihe ist) und der rechte mit einem Zug in das Nullspiel ziehen darf.
+Dual dazu beschreibt das Game~$\sur{}{0} = -1$ eine Spielsituation, in dem
+Links keinerlei erlaubte Züge hat (also sofort verliert, wenn er an der
+Reihe ist) und Rechts mit einem Zug in das Nullspiel ziehen darf, in dem
+dann Links verliert, da er keinen Zug mehr tätigen kann.
 
 Die Games~$0$, $1$ und~$-1$ sind sogar surreale Zahlen. Das Game, das die
 Spielsituation der vierten Abbildung oben beschreibt, ist daher unser erstes
@@ -270,7 +303,8 @@ Mache dir klar:
 welcher Spieler beginnt.
 \item Im Spiel~$-1$ gibt es eine Gewinnstrategie für Rechts -- unabhängig davon,
 welcher Spieler beginnt.
-\item Im Spiel~$\star$ gibt es eine Gewinnstrategie für beginnenden Spieler.
+\item Im Spiel~$\star$ gibt es eine Gewinnstrategie für den beginnenden Spieler,
+wer immer das auch sein mag.
 \item Im Spiel~$0$ gibt es eine Gewinnstrategie für den zweiten Spieler.
 \end{enumerate}
 \end{aufgabe}
@@ -285,24 +319,93 @@ sei \emph{unklar} und schreiben~"`$\fuzzy 0$"'. Allgemein gilt für ein Game~$G$
   G \fuzzy 0 &\text{ genau dann, wenn es eine Gewinnstrategie für den ersten Spieler gibt.}
 \end{align*}
 
-\begin{aufgabe}{Gewinnstrategien bei allgemeinen Games}
+\begin{aufgabe}{Gewöhnung an unklare Games (benötigt Aufgabe~\ref{analyse4})}
+Beweise rechnerisch, dass~$\star \fuzzy 0$, beweise also, dass weder~$\star
+\leq 0$ noch~$\star \geq 0$ stimmt.
+\end{aufgabe}
+
+\begin{aufgabe}{Gewinnstrategien bei allgemeinen Games (benötigt Aufgabe~\ref{analyse4})}
+\label{gewinnstrategien}
+In dieser Aufgabe wollen wir verstehen, wieso für Games~$G$ aus~$> 0$, $<
+0$, $= 0$ bzw. $\fuzzy 0$ schon folgt, dass es eine Gewinnstrategie für Links,
+Rechts, den zweiten Spieler bzw. den ersten Spieler gibt. Dazu wollen wir diese
+Aussage über Induktion beweisen; sei also ein Game~$G = \sur{G^L}{G^R}$
+gegeben und gelte die zu zeigende Behauptung schon für alle Games~$G^L$
+und~$G^R$.
 \begin{enumerate}
-\item Beweise, dass~$\star \fuzzy 0$.
-\item[$\star$ b)] Beweise die aufgeführten Beobachtungen über die
-Gewinnstrategie mittels Induktion.
+\item Überzeuge dich von folgenden Beziehungen:
+\begin{align*}
+  G > 0 &\text{ genau dann, wenn $\text{kein $G^R$} \leq 0$ und~$0 \leq \text{einem $G^L$}$.} \\
+  G < 0 &\text{ genau dann, wenn $0 \leq \text{keinem $G^L$}$ und~$\text{ein $G^R$} \leq 0$.} \\
+  G = 0 &\text{ genau dann, wenn $0 \leq \text{keinem $G^L$}$ und~$\text{kein $G^R$} \leq 0$.} \\
+  G \fuzzy 0 &\text{ sonst.}
+\end{align*}
+\item Nun wollen wir in jedem der vier Fälle zeigen, dass tatsächlich eine Gewinnstrategie
+wie behauptet existiert. Vervollständige folgenden Beweisansatz für den Fall~$G
+> 0$:
+
+\emph{Falls~$G > 0$: Dann ist zu zeigen, dass Links eine
+Gewinnstrategie besitzt. Falls Links beginnt, so kann er in eine Position~$G^L
+\geq 0$ ziehen. Diese neue Position ist also $> 0$ oder~$= 0$. Im ersten Fall
+hat er nach Induktionsvoraussetzung eine Gewinnstrategie. Im zweiten Fall hat
+nach Induktionsvoraussetzung der zweite Spieler eine Gewinnstrategie -- dieser
+ist auch gerade Links. Falls Rechts beginnt, so \ldots}
+\item Führe auf ähnliche Art und Weise Beweise in den drei restlichen Fällen.
+(Der Fall~$G \fuzzy 0$ ist der schwerste.)
 \end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}{Interpretation der Negation}
+\begin{aufgabe}{Interpretation der Negation (benötigt Aufgabe~\ref{analyse4})}
+\label{game-negation}
 \begin{enumerate}
 \item Mache dir klar: Wird eine Spielsituation durch ein Game~$G =
 \sur{G^L}{G^R}$ beschrieben,
 so beschreibt~$-G = \sur{-G^R}{-G^L}$ dieselbe Spielsituation, wobei aber die Rollen des linken und
 rechten Spielers für den ersten und alle weiteren Züge genau vertauscht sind.
-\item Erkläre erst anschaulich und beweise dann rigoros, wieso die Negation
+\item Erkläre, wieso die Negation
 eines unklaren Games wieder ein unklares Game ist.
 \end{enumerate}
 \end{aufgabe}
+
+\begin{aufgabe}{Interpretation der Addition (benötigt Aufgabe~\ref{analyse4})}
+\label{game-addition}
+\begin{enumerate}
+\item Mache dir klar: Werden zwei Spielsituationen durch Games~$G =
+\sur{G^L}{G^R}$ und~$H = \sur{H^L}{H^R}$ beschrieben, so beschreibt die Summe~$G
++ H = \sur{G^L + H,\ G + H^L}{G^R + H,\ G + H^R}$ folgende Situation: Die
+Spiele zu~$G$ und~$H$ liegen auf dem Tisch. Der beginnende Spieler darf sich
+nach Belieben eines der beiden Spiele aussuchen und dort einen für ihn
+erlaubten Zug tätigen. Danach darf der zweite Spieler im gleichen oder im
+anderen Spiel einen Zug tätigen. Auf diese Weise machen die beiden Spieler so
+lange weiter, bis einer der Spieler in keinem der beiden Einzelspiele einen Zug
+tätigen kann; dann hat dieser verloren.
+\item Illustriere das Game~$1 + 1$.
+\item Illustriere das Game~$1 + (-1)$ und mache dir klar, dass es
+spieltechnisch gleich dem Nullspiel ist.
+\item Illustriere das Game~$\star + \star$ und mache dir klar, dass auch dieses
+Game spieltechnisch gleich dem Nullspiel ist.
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Interpretation von~$G - G$ (benötigt
+Aufgaben~\ref{game-negation} und~\ref{game-addition})}
+\label{game-gg}
+Beweise, dass für jedes Game~$G$ das Game~$G - G = G + (-G)$ spieltechnisch
+gleich dem Nullspiel ist.
+\end{aufgabe}
+
+%\begin{aufgabe}{Meine Mutter verdient mehr als deine (benötigt
+%Aufgabe~\ref{analyse4})}
+%Linker und rechter Spieler wollen damit angeben, dass ihre Mutter mehr Geld als
+%die jeweils andere Mutter verdient. Dazu nennt einer der beiden Spieler eine
+%Zahl, die angeblich das Gehalt seiner Mutter angibt. Daraufhin nennt der zweite
+%Spieler eine Zahl, die genauso fiktiv das Gehalt seiner Mutter angeben soll.
+%Damit endet das Spiel; gewonnen hat der, der die größere Zahl gesagt hat.
+%
+%Mache dir klar, dass dieses Spiel durch
+%\end{aufgabe}
+
+Weitere Aufgaben werden folgen.
 
 
 \head{Nimbers}
@@ -332,12 +435,9 @@ von~$n \oplus m'$ für alle kleineren Zahlen~$m' < m$ bestimmen. Der Wert
 von~$n \oplus m$ ergibt sich dann als Mex dieser Zahlen.
 \begin{enumerate}
 \item Ergänze unten stehende Tabelle für die Nim-Addition.
-\item[$\star$ b)] Wenn du schon die Beweistechnik der Induktion kennst, kannst
-du dich an folgenden Behauptungen für alle~$n \in \NN$ versuchen:
-\begin{align*}
-  0 \oplus n &= n \\
-  n \oplus n &= 0
-\end{align*}
+\item[$\star$ b)] Wenn du die Beweistechnik der Induktion für natürliche Zahlen kennst, kannst
+du dich beweisen, dass für alle~$n \in \NN$ gilt: $0 \oplus n = n$.
+% n \oplus n &= 0
 \end{enumerate}
 \begin{center}
   \begin{tabular}{r|ccccccccl}
@@ -363,7 +463,7 @@ einer Ziffer ergibt sich von rechts nach links über die Zehnerpotenzen: Einer,
 Zehner, Hunderter, Tausender, usw. Das Binärsystem ist viel einfacher: Da gibt
 es nur die Ziffern~$0$ und~$1$. Der Wert einer Ziffer ergibt sich dann von
 rechts nach links über die Zweierpotenzen: Einer, Zweier, Vierer, Achter,
-Sechszehner, usw. Schreibt man eine Zahl im Binärsystem, so macht man das durch
+Sechzehner, usw. Schreibt man eine Zahl im Binärsystem, so macht man das durch
 einen nachgestellten Index deutlich.
 \begin{enumerate}
 \item Überzeuge dich von der Richtigkeit folgender Beispiele:
@@ -380,6 +480,9 @@ wie du magst.
 \end{enumerate}
 \end{aufgabe}
 
+Weitere Aufgaben werden folgen. Insbesondere werden wir den Zusammenhang zu
+surrealen Zahlen klären und unendliche Spiele behandeln.
+
 %\begin{aufgabe}{Falsche binomische Formel}
 %\ldots wäre schön, benötigt aber Multiplikation; hat daher hohen technischen
 %Aufwand.
@@ -393,7 +496,6 @@ Ist die zweite Induktionsaufgabe einfach lösbar?
 
 Weitere Beispiele mit Bewertungen von Spielen
 insbesondere: Nim-Spiele
-Summe von Spielen
 Zusammenhang zu Nimbers
 unendliche Spiele
 
