@@ -18,3 +18,34 @@
 * Das Ausprobieren hat sehr gut funktioniert.
 
 * Kein Spannungsbogen, am Ende war es etwas langweilig (?).
+
+
+===== Zweites Treffen vom 21.12.2013
+
+* Conways Armee: Beweis fertig gemacht, nach folgendem Schema:
+
+  * Beziehung x^2 = 1 - x herleiten.
+  * Nachrechnen: x^2 + x^3 + ... = 1.
+  * Eine vollständige Zeile unterhalb des Ziels: x + 2(x^2 + x^3 + ...) = x+2.
+  * Vollständig besetzte Bretthälfte direkt unterhalb des Ziels:
+    (x + 2) * (1 + x + x^2 + x^3 + ...) = (x + 2) * (1 + x + 1) = 5 + 3x.
+  * Vollständig besetzte Bretthälfte fünf Zeilen unterhalb des Ziels:
+    (5 + 3x) * x^4 = 1.
+
+* Surreale Zahlen: Gemeinsam Aufgabe 0 bearbeitet, dann Gruppenarbeit
+  mit den restlichen Aufgaben als Lerntheke organisiert.
+
+
+-- Kritik
+
+* Der Conway-Beweis lief recht gut. Vielleicht war ich manchen etwas zu schnell
+  und manch anderen etwas zu langsam. Statt ihn zu präsentieren, hätte man ihn
+  in mehrere Teilschritte zerlegen und so die Schüler rechnen lassen können.
+  Da ich aber auf die surrealen Zahlen hinaus wollte, habe ich mich dagegen
+  entschieden.
+
+* Die surrealen Zahlen liefen gut! Einer hat sich im Scherz gefreut, als wir
+  die ersten beiden surrealen Zahlen konstruiert hatten. Es gab viele Vermutungen
+  für allgemeine Formeln, um aus einer Präsentation der Form { a | b } sofort
+  den Zahlenwert abzulesen. Anfangs gab es Verwirrungen, was "leere Menge + y"
+  bedeutet. Der Stammbaum kam gut an.
