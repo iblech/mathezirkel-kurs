@@ -1,0 +1,66 @@
+\documentclass[a4paper,ngerman,landscape,16pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\RequirePackage{amsmath,amsthm,amssymb,amscd,color,graphicx,environ}
+\newcommand{\sur}[2]{\{ #1 \mathrel{|} #2 \}}
+\definecolor{hicolor}{rgb}{.55,.12,.55}
+\newcommand{\hil}[1]{\textcolor{hicolor}{#1}}
+\usepackage{geometry}
+\geometry{tmargin=1.5cm,bmargin=0.8cm,lmargin=3cm,rmargin=3cm}
+%\geometry{tmargin=2cm,bmargin=3cm,lmargin=2cm,rmargin=2cm}
+%\usepackage{lscape}
+%\newcommand{\head}[1]{\section*{\rmfamily #1}}%begin{center}\large \textbf{#1}\end{center}}
+%\let\raggedsection\centering
+%\newcommand{\fuzzy}{\mathrel{||}}
+\newenvironment{block}[1]{
+  \begin{center}\textbf{#1}\end{center}
+}{}
+\begin{document}
+
+\thispagestyle{empty}
+
+\sffamily
+
+\begin{block}{Regeln für surreale Zahlen}
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\begin{enumerate}
+\item \emph{Konstruktionsprinzip.}
+Sind~$L$ und~$R$ Mengen surrealer Zahlen und \hil{\textbf{ist kein Element von~$L$
+$\geq$ irgendeinem Element von~$R$}}, so ist~$\sur{L}{R}$ ebenfalls eine surreale
+Zahl. Alle surrealen Zahlen entstehen auf diese Art.
+
+\item \emph{Notation.}
+Für~$x = \sur{L}{R}$ bezeichnen wir ein typisches Element von~$L$
+mit~"`$x^L$"', ein typisches Element von~$R$ mit~"`$x^R$"'. Wenn
+wir~"`$\sur{a,b,c,\ldots}{d,e,f,\ldots}$"' schreiben, meinen wir die
+Zahl~$\sur{L}{R}$, sodass~$a,b,c,\ldots$ die typischen Elemente von~$L$
+und~$d,e,f,\ldots$ die typischen Elemente von~$R$ sind.
+
+\item \emph{Anordnung.}
+
+Wir sagen genau dann~$x \geq y$, falls kein $x^R \leq y$ und~$x \leq$
+keinem $y^L$.
+
+Wir sagen genau dann~$x \not\leq y$, wenn~$x \leq y$ nicht gilt.
+
+Wir sagen genau dann~$x < y$, wenn $x \leq y$ und~$y \not\leq x$.
+
+Wir sagen genau dann~$x \leq y$, wenn~$y \geq x$.
+
+Wir sagen genau dann~$x > y$, wenn~$y < x$.
+
+\item \emph{Gleichheit.}
+Wir sagen genau dann~$x = y$, wenn~$x \leq y$ und~$y \leq x$.
+
+\item \emph{Rechenoperationen.}
+\begin{align*}
+  x + y &:= \sur{x^L + y,\ x + y^L}{x^R + y,\ x + y^R}. \\
+  -x &:= \sur{-x^R}{-x^L}. \\
+  x - y &:= x + (-y). \\
+  xy &:= \sur{x^Ly + xy^L - x^Ly^L,\ x^Ry + xy^R - x^Ry^R}{\\&\qquad\qquad\qquad x^Ly + xy^R -
+x^Ly^R,\ x^Ry + xy^L - x^Ry^L}.
+\end{align*}
+\end{enumerate}
+\end{block}
+
+\end{document}
