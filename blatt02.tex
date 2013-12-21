@@ -120,9 +120,11 @@ gefundenen Zahlen ein und überlege dir geeignete Namen für sie.
 \item Überprüfe, dass gemäß der Definitionen gilt: $0 + 0 = 0$.
 \item Überprüfe, dass gemäß der Definitionen gilt: $0 + 1 = 1$.
 \item Berechne~$(-1) + 1$ und vergleiche das Ergebnis mit~$0$.
-\item Erkläre, wieso im Lichte von Teilaufgabe~b) die spezielle
+\item Erkläre, wieso im Lichte von Teilaufgabe~c) die spezielle
 Gleichheitsregel nötig ist: Wieso nennt man zwei surreale Zahlen nicht einfach
 genau dann gleich, wenn ihre linken und rechten Mengen übereinstimmen?
+\item Berechne~$1 + 1$, berechne~$(1 + 1) + 1$ und so weiter (so lange du
+magst). Die Ergebnisse nennen wir fortan~$2$, $3$ und so weiter.
 \end{enumerate}
 \end{aufgabe}
 
@@ -156,6 +158,10 @@ Zahl ist.
 %\item[$\star$ d)] Beweise, dass der Geburtstag einer Zahl stets $\geq 0$ ist.
 %(Geht einfacher mit Aufgabe~\ref{zahlenraten}.)
 \end{enumerate}
+\emph{Bemerkung.} Vielleicht hast du in deiner Bearbeitung von Teilaufgabe~b)
+gesehen, dass der Geburtstag zweier verschieden aussehender, aber trotzdem
+gleicher surrealen Zahlen nicht gleich ist. Das ist ein Manko an obiger
+Definition des Geburtstags.
 \end{aufgabe}
 
 \begin{aufgabe}{Zahlenwerte erraten (benötigt Aufgabe \ref{geburtstage})}
@@ -176,16 +182,52 @@ vielleicht auch schon):
 \end{enumerate}
 \end{aufgabe}
 
+\begin{aufgabe}{Rechtfertigung einer Bezeichnung (benötigt Aufgabe~\ref{erste-rechnungen})}
+Wir definieren~$\tfrac{1}{2} := \sur{0}{1}$. In dieser Aufgabe wollen wir diese
+Bezeichnung rechtfertigen.
+\begin{enumerate}
+\item Berechne~$\tfrac{1}{2} + \tfrac{1}{2}$ gemäß der Definitionen.
+\item Beweise, dass das Ergebnis aus Teilaufgabe~a) gleich~$1 = \sur{0}{}$ ist.
+
+\emph{Tipp.} Wenn du Zeit sparen möchtest, kannst du dazu das Lemma aus
+Aufgabe~\ref{zahlenraten} verwenden. Streng genommen ist das aber ein
+gefährlicher Handel: Denn hier haben wir ja keinen Beweis dieses Lemmas
+diskutiert. Deine Rechnung basiert dann daher auf der Annahme, dass ich das
+Lemma richtig angegeben habe.
+\end{enumerate}
+
+\emph{Bemerkung.} Längere Rechnungen überlässt man lieber dem Computer, als sie
+per Hand durchzuführen.
+\end{aufgabe}
+
 \begin{aufgabe}{Unendlich große Zahlen (benötigt Aufgabe~\ref{zahlenraten})}
 \label{transfinit}
 Wir definieren die surreale Zahl
-\[ \omega := \sur{0, 1, 2, \ldots}{}. \]
+$\omega := \sur{0, 1, 2, \ldots}{}$.
 \begin{enumerate}
 \item Überzeuge dich davon, dass~$\omega$ wirklich eine surreale Zahl ist.
 \item Zeige: Für jede natürliche Zahl~$n$ gilt~$n < \omega$.
 \item Berechne $\omega + 1$.
 \item Berechne $\omega - 1$.
 \item Zeige: Für jede natürliche Zahl~$n$ gilt~$n < \omega - 1$.
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Unendlich kleine Zahlen (benötigt Aufgabe~\ref{zahlenraten})}
+\label{infinitesimal}
+Wir definieren die surreale Zahl
+$\varepsilon := \sur{0}{1, \tfrac{1}{2}, \tfrac{1}{4}, \tfrac{1}{8}, \ldots}$.
+\begin{enumerate}
+\item Überzeuge dich davon, dass~$\varepsilon$ wirklich eine surreale Zahl ist.
+\item Beweise: Die Zahl~$\varepsilon$ ist größer als~$0$, aber kleiner als jede
+gewöhnliche positive reelle Zahl. Dabei darfst du verwenden, dass jede reelle
+Zahl in einem geeigneten Sinn auch als surreale Zahl angesehen werden kann und
+dass zu jeder positiven reellen Zahl~$r$ eine Zweierpotenz~$n$
+mit~$\tfrac{1}{n} < r$ existiert.
+\item Bewundere Ausdrücke wie~$\omega + \varepsilon$, $\omega \cdot
+\varepsilon$, $\varepsilon^2, \tfrac{1}{\omega}, \tfrac{1}{\varepsilon}$. Gib
+Vermutungen ab, wo sich diese Zahlen auf der
+surrealen Zahlengerade einordnen lassen.
 \end{enumerate}
 \end{aufgabe}
 
@@ -207,6 +249,9 @@ man den Fall~$x = 0 = \sur{}{}$ beweisen möchte?
 \sur{x^L}{x^R}$ die Zahlen~$x^L$ und~$x^R$
 schon \emph{an früheren Tagen} konstruiert worden. Mache dir mit dieser Erkenntnis
 und Teilaufgabe~a) klar, dass das Induktionsprinzip zulässig ist.
+\item Wenn du das Induktionsprinzip für natürliche Zahlen schon kennst,
+wunderst du dich vielleicht, dass man hier nur eine Art Induktionsschritt, aber
+keinen Induktionsanfang benötigt. Wieso ist trotzdem alles in Ordnung?
 \end{enumerate}
 \end{aufgabe}
 
@@ -216,6 +261,7 @@ das Prinzip aus Aufgabe~\ref{induktionsbeweise})}
 \begin{enumerate}
 \item Beweise für alle surrealen Zahlen~$x$: $x + 0 = x$.
 \item Beweise für alle surrealen Zahlen~$x$: $x \cdot 0 = 0$.
+\item Beweise für alle surrealen Zahlen~$x$: $x \geq x$.
 \item Beweise für alle surrealen Zahlen~$x$ und~$y$: $x + y = y + x$.
 \end{enumerate}
 \end{aufgabe}
@@ -239,7 +285,7 @@ können wir zeigen, dass~$\Omega > x$ für alle surrealen Zahlen~$x$.
 \end{loesung}
 
 
-
+\newpage
 \head{Kombinatorische Spiele}
 
 \begin{center}\includegraphics[scale=0.2]{einfache-spiele}\end{center}
