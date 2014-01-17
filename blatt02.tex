@@ -6,7 +6,7 @@
 \let\raggedsection\centering
 \newcommand{\fuzzy}{\mathrel{||}}
 
-%\setkeys{Gin}{draft}
+\setkeys{Gin}{draft}
 \begin{document}
 
 \maketitle{Klasse 11./12., Gruppe 2}{21. Dezember 2013}
@@ -571,6 +571,7 @@ einem Kästchenpapier gespielt, sondern auf einem beliebigen \emph{Graphen}:
 % Beispiele zeigen
 % Bewertung von Bäumen
 % Unendliche Spiele
+% Schwarze Kante macht XYZ, weiße Kante ABC?
 \end{aufgabe}
 
 %\begin{aufgabe}{Meine Mutter verdient mehr als deine (benötigt
@@ -659,6 +660,128 @@ wie du magst.
 \end{enumerate}
 \end{aufgabe}
 
+\begin{aufgabe}{Das Nim-Spiel (benötigt Aufgabe~\ref{game-addition})}
+\label{nim}
+Bei Nim spielt man mit mehreren Haufen von gleichartigen Spielsteinen. Die
+erlaubten Züge sind für beide Spieler dieselben: Wenn man an der Reihe ist,
+darf man sich nach Belieben einen der Haufen aussuchen und muss dann in diesem eine
+beliebige Anzahl von Spielsteinen, mindestens jedoch einen, entfernen. Verloren
+hat, wer keinen Zug mehr tätigen kann.
+\begin{enumerate}
+\item Überzeuge dich davon, dass der Fall nur eines Haufens, der auch nur aus
+einem Spielstein besteht, durch das Game~$\star = \sur{0}{0}$ beschrieben wird.
+Welcher Spieler besitzt eine Gewinnstrategie?
+\item Überzeuge dich davon, dass der Fall nur eines Haufens, der aus genau zwei
+Spielsteinen besteht, durch das Game~$\sur{0,\star}{0,\star}$ beschrieben
+werden kann.
+\item Wie drückt sich in den Games aus, dass die beiden Spieler dieselben
+Zugmöglichkeiten haben?
+\item Seien zwei Haufen gegeben, wobei der eine durch ein Game~$G$ und der
+andere durch ein Game~$H$ beschrieben wird. Wodurch wird dann die
+zusammengesetzte Spielsituation beschrieben?
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Nimbers (benötigt Aufgabe~\ref{nim})}
+\label{nimbers}
+Für jede natürliche Zahl~$n$ definieren wir das Game
+\[ \star n := \sur{L}{R}, \quad
+\text{wobei~$L = R = \{ \star 0, \star 1, \ldots, \star(n-1) \}$.} \]
+Linke und rechte Menge von~$\star n$ sind also identisch, und zwar enthalten
+sie beide die Games~$\star n'$ für~$0 \leq n' < n$. Games der Form~$\star n$
+heißen \emph{Nimbers}.
+\begin{enumerate}
+\item Überzeuge dich von der Richtigkeit folgender Beispiele:
+\[ \star 0 = 0, \quad
+  \star 1 = \star, \quad
+  \star 2 = \sur{0,\star}{0,\star}. \]
+\item Sei beim Nim-Spiel nur ein Haufen gegeben, wobei dieser aus~$n$
+Spielsteinen bestehe. Durch welches Game wird diese Spielsituation beschrieben?
+Kannst du deine Vermutung beweisen?
+% Falls sich die Nummerierung der folgenden Teilaufgabe ändert,
+% auch bei zusammenhang-mex anpassen.
+\item Begründe, dass für alle natürlichen Zahlen~$n$ die Rechenregel
+$\star n = -(\star n)$
+gilt. Das kannst du entweder spieltheoretisch machen (beachte dazu
+Aufgabe~\ref{game-negation}) oder durch einen Induktionsbeweis über~$n$.
+% Falls sich die Nummerierung der folgenden Teilaufgabe ändert,
+% auch bei zusammenhang-mex anpassen.
+\item Welche Spielsituation beschreibt das Game~$\star n + \star n$, wobei~$n$
+eine natürliche Zahl ist? Begründe, dass diese Situation äquivalent zum
+Nullspiel ist, dass also der zweite Spieler stets gewinnen kann. In Formeln
+kann man diese Beobachtung so festhalten: $\star n + \star n = 0.$
+\item Zeige für alle natürlichen Zahlen~$n \geq 1$: $\star n \fuzzy 0$.
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Zusammenhang zur Mex-Operation (benötigt Aufgaben~\ref{nimbers}
+und~\ref{mex} und viel Ruhe)}
+\label{zusammenhang-mex}
+Sei~$S = \{ s_1,\ldots,s_m \}$ eine endliche Menge natürlicher Zahlen und~$\mex
+S$ ihr Meximum. In dieser Aufgabe wollen wir verstehen, wieso die Beziehung
+\[ \sur{\star s_1,\ldots,\star s_m}{\star s_1,\ldots,\star s_m} + \star(\mex S)
+= 0
+\]
+gilt. Diese Vereinfachungsregel werden wir nutzen, um den Zusammenhang zur
+Nimber-Addition zu klären.
+\begin{enumerate}
+\item Erkläre, welche Spielsituation durch das Game auf der linken Seite der
+Gleichung beschrieben wird. In welche Positionen kann der beginnende Spieler
+ziehen? Beachte, dass sich die Situation aus zwei Teilspielen (dem zum vorderen
+und dem zum hinteren Summanden) zusammensetzt.
+% XXX: Skizze
+\item Zeige nun, dass diese Spielsituation äquivalent zum Nullspiel ist, dass
+also der beginnende Spieler verliert. Damit ist dann die Rechenregel bewiesen.
+Vervollständige dazu folgenden Beweisansatz:
+
+\emph{Fall 1: Der beginnende Spieler tätigt einen Zug im vorderen Teilspiel: Er
+zieht dort in die Situation~$\star s_i$. Danach liegen also zwei Teilspiele
+vor: Zum einen~$\star s_i$, zum anderen immer noch~$\star(\mex S)$. Nun
+kann~$\mex S$ größer oder kleiner als~$s_i$ sein, aber nicht gleich (wieso?).
+Falls es größer ist, kann der zweite Spieler im hinteren Teilspiel in die
+Situation~$\star s_i$ ziehen (wieso?). Danach liegen also zwei Teilspiele vor:
+Zum einen~$\star s_i$, zum anderen jetzt ebenfalls~$\star s_i$. Nach
+Teilaufgabe~d) von Aufgabe~\ref{nimbers} kann daher der zweite Spieler
+gewinnen. Falls das Meximum dagegen kleiner ist, \ldots.}
+
+\emph{Fall 2: Der beginnende Spieler tätigt einen Zug im hinteren Teilspiel:
+Er zieht dort in eine Situation~$\star u$, wobei~$u$ eine Zahl zwischen~$0$
+eingeschlossen und~$\mex S$ ausgeschlossen ist. Dann \ldots}
+\item Folgere durch einfache Gleichungsumformung und Verwendung von
+Teilaufgabe~c) von Aufgabe~\ref{nimbers} die weitere Rechenregel
+\[ \sur{\star s_1,\ldots,\star s_m}{\star s_1,\ldots,\star s_m} = \star(\mex
+S). \]
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Zusammenhang zur Nimber-Addition (benötigt
+Aufgabe~\ref{nimber-addition})}
+Die Nimber-Addition aus Aufgabe~\ref{nimber-addition} hatte mit Games nichts am
+Hut. In dieser Aufgabe klären wir den Zusammenhang zwischen der Nimber-Addition
+und der gewöhnlichen Addition von Games. Und zwar gilt für alle natürlichen
+Zahlen~$n$ und~$m$:
+\[ \star n + \star m = \star(n \oplus m). \]
+\begin{enumerate}
+\item Berechne als Beispiel~$\star 0 + \star 0$ und vergleiche das Ergebnis
+mit~$\star (0 \oplus 0)$.
+\item Berechne ferner~$\star 1 + \star 1$ und vergleiche das Ergebnis
+mit~$\star (1 \oplus 1)$.
+\item Nun wollen wir die Rechenregel allgemein beweisen. Dazu dürfen wir
+annehmen, dass wir die Aussagen
+\begin{align*}
+  \star n' + \star m &= \star(n' \oplus m), \\
+  \star n + \star m' &= \star(n \oplus m')
+\end{align*}
+für alle naürlichen Zahlen~$n'$ kleiner als~$n$ und alle natürlichen
+Zahlen~$m'$ kleiner als~$m$ bereits bewiesen haben, und müssen dann nachrechnen,
+dass~$\star n + \star m$ tatsächlich das gleiche wie~$\star(n \oplus m)$
+ergibt. Führe diese Rechnung durch! Verwende zur Vereinfachung das Ergebnis aus
+Teilaufgabe~c) von Aufgabe~\ref{zusammenhang-mex}.
+\end{enumerate}
+\end{aufgabe}
+
+% XXX: Gewinnstrategie für Nim diskutieren.
+
 Weitere Aufgaben werden folgen. Insbesondere werden wir den Zusammenhang zu
 surrealen Zahlen klären und unendliche Spiele behandeln.
 
@@ -690,3 +813,5 @@ Benötige natürliche und ganze Zahlen, bevor ich über omega reden kann!
 
 Benötige Bruchzahlen, um über epsilon reden zu können.
 \varepsilon &:= \sur{}{\tfrac{1}{1},\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{8},\ldots}.
+
+TeilAUFGABE von AUFGABE

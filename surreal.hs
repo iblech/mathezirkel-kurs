@@ -14,6 +14,7 @@ instance Show Game where
         | g == -one = "-1"
         | g == two  = "2"
         | g == -two = "-2"
+        | g == star = "*"
         | otherwise = "{ " ++ show' l ++ " | " ++ show' r ++ " }"
             where show' = concat . intersperse "," . map show
 
@@ -43,6 +44,7 @@ zero = MkGame $ Mk [] []
 one  = MkGame $ Mk [zero] []
 two  = strip $ one + one
 onehalf = MkGame $ Mk [zero] [one]
+star = MkGame $ Mk [zero] [zero]
 
 birthday :: Game -> Game
 birthday x = MkGame $ Mk [birthday x' | x' <- left x ++ right x] []
@@ -58,3 +60,13 @@ strip (MkGame (Mk l r)) = MkGame $ Mk l' r'
 
 ordinalAddOne :: Game -> Game
 ordinalAddOne x = MkGame $ Mk (zero : map ordinalAddOne (left x)) (map ordinalAddOne (right x))
+
+nim :: Int -> Game
+nim n | n < 0 = error "nim negative"
+nim n = MkGame $ Mk xs xs where xs = [nim n' | n' <- [0..n-1]]
+
+mex :: [Int] -> Int
+mex xs = head $ filter (`notElem` xs) [0..]
+
+imp :: [Game] -> Game
+imp xs = MkGame $ Mk xs xs
