@@ -5,7 +5,7 @@
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[ngerman]{babel}
-\RequirePackage{amsmath,amsthm,amssymb,amscd,color,graphicx,environ}
+\RequirePackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
 \RequirePackage{environ}
 \RequirePackage{framed}
 \RequirePackage[protrusion=true,expansion=true]{microtype}

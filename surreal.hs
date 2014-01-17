@@ -55,3 +55,6 @@ strip (MkGame (Mk l r)) = MkGame $ Mk l' r'
     where
     l' = if null l then [] else [strip $ maximum l]
     r' = if null r then [] else [strip $ minimum r]
+
+ordinalAddOne :: Game -> Game
+ordinalAddOne x = MkGame $ Mk (zero : map ordinalAddOne (left x)) (map ordinalAddOne (right x))

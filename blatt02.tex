@@ -1,9 +1,12 @@
 \documentclass{zirkelblatt}
+\usepackage{young}
 \geometry{tmargin=2cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
 \usepackage{lscape}
 \newcommand{\head}[1]{\section*{\rmfamily #1}}%begin{center}\large \textbf{#1}\end{center}}
 \let\raggedsection\centering
 \newcommand{\fuzzy}{\mathrel{||}}
+
+%\setkeys{Gin}{draft}
 \begin{document}
 
 \maketitle{Klasse 11./12., Gruppe 2}{21. Dezember 2013}
@@ -161,7 +164,7 @@ Zahl ist.
 \end{enumerate}
 \emph{Bemerkung.} Vielleicht hast du in deiner Bearbeitung von Teilaufgabe~b)
 gesehen, dass der Geburtstag zweier verschieden aussehender, aber trotzdem
-gleicher surrealen Zahlen nicht gleich ist. Das ist ein Manko an obiger
+gleicher surrealen Zahlen nicht unbedingt gleich ist. Das ist ein Manko an obiger
 Definition des Geburtstags.
 \end{aufgabe}
 
@@ -284,6 +287,25 @@ Zahl~$\Omega$ mit~$L := \text{Menge aller surrealen Zahlen}$ und~$R :=
 \hil{Voraussetzung} in der Konstruktionsvorschrift erfüllt. Durch Induktion
 können wir zeigen, dass~$\Omega > x$ für alle surrealen Zahlen~$x$.
 \end{loesung}
+
+\begin{aufgabe}{Ordinale Addition (benötigt Aufgabe~\ref{zahlenraten})}
+In dieser Aufgabe wollen wir eine Rechenoperation
+kennenlernen, die beim Spiel \emph{Hackenbush} eine Rolle spielen wird (siehe
+Aufgabe~\ref{game-hackenbush}). Die \emph{ordinale Summe} der Zahl~$1$ mit
+einer weiteren Zahl~$x$ ist definiert als
+\[ 1 \boxplus x := \sur{0,\ 1 \boxplus x^L}{1 \boxplus x^R}. \]
+Wie die ordinale Summe von zwei beliebigen Summanden definiert ist,
+diskutieren wir hier nicht.
+\begin{enumerate}
+\item Überzeuge dich von folgenden Rechnungen:
+\[ 1 \boxplus 0 = 0, \quad
+  1 \boxplus 1 = 1, \quad
+  1 \boxplus 2. \]
+\item Was ist~$1 \boxplus (-1)$?
+\item Was ist~$1 \boxplus \tfrac{1}{2}$?
+\item Zeige: Für jede Zahl~$x$ ist~$1 \boxplus x$ positiv (d.\,h. $> 0$).
+\end{enumerate}
+\end{aufgabe}
 
 
 \newpage
@@ -444,6 +466,111 @@ gewinnen kann, wenn man mit den beiden Großmeistern gleichzeitig spielen darf.
 \item Beweise, dass für jedes Game~$G$ das Game~$G - G = G + (-G)$ spieltechnisch
 gleich dem Nullspiel ist.
 \end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Ein Spiel mit Dominosteinen (benötigt Aufgabe~\ref{game-addition})}
+\label{game-domino}
+Auf einem gleichmäßig in Quadrate eingeteilten Spielbrett platzieren linker und
+rechter Spieler abwechselnd Dominosteine. Ein solcher überdeckt immer genau
+zwei Quadrate. Der linke Spieler darf seine Steine nur vertikal, der rechte
+Spieler nur horizontal legen; die Steine dürfen nicht überlappen. Verloren hat,
+wer keinen Zug mehr tätigen kann.
+\begin{enumerate}
+\item Überzeuge dich davon, dass wenn nur noch ein Kästchen frei ist, der als
+nächstes ziehende Spieler verliert. Diese Spielposition wird also durch das
+Game~$0$ beschrieben.
+\[
+  \begin{Young}
+    \cr
+  \end{Young}
+\]
+\item In welche Positionen können die beiden Spieler ziehen, wenn nur noch drei Kästchen in
+einer vertikalen Reihe frei ist? Überzeuge dich davon, dass diese Situation
+durch das Game~$1 = \sur{0}{}$ beschrieben wird.
+\[
+  \begin{Young}
+    \cr
+    \cr
+    \cr
+  \end{Young}
+\]
+\item Bewerte folgende Spielsituationen mit Games (dargestellt ist jeweils der
+noch freie Bereich). \emph{Zur Kontrolle:} Es
+kommen die Games~$-2, -1, \tfrac{1}{2}, 1, \star, \sur{1}{-1}$ vor.
+\[
+  \begin{Young}
+    &\cr
+  \end{Young}
+  \quad\qquad
+  \begin{Young}
+    \cr
+    \cr
+    \cr
+  \end{Young}
+  \quad\qquad
+  \begin{Young}
+    &&&\cr
+  \end{Young}
+  \quad\qquad
+  \begin{Young}
+    \cr
+    \cr
+    &\cr
+  \end{Young}
+  \quad\qquad
+  \begin{Young}
+    \cr
+    &\cr
+  \end{Young}
+  \quad\qquad
+  \begin{Young}
+    &\cr
+    &\cr
+  \end{Young}
+\]
+\item Wenn der noch freie Bereich in voneinander getrennte Teilbereiche
+zerfällt, ist das Game, das die Situation beschreibt, gleich der Summe der
+Games zu den Teilbereichen. Nutze diese Beobachtung, um nur unter Verwendung
+von Teilaufgabe~c) sofort das Game zu folgender Situation anzugeben. Welcher
+Spieler besitzt eine Gewinnstrategie?
+\[
+  \begin{Young}
+    \cr
+    \cr
+    &\cr
+  \end{Young}
+  \begin{array}{@{}c@{}}\begin{Young}
+    &&&\cr
+  \end{Young}\\[7.2em]\end{array}
+  \hspace{-3.7em}
+  \begin{Young}
+    \cr
+    \cr
+  \end{Young}
+\]
+\vspace{-5em}
+\item Sind nur noch vier horizontal zusammenhängende Kästchen frei, gewinnt der
+rechte Spieler. Das stimmt auch bei nur noch zwei horizontal zusammenhängenden
+Kästchen, lax gesprochen ist es der Vorsprung da aber "`knapper"'. Wie schlägt
+sich das in der Bewertung durch Games nieder?
+\item Sei eine Spielsituation des Dominospiels durch ein Game~$G =
+\sur{G^L}{G^R}$ beschrieben.
+Welche Situation beschreibt dann das negierte Game~$-G = \sur{-G^R}{-G^L}$?
+(Benötigt Aufgabe~\ref{game-negation}.)
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Hackenbush (benötigt Aufgabe~\ref{analyse4})}
+\label{game-hackenbush}
+Das Spiel \emph{Hackenbush} wird nicht auf einem regelmäßigen Schachbrett oder
+einem Kästchenpapier gespielt, sondern auf einem beliebigen \emph{Graphen}:
+\begin{center}
+\includegraphics[scale=0.25]{hackenbush}
+\end{center}
+% Regeln erklären
+% Beispiele zeigen
+% Bewertung von Bäumen
+% Unendliche Spiele
 \end{aufgabe}
 
 %\begin{aufgabe}{Meine Mutter verdient mehr als deine (benötigt
