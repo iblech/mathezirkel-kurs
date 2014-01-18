@@ -289,6 +289,7 @@ können wir zeigen, dass~$\Omega > x$ für alle surrealen Zahlen~$x$.
 \end{loesung}
 
 \begin{aufgabe}{Ordinale Addition (benötigt Aufgabe~\ref{zahlenraten})}
+\label{ordinale-addition}
 In dieser Aufgabe wollen wir eine Rechenoperation
 kennenlernen, die beim Spiel \emph{Hackenbush} eine Rolle spielen wird (siehe
 Aufgabe~\ref{game-hackenbush}). Die \emph{ordinale Summe} der Zahl~$1$ mit
@@ -364,7 +365,8 @@ Beispiel für ein Game, das keine surreale Zahl ist. Beide Spieler haben genau
 einen erlaubten Zug, der jeweils zum Nullspiel führt. Als Kurzschreibweise
 definieren wir~$\star := \sur{0}{0}$.
 
-\begin{aufgabe}{Gewinnstrategien bei den vier einfachsten Spielen}
+\begin{aufgabe}{Gewinnstrategien bei den vier einfachsten Spielen (benötigt
+Aufgabe~\ref{aufg0})}
 \label{analyse4}
 Mache dir klar:
 \begin{enumerate}
@@ -567,11 +569,47 @@ einem Kästchenpapier gespielt, sondern auf einem beliebigen \emph{Graphen}:
 \begin{center}
 \includegraphics[scale=0.25]{hackenbush}
 \end{center}
-% Regeln erklären
-% Beispiele zeigen
-% Bewertung von Bäumen
-% Unendliche Spiele
-% Schwarze Kante macht XYZ, weiße Kante ABC?
+Dabei sind gewisse \emph{Knoten} (Pünktchen) mittels schwarzer und weißer
+\emph{Kanten} (gerade oder krumme Linien) verbunden. Die gestrichelte Umrandung
+heißt \emph{Grund}, und jeder Knoten muss über eine Folge (beliebig gefärbter)
+Kanten mit dem Grund verbunden sein. Der linke Spieler darf in
+jedem Zug nach Belieben eine schwarze Kante, der rechte Spieler eine weiße
+Kante hacken und damit aus dem Spiel entfernen. Alle Knoten und Kanten, die
+danach nicht mehr mit dem Grund verbunden sind, werden ebenfalls entfernt.
+Verloren hat, wer keinen Zug mehr tätigen kann.
+\begin{enumerate}
+\item Überzeuge dich von folgenden Bewertungen durch Games:
+\begin{center}
+\includegraphics[scale=0.4]{hackenbush-beispiele-1}
+\end{center}
+\item Welchen Wert haben die folgenden Situationen?
+\begin{center}
+\includegraphics[scale=0.6]{hackenbush-beispiele-2}
+\end{center}
+\item Sei eine Spielsituation von Hackenbush durch ein Game~$G =
+\sur{G^L}{G^R}$ beschrieben.
+Welche Situation beschreibt dann das negierte Game~$-G = \sur{-G^R}{-G^L}$?
+(Benötigt Aufgabe~\ref{game-negation}.)
+\item Auf manchen unendlichen Graphen kann man ebenfalls Hackenbush spielen.
+Welchen Wert hat der Graph, der neben einer Umrandung unten nur aus einem
+linienförmigen Wolkenkratzer mit unendlich vielen Stockwerken, der aus
+unendlich vielen schwarzen Kanten zusammengesetzt ist, besteht? Welchen Wert
+hat die Situation, wenn man eine einzelne direkt mit dem Grund verbundene weiße
+Kante hinzufügt? Diese Aufgabe benötigt Aufgabe~\ref{transfinit}.
+\item Wieso kann man \emph{nicht} auf einem Graphen spielen, der unendlich
+viele nebeneinander platzierte Kopien des Wolkenkratzers aus der vorherigen
+Teilaufgabe enthält?
+\item Es ist keine einfache Regel bekannt, mit der man den Wert eines
+beliebigen Graphen bestimmen könnte. Für Graphen, die sogar \emph{Bäume} sind,
+d.\,h. keine \emph{Schleifen} enthalten, können wir aber eine einfache Regel
+angeben: Kennen wir schon den Wert~$G$ eines Teilstücks~$P$, so ist der Wert
+der zusammengesetzten Situation
+\begin{center}
+\includegraphics[scale=0.3]{hackenbush-beispiele-3}
+\end{center}
+gleich~$1 \boxplus G$ (siehe Aufgabe~\ref{ordinale-addition} für diese
+Rechenoperation). Beweise diesen Sachverhalt!
+\end{enumerate}
 \end{aufgabe}
 
 %\begin{aufgabe}{Meine Mutter verdient mehr als deine (benötigt
