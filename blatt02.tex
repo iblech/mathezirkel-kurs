@@ -6,7 +6,7 @@
 \let\raggedsection\centering
 \newcommand{\fuzzy}{\mathrel{||}}
 
-\setkeys{Gin}{draft}
+%\setkeys{Gin}{draft}
 \begin{document}
 
 \maketitle{Klasse 11./12., Gruppe 2}{21. Dezember 2013 \\ und 18. Januar 2014}
@@ -210,10 +210,13 @@ Wir definieren die surreale Zahl
 $\omega := \sur{0, 1, 2, \ldots}{}$.
 \begin{enumerate}
 \item Überzeuge dich davon, dass~$\omega$ wirklich eine surreale Zahl ist.
-\item Zeige: Für jede natürliche Zahl~$n$ gilt~$n < \omega$.
+\item Zeige: Für jede natürliche Zahl~$n$ gilt~$n < \omega$. In diesem Sinn ist
+die Zahl~$\omega$ unendlich groß!
 \item Berechne $\omega + 1$.
 \item Berechne $\omega - 1$.
-\item Zeige: Für jede natürliche Zahl~$n$ gilt~$n < \omega - 1$.
+\item Zeige: Für jede natürliche Zahl~$n$ gilt~$n < \omega - 1$. Die
+Zahl~$\omega - 1$ ist also eine Zahl, die immer noch größer als alle
+natürlichen Zahlen, aber kleiner als~$\omega$ ist.
 \end{enumerate}
 \end{aufgabe}
 
@@ -264,6 +267,7 @@ das Prinzip aus Aufgabe~\ref{induktionsbeweise})}
 \label{induktionsbeispiele}
 \begin{enumerate}
 \item Beweise für alle surrealen Zahlen~$x$: $x + 0 = x$.
+\item Beweise für alle surrealen Zahlen~$x$: $0 + x = x$.
 \item Beweise für alle surrealen Zahlen~$x$: $x \cdot 0 = 0$.
 \item Beweise für alle surrealen Zahlen~$x$: $x \geq x$.
 \item Beweise für alle surrealen Zahlen~$x$ und~$y$: $x + y = y + x$.
@@ -292,19 +296,30 @@ können wir zeigen, dass~$\Omega > x$ für alle surrealen Zahlen~$x$.
 \label{ordinale-addition}
 In dieser Aufgabe wollen wir eine Rechenoperation
 kennenlernen, die beim Spiel \emph{Hackenbush} eine Rolle spielen wird (siehe
-Aufgabe~\ref{game-hackenbush}). Die \emph{ordinale Summe} der Zahl~$1$ mit
-einer weiteren Zahl~$x$ ist definiert als
+Aufgabe~\ref{game-hackenbush}). Die \emph{ordinale Summe} der surrealen Zahl~$1$ mit
+einer weiteren surrealen Zahl~$x$ ist definiert als
 \[ 1 \boxplus x := \sur{0,\ 1 \boxplus x^L}{1 \boxplus x^R}. \]
 Wie die ordinale Summe von zwei beliebigen Summanden definiert ist,
 diskutieren wir hier nicht.
 \begin{enumerate}
 \item Überzeuge dich von folgenden Rechnungen:
 \[ 1 \boxplus 0 = 0, \quad
-  1 \boxplus 1 = 1, \quad
-  1 \boxplus 2. \]
+  1 \boxplus 1 = 2, \quad
+  1 \boxplus 2 = 3. \]
 \item Was ist~$1 \boxplus (-1)$?
 \item Was ist~$1 \boxplus \tfrac{1}{2}$?
 \item Zeige: Für jede Zahl~$x$ ist~$1 \boxplus x$ positiv (d.\,h. $> 0$).
+\item Man kann beweisen, dass sich für eine surreale Zahl~$x$, die eine gewöhnliche
+reelle Zahl repräsentiert, der Wert der ordinalen Summe~$1 \boxplus x$ wie
+folgt ergibt: Er ist der erste Bruch in der Folge
+\[ \frac{x+1}{1}, \quad
+  \frac{x+2}{2}, \quad
+  \frac{x+3}{4}, \quad
+  \frac{x+4}{8}, \quad
+  \frac{x+5}{16}, \quad \ldots, \]
+dessen Zähler (so, wie er geschrieben steht) größer als oder gleich~$1$ ist. Verwende diese
+Regel, um die Rechnungen aus den ersten drei Teilaufgaben schnell und einfach
+zu wiederholen, und berechne nach Lust und Laune weitere ordinale Summen.
 \end{enumerate}
 \end{aufgabe}
 
@@ -364,10 +379,29 @@ Beispiel für ein Game, das keine surreale Zahl ist. Beide Spieler haben genau
 einen erlaubten Zug, der jeweils zum Nullspiel führt. Als Kurzschreibweise
 definieren wir~$\star := \sur{0}{0}$.
 
+Jede surreale Zahl ist entweder~$> 0$, $= 0$ oder~$< 0$. Bei Games kann es
+vorkommen, dass keine dieser Möglichkeiten eintritt. Wir sagen dann, das Game
+sei \emph{unklar} und schreiben~"`$\fuzzy 0$"'. Allgemein gilt für ein Game~$G$:
+
+\begin{center}\framebox{\begin{minipage}{0.9\textwidth}\vspace{-1.3em}
+\begin{align*}
+  G > 0 &\text{ genau dann, wenn es eine Gewinnstrategie für Links gibt.} \\
+  G < 0 &\text{ genau dann, wenn es eine Gewinnstrategie für Rechts gibt.} \\
+  G = 0 &\text{ genau dann, wenn es eine Gewinnstrategie für den zweiten Spieler gibt.} \\
+  G \fuzzy 0 &\text{ genau dann, wenn es eine Gewinnstrategie für den ersten Spieler gibt.}
+\end{align*}\end{minipage}}\end{center}
+Der Ausdruck \emph{Gewinnstrategie} bedeutet, dass der betreffende Spieler in
+der Lage ist, einen Sieg zu erzwingen -- unabhängig davon, wie sein Gegenüber
+reagiert. Dabei ist nicht ausgeschlossen, dass der betreffende Spieler aus
+Unachtsamkeit einen Fehler macht und daher trotzdem verliert.
+
+\vspace{1em}
+
+
 \begin{aufgabe}{Gewinnstrategien bei den vier einfachsten Spielen (benötigt
 Aufgabe~\ref{aufg0})}
 \label{analyse4}
-Mache dir klar:
+Mache dir ohne Verwendung der Merkregeln im Kasten klar:
 \begin{enumerate}
 \item Im Spiel~$1$ gibt es eine Gewinnstrategie für Links -- unabhängig davon,
 welcher Spieler beginnt.
@@ -378,16 +412,6 @@ wer immer das auch sein mag.
 \item Im Spiel~$0$ gibt es eine Gewinnstrategie für den zweiten Spieler.
 \end{enumerate}
 \end{aufgabe}
-
-Jede surreale Zahl ist entweder~$> 0$, $= 0$ oder~$< 0$. Bei Games kann es
-vorkommen, dass keine dieser Möglichkeiten eintritt. Wir sagen dann, das Game
-sei \emph{unklar} und schreiben~"`$\fuzzy 0$"'. Allgemein gilt für ein Game~$G$:
-\begin{align*}
-  G > 0 &\text{ genau dann, wenn es eine Gewinnstrategie für Links gibt.} \\
-  G < 0 &\text{ genau dann, wenn es eine Gewinnstrategie für Rechts gibt.} \\
-  G = 0 &\text{ genau dann, wenn es eine Gewinnstrategie für den zweiten Spieler gibt.} \\
-  G \fuzzy 0 &\text{ genau dann, wenn es eine Gewinnstrategie für den ersten Spieler gibt.}
-\end{align*}
 
 \begin{aufgabe}{Gewöhnung an unklare Games (benötigt Aufgabe~\ref{analyse4})}
 Beweise rechnerisch, dass~$\star \fuzzy 0$, beweise also, dass weder~$\star
@@ -422,7 +446,7 @@ hat er nach Induktionsvoraussetzung eine Gewinnstrategie. Im zweiten Fall hat
 nach Induktionsvoraussetzung der zweite Spieler eine Gewinnstrategie -- dieser
 ist auch gerade Links. Falls Rechts beginnt, so \ldots}
 \item Führe auf ähnliche Art und Weise Beweise in den drei restlichen Fällen.
-(Der Fall~$G \fuzzy 0$ ist der schwerste.)
+Der Fall~$G \fuzzy 0$ ist der schwerste.
 \end{enumerate}
 \end{aufgabe}
 
@@ -465,7 +489,8 @@ Aufgaben~\ref{game-negation} und~\ref{game-addition})}
 \item Erkläre, wie man als Schachlaie gegen einen von zwei Großmeistern
 gewinnen kann, wenn man mit den beiden Großmeistern gleichzeitig spielen darf.
 \item Beweise, dass für jedes Game~$G$ das Game~$G - G = G + (-G)$ spieltechnisch
-gleich dem Nullspiel ist.
+gleich dem Nullspiel ist, dass also der zweite Spieler eine Gewinnstrategie
+besitzt.
 \end{enumerate}
 \end{aufgabe}
 
@@ -550,10 +575,15 @@ Spieler besitzt eine Gewinnstrategie?
   \end{Young}
 \]
 \vspace{-5em}
+\item Zeichne nach Lust und Laune weitere Spielsituationen und bestimme ihre
+Bewertungen durch Games.
 \item Sind nur noch vier horizontal zusammenhängende Kästchen frei, gewinnt der
 rechte Spieler. Das stimmt auch bei nur noch zwei horizontal zusammenhängenden
 Kästchen, lax gesprochen ist da der Vorsprung aber "`knapper"'. Wie drückt
 sich das in der Bewertung durch Games aus?
+\item Hast du eine Idee, inwieweit der linke Spieler in der Situation aus Teilaufgabe~c) mit
+Bewertung~$\tfrac{1}{2}$ tatsächlich \emph{einen halben Zug Vorsprung}
+gegenüber dem rechten Spieler hat?
 \item Sei eine Spielsituation des Dominospiels durch ein Game~$G =
 \sur{G^L}{G^R}$ beschrieben.
 Welche Situation beschreibt dann das negierte Game~$-G = \sur{-G^R}{-G^L}$?
@@ -564,7 +594,7 @@ Welche Situation beschreibt dann das negierte Game~$-G = \sur{-G^R}{-G^L}$?
 \begin{aufgabe}{Hackenbush (benötigt Aufgabe~\ref{analyse4})}
 \label{game-hackenbush}
 Das Spiel \emph{Hackenbush} wird nicht auf einem regelmäßigen Schachbrett oder
-einem Kästchenpapier gespielt, sondern auf einem beliebigen \emph{Graphen}.
+einem Käst\-chen\-pa\-pier gespielt, sondern auf einem beliebigen \emph{Graphen}.
 Conway gibt etwa folgendes Beispiel:
 \begin{center}
 \includegraphics[scale=0.25]{hackenbush}
@@ -586,10 +616,34 @@ Verloren hat, wer keinen Zug mehr tätigen kann.
 \begin{center}
 \includegraphics[scale=0.6]{hackenbush-beispiele-2}
 \end{center}
+% Bei Nummerierungsänderung auch weiter unten in dieser Aufgabe anpassen.
 \item Sei eine Spielsituation von Hackenbush durch ein Game~$G =
 \sur{G^L}{G^R}$ beschrieben.
 Welche Situation beschreibt dann das negierte Game~$-G = \sur{-G^R}{-G^L}$?
 (Benötigt Aufgabe~\ref{game-negation}.)
+\item Es ist keine einfache Regel bekannt, mit der man den Wert eines
+beliebigen Graphen bestimmen könnte. Für Graphen, die sogar \emph{Bäume} sind,
+d.\,h. keine \emph{Schleifen} enthalten, können wir aber eine einfache Regel
+angeben. Grundlegend dafür ist folgende Beobachtung: Kennen wir schon den
+Wert~$G$ eines Teilstücks~$P$, so ist der Wert
+der zusammengesetzten Situation
+\begin{center}
+\includegraphics[scale=0.3]{hackenbush-beispiele-3}
+\end{center}
+gleich~$1 \boxplus G$ (siehe Aufgabe~\ref{ordinale-addition} für diese
+Rechenoperation). Beweise diesen Sachverhalt!
+\item Wie errechnet sich der Wert, wenn analog zur vorherigen Teilaufgabe
+zu einem Teilstück~$P$ eine \emph{weiße} Kante hinzugefügt ist? \emph{Tipp:}
+Verwende zweimal Teilaufgabe~c).
+\item Verwende die Erkenntnisse aus der vorherigen beiden Teilaufgaben, um von
+mehren Bäumen deiner Wahl das zugehörige Game zu berechnen.
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Hackenbush auf unendlichen Graphen (benötigt
+Aufgabe~\ref{game-hackenbush})}
+\label{game-hackenbush-infinite}
+\begin{enumerate}
 \item Auf manchen unendlichen Graphen kann man ebenfalls Hackenbush spielen.
 Welchen Wert hat der Graph, der neben einer Umrandung unten nur aus einem
 linienförmigen Wolkenkratzer mit unendlich vielen Stockwerken, der aus
@@ -599,16 +653,6 @@ Kante hinzufügt? Diese Aufgabe benötigt Aufgabe~\ref{transfinit}.
 \item Wieso kann man \emph{nicht} auf einem Graphen spielen, der unendlich
 viele nebeneinander platzierte Kopien des Wolkenkratzers aus der vorherigen
 Teilaufgabe enthält?
-\item Es ist keine einfache Regel bekannt, mit der man den Wert eines
-beliebigen Graphen bestimmen könnte. Für Graphen, die sogar \emph{Bäume} sind,
-d.\,h. keine \emph{Schleifen} enthalten, können wir aber eine einfache Regel
-angeben: Kennen wir schon den Wert~$G$ eines Teilstücks~$P$, so ist der Wert
-der zusammengesetzten Situation
-\begin{center}
-\includegraphics[scale=0.3]{hackenbush-beispiele-3}
-\end{center}
-gleich~$1 \boxplus G$ (siehe Aufgabe~\ref{ordinale-addition} für diese
-Rechenoperation). Beweise diesen Sachverhalt!
 \end{enumerate}
 \end{aufgabe}
 
@@ -648,7 +692,10 @@ Die \emph{Nimber-Addition} ist in mengentheoretischer Notation wie folgt rekursi
 Wenn man also den Wert von~$n \oplus m$ herausfinden möchte, muss man zunächst
 die Werte von~$n' \oplus m$ für alle kleineren Zahlen~$n' < n$ und die Werte
 von~$n \oplus m'$ für alle kleineren Zahlen~$m' < m$ bestimmen. Der Wert
-von~$n \oplus m$ ergibt sich dann als Mex dieser Zahlen.
+von~$n \oplus m$ ergibt sich dann als Mex dieser Zahlen. \emph{Achtung,} die
+Schreibweise hier ist verwirrend. Die senkrechten Striche in der Definition
+von~$n \oplus m$ haben nichts mit der Abgrenzung zwischen linker und rechter
+Menge bei surrealen Zahlen zu tun.
 \begin{enumerate}
 \item Ergänze unten stehende Tabelle für die Nim-Addition.
 \item[$\star$ b)] Wenn du die Beweistechnik der Induktion für natürliche Zahlen kennst, kannst
@@ -757,8 +804,8 @@ kann man diese Beobachtung so festhalten: $\star n + \star n = 0.$
 \end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}{Zusammenhang zur Mex-Operation (benötigt Aufgaben~\ref{nimbers}
-und~\ref{mex} und viel Ruhe)}
+\begin{aufgabe}{Zusammenhang zur Mex-Operation (benötigt Aufgaben~\ref{mex}
+und~\ref{nimbers} und viel Ruhe)}
 \label{zusammenhang-mex}
 Sei~$S = \{ s_1,\ldots,s_m \}$ eine endliche Menge natürlicher Zahlen und~$\mex
 S$ ihr Meximum. In dieser Aufgabe wollen wir verstehen, wieso die Beziehung
@@ -772,7 +819,9 @@ Nimber-Addition zu klären.
 Gleichung beschrieben wird. In welche Positionen kann der beginnende Spieler
 ziehen? Beachte, dass sich die Situation aus zwei Teilspielen (dem zum vorderen
 und dem zum hinteren Summanden) zusammensetzt.
-% XXX: Skizze
+\begin{center}
+\includegraphics[scale=0.6]{rechenregel-mex}
+\end{center}
 \item Zeige nun, dass diese Spielsituation äquivalent zum Nullspiel ist, dass
 also der beginnende Spieler verliert. Damit ist dann die Rechenregel bewiesen.
 Vervollständige dazu folgenden Beweisansatz:
@@ -825,10 +874,10 @@ Teilaufgabe~c) von Aufgabe~\ref{zusammenhang-mex}.
 \end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}{Das Sprague–Grundy-Theorems
-(benötigt Aufgabe~\ref{zusammenhang-mex} und~\ref{induktionsbeweise})}
+\begin{aufgabe}{Das Sprague–Grundy-Theorem
+(benötigt Aufgaben~\ref{induktionsbeweise} und~\ref{zusammenhang-mex})}
 \label{sprague-grundy}
-Das Sprague–Grundy-Theorems besagt, dass jede Spielsituation eines
+Das Sprague–Grundy-Theorem besagt, dass jede Spielsituation eines
 \emph{beliebigen} neutralen Spiels (also einem
 kombinatorischen Zwei-Personen-Spiel, bei dem die beiden Spieler dieselben
 Zugmöglichkeiten haben) zu einer Position des Nim-Spiels äquivalent ist. Das
