@@ -86,3 +86,7 @@ grundy (MkGame (Mk xs _)) = mex $ map grundy xs
 box :: Int -> Game
 box n | n < 0 = error "box negative"
 box n = mkImp [box x + box y | x <- [0..n], y <- [x..n], x + y < n]
+
+subtr :: Int -> Int -> Game
+subtr k n | n < 0 = error "subtract negative"
+subtr k n = mkImp [subtr k n' | n' <- [n-k..n-1], n' >= 0]
