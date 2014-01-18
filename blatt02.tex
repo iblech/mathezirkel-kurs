@@ -9,7 +9,7 @@
 \setkeys{Gin}{draft}
 \begin{document}
 
-\maketitle{Klasse 11./12., Gruppe 2}{21. Dezember 2013}
+\maketitle{Klasse 11./12., Gruppe 2}{21. Dezember 2013 \\ und 18. Januar 2014}
 
 \begin{block}{Konventionen}
 \begin{itemize}
@@ -309,7 +309,6 @@ diskutieren wir hier nicht.
 \end{aufgabe}
 
 
-\newpage
 \head{Kombinatorische Spiele}
 
 \begin{center}\includegraphics[scale=0.2]{einfache-spiele}\end{center}
@@ -553,8 +552,8 @@ Spieler besitzt eine Gewinnstrategie?
 \vspace{-5em}
 \item Sind nur noch vier horizontal zusammenhängende Kästchen frei, gewinnt der
 rechte Spieler. Das stimmt auch bei nur noch zwei horizontal zusammenhängenden
-Kästchen, lax gesprochen ist es der Vorsprung da aber "`knapper"'. Wie schlägt
-sich das in der Bewertung durch Games nieder?
+Kästchen, lax gesprochen ist da der Vorsprung aber "`knapper"'. Wie drückt
+sich das in der Bewertung durch Games aus?
 \item Sei eine Spielsituation des Dominospiels durch ein Game~$G =
 \sur{G^L}{G^R}$ beschrieben.
 Welche Situation beschreibt dann das negierte Game~$-G = \sur{-G^R}{-G^L}$?
@@ -565,7 +564,8 @@ Welche Situation beschreibt dann das negierte Game~$-G = \sur{-G^R}{-G^L}$?
 \begin{aufgabe}{Hackenbush (benötigt Aufgabe~\ref{analyse4})}
 \label{game-hackenbush}
 Das Spiel \emph{Hackenbush} wird nicht auf einem regelmäßigen Schachbrett oder
-einem Kästchenpapier gespielt, sondern auf einem beliebigen \emph{Graphen}:
+einem Kästchenpapier gespielt, sondern auf einem beliebigen \emph{Graphen}.
+Conway gibt etwa folgendes Beispiel:
 \begin{center}
 \includegraphics[scale=0.25]{hackenbush}
 \end{center}
@@ -623,8 +623,6 @@ Rechenoperation). Beweise diesen Sachverhalt!
 %Mache dir klar, dass dieses Spiel durch
 %\end{aufgabe}
 
-Weitere Aufgaben werden folgen.
-
 
 \head{Nimbers}
 
@@ -654,7 +652,7 @@ von~$n \oplus m$ ergibt sich dann als Mex dieser Zahlen.
 \begin{enumerate}
 \item Ergänze unten stehende Tabelle für die Nim-Addition.
 \item[$\star$ b)] Wenn du die Beweistechnik der Induktion für natürliche Zahlen kennst, kannst
-du dich beweisen, dass für alle~$n \in \NN$ gilt: $0 \oplus n = n$.
+du beweisen, dass für alle~$n \in \NN$ gilt: $0 \oplus n = n$.
 % n \oplus n &= 0
 \end{enumerate}
 \begin{center}
@@ -704,7 +702,9 @@ Bei Nim spielt man mit mehreren Haufen von gleichartigen Spielsteinen. Die
 erlaubten Züge sind für beide Spieler dieselben: Wenn man an der Reihe ist,
 darf man sich nach Belieben einen der Haufen aussuchen und muss dann in diesem eine
 beliebige Anzahl von Spielsteinen, mindestens jedoch einen, entfernen. Verloren
-hat, wer keinen Zug mehr tätigen kann.
+hat, wer keinen Zug mehr tätigen kann. Spiele, bei denen beide Spieler stets
+dieselben Zugmöglichkeiten haben, heißen auch \emph{neutrale Spiele} (engl.
+\emph{impartial games}).
 \begin{enumerate}
 \item Überzeuge dich davon, dass der Fall nur eines Haufens, der auch nur aus
 einem Spielstein besteht, durch das Game~$\star = \sur{0}{0}$ beschrieben wird.
@@ -718,6 +718,11 @@ Zugmöglichkeiten haben?
 andere durch ein Game~$H$ beschrieben wird. Wodurch wird dann die
 zusammengesetzte Spielsituation beschrieben?
 \end{enumerate}
+Das Nim-Spiel ist für die Theorie sehr wichtig. Es ist nämlich nicht nur das
+Paradebeispiel für ein neutrales Spiel, sondern gewissermaßen das
+\emph{universelle} neutrale Spiel: Jede Spielsituation eines \emph{jeden}
+neutralen Spiels ist äquivalent zu einer Position des Nim-Spiels. Diese
+tiefgehende Beobachtung wollen wir in Aufgabe~\ref{sprague-grundy} verstehen.
 \end{aufgabe}
 
 \begin{aufgabe}{Nimbers (benötigt Aufgabe~\ref{nim})}
@@ -799,6 +804,8 @@ Hut. In dieser Aufgabe klären wir den Zusammenhang zwischen der Nimber-Addition
 und der gewöhnlichen Addition von Games. Und zwar gilt für alle natürlichen
 Zahlen~$n$ und~$m$:
 \[ \star n + \star m = \star(n \oplus m). \]
+Da die Nimber-Addition viel schneller zu berechnen ist als die Addition von
+Games, ist diese Rechenregel sehr nützlich.
 \begin{enumerate}
 \item Berechne als Beispiel~$\star 0 + \star 0$ und vergleiche das Ergebnis
 mit~$\star (0 \oplus 0)$.
@@ -818,10 +825,35 @@ Teilaufgabe~c) von Aufgabe~\ref{zusammenhang-mex}.
 \end{enumerate}
 \end{aufgabe}
 
-% XXX: Gewinnstrategie für Nim diskutieren.
+\begin{aufgabe}{Das Sprague–Grundy-Theorems
+(benötigt Aufgabe~\ref{zusammenhang-mex} und~\ref{induktionsbeweise})}
+\label{sprague-grundy}
+Das Sprague–Grundy-Theorems besagt, dass jede Spielsituation eines
+\emph{beliebigen} neutralen Spiels (also einem
+kombinatorischen Zwei-Personen-Spiel, bei dem die beiden Spieler dieselben
+Zugmöglichkeiten haben) zu einer Position des Nim-Spiels äquivalent ist. Das
+wollen wir in in dieser Aufgabe beweisen.
+\begin{enumerate}
+\item Sei~$G$ ein Game zu einer beliebigen Spielsituation eines neutralen
+Spiels. Was wissen wir dann über das Verhältnis von linker zu rechter Menge
+von~$G$?
+\item Wir wollen die Behauptung per Induktion beweisen. Daher dürfen wir
+voraussetzen, dass wir sie für alle Games aus der linken und rechten Menge
+von~$G$ bereits bewiesen haben; diese Games sind also jeweils äquivalent zu
+einer Nimber, also einem Game der Form~$\star n$. Wie kann man jetzt unter
+Verwendung des Resultats aus Aufgabe~\ref{zusammenhang-mex} weiter argumentieren?
+Nimm der Einfachheit halber an, dass linke und rechte Menge von~$G$ aus nur
+endlich vielen Games bestehen.
+\item Herzlichen Glückwunsch: Du hast soeben ein tiefgehendes mathematisches
+Theorem bewiesen. Vor dir haben das Roland Sprague und Patrick Grundy in den
+Jahren~1935 bzw.~1939 (unabhängig voneinander) gemacht.
+\end{enumerate}
+\end{aufgabe}
 
-Weitere Aufgaben werden folgen. Insbesondere werden wir den Zusammenhang zu
-surrealen Zahlen klären und unendliche Spiele behandeln.
+\emph{Weitere Aufgaben werden folgen, insbesondere zu
+unendlichen Spielen und zum einfacheren Rechnen mit surrealen Zahlen. Außerdem
+werden wir verschiedene andere Formen des Nim-Spiels kennenlernen und
+verstehen, wie man mit unserer Theorie eine Gewinnstrategie ableiten kann.}
 
 %\begin{aufgabe}{Falsche binomische Formel}
 %\ldots wäre schön, benötigt aber Multiplikation; hat daher hohen technischen
@@ -836,7 +868,6 @@ Ist die zweite Induktionsaufgabe einfach lösbar?
 
 Weitere Beispiele mit Bewertungen von Spielen
 insbesondere: Nim-Spiele
-Zusammenhang zu Nimbers
 unendliche Spiele
 
 Induktionsproblematik...
@@ -853,3 +884,5 @@ Benötige Bruchzahlen, um über epsilon reden zu können.
 \varepsilon &:= \sur{}{\tfrac{1}{1},\tfrac{1}{2},\tfrac{1}{4},\tfrac{1}{8},\ldots}.
 
 TeilAUFGABE von AUFGABE
+
+XXX: Gewinnstrategie für Nim diskutieren.
