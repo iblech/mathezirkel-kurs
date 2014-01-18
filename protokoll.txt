@@ -49,3 +49,21 @@
   für allgemeine Formeln, um aus einer Präsentation der Form { a | b } sofort
   den Zahlenwert abzulesen. Anfangs gab es Verwirrungen, was "leere Menge + y"
   bedeutet. Der Stammbaum kam gut an.
+
+
+===== Dritten Treffen vom 18.1.2014
+
+* Zu Beginn Wiederholung: Stammbaum der surrealen Zahlen.
+
+* Zwei Theorie-Inputs gegeben: Wie man einen surrealen Induktionsbeweis führt
+  (am Beispiel von x + 0 = x) und wie man Spiele bewertet. Letzteres einfach
+  anhand des Domino-Spiels vorgeführt.
+
+* Dann wie beim letzten Mal Lerntheke.
+
+
+-- Kritik
+
+* Die Leute waren eigentlich interessiert dabei. Aber es gab keine hitzigen
+  Diskussionen o.Ä. Vielleicht sollten die Aufgaben also spannender sein. Man
+  könnte auch überlegen, Bastelein und Co. einzubringen.

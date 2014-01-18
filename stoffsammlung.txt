@@ -53,3 +53,13 @@ Newton-Verfahren
 
 Große Zahlen nennen!
 http://www.scottaaronson.com/writings/bignumbers.html
+
+
+--- explizit genannt (beim dritten Treffen)
+
+* Subtraktionsspiel
+* Nim mit Streichhölzern, wo man in der Mitte Hölzer entfernen und so neue
+  Stapel bilden kann
+* Tipp für Wilsons Theorem geben
+* Mersenne-Primzahlen: Wieso haben die eine recht hohe Trefferquote?
+* Komplexe Zahlen
