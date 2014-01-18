@@ -40,6 +40,15 @@ instance Num Game where
 
     negate x = MkGame $ Mk [-xR | xR <- right x] [-xL | xL <- left x]
 
+    (*)    = error "*"
+    abs    = error "abs"
+    signum = error "signum"
+
+    fromInteger n
+        | n == 0 = zero
+        | n >  0 = one + fromInteger (n - 1)
+        | n <  0 = negate $ fromInteger $ negate n
+
 zero = MkGame $ Mk [] []
 one  = MkGame $ Mk [zero] []
 two  = strip $ one + one
@@ -63,10 +72,17 @@ ordinalAddOne x = MkGame $ Mk (zero : map ordinalAddOne (left x)) (map ordinalAd
 
 nim :: Int -> Game
 nim n | n < 0 = error "nim negative"
-nim n = MkGame $ Mk xs xs where xs = [nim n' | n' <- [0..n-1]]
+nim n = mkImp [nim n' | n' <- [0..n-1]]
 
 mex :: [Int] -> Int
 mex xs = head $ filter (`notElem` xs) [0..]
 
-imp :: [Game] -> Game
-imp xs = MkGame $ Mk xs xs
+mkImp :: [Game] -> Game
+mkImp xs = MkGame $ Mk xs xs
+
+grundy :: Game -> Int
+grundy (MkGame (Mk xs _)) = mex $ map grundy xs
+
+box :: Int -> Game
+box n | n < 0 = error "box negative"
+box n = mkImp [box x + box y | x <- [0..n], y <- [x..n], x + y < n]
