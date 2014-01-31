@@ -737,7 +737,8 @@ einen nachgestellten Index deutlich.
 \item Überlege dir, wie man im Binärsystem schriftlich addieren kann, und
 rechne einige Beispiele.
 \item Die Nimber-Addition funktioniert nun genau wie die schriftliche
-Binäraddition, nur dass man \emph{alle Überträge ignoriert}. Rechne mit dieser
+Binäraddition, nur dass man \emph{alle Überträge ignoriert}. Diese Operation
+nennt man auch \emph{bitweises exklusive oder}. Rechne mit dieser
 Einsicht so viele Einträge der Tabelle aus Aufgabe~\ref{nimber-addition} nach,
 wie du magst.
 \end{enumerate}
@@ -787,7 +788,7 @@ heißen \emph{Nimbers}.
   \star 2 = \sur{0,\star}{0,\star}. \]
 \item Sei beim Nim-Spiel nur ein Haufen gegeben, wobei dieser aus~$n$
 Spielsteinen bestehe. Durch welches Game wird diese Spielsituation beschrieben?
-Kannst du deine Vermutung beweisen?
+Kannst du deine Vermutung (durch Induktion) beweisen?
 % Falls sich die Nummerierung der folgenden Teilaufgabe ändert,
 % auch bei zusammenhang-mex anpassen.
 \item Begründe, dass für alle natürlichen Zahlen~$n$ die Rechenregel
@@ -848,6 +849,7 @@ S). \]
 
 \begin{aufgabe}{Zusammenhang zur Nimber-Addition (benötigt
 Aufgabe~\ref{nimber-addition})}
+\label{nimber-addition-surreal}
 Die Nimber-Addition aus Aufgabe~\ref{nimber-addition} hatte mit Games nichts am
 Hut. In dieser Aufgabe klären wir den Zusammenhang zwischen der Nimber-Addition
 und der gewöhnlichen Addition von Games. Und zwar gilt für alle natürlichen
@@ -874,10 +876,10 @@ Teilaufgabe~c) von Aufgabe~\ref{zusammenhang-mex}.
 \end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}{Das Sprague–Grundy-Theorem
+\begin{aufgabe}{Das Sprague--Grundy-Theorem
 (benötigt Aufgaben~\ref{induktionsbeweise} und~\ref{zusammenhang-mex})}
 \label{sprague-grundy}
-Das Sprague–Grundy-Theorem besagt, dass jede Spielsituation eines
+Das Sprague--Grundy-Theorem besagt, dass jede Spielsituation eines
 \emph{beliebigen} neutralen Spiels (also einem
 kombinatorischen Zwei-Personen-Spiel, bei dem die beiden Spieler dieselben
 Zugmöglichkeiten haben) zu einer Position des Nim-Spiels äquivalent ist. Das
@@ -899,10 +901,134 @@ Jahren~1935 bzw.~1939 (unabhängig voneinander) gemacht.
 \end{enumerate}
 \end{aufgabe}
 
-\emph{Weitere Aufgaben werden folgen, insbesondere zu
-unendlichen Spielen und zum einfacheren Rechnen mit surrealen Zahlen. Außerdem
-werden wir verschiedene andere Formen des Nim-Spiels kennenlernen und
-verstehen, wie man mit unserer Theorie eine Gewinnstrategie ableiten kann.}
+
+\head{Optimales Vorgehen}
+
+\begin{aufgabe}{Optimales Vorgehen bei Nim
+(benötigt Aufgaben~\ref{nim} und~\ref{nimber-addition-surreal})}
+\label{nim-optimal}
+Wir haben gesehen, dass das Game, das die Situation von Haufen der
+Größen~$x_1,\ldots,x_n$ im Nim-Spiel beschreibt, durch~$\star z$ gegeben ist,
+wobei
+\[ z = x_1 \oplus \cdots \oplus x_n. \]
+In dieser Aufgabe wollen wir verstehen, wie man Nim optimal
+spielt.
+\begin{enumerate}
+\item Zeige rechnerisch: Verkleinert man den~$i$-ten Haufen so, dass er
+danach~$x_i'$ Spielsteine umfasst, so hat die Spielsituation danach,
+\[ \star z' = \star(x_1 \oplus \cdots \oplus x_{i-1} \oplus x_i' \oplus x_{i+1} \oplus
+x_n) \]
+den Wert
+\[ \star(z \oplus x_i \oplus x_i'). \]
+\emph{Tipp:} Füge künstlich eine Null in der Form~$x_i \oplus x_i'$ ein.
+\item Wenn~$z$ nicht Null ist, so gibt es einen Stapel~$i$, sodass~$z \oplus
+x_i$ (als natürliche Zahl) kleiner als~$x_i$ ist. (Das kann man sich etwa über
+Binärdarstellungen klarmachen.) Zeige: Wenn man diesen Haufen auf~$x_i' :=
+z \oplus x_i$ Steine verkleinert, so gilt für die neue Spielsituation: $z' =
+0$.
+\item Erkläre mit diesen Ergebnissen, wie man Nim optimal spielt.
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Optimales Vorgehen bei Northcotts Spiel
+(benötigt Aufgabe~\ref{nim-optimal})}
+Northcotts Spiel wird auf einem gewöhnlichen Damebrett gespielt, in dem in
+jeder Reihe genau ein schwarzer und genau ein weißer Spielstein liegt.
+Der linke Spieler darf in jedem Zug einen schwarzen Spielstein beliebig
+innerhalb seiner Reihe bewegen, solange er dabei nicht den weißen Spielstein
+derselben Reihe überspringt. Analog darf der rechte Spieler in jedem Zug einen
+weißen Spielstein bewegen. Verloren hat, wer keinen Zug mehr tätigen kann.
+
+Finde heraus, wie man Northcotts Spiel optimal spielt! Was hat es mit Nim zu tun?
+
+\begin{center}
+\includegraphics[scale=0.4]{northcott}
+\end{center}
+\end{aufgabe}
+
+\begin{aufgabe}{Optimales Vorgehen bei Rim
+(benötigt Aufgabe~\ref{nim-optimal})}
+Rim spielt man mit Pünktchen auf Papier, die vor dem eigentlichen Beginn des
+Spiels beliebig platziert werden können. Wenn ein Spieler am Zug ist, muss er
+eine geschlossene Linie zeichnen, auf der mindestens ein Pünktchen liegt und
+die keine bereits vorhandene Linie kreuzt oder berührt. Verloren hat, wer
+keinen Zug mehr tätigen kann.
+
+Finde heraus, wie man bei Rim optimal spielt! Was hat Rim mit Nim zu tun?
+
+\begin{center}
+\includegraphics[scale=0.3]{rim}
+\end{center}
+\end{aufgabe}
+
+\begin{aufgabe}{Optimales Vorgehen beim Subtraktionsspiel
+(benötigt Aufgabe~\ref{nim-optimal})}
+\label{subtraktionsspiel-optimal}
+Genau wie Nim wird das Subtraktionsspiel mit mehreren Haufen gleichartiger
+Spielsteine gespielt. Anders als bei Nim darf ein Spieler in jedem Zug aber
+nicht beliebig viele, sondern höchstens drei Steine eines Haufens
+entfernen. Verloren hat, wer keinen Zug mehr tätigen kann.
+Wir schreiben~$S(n)$ für das Game, das die Situation eines Haufens mit~$n$
+Steinen beschreibt.
+\begin{enumerate}
+\item Mache dir klar:
+\[ S(0) = \star0, \quad S(1) = \star1, \quad S(2) = \star2, \quad
+  S(3) = \star3. \]
+\item Was ist~$S(4)$?
+\item Gib eine Vermutung für alle weiteren Games~$S(n)$ ab.
+\item Wie spielt man beim Subtraktionsspiel (mit beliebig vielen Haufen)
+optimal?
+\item Was ändert sich, wenn die Obergrenze an entfernbaren Steinen nicht Drei,
+sondern eine andere natürliche Zahl~$k$ ist?
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Optimales Vorgehen beim Hunderterspiel
+(benötigt Aufgabe~\ref{subtraktionsspiel-optimal})}
+Beim Hunderterspiel beginnen die beiden Spieler mit der Gesamtsumme Null. Dann
+dürfen die Spieler abwechselnd eine Zahl zwischen Eins und Zehn auf die Summe
+addieren. Wer die Summe auf Hundert bringen kann, gewinnt.
+
+Wie spielt man das Hunderterspiel optimal? Was hat es mit dem Subtraktionsspiel
+zu tun?
+\end{aufgabe}
+
+\begin{aufgabe}{Optimales Vorgehen bei einer Nim-Variante
+(benötigt Aufgabe~\ref{nim-optimal})}
+In einer Variante von Nim darf man sich in jedem Zug einen Haufen aussuchen, in
+ihm mindestens einen Stein entfernen und dann die restlichen Steine des Haufens
+nach Belieben auf zwei neue Haufen aufteilen. Die dabei neu entstehenden Haufen
+dürfen auch gar keine Steine enthalten. Wir schreiben~$S(n)$ für das Game, das
+die Situation eines Haufens mit~$n$ Steinen beschreibt.
+\begin{enumerate}
+\item Mache dir klar:
+\[ S(0) = \star0, \quad S(1) = \star1. \]
+\item Erkläre folgende rekursive Formel für~$S(n)$:
+\[ S(n) = \sur{M}{M}, \quad \text{wobei $M := \{ S(i) + S(j) \,|\, 0\leq i,j,\
+i+j < n \}$}. \]
+Dabei trennt der erste vertikale Striche linke von rechter Menge ab, während
+der Strich in der Definition von~$M$ eine ganz andere Bedeutung hat: Die
+Menge~$M$ besteht aus allen Games der Form~$S(i) + S(j)$, wobei~$i$ und~$j$
+natürliche Zahlen sind, deren Summe echt kleiner als~$n$ ist.
+\item Beweise durch Induktion über $n \in \NN$, dass~$S(n) = \star n$. Du
+kannst dich dabei folgender Vorlage bedienen:
+
+\emph{Induktionsanfang~$n = 0$. Es gilt~$S(0) = \star 0$, denn \ldots.}
+
+\emph{Induktionsschritt~$\leq n \to n$. Wir dürfen annehmen, dass für alle
+natürlichen Zahlen~$m < n$ gilt, dass~$S(m) = \star m$. Nun müssen wir zeigen,
+dass~$S(n) = \star n$. \ldots}
+
+\emph{Tipp:} Verwende die Rechenregel für die Addition von Nimbers
+(Aufgabe~\ref{nimber-addition-surreal}), die Formel aus
+Aufgabe~\ref{zusammenhang-mex} und folgende Beobachtung: Für alle natürliche
+Zahlen gilt $a \oplus b \leq a + b$ -- dabei bezeichnet~"`$\oplus$"' die
+Nimber-Addition und~"`$+$"' die gewöhnliche Addition.
+Aufgabe~\ref{nimber-addition-binaer} hilft, um zu verstehen, wieso diese
+Ungleichung stimmt.
+\item Wie spielt man also bei dieser Variante von Nim optimal?
+\end{enumerate}
+\end{aufgabe}
 
 %\begin{aufgabe}{Falsche binomische Formel}
 %\ldots wäre schön, benötigt aber Multiplikation; hat daher hohen technischen
@@ -946,3 +1072,8 @@ Mittels einer leichten Induktion sieht man, dass box n = nim n.
 Kuriose Eigenschaften des Nimbers-Körper
 
 Aufgabe: Implementiere in Haskell.
+
+\emph{Weitere Aufgaben werden folgen, insbesondere zu
+unendlichen Spielen und zum einfacheren Rechnen mit surrealen Zahlen. Außerdem
+werden wir verschiedene andere Formen des Nim-Spiels kennenlernen und
+verstehen, wie man mit unserer Theorie eine Gewinnstrategie ableiten kann.}
