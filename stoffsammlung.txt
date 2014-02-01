@@ -63,3 +63,10 @@ http://www.scottaaronson.com/writings/bignumbers.html
 * Tipp für Wilsons Theorem geben
 * Mersenne-Primzahlen: Wieso haben die eine recht hohe Trefferquote?
 * Komplexe Zahlen
+
+
+--- neue Ideen (von mir)
+
+* komplexe Zahlen, etwas Funktionentheorie (Residuensatz)
+* ein oder zwei Treffen über Fraktale
+* p-adische Zahlen (Grundrechenarten, Grenzwerte, Nutzen??)
