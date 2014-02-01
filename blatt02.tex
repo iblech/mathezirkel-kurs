@@ -9,7 +9,8 @@
 %\setkeys{Gin}{draft}
 \begin{document}
 
-\maketitle{Klasse 11./12., Gruppe 2}{21. Dezember 2013 \\ und 18. Januar 2014}
+\maketitle{Klasse 11./12., Gruppe 2}{21. Dezember 2013, \\ 18. Januar 2014 und
+1. Februar 2014}
 
 \begin{block}{Konventionen}
 \begin{itemize}
@@ -954,7 +955,7 @@ spielt.
 \item Zeige rechnerisch: Verkleinert man den~$i$-ten Haufen so, dass er
 danach~$x_i'$ Spielsteine umfasst, so hat die Spielsituation danach, also
 \[ \star z' = \star(x_1 \oplus \cdots \oplus x_{i-1} \oplus x_i' \oplus x_{i+1} \oplus
-x_n), \]
+\cdots \oplus x_n), \]
 den Wert
 \[ \star(z \oplus x_i \oplus x_i'). \]
 \emph{Tipp:} Füge künstlich eine Null in der Form~$x_i \oplus x_i'$ ein.
@@ -969,17 +970,24 @@ z \oplus x_i$ Steine verkleinert, so gilt für die neue Spielsituation: $z' =
 
 \begin{aufgabe}{Optimales Vorgehen bei Northcotts Spiel
 (benötigt Aufgabe~\ref{nim-optimal})}
-Northcotts Spiel wird auf einem gewöhnlichen Damebrett gespielt, in dem in
-jeder Reihe genau ein schwarzer und genau ein weißer Spielstein liegt.
+Northcotts Spiel wird auf einem Dame- oder Schachbrett gespielt, in dem in
+jeder horizontalen Reihe genau ein schwarzer und genau ein weißer Spielstein liegt.
 Der linke Spieler darf in jedem Zug einen schwarzen Spielstein beliebig
 innerhalb seiner Reihe bewegen, solange er dabei nicht den weißen Spielstein
 derselben Reihe überspringt. Analog darf der rechte Spieler in jedem Zug einen
 weißen Spielstein bewegen. Verloren hat, wer keinen Zug mehr tätigen kann.
 
-Finde heraus, wie man Northcotts Spiel optimal spielt! Was hat es mit Nim zu tun?
+\begin{enumerate}
+\item Spiele einige Runden, um ein Gefühl für das Spiel zu entwickeln.
+\item Finde heraus, wie man Northcotts Spiel optimal spielt! Was hat es mit Nim zu tun?
+\item Welcher Spieler besitzt bei der abgebildeten Spielsituation eine
+Gewinnstrategie?
+\item Auf \url{http://www.cut-the-knot.org/recurrence/Northcott.shtml} kann man
+gegen einen Computerspieler antreten.
+\end{enumerate}
 
 \begin{center}
-\includegraphics[scale=0.4]{northcott}
+\includegraphics[scale=0.5]{northcott}
 \end{center}
 \end{aufgabe}
 
@@ -991,7 +999,14 @@ eine geschlossene Linie zeichnen, auf der mindestens ein Pünktchen liegt und
 die keine bereits vorhandene Linie kreuzt oder berührt. Verloren hat, wer
 keinen Zug mehr tätigen kann.
 
-Finde heraus, wie man bei Rim optimal spielt! Was hat Rim mit Nim zu tun?
+\begin{enumerate}
+\item Spiele Rim einige Male, um ein Gefühl für das Spiel zu entwickeln.
+\item Finde heraus, wie man bei Rim optimal spielt! Was hat Rim mit Nim zu tun?
+\item Welcher Spieler besitzt bei der abgebildeten Spielsituation eine
+Gewinnstrategie?
+\item Was ändert sich, wenn man Rim nicht auf einem ebenen Papier, sondern auf
+einer Kugeloberfläche spielt?
+\end{enumerate}
 
 \begin{center}
 \includegraphics[scale=0.3]{rim}
@@ -1043,7 +1058,7 @@ die Situation eines Haufens mit~$n$ Steinen beschreibt.
 \item Erkläre folgende rekursive Formel für~$S(n)$:
 \[ S(n) = \sur{M}{M}, \quad \text{wobei $M := \{ S(i) + S(j) \,|\, 0\leq i,j,\
 i+j < n \}$}. \]
-Dabei trennt der erste vertikale Striche linke von rechter Menge ab, während
+Dabei trennt der erste vertikale Strich linke von rechter Menge ab, während
 der Strich in der Definition von~$M$ eine ganz andere Bedeutung hat: Die
 Menge~$M$ besteht aus allen Games der Form~$S(i) + S(j)$, wobei~$i$ und~$j$
 natürliche Zahlen sind, deren Summe echt kleiner als~$n$ ist.
