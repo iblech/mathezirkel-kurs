@@ -70,3 +70,10 @@ http://www.scottaaronson.com/writings/bignumbers.html
 * komplexe Zahlen, etwas Funktionentheorie (Residuensatz)
 * ein oder zwei Treffen über Fraktale
 * p-adische Zahlen (Grundrechenarten, Grenzwerte, Nutzen??)
+
+
+--- explizit genannt (beim vierten Treffen)
+
+* Verschlüsselung, zum Beispiel RSA-Verfahren, Schlüsselaustausch...
+* Programmieren
+  - vielleicht nächstes Mal Programmiersprachenvergleich als Handout austeilen

@@ -51,7 +51,7 @@
   bedeutet. Der Stammbaum kam gut an.
 
 
-===== Dritten Treffen vom 18.1.2014
+===== Drittes Treffen vom 18.1.2014
 
 * Zu Beginn Wiederholung: Stammbaum der surrealen Zahlen.
 
@@ -67,3 +67,30 @@
 * Die Leute waren eigentlich interessiert dabei. Aber es gab keine hitzigen
   Diskussionen o.Ä. Vielleicht sollten die Aufgaben also spannender sein. Man
   könnte auch überlegen, Basteleien und Co. einzubringen.
+
+
+=== Viertes Treffen vom 1.2.2014
+
+* Erklärung (mehr oder weniger als Monolog), was Zugvorteile wie zum Beispiel
+  1/2 bedeuten, durch Hackenbush-Beispiele. Außerdem Hackenbush mit Bewertung
+  omega und omega-3 vorgeführt.
+
+* Die, die Nim schon konnten, gegen die Unerfahrenen antreten lassen.
+  Danach erklärt, wie man die Situationen mit der Nimber-Addition bewertet.
+  Binärsystem kannten alle schon.
+
+* Aufgabe ausgeteilt: Nim-Strategie rechnerisch überlegen.
+  Danach gemeinsam besprochen. Außerdem gemeinsam geklärt, wieso es einen
+  Stapel mit z + x_i < x_i geben muss.
+
+* Danach Northcott und Rim ausgeteilt (zwei Parteien Northcott, eine Rim).
+  Spielen und Rätseln lassen. Die Rim-Partei war recht schnell fertig und hat
+  dann auch noch Northcott gemacht.
+
+* Zwischenzeitlich Plausch über Programmiersprachen.
+
+
+-- Kritik
+
+* Das Spielen und Rätseln lief super. Mit kleiner Hilfestellung ("achtet
+  auf den Unterschied") kamen alle auf die Äquivalenz von Northcott und Rim.
