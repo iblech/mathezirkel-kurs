@@ -77,3 +77,4 @@ http://www.scottaaronson.com/writings/bignumbers.html
 * Verschlüsselung, zum Beispiel RSA-Verfahren, Schlüsselaustausch...
 * Programmieren
   - vielleicht nächstes Mal Programmiersprachenvergleich als Handout austeilen
+  - Flops für Schachprogramme nachschlagen
