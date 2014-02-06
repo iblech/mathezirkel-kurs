@@ -101,6 +101,13 @@ strip (MkGame (Mk l r)) = MkGame $ Mk l' r'
 ordinalAddOne :: Game -> Game
 ordinalAddOne x = MkGame $ Mk (zero : map ordinalAddOne (left x)) (map ordinalAddOne (right x))
 
+-- Berechnet beliebige "ordinale Summen" (allgemeine Definition in ONAG,
+-- Seite 192f.).
+ordinalSum :: Game -> Game -> Game
+ordinalSum x y = MkGame $ Mk
+    ( left  x ++ [ x `ordinalSum` yL | yL <- left  y ] )
+    ( right x ++ [ x `ordinalSum` yR | yR <- right y ] )
+
 
 ---- Anwendung von Games zur Analyse kombinatorischer Spiele.
 
