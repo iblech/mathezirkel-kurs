@@ -146,6 +146,18 @@ subtr k n | n < 0 = error "subtract negative"
 subtr k n = mkImp [subtr k n' | n' <- [n-k..n-1], n' >= 0]
 
 
+-- Berechnet das Game, das die Situation eines Haufens der Größe n
+-- in dem Spiel PRIM beschreibt.
+prim :: Int -> Game
+prim n | n < 0 = error "prim negative"
+prim n = mkImp [prim (n-m) | m <- [1..n], gcd n m == 1, not (n == 1 && m == 1)]
+
+-- Variante von PRIM, bei der 1 als teilerfremd zu 1 zählt.
+prim' :: Int -> Game
+prim' n | n < 0 = error "prim' negative"
+prim' n = mkImp [prim' (n-m) | m <- [1..n], gcd n m == 1]
+
+
 ---- Hauptprogramm.
 
 main = do
