@@ -933,10 +933,10 @@ einer Nimber, also einem Game der Form~$\star n$. Wie kann man jetzt unter
 Verwendung des Resultats aus Aufgabe~\ref{zusammenhang-mex} weiter argumentieren?
 Nimm der Einfachheit halber an, dass linke und rechte Menge von~$G$ aus nur
 endlich vielen Games bestehen.
-\item Herzlichen Glückwunsch: Du hast soeben ein tiefgehendes mathematisches
+\end{enumerate}
+Herzlichen Glückwunsch: Du hast soeben ein tiefgehendes mathematisches
 Theorem bewiesen. Vor dir haben das Roland Sprague und Patrick Grundy in den
 Jahren~1935 bzw.~1939 (unabhängig voneinander) gemacht.
-\end{enumerate}
 \end{aufgabe}
 
 
@@ -957,8 +957,8 @@ danach~$x_i'$ Spielsteine umfasst, so hat die Spielsituation danach, also
 \[ \star z' = \star(x_1 \oplus \cdots \oplus x_{i-1} \oplus x_i' \oplus x_{i+1} \oplus
 \cdots \oplus x_n), \]
 den Wert
-\[ \star(z \oplus x_i \oplus x_i). \]
-\emph{Tipp:} Füge künstlich eine Null in der Form~$x_i \oplus x_i'$ ein.
+\[ \star(z \oplus x_i \oplus x_i'). \]
+\emph{Tipp:} Füge künstlich eine Null in der Form~$x_i \oplus x_i$ ein.
 \item Wenn~$z$ nicht Null ist, so gibt es einen Stapel~$i$, sodass~$z \oplus
 x_i$ (als natürliche Zahl) kleiner als~$x_i$ ist. (Das kann man sich etwa über
 Binärdarstellungen klarmachen.) Zeige: Wenn man diesen Haufen auf~$x_i' :=
@@ -1057,8 +1057,8 @@ die Situation eines Haufens mit~$n$ Steinen beschreibt.
 \item Mache dir klar:
 \[ S(0) = \star0, \quad S(1) = \star1. \]
 \item Erkläre folgende rekursive Formel für~$S(n)$:
-\[ S(n) = \sur{M}{M}, \quad \text{wobei $M := \{ S(i) + S(j) \,|\, 0\leq i,j,\
-i+j < n \}$}. \]
+\[ S(n) = \sur{M}{M}, \quad \text{wobei $M := \{ S(i) + S(j) \,|\, \text{$i,j
+\geq 0$ und $i+j < n$} \}$}. \]
 Dabei trennt der erste vertikale Strich linke von rechter Menge ab, während
 der Strich in der Definition von~$M$ eine ganz andere Bedeutung hat: Die
 Menge~$M$ besteht aus allen Games der Form~$S(i) + S(j)$, wobei~$i$ und~$j$
@@ -1068,7 +1068,7 @@ kannst dich dabei folgender Vorlage bedienen:
 
 \emph{Induktionsanfang~$n = 0$. Es gilt~$S(0) = \star 0$, denn \ldots.}
 
-\emph{Induktionsschritt~$\leq n \to n$. Wir dürfen annehmen, dass für alle
+\emph{Induktionsschritt~$< n \to n$. Wir dürfen annehmen, dass für alle
 natürlichen Zahlen~$m < n$ gilt, dass~$S(m) = \star m$. Nun müssen wir zeigen,
 dass~$S(n) = \star n$. \ldots}
 
