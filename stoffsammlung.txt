@@ -78,3 +78,10 @@ http://www.scottaaronson.com/writings/bignumbers.html
 * Programmieren
   - vielleicht nächstes Mal Programmiersprachenvergleich als Handout austeilen
   - Flops für Schachprogramme nachschlagen
+
+
+--- durch Abstimmung mehr oder weniger beim fünften Treffen entschieden
+
+* Fraktale, Verschlüsselung
+* evtl. Euler-Charakteristik, Homologie, evtl. Logik, evtl. Residuensatz
+* Programmierung wollten auch manche (andere aber vehement nicht)

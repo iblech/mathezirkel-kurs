@@ -94,3 +94,27 @@
 
 * Das Spielen und Rätseln lief super. Mit kleiner Hilfestellung ("achtet
   auf den Unterschied") kamen alle auf die Äquivalenz von Northcott und Rim.
+
+
+=== Fünftes Treffen vom 16.2.2014
+
+* Fragen von letztem Mal über Schach-Computer beantwortet.
+* Teaser: Hunderterspiel vorgemacht und gewonnen.
+* Beweis von Sprague-Grundy vorgeführt.
+* Subtraktionsspiel bearbeitet, mehr oder weniger gemeinsam.
+* Nim-Variante gemeinsam bearbeitet.
+* PRIM gemeinsam bearbeitet.
+
+
+-- Kritik
+
+* Einer war neu und mit dem Beweis von Sprague-Grundy überfordert.
+  Erst danach hat er gesagt, dass er Nim gar nicht kennt. Ich hätte ihn das
+  vorher fragen sollen.
+
+* Beim Hunderterspiel haben sie gleich meine Gewinnstrategie gesehen.
+
+* Die Analyse der Nim-Variante mit Teilung von Stapeln lief gut/okay.
+
+* Die Analyse von PRIM lief gut: Einer hat sogar gleich die allgemeine
+  Formel entdeckt.
