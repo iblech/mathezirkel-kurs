@@ -1,0 +1,188 @@
+\documentclass{zirkelblatt}
+\usepackage{young}
+\geometry{tmargin=2cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+\usepackage{lscape}
+\newcommand{\head}[1]{\section*{\rmfamily #1}}%begin{center}\large \textbf{#1}\end{center}}
+\let\raggedsection\centering
+\newcommand{\fuzzy}{\mathrel{||}}
+\newcommand{\ol}[1]{\ensuremath{\overline{#1}}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+%\setkeys{Gin}{draft}
+\begin{document}
+
+\maketitle{Klasse 11./12., Gruppe 2}{15. März 2014}
+
+% Konventionen: ganze Zahlen
+% teilerfremd <==> ggT=1.
+% 0 teilerfremd
+
+\head{Zahlentheoretische Grundlagen}
+
+Ein \emph{Ring} ist eine algebraische Struktur mit einer Addition und
+Multiplikation, die mit der gewöhnlichen Addition und Multiplikation von ganzen
+Zahlen zu tun haben können, aber nicht unbedingt müssen. Von einem Ring fordert
+man die folgenden Axiome:
+\begin{align*}
+    0 + x &= x = x + 0 \\
+    x + y &= y + x \\
+    x + (y + z) &= (x + y) + z \\\\
+    1 \cdot x &= x = x \cdot 1 \\
+    x \cdot y &= y \cdot x \\
+    x \cdot (y \cdot z) &= (x \cdot y) \cdot z \\\\
+    x \cdot (y + z) &= x \cdot y + x \cdot z \\
+    (x + y) \cdot z &= x \cdot z + y \cdot z
+\end{align*}
+Dabei bezeichnen die Symbole~"`$0$"' und~"`$1$"' zwei besondere Elemente des
+Rings, nicht unbedingt die bekannten Zahlen Null und Eins. Man nennt sie wegen
+ihrer besonderen Bedeutung \emph{Null-} und \emph{Einselement}. Ein weiteres
+Axiom besagt, dass es zu jedem Element~$x$ ein weiteres Element geben soll,
+bezeichnet~$-x$, das bezüglich der Addition zu $x$ ist:
+\[ x + (-x) = 0 = (-x) + x. \]
+Weitere Axiome fordert man von Ringen nicht.
+
+\begin{aufgabe}{Beispiele und Nichtbeispiele für Ringe}
+Mache dir klar:
+\begin{enumerate}
+\item Die rationalen Zahlen bilden bezüglich der gewöhnlichen
+Addition und Multiplikation einen Ring.
+\item Die ganzen Zahlen bilden bezüglich der gewöhnlichen
+Addition und Multiplikation einen Ring.
+\item Die natürlichen Zahlen bilden bezüglich der gewöhnlichen Addition und
+Multiplikation \emph{keinen} Ring.
+\end{enumerate}
+\end{aufgabe}
+
+Für die Kryptographie gehören die \emph{Restklassenringe} zu den wichtigsten
+Ringen.
+
+\begin{aufgabe}{Restklassenarithmetik}
+Sei~$m$ eine feste positive Zahl. Dann besteht der
+\emph{Restklassenring}~$\ZZ/(m)$ (oft auch~"`$\ZZ_m$"' geschrieben) aus den
+verschiedenen Resten, die bei Division durch~$m$ auftreten können:
+\[ \ZZ/(m) = \{ \ol{0}, \ol{1}, \ol{2}, \ldots, \ol{m-1} \}. \]
+Wenn man faul ist, lässt man die Oberstriche auch weg. In~$\ZZ/(m)$ addiert und
+multipliziert man fast wie gewohnt -- nur dass man nach jedem Rechenschritt die
+Ergebnisse \emph{modulo~$m$} vereinfachen kann.
+\begin{enumerate}
+\item Überzeuge dich, dass in~$\ZZ/(6)$ folgende Rechnung stimmt:
+\[ \ol{4} + \ol{7} = \ol{11} = \ol{5}. \]
+\item Ergänze unten stehende Tabellen für die Addition und Multiplikation
+in~$\ZZ/(4)$.
+\item Ein Element~$x$ eines Rings heißt genau dann \emph{invertierbar}, wenn es
+ein weiteres Element~$y$ mit der Eigenschaft~$xy = 1$ gibt. Das Element~$y$
+heißt dann auch \emph{Inverses} von~$x$. Welche Elemente von~$\ZZ/(4)$ sind
+invertierbar?
+\end{enumerate}
+\begin{center}
+  \begin{tabular}{r|cccc}
+                    & \ol{0} & \ol{1} & \ol{2} & \ol{3} \\\hline
+    \ol{0} & \ol{0} & \ol{1} & \ol{2} \\
+    \ol{1} &   &        &        \\
+    \ol{2} & \\
+    \ol{3} & & & \ol{1}
+  \end{tabular}
+  \qquad
+  \begin{tabular}{r|cccc}
+                    & \ol{0} & \ol{1} & \ol{2} & \ol{3} \\\hline
+    \ol{0} & \ol{0} & \ol{0} & \ol{0} \\
+    \ol{1} &   &        &        \\
+    \ol{2} & \\
+    \ol{3} & & & \ol{2}
+  \end{tabular}
+\end{center}
+\end{aufgabe}
+
+\begin{aufgabe}{Falsche binomische Formel}
+Für ganze Zahlen~$x,y$ gilt bekanntermaßen die \emph{binomische Formel}:
+\[ (x+y)^2 = x^2 + 2xy + y^2. \]
+\begin{enumerate}
+\item Beweise diese Formel rechnerisch.
+\item Gib einen geometrischen Beweis, der etwas mit Quadraten der
+Seitenlängen~$x$ und~$y$ zu tun hat.
+\item Ist~$m$ eine Zweierpotenz, so gilt in~$\ZZ/(m)$ die sogenannte
+\emph{falsche binomische Formel}:
+\[ (x+y)^2 = x^2 + y^2. \]
+Beweise diese Formel!
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Euklidischer Algorithmus}
+Einer der ältesten überlieferten numerischen Verfahren ist der
+\emph{euklidische Algorithmus}. Mit seiner Hilfe kann man auf effiziente Art und Weise
+den größten gemeinsamen Teiler zweier ganzer Zahlen bestimmen -- viel
+schneller, als die Zahlen in Primfaktoren zu zerlegen.
+\begin{align*}
+    68 &= 1 \cdot 42 + 26 \\
+    42 &= 1 \cdot 26 + 16 \\
+    26 &= 1 \cdot 16 + 10 \\
+    16 &= 1 \cdot 10 + 6 \\
+    10 &= 1 \cdot 6 + 4 \\
+    6 &= 1 \cdot 4 + 2 \\
+    4 &= 2 \cdot 2 + 0
+\end{align*}
+\begin{enumerate}
+\item In diesem Beispiel wurde der euklidische Algorithmus verwendet, um den
+größten gemeinsamen Teiler von~$110$ und~$68$ zu ermitteln (dieser ist~$2$).
+Erschließe, wie das Verfahren funktioniert.
+\item Bestimme mit dem euklidischen Algorithmus den größten gemeinsamen Teiler
+zweier Zahlen deiner Wahl.
+\item Das Verfahren hört dann auf, wenn der Rest~$0$ auftritt. Erkläre, wieso
+das unabhängig von den Anfangszahlen stets nach endlich vielen Schritten der
+Fall ist! (Man sagt, der euklidische Algorithmus \emph{terminiere}.)
+\item Mit dem Algorithmus kann man durch \emph{Rückwärtsauflösen} den größten
+gemeinsamen Teiler~$d$ zweier ganzer Zahlen~$x$ und~$y$ in der Form~$d = ax +
+by$ für gewisse Hilfszahlen~$a$ und~$b$ schreiben. Versuche das in obigem
+Beispiel!
+\end{enumerate}
+Eine Darstellung der Form~$d = ax + by$ des größten gemeinsamen Teilers heißt
+auch \emph{Bézoutdarstellung}. Es ist etwas sehr besonderes, dass es im Ring
+der ganzen Zahlen eine solche immer gibt.
+\end{aufgabe}
+
+\begin{aufgabe}{Invertierbarkeit in Restklassenringen}
+In den Restklassenringen ist nicht jedes Element invertierbar, das haben wir
+schon beim Beispiel mit~$\ZZ/(4)$ gesehen. Es gilt folgende Regel: Ein
+Element~$\ol{a}$ von~$\ZZ/(m)$ ist genau dann invertierbar, wenn die Zahlen~$a$
+und~$m$ zueinander teilerfremd sind.
+\begin{enumerate}
+\item Bestätige diese Regel im Beispiel~$\ZZ/(4)$.
+\item Erkläre, wie man den euklidischen Algorithmus verwenden kann, um
+in~$\ZZ/(m)$ Inverse zu berechnen!
+\item Welche Elemente sind in~$\ZZ/(p)$ invertierbar, wenn~$p$ eine Primzahl
+ist?
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Eulersche Phi-Funktion}
+Die Anzahl der in~$\ZZ/(m)$ invertierbaren Elemente schreibt man
+auch~"`$\Phi(m)$"'. Sei im Folgenden~$p$ eine beliebige Primzahl.
+\begin{enumerate}
+\item Zeige: $\Phi(p) = p - 1$.
+\item Zeige: $\Phi(p^2) = p^2 - p$.
+\item Was ist~$\Phi(p^3)$?
+\item Was ist~$\Phi(p^n)$?
+\end{enumerate}
+Später werden wir verstehen, dass für teilerfremde Zahlen~$a,b$ die Rechenregel
+\[ \Phi(ab) = \Phi(a) \cdot \Phi(b) \]
+gilt. Damit kann man die Werte der eulerschen Phi-Funktion recht effizient
+berechnen.
+\end{aufgabe}
+
+\begin{aufgabe}{Chinesischer Restsatz}
+
+\end{aufgabe}
+
+\head{Klassische Verschlüsselungsverfahren}
+
+\begin{aufgabe}{Verschiebechiffre}
+
+\end{aufgabe}
+
+- Verschiebechiffre
+- Substitutionschiffre
+
+Zero-Knowledge-Beweise
+- Waldo
+
+\end{document}
