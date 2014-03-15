@@ -37,9 +37,10 @@ Dabei bezeichnen die Symbole~"`$0$"' und~"`$1$"' zwei besondere Elemente des
 Rings, nicht unbedingt die bekannten Zahlen Null und Eins. Man nennt sie wegen
 ihrer besonderen Bedeutung \emph{Null-} und \emph{Einselement}. Ein weiteres
 Axiom besagt, dass es zu jedem Element~$x$ ein weiteres Element geben soll,
-bezeichnet~$-x$, das bezüglich der Addition zu $x$ ist:
+bezeichnet~$-x$, das bezüglich der Addition invers zu $x$ ist:
 \[ x + (-x) = 0 = (-x) + x. \]
 Weitere Axiome fordert man von Ringen nicht.
+\vspace{\aufgabenskip}
 
 \begin{aufgabe}{Beispiele und Nichtbeispiele für Ringe}
 Mache dir klar:
@@ -50,6 +51,9 @@ Addition und Multiplikation einen Ring.
 Addition und Multiplikation einen Ring.
 \item Die natürlichen Zahlen bilden bezüglich der gewöhnlichen Addition und
 Multiplikation \emph{keinen} Ring.
+\item Die ganzen Zahlen bilden \emph{keinen} Ring, wenn man als Addition
+paradoxerweise die Subtraktion und als Multiplikation die übliche
+Multiplikation nimmt.
 \end{enumerate}
 Für die Kryptographie gehören die \emph{Restklassenringe} zu den wichtigsten
 Ringen.
@@ -65,7 +69,7 @@ Wenn man faul ist, lässt man die Oberstriche auch weg. In~$\ZZ/(m)$ addiert und
 multipliziert man fast wie gewohnt -- nur dass man nach jedem Rechenschritt die
 Ergebnisse \emph{modulo~$m$} vereinfachen kann.
 \begin{enumerate}
-\item Überzeuge dich, dass in~$\ZZ/(6)$ folgende Rechnung stimmt:
+\item Überzeuge dich davon, dass in~$\ZZ/(6)$ folgende Rechnung stimmt:
 \[ \ol{4} + \ol{7} = \ol{11} = \ol{5}. \]
 \item Ergänze unten stehende Tabellen für die Addition und Multiplikation
 in~$\ZZ/(4)$.
