@@ -118,3 +118,27 @@
 
 * Die Analyse von PRIM lief gut: Einer hat sogar gleich die allgemeine
   Formel entdeckt.
+
+
+=== Sechstes Treffen vom 15.3.2014
+
+* Anhand eines Foliensatzes und dynamischen Browser-Beispielen
+  klassische Verschlüsselungsverfahren vorgestellt: Verschiebechiffre, mono-
+  und polyalphabetische Substitution, Vigenère und One-Time-Pad.
+
+* Außerdem die Problemstellung des Münzwurfs über Telefon vorgestellt
+  (ohne Lösung) und das Konzept der Zero-Knowledge-Beweise anhand des
+  Waldo-Beispiels vorgeführt (mit Lösung).
+
+* Danach Aufgaben des Blatts (blatt03) machen lassen.
+
+
+-- Kritik
+
+* Es kamen von mehreren, aber nicht allen, Schülern viele Vorschläge zur
+  Waldo-Problematik.
+
+* Die meisten kamen mit den Aufgaben gut klar. Sie blieben länger, um
+  sie fertig zu lösen.
+
+* Jemand hat nach zusätzlichen Aufgaben gefragt, hatte aber keine.
