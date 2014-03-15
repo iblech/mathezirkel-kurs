@@ -51,11 +51,11 @@ Addition und Multiplikation einen Ring.
 \item Die natürlichen Zahlen bilden bezüglich der gewöhnlichen Addition und
 Multiplikation \emph{keinen} Ring.
 \end{enumerate}
-\end{aufgabe}
-
 Für die Kryptographie gehören die \emph{Restklassenringe} zu den wichtigsten
 Ringen.
+\end{aufgabe}
 
+\newpage
 \begin{aufgabe}{Restklassenarithmetik}
 Sei~$m$ eine feste positive Zahl. Dann besteht der
 \emph{Restklassenring}~$\ZZ/(m)$ (oft auch~"`$\ZZ_m$"' geschrieben) aus den
@@ -76,7 +76,7 @@ invertierbar?
 \end{enumerate}
 \begin{center}
   \begin{tabular}{r|cccc}
-                    & \ol{0} & \ol{1} & \ol{2} & \ol{3} \\\hline
+    $+$    & \ol{0} & \ol{1} & \ol{2} & \ol{3} \\\hline
     \ol{0} & \ol{0} & \ol{1} & \ol{2} \\
     \ol{1} &   &        &        \\
     \ol{2} & \\
@@ -84,7 +84,7 @@ invertierbar?
   \end{tabular}
   \qquad
   \begin{tabular}{r|cccc}
-                    & \ol{0} & \ol{1} & \ol{2} & \ol{3} \\\hline
+    $\cdot$ & \ol{0} & \ol{1} & \ol{2} & \ol{3} \\\hline
     \ol{0} & \ol{0} & \ol{0} & \ol{0} \\
     \ol{1} &   &        &        \\
     \ol{2} & \\
@@ -103,7 +103,7 @@ Seitenlängen~$x$ und~$y$ zu tun hat.
 \item Beweise, dass die binomische Formel sogar in jedem Ring gilt. Dabei ist allgemein~"`$a^2$"'
 eine Abkürzung für~$a \cdot a$ und~"`$2$"' eine Abkürzung für~$1 + 1$ (was auch
 immer das in dem untersuchten Ring ergeben mag).
-\item Beweise, dass im~$\ZZ/(2)$ Ring außerdem die sogenannte
+\item Beweise, dass im Ring~$\ZZ/(2)$ außerdem die sogenannte
 \emph{falsche binomische Formel} gilt:
 \[ (x+y)^2 = x^2 + y^2. \]
 \item Wenn du aus der Informatik die logischen Gatter (wie UND, ODER, \ldots)
@@ -112,13 +112,13 @@ die Multiplikation von~$\ZZ/(2)$ mit den logischen Gattern zu tun?
 \end{enumerate}
 \end{aufgabe}
 
+\newpage
 \begin{aufgabe}{Euklidischer Algorithmus}
-Einer der ältesten überlieferten numerischen Verfahren ist der
+Eines der ältesten überlieferten numerischen Verfahren ist der
 \emph{euklidische Algorithmus}. Mit seiner Hilfe kann man auf effiziente Art und Weise
 den größten gemeinsamen Teiler zweier ganzer Zahlen bestimmen -- viel
-schneller, als die Zahlen in Primfaktoren zu zerlegen.
+schneller, als wenn man erst die Zahlen in Primfaktoren zerlegen würde.
 \begin{align*}
-    68 &= 1 \cdot 42 + 26 \\
     42 &= 1 \cdot 26 + 16 \\
     26 &= 1 \cdot 16 + 10 \\
     16 &= 1 \cdot 10 + 6 \\
@@ -128,13 +128,13 @@ schneller, als die Zahlen in Primfaktoren zu zerlegen.
 \end{align*}
 \begin{enumerate}
 \item In diesem Beispiel wurde der euklidische Algorithmus verwendet, um den
-größten gemeinsamen Teiler von~$110$ und~$68$ zu ermitteln (dieser ist~$2$).
+größten gemeinsamen Teiler von~$42$ und~$26$ zu ermitteln (dieser ist~$2$).
 Erschließe, wie das Verfahren funktioniert.
 \item Bestimme mit dem euklidischen Algorithmus den größten gemeinsamen Teiler
 zweier Zahlen deiner Wahl.
-\item Das Verfahren hört dann auf, wenn der Rest~$0$ auftritt. Erkläre, wieso
+\item Das Verfahren hört dann auf, wenn als Rest~$0$ auftritt. Erkläre, wieso
 das unabhängig von den Anfangszahlen stets nach endlich vielen Schritten der
-Fall ist! (Man sagt, der euklidische Algorithmus \emph{terminiere}.)
+Fall ist! (Man sagt, dass der euklidische Algorithmus \emph{terminiert}.)
 \item Mit dem Algorithmus kann man durch \emph{Rückwärtsauflösen} den größten
 gemeinsamen Teiler~$d$ zweier ganzer Zahlen~$x$ und~$y$ in der Form~$d = ax +
 by$ für gewisse Hilfszahlen~$a$ und~$b$ schreiben. Versuche das in obigem
@@ -159,6 +159,7 @@ ist?
 \end{enumerate}
 \end{aufgabe}
 
+\newpage
 \begin{aufgabe}{Eulersche Phi-Funktion}
 Die Anzahl der in~$\ZZ/(m)$ invertierbaren Elemente schreibt man
 auch~"`$\Phi(m)$"'. Sei im Folgenden~$p$ eine beliebige Primzahl.
@@ -174,20 +175,6 @@ gilt. Damit kann man die Werte der eulerschen Phi-Funktion recht effizient
 berechnen.
 \end{aufgabe}
 
-\begin{aufgabe}{Chinesischer Restsatz}
-
-\end{aufgabe}
-
-\head{Klassische Verschlüsselungsverfahren}
-
-\begin{aufgabe}{Verschiebechiffre}
-
-\end{aufgabe}
-
-- Verschiebechiffre
-- Substitutionschiffre
-
-Zero-Knowledge-Beweise
-- Waldo
-
 \end{document}
+
+Chinesischer Restsatz?
