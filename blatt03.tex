@@ -179,6 +179,81 @@ gilt. Damit kann man die Werte der eulerschen Phi-Funktion recht effizient
 berechnen.
 \end{aufgabe}
 
+
+\head{Kryptographische Verfahren}
+
+\begin{aufgabe}{Eine Analogie für symmetrische Verschlüsselung}
+Alice möchte Bob ein Paket per Post schicken, sie misstraut aber dem
+Postsystem. Daher versieht sie das Paket mit einem Vorhängeschloss, zu dem
+Alice und Bob beide Schlüssel besitzen.
+\begin{enumerate}
+\item Gegen welche Angriffe schützt dieses Verfahren?
+\item Wo liegen seine Nachteile?
+\item Was passiert, wenn Alice und Bob auf diese Weise weiter kommunizieren,
+Bob aber auf seinen Schlüssel nicht gut aufpasst?
+\item Welche Nachteile treten auf, wenn mehrere Freunde mit diesem Verfahren
+sicher kommunizieren möchten?
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Eine Analogie für asymmetrische Verschlüsselung}
+Alice möchte wieder Bob ein Paket per Post schicken. Dazu versieht sie diesmal
+das Paket mit einem Vorhängeschloss, zu dem nur Bob den Schlüssel hat.
+\begin{enumerate}
+\item Gegen welche Angriffe schützt dieses Verfahren?
+\item Welchen fundamentalen Vorteil hat dieses Verfahren gegenüber symmetrischer
+Verschlüsselung?
+\item Wo liegen seine Nachteile?
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Eine Analogie für ein Drei-Durchgänge-Protokoll}
+Alice möchte abermals Bob ein Paket per Post schicken. Sie haben jedoch vorher
+keinerlei Schlösser oder Schlüssel ausgetauscht.
+\begin{enumerate}
+\item Überlege dir ein dreischrittiges Verfahren, das in diesem Fall angewendet
+werden kann!
+\item Gegen welche Angriffe ist es sicher, gegen welche nicht?
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Ein unsicheres Drei-Durchgänge-Protokoll: XOR}
+Sind~$m_1$ und~$m_2$ zwei gleich lange Texte, so wollen wir mit~"`$m_1 \oplus
+m_2$"' denjenigen Text bezeichnen, den man erhält, wenn man von den einzelnen (ASCII-
+oder UTF-8-)Zeichen bitweise das \emph{exklusive Oder} (XOR) nimmt. Ein
+Beispiel:
+\begin{verbatim}
+    Text 1: "abc", in Bits: 01100001 01100010 01100011
+    Text 2: "0AZ", in Bits: 00110000 01000001 01011010
+    XOR:    "Q#9", in Bits: 01010001 00100011 00111001
+\end{verbatim}
+\begin{enumerate}
+\item Erkläre, wie die XOR-Verknüpfung funktioniert!
+\end{enumerate}
+Alice möchte an Bob einen Text~$m$ schicken. Alice und Bob haben vorher nie
+miteinander kommuniziert und insbesondere keine gemeinsamen Schlüssel
+ausgemacht. Mit der XOR-Verknüpfung kann man trotzdem ein geeignetes
+kryptographisches Verfahren beschreiben:
+\begin{enumerate}
+\item[1.] Alice generiert einen zufälligen Schlüssel~$s_1$, der genau so lang
+ist wie~$m$. Sie schickt über eine unsichere Leitung an Bob die kodierte
+Nachricht~$c := m \oplus s_1$.
+\item[2.] Bob generiert seinerseits einen zufälligen Schlüssel~$s_2$ gleicher
+Länge. Er schickt über eine unsichere Leitung an Alice die Nachricht~$c' := c
+\oplus s_2$.
+\item[3.] Alice übermittelt~$c'' := c' \oplus s_1$ an Bob. Dann ist~$c'' \oplus
+s_2$ gleich~$m$, Bob kann also die geheime Nachricht lesen.
+\end{enumerate}
+\begin{enumerate}
+\addtocounter{enumi}{1}
+\item Erkläre, wieso das Verfahren überhaupt funktioniert, wieso also~$c''
+\oplus s_2 = m$ gilt.
+\item Das Verfahren hat eine große Schwachstelle: Ein Mithörer kann sich
+ebenfalls den Inhalt von~$m$ erschließen. Erkläre, wie das geht!
+\item Welche weiteren Nachteile hat das Verfahren?
+\end{enumerate}
+\end{aufgabe}
+
 \end{document}
 
 Chinesischer Restsatz?
