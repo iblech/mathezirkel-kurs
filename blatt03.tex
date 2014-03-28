@@ -234,6 +234,7 @@ Alice möchte an Bob einen Text~$m$ schicken. Alice und Bob haben vorher nie
 miteinander kommuniziert und insbesondere keine gemeinsamen Schlüssel
 ausgemacht. Mit der XOR-Verknüpfung kann man trotzdem ein geeignetes
 kryptographisches Verfahren beschreiben:
+\begin{shaded}
 \begin{enumerate}
 \item[1.] Alice generiert einen zufälligen Schlüssel~$s_1$, der genau so lang
 ist wie~$m$. Sie schickt über eine unsichere Leitung an Bob die kodierte
@@ -244,6 +245,7 @@ Länge. Er schickt über eine unsichere Leitung an Alice die Nachricht~$c' := c
 \item[3.] Alice übermittelt~$c'' := c' \oplus s_1$ an Bob. Dann ist~$c'' \oplus
 s_2$ gleich~$m$, Bob kann also die geheime Nachricht lesen.
 \end{enumerate}
+\end{shaded}
 \begin{enumerate}
 \addtocounter{enumi}{1}
 \item Erkläre, wieso das Verfahren überhaupt funktioniert, wieso also~$c''
@@ -253,6 +255,54 @@ ebenfalls den Inhalt von~$m$ erschließen. Erkläre, wie das geht!
 \item Welche weiteren Nachteile hat das Verfahren?
 \end{enumerate}
 \end{aufgabe}
+
+\begin{aufgabe}{Das RSA-Verfahren}
+Das RSA-Verfahren ist eines der bekanntesten asymmetrischen
+Verschlüsselungsverfahren. Die Originalvariante ist unsicher, aber leichte
+Verbesserungen gelten als sicher -- zumindest werden sie weltweit täglich
+eingesetzt.
+
+\begin{shaded}
+\textbf{Schlüsselpaarerzeugung.} Wähle zufällig zwei verschiedene Primzahlen~$p$ und~$q$ und
+berechne ihr Produkt: $m := p q$ (der \emph{Modulus}). Wähle zufällig eine
+zu~$(p-1) \cdot (q-1)$ teilerfremde Zahl~$e$. Berechne eine Zahl~$d$,
+sodass~$\ol{d}$ im Restklassenring~$\ZZ/((p-1)(q-1))$ invers zu~$\ol{e}$ ist.
+
+Die Zahlen~$e$ und~$m$ bilden dann gemeinsam den \emph{öffentlichen Schlüssel},
+die Zahlen~$d$ und~$m$ den \emph{privaten Schlüssel}.
+
+\textbf{Verschlüsselung.} Die Verschlüsselung einer Nachricht~$k$ (die als Zahl
+ausgedrückt sein muss) ist die Restklasse~$c := \ol{k}^e \in \ZZ/(m)$.
+
+\textbf{Entschlüsselung.} Die Entschlüsselung eines Chiffrats~$c$ ist die
+Restklasse~$c^d \in \ZZ/(m)$.
+\end{shaded}
+
+\begin{enumerate}
+\item Wie kann man beim Schlüsselpaarerzeugungsschritt die Zahl~$d$ bestimmen?
+Wieso ist das immer möglich?
+\item Wie kann man eine zu verschlüsselnde Nachricht als Zahl darstellen? Wieso
+muss man darauf achten, dass die resultierende Zahl kleiner als~$m$ ist? Was
+kann man machen, wenn die Zahl leider doch größer oder gleich~$m$ ist?
+\item Beweise, dass das Verfahren funktioniert -- beweise also, dass die
+Entschlüsselung der Verschlüsselung einer Restklasse~$k \in \ZZ/(m)$ wieder
+dieselbe Restklasse~$k$ ergibt.
+
+Verwende dazu den \emph{Satz von Euler}: Sind~$a$ und~$m$ teilerfremde Zahlen,
+so gilt~$\ol{a}^{\Phi(m)} = 1 \in \ZZ/(m)$. (Vielleicht beweisen wir diesen
+Satz später noch.) Zur Vereinfachung kannst du in deinem Beweis annehmen,
+dass~$k$ zu~$m$ teilerfremd ist.
+\item Worauf basiert die Sicherheit des Verfahrens? Was müsste man können, um
+ohne Kenntnis des privaten Schlüssels aus einem Chiffrat~$k^e$ auf den
+Klartext~$k$ schließen zu können?
+\item Wenn der öffentliche Schlüssel~$e$ und der Zahlenwert des Klartextes~$k$
+"`klein"' sind, ist das Verfahren unsicher. Begründe das!
+\item Wenn~$m$ klein ist (etwa kleiner oder gleich der Anzahl der verschiedenen
+denkbaren Buchstaben), degradiert das RSA-Verfahren zu einer monoalphabetischen
+Verschlüsselung. Begründe das!
+\end{enumerate}
+\end{aufgabe}
+
 
 \end{document}
 
