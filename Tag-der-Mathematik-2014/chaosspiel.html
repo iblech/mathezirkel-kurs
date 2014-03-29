@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Chaosspiel</title>
+
+<style type="text/css" media="screen">
+  body {
+    background: #fff;
+    font-family: Verdana, sans-serif;
+    font-size: 1em;
+    line-height: 1.3em;
+    margin: 10px;
+  }
+  #page { background: #ffffff; margin: 50px; border: 2px solid #c0c0c0; padding: 10px; }
+  #header { background: #4b6983; border: 2px solid #7590ae; text-align: center; padding: 10px; color: #ffffff; }
+  #header h1 { color: #ffffff; }
+  #body { padding: 10px; }
+
+  th { text-align: right; }
+</style>
+</head>
+
+<body>
+
+<div
+  style="
+    position: absolute;
+    bottom: 0; right: 0;
+    background-color: #d99;
+    width: 40px; height: 40px;
+    z-index: 2
+  "
+  onclick="
+    var el = document.getElementById('menu');
+    el.style.display = el.style.display == 'none'
+        ? 'block'
+        : 'none';
+  "></div>
+
+<table id="menu" style="
+  position: absolute;
+  bottom: 0; left: 0; width: 100%;
+  background-color: #eaa;
+  border-top: 4px solid #d99;
+  display: none;
+  z-index: 1;
+">
+  <tr>
+    <th>Anzahl Ecken</th>
+    <td>
+      <input type="range" min="3" max="100" value="3" style="width: 60em" onchange="
+        document.getElementById('numVertices').innerText = this.value;
+        chaosGame.numVertices = this.value;
+        chaosGame.initVertices();
+        chaosGame.doReset(ctx);
+        chaosGame.doFullGame(ctx, document.getElementById('numPoints').innerText);
+        updateStats();
+      " />
+      <span id="numVertices">3</span>
+    </td>
+  </tr>
+  <tr>
+    <th>Verhältnis</th>
+    <td>
+      <input type="range" min="0" max="100" value="50" style="width: 60em" onchange="
+        document.getElementById('lambda').innerText = this.value;
+        chaosGame.lambda = this.value / 100;
+        chaosGame.doReset(ctx);
+        chaosGame.doFullGame(ctx, document.getElementById('numPoints').innerText);
+        updateStats();
+      " />
+      <span id="lambda">50</span>
+    </td>
+  </tr>
+  <tr>
+    <th>Automatischer Durchlauf</th>
+    <td>
+      mit
+      <input type="range" min="1" max="20000" value="1" style="width: 60em" onchange="
+        document.getElementById('numPoints').innerText = this.value;
+        chaosGame.doReset(ctx);
+        chaosGame.doFullGame(ctx, this.value);
+        updateStats();
+      " />
+      <span id="numPoints">1</span>
+      Punkten
+    </td>
+  </tr>
+  <tr>
+    <th>Manueller Durchlauf</th>
+    <td>
+      <input type="submit" value="Einen zufälligen Schritt bitte!" onclick="
+        var j = Math.floor(Math.random() * chaosGame.vertices.length);
+        var p = chaosGame.vertices[j];
+
+        chaosGame.doStep(ctx, p, j);
+        recordVertex(j);
+        recordStep();
+      " />
+      <input type="submit" value="Reset" onclick="
+        chaosGame.doReset(ctx);
+        updateStats();
+      " />
+    </td>
+  </tr>
+  <tr>
+    <th>Punktgröße</th>
+    <td>
+      <input type="range" min="1" max="10" value="3" style="width: 60em" onchange="
+        document.getElementById('pointSize').innerText = this.value;
+        chaosGame.ptRadius = this.value;
+        chaosGame.doReset(ctx);
+        chaosGame.doFullGame(ctx, document.getElementById('numPoints').innerText);
+        updateStats();
+      " />
+      <span id="pointSize">3</span>
+    </td>
+  </tr>
+  <tr>
+    <th>Hilfslinien einzeichnen</th>
+    <td>
+      <input type="checkbox" onchange="
+        chaosGame.trackLines = this.checked;
+        chaosGame.doReset(ctx);
+        chaosGame.doFullGame(ctx, document.getElementById('numPoints').innerText);
+      " />
+    </td>
+  </tr>
+  <tr>
+    <th>Hintergrundmusik</th>
+    <td>
+      <audio controls autoplay loop id="audio">
+        <source src="tetris.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  var intensity = 0;
+  function updatePlaybackRate () {
+    if(document.getElementById('audio'))
+      document.getElementById('audio').playbackRate =
+        intensity > 0 ? 0.4 + intensity / 7 : 0;
+    if(document.getElementById('intensity'))
+      document.getElementById('intensity').innerText = intensity;
+  }
+  function unrecordStep () {
+    intensity = intensity - 1;
+    updatePlaybackRate();
+  }
+  function recordStep () {
+    intensity = intensity + 1;
+    updatePlaybackRate();
+    updateStats();
+    window.setTimeout(unrecordStep, 400);
+  }
+  updatePlaybackRate();
+</script>
+
+<div>
+  <canvas id="canvas" style="position: absolute; left: 20px; top: 20px; z-index: 0">
+    Dieser Browser kann kein HTML5-canvas-Element darstellen.
+  </canvas>
+  <canvas id="canvasAnim" style="position: absolute; left: 20px; top: 20px; z-index: -1">
+    Dieser Browser kann kein HTML5-canvas-Element darstellen.
+  </canvas>
+</div>
+
+<div id="stats" style="float: left; font-weight: bold; text-align: right; font-size:
+200%; font-family: monospace; line-height: 200%">
+  <div id="nr0"></div>
+  <div id="nr1"></div>
+  <div id="nr2"></div>
+  <div id="intensity" style="display: none"></div>
+</div>
+
+<script type="text/javascript" src="seedrandom.js"></script>
+<script type="text/javascript" src="chaosspiel.js"></script>
+
+<script type="text/javascript">//<![CDATA[
+  var chaosGame = new ChaosGame(1000,1000,3,1/2);
+
+  var canvas = document.getElementById('canvas');
+  var ctx    = canvas.getContext('2d');
+  canvas.setAttribute('width', 1000);
+  canvas.setAttribute('height', 1000);
+  ctx.lineWidth = 4;
+
+  var canvasAnim = document.getElementById('canvasAnim');
+  var ctxAnim    = canvasAnim.getContext('2d');
+  canvasAnim.setAttribute('width', 1000);
+  canvasAnim.setAttribute('height', 1000);
+  ctxAnim.lineWidth = 4;
+
+  chaosGame.doReset(ctx);
+
+  canvas.addEventListener("click", function (ev) {
+    chaosGame.initPos = [event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop];
+    chaosGame.doReset(ctx);
+    chaosGame.doFullGame(ctx, document.getElementById('numPoints').innerText);
+  }, false);
+
+  var key2vertex = {
+    'Y': 0,
+    'X': 1,
+    'C': 2,
+    'I': 0,
+    'O': 1,
+    'P': 2,
+    '#': 0,
+    '(': 1,
+    '"': 2,
+    '1': 0,
+    '2': 1,
+    '3': 2
+  };
+
+  var beschriftung = [ "Ecke 1 Y I:", "Ecke 2 X O:", "Ecke 3 C P:" ];
+
+  function updateStats () {
+    if(chaosGame.numVertices != 3) {
+      document.getElementById("stats").style.display = "none";
+    } else {
+      document.getElementById("stats").style.display = "block";
+      for(var j = 0; j < chaosGame.numVertices; j++) {
+        document.getElementById("nr" + j).innerText = beschriftung[j] + " " + chaosGame.stats[j];
+      }
+    }
+  }
+
+  updateStats();
+
+  function animateStep (p) {
+    ctxAnim.clearRect(0,0, chaosGame.xmax, chaosGame.ymax);
+    ctxAnim.fillStyle = "magenta";
+    ctxAnim.beginPath();
+    ctxAnim.arc(p[0], p[1], 10, 0, 2*Math.PI, true);
+    ctxAnim.fill();
+  }
+
+  document.getElementsByTagName("body")[0].addEventListener("keyup", function (ev) {
+    var j = key2vertex[String.fromCharCode(ev.which)];
+    if(j != undefined) {
+      var p = chaosGame.vertices[j];
+
+      chaosGame.doStep(ctx, p, j);
+      animateStep(p);
+      recordStep();
+    }
+  }, false);
+ 
+  updatePlaybackRate();
+//]]
+</script>
+
+</body>
+</html>
