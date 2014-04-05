@@ -142,3 +142,16 @@
   sie fertig zu lösen.
 
 * Jemand hat nach zusätzlichen Aufgaben gefragt, hatte aber keine.
+
+
+=== Siebtes Treffen vom 29.3.2014
+
+* Im Browser Zertifizierungsketten gezeigt.
+
+* Gemeinsam über Analogien kryptographischer Verfahren in der realen Welt
+  gesprochen, dann XOR- und RSA-Verschlüsselung behandelt.
+
+
+-- Kritik
+
+* Es waren nur vier Leute da.
