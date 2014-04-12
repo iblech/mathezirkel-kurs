@@ -155,3 +155,19 @@
 -- Kritik
 
 * Es waren nur vier Leute da.
+
+
+=== Achtes Treffen vom 12.4.2014
+
+* Signieren von Nachrichten mit RSA
+* Heartbleed-Bug
+* Münzwurf übers Telefon
+* Sichere Passwortverwaltung auf Webservern (Salz + Hash)
+* Diffie--Hellman
+
+
+-- Kritik
+
+* Es waren nur zwei Leute da. Das Thema schien aber recht interessant zu sein.
+  Die beiden konnten auch gute Vorschläge zur Verbesserung schlechter Verfahren
+  machen.
