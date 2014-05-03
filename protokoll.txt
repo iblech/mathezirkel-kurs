@@ -176,6 +176,7 @@
 === Neuntes Treffen vom 3.5.2014
 
 * Lineare Kongruenzgeneratoren zur Erzeugung von Pseudozufallszahlen
+  http://www.cs.illinois.edu/~heath/iem/random/pairplot/
 * Elliptische Kurven allgemein
 * Elliptische Kurven zur Erzeugung von Pseudozufallszahlen
 * Hintertür der NSA
