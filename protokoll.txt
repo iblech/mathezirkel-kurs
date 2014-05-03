@@ -171,3 +171,22 @@
 * Es waren nur zwei Leute da. Das Thema schien aber recht interessant zu sein.
   Die beiden konnten auch gute Vorschläge zur Verbesserung schlechter Verfahren
   machen.
+
+
+=== Neuntes Treffen vom 3.5.2014
+
+* Lineare Kongruenzgeneratoren zur Erzeugung von Pseudozufallszahlen
+* Elliptische Kurven allgemein
+* Elliptische Kurven zur Erzeugung von Pseudozufallszahlen
+* Hintertür der NSA
+
+
+-- Kritik
+
+* Lief super! Ein Thema, was sich sehr gut eignet. Zwei Teilnehmer.
+
+
+-- Idee fürs nächste Mal
+
+* Steganographie: ein paar der alten LUGA-Folien
+* vierdimensionale Geometrie
