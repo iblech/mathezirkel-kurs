@@ -51,11 +51,11 @@
   \textbf{Aufgabe \theaufgabennummer.} \emph{#1} \par
 }{\vspace{\aufgabenskip}}
 \NewEnviron{aufgabeShaded}[1]{%
-  \begin{shaded}
-    \refstepcounter{aufgabennummer}
+  \refstepcounter{aufgabennummer}%
+  \begin{shaded}%
     \textbf{Aufgabe \theaufgabennummer.} \emph{#1} \par
-    \BODY
-  \end{shaded}
+    \BODY%
+  \end{shaded}%
 }
 \newenvironment{aufgabeE}[1]{\begin{aufgabe}{#1}\begin{enumerate}}{\end{enumerate}\end{aufgabe}}
 
