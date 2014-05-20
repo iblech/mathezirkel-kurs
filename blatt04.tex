@@ -139,7 +139,7 @@ Umkehrung ist aber \emph{schwierig}: Wenn Punkte~$P$ und~$Q$ gegeben sind, und
 man gesagt bekommt, dass für irgendeine natürliche Zahl~$n$ die Gleichung~$Q =
 nP$ gilt, hat man große Mühe, die Zahl~$n$ zu bestimmen. Man kann natürlich
 durchprobieren: Stimmt es für~$n = 1$? Für~$n = 2$? Für~$n = 3$? Und so weiter.
-Aber es ist kein Verfahren öffentlich bekannt, dass irgendwie clever abzukürzen
+Aber es ist kein Verfahren öffentlich bekannt, dass irgendwie clever abkürzen
 könnte. Man vermutet auch, dass es ein solches Verfahren nicht geben kann; das
 hat man aber noch nicht beweisen können.
 
@@ -285,7 +285,8 @@ für den nächsten Schritt.
 Pseudozufallszahl.
 \end{enumerate}
 
-Die Darstellung hier ist etwas vereinfacht. Bei geeigneter Wahl der
+Die Darstellung hier ist etwas vereinfacht, in der Praxis verwendet man ein
+geringfügig komplexeres Verfahren. Bei geeigneter Wahl der
 elliptischen Kurve und der festen Kurvenpunkte~$P$ und~$Q$ produziert dieses
 Verfahren recht gute Pseudozufallszahlen. Solche Wahlen sind in internationalen
 Standards festgeschrieben, Kryptographiebibliotheken für Programmiersprachen
@@ -303,7 +304,7 @@ gilt.
 Die Konsequenzen sind desaströs -- denn damit ist es der NSA möglich,
 alle weiteren Pseudozufallszahlen eines solchen Generators vorherzusagen,
 sobald sie nur \emph{zwei} seiner Ausgaben mitgeschnitten hat.
-Für den Fall generischen Angreifers \emph{Eve} formuliert funktioniert das wie folgt:
+Für den Fall eines generischen Angreifers \emph{Eve} formuliert funktioniert das wie folgt:
 
 \begin{enumerate}
 \item[1.] Eve hört eine generierte Pseudozufallszahl ab: $t =
