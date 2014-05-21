@@ -21,24 +21,27 @@
 \setlength\parskip{\medskipamount}
 \setlength\parindent{0pt}
 
-\newif\ifloesungen\loesungenfalse
-\newif\ifpruefung\pruefungfalse
-
 \newlength{\titleskip}
 \setlength{\titleskip}{1.3em}
+\newcommand{\makeheader}[1]{%
+  \thispagestyle{empty}%
+  \begin{picture}(0,0)
+   \put(0,-1){\vbox{%
+     Mathesch\"ulerzirkel\\
+     Universit\"at Augsburg\\
+     Schuljahr 2013/2014\\
+      #1}}
+   \put(13,-2){\includegraphics[scale=0.10]{cover}}
+  \end{picture}%
+  \vspace*{1.7cm}}
 \renewcommand{\maketitle}[2]{%
-  \ifloesungen\else\thispagestyle{empty}\fi%
-\begin{picture}(0,0)
- \put(0,-1){  \vbox{  Mathesch\"ulerzirkel\\
-   Universit\"at Augsburg\\
-  Schuljahr 2013/2014\\
-  #1 }}
- \put(13,-2){\includegraphics[scale=0.10]{cover} }
-\end{picture} \vspace*{1.7cm}
-  \begin{center}\Large \textbf{Zirkelzettel vom #2}
-  \end{center}
+  \makeheader{#1}
+  \begin{center}\Large \textbf{Zirkelzettel vom #2}\end{center}
   \vspace{\titleskip}}
-
+\newcommand{\maketitleSF}[2]{%
+  \makeheader{#1}
+  \begin{center}\Large \textbf{\textsf{Zirkelzettel vom #2}}\end{center}
+  \vspace{\titleskip}}
 
 \renewcommand*\theenumi{\alph{enumi}}
 \renewcommand{\labelenumi}{\theenumi)}
@@ -75,10 +78,3 @@
 \newcommand{\hil}[1]{\textcolor{hicolor}{#1}}
 
 \definecolor{shadecolor}{rgb}{.93,.93,.93}
-
-\newif\ifloesungen\loesungenfalse
-\NewEnviron{loesung}{%
-  \ifloesungen%
-    \begin{shaded}\textbf{Lösung. }\BODY\end{shaded}%
-  \fi%
-}

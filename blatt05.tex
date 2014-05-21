@@ -1,0 +1,111 @@
+\documentclass{zirkelblatt}
+\geometry{tmargin=2cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+\usepackage{empheq}
+\usepackage{float}
+\floatstyle{ruled}
+\restylefloat{figure}
+\newcommand{\head}[1]{\section*{\rmfamily #1}}%begin{center}\large \textbf{#1}\end{center}}
+\let\raggedsection\centering
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+
+\begin{document}
+
+\maketitleSF{Klasse 11./12., Gruppe 2}{31. Mai 2014: \\ Synthetische
+Differentialgeometrie}
+
+\section{Einleitung}
+
+Eine \emph{infinitesimale Zahl}~$\varepsilon$ ist eine Zahl, deren Quadrat Null
+ist:~$\varepsilon^2 = 0$. In der gewöhnlichen mathematischen Welt gibt es nur
+eine einzige infinitesimale Zahl, nämlich die Zahl~$0$. Für gewisse Anwendungen wäre es
+aber schön, wenn es auch interessantere infinitesimale Zahlen gäbe. Ähnlich wie
+bei den komplexen Zahlen kann man solche Zahlen \emph{künstlich} konstruieren;
+anders als bei den komplexen Zahlen muss man dafür aber gleich ein ganzes neues
+\emph{mathematisches Universum} errichten.
+
+Das Teilgebiet der Mathematik, in dem man solche Universen studiert, heißt
+\emph{synthetische Differentialgeometrie} und ist ein relativ junges
+Forschungsgebiet. Erste Ideen gehen auf die alten Griechen und Versuche des
+dänischen Mathematikers Johannes Hjelmslev zurück (*~1873, †~1950), richtig
+initiiert wurde das Gebiet aber erst in den 1970er Jahren durch Anders Kock,
+ebenfalls Däne.
+
+Im Folgenden werden wir lernen, wozu infinitesimale Zahlen nützlich sind; wie
+man in dem alternativen Universum arbeiten kann; und schließlich inwieweit
+Resultate, die man in der neuen mathematischen Welt erzielt, auch in der
+gewöhnlichen mathematischen Welt Gültigkeit haben. Ohne diesen letzten Punkt
+wäre unser Unterfangen ein reines Gedankenexperiment ohne Nutzen.
+
+Dreh- und Angelpunkt für synthetische Differentialgeometrie ist ein Axiom,
+das \emph{klassisch} -- das heißt im gewöhnlichen mathematischen Universum --
+falsch ist:
+
+\begin{shaded}
+\textbf{Axiom der Mikroaffinität.}
+Sei~$\Delta := \{ \varepsilon \in \RR \,|\, \varepsilon^2 = 0 \}$ die
+\emph{infinitesimale Monade} um~$0$. Sei~$f : \Delta \to \RR$ eine beliebige
+Abbildung. Dann gibt es gewisse eindeutig bestimmte reelle Zahlen~$a$ und~$b$,
+sodass für alle Zahlen~$\varepsilon$ in~$\Delta$ folgende Gleichung gilt:
+\[ f(\varepsilon) = a + b \varepsilon. \]
+\end{shaded}
+
+Wir werden etwas Zeit benötigen, um zunächst die Aussage dieses Axioms zu
+verstehen und dann seine Konsequenzen zu überblicken.
+
+
+\section{Motivation für infinitesimale Zahlen}
+
+In Abbildung~\ref{fig:schnittverhalten} sind zwei Situationen skizziert, bei
+denen sich jeweils zwei Kurven schneiden. (Gerade Linien zählen
+auch als \emph{Kurven}.) Es ist offensichtlich, dass sich im ersten
+Bild die beiden Geraden in genau einem Punkt schneiden. Die Schnittsituation
+beim zweiten Bild ist dagegen weniger klar. In klassischer Mathematik konstatiert man,
+der Schnitt bestehe ebenfalls aus nur genau einem Punkt, nämlich dem Ursprung.
+In der Tat könnte man keinen weiteren Punkt benennen, der ebenfalls auf beiden
+Kurven liegen würde. Anschaulich scheint es aber ja doch einen Unterschied zu
+geben -- man benötigt infinitesimale Zahlen, um ihn auf direkte Art und Weise
+mathematisch einzufangen.\footnote{Indirekt geht es auch in klassischer
+Mathematik: Die Parabel hat bei der Stelle~$x = 0$ eine \emph{doppelte
+Nullstelle}. Das bedeutet, dass nicht nur der Funktionswert dort Null ist,
+sondern auch noch seine erste Ableitung.}
+
+\begin{aufgabeShaded}{Schnittberechnung}
+Die Gleichungen der beiden Kurven im ersten Bild sind
+\begin{empheq}[left=\empheqlbrace\ ]{align}
+  y &= 2x, \\
+  y &= 0.
+\end{empheq}
+Die erste Gleichung gehört zur schrägen Gerade, die zweite zur~$x$-Achse (auf
+der alle Punkte als~$y$-Koordinate Null haben). Die Gleichungen der Kurven im
+zweiten Bild sind
+\begin{empheq}[left=\empheqlbrace\ ]{align}
+  y &= x^2, \\
+  y &= 0.
+\end{empheq}
+\begin{enumerate}
+\item Löse das erste Gleichungssystem, um zu beweisen: Der einzige
+Schnittpunkt~$(x|y)$ hat die Koordinaten~$x = 0$ und~$y = 0$. Wieso entspricht
+das Schneiden der beiden Kurven rechnerisch der Lösungsmenge des kombinierten
+Gleichungssystems?
+\item Löse das zweite Gleichungssystem, um zu beweisen, dass ein Punkt~$(x|y)$
+genau dann im Schnittbereich des zweiten Bilds liegt, wenn seine~$x$-Koordinate
+Null und seine~$y$-Koordinate eine infinitesimale Zahl ist (also~$y^2 = 0$
+erfüllt).
+
+Hierbei ist es wichtig, mit Absicht langsam zu rechnen, um nicht durch zu
+schnelles Vereinfachen die Pointe vorwegzunehmen. In klassischer Mathematik
+gilt die Regel "`wenn~$y^2 = 0$, dann auch~$y = 0$''; erst mit dieser Regel
+vereinfacht sich das Ergebnis, zu demselben wie in Teilaufgabe~a).
+\end{enumerate}
+
+\end{aufgabeShaded}
+
+\end{document}
+
+- Motivation: kleine Größen in der Physik
+- Motivation: Ableitungsberechnung
+- Mengenschreibweise (benötigt für Delta)
+- Abbildungen
+- "Schwebezustand" von Delta: Es stimmt nicht, dass es nur die Null enthalten
+  würde -- andere Elemente kann man aber trotzdem nicht angeben.
