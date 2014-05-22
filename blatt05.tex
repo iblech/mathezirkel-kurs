@@ -8,6 +8,27 @@
 \let\raggedsection\centering
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\RR}{\mathbb{R}}
+\newcommand{\xra}[1]{\xrightarrow{#1}}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{axiom}[defn]{Axiom}
+\newtheorem{bsp}[defn]{Beispiel}
+
+\theoremstyle{plain}
+
+\newtheorem{prop}[defn]{Proposition}
+\newtheorem{motto}[defn]{Motto}
+\newtheorem{wunder}[defn]{Wunder}
+\newtheorem{ueberlegung}[defn]{Überlegung}
+\newtheorem{lemma}[defn]{Lemma}
+\newtheorem{kor}[defn]{Korollar}
+\newtheorem{hilfsaussage}[defn]{Hilfsaussage}
+\newtheorem{satz}[defn]{Satz}
+
+\theoremstyle{remark}
+\newtheorem{bem}[defn]{Bemerkung}
+\newtheorem{aufg}[defn]{Aufgabe}
 
 \begin{document}
 
@@ -45,7 +66,7 @@ falsch ist:
 \textbf{Axiom der Mikroaffinität.}
 Sei~$\Delta := \{ \varepsilon \in \RR \,|\, \varepsilon^2 = 0 \}$ die
 \emph{infinitesimale Monade} um~$0$. Sei~$f : \Delta \to \RR$ eine beliebige
-Abbildung. Dann gibt es gewisse eindeutig bestimmte reelle Zahlen~$a$ und~$b$,
+Funktion. Dann gibt es gewisse eindeutig bestimmte reelle Zahlen~$a$ und~$b$,
 sodass für alle Zahlen~$\varepsilon$ in~$\Delta$ folgende Gleichung gilt:
 \[ f(\varepsilon) = a + b \varepsilon. \]
 \end{shaded}
@@ -96,16 +117,144 @@ erfüllt).
 Hierbei ist es wichtig, mit Absicht langsam zu rechnen, um nicht durch zu
 schnelles Vereinfachen die Pointe vorwegzunehmen. In klassischer Mathematik
 gilt die Regel "`wenn~$y^2 = 0$, dann auch~$y = 0$''; erst mit dieser Regel
-vereinfacht sich das Ergebnis, zu demselben wie in Teilaufgabe~a).
+vereinfacht sich das Ergebnis, dann zu demselben wie in Teilaufgabe~a).
 \end{enumerate}
-
 \end{aufgabeShaded}
+
+Infinitesimale Zahlen sind ferner in der Physik nützlich. Dort hat man es
+manchmal mit "`sehr kleinen"' (aber nicht verschwindenden) Größen wie etwa
+Differenzen~$\Delta x$ zu tun. Da das Quadrat einer kleinen Zahl nochmals
+kleiner und "`wirklich winzig"' ist, erlaubt man sich, in Rechnungen Quadrate
+von~$\Delta x$ einfach wegzulassen. Das ist mathematisch natürlich nicht
+zulässig -- trotzdem haben die Physikerinnen und Physiker mit diesem Vorgehen
+offensichtlich großen Erfolg!
+
+Mathematiker sollten die physikalischen Methoden nicht blind verurteilen,
+sondern sie ernst nehmen und Möglichkeiten finden, sie mathematisch sauber und
+rigoros zu verstehen. Infinitesimale Zahlen bieten eine solche Möglichkeit.sie
+ernst nehmen und Möglichkeiten finden, sie mathematisch sauber und rigoros zu
+verstehen. Infinitesimale Zahlen bieten eine solche Möglichkeit.
+
+\begin{aufgabeShaded}{Quadrate großer und kleiner Zahlen}
+\begin{enumerate}
+\item Sei~$x$ eine reelle Zahl, die größer als~$1$ ist. Zeige: Das
+Quadrat~$x^2$ ist größer als~$x$.
+\item Sei~$x$ eine reelle Zahl zwischen~$0$ und~$1$. Zeige: Das Quadrat~$x^2$
+ist kleiner als~$x$.
+
+Wenn die Dezimalentwicklung von~$x$ mit~$n$ Nullen nach dem Komma beginnt, mit
+etwa wie vielen Nullen beginnt dann die Dezimalentwicklung von~$x^2$?
+\end{enumerate}
+\end{aufgabeShaded}
+
+Infinitesimale Zahlen sind ferner fürs Differenzieren nützlich: Sie ermöglichen
+es nämlich, auf gewisse Grenzwertprozesse zu verzichten und gleichzeitig näher
+an der Anschauung zu bleiben. Zur Erinnerung wollen wir die übliche Definition
+der Ableitung rekapitulieren:
+
+\begin{defn}Sei~$f : \RR \to \RR$ eine Funktion und~$x_0 \in \RR$ eine Stelle.
+Falls der Grenzwert
+\[ \lim_{\varepsilon \to 0} \frac{f(x_0 + \varepsilon) - f(x_0)}{\varepsilon} \]
+existiert, so heißt~$f$ an der Stelle~$x_0$ \emph{differenzierbar} und die
+Ableitung~$f'(x_0)$ ist per Definition dieser Grenzwert.
+\end{defn}
+
+\begin{aufgabeShaded}{Intuition zum Differentialquotienten}
+Erinnere dich, inwieweit der Bruch
+\[ \frac{f(x_0 + \varepsilon) - f(x_0)}{\varepsilon} \]
+eine \emph{Sekantensteigung} angibt, und erkläre anhand einer Skizze, wieso der
+Grenzwert für~$\varepsilon \to 0$ anschaulich die Steigung der Tangente an den
+Graphen von~$f$ durch den Punkt~$(x_0|f(x_0))$ angibt.
+\end{aufgabeShaded}
+
+Um die Definition besser zu verstehen, wollen wir ohne Verwendung der bekannten
+Ableitungsregeln die Ableitung der Quadratfunktion bestimmen.
+
+\begin{prop}Die Quadratfunktion~$f : \RR \to \RR,\ x \mapsto x^2$ ist überall
+differenzierbar mit Ableitung~$f'(x) = 2x$.\end{prop}
+\begin{proof}In der Schule würde man in einer langen Gleichungskette die
+Definition so lange vereinfachen, bis der Grenzwert unmittelbar ablesbar ist.
+Dabei müsste man in jedem Schritt das~$\lim$-Symbol mitführen, würde das aber
+vielleicht auch oftmals vergessen. Übersichtlicher ist folgende Schreibweise:
+\[ \frac{f(x + \varepsilon) - f(x)}{\varepsilon} =
+  \frac{(x + \varepsilon)^2 - x^2}{\varepsilon} =
+  \frac{x^2 + 2x\varepsilon + \varepsilon^2 - x^2}{\varepsilon} =
+  2x + \varepsilon \xra{\varepsilon \to 0} 2x. \qedhere \]
+\end{proof}
+
+An diesem Beweis ist an sich nichts auszusetzen. Die Rechnung selbst ist genügend
+einfach, durch die Grenzwertüberlegung aber trotzdem logisch nicht ganz
+elementar. Die Physiker haben eine einfachere Möglichkeit, die Aussage zu
+"`beweisen"' -- eine, die ohne Grenzwerte auskommt:
+
+\begin{proof}[Physiker-Beweis]Sei~$\varepsilon$ "`sehr klein"'. Dann gilt:
+\[ \frac{f(x + \varepsilon) - f(x)}{\varepsilon} =
+  \frac{(x + \varepsilon)^2 - x^2}{\varepsilon} =
+  \frac{x^2 + 2x\varepsilon + \varepsilon^2 - x^2}{\varepsilon} =
+  2x + \varepsilon = 2x. \qedhere \]
+\end{proof}
+
+Bemerkenswert ist die schizophrene Natur dieses Arguments:
+Zum einen lässt man im letzten Schritt den Term~$\varepsilon$ einfach weg --
+mit der Begründung,~$\varepsilon$ sei schließlich "`sehr klein"'. Andererseits
+aber teilt man durch~$\varepsilon$ -- das ginge nur, wenn man wüsste,
+dass~$\varepsilon$ positiv oder negativ, aber jedenfalls nicht Null ist.
+
+Außerdem sollte man auch zu Beginn der Rechnung die Vereinfachung~$f(x +
+\varepsilon) - f(x) = f(x) - f(x) = 0$ treffen dürfen, wenn man doch am Ende
+auch einfach~$\varepsilon$ weglassen durfte. Schließlich sollten sich die
+Rechengesetze nicht inmitten einer Rechnung ändern. Dann wäre das Ergebnis
+insgesamt~$f'(x) = 0$ -- das ist jedoch eine unsinnige Behauptung.
+
+Aus diesen Gründen wird das Physiker-Argument in klassischer Mathematik
+nicht akzeptiert. Mit den infinitesimalen Zahlen aus synthetischer
+Differentialgeometrie werden wir aber in der Lage sein, die wesentlichen Ideen des
+Physiker-Arguments in einen mathematisch einwandfreien Beweis zu gießen. So
+können wir die Vorteile beider Welten -- einfache Rechnungen einerseits und
+mathematische Rigorosität andererseits -- vereinen.
+
+\begin{aufgabeShaded}{Ableitung der Kubikfunktion}
+Sei~$f : \RR \to \RR,\ x \mapsto x^3$ die Kubikfunktion. Verifiziere direkt
+anhand der mathematischen Definition, dass~$f$ überall differenzierbar mit
+Ableitung~$f'(x) = 3x^2$ ist.
+
+\emph{Hinweis:} Den Ausdruck~$(x + \varepsilon)^3$ kann man entweder durch
+mehrmaliges Ausmultiplizieren oder direkt durch Verwendung der binomischen
+Formel für Kuben statt Quadrate vereinfachen. (Die Koeffizienten der
+allgemeinen binomischen Formel stehen im Pascalschen Dreieck.)
+\end{aufgabeShaded}
+
+\begin{aufgabeShaded}{Beispiele für nicht differenzierbare Funktionen}
+\begin{enumerate}
+\item Die Betragsfunktion (siehe Abbildung~\ref{fig:nicht-diffbar}a) ist an der
+Stelle~$x_0 = 0$ nicht differenzierbar. Anschaulich erkennt man das daran, dass
+der Graph am Punkt~$(0|0)$ keine eindeutige Tangente besitzt.\footnotemark{}
+Bestätige diese Beobachtung anhand der Definition über den
+Differentialquotienten: Die Sekantensteigungen konvergieren für~$\varepsilon
+\to 0$ nicht gegen einen bestimmten Wert, sondern \ldots
+
+Wenn du möchtest, kannst du das auch noch rechnerisch nachvollziehen: Berechne
+den \emph{links-} und den \emph{rechtsseitigen} Grenzwert des
+Differenzenquotienten. Nutze dabei folgende Definition der Betragsfunktion:
+\[ |x| := \begin{cases}\phantom{-}x, & \text{falls $x \geq 0$,} \\ -x, & \text{falls $x <
+0$.}\end{cases} \]
+\item Es gibt auch Funktionen, deren Graphen keine offensichtlichen
+Knickpunkte haben und die trotzdem nicht überall differenzierbar sind. Erkläre
+anschaulich und zeige rechnerisch, dass folgende Funktion an der Stelle~$x_0 =
+0$ nicht differenzierbar ist (siehe Abbildung~\ref{fig:nicht-diffbar}b):
+\[ f(x) = \begin{cases}x \sin\frac{1}{x}, & \text{falls $x \neq 0$,} \\
+0, & \text{falls $x = 0$.}\end{cases} \]
+(Diese Funktion ist übrigens durchaus \emph{stetig}.)
+\end{enumerate}
+\end{aufgabeShaded}
+\footnotetext{Man kann an dieser Stelle durchaus Geraden anlegen, es gibt aber
+keine besonders überzeugende Wahl einer \emph{berührenden} Gerade.
+Fortgeschrittene Differentialrechnung wird mit dieser Uneindeutigkeit fertig,
+durch den Begriff der \emph{Subgradienten} von konvexen Funktionen.}
 
 \end{document}
 
-- Motivation: kleine Größen in der Physik
-- Motivation: Ableitungsberechnung
 - Mengenschreibweise (benötigt für Delta)
-- Abbildungen
+- Funktionen
 - "Schwebezustand" von Delta: Es stimmt nicht, dass es nur die Null enthalten
   würde -- andere Elemente kann man aber trotzdem nicht angeben.
