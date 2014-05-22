@@ -35,6 +35,8 @@
 \maketitleSF{Klasse 11./12., Gruppe 2}{31. Mai 2014: \\ Synthetische
 Differentialgeometrie}
 
+\tableofcontents
+
 \section{Einleitung}
 
 Eine \emph{infinitesimale Zahl}~$\varepsilon$ ist eine Zahl, deren Quadrat Null
@@ -62,22 +64,25 @@ Dreh- und Angelpunkt für synthetische Differentialgeometrie ist ein Axiom,
 das \emph{klassisch} -- das heißt im gewöhnlichen mathematischen Universum --
 falsch ist:
 
-\begin{shaded}
-\textbf{Axiom der Mikroaffinität.}
-Sei~$\Delta := \{ \varepsilon \in \RR \,|\, \varepsilon^2 = 0 \}$ die
-\emph{infinitesimale Monade} um~$0$. Sei~$f : \Delta \to \RR$ eine beliebige
-Funktion. Dann gibt es gewisse eindeutig bestimmte reelle Zahlen~$a$ und~$b$,
-sodass für alle Zahlen~$\varepsilon$ in~$\Delta$ folgende Gleichung gilt:
-\[ f(\varepsilon) = a + b \varepsilon. \]
-\end{shaded}
+\newcommand{\axiommikro}{
+  \begin{shaded}
+  \textbf{Axiom der Mikroaffinität.}
+  Sei~$\Delta := \{ \varepsilon \in \RR \,|\, \varepsilon^2 = 0 \}$ die
+  \emph{infinitesimale Monade} um~$0$. Sei~$f : \Delta \to \RR$ eine beliebige
+  Funktion. Dann gibt es gewisse eindeutig bestimmte reelle Zahlen~$a$ und~$b$,
+  sodass für alle Zahlen~$\varepsilon$ in~$\Delta$ folgende Gleichung gilt:
+  \[ f(\varepsilon) = a + b \varepsilon. \]
+  \end{shaded}
+}
+\axiommikro
 
-Wir werden etwas Zeit benötigen, um zunächst die Aussage dieses Axioms zu
+Wir werden etwas Zeit benötigen, um zunächst überhaupt die Aussage dieses Axioms zu
 verstehen und dann seine Konsequenzen zu überblicken.
 
 
 \section{Motivation für infinitesimale Zahlen}
 
-In Abbildung~\ref{fig:schnittverhalten} sind zwei Situationen skizziert, bei
+\paragraph{Schnitte.} In Abbildung~\ref{fig:schnittverhalten} sind zwei Situationen skizziert, bei
 denen sich jeweils zwei Kurven schneiden. (Gerade Linien zählen
 auch als \emph{Kurven}.) Es ist offensichtlich, dass sich im ersten
 Bild die beiden Geraden in genau einem Punkt schneiden. Die Schnittsituation
@@ -116,12 +121,12 @@ erfüllt).
 
 Hierbei ist es wichtig, mit Absicht langsam zu rechnen, um nicht durch zu
 schnelles Vereinfachen die Pointe vorwegzunehmen. In klassischer Mathematik
-gilt die Regel "`wenn~$y^2 = 0$, dann auch~$y = 0$''; erst mit dieser Regel
+gilt die Regel "`wenn~$y^2 = 0$, dann auch~$y = 0$"'; erst mit dieser Regel
 vereinfacht sich das Ergebnis, dann zu demselben wie in Teilaufgabe~a).
 \end{enumerate}
 \end{aufgabeShaded}
 
-Infinitesimale Zahlen sind ferner in der Physik nützlich. Dort hat man es
+\paragraph{Physik.} Infinitesimale Zahlen sind ferner in der Physik nützlich. Dort hat man es
 manchmal mit "`sehr kleinen"' (aber nicht verschwindenden) Größen wie etwa
 Differenzen~$\Delta x$ zu tun. Da das Quadrat einer kleinen Zahl nochmals
 kleiner und "`wirklich winzig"' ist, erlaubt man sich, in Rechnungen Quadrate
@@ -147,6 +152,7 @@ etwa wie vielen Nullen beginnt dann die Dezimalentwicklung von~$x^2$?
 \end{enumerate}
 \end{aufgabeShaded}
 
+\paragraph{Differentialrechnung.}
 Infinitesimale Zahlen sind ferner fürs Differenzieren nützlich: Sie ermöglichen
 es nämlich, auf gewisse Grenzwertprozesse zu verzichten und gleichzeitig näher
 an der Anschauung zu bleiben. Zur Erinnerung wollen wir die übliche Definition
@@ -167,7 +173,7 @@ Grenzwert für~$\varepsilon \to 0$ anschaulich die Steigung der Tangente an den
 Graphen von~$f$ durch den Punkt~$(x_0|f(x_0))$ angibt.
 \end{aufgabeShaded}
 
-Um die Definition besser zu verstehen, wollen wir ohne Verwendung der bekannten
+Um die Definition besser zu verstehen, möchten wir ohne Verwendung der bekannten
 Ableitungsregeln die Ableitung der Quadratfunktion bestimmen.
 
 \begin{prop}Die Quadratfunktion~$f : \RR \to \RR,\ x \mapsto x^2$ ist überall
@@ -252,9 +258,146 @@ keine besonders überzeugende Wahl einer \emph{berührenden} Gerade.
 Fortgeschrittene Differentialrechnung wird mit dieser Uneindeutigkeit fertig,
 durch den Begriff der \emph{Subgradienten} von konvexen Funktionen.}
 
+
+\section{Exkurs zu Mengen und Funktionen}
+
+Eine \emph{Menge} reeller Zahlen kann man sich wie eine Einkaufstasche
+vorstellen, die statt leckerer Äpfel gewisse reelle Zahlen enthält. Die Zahlen,
+die in einer Menge vorkommen, heißen \emph{Elemente} dieser Menge. Mengen
+dürfen auch unendlich viele oder gar keine Elemente enthalten. Es gibt drei
+Möglichkeiten, Mengen anzugeben:
+\begin{align*}
+  M_1 &= \{ 4, 9, 16, 25, 36, 49, 64, 81 \}, \\
+  M_2 &= \{ 4, 9, 16, \ldots, 81 \}, \\
+  M_3 &= \{ x \in \RR \ |\ \text{$x \geq 4$ und $x \leq 81$ und $x$ ist das Quadrat
+  einer natürlichen Zahl} \}.
+\end{align*}
+Im ersten Fall zählt man die Elemente der Menge einfach explizit auf. Im
+zweiten Fall erwartet man von seinem Gegenüber, die Regelmäßigkeit zu erkennen
+und die in der Notation nicht aufgeführten Elemente gedanklich zu ergänzen. Der
+dritte Fall liest sich wie folgt: Die Menge~$M_3$ ist die Menge all derjenigen
+reellen Zahlen ("`$x \in \RR$"'), welche~$\geq 4$, $\leq 81$ und zugleich das
+Quadrat einer natürlichen Zahl sind; man sammelt also alle reellen Zahlen mit
+einer gewissen Eigenschaft auf.
+
+\begin{aufgabeShaded}{Beispiele für Mengen}
+Sei~$M = \{ x \in \RR \ |\ x^2 \geq 4 \}$. Skizziere die Menge~$M$ auf dem
+Zahlenstrahl.
+\end{aufgabeShaded}
+
+Eine \emph{Funktion}~$f : D \to \RR$ ordnet jedem Element ihrer
+\emph{Definitionsmenge}~$D$ eine bestimmte reelle Zahl zu: Liegt~$x$ in~$D$, so
+ist~$f(x)$ eine bestimmte reelle Zahl. Für Zahlen außerhalb der
+Definitionsmenge~$D$ ist~"`$f(x)$"' ein sinnloser Ausdruck.
+
+Zuordnungen wie~$f : x \mapsto \pm x$, für die~$f(x)$ gewissermaßen
+mehrere Werte annimmt, führen nicht zu Funktionen, sondern zu \emph{Relationen}.
+Solche werden wir im Folgenden nie betrachten.
+
+\begin{aufgabeShaded}{Funktionen mit eingeschränkten Definitionsmengen}
+\begin{enumerate}
+\item Finde die größtmögliche Definitionsmenge~$D$, sodass folgende Zuordnung
+Sinn ergibt:
+\[ f : D \to \RR,\ x \mapsto \frac{1}{x}. \]
+\item Der Term~"`$x^2$"' ergibt für alle reellen Zahlen~$x$ Sinn, die
+größtmögliche Definitionsmenge der Zuordnung~$x \mapsto x^2$ ist also die
+vollständige Menge~$\RR$ aller reellen Zahlen. Man kann aber die
+Definitionsmenge auch künstlich einschränken:
+\[ f : [2;4] \to \RR,\ x \mapsto x^2. \]
+Dabei bezeichnet~"`$[2;4]$"' das abgeschlossene Intervall von~$2$ bis~$4$, also
+die Menge~$\{ x \in \RR \,|\, 2 \leq x \leq 4 \}$. Skizziere den Verlauf dieser
+Funktion. (Das wird \emph{nicht} die übliche Normalparabel.)
+\end{enumerate}
+\end{aufgabeShaded}
+
+
+\section{Das Axiom der Mikroaffinität}
+
+Im Axiom der Mikroaffinität kommt die \emph{infinitesimale Monade um die
+Zahl~$0$} vor. Damit ist folgende Menge reeller Zahlen gemeint:
+\[ \Delta := \{ x \in \RR \,|\, x^2 = 0 \}. \]
+Die Elemente von~$\Delta$ sind also all diejenigen Zahlen, deren Quadrat Null
+ist. In klassischer Mathematik gilt die Regel "`wenn das Quadrat einer Zahl
+Null ist, dann ist auch die Zahl selbst Null"'. Daher besteht~$\Delta$ in klassischer
+Mathematik nur aus der Zahl~$0$: $\Delta = \{ 0 \}$.
+
+Ab dieser Stelle wollen wir uns von klassischer Mathematik (vorläufig)
+verabschieden, daher geben wir nun genau an, welche Axiome wir noch verwenden
+möchten:
+\begin{itemize}
+\item Die üblichen logischen Gesetze -- mit einer wichtigen Ausnahme, die wir weiter
+unten diskutieren.
+
+Ein logisches Gesetz ist etwa: Wenn sowohl eine Aussage~$A$
+als auch eine Aussage~$B$ stimmen, so stimmt insbesondere~$A$. Ein anderes
+lautet: Wenn eine Aussage~$A$ stimmt und~$B$ eine weitere (vielleicht falsche)
+Aussage ist, so stimmt es auch, dass~$A$ oder~$B$ korrekt ist.\footnote{In der
+Mathematik ist "`oder"' stets einschließend gemeint, wenn man nicht mit
+"`entweder oder"' explizit die ausschließende Variante verwendet. Wenn ich
+also heute Abend ins Kino gehen \emph{und} später schlafen werde, so stimmt es
+insbesondere auch, dass ich heute Abend ins Kino gehen \emph{oder} schlafen
+werde.}
+\item Die üblichen Rechenregeln zur Termvereinfachung.
+\begin{align*}
+  0 + x &= x &
+  1 \cdot x &= x \\
+  x + y &= y + x &
+  x \cdot y &= y \cdot x \\
+  x + (y + z) &= (x + y) + z &
+  x \cdot (y \cdot z) &= (x \cdot y) \cdot z
+\end{align*}
+\begin{align*}
+  x \cdot (y + z) &= x \cdot y + x \cdot z \\
+  (x + y) \cdot z &= x \cdot z + y \cdot z
+\end{align*}
+\item Das Axiom zu Gegenzahlen: Jede reelle Zahl besitzt eine zugehörige
+Gegenzahl -- zu~$x$ gibt es eine Zahl~$-x$ mit der Eigenschaft~$x + (-x) = 0$.
+\item Das Axiom zu Inversen: Ist eine reelle Zahl \emph{nicht Null}, so besitzt
+sie ein Inverses bezüglich der Multiplikation. In Formeln: Wenn~$x \neq 0$, so
+gibt es eine Zahl~$y$ mit~$xy = 1$. Das Inverse~$y$ wird üblicherweise
+als~"`$\frac{1}{x}$"' oder~"`$x^{-1}$"' geschrieben.
+\item Einige weitere Axiome, die wir aber erst dann einführen, wenn wir sie
+benötigen. Es sei nur noch verraten, dass wir die \emph{Trichotomie} der Ordnung
+\emph{nicht} verwenden: Diese würde besagen, dass jede Zahl entweder klein,
+gleich oder größer als Null ist.
+\end{itemize}
+
+Diese Axiome rechtfertigen jedenfalls \emph{nicht} die Regel, der zufolge das
+Quadrat einer Zahl nur dann Null sein könne, wenn sie es selbst schon wäre.
+Auch wenn wir keine weiteren Elemente in~$\Delta$ angeben können, können wir
+mit unserem reduzierten Satz an Axiomen daher trotzdem nicht schließen,
+dass~$\Delta$ \emph{nur} die Null enthalte.
+
+Wir stellen uns die Menge~$\Delta$ als eine \emph{infinitesimale Umgebung} der
+Zahl~$0$ vor. Keine konkrete kleine positive Zahl liegt in~$\Delta$ -- etwa
+liegt ein Millionstel nicht in~$\Delta$, denn das Quadrat eines Millionstels
+ist nicht Null, sondern ein Billionstel. Wir stellen uns~$\Delta$ eher als die
+Menge der Schnittpunkte in Abbildung~\ref{fig:schnittverhalten}b vor.
+
+Mathematisch erweckt das Axiom der Mikroaffinität die Menge~$\Delta$ zum Leben
+und bestätigt dann unsere Intuition über~$\Delta$:
+\axiommikro
+
+Das Axiom spricht nicht über Funktionen~$\RR \to \RR$, sondern nur
+über solche, deren Definitionsmengen die infinitesimale Monade~$\Delta$ sind.
+Die Funktionswerte einer solchen Funktion können also nur in sehr begrenzten
+Ausmaßen variieren. Das Axiom besagt nun: Eine solche Funktion sieht stets wie
+eine affine Funktion aus, mit Achsenabschnitt~$a$ und Steigung~$b$.\footnote{In
+der Schule nennt man solche Funktionen \emph{linear}. In Universitätsmathematik
+ist dieser Begriff solchen affinen Funktionen vorbehalten, deren
+Achsenabschnitt Null ist.}
+
+\begin{figure}[b]
+  \centering
+  \includegraphics[width=\textwidth]{mikroaffinitaet}
+  \caption{Auf infinitesimalen Umgebungen sind Funktionen affin.}
+\end{figure}
+% http://upload.wikimedia.org/wikipedia/commons/f/fa/Approximation_of_cos_with_linear_functions_without_numbers.svg
+
 \end{document}
 
-- Mengenschreibweise (benötigt für Delta)
-- Funktionen
 - "Schwebezustand" von Delta: Es stimmt nicht, dass es nur die Null enthalten
   würde -- andere Elemente kann man aber trotzdem nicht angeben.
+
+- Andrej Bauer, Blog
+- Anders Kock, SDG
