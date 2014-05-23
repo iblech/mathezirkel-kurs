@@ -573,7 +573,8 @@ Das Ergebnis sollte natürlich~$f'(x) = -\frac{1}{x^2}$ sein.
 
 \emph{Hinweis:} Klammere~$\frac{1}{x}$ aus. An einer Stelle wirst du die Vereinfachungsregel
 \[ \frac{1}{1 + \frac{\varepsilon}{x}} = 1 - \frac{\varepsilon}{x} \]
-benötigen. Beweise diese Regel, indem du die Probe durchführst:
+benötigen.\footnotemark
+Beweise diese Regel, indem du die Probe durchführst:
 \[ (1 + \tfrac{\varepsilon}{x}) \cdot (1 - \tfrac{\varepsilon}{x}) = \cdots = 1. \]
 \end{aufgabeShaded}
 
@@ -590,19 +591,36 @@ Seien also~$f$ und~$g$ Funktionen~$\RR \to \RR$. Zeige:
 \end{enumerate}
 
 \emph{Tipp:} Für die Summenregel lautet der Ansatz wie folgt:
-\[ (f+g)'(x) \cdot \varepsilon =
-  (f+g)(x + \varepsilon) - (f+g)(x) =
-  [f(x) + g(\varepsilon)] - [f(x) + g(x)] = \cdots. \]
+\begin{multline*}(f+g)'(x) \cdot \varepsilon =
+  (f+g)(x + \varepsilon) - (f+g)(x) = \\
+  [f(x+\varepsilon) + g(x+\varepsilon)] - [f(x) + g(x)] = \cdots. \end{multline*}
 Ferner solltest du keine Angst vor der Kettenregel haben. Die Schreibweise ist
 vielleicht etwas ungewohnt, der Ansatz ist aber ganz einfach:
 \[ (f \circ g)'(x) \cdot \varepsilon =
   f(g(x + \varepsilon)) - f(g(x)) = \cdots. \]
 \end{aufgabeShaded}
+\footnotetext{Wie kommt man auf diese Regel? Ganz allgemein gibt es eine
+Formel für die \emph{geometrische Reihe}: $\sum_{i=0}^n q^i =
+\frac{1-q^{n+1}}{1-q}$. Diese Formel gilt immer dann, wenn der Nenner~$1-q$
+invertierbar ist. Eine Variante der Formel gilt sogar ohne Einschränkungen:
+$(1-q) \cdot \sum_{i=0}^n q^i = 1-q^{n+1}$. Wenn nun~$q$ so geartet ist,
+dass~$q^2$ Null ist, vereinfacht sich diese Formel. Der Unterschied zur
+angegebenen Vereinfachungsregel ist dann nur noch ein Vorzeichen.}
 
 \end{document}
 
-- "Schwebezustand" von Delta: Es stimmt nicht, dass es nur die Null enthalten
-  würde -- andere Elemente kann man aber trotzdem nicht angeben.
+- Paradoxien auflösen:
+  - LEM und Mikroaffinität widersprechen sich. Aber das eine ohne das andere
+    funktioniert.
+  - Alle Funktionen sind differenzierbar.
+  - "Schwebezustand" von Delta: Es stimmt nicht, dass Delta nur die Null enthalten
+    würde -- andere Elemente kann man aber trotzdem nicht angeben.
+
+- Ordnungsaxiome
+
+- Infinitesimale Zahlen sind nicht nicht Null.
 
 - Andrej Bauer, Blog
 - Anders Kock, SDG
+
+- Fußnoten auf den richtigen Seiten?
