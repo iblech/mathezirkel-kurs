@@ -2,6 +2,8 @@
 \geometry{tmargin=2cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
 \usepackage{empheq}
 \usepackage{float}
+\usepackage{dashrule}
+\usepackage{manfnt}
 \floatstyle{ruled}
 \restylefloat{figure}
 \newcommand{\head}[1]{\section*{\rmfamily #1}}%begin{center}\large \textbf{#1}\end{center}}
@@ -29,6 +31,9 @@
 \theoremstyle{remark}
 \newtheorem{bem}[defn]{Bemerkung}
 \newtheorem{aufg}[defn]{Aufgabe}
+
+\definecolor{darkred}{rgb}{0.7,0,0}
+\definecolor{shadecolor}{rgb}{.95,.95,.95}
 
 \begin{document}
 
@@ -79,6 +84,10 @@ falsch ist:
 Wir werden etwas Zeit benötigen, um zunächst überhaupt die Aussage dieses Axioms zu
 verstehen und dann seine Konsequenzen zu überblicken.
 
+\paragraph{\textcolor{darkred}{Warnung.}} Ab einer bestimmten Stelle werden wir
+leicht andere logische Gesetze verwenden als in der Schule. Insbesondere werden
+deine Lehrer vielleicht nicht erfreut sein, wenn du sie in Hausaufgaben oder
+Prüfungen verwendest.
 
 \section{Motivation für infinitesimale Zahlen}
 
@@ -321,9 +330,9 @@ ist. In klassischer Mathematik gilt die Regel "`wenn das Quadrat einer Zahl
 Null ist, dann ist auch die Zahl selbst Null"'. Daher besteht~$\Delta$ in klassischer
 Mathematik nur aus der Zahl~$0$: $\Delta = \{ 0 \}$.
 
-Ab dieser Stelle wollen wir uns von klassischer Mathematik (vorläufig)
-verabschieden, daher geben wir nun genau an, welche Axiome wir noch verwenden
-möchten:
+Da wir uns in Kürze von klassischer Mathematik (vorläufig) verabschieden
+möchten, geben wir nun genau an, welche der Axiome klassischer Mathematik wir
+noch verwenden möchten:
 \begin{itemize}
 \item Die üblichen logischen Gesetze -- mit einer wichtigen Ausnahme, die wir weiter
 unten diskutieren.
@@ -356,6 +365,7 @@ Gegenzahl -- zu~$x$ gibt es eine Zahl~$-x$ mit der Eigenschaft~$x + (-x) = 0$.
 sie ein Inverses bezüglich der Multiplikation. In Formeln: Wenn~$x \neq 0$, so
 gibt es eine Zahl~$y$ mit~$xy = 1$. Das Inverse~$y$ wird üblicherweise
 als~"`$\frac{1}{x}$"' oder~"`$x^{-1}$"' geschrieben.
+\item Ein \emph{Nichttrivialitätsaxiom}: $0 \neq 1$.
 \item Einige weitere Axiome, die wir aber erst dann einführen, wenn wir sie
 benötigen. Es sei nur noch verraten, dass wir die \emph{Trichotomie} der Ordnung
 \emph{nicht} verwenden: Diese würde besagen, dass jede Zahl entweder klein,
@@ -375,7 +385,11 @@ ist nicht Null, sondern ein Billionstel. Wir stellen uns~$\Delta$ eher als die
 Menge der Schnittpunkte in Abbildung~\ref{fig:schnittverhalten}b vor.
 
 Mathematisch erweckt das Axiom der Mikroaffinität die Menge~$\Delta$ zum Leben
-und bestätigt dann unsere Intuition über~$\Delta$:
+und bestätigt dann unsere Intuition über~$\Delta$. Sobald wir dieses Axiom
+annehmen, verlassen wir klassische Mathematik.
+
+\textcolor{darkred}{\hspace{-5cm}\hdashrule{2\textwidth}{1pt}{3mm}}
+
 \axiommikro
 
 Das Axiom spricht nicht über Funktionen~$\RR \to \RR$, sondern nur
@@ -384,8 +398,84 @@ Die Funktionswerte einer solchen Funktion können also nur in sehr begrenzten
 Ausmaßen variieren. Das Axiom besagt nun: Eine solche Funktion sieht stets wie
 eine affine Funktion aus, mit Achsenabschnitt~$a$ und Steigung~$b$.\footnote{In
 der Schule nennt man solche Funktionen \emph{linear}. In Universitätsmathematik
-ist dieser Begriff solchen affinen Funktionen vorbehalten, deren
+ist dieser Begriff nur solchen affinen Funktionen vorbehalten, deren
 Achsenabschnitt Null ist.}
+
+Zu betonen ist auch, dass Achsenabschnitt~$a$ und Steigung~$b$ \emph{eindeutig
+bestimmt} sind. Das bedeutet: Sollte für eine Funktion~$f : \Delta \to \RR$
+nicht nur~$f(\varepsilon) = a + b\varepsilon$, sondern auch~$f(\varepsilon) =
+\tilde a + \tilde b \varepsilon$ für alle~$\varepsilon$ in~$\Delta$ gelten, so
+folgt~$a = \tilde a$ und~$b = \tilde b$.
+
+Eine erste Konsequenz des Mikroaffinitätsaxioms ist, dass die Menge~$\Delta$
+anders als in klassischer Mathematik nicht nur die Null enthält.
+\begin{prop}Es stimmt nicht, dass~$\Delta = \{ 0 \}$.\end{prop}
+\begin{proof}Angenommen, es wäre doch der Fall, dass~$\Delta = \{ 0 \}$. Dann
+erhalten wir mit der Eindeutigkeitsaussage im Axiom der Mikroaffinität einen
+Widerspruch: Betrachte die Funktion $f : \Delta \to \RR,\ \varepsilon \mapsto 0$.
+Dann gelten für alle~$\varepsilon$ in~$\Delta$ -- das ist etwas verklausuliert
+gesprochen, denn nach Annahme enthält~$\Delta$ ja nur die Null -- \emph{beide}
+der folgenden Gleichungen:
+\begin{align*}
+  f(\varepsilon) &= 0 + 0 \cdot \varepsilon \\
+  f(\varepsilon) &= 0 + 1 \cdot \varepsilon
+\end{align*}
+Wegen der Eindeutigkeitssaussage müsste daher~$0 = 1$ sein. Das ist aber ein
+Widerspruch zum Axiom~$0 \neq 1$.
+\end{proof}
+
+Wir sind hier also in einer etwas sonderbaren Situation: In klassischer
+Mathematik gilt~$\Delta = \{ 0 \}$, das Axiom der Mikroaffinität impliziert
+aber~$\Delta \neq \{ 0 \}$. Andererseits können wir trotzdem keine Zahl
+in~$\Delta$ (außer der Null) explizit angeben. Beide Paradoxien müssen wir
+auflösen, um wieder produktiv arbeiten zu können. Zunächst aber wollen wir ein
+paar Rechnungen anstellen, um den Umgang mit dem Axiom der Mikroaffinität zu
+üben. \dbend
+
+\begin{aufgabeShaded}{Eine erste korrekte Rechnung mit infinitesimalen Zahlen}
+Sei~$\varepsilon$ eine Zahl in~$\Delta$. Vereinfache dann den Ausdruck
+\[ (x + \varepsilon)^2 - x^2 \]
+so weit wie möglich. Das geht ähnlich wie bei unserer Berechnung der Ableitung
+der Quadratfunktion. Am Ende wird ein~$\varepsilon$ stehen bleiben.
+
+Das Axiom der Mikroaffinität wirst du dazu noch nicht benötigen -- aber ohne es
+wäre die Rechnung langweilig, denn dann wäre ja~$\varepsilon = 0$ die einzige
+infinitesimale Zahl.
+\end{aufgabeShaded}
+
+\begin{aufgabeShaded}{Invertierbarkeit infinitesimaler Zahlen}
+Infinitesimale Zahlen sind nicht so weit von der Null verschieden, als dass sie
+invertierbar sein könnten. Das wollen wir in dieser Aufgabe beweisen. Ergänze
+folgenden Beweisanfang:
+
+\emph{Sei~$\varepsilon$ in~$\Delta$. Angenommen,~$\varepsilon$ wäre
+doch invertierbar. Nach Definition der Invertierbarkeit würde es dann eine weitere
+Zahl~$y$ mit der Eigenschaft~$\varepsilon \cdot y = 1$ geben. Dann \ldots}
+\end{aufgabeShaded}
+
+\begin{aufgabeShaded}{Das Prinzip der Mikrokürzbarkeit}
+\begin{enumerate}
+\item Sei~$x$ eine invertierbare reelle Zahl (das heißt, dass es eine Zahl~$y$
+mit~$xy = 1$ gibt). Seien ferner~$a$ und~$b$ reelle Zahlen. Zeige:
+\[ \text{Wenn $xa = xb$, dann $a = b$.} \]
+Invertierbare Zahlen kann man also in Gleichungen kürzen. Das ist für dich
+natürlich nichts Neues, vielleicht ist das aber das erste Mal, dass du einen
+Beweis dieser elementaren Tatsache geführt hast.
+
+\item In manchen Zahlenbereichen gibt es auch Zahlen, die nicht invertierbar,
+aber trotzdem aus Gleichungen kürzbar sind. Fällt dir etwa ein Beispiel im
+Bereich der ganzen Zahlen~$\ZZ$ ein?
+
+\item Ob einzelne infinitesimale Zahlen kürzbar sind oder nicht, können wir mit
+den gegebenen Axiomen nicht entscheiden. (Sicherlich sind nicht alle
+infinitesimale Zahlen kürzbar, denn die Null ist ja auch eine infinitesimale
+Zahl.) Es gilt jedoch folgendes Prinzip der \emph{Mikrokürzbarkeit}:
+\[ \text{Wenn~$\varepsilon a = \varepsilon b$ für \emph{alle} $\varepsilon$
+in~$\Delta$, dann $a = b$.} \]
+Beweise dieses Prinzip! Dazu wirst du das Axiom der Mikroaffinität verwenden
+und eine geeignete Hilfsfunktion~$f : \Delta \to \RR$ definieren müssen.
+\end{enumerate}
+\end{aufgabeShaded}
 
 \begin{figure}[b]
   \centering
