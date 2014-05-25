@@ -339,8 +339,8 @@ Da wir uns in Kürze von klassischer Mathematik (vorläufig) verabschieden
 möchten, geben wir nun genau an, welche der Axiome klassischer Mathematik wir
 noch verwenden möchten:
 \begin{itemize}
-\item Die üblichen logischen Gesetze -- mit einer wichtigen Ausnahme, die wir weiter
-unten diskutieren.
+\item Die üblichen logischen Gesetze -- mit einer wichtigen Ausnahme, die wir
+in Abschnitt~\ref{sect:lem} diskutieren werden.
 
 Ein logisches Gesetz ist etwa: Wenn sowohl eine Aussage~$A$
 als auch eine Aussage~$B$ stimmen, so stimmt insbesondere~$A$. Ein anderes
@@ -387,7 +387,7 @@ Wir stellen uns die Menge~$\Delta$ als eine \emph{infinitesimale Umgebung} der
 Zahl~$0$ vor. Keine konkrete kleine positive Zahl liegt in~$\Delta$ -- etwa
 liegt ein Millionstel nicht in~$\Delta$, denn das Quadrat eines Millionstels
 ist nicht Null, sondern ein Billionstel. Wir stellen uns~$\Delta$ eher als die
-Menge der Schnittpunkte in Abbildung~\ref{fig:schnittverhalten}b vor.
+Menge der ($x$-Koordinaten der) Schnittpunkte in Abbildung~\ref{fig:schnittverhalten}b vor.
 
 Mathematisch erweckt das Axiom der Mikroaffinität die Menge~$\Delta$ zum Leben
 und bestätigt dann unsere Intuition über~$\Delta$. Sobald wir dieses Axiom
@@ -412,7 +412,7 @@ der Schule nennt man solche Funktionen \emph{linear}. In Universitätsmathematik
 ist dieser Begriff nur solchen affinen Funktionen vorbehalten, deren
 Achsenabschnitt Null ist.}
 
-Zu betonen ist auch, dass Achsenabschnitt~$a$ und Steigung~$b$ \emph{eindeutig
+Zu betonen ist auch, dass laut Axiom Achsenabschnitt~$a$ und Steigung~$b$ \emph{eindeutig
 bestimmt} sind. Das bedeutet: Sollte für eine Funktion~$f : \Delta \to \RR$
 nicht nur~$f(\varepsilon) = a + b\varepsilon$, sondern auch~$f(\varepsilon) =
 \tilde a + \tilde b \varepsilon$ für alle~$\varepsilon$ in~$\Delta$ gelten, so
@@ -420,7 +420,7 @@ folgt~$a = \tilde a$ und~$b = \tilde b$.
 
 Eine erste Konsequenz des Mikroaffinitätsaxioms ist, dass die Menge~$\Delta$
 anders als in klassischer Mathematik nicht nur die Null enthält.
-\begin{prop}Es stimmt nicht, dass~$\Delta = \{ 0 \}$.\end{prop}
+\begin{prop}\label{prop:neg-delta0}Es stimmt nicht, dass~$\Delta = \{ 0 \}$.\end{prop}
 \begin{proof}Angenommen, es wäre doch der Fall, dass~$\Delta = \{ 0 \}$. Dann
 erhalten wir mit der Eindeutigkeitsaussage im Axiom der Mikroaffinität einen
 Widerspruch: Betrachte die Funktion $f : \Delta \to \RR,\,\varepsilon \mapsto 0$.
@@ -658,6 +658,118 @@ invertierbar ist. Eine Variante der Formel gilt sogar ohne Einschränkungen:
 $(1-q) \cdot \sum_{i=0}^n q^i = 1-q^{n+1}$. Wenn nun~$q$ so geartet ist,
 dass~$q^2$ Null ist, vereinfacht sich diese Formel. Der Unterschied zur
 angegebenen Vereinfachungsregel ist dann nur noch ein Vorzeichen.}
+
+
+\section{Das Axiom vom ausgeschlossenen Dritten}
+\label{sect:lem}
+
+In den letzten Abschnitten haben wir gesehen, dass infinitesimale Zahlen
+nützlich und praktisch sind. Wir haben auf dem Weg jedoch auch einige
+Paradoxien aufgesammelt:
+\begin{enumerate}
+\item[1.] In klassischer Mathematik gilt~$\Delta = \{0\}$. Das Axiom der
+Mikroaffinität impliziert aber~$\Delta \neq \{0\}$.
+\item[2.] Obwohl~$\Delta \neq \{0\}$, wenn wir das Mikroaffinitätsaxiom annehmen,
+sind wir trotzdem nicht in der Lage, andere Elemente aus~$\Delta$ als die Null
+explizit anzugeben.
+\item[3.] In klassischer Mathematik gibt es viele Funktionen, die nicht
+differenzierbar sind. Unter unserem neuen Ableitungsbegriff
+(Definition~\ref{defn:sdg-ableitung}), der auf dem Axiom
+der Mikroaffinität beruht, ist aber jede Funktion differenzierbar.
+\end{enumerate}
+Diese Paradoxien werden wir nun auflösen. Es stellt sich heraus, das von den
+vielen Axiomen klassischer Mathematik \emph{genau eines} mit dem Axiom der
+Mikroaffinität unverträglich ist, nämlich das \emph{Axiom vom ausgeschlossenen
+Dritten}. Lässt man dieses fallen, kann man widerspruchsfrei das Axiom der
+Mikroaffinität verwenden.
+
+\begin{shaded}
+\textbf{Axiom vom ausgeschlossenen Dritten.} Eine jede Aussage stimmt oder
+stimmt nicht.
+\end{shaded}
+
+Man darf sich berechtigterweise fragen, was denn an diesem Axiom problematisch
+sei. Ist es nicht schlichtweg \emph{offensichtlich wahr}? Eine pragmatische
+Antwort auf diese Frage ist, dass man synthetische Differentialgeometrie nun einmal
+nur ohne dieses Axiom betreiben kann: Gewissermaßen ist der Preis für die
+schöne infinitesimale Welt der, dass wir auf dieses grundlegende logische Axiom
+verzichten müssen. Es gibt auch noch bessere Antworten auf diese Frage, von
+denen wir eine weiter unten skizzieren werden.
+
+%Eine Sorge sei aber vorab ausgeräumt: Das Axiom vom ausgeschlossenen Dritten
+%nicht zu benutzen bedeutet \emph{nicht}, plötzlich etwa eine dreiwertige Logik
+%zu verwenden, in denen der Wahrheitswert von Aussagen neben
+%\emph{wahr} und \emph{falsch} noch etwa Drittes sein kann. Aussagen können
+%weiterhin nur wahr oder falsch sein; wir wollen lediglich nicht mehr
+%unterstellen.
+
+\begin{prop}Das Axiom vom ausgeschlossenen Dritten ist unverträglich mit dem
+Axiom der Mikroaffinität. Die restlichen Axiome klassischer Mathematik
+sind aber durchaus mit dem Mikroaffinitätsaxiom verträglich.\end{prop}
+\begin{proof}Einen Beweis der Unverträglichkeit haben wir schon gesehen: In
+Gegenwart des Axioms vom ausgeschlossenen Dritten liegt gewöhnliche klassische
+Mathematik vor. In dieser gilt~$\Delta = \{0\}$. Das Axiom der Mikroaffinität
+impliziert aber~$\Delta \neq \{0\}$ (Proposition~\ref{prop:neg-delta0}). Beides
+zusammen kann nicht gelten.
+
+Wir können die Unverträglichkeit aber auch noch direkter einsehen, durch
+Betrachtung der folgenden Zuordnungsvorschrift:
+\[ \varepsilon \longmapsto \begin{cases}0, & \text{falls $\varepsilon = 0$,} \\
+1, & \text{falls $\varepsilon \neq 0$.}\end{cases} \]
+Für jede Zahl~$\varepsilon$ aus~$\Delta$ garantiert das Axiom vom
+ausgeschlossenen Dritten, dass entweder~$\varepsilon = 0$ oder
+dass~$\varepsilon \neq 0$. Daher definiert diese Zuordnung eine Funktion~$f :
+\Delta \to \RR$ (siehe Abbildung~\ref{fig:fkt-01}). \textbf{XXX: Weiter!}
+
+Dass umgekehrt die restlichen Axiome klassischer Mathematik mit dem
+Mikroaffinitätsaxiom verträglich sind, also keinen Widerspruch produzieren, ist
+schwieriger zu sehen. Das diskutieren wir im nächsten Abschnitt \textbf{XXX}.
+\end{proof}
+
+Der im ersten Paradox genannte Sachverhalt ist nur dann wirklich paradox, wenn
+man erwartet, in synthetischer Differentialgeometrie dieselben Axiome wie in
+klassischer Mathematik verwenden zu können. Das stimmt aber nicht: In
+synthetischer Differentialgeometrie verwenden wir nicht das Axiom vom
+ausgeschlossenen Dritten (dafür aber das Axiom der Mikroaffinität).
+
+Das zweite Paradox hat folgende Auflösung: Ohne das Axiom vom ausgeschlossenen
+Dritten kann man gar nicht erwarten, aus~$\Delta \neq \{0\}$ schließen zu
+können, dass sich in~$\Delta$ noch andere Zahlen als die Null befinden.
+Das wird offensichtlich, wenn man den entsprechenden Beweis, dass dem in
+klassischer Mathematik schon so ist, minutiös aufschreibt.
+
+\begin{prop}Sei~$M$ eine Menge von Zahlen. Sei die Null ein
+Element von~$M$. Gelte~$M \neq \{0\}$. Dann folgt mit dem Axiom vom
+ausgeschlossenen Dritten: Es gibt eine weitere Zahl~$x$, die in~$M$ liegt und
+nicht gleich Null ist.\end{prop}
+\begin{proof}Dank des Axioms vom ausgeschlossenen Dritten dürfen wir folgern:
+Entweder gibt es eine solche Zahl~$x$ oder es gibt sie nicht. Im ersten Fall
+sind wir mit unserem Beweis fertig. Der zweite Fall würde unserer Behauptung
+widersprechen, kann aber gar nicht eintreten:
+
+Prinzipiell ist (abermals nach dem Axiom vom ausgeschlossenen Dritten) jede
+Zahl aus~$M$ entweder gleich Null oder ungleich Null. Letzteres kann im zweiten
+Fall aber nicht sein, denn sonst läge ja der erste Fall vor. Also ist jede Zahl
+aus~$M$ gleich Null. Weniger verklausuliert formuliert: Die Null ist das
+einzige Element aus~$M$. Das widerspricht aber der Voraussetzung~$M \neq
+\{0\}$.
+\end{proof}
+
+Das dritte Paradox löst sich wie folgt auf: Ohne das Axiom vom ausgeschlossenen
+Dritten lassen sich nicht differenzierbare Funktionen gar nicht definieren.
+Denkt man etwa an eines der Beispiele aus Aufgabe~\ref{aufg:nichtdb},
+\[ x \longmapsto \begin{cases}x \sin\frac{1}{x}, & \text{falls $x \neq 0$,} \\
+0, & \text{falls $x = 0$,}\end{cases} \]
+so sieht man: Die zur Definition genutzte Fallunterscheidung ist gar nicht
+vollständig, wenn man nicht das Axiom vom ausgeschlossenen Dritten zur
+Verfügung hat -- denn ohne es kann man nicht unterstellen, dass jede reelle
+Zahl~$x$ entweder gleich Null oder ungleich Null ist. Diese
+Zuordnungsvorschrift definiert also gar keine Funktion~$\RR \to \RR$.
+
+%Aus Sicht der synthetischen Differentialgeometrie ist es ein Vorteil, dass ...
+%Ohne es definiert diese
+%Vorschrift keine Funktion~$\RR \to \RR$, sondern nur eine Funktion~$M \to \RR$,
+%wobei~$M = \{ x \in \RR \ |\ \text{$x = 0$ oder $x \neq 0$} \}$.
 
 \end{document}
 
