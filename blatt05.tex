@@ -56,8 +56,9 @@ Das Teilgebiet der Mathematik, in dem man solche Universen studiert, heißt
 \emph{synthetische Differentialgeometrie} und ist ein relativ junges
 Forschungsgebiet. Erste Ideen gehen auf die alten Griechen und Versuche des
 dänischen Mathematikers Johannes Hjelmslev zurück (*~1873, †~1950), richtig
-initiiert wurde das Gebiet aber erst in den 1970er Jahren durch Anders Kock,
-ebenfalls Däne.
+initiiert und ausgearbeitet wurde das Gebiet aber erst in den 1970er Jahren
+durch William Lawvere (Amerikaner) und Anders Kock (ebenfalls Däne). Beide sind
+noch aktiv.
 
 Im Folgenden werden wir lernen, wozu infinitesimale Zahlen nützlich sind; wie
 man in dem alternativen Universum arbeiten kann; und schließlich inwieweit
@@ -107,7 +108,8 @@ Mathematik: Die Parabel hat bei der Stelle~$x = 0$ eine \emph{doppelte
 Nullstelle}. Das bedeutet, dass nicht nur der Funktionswert dort Null ist,
 sondern auch noch seine erste Ableitung.}
 
-\begin{aufgabeShaded}{Schnittberechnung}
+\begin{aufgabeShaded}{Schnittberechnung I}
+\label{aufg:schnittberechnung1}
 Die Gleichungen der beiden Kurven im ersten Bild sind
 \begin{empheq}[left=\empheqlbrace\ ]{align}
   y &= 2x, \\
@@ -187,7 +189,7 @@ Graphen von~$f$ durch den Punkt~$(x_0|f(x_0))$ angibt.
 Um die Definition besser zu verstehen, möchten wir ohne Verwendung der bekannten
 Ableitungsregeln die Ableitung der Quadratfunktion bestimmen.
 
-\begin{prop}Die Quadratfunktion~$f : \RR \to \RR,\ x \mapsto x^2$ ist überall
+\begin{prop}Die Quadratfunktion~$f : \RR \to \RR,\,x \mapsto x^2$ ist überall
 differenzierbar mit Ableitung~$f'(x) = 2x$.\end{prop}
 \begin{proof}In der Schule würde man in einer langen Gleichungskette die
 Definition so lange vereinfachen, bis der Grenzwert unmittelbar ablesbar ist.
@@ -231,7 +233,7 @@ können wir die Vorteile beider Welten -- einfache Rechnungen einerseits und
 mathematische Rigorosität andererseits -- vereinen.
 
 \begin{aufgabeShaded}{Ableitung der Kubikfunktion I}
-Sei~$f : \RR \to \RR,\ x \mapsto x^3$ die Kubikfunktion. Verifiziere direkt
+Sei~$f : \RR \to \RR,\,x \mapsto x^3$ die Kubikfunktion. Verifiziere direkt
 anhand der mathematischen Definition, dass~$f$ überall differenzierbar mit
 Ableitung~$f'(x) = 3x^2$ ist.
 
@@ -310,12 +312,12 @@ Solche werden wir im Folgenden nie betrachten.
 \begin{enumerate}
 \item Finde die größtmögliche Definitionsmenge~$D$, sodass folgende Zuordnung
 Sinn ergibt:
-\[ f : D \to \RR,\ x \mapsto \frac{1}{x}. \]
+\[ f : D \to \RR,\,x \mapsto \frac{1}{x}. \]
 \item Der Term~"`$x^2$"' ergibt für alle reellen Zahlen~$x$ Sinn, die
 größtmögliche Definitionsmenge der Zuordnung~$x \mapsto x^2$ ist also die
 vollständige Menge~$\RR$ aller reellen Zahlen. Man kann aber die
 Definitionsmenge auch künstlich einschränken:
-\[ f : [2;4] \to \RR,\ x \mapsto x^2. \]
+\[ f : [2;4] \to \RR,\,x \mapsto x^2. \]
 Dabei bezeichnet~"`$[2;4]$"' das abgeschlossene Intervall von~$2$ bis~$4$, also
 die Menge~$\{ x \in \RR \,|\, 2 \leq x \leq 4 \}$. Skizziere den Verlauf dieser
 Funktion. (Das wird \emph{nicht} die übliche Normalparabel.)
@@ -421,7 +423,7 @@ anders als in klassischer Mathematik nicht nur die Null enthält.
 \begin{prop}Es stimmt nicht, dass~$\Delta = \{ 0 \}$.\end{prop}
 \begin{proof}Angenommen, es wäre doch der Fall, dass~$\Delta = \{ 0 \}$. Dann
 erhalten wir mit der Eindeutigkeitsaussage im Axiom der Mikroaffinität einen
-Widerspruch: Betrachte die Funktion $f : \Delta \to \RR,\ \varepsilon \mapsto 0$.
+Widerspruch: Betrachte die Funktion $f : \Delta \to \RR,\,\varepsilon \mapsto 0$.
 Dann gelten für alle~$\varepsilon$ in~$\Delta$ -- das ist etwas verklausuliert
 gesprochen, denn nach Annahme enthält~$\Delta$ ja nur die Null -- \emph{beide}
 der folgenden Gleichungen:
@@ -498,6 +500,22 @@ und eine geeignete Hilfsfunktion~$f : \Delta \to \RR$ definieren müssen.
 \end{enumerate}
 \end{aufgabeShaded}
 
+\begin{aufgabeShaded}{Schnittberechnung II}
+Auf der~$x$-Achse ruhe ein Kreis mit Radius~$1$ und Mittelpunkt~$(0|1)$.
+Überprüfe rechnerisch, dass die Schnittpunkte von Kreis und~$x$-Achse genau die
+folgenden sind:~$(\varepsilon|0)$ mit~$\varepsilon$ in~$\Delta$.
+
+Dieses Beispiel stammt übrigens vom griechischen Philosophen Protagoras
+(*~vermutlich um~490\,v.\,Chr., †~vermutlich um~411\,v.\,Chr.). Er
+war der Auffassung, der Schnitt bestehe nicht nur aus einem einzelnen Punkt,
+sondern einem \emph{infinitesimalen Geradenstück}. Deine Rechnung wird diese
+Auffassung bestätigen.
+
+\emph{Tipp:} Schlage die \emph{Kreisgleichung} auf Wikipedia nach oder leite
+sie mit dem Satz des Pythagoras her. Die Rechnung selbst ist dann ähnlich wie
+bei Aufgabe~\ref{aufg:schnittberechnung1}.
+\end{aufgabeShaded}
+
 
 \section{Differentialrechnung mit infinitesimalen Zahlen}
 
@@ -547,10 +565,10 @@ infinitesimaler Zahlen Funktionen auf einfache Art und Weise ableiten zu
 können. Das wollen wir zunächst an der Quadratfunktion illustrieren.
 
 \begin{prop}\label{prop:ableitung-quadratfunktion-sdg}
-Die Ableitung der Quadratfunktion~$f : \RR \to \RR,\ x \mapsto x^2$
+Die Ableitung der Quadratfunktion~$f : \RR \to \RR,\,x \mapsto x^2$
 ist~$f'(x) = 2x$.\end{prop}
 \begin{proof}Für alle~$\varepsilon$ in~$\Delta$ gilt folgende Rechnung:
-\[ f'(x) \varepsilon =
+\[ f'(x) \cdot \varepsilon =
   f(x + \varepsilon) - f(x) =
   \text{\ldots{} siehe Aufgabe~\ref{aufg:erste-rechnung} \ldots} =
   2x\varepsilon. \]
@@ -566,14 +584,14 @@ Proposition~\ref{prop:ableitung-quadratfunktion-sdg} die Kubikfunktion~$x
 \end{aufgabeShaded}
 
 \begin{aufgabeShaded}{Ableitung der Kehrwertfunktion}
-Sei~$f : \RR \setminus \{0\} \to \RR,\ x \mapsto \frac{1}{x}$ die
+Sei~$f : \RR \setminus \{0\} \to \RR,\,x \mapsto \frac{1}{x}$ die
 Kehrwertfunktion. Bestimme nach demselben Muster wie in
 Proposition~\ref{prop:ableitung-quadratfunktion-sdg} ihre Ableitung.
 Das Ergebnis sollte natürlich~$f'(x) = -\frac{1}{x^2}$ sein.
 
 \emph{Hinweis:} Klammere~$\frac{1}{x}$ aus. An einer Stelle wirst du die Vereinfachungsregel
 \[ \frac{1}{1 + \frac{\varepsilon}{x}} = 1 - \frac{\varepsilon}{x} \]
-benötigen.\footnotemark
+benötigen.\footnotemark{}
 Beweise diese Regel, indem du die Probe durchführst:
 \[ (1 + \tfrac{\varepsilon}{x}) \cdot (1 - \tfrac{\varepsilon}{x}) = \cdots = 1. \]
 \end{aufgabeShaded}
@@ -598,6 +616,40 @@ Ferner solltest du keine Angst vor der Kettenregel haben. Die Schreibweise ist
 vielleicht etwas ungewohnt, der Ansatz ist aber ganz einfach:
 \[ (f \circ g)'(x) \cdot \varepsilon =
   f(g(x + \varepsilon)) - f(g(x)) = \cdots. \]
+\end{aufgabeShaded}
+
+\begin{aufgabeShaded}{Ableitung der Umkehrfunktion}
+Eine Funktion~$f : \RR \to \RR$ heißt genau dann \emph{umkehrbar}, wenn es zu
+jeder Zahl~$y$ aus~$\RR$ eine und nur eine Zahl~$x$ mit~$f(x) = y$ gibt.
+Anschaulich bedeutet das, dass jede Parallele zur~$x$-Achse den Graph von~$f$
+in einem und nur einem Punkt schneidet. Für eine solche Funktion kann man die
+\emph{Umkehrfunktion}~$f^{-1}$ definieren: Wenn~$f(x) = y$, dann~$f^{-1}(y) =
+x$.
+
+Für die Ableitung der Umkehrfunktion einer umkehrbaren Funktion gibt es
+folgende Regel:
+\[ (f^{-1})'(y) = \frac{1}{f'(f^{-1}(y))}. \]
+\begin{enumerate}
+\item Ist die Quadratfunktion~$\RR \to \RR,\,x \mapsto x^2$ umkehrbar?
+Für welche Steigungen~$m$ ist die affine Funktion~$\RR \to \RR,\,x \mapsto mx+t$
+umkehrbar?
+
+\item Beweise die Regel über die Ableitung der Umkehrfunktion mit Hilfe
+infinitesimaler Zahlen.
+
+\emph{Tipp:} Wende auf beide Seiten der Gleichung~$f^{-1}(y+\varepsilon) =
+f^{-1}(y) + (f^{-1})'(y) \cdot \varepsilon$ die Funktion~$f$ an.
+
+\item Beweise die Regel mit Hilfe der Kettenregel, indem du ausnutzt, dass~$f
+\circ f^{-1}$ die \emph{Identitätsfunktion} $x \mapsto x$ ist.
+
+\item Finde eine grafische Veranschaulichung der Regel!
+
+\emph{Tipp:} Der Graph von~$f^{-1}$ ergibt sich aus dem von~$f$ durch
+Spiegelung an der Winkelhalbierenden des ersten Quadranten. Zwei
+Steigungen~$m_1$ und~$m_2$ stehen genau dann aufeinander senkrecht, wenn~$m_1
+m_2 = 1$.
+\end{enumerate}
 \end{aufgabeShaded}
 \footnotetext{Wie kommt man auf diese Regel? Ganz allgemein gibt es eine
 Formel für die \emph{geometrische Reihe}: $\sum_{i=0}^n q^i =
