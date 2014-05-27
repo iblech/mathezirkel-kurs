@@ -80,6 +80,7 @@ falsch ist:
   Funktion. Dann gibt es gewisse eindeutig bestimmte reelle Zahlen~$a$ und~$b$,
   sodass für alle Zahlen~$\varepsilon$ in~$\Delta$ folgende Gleichung gilt:
   \[ f(\varepsilon) = a + b \varepsilon. \]
+  \vspace{-2.0em}%
   \end{shaded}
 }
 \axiommikro
@@ -183,7 +184,7 @@ Ableitung~$f'(x_0)$ ist per Definition dieser Grenzwert.
 \begin{aufgabeShaded}{Intuition zum Differentialquotienten}
 Erinnere dich, inwieweit der Bruch
 \[ \frac{f(x_0 + \varepsilon) - f(x_0)}{\varepsilon} \]
-eine \emph{Sekantensteigung} angibt, und erkläre anhand einer Skizze, wieso der
+für festes~$\varepsilon$ eine \emph{Sekantensteigung} angibt, und erkläre anhand einer Skizze, wieso der
 Grenzwert für~$\varepsilon \to 0$ anschaulich die Steigung der Tangente an den
 Graphen von~$f$ durch den Punkt~$(x_0|f(x_0))$ angibt.
 \end{aufgabeShaded}
@@ -223,7 +224,7 @@ dass~$\varepsilon$ positiv oder negativ, aber jedenfalls nicht Null ist.
 
 Außerdem sollte man auch zu Beginn der Rechnung die Vereinfachung~$f(x +
 \varepsilon) - f(x) = f(x) - f(x) = 0$ treffen dürfen, wenn man doch am Ende
-auch einfach~$\varepsilon$ weglassen durfte. Schließlich sollten sich die
+ebenfalls einfach~$\varepsilon$ weglassen durfte. Schließlich sollten sich die
 Rechengesetze nicht inmitten einer Rechnung ändern. Dann wäre das Ergebnis
 insgesamt~$f'(x) = 0$ -- das ist jedoch eine unsinnige Behauptung.
 
@@ -257,7 +258,7 @@ Differentialquotienten: Die Sekantensteigungen konvergieren für~$\varepsilon
 
 Wenn du möchtest, kannst du das auch noch rechnerisch nachvollziehen: Berechne
 den \emph{links-} und den \emph{rechtsseitigen} Grenzwert des
-Differenzenquotienten. Nutze dabei folgende Definition der Betragsfunktion:
+Differenzenquotienten. Nutze dazu folgende Definition der Betragsfunktion:
 \[ |x| := \begin{cases}\phantom{-}x, & \text{falls $x \geq 0$,} \\ -x, & \text{falls $x <
 0$.}\end{cases} \]
 \item Es gibt auch Funktionen, deren Graphen keine offensichtlichen
@@ -303,8 +304,8 @@ Zahlenstrahl.
 
 Eine \emph{Funktion}~$f : D \to \RR$ ordnet jedem Element ihrer
 \emph{Definitionsmenge}~$D$ eine bestimmte reelle Zahl zu: Liegt~$x$ in~$D$, so
-ist~$f(x)$ eine bestimmte reelle Zahl. Für Zahlen außerhalb der
-Definitionsmenge~$D$ ist~"`$f(x)$"' ein sinnloser Ausdruck.
+ist~$f(x)$ eine bestimmte reelle Zahl. Für Zahlen~$x$ außerhalb der
+Definitionsmenge ist~"`$f(x)$"' ein sinnloser Ausdruck.
 
 Zuordnungen wie~$f : x \mapsto \pm x$, für die~$f(x)$ gewissermaßen
 mehrere Werte annimmt, führen nicht zu Funktionen, sondern zu \emph{Relationen}.
@@ -375,7 +376,7 @@ als~"`$\frac{1}{x}$"' oder~"`$x^{-1}$"' geschrieben.
 \item Ein \emph{Nichttrivialitätsaxiom}: $0 \neq 1$.
 \item Einige weitere Axiome, die wir aber erst dann einführen, wenn wir sie
 benötigen. Es sei nur noch verraten, dass wir die \emph{Trichotomie} der Ordnung
-\emph{nicht} verwenden: Diese würde besagen, dass jede Zahl entweder klein,
+\emph{nicht} verwenden: Diese würde besagen, dass jede Zahl entweder kleiner,
 gleich oder größer als Null ist.
 \end{itemize}
 
