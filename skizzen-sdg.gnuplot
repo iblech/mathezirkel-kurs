@@ -7,7 +7,7 @@ unset ytics
 unset border
 set xzeroaxis ls 1
 set yzeroaxis ls 1
-set samples 10000
+set samples 100000
 
 set terminal pdf size 7cm, 4cm
 
