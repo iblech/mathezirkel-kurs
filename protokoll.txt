@@ -210,3 +210,19 @@
 
 * Der Beweis des FTA rief weniger Begeisterung hervor als erwartet.
   Spannender schien vierdimensionale Geometrie.
+
+
+=== Elftes Treffen vom 31.5.2014
+
+* Synthetische Differentialgeometrie, konkret blatt05.pdf bis
+  einschließlich dem Axiom der Mikroaffinität (aber ohne die weiterfolgenden
+  Diskussionen).
+
+* Als Ausblick Mikrokürzbarkeit angeschrieben und die Quadratfunktion
+  synthetisch abgeleitet.
+
+
+-- Kritik
+
+* Schüler waren gut dabei! Am Ende Faszination und Neugierde für unsere
+  Ableitungsrechnung der Quadratfunktion.
