@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{zirkelblatt}[2013/03/29 LaTeX class]
 
-\LoadClass[a4paper,ngerman]{scrartcl}
+\LoadClass[a4paper,ngerman,twoside]{scrartcl}
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[ngerman]{babel}
@@ -13,8 +13,8 @@
 \RequirePackage{multicol}
 \RequirePackage{hyperref}
 
-\RequirePackage{geometry}
-\geometry{tmargin=1.5cm,bmargin=0.8cm,lmargin=3cm,rmargin=3cm}
+%\RequirePackage{geometry}
+%\geometry{tmargin=1.5cm,bmargin=0.8cm,lmargin=3cm,rmargin=3cm}
 
 \setlength{\unitlength}{1cm}
 

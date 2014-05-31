@@ -1,5 +1,5 @@
 \documentclass{zirkelblatt}
-\geometry{tmargin=2cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+%\geometry{tmargin=2cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
 \usepackage{empheq}
 \usepackage{float}
 \usepackage{dashrule}
@@ -80,7 +80,7 @@ falsch ist:
   Funktion. Dann gibt es gewisse eindeutig bestimmte reelle Zahlen~$a$ und~$b$,
   sodass für alle Zahlen~$\varepsilon$ in~$\Delta$ folgende Gleichung gilt:
   \[ f(\varepsilon) = a + b \varepsilon. \]
-  \vspace{-2.0em}%
+  \vspace{-1.5em}%
   \end{shaded}
 }
 \axiommikro
@@ -110,12 +110,19 @@ mathematisch einzufangen.\footnote{Indirekt geht es auch in klassischer
 Mathematik: Die Parabel hat bei der Stelle~$x = 0$ eine \emph{doppelte
 Nullstelle}. Das bedeutet, dass nicht nur der Funktionswert dort Null ist,
 sondern auch noch seine erste Ableitung.}
+\begin{figure}[b]
+  \centering
+  \includegraphics{sdg-schnittverhalten1}
+  \includegraphics{sdg-schnittverhalten2}
+  \caption{\label{fig:schnittverhalten}Schnitt (a) einer schrägen Gerade
+  bzw. (b) einer Parabel mit der $x$-Achse.}
+\end{figure}
 
 \begin{aufgabeShaded}{Schnittberechnung I}
 \label{aufg:schnittberechnung1}
 Die Gleichungen der beiden Kurven im ersten Bild sind
 \begin{empheq}[left=\empheqlbrace\ ]{align}
-  y &= 2x, \\
+  y &= \tfrac{1}{2} x, \\
   y &= 0.
 \end{empheq}
 Die erste Gleichung gehört zur schrägen Gerade, die zweite zur~$x$-Achse (auf
@@ -214,7 +221,7 @@ elementar. Die Physiker haben eine einfachere Möglichkeit, die Aussage zu
   2x + \varepsilon = 2x. \qedhere \]
 \end{proof}
 
-Bemerkenswert ist die schizophrene Natur dieses Arguments:
+\label{par:schizophren}Bemerkenswert ist die schizophrene Natur dieses Arguments:
 Zum einen lässt man im letzten Schritt den Term~$\varepsilon$ einfach weg --
 mit der Begründung,~$\varepsilon$ sei schließlich "`sehr klein"'. Andererseits
 aber teilt man durch~$\varepsilon$ -- das ginge nur, wenn man wüsste,
@@ -247,7 +254,7 @@ allgemeinen binomischen Formel stehen im Pascalschen Dreieck.)
 \begin{aufgabeShaded}{Beispiele für nicht differenzierbare Funktionen}
 \label{aufg:nichtdb}
 \begin{enumerate}
-\item Die Betragsfunktion (siehe Abbildung~\ref{fig:nicht-diffbar}a) ist an der
+\item Die Betragsfunktion (siehe Abbildung~\ref{fig:nicht-diffbar}(a)) ist an der
 Stelle~$x_0 = 0$ nicht differenzierbar. Anschaulich erkennt man das daran, dass
 der Graph am Punkt~$(0|0)$ keine eindeutige Tangente besitzt.\footnotemark{}
 Bestätige diese Beobachtung anhand der Definition über den
@@ -262,7 +269,7 @@ Differenzenquotienten. Nutze dazu folgende Definition der Betragsfunktion:
 \item Es gibt auch Funktionen, deren Graphen keine offensichtlichen
 Knickpunkte haben und die trotzdem nicht überall differenzierbar sind. Erkläre
 anschaulich und zeige rechnerisch, dass folgende Funktion an der Stelle~$x_0 =
-0$ nicht differenzierbar ist (siehe Abbildung~\ref{fig:nicht-diffbar}b):
+0$ nicht differenzierbar ist (siehe Abbildung~\ref{fig:nicht-diffbar}(b)):
 \[ f(x) = \begin{cases}x \sin\frac{1}{x}, & \text{falls $x \neq 0$,} \\
 0, & \text{falls $x = 0$.}\end{cases} \]
 (Diese Funktion ist übrigens durchaus \emph{stetig}.)
@@ -272,6 +279,13 @@ anschaulich und zeige rechnerisch, dass folgende Funktion an der Stelle~$x_0 =
 keine besonders überzeugende Wahl einer \emph{berührenden} Gerade.
 Fortgeschrittene Differentialrechnung wird mit dieser Uneindeutigkeit fertig,
 durch den Begriff der \emph{Subgradienten} von konvexen Funktionen.}
+\begin{figure}[b]
+  \centering
+  \includegraphics{sdg-nicht-diffbar1}
+  \includegraphics{sdg-nicht-diffbar2}
+  \caption{\label{fig:nicht-diffbar}Diese Funktionen sind im Nullpunkt nicht
+  differenzierbar.}
+\end{figure}
 
 
 \section{Exkurs zu Mengen und Funktionen}
@@ -388,7 +402,7 @@ Wir stellen uns die Menge~$\Delta$ als eine \emph{infinitesimale Umgebung} der
 Zahl~$0$ vor. Keine konkrete kleine positive Zahl liegt in~$\Delta$ -- etwa
 liegt ein Millionstel nicht in~$\Delta$, denn das Quadrat eines Millionstels
 ist nicht Null, sondern ein Billionstel. Wir stellen uns~$\Delta$ eher als die
-Menge der ($x$-Koordinaten der) Schnittpunkte in Abbildung~\ref{fig:schnittverhalten}b vor.
+Menge der ($x$-Koordinaten der) Schnittpunkte in Abbildung~\ref{fig:schnittverhalten}(b) vor.
 
 Mathematisch erweckt das Axiom der Mikroaffinität die Menge~$\Delta$ zum Leben
 und bestätigt dann unsere Intuition über~$\Delta$. Sobald wir dieses Axiom
@@ -397,21 +411,15 @@ annehmen, verlassen wir klassische Mathematik.
 \textcolor{darkred}{\hspace{-5cm}\hdashrule{2\textwidth}{1pt}{3mm}}
 
 \axiommikro
-\begin{figure}[b]
-  \centering
-  \includegraphics[width=\textwidth]{mikroaffinitaet}
-  \caption{Auf infinitesimalen Umgebungen sind Funktionen affin.}
-\end{figure}
-% http://upload.wikimedia.org/wikipedia/commons/f/fa/Approximation_of_cos_with_linear_functions_without_numbers.svg
 
 Das Axiom spricht nicht über Funktionen~$\RR \to \RR$, sondern nur
 über solche, deren Definitionsmengen die infinitesimale Monade~$\Delta$ sind.
 Die Funktionswerte einer solchen Funktion können also nur in sehr begrenzten
 Ausmaßen variieren. Das Axiom besagt nun: Eine solche Funktion sieht stets wie
-eine affine Funktion aus, mit Achsenabschnitt~$a$ und Steigung~$b$.\footnote{In
-der Schule nennt man solche Funktionen \emph{linear}. In Universitätsmathematik
-ist dieser Begriff nur solchen affinen Funktionen vorbehalten, deren
-Achsenabschnitt Null ist.}
+eine affine Funktion aus, mit Achsenabschnitt~$a$ und Steigung~$b$
+(Abbildung~\ref{fig:mikroaffinitaet}).\footnote{In der Schule nennt man solche
+Funktionen \emph{linear}. In Universitätsmathematik ist dieser Begriff nur
+solchen affinen Funktionen vorbehalten, deren Achsenabschnitt Null ist.}
 
 Zu betonen ist auch, dass laut Axiom Achsenabschnitt~$a$ und Steigung~$b$ \emph{eindeutig
 bestimmt} sind. Das bedeutet: Sollte für eine Funktion~$f : \Delta \to \RR$
@@ -436,13 +444,13 @@ Wegen der Eindeutigkeitssaussage müsste daher~$0 = 1$ sein. Das ist aber ein
 Widerspruch zum Axiom~$0 \neq 1$. \textbf{XXX: Beweis besser erklären.}
 \end{proof}
 
-Wir sind hier also in einer etwas sonderbaren Situation: In klassischer
+Wir\marginpar[\hfill\dbend]{\dbend} sind hier also in einer etwas sonderbaren Situation: In klassischer
 Mathematik gilt~$\Delta = \{ 0 \}$, das Axiom der Mikroaffinität impliziert
 aber~$\Delta \neq \{ 0 \}$. Andererseits können wir trotzdem keine Zahl
 in~$\Delta$ (außer der Null) explizit angeben. Beide Paradoxien müssen wir
 auflösen, um wieder produktiv arbeiten zu können. Zunächst aber wollen wir ein
 paar Rechnungen anstellen, um den Umgang mit dem Axiom der Mikroaffinität zu
-üben. \dbend
+üben.
 
 \begin{aufgabeShaded}{Eine erste korrekte Rechnung mit infinitesimalen Zahlen}
 \label{aufg:erste-rechnung}
@@ -457,6 +465,13 @@ wäre die Rechnung langweilig, denn dann wäre ja~$\varepsilon = 0$ die einzige
 infinitesimale Zahl.
 \end{aufgabeShaded}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{mikroaffinitaet}
+  \caption{\label{fig:mikroaffinitaet}Auf infinitesimalen Umgebungen sind Funktionen affin.}
+\end{figure}
+% http://upload.wikimedia.org/wikipedia/commons/f/fa/Approximation_of_cos_with_linear_functions_without_numbers.svg
+
 \begin{aufgabeShaded}{Magneteigenschaft infinitesimaler Zahlen}
 Die infinitesimalen Zahlen haben folgende \emph{Magneteigenschaft}: Das Produkt
 einer beliebigen Zahl mit einer infinitesimalen Zahl ist wieder eine
@@ -468,6 +483,7 @@ dass~$x \cdot \varepsilon$ ebenfalls infinitesimal ist.
 \end{aufgabeShaded}
 
 \begin{aufgabeShaded}{Invertierbarkeit infinitesimaler Zahlen}
+\label{aufg:invertierbarkeit}
 Infinitesimale Zahlen sind nicht so weit von der Null verschieden, als dass sie
 invertierbar sein könnten. Das wollen wir in dieser Aufgabe beweisen. Ergänze
 folgenden Beweisanfang:
@@ -502,6 +518,16 @@ und eine geeignete Hilfsfunktion~$f : \Delta \to \RR$ definieren müssen.
 \end{enumerate}
 \end{aufgabeShaded}
 
+\begin{aufgabeShaded}{Summen infinitesimaler Zahlen}
+Zeige, dass es nicht stimmt, dass die Summe zweier infinitesimaler Zahlen
+wieder infinitesimal ist. Führe dazu die Behauptung, dass dem doch so wäre --
+dass also~$(\varepsilon + \delta)^2 = 0$ für alle Zahlen~$\varepsilon$
+und~$\delta$ mit~$\varepsilon^2 = \delta^2 = 0$ wäre, zu einem Widerspruch.
+
+\emph{Tipp:} Verwende das Prinzip der Mikrokürzbarkeit
+(Aufgabe~\ref{aufg:mikrokuerzbarkeit}).
+\end{aufgabeShaded}
+
 \begin{aufgabeShaded}{Schnittberechnung II}
 Auf der~$x$-Achse ruhe ein Kreis mit Radius~$1$ und Mittelpunkt~$(0|1)$.
 Überprüfe rechnerisch, dass die Schnittpunkte von Kreis und~$x$-Achse genau die
@@ -528,7 +554,7 @@ deutlich leichter einführen.
 Sei~$f : \RR \to \RR$ eine Funktion. Sei~$x_0 \in \RR$ eine Stelle.
 Dann heißt die eindeutig bestimmte Zahl~$b$, für die für alle~$\varepsilon$
 in~$\Delta$ die Gleichung
-\[ f(x_0 + \varepsilon) = f(x_0) + b\varepsilon \]
+\[ f(x_0 + \varepsilon) = f(x_0) + \varepsilon b \]
 gilt, die \emph{Ableitung von~$f$ an der Stelle~$x_0$}. Wir schreiben dann
 auch~"`$f'(x_0)$"' für diese Zahl~$b$.\end{defn}
 
@@ -539,6 +565,13 @@ Punkt~$(x_0|f(x_0))$. Also sieht auch der Term~$f(x_0 + \varepsilon)$ wie der
 Term einer affinen Funktion aus: An der Stelle~$\varepsilon = 0$ hat er den
 Wert~$f(x_0)$, für andere infinitesimale~$\varepsilon$ weicht er von~$f(x_0)$
 um~$b \varepsilon$ ab.
+
+\begin{figure}[b]
+  \centering
+  \includegraphics{sdg-ableitung}
+  \caption{\label{fig:ableitung-sdg}Um die Stelle~$(x_0|f(x_0))$ ist~$f$ affin
+  mit Steigung~$b$.}
+\end{figure}
 
 Wir werden die definierende Gleichung oft in folgender umgestellten Form
 verwenden:
@@ -555,12 +588,12 @@ Definition~\ref{defn:sdg-ableitung} gibt und dass sie eindeutig ist. Dazu wirst
 du eine gewisse Hilfsfunktion~$g : \Delta \to \RR$ definieren müssen.
 \end{aufgabeShaded}
 
-Die Definition offenbart übrigens ein weiteres Paradox: In klassischer
+Die\marginpar[\hfill\dbend]{\dbend} Definition offenbart übrigens ein weiteres Paradox: In klassischer
 Mathematik gibt es ja auch Funktionen, die nicht differenzierbar sind, etwa
 weil sie wie die Betragsfunktion Knickstellen besitzen (siehe
 Aufgabe~\ref{aufg:nichtdb}). Hier aber ist \emph{jede}
 Funktion differenzierbar! Auch dieses Paradox werden wir zu gegebener Zeit
-auflösen. \dbend
+auflösen.
 
 Wir haben jetzt die Technologie so weit entwickelt, um mit Hilfe
 infinitesimaler Zahlen Funktionen auf einfache Art und Weise ableiten zu
@@ -578,6 +611,14 @@ Da diese Rechnung für alle~$\varepsilon$ in~$\Delta$ gilt, können wir nach dem
 Prinzip der Mikrokürzbarkeit (Aufgabe~\ref{aufg:mikrokuerzbarkeit}) die
 Behauptung folgern: $f'(x) = 2x$.
 \end{proof}
+
+Dieser Beweis vereint die Einfachheit des typischen Physiker-Arguments
+(Seite~\pageref{par:schizophren}) ohne sich in Widersprüchen zu verfangen: Zu
+keinem Zeitpunkt teilen wir durch infinitesimale Zahlen (das ginge auch nicht,
+denn nach Aufgabe~\ref{aufg:invertierbarkeit} sie sind nicht invertierbar), und
+wir benutzen konsistent die zulässige Rechenregel~$\varepsilon^2 = 0$ (nicht
+aber~$\varepsilon = 0$). Im Kontext der synthetischen Differentialgeometrie
+erfüllt der Beweis alle Anforderung an mathematische Rigorosität.
 
 \begin{aufgabeShaded}{Ableitung der Kubikfunktion II}
 Leite nach demselben Muster wie in
@@ -653,6 +694,29 @@ Steigungen~$m_1$ und~$m_2$ stehen genau dann aufeinander senkrecht, wenn~$m_1
 m_2 = 1$.
 \end{enumerate}
 \end{aufgabeShaded}
+
+\begin{aufgabeShaded}{Ableitung der Sinusfunktion}
+\begin{enumerate}
+\item Verwende das Additionstheorem
+\[ \sin(\alpha+\beta) = \sin(\alpha)\cos(\beta) + \cos(\alpha)\sin(\beta), \]
+um nach dem Muster von Proposition~\ref{prop:ableitung-quadratfunktion-sdg} die
+Ableitung der Sinusfunktion zu bestimmen.
+
+\emph{Hinweis:} Verwende ohne Beweis, dass~$\sin\varepsilon = \varepsilon$
+und~$\cos\varepsilon = 1$ für alle infinitesimalen Zahlen~$\varepsilon$.
+
+\item In dieser Teilaufgabe wollen wir heuristisch verstehen, wieso der
+angegebene Hinweis korrekt ist. Zeichne dazu den Einheitskreis und trage beim
+Punkt~$(1|0)$ beginnend nach oben eine Strecke der Länge~$\varepsilon$ auf der
+Kreislinie ab, wobei~$\varepsilon$ eine infinitesimale Zahl ist. Beachte, dass
+die Kreislinie in infinitesimalen Umgebungen des Punkts~$(1|0)$ \emph{genau
+senkrecht} verläuft! Zeichne nun ein geeignetes rechtwinkliges Dreieck in deine
+Skizze ein; es soll Hypothenuse~$1$ und Winkel~$\varepsilon$ haben. Wie lang
+sind seine Katheten? Damit kannst du den Hinweis beweisen.
+\end{enumerate}
+\end{aufgabeShaded}
+% XXX: heuristisch
+
 \footnotetext{Wie kommt man auf diese Regel? Ganz allgemein gibt es eine
 Formel für die \emph{geometrische Reihe}: $\sum_{i=0}^n q^i =
 \frac{1-q^{n+1}}{1-q}$. Diese Formel gilt immer dann, wenn der Nenner~$1-q$
@@ -707,6 +771,20 @@ denen wir eine weiter unten skizzieren werden.
 \begin{prop}Das Axiom vom ausgeschlossenen Dritten ist unverträglich mit dem
 Axiom der Mikroaffinität. Die restlichen Axiome klassischer Mathematik
 sind aber durchaus mit dem Mikroaffinitätsaxiom verträglich.\end{prop}
+
+\vfill
+
+\emph{Es folgen:} Auflösung der Paradoxa. Diskussion der Konsequenzen davon,
+dass wir das Axiom vom ausgeschlossenen Dritten nicht mehr verwenden können.
+Diskussion des Schwebezustands infinitesimaler Zahlen: Diese sind nämlich
+\emph{nicht nicht} Null. Integrationstheorie. \emph{Konstruktion} des
+alternativen Universums (bisher haben wir nur in ihm gearbeitet). Diskussion,
+inwieweit synthetische Differentialgeometrie \emph{konsistent} ist, also in
+sich widerspruchsfrei ist. Ausblick mit Vergleich zu anderen Ansätzen von
+Nichtstandardanalysis.
+
+\end{document}
+
 \begin{proof}Einen Beweis der Unverträglichkeit haben wir schon gesehen: In
 Gegenwart des Axioms vom ausgeschlossenen Dritten liegt gewöhnliche klassische
 Mathematik vor. In dieser gilt~$\Delta = \{0\}$. Das Axiom der Mikroaffinität
