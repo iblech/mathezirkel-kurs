@@ -1,9 +1,16 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{zirkelblatt}[2013/03/29 LaTeX class]
 
-\LoadClass[a4paper,ngerman,twoside]{scrartcl}
-% XXX: twoside als Parameter nehmen
-% XXX: Geometrie-Einstellungen wiederherstellen
+\DeclareOption{twoside}{
+  \PassOptionsToClass{\CurrentOption}{scrartcl}
+}
+\DeclareOption*{
+  \ClassWarning{myclass}{Unbekannte Option '\CurrentOption'}
+}
+
+\ProcessOptions\relax
+
+\LoadClass[a4paper,ngerman]{scrartcl}
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[ngerman]{babel}
@@ -14,9 +21,6 @@
 \RequirePackage{lmodern}
 \RequirePackage{multicol}
 \RequirePackage{hyperref}
-
-%\RequirePackage{geometry}
-%\geometry{tmargin=1.5cm,bmargin=0.8cm,lmargin=3cm,rmargin=3cm}
 
 \setlength{\unitlength}{1cm}
 
@@ -33,7 +37,7 @@
      Universit\"at Augsburg\\
      Schuljahr 2013/2014\\
       #1}}
-   \put(13,-2){\includegraphics[scale=0.10]{cover}}
+   \put(13,-2){\includegraphics[scale=0.10]{../cover}}
   \end{picture}%
   \vspace*{1.7cm}}
 \renewcommand{\maketitle}[2]{%
