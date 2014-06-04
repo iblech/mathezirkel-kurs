@@ -2,6 +2,8 @@
 \ProvidesClass{zirkelblatt}[2013/03/29 LaTeX class]
 
 \LoadClass[a4paper,ngerman,twoside]{scrartcl}
+% XXX: twoside als Parameter nehmen
+% XXX: Geometrie-Einstellungen wiederherstellen
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[ngerman]{babel}
