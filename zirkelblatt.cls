@@ -5,7 +5,7 @@
   \PassOptionsToClass{\CurrentOption}{scrartcl}
 }
 \DeclareOption*{
-  \ClassWarning{myclass}{Unbekannte Option '\CurrentOption'}
+  \ClassWarning{zirkelblatt}{Unbekannte Option '\CurrentOption'}
 }
 
 \ProcessOptions\relax
