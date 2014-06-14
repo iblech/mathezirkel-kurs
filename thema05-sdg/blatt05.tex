@@ -986,7 +986,7 @@ Eigenschaften:
 \item In~$\U$ gilt das Axiom der Mikroaffinität.
 \item Konsequenterweise gilt in~$\U$ nicht das Axiom vom ausgeschlossenen
 Dritten.
-\item Jede glatte Funktion\footnotemark{} ist in~$\U$ enthalten.
+\item Jede glatte Funktion ist in~$\U$ enthalten.
 \item Beurteilt~$\U$ zwei glatte Funktionen als gleich, so sind sie
 auch tatsächlich gleich.
 \end{itemize}
@@ -995,6 +995,16 @@ auch tatsächlich gleich.
 Dabei heißt eine Funktion~$f$ genau dann~\emph{glatt}, wenn sie \emph{unendlich
 oft} differenzierbar ist, wenn also nicht nur~$f$ selbst differenzierbar ist,
 sondern auch~$f'$,~$f''$ und so weiter.
+
+\begin{aufgabeShaded}{Eine nicht glatte Funktion}
+Mache dir klar, dass folgende Funktion~$f : \RR \to \RR$ zwar differenzierbar,
+aber nicht zweimal differenzierbar und daher nicht glatt ist.
+\[ f(x) = \begin{cases}
+  0, & \text{falls~$x \leq 0$,} \\
+  x^2, & \text{falls~$x \geq 0$.}
+\end{cases} \]
+\vspace{-1em}
+\end{aufgabeShaded}
 
 \begin{lemma}Sei~$f : \RR \to \RR$ eine glatte Funktion. Dann gibt es eine
 weitere glatte Funktion~$g : \RR \to \RR$ sodass für alle reellen Zahlen~$x$
@@ -1005,9 +1015,9 @@ folgende Gleichung gilt:
 bekannt. Mit Tipps beweisen wir sie in einer Aufgabe.\end{proof}
 
 \begin{aufgabeShaded}{Beispiele zum Lemma von Hadamard}
-Finde zu jeder der folgenden Funktionen~$f$ die vom Lemma von Hadamard
-versprochene Funktion~$g$, also die Funktion~$g$ mit~$f(x) = f(0) + x \cdot
-g(x)$ für alle reellen Zahlen~$x$.
+Finde durch geeignete Termumformungen zu jeder der folgenden Funktionen~$f$ die
+vom Lemma von Hadamard versprochene Funktion~$g$, also die Funktion~$g$
+mit~$f(x) = f(0) + x \cdot g(x)$ für alle reellen Zahlen~$x$.
 \begin{enumerate}
 \item $f(x) = 3 + 2x$.
 \item $f(x) = x^2$.
@@ -1024,6 +1034,9 @@ g(x)$ für alle reellen Zahlen~$x$. Zeige: $g(0) = f'(0)$.
 und~$g$ beschreibt, ab.
 \end{aufgabeShaded}
 
+\begin{prop}Sei~$f : \RR \to \RR$ eine glatte Funktion. Gelte laut~$\U$,
+dass~$f'(0) = a$. Dann gilt auch wirklich~$f'(0) = a$.
+\end{prop}
 
 \end{document}
 
