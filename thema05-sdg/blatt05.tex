@@ -9,6 +9,7 @@
 \let\raggedsection\centering
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\RR}{\mathbb{R}}
+\newcommand{\U}{\mathcal{U}}
 \newcommand{\xra}[1]{\xrightarrow{#1}}
 
 \theoremstyle{definition}
@@ -380,7 +381,7 @@ werde.}
 \end{align*}
 \item Das Axiom zu Gegenzahlen: Jede reelle Zahl besitzt eine zugehörige
 Gegenzahl -- zu~$x$ gibt es eine Zahl~$-x$ mit der Eigenschaft~$x + (-x) = 0$.
-\item Das Axiom zu Inversen: Ist eine reelle Zahl \emph{nicht Null}, so besitzt
+\item \label{ax:nichtnullinv}Das Axiom zu Inversen: Ist eine reelle Zahl \emph{nicht Null}, so besitzt
 sie ein Inverses bezüglich der Multiplikation. In Formeln: Wenn~$x \neq 0$, so
 gibt es eine Zahl~$y$ mit~$xy = 1$. Das Inverse~$y$ wird üblicherweise
 als~"`$\frac{1}{x}$"' oder~"`$x^{-1}$"' geschrieben.
@@ -729,6 +730,130 @@ angegebenen Vereinfachungsregel ist dann nur noch ein Vorzeichen.}
 \section{Das Axiom vom ausgeschlossenen Dritten}
 \label{sect:lem}
 
+Es stellt sich heraus, das von den vielen Axiomen klassischer Mathematik
+\emph{genau eines} mit dem Axiom der Mikroaffinität unverträglich ist, nämlich
+das \emph{Axiom vom ausgeschlossenen Dritten}. Wir können nicht beide
+verwenden, wohl aber das eine ohne das andere. In klassischer Mathematik
+verwendet man das Axiom vom ausgeschlossenen Dritten, aber nicht das Axiom der
+Mikroaffinität; in synthetischer Differentialgeometrie ist es umgekehrt. Die
+beiden mathematischen Welten sind gleichermaßen konsistent.
+
+Was lautet nun diese konfliktreiche Axiom?
+
+\begin{shaded}
+\textbf{Axiom vom ausgeschlossenen Dritten.} Eine jede Aussage stimmt oder
+stimmt nicht.
+\end{shaded}
+
+Man darf sich berechtigterweise fragen, was denn an diesem Axiom problematisch
+sei: Ist es nicht schlichtweg \emph{offensichtlich wahr}? Eine pragmatische
+Antwort auf diese Frage ist, dass man synthetische Differentialgeometrie nun einmal
+nur ohne dieses Axiom betreiben kann; gewissermaßen ist der Preis für die
+schöne infinitesimale Welt der, dass wir auf dieses grundlegende logische Axiom
+verzichten müssen. Es gibt auch noch bessere Antworten auf diese Frage, von
+denen wir zwei weiter unten skizzieren werden.
+
+In der mathematischen Praxis verwendet man das Axiom vom ausgeschlossenen
+Dritten im Vergleich zu anderen logischen Axiomen nicht besonders oft, aber
+durchaus gelegentlich. Etwas tückisch an dem Axiom ist, dass man seine
+Verwendung nicht so leicht bemerkt, wenn man nicht absichtlich sein Auge
+diesbezüglich schult. Das liegt daran, dass es gewissermaßen in unsere Sprache
+und unser Wahrheitsempfinden eingebaut ist.
+
+Wir müssen uns also zunächst einmal klarmachen, in welche Beweise das Axiom vom
+ausgeschlossenen Dritten wesentlich eingeht. Beispiele für solche
+Situationen sind die folgenden:
+
+\begin{itemize}
+\item \textbf{Leere und bewohnte Mengen.} Sei~$M$ eine Menge. Sei die Aussage,
+dass~$M$ leer ist, falsch. Dann erwarten wir, dass~$M$ irgendein Element
+enthält.
+\item \textbf{Doppelte Verneinungen.} Sei eine Aussage \emph{nicht nicht} wahr.
+Dann erwarten wir, dass sie schlichtweg wahr ist: Wenn es \emph{nicht nicht}
+regnet, dann regnet es.
+\item \textbf{Null oder nicht Null.} Sei~$x$ eine reelle Zahl. Dann erwarten wir,
+dass~$x$ entweder Null oder nicht Null ist.
+\item \textbf{Mengen reeller Zahlen.} Sei~$M = \{ x \in \RR \,|\, \text{$x = 0$
+oder $x \neq 0$} \}$. Diese Menge enthält all diejenigen reellen Zahlen, die Null sind
+oder nicht Null sind. Wir erwarten also, dass~$M$ schlichtweg \emph{alle}
+reelle Zahlen enthält.
+\end{itemize}
+
+All diese Schlussfolgerungen sind nur mit dem Axiom vom ausgeschlossenen
+Dritten möglich. Hier sind die entsprechenden Beweise.\footnote{Eigentlich
+zeigen die Argument nur, dass ein Beweis mit dem
+Axiom vom ausgeschlossenen Dritten möglich ist; nicht aber, dass ein Beweis
+ohne es nicht möglich ist. Das stimmt auch, und lässt sich beweisen!
+Leider muss man etwas tiefer in mathematische Logik einsteigen, um das zu
+verstehen. Ein in Deutsch formulierter Beweis ist zwar möglich, hat aber ohne
+geeigneten logischen Hintergrund nur wenig Überzeugungskraft; um die
+Subtilitäten rund um das Axiom vom ausgeschlossenen Dritten handhaben zu
+können, benötigt man eine präzise formale Sprache.
+
+Dass auch das dritte Beispiel das Axiom vom ausgeschlossenen Dritten benötigt,
+ist etwas gelogen -- ein bestimmtes schwächere Axiom, das man normalerweise nie
+erwähnt, weil es eine Konsequenz vom Axiom vom ausgeschlossenen Dritten ist,
+genügt auch schon, um diesen Umstand zu beweisen. Für das Folgende spielt diese
+Feinheit keine Rolle.}
+\begin{prop}Wenn eine Menge~$M$ nicht leer ist, dann enthält sie ein Element.
+\end{prop}
+\begin{proof}
+Nach dem Axiom vom ausgeschlossen Dritten enthält~$M$ ein Element oder nicht.
+Im ersten Fall sind wir fertig. Der zweite Fall kann nicht eintreten, denn
+wenn~$M$ kein Element enthält, dann ist~$M$ leer ist. Nach Voraussetzung
+ist~$M$ aber nicht leer.
+\end{proof}
+
+\begin{prop}Wenn eine Aussage \emph{nicht nicht} wahr ist, so ist sie wahr.
+\end{prop}
+\begin{proof}Nach dem Axiom vom ausgeschlossen Dritten ist die Aussage wahr
+oder falsch. Im ersten Fall sind wir fertig. Der zweite Fall kann nicht
+eintreten, denn die Aussage ist ja \emph{nicht nicht wahr}, also \emph{nicht
+falsch}.
+\end{proof}
+
+Nach diesen Beispielen stellt man sich vielleicht besorgt die Frage, welche
+weiteren mathematischen Sachverhalte vom Axiom vom ausgeschlossenen Dritten
+abhängen und wie man erkennen kann, ob sich eine Behauptung auch ohne das Axiom
+beweisen lässt. Zum Glück gibt es dafür eine einfache Heuristik: Genau dann
+lässt sich etwas auch ohne das Axiom vom ausgeschlossenen Dritten beweisen,
+wenn man in endlicher Zeit einen entsprechenden \emph{expliziten Beleg} angeben
+kann.
+
+Etwa ist ein Beleg der Behauptung, dass eine gegebene Menge ein Element
+enthält, eine konkrete Präsentation eines solchen Elements. Zum Beispiel ist ein Beleg der
+Behauptung, die Menge aller Quadratzahlen enthalte ein Element, die
+Quadratzahl~$25 = 5^2$. Mit dem Denken in Belegen können wir die obigen
+Beispiele besser nachvollziehen:
+
+\begin{itemize}
+\item \textbf{Leere und bewohnte Mengen.} Sei~$M$ eine Menge. Sei die Aussage,
+dass~$M$ leer ist, falsch. Dann wissen wir zwar, dass~$M$ irgendein Element
+enthalten muss. Wir können aber kein solches Element explizit angeben; wir
+können also keinen Beleg der Behauptung,~$M$ enthalte ein Element, produzieren.
+
+Im Alltag ist diese Phänomen wohlbekannt: Angenommen, wir finden gerade unseren
+Wohnungsschlüssel nicht. Dann wissen wir, dass die Menge derjenigen Positionen, wo
+sich der Schlüssel befindet, nicht leer ist -- denn letzte Nacht haben wir mit
+dem Schlüssel die Tür aufgesperrt. Wir können aber kein Element dieser Menge
+explizit angeben, also keinen Beleg dafür produzieren, dass die Menge wirklich
+ein Element enthält.
+\item \textbf{Doppelte Verneinungen.} Sei eine Aussage \emph{nicht nicht} wahr.
+Dann wissen wir also, dass sie nicht falsch und daher wahr sein muss. Wir
+können aber trotzdem keinen Beleg für die Aussage angeben.
+\item \textbf{Null oder nicht Null.} Sei~$x$ eine reelle Zahl. Dann ist~$x$
+natürlich entweder Null oder nicht Null. Aber im Allgemeinen können wir in
+endlicher Zeit keinen Beleg dieser Behauptung produzieren: In endlicher Zeit
+können wir im Allgemeinen zwar beliebig viele, aber nicht alle,
+Nachkommaziffern von~$x$ berechnen. Sollte~$x$ tatsächlich Null sein, können
+wir uns uns nach Überprüfung von nur endlich vielen Nachkommaziffern nie sicher
+sein, ob nicht doch noch eine von Null verschiedene Ziffer auftritt. Wir können
+also die wahre Aussage~"`$x = 0$"' nicht belegen.
+\end{itemize}
+
+
+\section{Auflösung der Paradoxien}
+
 In den letzten Abschnitten haben wir gesehen, dass infinitesimale Zahlen
 nützlich und praktisch sind. Wir haben auf dem Weg jedoch auch einige
 Paradoxien aufgesammelt:
@@ -743,112 +868,162 @@ differenzierbar sind. Unter unserem neuen Ableitungsbegriff
 (Definition~\ref{defn:sdg-ableitung}), der auf dem Axiom
 der Mikroaffinität beruht, ist aber jede Funktion differenzierbar.
 \end{enumerate}
-Diese Paradoxien werden wir nun auflösen. Es stellt sich heraus, das von den
-vielen Axiomen klassischer Mathematik \emph{genau eines} mit dem Axiom der
-Mikroaffinität unverträglich ist, nämlich das \emph{Axiom vom ausgeschlossenen
-Dritten}. Wir können nicht beide verwenden, wohl aber das eine ohne das andere.
 
-\begin{shaded}
-\textbf{Axiom vom ausgeschlossenen Dritten.} Eine jede Aussage stimmt oder
-stimmt nicht.
-\end{shaded}
-
-Man darf sich berechtigterweise fragen, was denn an diesem Axiom problematisch
-sei: Ist es nicht schlichtweg \emph{offensichtlich wahr}? Eine pragmatische
-Antwort auf diese Frage ist, dass man synthetische Differentialgeometrie nun einmal
-nur ohne dieses Axiom betreiben kann; gewissermaßen ist der Preis für die
-schöne infinitesimale Welt der, dass wir auf dieses grundlegende logische Axiom
-verzichten müssen. Es gibt auch noch bessere Antworten auf diese Frage, von
-denen wir eine weiter unten skizzieren werden.
-
-%Eine Sorge sei aber vorab ausgeräumt: Das Axiom vom ausgeschlossenen Dritten
-%nicht zu benutzen bedeutet \emph{nicht}, plötzlich etwa eine dreiwertige Logik
-%zu verwenden, in denen der Wahrheitswert von Aussagen neben
-%\emph{wahr} und \emph{falsch} noch etwa Drittes sein kann. Aussagen können
-%weiterhin nur wahr oder falsch sein; wir wollen lediglich nicht mehr
-%unterstellen.
+Diese Paradoxien werden wir nun auflösen. Zunächst halten wir fest:
 
 \begin{prop}Das Axiom vom ausgeschlossenen Dritten ist unverträglich mit dem
 Axiom der Mikroaffinität. Die restlichen Axiome klassischer Mathematik
 sind aber durchaus mit dem Mikroaffinitätsaxiom verträglich.\end{prop}
+\begin{proof}Einen Beweis der Unverträglichkeit haben wir eigentlich schon
+gesehen: In Gegenwart des Axioms vom ausgeschlossenen Dritten liegt gewöhnliche
+klassische Mathematik vor. In dieser gilt~$\Delta = \{0\}$. Das Axiom der
+Mikroaffinität impliziert aber~$\Delta \neq \{0\}$
+(Proposition~\ref{prop:neg-delta0}). Beides zusammen kann nicht gelten.
 
-\vfill
-
-\emph{Es folgen:} Auflösung der Paradoxa. Diskussion der Konsequenzen davon,
-dass wir das Axiom vom ausgeschlossenen Dritten nicht mehr verwenden können.
-Diskussion des Schwebezustands infinitesimaler Zahlen: Diese sind nämlich
-\emph{nicht nicht} Null. Integrationstheorie. \emph{Konstruktion} des
-alternativen Universums (bisher haben wir nur in ihm gearbeitet). Diskussion,
-inwieweit synthetische Differentialgeometrie \emph{konsistent}, also in
-sich widerspruchsfrei ist. Ausblick mit Vergleich zu anderen Ansätzen von
-Nichtstandardanalysis.
-
-\end{document}
-
-\begin{proof}Einen Beweis der Unverträglichkeit haben wir schon gesehen: In
-Gegenwart des Axioms vom ausgeschlossenen Dritten liegt gewöhnliche klassische
-Mathematik vor. In dieser gilt~$\Delta = \{0\}$. Das Axiom der Mikroaffinität
-impliziert aber~$\Delta \neq \{0\}$ (Proposition~\ref{prop:neg-delta0}). Beides
-zusammen kann nicht gelten.
-
-Wir können die Unverträglichkeit aber auch noch direkter einsehen, durch
-Betrachtung der folgenden Zuordnungsvorschrift:
-\[ \varepsilon \longmapsto \begin{cases}0, & \text{falls $\varepsilon = 0$,} \\
-1, & \text{falls $\varepsilon \neq 0$.}\end{cases} \]
-Für jede Zahl~$\varepsilon$ aus~$\Delta$ garantiert das Axiom vom
-ausgeschlossenen Dritten, dass entweder~$\varepsilon = 0$ oder
-dass~$\varepsilon \neq 0$. Daher definiert diese Zuordnung eine Funktion~$f :
-\Delta \to \RR$ (siehe Abbildung~\ref{fig:fkt-01}). \textbf{XXX: Weiter!}
+Der Grund, wieso in klassischer Mathematik~$\Delta$ nur die Null enthält, ist
+auch wirklich das Axiom vom ausgeschlossenen Dritten. Ein Beweis läuft nämlich
+so: Jede Zahl in~$\Delta$ ist Null oder nicht Null (!). Der zweite Fall kann
+nicht eintreten, denn eine Zahl, die nicht Null ist, ist invertierbar (Axiom
+auf Seite~\pageref{ax:nichtnullinv}) -- die Zahlen aus~$\Delta$ sind aber nicht
+invertierbar (Aufgabe~\ref{aufg:invertierbarkeit}). Bleibt also nur der erste
+Fall.
 
 Dass umgekehrt die restlichen Axiome klassischer Mathematik mit dem
 Mikroaffinitätsaxiom verträglich sind, also keinen Widerspruch produzieren, ist
-schwieriger zu sehen. Das diskutieren wir im nächsten Abschnitt \textbf{XXX}.
+schwieriger zu sehen. Das diskutieren wir im nächsten Abschnitt.
 \end{proof}
 
 Der im ersten Paradox genannte Sachverhalt ist nur dann wirklich paradox, wenn
 man erwartet, in synthetischer Differentialgeometrie dieselben Axiome wie in
-klassischer Mathematik verwenden zu können. Das stimmt aber nicht: In
+klassischer Mathematik verwenden zu können. Das stimmt aber nicht, denn in
 synthetischer Differentialgeometrie verwenden wir nicht das Axiom vom
 ausgeschlossenen Dritten (dafür aber das Axiom der Mikroaffinität).
 
 Das zweite Paradox hat folgende Auflösung: Ohne das Axiom vom ausgeschlossenen
 Dritten kann man gar nicht erwarten, aus~$\Delta \neq \{0\}$ schließen zu
 können, dass sich in~$\Delta$ noch andere Zahlen als die Null befinden.
-Das wird offensichtlich, wenn man den entsprechenden Beweis, dass dem in
-klassischer Mathematik schon so ist, minutiös aufschreibt.
-
-\begin{prop}Sei~$M$ eine Menge von Zahlen. Sei die Null ein
-Element von~$M$. Gelte~$M \neq \{0\}$. Dann folgt mit dem Axiom vom
-ausgeschlossenen Dritten: Es gibt eine weitere Zahl~$x$, die in~$M$ liegt und
-nicht gleich Null ist.\end{prop}
-\begin{proof}Dank des Axioms vom ausgeschlossenen Dritten dürfen wir folgern:
-Entweder gibt es eine solche Zahl~$x$ oder es gibt sie nicht. Im ersten Fall
-sind wir mit unserem Beweis fertig. Der zweite Fall würde unserer Behauptung
-widersprechen, kann aber gar nicht eintreten:
-
-Prinzipiell ist (abermals nach dem Axiom vom ausgeschlossenen Dritten) jede
-Zahl aus~$M$ entweder gleich Null oder ungleich Null. Letzteres kann im zweiten
-Fall aber nicht sein, denn sonst läge ja der erste Fall vor. Also ist jede Zahl
-aus~$M$ gleich Null. Weniger verklausuliert formuliert: Die Null ist das
-einzige Element aus~$M$. Das widerspricht aber der Voraussetzung~$M \neq
-\{0\}$.
-\end{proof}
+Das hat denselben Grund wie der Sachverhalt, dass man ohne das Axiom vom
+ausgeschlossenen Dritten nicht folgern kann, dass Mengen, welche nicht leer
+sind, Elemente enthalten.
 
 Das dritte Paradox löst sich wie folgt auf: Ohne das Axiom vom ausgeschlossenen
-Dritten lassen sich nicht differenzierbare Funktionen gar nicht definieren.
+Dritten lassen sich nicht differenzierbare Funktionen \emph{gar nicht definieren}.
 Denkt man etwa an eines der Beispiele aus Aufgabe~\ref{aufg:nichtdb},
 \[ x \longmapsto \begin{cases}x \sin\frac{1}{x}, & \text{falls $x \neq 0$,} \\
 0, & \text{falls $x = 0$,}\end{cases} \]
 so sieht man: Die zur Definition genutzte Fallunterscheidung ist gar nicht
 vollständig, wenn man nicht das Axiom vom ausgeschlossenen Dritten zur
-Verfügung hat -- denn ohne es kann man nicht unterstellen, dass jede reelle
+Verfügung hat -- denn ohne das Axiom kann man nicht unterstellen, dass jede reelle
 Zahl~$x$ entweder gleich Null oder ungleich Null ist. Diese
-Zuordnungsvorschrift definiert also gar keine Funktion~$\RR \to \RR$.
+Zuordnungsvorschrift definiert also gar keine Funktion~$\RR \to \RR$ -- nur
+eine Funktion~$M \to \RR$, wobei~$M = \{ x \in \RR \ |\ \text{$x = 0$ oder $x \neq 0$} \}$.
 
-%Aus Sicht der synthetischen Differentialgeometrie ist es ein Vorteil, dass ...
-%Ohne es definiert diese
-%Vorschrift keine Funktion~$\RR \to \RR$, sondern nur eine Funktion~$M \to \RR$,
-%wobei~$M = \{ x \in \RR \ |\ \text{$x = 0$ oder $x \neq 0$} \}$.
+Aus Sicht der Differentialgeometrie ist es ein Vorteil, dass es in
+synthetischer Differentialgeometrie keine nicht differenzierbaren Funktionen
+gibt, denn in der Differentialgeometrie beschäftigt man sich sowieso nur mit
+differenzierbaren Funktionen. Mit dem Axiom der Mikroaffinität passt man also
+das logische System an die Bedürfnisse von Differentialgeometrie an.
+
+Für andere Teilbereiche der Mathematik ist dieser Vorteil aber zugleich ein
+gravierender Nachteil, zum Beispiel in der Finanzmathematik: Börsenkursverläufe
+sind nicht differenzierbar.
+
+\begin{aufgabeShaded}{Schwebezustand infinitesimaler Zahlen}
+Zeige, dass jede infinitesimale Zahl \emph{nicht nicht} Null ist. Ergänze dazu
+folgenden Beweisanfang:
+\emph{Sei~$\varepsilon$ eine infinitesimale Zahl. Wir wollen zeigen,
+dass~$\varepsilon$ \emph{nicht nicht} Null ist. Angenommen,~$\varepsilon$ wäre
+doch nicht Null. Dann \ldots}
+
+In klassischer Mathematik könnte man daraus sofort folgern, dass jede
+infinitesimale Zahl Null ist, dass also die Null die einzige infinitesimale
+Zahl ist. Ohne das Axiom vom ausgeschlossenen Dritten aber bleiben
+infinitesimale Zahlen in dieser interessanten Art von Schewebezustand.
+\end{aufgabeShaded}
+
+
+\section{Verhältnis zur klassischen Mathematik}
+
+Die Paradoxien in synthetischer Differentialgeometrie, die uns aufgefallen
+waren, haben wir im vorherigen Abschnitt ausgeräumt: Mit dem
+Mikroaffinitätsaxiom hat sich nur das Axiom vom ausgeschlossenen Dritten
+gebissen; ohne es haben sich die Paradoxien aufgelöst.
+
+Damit ist aber noch nicht bewiesen, dass synthetische Differentialgeometrie
+wirklich in sich konsistent ist. Denn nur, dass \emph{uns} keine weiteren
+Paradoxien aufgefallen sind, heißt ja noch nicht, dass es auch tatsächlich
+keine weiteren gibt. Um guten Gewissens mit synthetischer Differentialgeometrie
+arbeiten zu können, müssen wir also noch einen \emph{Konsistenzbeweis}
+erbringen -- wir müssen beweisen, dass aus dem Axiom der Mikroaffinität
+keine widersprüchlichen Aussagen folgen. Dabei werden wir auch die Verbindung
+zur klassischen Mathematik klären.
+
+Die übliche Art und Weise, die Konsistenz eines formalen Axiomensystems
+nachzuweisen, besteht darin, ein \emph{Modell} des Systems anzugeben. Das ist
+eine mathematische Struktur, in der die Axiome des Systems alle erfüllt sind.
+Dieses Vorgehen funktioniert deswegen, weil inkonsistente Systeme keine Modelle
+zulassen.
+
+\begin{bsp}Wir erweitern die üblichen Axiome der reellen
+Zahlen um eine Konstante~$\heartsuit$ und das Axiom~$\heartsuit^2 - 4 = 0$.
+Diese Erweiterung ist konsistent, denn ein mögliches Modell besteht aus den
+üblichen reellen Zahlen mit der Setzung~$\heartsuit := 2$. Wenn wir außerdem
+noch das Axiom~$\heartsuit + 1 = 4$ fordern, erhalten wir ein inkonsistentes
+System: In jedem Modell müsste wegen des ersten Axioms~$\heartsuit$
+entweder~$+2$ oder~$-2$ sein. Das zweite Axiom diktiert aber~$\heartsuit =
+3$.\end{bsp}
+
+Modelle für synthetische Differentialgeometrie anzugeben ist nicht schwer,
+erfordert jedoch viele Vorkenntnisse aus der \emph{Topostheorie}, die
+wir hier leider nicht bereitstellen können. Die Konstruktion eines solchen Modells
+können wir daher an dieser Stelle nicht durchführen, folgenden Fakt müssen wir
+hinnehmen:
+
+\begin{shaded}
+\textbf{Fakt.} Es gibt ein mathematisches Universum~$\U$ mit folgenden
+Eigenschaften:
+\begin{itemize}
+\item In~$\U$ gilt das Axiom der Mikroaffinität.
+\item Konsequenterweise gilt in~$\U$ nicht das Axiom vom ausgeschlossenen
+Dritten.
+\item Jede glatte Funktion\footnotemark{} ist in~$\U$ enthalten.
+\item Beurteilt~$\U$ zwei glatte Funktionen als gleich, so sind sie
+auch tatsächlich gleich.
+\end{itemize}
+\end{shaded}
+
+Dabei heißt eine Funktion~$f$ genau dann~\emph{glatt}, wenn sie \emph{unendlich
+oft} differenzierbar ist, wenn also nicht nur~$f$ selbst differenzierbar ist,
+sondern auch~$f'$,~$f''$ und so weiter.
+
+\begin{lemma}Sei~$f : \RR \to \RR$ eine glatte Funktion. Dann gibt es eine
+weitere glatte Funktion~$g : \RR \to \RR$ sodass für alle reellen Zahlen~$x$
+folgende Gleichung gilt:
+\[ f(x) = f(0) + x \cdot g(x). \]
+\end{lemma}
+\begin{proof}Diese Aussage ist in der Literatur als \emph{Lemma von Hadamard}
+bekannt. Mit Tipps beweisen wir sie in einer Aufgabe.\end{proof}
+
+\begin{aufgabeShaded}{Beispiele zum Lemma von Hadamard}
+Finde zu jeder der folgenden Funktionen~$f$ die vom Lemma von Hadamard
+versprochene Funktion~$g$, also die Funktion~$g$ mit~$f(x) = f(0) + x \cdot
+g(x)$ für alle reellen Zahlen~$x$.
+\begin{enumerate}
+\item $f(x) = 3 + 2x$.
+\item $f(x) = x^2$.
+\item $f(x) = x^2 - x$.
+\end{enumerate}
+\end{aufgabeShaded}
+
+\begin{aufgabeShaded}{Bedeutung des Lemmas von Hadamard}
+Sei~$f : \RR \to \RR$ eine glatte Funktion und~$g$ die laut dem Lemma von
+Hadamard existente Funktion mit~$f(x) = f(0) + x \cdot
+g(x)$ für alle reellen Zahlen~$x$. Zeige: $g(0) = f'(0)$.
+
+\emph{Tipp:} Leite die gegebene Gleichung, die die Beziehung zwischen~$f$
+und~$g$ beschreibt, ab.
+\end{aufgabeShaded}
+
 
 \end{document}
 
