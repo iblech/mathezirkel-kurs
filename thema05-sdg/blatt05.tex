@@ -109,7 +109,7 @@ geben -- man benötigt infinitesimale Zahlen, um ihn auf direkte Art und Weise
 mathematisch einzufangen.\footnote{Indirekt geht es auch in klassischer
 Mathematik: Die Parabel hat bei der Stelle~$x = 0$ eine \emph{doppelte
 Nullstelle}. Das bedeutet, dass nicht nur der Funktionswert dort Null ist,
-sondern auch noch seine erste Ableitung.}
+sondern auch noch die erste Ableitung.}
 \begin{figure}[b]
   \centering
   \includegraphics{sdg-schnittverhalten1}
@@ -277,8 +277,8 @@ anschaulich und zeige rechnerisch, dass folgende Funktion an der Stelle~$x_0 =
 \end{aufgabeShaded}
 \footnotetext{Man kann an dieser Stelle durchaus Geraden anlegen, es gibt aber
 keine besonders überzeugende Wahl einer \emph{berührenden} Gerade.
-Fortgeschrittene Differentialrechnung wird mit dieser Uneindeutigkeit fertig,
-durch den Begriff der \emph{Subgradienten} von konvexen Funktionen.}
+Fortgeschrittene Differentialrechnung wird mit dieser Uneindeutigkeit
+durch den Begriff der \emph{Subgradienten} von konvexen Funktionen fertig.}
 \begin{figure}[b]
   \centering
   \includegraphics{sdg-nicht-diffbar1}
@@ -293,18 +293,18 @@ durch den Begriff der \emph{Subgradienten} von konvexen Funktionen.}
 Eine \emph{Menge} reeller Zahlen kann man sich wie eine Einkaufstasche
 vorstellen, die statt leckerer Äpfel gewisse reelle Zahlen enthält. Die Zahlen,
 die in einer Menge vorkommen, heißen \emph{Elemente} dieser Menge. Mengen
-dürfen auch unendlich viele oder gar keine Elemente enthalten. Es gibt drei
+können auch unendlich viele oder gar keine Elemente enthalten. Es gibt drei
 Möglichkeiten, Mengen anzugeben:
 \begin{align*}
-  M_1 &= \{ 4, 9, 16, 25, 36, 49, 64, 81 \}, \\
-  M_2 &= \{ 4, 9, 16, \ldots, 81 \}, \\
-  M_3 &= \{ x \in \RR \ |\ \text{$x \geq 4$ und $x \leq 81$ und $x$ ist das Quadrat
+  M &= \{ 4, 9, 16, 25, 36, 49, 64, 81 \}, \\
+  M &= \{ 4, 9, 16, \ldots, 81 \}, \\
+  M &= \{ x \in \RR \ |\ \text{$x \geq 4$ und $x \leq 81$ und $x$ ist das Quadrat
   einer natürlichen Zahl} \}.
 \end{align*}
 Im ersten Fall zählt man die Elemente der Menge einfach explizit auf. Im
 zweiten Fall erwartet man von seinem Gegenüber, die Regelmäßigkeit zu erkennen
 und die in der Notation nicht aufgeführten Elemente gedanklich zu ergänzen. Der
-dritte Fall liest sich wie folgt: Die Menge~$M_3$ ist die Menge all derjenigen
+dritte Fall liest sich wie folgt: Die Menge~$M$ ist die Menge all derjenigen
 reellen Zahlen ("`$x \in \RR$"'), welche~$\geq 4$, $\leq 81$ und zugleich das
 Quadrat einer natürlichen Zahl sind; man sammelt also alle reellen Zahlen mit
 einer gewissen Eigenschaft auf.
@@ -501,7 +501,7 @@ mit~$xy = 1$ gibt). Seien ferner~$a$ und~$b$ reelle Zahlen. Zeige:
 \[ \text{Wenn $xa = xb$, dann $a = b$.} \]
 Invertierbare Zahlen kann man also in Gleichungen kürzen. Das ist für dich
 natürlich nichts Neues, vielleicht ist das aber das erste Mal, dass du einen
-Beweis dieser elementaren Tatsache geführt hast.
+Beweis dieser elementaren Tatsache führst.
 
 \item In manchen Zahlenbereichen gibt es auch Zahlen, die nicht invertierbar,
 aber trotzdem aus Gleichungen kürzbar sind. Fällt dir etwa ein Beispiel im
@@ -712,11 +712,19 @@ Punkt~$(1|0)$ beginnend nach oben eine Strecke der Länge~$\varepsilon$ auf der
 Kreislinie ab, wobei~$\varepsilon$ eine infinitesimale Zahl ist. Beachte, dass
 die Kreislinie in infinitesimalen Umgebungen des Punkts~$(1|0)$ \emph{genau
 senkrecht} verläuft! Zeichne nun ein geeignetes rechtwinkliges Dreieck in deine
-Skizze ein; es soll Hypothenuse~$1$ und Winkel~$\varepsilon$ haben. Wie lang
+Skizze ein; es soll Hypothenuse~$1$ und Winkel~$\varepsilon$ (Bogenmaß) haben. Wie lang
 sind seine Katheten? Damit kannst du den Hinweis beweisen.
 \end{enumerate}
 \end{aufgabeShaded}
 % XXX: heuristisch
+
+\begin{aufgabeShaded}{Eine kuriose Rechenregel}
+\label{aufg:kurios}
+Sei~$g : \RR \to \RR$ eine Funktion. Beweise für alle Zahlen~$\varepsilon$
+in~$\Delta$ folgende Rechenregel:
+\[ \varepsilon \cdot g(\varepsilon) = \varepsilon \cdot g(0). \]
+\emph{Tipp:} Verwende die Gleichung für die Definition der Ableitung von~$g$.
+\end{aufgabeShaded}
 
 \footnotetext{Wie kommt man auf diese Regel? Ganz allgemein gibt es eine
 Formel für die \emph{geometrische Reihe}: $\sum_{i=0}^n q^i =
@@ -751,7 +759,7 @@ Antwort auf diese Frage ist, dass man synthetische Differentialgeometrie nun ein
 nur ohne dieses Axiom betreiben kann; gewissermaßen ist der Preis für die
 schöne infinitesimale Welt der, dass wir auf dieses grundlegende logische Axiom
 verzichten müssen. Es gibt auch noch bessere Antworten auf diese Frage, von
-denen wir zwei weiter unten skizzieren werden.
+denen wir eine weiter unten skizzieren werden.
 
 In der mathematischen Praxis verwendet man das Axiom vom ausgeschlossenen
 Dritten im Vergleich zu anderen logischen Axiomen nicht besonders oft, aber
@@ -851,6 +859,15 @@ sein, ob nicht doch noch eine von Null verschiedene Ziffer auftritt. Wir können
 also die wahre Aussage~"`$x = 0$"' nicht belegen.
 \end{itemize}
 
+%\begin{bem}Wenn man allgemein Mathematik ohne das Axiom vom ausgeschlossenen
+%Dritten betreibt, so nennt man das \emph{intuitionistische} oder
+%\emph{konstruktive Mathematik}. Praktische Bedeutung hat diese Form der
+%Mathematik in der Informatik und Numerik. Es stellt sich nämlich heraus, dass
+%man aus jedem Beweis einer Existenzbehauptung oder ein anderes Objekt mit einer
+%gewissen Eigenschaft existiert --, welcher ohne das Axiom vom ausgeschlossenen
+%Dritten geführt wird, ein Computerprogramm extrahieren kann, dass da
+%\end{bem}
+
 
 \section{Auflösung der Paradoxien}
 
@@ -930,7 +947,7 @@ sind nicht differenzierbar.
 
 \begin{aufgabeShaded}{Schwebezustand infinitesimaler Zahlen}
 Zeige, dass jede infinitesimale Zahl \emph{nicht nicht} Null ist. Ergänze dazu
-folgenden Beweisanfang:
+folgenden Be\-weis\-an\-fang:
 \emph{Sei~$\varepsilon$ eine infinitesimale Zahl. Wir wollen zeigen,
 dass~$\varepsilon$ \emph{nicht nicht} Null ist. Angenommen,~$\varepsilon$ wäre
 doch nicht Null. Dann \ldots}
@@ -955,8 +972,8 @@ Paradoxien aufgefallen sind, heißt ja noch nicht, dass es auch tatsächlich
 keine weiteren gibt. Um guten Gewissens mit synthetischer Differentialgeometrie
 arbeiten zu können, müssen wir also noch einen \emph{Konsistenzbeweis}
 erbringen -- wir müssen beweisen, dass aus dem Axiom der Mikroaffinität
-keine widersprüchlichen Aussagen folgen. Dabei werden wir auch die Verbindung
-zur klassischen Mathematik klären.
+keine widersprüchlichen Aussagen folgen. In diesem Abschnitt arbeiten wir
+wieder in klassischer Mathematik.
 
 Die übliche Art und Weise, die Konsistenz eines formalen Axiomensystems
 nachzuweisen, besteht darin, ein \emph{Modell} des Systems anzugeben. Das ist
@@ -974,13 +991,13 @@ entweder~$+2$ oder~$-2$ sein. Das zweite Axiom diktiert aber~$\heartsuit =
 3$.\end{bsp}
 
 Modelle für synthetische Differentialgeometrie anzugeben ist nicht schwer,
-erfordert jedoch viele Vorkenntnisse aus der \emph{Topostheorie}, die
+erfordert jedoch Vorkenntnisse aus der \emph{Topostheorie}, die
 wir hier leider nicht bereitstellen können. Die Konstruktion eines solchen Modells
-können wir daher an dieser Stelle nicht durchführen, folgenden Fakt müssen wir
-hinnehmen:
+können wir daher an dieser Stelle nicht durchführen, folgendes Faktum müssen wir
+ohne Beweis hinnehmen:
 
 \begin{shaded}
-\textbf{Fakt.} Es gibt ein mathematisches Universum~$\U$ mit folgenden
+\textbf{Faktum.} Es gibt ein mathematisches Universum~$\U$ mit folgenden
 Eigenschaften:
 \begin{itemize}
 \item In~$\U$ gilt das Axiom der Mikroaffinität.
@@ -989,35 +1006,65 @@ Dritten.
 \item Jede glatte Funktion ist in~$\U$ enthalten.
 \item Beurteilt~$\U$ zwei glatte Funktionen als gleich, so sind sie
 auch tatsächlich gleich.
+\label{fact:sdg-universum}
 \end{itemize}
 \end{shaded}
 
 Dabei heißt eine Funktion~$f$ genau dann~\emph{glatt}, wenn sie \emph{unendlich
-oft} differenzierbar ist, wenn also nicht nur~$f$ selbst differenzierbar ist,
-sondern auch~$f'$,~$f''$ und so weiter.
+oft} differenzierbar ist, wenn also nicht nur~$f$ selbst an jeder Stelle
+differenzierbar ist, sondern auch~$f'$,~$f''$ und so weiter.
 
-\begin{aufgabeShaded}{Eine nicht glatte Funktion}
-Mache dir klar, dass folgende Funktion~$f : \RR \to \RR$ zwar differenzierbar,
+\begin{aufgabeShaded}{Nicht glatte Funktionen}
+\begin{enumerate}
+\item Mache dir klar, dass folgende Funktion~$f : \RR \to \RR$ zwar differenzierbar,
 aber nicht zweimal differenzierbar und daher nicht glatt ist.
 \[ f(x) = \begin{cases}
   0, & \text{falls~$x \leq 0$,} \\
   x^2, & \text{falls~$x \geq 0$.}
 \end{cases} \]
-\vspace{-1em}
+\item Finde eine Funktion, die zweimal, aber nicht dreimal differenzierbar ist.
+\end{enumerate}
 \end{aufgabeShaded}
 
+Der Schlüssel zur Verbindung zwischen Ableitungen, die in der synthetischen
+Welt berechnet werden, und gewöhnlichen Ableitungen, liegt in dem \emph{Lemma
+von Hadamard} aus der Analysis:
+
 \begin{lemma}Sei~$f : \RR \to \RR$ eine glatte Funktion. Dann gibt es eine
-weitere glatte Funktion~$g : \RR \to \RR$ sodass für alle reellen Zahlen~$x$
+weitere glatte Funktion~$g : \RR \to \RR$, sodass für alle reellen Zahlen~$x$
 folgende Gleichung gilt:
 \[ f(x) = f(0) + x \cdot g(x). \]
 \end{lemma}
-\begin{proof}Diese Aussage ist in der Literatur als \emph{Lemma von Hadamard}
-bekannt. Mit Tipps beweisen wir sie in einer Aufgabe.\end{proof}
+\begin{proof}Wenn man die Integration als Gegenstück zur Differentiation kennt,
+kann man die gesuchte Funktion~$g$ explizit angeben. Ihr Funktionsterm lautet:
+\[ g(x) := \int_0^1 f'(tx) \, dt. \]
+Diese Funktion ist wirklich glatt (wieso?) und erfüllt die geforderte
+Gleichung. Denn wenn wir die Hilfsfunktion~$h : \RR \to \RR$ mit~$h(t) = f(tx)$
+einführen, sehen wir mit dem Hauptsatz der Differential- und Integralrechnung
+und der Kettenregel
+\[
+  f(x) - f(0) = h(1) - h(0) =
+  \int_0^1 h'(t) \,dt
+  = \int_0^1 f'(tx) x \,dt
+  = x \cdot \int_0^1 f'(tx) \,dt
+  = x \cdot g(x). \qedhere
+\]
+\end{proof}
+
+Die zu~$f$ gehörige Funktion~$g$ aus dem Lemma von Hadamard heißt auch
+\emph{Hadamard-Quotient} von~$f$. Das besondere an der Aussage des Lemmas ist,
+dass der Hadamard-Quotient~$g$ auf \emph{ganz~$\RR$ definiert ist} (also keine
+Definitionslücken hat) und wieder glatt ist. Ohne
+die letzte Forderung hätte man für~$x \neq 0$ auch einfach
+\[ g(x) := \frac{f(x) - f(0)}{x} \]
+definieren und für~$x = 0$ den Funktionswert~$g(0)$ beliebig festsetzen können.
+Anders formuliert: Der Bruch~$\frac{f(x) - f(0)}{x}$ hat zwar bei~$x = 0$ eine
+Definitionslücke, diese ist jedoch \emph{hebbar}.
 
 \begin{aufgabeShaded}{Beispiele zum Lemma von Hadamard}
-Finde durch geeignete Termumformungen zu jeder der folgenden Funktionen~$f$ die
-vom Lemma von Hadamard versprochene Funktion~$g$, also die Funktion~$g$
-mit~$f(x) = f(0) + x \cdot g(x)$ für alle reellen Zahlen~$x$.
+Finde durch geeignete Termumformungen zu jeder der folgenden Funktionen~$f$ den
+Hadamard-Quotienten, also eine Funktion~$g$ mit der Eigenschaft, dass~$f(x) =
+f(0) + x \cdot g(x)$ für alle reellen Zahlen~$x$.
 \begin{enumerate}
 \item $f(x) = 3 + 2x$.
 \item $f(x) = x^2$.
@@ -1025,27 +1072,81 @@ mit~$f(x) = f(0) + x \cdot g(x)$ für alle reellen Zahlen~$x$.
 \end{enumerate}
 \end{aufgabeShaded}
 
-\begin{aufgabeShaded}{Bedeutung des Lemmas von Hadamard}
-Sei~$f : \RR \to \RR$ eine glatte Funktion und~$g$ die laut dem Lemma von
-Hadamard existente Funktion mit~$f(x) = f(0) + x \cdot
-g(x)$ für alle reellen Zahlen~$x$. Zeige: $g(0) = f'(0)$.
+\begin{aufgabeShaded}{Eindeutigkeit des Hadamard-Quotienten}
+Sei~$f : \RR \to \RR$ eine glatte Funktion. Seien~$g$ und~$\widetilde g$ beides
+Hadamard-Quotienten von~$f$, gelte für alle reellen Zahlen~$x$ also
+\[ f(x) = f(0) + x \cdot g(x) = f(0) + x \widetilde \cdot g(x). \]
+Zeige: Die Funktionen~$g$ und~$\widetilde g$ sind gleich.
 
-\emph{Tipp:} Leite die gegebene Gleichung, die die Beziehung zwischen~$f$
+\emph{Tipp:} Für~$x \neq 0$ kann man den Wert von~$g(x)$ bzw.~$\widetilde g(x)$
+durch Umstellen explizit bestimmen.
+\end{aufgabeShaded}
+
+\begin{aufgabeShaded}{Bedeutung des Hadamard-Quotienten}
+\label{aufg:bedeutung-hadamard}
+Sei~$f : \RR \to \RR$ eine glatte Funktion und~$g$ der laut dem
+Hadamard existente Hadamard-Quotient. Zeige: $g(0) = f'(0)$.
+
+\emph{Tipp:} Leite die Gleichung, die die Beziehung zwischen~$f$
 und~$g$ beschreibt, ab.
 \end{aufgabeShaded}
 
-\begin{prop}Sei~$f : \RR \to \RR$ eine glatte Funktion. Gelte laut~$\U$,
-dass~$f'(0) = a$. Dann gilt auch wirklich~$f'(0) = a$.
+Mit diesen Vorarbeiten können wir die Verbindung zwischen der synthetischen und
+der gewöhnlichen mathematischen Welt herstellen. Mit der nächsten Proposition
+beweisen wir, dass Endergebnisse über Funktionsableitungen, die im
+synthetischen Universum~$\U$ gewonnen werden, auch im gewöhnlichen Sinn korrekt
+sind. Die Proposition erlaubt uns also, nach Belieben infinitesimale Zahlen zur
+Berechnung von Ableitungen zu verwenden. Das fertig vereinfachte Endergebnis
+(in dem dann keine infinitesimalen Zahlen mehr vorkommen) wird dann auch im
+gewöhnlichen mathematischen Universum korrekt sein.
+
+\begin{prop}\label{prop:ableitung-sdg-gew}
+Sei~$f : \RR \to \RR$ eine glatte Funktion. Gelte laut~$\U$,
+dass~$f'(0) = a$ für eine reelle Zahl~$a$. Dann gilt auch im gewöhnlichen
+Sinn~$f'(0) = a$.
 \end{prop}
+\begin{proof}Wenn wir mit~$g$ den Hadamard-Quotienten von~$f$ bezeichnen, gilt
+im gewöhnlichen Universum
+\[ f(x) = f(0) + x \cdot g(x) \]
+für alle reellen Zahlen~$x$. Diese Gleichung gilt dann auch in~$\U$. Dort
+können wir insbesondere für~$x$ alle Zahlen aus~$\Delta$ einsetzen, und
+erhalten also
+\[ \U \models \text{$f(\varepsilon) = f(0) + \varepsilon \cdot g(\varepsilon)$ für
+alle~$\varepsilon$ in~$\Delta$.} \]
+Das Symbol vorne liest sich als "`in dem Universum~$\U$ gilt \ldots"'.
+Aufgabe~\ref{aufg:kurios} spielte sich in~$\U$ ab. Daher können wir das
+Resultat dieser Aufgabe verwenden und festhalten, dass
+\[ \U \models \text{$f(\varepsilon) = f(0) + \varepsilon \cdot g(0)$ für
+alle~$\varepsilon$ in~$\Delta$.} \]
+Wenn wir dies mit der synthetischen Definition der Ableitung vergleichen,
+erhalten wir
+\[ \U \models g(0) = a. \]
+Laut~$\U$ gilt also~$g(0) = a$. Daher gilt auch in der gewöhnlichen Welt~$g(0)
+= a$ (siehe das Faktum über~$\U$ auf Seite~\pageref{fact:sdg-universum}). Nach
+Aufgabe~\ref{aufg:bedeutung-hadamard} ist~$g(0)$ der Wert der gewöhnlichen
+Ableitung von~$f$ an der Stelle~$0$, also folgt die Behauptung: $g(0) = f'(0) =
+a$.
+\end{proof}
+
+\begin{aufgabeShaded}{Verallgemeinerung der Proposition auf beliebige Stellen}
+Sei~$f : \RR \to \RR$ eine glatte Funktion. Dann besagt
+Proposition~\ref{prop:ableitung-sdg-gew}, dass die gewöhnliche Ableitung
+von~$f$ an der Stelle~$0$ mit der synthetisch berechneten Ableitung an der
+Stelle~$0$ übereinstimmt.
+
+Verallgemeinere die Proposition auf beliebige Stellen. Zeige also, dass für
+jede reelle Zahl~$x$ die gewöhnliche Ableitung~$f'(x)$ mit der synthetischen
+übereinstimmt.
+
+\emph{Tipp:} Betrachte eine Hilfsfunktion~$h$ mit~$h(t) = f(t-x)$.
+\end{aufgabeShaded}
+
+
+\section{Ausblick}
+
+
 
 \end{document}
-
-- Paradoxien auflösen:
-  - LEM und Mikroaffinität widersprechen sich. Aber das eine ohne das andere
-    funktioniert.
-  - Alle Funktionen sind differenzierbar.
-  - "Schwebezustand" von Delta: Es stimmt nicht, dass Delta nur die Null enthalten
-    würde -- andere Elemente kann man aber trotzdem nicht angeben.
 
 - Ordnungsaxiome
 
@@ -1057,8 +1158,6 @@ dass~$f'(0) = a$. Dann gilt auch wirklich~$f'(0) = a$.
   sondern durch Angabe seiner Axiome nur in ihm arbeiten. Dabei dann auch die
   Konsistenzfrage klären. Erklären, dass man sich nicht nach Belieben Axiome
   ausdenken kann. (Zum Beispiel anhand des Beispiels der Division durch Null.)
-
-- Infinitesimale Zahlen sind nicht nicht Null.
 
 - Andrej Bauer, Blog
 - Anders Kock, SDG
