@@ -226,3 +226,17 @@
 
 * Schüler waren gut dabei! Am Ende Faszination und Neugierde für unsere
   Ableitungsrechnung der Quadratfunktion.
+
+
+=== Zwölftes Treffen vom 14.6.2014
+
+* Synthetische Differentialgeometrie, blatt05.pdf bis einschließlich
+  Auflösung der Paradoxa. Aber noch nicht die Verbindung zur klassischen Welt
+  diskutiert.
+
+
+-- Kritik
+
+* Schüler waren gut dabei. Fanden es nicht tragisch, das Axiom vom
+  ausgeschlossenen Dritten nicht zu verwenden. Haben gut verstanden, wie sich
+  die Paradoxa auflösen.
