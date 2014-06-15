@@ -957,6 +957,7 @@ infinitesimale Zahl Null ist, dass also die Null die einzige infinitesimale
 Zahl ist. Ohne das Axiom vom ausgeschlossenen Dritten aber bleiben
 infinitesimale Zahlen in dieser interessanten Art von Schewebezustand.
 \end{aufgabeShaded}
+% XXX: Einordnung auf dem Zahlenstrahl
 
 
 \section{Verhältnis zur klassischen Mathematik}
@@ -1010,6 +1011,9 @@ auch tatsächlich gleich.
 \end{itemize}
 \end{shaded}
 
+% XXX: Nichttrivialität des Faktums erklären: Analoges Faktum gilt nicht für
+% beliebige neu ausgedachte Axiome.
+
 Dabei heißt eine Funktion~$f$ genau dann~\emph{glatt}, wenn sie \emph{unendlich
 oft} differenzierbar ist, wenn also nicht nur~$f$ selbst an jeder Stelle
 differenzierbar ist, sondern auch~$f'$,~$f''$ und so weiter.
@@ -1022,13 +1026,18 @@ aber nicht zweimal differenzierbar und daher nicht glatt ist.
   0, & \text{falls~$x \leq 0$,} \\
   x^2, & \text{falls~$x \geq 0$.}
 \end{cases} \]
+\emph{Tipp:} Fertige eine Skizze des Funktionsgraphen an. Mit der synthetischen
+Definition der Ableitung (Definition~\ref{defn:sdg-ableitung}) hat diese
+Aufgabe nichts zu tun, da wir in diesem Abschnitt ja wieder im gewöhnlichen
+mathematischen Universum arbeiten.
 \item Finde eine Funktion, die zweimal, aber nicht dreimal differenzierbar ist.
 \end{enumerate}
 \end{aufgabeShaded}
 
 Der Schlüssel zur Verbindung zwischen Ableitungen, die in der synthetischen
 Welt berechnet werden, und gewöhnlichen Ableitungen, liegt in dem \emph{Lemma
-von Hadamard} aus der Analysis:
+von Hadamard} aus der Analysis (benannt nach dem französischen Mathematiker
+Jacques Hadamard, *~1865, †~1963):
 
 \begin{lemma}Sei~$f : \RR \to \RR$ eine glatte Funktion. Dann gibt es eine
 weitere glatte Funktion~$g : \RR \to \RR$, sodass für alle reellen Zahlen~$x$
@@ -1075,7 +1084,7 @@ f(0) + x \cdot g(x)$ für alle reellen Zahlen~$x$.
 \begin{aufgabeShaded}{Eindeutigkeit des Hadamard-Quotienten}
 Sei~$f : \RR \to \RR$ eine glatte Funktion. Seien~$g$ und~$\widetilde g$ beides
 Hadamard-Quotienten von~$f$, gelte für alle reellen Zahlen~$x$ also
-\[ f(x) = f(0) + x \cdot g(x) = f(0) + x \widetilde \cdot g(x). \]
+\[ f(x) = f(0) + x \cdot g(x) \quad\text{und}\quad f(x) = f(0) + x \cdot \widetilde g(x). \]
 Zeige: Die Funktionen~$g$ und~$\widetilde g$ sind gleich.
 
 \emph{Tipp:} Für~$x \neq 0$ kann man den Wert von~$g(x)$ bzw.~$\widetilde g(x)$
@@ -1085,7 +1094,7 @@ durch Umstellen explizit bestimmen.
 \begin{aufgabeShaded}{Bedeutung des Hadamard-Quotienten}
 \label{aufg:bedeutung-hadamard}
 Sei~$f : \RR \to \RR$ eine glatte Funktion und~$g$ der laut dem
-Hadamard existente Hadamard-Quotient. Zeige: $g(0) = f'(0)$.
+Lemma von Hadamard existente Hadamard-Quotient. Zeige: $g(0) = f'(0)$.
 
 \emph{Tipp:} Leite die Gleichung, die die Beziehung zwischen~$f$
 und~$g$ beschreibt, ab.
@@ -1144,7 +1153,22 @@ jede reelle Zahl~$x$ die gewöhnliche Ableitung~$f'(x)$ mit der synthetischen
 
 \section{Ausblick}
 
+% surreale Zahlen (Vorteil: Spiele)
+% hyperreale Zahlen (Vorteil: Transferprinzip)
+% gemeinsamer Nachteil/Eigenschaft: Infinitesimale Zahlen sind nicht nilpotent
+% Nachteil SDG: keine klassische Logik
 
+% allgemein über int. Logik erzählen
+% Anwendungen in der Informatik und Numerik
+% x^y-Beispiel
+
+% höhere Ableitungen
+
+% Integrationstheorie
+
+% Bezeichnung SDG
+
+% Literatur: Mike Shulman, Andrej Bauer, Anders Kock, John Bell
 
 \end{document}
 
