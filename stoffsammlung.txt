@@ -35,6 +35,11 @@ Wolfgang Lück.
 Was und wie zählt man im Alltag und in der modernen Mathematik.
 http://131.220.77.52/lueck/data/greifswald140127.pdf
 
+Finite Differenzen
+Spektral-Galerkin-Verfahren
+Orbitalmechanik
+Fourierentwicklung
+
 
 --- nicht beim ersten Treffen angeschrieben:
 
