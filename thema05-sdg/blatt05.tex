@@ -726,6 +726,24 @@ in~$\Delta$ folgende Rechenregel:
 \emph{Tipp:} Verwende die Gleichung für die Definition der Ableitung von~$g$.
 \end{aufgabeShaded}
 
+\begin{aufgabeShaded}{Lokale Minimal- und Maximalstellen}
+Sei~$f : \RR \to \RR$ eine Funktion. Befinde sich in~$x_0$ ein
+\emph{(schwaches) lokales Minimum}, das soll bedeuten: Für alle~$\varepsilon$
+in~$\Delta$ gilt~$f(x_0 + \varepsilon) \geq f(x_0)$.
+
+\begin{enumerate}
+\item Wie sieht der Funktionsgraph von~$f$ auf der infinitesimalen Monade
+um~$x_0$ aus? Bedenke, dass nach dem Axiom der Mikroaffinität Funktionen auf
+infinitesimalen Umgebungen affin sind.
+\item Beweise, dass~$f'(x_0) = 0$.
+
+\emph{Bemerkung:} Rigoros kannst du das gar nicht machen, da ich die
+Anordnungsaxiome nicht verraten habe. Aber vielleicht hast du trotzdem Spaß
+daran, es informal zu versuchen.
+\item Was passiert bei lokalen \emph{Maximal}stellen?
+\end{enumerate}
+\end{aufgabeShaded}
+
 \footnotetext{Wie kommt man auf diese Regel? Ganz allgemein gibt es eine
 Formel für die \emph{geometrische Reihe}: $\sum_{i=0}^n q^i =
 \frac{1-q^{n+1}}{1-q}$. Diese Formel gilt immer dann, wenn der Nenner~$1-q$
@@ -859,15 +877,6 @@ sein, ob nicht doch noch eine von Null verschiedene Ziffer auftritt. Wir können
 also die wahre Aussage~"`$x = 0$"' nicht belegen.
 \end{itemize}
 
-%\begin{bem}Wenn man allgemein Mathematik ohne das Axiom vom ausgeschlossenen
-%Dritten betreibt, so nennt man das \emph{intuitionistische} oder
-%\emph{konstruktive Mathematik}. Praktische Bedeutung hat diese Form der
-%Mathematik in der Informatik und Numerik. Es stellt sich nämlich heraus, dass
-%man aus jedem Beweis einer Existenzbehauptung oder ein anderes Objekt mit einer
-%gewissen Eigenschaft existiert --, welcher ohne das Axiom vom ausgeschlossenen
-%Dritten geführt wird, ein Computerprogramm extrahieren kann, dass da
-%\end{bem}
-
 
 \section{Auflösung der Paradoxien}
 
@@ -946,16 +955,19 @@ gravierender Nachteil, zum Beispiel in der Finanzmathematik: Börsenkursverläuf
 sind nicht differenzierbar.
 
 \begin{aufgabeShaded}{Schwebezustand infinitesimaler Zahlen}
+\label{aufg:schwebezustand}
 Zeige, dass jede infinitesimale Zahl \emph{nicht nicht} Null ist. Ergänze dazu
 folgenden Be\-weis\-an\-fang:
 \emph{Sei~$\varepsilon$ eine infinitesimale Zahl. Wir wollen zeigen,
 dass~$\varepsilon$ \emph{nicht nicht} Null ist. Angenommen,~$\varepsilon$ wäre
 doch nicht Null. Dann \ldots}
 
-In klassischer Mathematik könnte man daraus sofort folgern, dass jede
-infinitesimale Zahl Null ist, dass also die Null die einzige infinitesimale
-Zahl ist. Ohne das Axiom vom ausgeschlossenen Dritten aber bleiben
-infinitesimale Zahlen in dieser interessanten Art von Schewebezustand.
+\emph{Bemerkung:} Das heißt \emph{nicht}, dass jede infinitesimale Zahl Null
+ist! Das würde dem Axiom der Mikroaffinität widersprechen
+(Proposition~\ref{prop:neg-delta0}). Dieses Kunststück -- \emph{nicht nicht}
+Null zu sein ohne Null zu sein -- ist nur ohne das Axiom vom ausgeschlossenen
+Dritten möglich. Mit diesem Axiom dagegen könnte man sofort die doppelte
+Verneinung eliminieren.
 \end{aufgabeShaded}
 % XXX: Einordnung auf dem Zahlenstrahl
 
@@ -1153,28 +1165,210 @@ jede reelle Zahl~$x$ die gewöhnliche Ableitung~$f'(x)$ mit der synthetischen
 
 \section{Ausblick}
 
-% surreale Zahlen (Vorteil: Spiele)
-% hyperreale Zahlen (Vorteil: Transferprinzip)
-% gemeinsamer Nachteil/Eigenschaft: Infinitesimale Zahlen sind nicht nilpotent
-% Nachteil SDG: keine klassische Logik
+\paragraph{Höhere Ableitungen und Integrationstheorie.}
+Die synthetische Differentialrechnung haben wir mit \emph{nilquadratischen}
+Zahlen aufgezogen -- Zahlen, deren Quadrat Null ist. Für Untersuchungen erster
+Ableitungen ist dann völlig ausreichend. Für höhere Ableitungen sind
+allgemeinere infinitesimale Zahlen nützlich -- etwa Zahlen, deren dritte Potenz
+Null ist. Jede nilquadratische Zahl ist insbesondere \emph{nilkubisch}, die
+Umkehrung aber gilt nicht. Nilkubische Zahlen werden durch ein Analogon zum
+Axiom der Mikroaffinität kontrolliert (Aufgabe~\ref{aufg:nilkubisch}).
 
-% allgemein über int. Logik erzählen
-% Anwendungen in der Informatik und Numerik
-% x^y-Beispiel
+Integrationstheorie haben wir im synthetischen Kontext überhaupt nicht
+betrieben. Das geht aber ebenfalls auf elegante Art und Weise
+(Aufgabe~\ref{aufg:integrationstheorie}).
 
-% höhere Ableitungen
 
-% Integrationstheorie
+\paragraph{Surreale und hyperreelle Zahlen.}
+Surreale Zahlen (diese hatten wir ja zu Beginn des Zirkels kennengelernt)
+und hyperreelle Zahlen (als Einstieg eignet sich der Wikipedia-Artikel zum
+Thema) enthalten ebenfalls eine bestimmte Art infinitesimaler Zahlen. Wie
+vergleichen sich diese Ansätze mit dem von synthetischer Differentialgeometrie?
+Der größte Unterschied liegt darin, dass die infinitesimalen Zahlen in
+synthetischer Differentialgeometrie \emph{nilquadratisch} sind -- das heißt,
+dass ihre Quadrat Null sind. Das war ja in diesen Notizen sogar die Definition des
+Begriffs \emph{infinitesimal}. Die infinitesimalen surrealen und hyperreellen
+Zahlen zeichnen sich dadurch aus, dass ihre Quadrate \emph{nicht} Null, sondern
+\emph{noch kleinere} infinitesimale Zahlen sind.
+
+Außerdem sind die infinitesimalen surrealen und hyperreellen Zahlen
+invertierbar; die Kehrwerte solcher Zahlen sind transfinite Zahlen. Als
+Konsequenz bilden die surrealen Zahlen einen \emph{Körper} -- jede Zahl ist
+entweder Null oder invertierbar. Die Zahlen in synthetischer
+Differentialgeometrie erfüllen nur die schwächere Bedingung, dass jede Zahl, die
+nicht Null ist, invertierbar ist.\footnote{Wenn die beiden Bedingungen für dich
+gleich klingen, dann liegt das daran, dass sie im Kontext des Axioms vom
+ausgeschlossenen Dritten auch tatsächlich äquivalent sind. Ohne dieses Axiom
+aber ist die erste Bedingung stärker als die zweite.}
+
+Zu guter Letzt gehören die surrealen und hyperreellen Zahlen zum üblichen
+mathematischen Universum. Sie funktionieren also auch im Kontext des Axioms vom
+ausgeschlossenen Dritten und benötigen keine eigenen \emph{anti-klassischen}
+Axiome. Bei synthetischer Differentialgeometrie dagegen haben wir ja das
+anti-klassische Axiom der Mikroaffinität eingeführt und damit die gewöhnliche
+mathematische Welt verlassen.
+
+Insbesondere sind die infinitesimalen surrealen
+und hyperreellen Zahlen schlichtweg \emph{ungleich Null}, während das bei den
+infinitesimalen Zahlen in synthetischer Differentialgeometrie nicht der Fall
+ist: Sie sind \emph{nicht nicht Null}, ohne aber Null zu sein -- ein
+Kunststück, das nur ohne das Axiom vom ausgeschlossenen Dritten möglich ist
+(Aufgabe~\ref{aufg:schwebezustand}).
+
+Pauschal kann man nicht sagen, welches der drei Systeme am besten ist; das
+hängt von dem gewünschten Anwendungsfall ab. Nilquadratische infinitesimale
+Zahlen sind für die Differentialrechnung sehr praktisch, weil sie Rechnungen
+vereinfachen. Die invertierbaren infinitesimalen surrealen und hyperreellen
+Zahlen sind nützlich, wenn man einen Körper als Zahlbereich erhalten möchte
+oder auch an transfiniten Zahlen interessiert ist.
+
+Die surrealen Zahlen haben ferner durch ihren Bezug zu kombinatorischer Spieltheorie
+eine Bedeutung. Ein Alleinstellungsmerkmal von hyperreellen Zahlen ist, dass
+sie über ein \emph{Transferprinzip} verfügen, mit denen man aus bekannten
+Aussagen über die gewöhnlichen reellen Zahlen sofort Aussagen über die
+hyperreellen Zahlen gewinnen kann.
+
+
+\paragraph{Intuitionistische Logik.}
+Wenn man allgemein Mathematik ohne das Axiom vom ausgeschlossenen
+Dritten betreibt, so nennt man das \emph{intuitionistische} oder
+\emph{konstruktive Mathematik}. Intuitionistische Mathematik ist gut dafür
+geeignet, um \emph{Traumaxiome} zu studieren -- das sind Axiome, die in
+klassischer Mathematik falsch sind. Neben dem Axiom der Mikroaffinität gibt es
+noch eine Reihe anderer Traumaxiome, die interessant und nützlich sind und
+zu sonderbaren mathematischen Universen führen.
+
+Praktische Bedeutung hat intuitionistische Mathematik in der theoretischen
+Informatik und Numerik. Es stellt sich nämlich heraus, dass man aus jedem
+Beweis einer Existenzbehauptung, welcher ohne das Axiom vom ausgeschlossenen
+Dritten geführt wird, ein Computerprogramm extrahieren kann, dass das
+postulierte Objekt explizit berechnet. Das ist mit Beweisen, die das Axiom vom
+ausgeschlossenen Dritten verwenden, im Allgemeinen nicht möglich.
+
+Ein anschauliches Beispiel für diesen Sachverhalt liefert die Frage, ob
+es irrationale Zahlen~$x$ und~$y$ gibt, sodass die Potenz~$x^y$ wieder rational ist.
+Zur Erinnerung: Eine reelle Zahl heißt genau dann \emph{rational}, wenn sie
+als Bruch \emph{ganzer Zahlen} geschrieben werden kann. Dass nicht alle Zahlen
+rational sind,\footnote{Zum Beispiel ist die Zahl~$\sqrt{2}$ nicht rational.
+Wäre sie rational, so gäbe es ganze Zahlen~$p$ und~$q$ mit~$\sqrt{2} =
+\frac{p}{q}$. Nach Quadrieren und Umstellen gälte~$2q^2 = p^2$. Denkt man an die
+Eindeutigkeit der Primfaktorzerlegung, sieht man, dass das nicht möglich ist:
+Auf der linken Seite der Gleichung kommt der Primfaktor~$2$ ungerade oft,
+rechts gerade oft vor. Schließlich kommen Primfaktoren in Quadratzahlen stets
+gerade oft vor.}
+war im fünften Jahrhundert~v.~Chr. eine erstaunliche Entdeckung
+-- manche sehen diese Entdeckung sogar als Geburtsstunde der modernen
+Mathematik an.\footnote{Als Entdecker der Irrationalität gilt Hippasos von
+Metapont. Er erkannte, dass der \emph{goldene Schnitt} irrational ist. Damit
+erschütterte er die Schule der Pythagoreer, denn diese waren von dem Kredo
+\emph{Alles ist Zahl} überzeugt, wobei sie mit "`Zahl"' \emph{rationale Zahl}
+meinten. Ironischerweise kam der goldene Schnitt auch noch im Erkennungszeichen der
+Pythagoreer vor.}
+
+\begin{prop}Es gibt irrationale Zahlen~$x$ und~$y$, sodass~$x^y$ rational ist.
+\end{prop}
+\begin{proof}[Beweis 1] Die Zahl~$\sqrt{2}^{\sqrt{2}}$ ist rational oder nicht
+rational. Im ersten Fall ist~$x := \sqrt{2}$, $y := \sqrt{2}$ ein Beispiel für
+die Behauptung, im zweiten Fall~$x := \sqrt{2}^{\sqrt{2}}$, $y := \sqrt{2}$.
+\end{proof}
+\begin{proof}[Beweis 2] Setze~$x := \sqrt{2}$ und~$y := \log_{\sqrt{2}} 3$.
+Dann ist die Potenz~$x^y = 3$ sicher rational. Die Irrationalität von~$y$ lässt sich
+sogar einfacher als die von~$\sqrt{2}$ beweisen:
+Gelte~$y = p/q$ mit~$p, q \in \ZZ$ und~$q \neq 0$. Da~$y > 0$, können wir
+sogar~$p, q \in \NN$ annehmen.
+Dann folgt $3 = (\sqrt{2})^{p/q}$, also~$3^{2q} = 2^p$. Das ist ein
+Widerspruch zum Satz über die eindeutige Primfaktorzerlegung, denn auf der linken
+Seite kommt der Primfaktor~$3$ vor, auf der rechten aber nicht.
+\end{proof}
+
+Der erste Beweis war \emph{unkonstruktiv}, er hat das Axiom vom
+ausgeschlossenen Dritten verwendet. Solange nicht geklärt ist,
+ob~$\sqrt{2}^{\sqrt{2}}$ nun rational oder irrational ist,\footnote{Tatsächlich
+ist~$\sqrt{2}^{\sqrt{2}}$ nach dem Satz von Gelfond--Schneider aus der
+Zahlentheorie irrational. Das ist aber nicht leicht zu erkennen.} kann man
+immer noch nicht ein Zahlenpaar mit den gewünschten Eigenschaften nennen! Der
+zweite Beweis dagegen war konstruktiv: Die Existenzbehauptung wurde durch
+explizite Konstruktion eines Beispiels nachgewiesen.
+
+
+\begin{aufgabeShaded}{Spiel und Spaß mit nilkubischen Zahlen}
+\label{aufg:nilkubisch}
+Eine reelle Zahl~$\varepsilon$ heißt genau dann \emph{nilkubisch}, wenn ihre dritte Potenz
+Null ist: $\varepsilon^3 = 0$. Kontrolliert werden nilkubische Zahlen durch
+folgende Allgemeinerung des Axioms der Mikroaffinität:
+
+\textbf{Axiom der Mikroquadratizität.} Sei~$f : \Delta_3 \to \RR$ eine
+Funktion. Dabei ist~$\Delta_3 = \{ \varepsilon \in \RR \,|\, \varepsilon^3 = 0
+\}$ die Menge aller nilkubischen Zahlen. Dann gibt es eindeutig bestimmte
+Zahlen~$a$,~$b$ und~$c$, sodass für alle~$\varepsilon$ in~$\Delta_3$ gilt:
+$f(\varepsilon) = a + b\varepsilon + c\varepsilon^2$.
+
+\begin{enumerate}
+\item Zeige, dass jede nilquadratische Zahl auch nilkubisch ist.
+\item Das Axiom der Mikroquadrazität sagt aus, dass Funktionen, die auf
+der größeren Menge~$\Delta_3$ definiert sind, zwar nicht mehr durch einen
+affinen, aber zumindest noch durch einen quadratischen Term beschrieben werden
+können. Illustriere diese Situation!
+
+\emph{Tipp:} Vergleiche mit Abbildung~\ref{fig:mikroaffinitaet}.
+\item Berechne für folgende Funktionen explizit~$f(\varepsilon)$
+für~$\varepsilon$ in~$\Delta_3$. Vereinfache
+also unter Verwendung der Rechenregel~$\varepsilon^3 = 0$ so weit wie möglich.
+\begin{itemize}
+\item $f(x) = x^2$.
+\item $f(x) = x^3$.
+\item $f(x) = x^4$.
+\end{itemize}
+Vergleiche deine Ergebnisse mit der bekannten ersten und zweiten Ableitung an
+der Stelle~$x = 0$.
+\item Überlege, wie man mit Hilfe nilkubischer Zahlen analog zu
+Definition~\ref{defn:sdg-ableitung} die zweite Ableitung definieren kann.
+\item Zeige, dass die Annahme, jede nilkubische Zahl sei nilquadratisch, dem
+Axiom der Mikroquadratizität widerspricht.
+
+\emph{Tipp:} Verallgemeinere den Beweis von Proposition~\ref{prop:neg-delta0}.
+\end{enumerate}
+\end{aufgabeShaded}
+
+\begin{aufgabeShaded}{Synthetische Integrationstheorie}
+\label{aufg:integrationstheorie}
+Der gewöhnliche Weg, bestimmte Integrale der Form~$\int_a^b f(x) \,dx$
+auszurechnen, besteht darin, eine \emph{Stammfunktion}~$F$ von~$f$ zu finden --
+das ist eine Funktion mit~$F = f$. Nach dem Hauptsatz der Differential- und
+Integralrechnung gilt dann nämlich~$\int_a^b f(x) \,dx = F(b) - F(a)$. In
+klassischer Mathematik \emph{beweist} man, dass eine solche Stammfunktion existiert.
+Im synthetischen Zugang zu Integrationstheorie \emph{fordert} man das durch ein
+neues Axiom:
+
+\textbf{Integrationsaxiom.} Für jede Funktion~$f : \RR \to \RR$ gibt es eine
+und nur eine Funktion~$F : \RR \to \RR$ mit~$F' = f$ und~$F(0) = 0$.
+
+\begin{enumerate}
+\item Berechne über den Hauptsatz der Differential- und Integralrechnung (der
+im synthetischen Zugang kein \emph{Satz}, sondern eine \emph{Definition} ist)
+folgende bestimmten Integrale:
+\begin{itemize}
+\item $\int_a^b x^2 \,dx$.
+\item $\int_a^b \sin(x) \,dx$.
+\end{itemize}
+\item Beweise folgende Integrationsregeln:
+\begin{itemize}
+\item $\int_a^b (f(x) + g(x)) \,dx = \int_a^b f(x) \,dx + \int_a^b g(x) \,dx$.
+\item $\int_a^b f(g(t)) g'(t) \,dt = \int_{g(a)}^{g(b)} f(x) \,dx$.
+\item $\int_a^b f'(x) g(x) \,dx = f(b)g(b) - f(a)g(a) -
+  \int_a^b f(x) g'(x) \,dx$.
+\end{itemize}
+
+\emph{Tipp:} In jedem der drei Fälle musst du ausgehend von Stammfunktionen~$F$
+und~$G$ für~$f$ bzw.~$g$ Stammfunktionen für die neuen Integranden finden.
+\end{enumerate}
+\end{aufgabeShaded}
 
 % Bezeichnung SDG
 
 % Literatur: Mike Shulman, Andrej Bauer, Anders Kock, John Bell
 
 \end{document}
-
-- Ordnungsaxiome
-
-- Integrationstheorie
 
 - Zusammenhang mit surrealen Zahlen
 
