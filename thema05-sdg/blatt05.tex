@@ -37,10 +37,13 @@
 
 \begin{document}
 
-\maketitleSF{Klasse 11./12., Gruppe 2}{31. Mai 2014: \\ Synthetische
-Differentialgeometrie}
+\maketitleCustom{Klasse 11./12., Gruppe 2}{\textbf{\textsf{%
+  Synthetische Differentialgeometrie \\
+  \normalsize Zirkelzettel vom 31. Mai 2014 und 14. Juni 2014}}}
 
-\tableofcontents
+{\renewcommand{\addvspace}[1]{\vskip0.6em}
+\tableofcontents%
+}
 
 \section{Einleitung}
 
@@ -754,7 +757,12 @@ Formel für die \emph{geometrische Reihe}: $\sum_{i=0}^n q^i =
 invertierbar ist. Eine Variante der Formel gilt sogar ohne Einschränkungen:
 $(1-q) \cdot \sum_{i=0}^n q^i = 1-q^{n+1}$. Wenn nun~$q$ so geartet ist,
 dass~$q^2$ Null ist, vereinfacht sich diese Formel. Der Unterschied zur
-angegebenen Vereinfachungsregel ist dann nur noch ein Vorzeichen.}
+angegebenen Vereinfachungsregel ist dann nur noch ein Vorzeichen.
+
+\noindent Wenn du möchtest, kannst du alternativ auch nachsehen, wie man den Kehrwert
+einer Zahl geometrisch konstruieren kann. Überzeuge dich dann grafisch, dass
+der Kehrwert von~$1 + \varepsilon$ die Zahl~$1 - \varepsilon$ ist,
+wenn~$\varepsilon$ eine beliebige infinitesimale Zahl ist.}
 
 
 \section{Das Axiom vom ausgeschlossenen Dritten}
@@ -1009,9 +1017,9 @@ entweder~$+2$ oder~$-2$ sein. Das zweite Axiom diktiert aber~$\heartsuit =
 
 Modelle für synthetische Differentialgeometrie anzugeben ist nicht schwer,
 erfordert jedoch Vorkenntnisse aus der \emph{Topostheorie}, die
-wir hier leider nicht bereitstellen können. Die Konstruktion eines solchen Modells
-können wir daher an dieser Stelle nicht durchführen, folgendes Faktum müssen wir
-ohne Beweis hinnehmen:
+wir hier leider nicht bereitstellen können. Da wir die Konstruktion eines solchen Modells
+an dieser Stelle nicht durchführen können, müssen wir das folgende Faktum
+ohne Beweis hinnehmen.
 
 \begin{shaded}
 \textbf{Faktum.} Es gibt ein mathematisches Universum~$\U$ mit folgenden
@@ -1027,12 +1035,13 @@ auch tatsächlich gleich.
 \end{itemize}
 \end{shaded}
 
-% XXX: Nichttrivialität des Faktums erklären: Analoges Faktum gilt nicht für
-% beliebige neu ausgedachte Axiome.
-
 Dabei heißt eine Funktion~$f$ genau dann~\emph{glatt}, wenn sie \emph{unendlich
 oft} differenzierbar ist, wenn also nicht nur~$f$ selbst an jeder Stelle
 differenzierbar ist, sondern auch~$f'$,~$f''$ und so weiter.
+
+Das Faktum ergibt sich nicht aus allgemeinem Nonsens -- in dem Beweis steckt
+inhaltliche mathematische Arbeit. Es gibt auch nicht für beliebige
+ausgedachte Axiome automatisch analoge Fakta.
 
 \begin{aufgabeShaded}{Nicht glatte Funktionen}
 \begin{enumerate}
@@ -1169,11 +1178,50 @@ jede reelle Zahl~$x$ die gewöhnliche Ableitung~$f'(x)$ mit der synthetischen
 
 \section{Ausblick}
 
+\paragraph{Geometrie.} Die Differentialgeometrie ist ein modernes Teilgebiet
+der Mathematik mit vielen Verbindungen zu anderen Bereichen der Mathematik und
+Anwendungen in der allgemeinen Relativitätstheorie und Stringtheorie.
+Untersuchungsgegenstand der Differentialgeometrie sind \emph{glatte
+Mannigfaltigkeiten} (das sind Kurven, Flächen und höherdimensionale
+Verallgemeinerungen) und \emph{glatte Abbildungen} zwischen solchen (unendlich
+oft differenzierbare Funktionen).
+
+\begin{figure}[b]
+  \centering
+  \includegraphics[scale=0.4]{cobordism}
+  \caption{\label{fig:cobordism}Für \emph{topologische Quantenfeldtheorien}
+  wichtige \emph{Kobordismusrelationen}.}
+\end{figure}
+
+Abbildungen, welche nicht glatt sind, interessieren in der
+Differentialgeometrie nicht. Für eine Logikerin oder einen Logiker ist es daher
+naheliegend, das mathematische Universum mit Hilfe spezieller Axiome auf diese
+besonderen Gegebenheiten anzupassen und so zu ermöglichen, \emph{synthetisch}
+zu arbeiten.
+
+Wir haben die Grundlagen dieses Zugangs kennengelernt. Mit dem Konzept
+infinitesimaler Zahlen könnte man nun die grundlegenden Begriffe der
+Differentialgeometrie entwickeln. Ein Beispiel muss an dieser Stelle genügen:
+Ein \emph{Tangentialvektor} an eine gekrümmte Fläche~$M$ oder an ein allgemeineres
+Gebilde stellt man sich als ein infinitesimales Geradenstück vor, welches in
+der Fläche verläuft. In klassischer Mathematik muss man etwas Aufwand treiben,
+um diese Vorstellung zu formalisieren.
+
+Bei synthetischer Differentialgeometrie ist es dagegen ganz einfach: Ein
+Tangentialvektor an~$M$ ist nichts anderes als eine Abbildung~$f : \Delta \to M$,
+wobei~$\Delta$ wie bisher auch die in\-fi\-ni\-te\-si\-ma\-le Monade um Null bezeichnet.
+Sein Fußpunkt der Punkt~$f(0)$. In diesem Kontext gibt es für~$\Delta$
+auch die amüsante Bezeichnung \emph{wandelnder Tangentialvektor}.\footnote{Anmerkung an
+mitlesende Experten: Diese Bezeichnung sollte man eigentlich nicht für~$\Delta$
+selbst, sondern für die Identitätsabbildung~$\Delta \to \Delta$ verwenden
+(wieso?).}
+
+
 \paragraph{Höhere Ableitungen und Integrationstheorie.}
 Die synthetische Differentialrechnung haben wir mit \emph{nilquadratischen}
 Zahlen aufgezogen -- Zahlen, deren Quadrat Null ist. Für Untersuchungen erster
-Ableitungen ist dann völlig ausreichend. Für höhere Ableitungen sind
-allgemeinere infinitesimale Zahlen nützlich -- etwa Zahlen, deren dritte Potenz
+Ableitungen ist das völlig ausreichend. Für höhere Ableitungen sind
+allgemeinere infinitesimale Zahlen nützlich -- etwa Zahlen, deren \emph{dritte} Potenz
 Null ist. Jede nilquadratische Zahl ist insbesondere \emph{nilkubisch}, die
 Umkehrung aber gilt nicht. Nilkubische Zahlen werden durch ein Analogon zum
 Axiom der Mikroaffinität kontrolliert (Aufgabe~\ref{aufg:nilkubisch}).
@@ -1295,6 +1343,28 @@ zweite Beweis dagegen war konstruktiv: Die Existenzbehauptung wurde durch
 explizite Konstruktion eines Beispiels nachgewiesen.
 
 
+\paragraph{Literatur.} Synthetische Differentialgeometrie ist nicht intrinsisch
+kompliziert. Leider setzt die meiste Literatur aber Vorkenntnisse aus einem
+Mathematikstudium voraus. Zum Durchblättern eignen sich die folgenden vier
+Quellen:
+
+\begin{small}
+Andrej Bauer. \emph{Intuitionistic mathematics for physics}. Ein
+Blog-Artikel.
+\url{http://math.andrej.com/2008/08/13/intuitionistic-mathematics-for-physics/}
+
+John Bell. \emph{A Primer of Infinitesimal Analysis}. Ein
+Buch, das für Physiker geschrieben ist. Online verfügbar.
+
+Anders Kock. \emph{Synthetic Differential Geometry}. Die Standardreferenz
+zum Thema. \url{http://home.imf.au.dk/kock/sdg99.pdf}
+
+Mike Shulman. \emph{Synthetic differential geometry}. Skript zu einem
+Pizzaseminar für Mathematikstudenten.
+\url{http://home.sandiego.edu/~shulman/papers/sdg-pizza-seminar.pdf}
+\end{small}
+
+
 \begin{aufgabeShaded}{Spiel und Spaß mit nilkubischen Zahlen}
 \label{aufg:nilkubisch}
 Eine reelle Zahl~$\varepsilon$ heißt genau dann \emph{nilkubisch}, wenn ihre dritte Potenz
@@ -1363,16 +1433,22 @@ folgende bestimmten Integrale:
   \int_a^b f(x) g'(x) \,dx$.
 \end{itemize}
 
-\emph{Tipp:} In jedem der drei Fälle musst du ausgehend von Stammfunktionen~$F$
+\emph{Tipp:} In jedem der drei Fälle kannst du ausgehend von Stammfunktionen~$F$
 und~$G$ für~$f$ bzw.~$g$ Stammfunktionen für die neuen Integranden finden.
 \item Sei~$f : \RR \to \RR$ eine Funktion mit~$f'(x) = 0$ für alle Zahlen~$x$.
 Zeige, dass~$f$ konstant ist.
+
+\emph{Tipp:} Hauptsatz der Differential- und Integralrechnung.
 \end{enumerate}
 \end{aufgabeShaded}
 
-% Bezeichnung SDG
+\renewcommand{\thefootnotemark}{}
+\footnote{Abbildung~\ref{fig:mikroaffinitaet} ist dem Wikimedia-Archiv
+entnommen und zur Illustration des Mikroaffinitätsaxioms leicht angepasst.
+\url{http://upload.wikimedia.org/wikipedia/commons/f/fa/Approximation_of_cos_with_linear_functions_without_numbers.svg}
 
-% Literatur: Mike Shulman, Andrej Bauer, Anders Kock, John Bell
+\noindent Abbildung~\ref{fig:cobordism} ist dem Buch \emph{Frobenius algebras and 2D
+topological quantum field theories} von Joachim Kock entnommen (Seite~4).}
 
 \end{document}
 
@@ -1381,12 +1457,6 @@ Zeige, dass~$f$ konstant ist.
   Konsistenzfrage klären. Erklären, dass man sich nicht nach Belieben Axiome
   ausdenken kann. (Zum Beispiel anhand des Beispiels der Division durch Null.)
 
-- Andrej Bauer, Blog
-- Anders Kock, SDG
-
-- Fußnoten auf den richtigen Seiten?
-- Datum
 - Ausdruck "Physiker-Beweis"
 
 - falsche Beweise bringen und Fehler suchen lassen
-- geometrisch sehen, dass 1/(1+eps) = 1-eps

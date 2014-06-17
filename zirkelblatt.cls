@@ -44,9 +44,9 @@
   \makeheader{#1}
   \begin{center}\Large \textbf{Zirkelzettel vom #2}\end{center}
   \vspace{\titleskip}}
-\newcommand{\maketitleSF}[2]{%
+\newcommand{\maketitleCustom}[2]{%
   \makeheader{#1}
-  \begin{center}\Large \textbf{\textsf{Zirkelzettel vom #2}}\end{center}
+  \begin{center}\Large #2\end{center}
   \vspace{\titleskip}}
 
 \renewcommand*\theenumi{\alph{enumi}}
