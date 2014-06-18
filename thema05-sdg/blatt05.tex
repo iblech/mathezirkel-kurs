@@ -680,6 +680,18 @@ vielleicht etwas ungewohnt, der Ansatz ist aber ganz einfach:
 \vspace{-1.5em}%
 \end{aufgabeShaded}
 
+\footnotetext{Wie kommt man auf diese Regel? Ganz allgemein gibt es eine
+Formel für die \emph{geometrische Reihe}: $\sum_{i=0}^n q^i =
+\frac{1-q^{n+1}}{1-q}$. Diese Formel gilt immer dann, wenn der Nenner~$1-q$
+invertierbar ist. Eine Variante der Formel gilt sogar ohne Einschränkungen:
+$(1-q) \cdot \sum_{i=0}^n q^i = 1-q^{n+1}$. Wenn nun~$q$ so geartet ist,
+dass~$q^2$ Null ist, vereinfacht sich diese Formel. Der Unterschied zur
+angegebenen Vereinfachungsregel ist dann nur noch ein Vorzeichen.
+
+\noindent Wenn du möchtest, kannst du alternativ auch nachsehen, wie man den Kehrwert
+einer Zahl geometrisch konstruieren kann. Überzeuge dich dann grafisch, dass
+der Kehrwert von~$1 + \varepsilon$ die Zahl~$1 - \varepsilon$ ist,
+wenn~$\varepsilon$ eine beliebige infinitesimale Zahl ist.}
 \begin{aufgabeShaded}{Ableitung der Umkehrfunktion}
 Eine Funktion~$f : \RR \to \RR$ heißt genau dann \emph{umkehrbar}, wenn es zu
 jeder Zahl~$y$ aus~$\RR$ eine und nur eine Zahl~$x$ mit~$f(x) = y$ gibt.
@@ -769,19 +781,6 @@ auch~$-\varepsilon$ (wieso?).
 \item Was passiert bei lokalen \emph{Maximal}stellen?
 \end{enumerate}
 \end{aufgabeShaded}
-
-\footnotetext{Wie kommt man auf diese Regel? Ganz allgemein gibt es eine
-Formel für die \emph{geometrische Reihe}: $\sum_{i=0}^n q^i =
-\frac{1-q^{n+1}}{1-q}$. Diese Formel gilt immer dann, wenn der Nenner~$1-q$
-invertierbar ist. Eine Variante der Formel gilt sogar ohne Einschränkungen:
-$(1-q) \cdot \sum_{i=0}^n q^i = 1-q^{n+1}$. Wenn nun~$q$ so geartet ist,
-dass~$q^2$ Null ist, vereinfacht sich diese Formel. Der Unterschied zur
-angegebenen Vereinfachungsregel ist dann nur noch ein Vorzeichen.
-
-\noindent Wenn du möchtest, kannst du alternativ auch nachsehen, wie man den Kehrwert
-einer Zahl geometrisch konstruieren kann. Überzeuge dich dann grafisch, dass
-der Kehrwert von~$1 + \varepsilon$ die Zahl~$1 - \varepsilon$ ist,
-wenn~$\varepsilon$ eine beliebige infinitesimale Zahl ist.}
 
 
 \section{Das Axiom vom ausgeschlossenen Dritten}
@@ -1135,7 +1134,7 @@ die letzte Forderung hätte man für~$x \neq 0$ auch einfach
 \[ g(x) := \frac{f(x) - f(0)}{x} \]
 definieren und für~$x = 0$ den Funktionswert~$g(0)$ beliebig festsetzen können.
 Anders formuliert: Der Bruch~$\frac{f(x) - f(0)}{x}$ hat zwar bei~$x = 0$ eine
-Definitionslücke, diese ist jedoch \emph{hebbar}.
+Definitionslücke, diese ist jedoch \emph{hebbar}.\enlargethispage{1em}
 
 \begin{aufgabeShaded}{Beispiele zum Lemma von Hadamard}
 Finde durch geeignete Termumformungen zu jeder der folgenden Funktionen~$f$ den
