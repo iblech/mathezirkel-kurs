@@ -141,13 +141,13 @@ Schnittpunkt~$(x|y)$ hat die Koordinaten~$x = 0$ und~$y = 0$. Wieso entspricht
 das Schneiden der beiden Kurven rechnerisch der Lösungsmenge des kombinierten
 Gleichungssystems?
 \item Löse das zweite Gleichungssystem, um zu beweisen, dass ein Punkt~$(x|y)$
-genau dann im Schnittbereich des zweiten Bilds liegt, wenn seine~$x$-Koordinate
-Null und seine~$y$-Koordinate eine infinitesimale Zahl ist (also~$y^2 = 0$
+genau dann im Schnittbereich des zweiten Bilds liegt, wenn seine~$y$-Koordinate
+Null und seine~$x$-Koordinate eine infinitesimale Zahl ist (also~$x^2 = 0$
 erfüllt).
 
 Hierbei ist es wichtig, mit Absicht langsam zu rechnen, um nicht durch zu
 schnelles Vereinfachen die Pointe vorwegzunehmen. In klassischer Mathematik
-gilt die Regel "`wenn~$y^2 = 0$, dann auch~$y = 0$"'; erst mit dieser Regel
+gilt die Regel "`wenn~$x^2 = 0$, dann auch~$x = 0$"'; erst mit dieser Regel
 vereinfacht sich das Ergebnis, dann zu demselben wie in Teilaufgabe~a).
 \end{enumerate}
 \end{aufgabeShaded}
@@ -194,7 +194,7 @@ Erinnere dich, inwieweit der Bruch
 \[ \frac{f(x_0 + \varepsilon) - f(x_0)}{\varepsilon} \]
 für festes~$\varepsilon$ eine \emph{Sekantensteigung} angibt, und erkläre anhand einer Skizze, wieso der
 Grenzwert für~$\varepsilon \to 0$ anschaulich die Steigung der Tangente an den
-Graphen von~$f$ durch den Punkt~$(x_0|f(x_0))$ angibt.
+Graphen von~$f$ durch den Punkt~$(x_0|f(x_0))$ misst.
 \end{aufgabeShaded}
 
 Um die Definition besser zu verstehen, möchten wir ohne Verwendung der bekannten
@@ -205,7 +205,8 @@ differenzierbar mit Ableitung~$f'(x) = 2x$.\end{prop}
 \begin{proof}In der Schule würde man in einer langen Gleichungskette die
 Definition so lange vereinfachen, bis der Grenzwert unmittelbar ablesbar ist.
 Dabei müsste man in jedem Schritt das~$\lim$-Symbol mitführen, würde das aber
-vielleicht auch oftmals vergessen. Übersichtlicher ist folgende Schreibweise:
+vielleicht auch oftmals vergessen. Übersichtlicher ist folgende an der Uni
+übliche Schreibweise:
 \[ \frac{f(x + \varepsilon) - f(x)}{\varepsilon} =
   \frac{(x + \varepsilon)^2 - x^2}{\varepsilon} =
   \frac{x^2 + 2x\varepsilon + \varepsilon^2 - x^2}{\varepsilon} =
@@ -259,12 +260,12 @@ allgemeinen binomischen Formel stehen im Pascalschen Dreieck.)
 \begin{enumerate}
 \item Die Betragsfunktion (siehe Abbildung~\ref{fig:nicht-diffbar}(a)) ist an der
 Stelle~$x_0 = 0$ nicht differenzierbar. Anschaulich erkennt man das daran, dass
-der Graph am Punkt~$(0|0)$ keine eindeutige Tangente besitzt.\footnotemark{}
+der Graph am Punkt~$(0|0)$ keine Tangente besitzt.\footnotemark{}
 Bestätige diese Beobachtung anhand der Definition über den
 Differentialquotienten: Die Sekantensteigungen konvergieren für~$\varepsilon
 \to 0$ nicht gegen einen bestimmten Wert, sondern \ldots
 
-Wenn du möchtest, kannst du das auch noch rechnerisch nachvollziehen: Berechne
+Wenn du möchtest, kannst du das auch noch rechnerisch nachvollziehen. Berechne
 den \emph{links-} und den \emph{rechtsseitigen} Grenzwert des
 Differenzenquotienten. Nutze dazu folgende Definition der Betragsfunktion:
 \[ |x| := \begin{cases}\phantom{-}x, & \text{falls $x \geq 0$,} \\ -x, & \text{falls $x <
@@ -331,13 +332,13 @@ Solche werden wir im Folgenden nie betrachten.
 \item Finde die größtmögliche Definitionsmenge~$D$, sodass folgende Zuordnung
 Sinn ergibt:
 \[ f : D \to \RR,\,x \mapsto \frac{1}{x}. \]
-\item Der Term~"`$x^2$"' ergibt für alle reellen Zahlen~$x$ Sinn, die
+\item Der Term~"`$x^2$"' ergibt für \emph{alle} reellen Zahlen~$x$ Sinn, die
 größtmögliche Definitionsmenge der Zuordnung~$x \mapsto x^2$ ist also die
 vollständige Menge~$\RR$ aller reellen Zahlen. Man kann aber die
 Definitionsmenge auch künstlich einschränken:
 \[ f : [2;4] \to \RR,\,x \mapsto x^2. \]
 Dabei bezeichnet~"`$[2;4]$"' das abgeschlossene Intervall von~$2$ bis~$4$, also
-die Menge~$\{ x \in \RR \,|\, 2 \leq x \leq 4 \}$. Skizziere den Verlauf dieser
+die Menge $\{ x \in \RR \,|\, 2 \leq x \leq 4 \}$. Skizziere den Verlauf dieser
 Funktion. (Das wird \emph{nicht} die übliche Normalparabel.)
 \end{enumerate}
 \end{aufgabeShaded}
@@ -391,7 +392,7 @@ als~"`$\frac{1}{x}$"' oder~"`$x^{-1}$"' geschrieben.
 \item Ein \emph{Nichttrivialitätsaxiom}: $0 \neq 1$.
 \item Einige weitere Axiome, die wir aber erst dann einführen, wenn wir sie
 benötigen. Es sei nur noch verraten, dass wir die \emph{Trichotomie} der Ordnung
-\emph{nicht} verwenden: Diese würde besagen, dass jede Zahl entweder kleiner,
+\emph{nicht} verwenden. Diese würde besagen, dass jede Zahl entweder kleiner,
 gleich oder größer als Null ist.
 \end{itemize}
 
@@ -439,17 +440,16 @@ Widerspruch: Betrachte die konstante Funktion $f : \Delta \to \RR,\,\varepsilon 
 Dann gelten für alle~$\varepsilon$ in~$\Delta$ -- das ist etwas verklausuliert
 gesprochen, denn nach Annahme enthält~$\Delta$ ja nur die Null -- \emph{beide}
 der folgenden Gleichungen:
-\begin{align*}
-  f(\varepsilon) &= 0 + 0 \cdot \varepsilon \\
-  f(\varepsilon) &= 0 + 1 \cdot \varepsilon
-\end{align*}
+\[
+  f(\varepsilon) = 0 + 0 \cdot \varepsilon, \qquad
+  f(\varepsilon) = 0 + 1 \cdot \varepsilon. \]
 Wegen der Eindeutigkeitssaussage müsste daher~$0 = 1$ sein. Das ist aber ein
 Widerspruch zum Axiom~$0 \neq 1$.
 \end{proof}
 
 Wir\marginpar[\hfill\dbend]{\dbend} sind hier also in einer etwas sonderbaren Situation: In klassischer
 Mathematik gilt~$\Delta = \{ 0 \}$, das Axiom der Mikroaffinität impliziert
-aber~$\Delta \neq \{ 0 \}$. Ferner können wir trotzdem keine Zahl
+aber~$\Delta \neq \{ 0 \}$. Ferner können wir auch mit dem Axiom keine Zahl
 in~$\Delta$ (außer der Null) explizit angeben. Beide Paradoxien müssen wir
 auflösen, um wieder produktiv arbeiten zu können. Zunächst aber wollen wir ein
 paar Rechnungen anstellen, um den Umgang mit dem Axiom der Mikroaffinität zu
@@ -518,6 +518,11 @@ Zahl.) Es gilt jedoch folgendes Prinzip der \emph{Mikrokürzbarkeit}:
 in~$\Delta$, dann $a = b$.} \]
 Beweise dieses Prinzip! Dazu wirst du das Axiom der Mikroaffinität verwenden
 und eine geeignete Hilfsfunktion~$f : \Delta \to \RR$ definieren müssen.
+\item Bewundere den Umstand, dass das Prinzip der Mikrokürzbarkeit in
+klassischer Mathematik falsch ist. Wieso? Gib ein explizites Gegenbeispiel,
+also zwei verschiedene reelle Zahlen~$a$ und~$b$, sodass trotzdem für
+alle~$\varepsilon$ in~$\Delta$ die Gleichung~$\varepsilon a = \varepsilon b$
+gilt.
 \end{enumerate}
 \end{aufgabeShaded}
 
@@ -566,7 +571,7 @@ Abbildung~\ref{fig:ableitung-sdg} illustriert die Intuition hinter dieser
 Definition: In einer infinitesimalen Umgebung von~$x_0$ sieht der Graph von~$f$
 wie eine Gerade aus, nämlich genauer wie die Tangentialgerade durch den
 Punkt~$(x_0|f(x_0))$. Also sieht auch der Term~$f(x_0 + \varepsilon)$ wie der
-Term einer affinen Funktion aus: An der Stelle~$\varepsilon = 0$ hat er den
+Term einer affinen Funktion aus. An der Stelle~$\varepsilon = 0$ hat er den
 Wert~$f(x_0)$, für andere infinitesimale~$\varepsilon$ weicht er von~$f(x_0)$
 um~$b \varepsilon$ ab.
 
@@ -606,12 +611,12 @@ können. Das wollen wir zunächst an der Quadratfunktion illustrieren.
 \begin{prop}\label{prop:ableitung-quadratfunktion-sdg}
 Die Ableitung der Quadratfunktion~$f : \RR \to \RR,\,x \mapsto x^2$
 ist~$f'(x) = 2x$.\end{prop}
-\begin{proof}Für alle~$\varepsilon$ in~$\Delta$ gilt folgende Rechnung:
+\begin{proof}Für alle~$\varepsilon$ in~$\Delta$ gilt
 \[ f'(x) \cdot \varepsilon =
   f(x + \varepsilon) - f(x) =
   \text{\ldots{} siehe Aufgabe~\ref{aufg:erste-rechnung} \ldots} =
-  2x\varepsilon. \]
-Da diese Rechnung für alle~$\varepsilon$ in~$\Delta$ gilt, können wir nach dem
+  2x \cdot \varepsilon. \]
+Da diese Rechnung für \emph{alle}~$\varepsilon$ in~$\Delta$ gilt, können wir nach dem
 Prinzip der Mikrokürzbarkeit (Aufgabe~\ref{aufg:mikrokuerzbarkeit}) die
 Behauptung folgern: $f'(x) = 2x$.
 \end{proof}
@@ -641,6 +646,7 @@ Das Ergebnis sollte natürlich~$f'(x) = -\frac{1}{x^2}$ sein.
 benötigen.\footnotemark{}
 Beweise diese Regel, indem du die Probe durchführst:
 \[ (1 + \tfrac{\varepsilon}{x}) \cdot (1 - \tfrac{\varepsilon}{x}) = \cdots = 1. \]
+\vspace{-1.5em}%
 \end{aufgabeShaded}
 
 \begin{aufgabeShaded}{Ableitungsregeln}
@@ -663,6 +669,7 @@ Ferner solltest du keine Angst vor der Kettenregel haben. Die Schreibweise ist
 vielleicht etwas ungewohnt, der Ansatz ist aber ganz einfach:
 \[ (f \circ g)'(x) \cdot \varepsilon =
   f(g(x + \varepsilon)) - f(g(x)) = \cdots. \]
+\vspace{-1.5em}%
 \end{aufgabeShaded}
 
 \begin{aufgabeShaded}{Ableitung der Umkehrfunktion}
@@ -674,7 +681,7 @@ in einem und nur einem Punkt schneidet. Für eine solche Funktion kann man die
 x$.
 
 Für die Ableitung der Umkehrfunktion einer umkehrbaren Funktion gibt es
-folgende Regel:
+die Regel
 \[ (f^{-1})'(y) = \frac{1}{f'(f^{-1}(y))}. \]
 \begin{enumerate}
 \item Ist die Quadratfunktion~$\RR \to \RR,\,x \mapsto x^2$ umkehrbar?
@@ -695,7 +702,7 @@ f^{-1}(y) + (f^{-1})'(y) \cdot \varepsilon$ die Funktion~$f$ an.
 \emph{Tipp:} Der Graph von~$f^{-1}$ ergibt sich aus dem von~$f$ durch
 Spiegelung an der Winkelhalbierenden des ersten Quadranten. Zwei
 Steigungen~$m_1$ und~$m_2$ stehen genau dann aufeinander senkrecht, wenn~$m_1
-m_2 = 1$.
+m_2 = -1$.
 \end{enumerate}
 \end{aufgabeShaded}
 
@@ -706,7 +713,7 @@ m_2 = 1$.
 um nach dem Muster von Proposition~\ref{prop:ableitung-quadratfunktion-sdg} die
 Ableitung der Sinusfunktion zu bestimmen.
 
-\emph{Hinweis:} Verwende ohne Beweis, dass~$\sin\varepsilon = \varepsilon$
+\emph{Hinweis:} Verwende, dass~$\sin\varepsilon = \varepsilon$
 und~$\cos\varepsilon = 1$ für alle infinitesimalen Zahlen~$\varepsilon$.
 
 \item In dieser Teilaufgabe wollen wir heuristisch verstehen, wieso der
@@ -715,11 +722,11 @@ Punkt~$(1|0)$ beginnend nach oben eine Strecke der Länge~$\varepsilon$ auf der
 Kreislinie ab, wobei~$\varepsilon$ eine infinitesimale Zahl ist. Beachte, dass
 die Kreislinie in infinitesimalen Umgebungen des Punkts~$(1|0)$ \emph{genau
 senkrecht} verläuft! Zeichne nun ein geeignetes rechtwinkliges Dreieck in deine
-Skizze ein; es soll Hypothenuse~$1$ und Winkel~$\varepsilon$ (Bogenmaß) haben. Wie lang
+Skizze ein; es soll Hypotenuse~$1$ und Winkel~$\varepsilon$ (Bogenmaß) haben. Wie lang
 sind seine Katheten? Damit kannst du den Hinweis beweisen.
 
 \item Auch der Tangens ist die Länge einer geeigneten Strecke in der Skizze aus
-Teilaufgabe~b). Schlage nach, welcher! Bestätige damit: $\tan\varepsilon =
+Teilaufgabe~b). Schlage nach, von welcher. Bestätige damit: $\tan\varepsilon =
 \varepsilon$ für alle~$\varepsilon$ in~$\Delta$.
 \end{enumerate}
 \end{aufgabeShaded}
@@ -728,8 +735,11 @@ Teilaufgabe~b). Schlage nach, welcher! Bestätige damit: $\tan\varepsilon =
 \begin{aufgabeShaded}{Eine kuriose Rechenregel}
 \label{aufg:kurios}
 Sei~$g : \RR \to \RR$ eine Funktion. Beweise für alle Zahlen~$\varepsilon$
-in~$\Delta$ folgende Rechenregel:
+in~$\Delta$ die Rechenregel
 \[ \varepsilon \cdot g(\varepsilon) = \varepsilon \cdot g(0). \]
+Diese werden wir später im Beweis, dass synthetisch berechnete Ableitungen mit
+den gewöhnlichen übereinstimmen, verwenden.
+
 \emph{Tipp:} Verwende die Gleichung für die Definition der Ableitung von~$g$.
 \end{aufgabeShaded}
 
@@ -746,7 +756,8 @@ infinitesimalen Umgebungen affin sind.
 
 \emph{Bemerkung:} Rigoros kannst du das gar nicht machen, da ich die
 Anordnungsaxiome nicht verraten habe. Aber vielleicht hast du trotzdem Spaß
-daran, es informal zu versuchen.
+daran, es informal zu versuchen. Wenn~$\varepsilon$ infinitesimal ist, dann
+auch~$-\varepsilon$ (wieso?).
 \item Was passiert bei lokalen \emph{Maximal}stellen?
 \end{enumerate}
 \end{aufgabeShaded}
@@ -819,17 +830,17 @@ reelle Zahlen enthält.
 
 All diese Schlussfolgerungen sind nur mit dem Axiom vom ausgeschlossenen
 Dritten möglich. Hier sind die entsprechenden Beweise.\footnote{Eigentlich
-zeigen die Argument nur, dass ein Beweis mit dem
+zeigen die Argumente nur, dass ein Beweis \emph{mit} dem
 Axiom vom ausgeschlossenen Dritten möglich ist; nicht aber, dass ein Beweis
 ohne es nicht möglich ist. Das stimmt auch, und lässt sich beweisen!
 Leider muss man etwas tiefer in mathematische Logik einsteigen, um das zu
 verstehen. Ein in Deutsch formulierter Beweis ist zwar möglich, hat aber ohne
-geeigneten logischen Hintergrund nur wenig Überzeugungskraft; um die
+geeigneten logischen Hintergrund nur wenig Überzeugungskraft, denn um die
 Subtilitäten rund um das Axiom vom ausgeschlossenen Dritten handhaben zu
 können, benötigt man eine präzise formale Sprache.
 
-Dass auch das dritte Beispiel das Axiom vom ausgeschlossenen Dritten benötigt,
-ist etwas gelogen -- ein bestimmtes schwächere Axiom, das man normalerweise nie
+\noindent Dass auch das dritte Beispiel das Axiom vom ausgeschlossenen Dritten benötigt,
+ist etwas gelogen -- ein bestimmtes schwächeres Axiom, das man normalerweise nie
 erwähnt, weil es eine Konsequenz vom Axiom vom ausgeschlossenen Dritten ist,
 genügt auch schon, um diesen Umstand zu beweisen. Für das Folgende spielt diese
 Feinheit keine Rolle.}
@@ -838,15 +849,15 @@ Feinheit keine Rolle.}
 \begin{proof}
 Nach dem Axiom vom ausgeschlossen Dritten enthält~$M$ ein Element oder nicht.
 Im ersten Fall sind wir fertig. Der zweite Fall kann nicht eintreten, denn
-wenn~$M$ kein Element enthält, dann ist~$M$ leer ist. Nach Voraussetzung
+wenn~$M$ kein Element enthält, dann ist~$M$ leer. Nach Voraussetzung
 ist~$M$ aber nicht leer.
 \end{proof}
 
 \begin{prop}Wenn eine Aussage \emph{nicht nicht} wahr ist, so ist sie wahr.
 \end{prop}
-\begin{proof}Nach dem Axiom vom ausgeschlossen Dritten ist die Aussage wahr
+\begin{proof}Nach dem Axiom vom ausgeschlossen Dritten ist die gegebene Aussage wahr
 oder falsch. Im ersten Fall sind wir fertig. Der zweite Fall kann nicht
-eintreten, denn die Aussage ist ja \emph{nicht nicht wahr}, also \emph{nicht
+eintreten, denn die Aussage ist nach Voraussetzung \emph{nicht nicht wahr}, also \emph{nicht
 falsch}.
 \end{proof}
 
@@ -870,12 +881,13 @@ dass~$M$ leer ist, falsch. Dann wissen wir zwar, dass~$M$ irgendein Element
 enthalten muss. Wir können aber kein solches Element explizit angeben; wir
 können also keinen Beleg der Behauptung,~$M$ enthalte ein Element, produzieren.
 
-Im Alltag ist diese Phänomen wohlbekannt: Angenommen, wir finden gerade unseren
-Wohnungsschlüssel nicht. Dann wissen wir, dass die Menge derjenigen Positionen, wo
+Im Alltag ist dieses Phänomen wohlbekannt: Angenommen, wir finden gerade unseren
+Wohnungsschlüssel nicht. Wir wissen, dass die Menge derjenigen Positionen, wo
 sich der Schlüssel befindet, nicht leer ist -- denn letzte Nacht haben wir mit
 dem Schlüssel die Tür aufgesperrt. Wir können aber kein Element dieser Menge
 explizit angeben, also keinen Beleg dafür produzieren, dass die Menge wirklich
-ein Element enthält.
+ein Element enthält.\footnote{Das Beispiel hinkt, denn ob \emph{wir} etwas
+produzieren können oder nicht, ist für die Mathematik unerheblich.}
 \item \textbf{Doppelte Verneinungen.} Sei eine Aussage \emph{nicht nicht} wahr.
 Dann wissen wir also, dass sie nicht falsch und daher wahr sein muss. Wir
 können aber trotzdem keinen Beleg für die Aussage angeben.
@@ -888,6 +900,14 @@ wir uns uns nach Überprüfung von nur endlich vielen Nachkommaziffern nie siche
 sein, ob nicht doch noch eine von Null verschiedene Ziffer auftritt. Wir können
 also die wahre Aussage~"`$x = 0$"' nicht belegen.
 \end{itemize}
+
+\begin{bem}
+Es war ein Video aufgetaucht, dass Kate Moss beim Konsumieren von Drogen zeigte,
+und zwar entweder solche von einem Typ~A oder solche von einem Typ~B. Welcher
+Typ aber tatsächlich vorlag, konnte nicht entschieden werden. Also gab es für
+keine der beiden Strafttaten einen Beleg, Kate Moss wurde nicht
+strafrechtlich verfolgt.
+\end{bem}
 
 
 \section{Auflösung der Paradoxien}
@@ -955,6 +975,7 @@ Verfügung hat -- denn ohne das Axiom kann man nicht unterstellen, dass jede ree
 Zahl~$x$ entweder gleich Null oder ungleich Null ist. Diese
 Zuordnungsvorschrift definiert also gar keine Funktion~$\RR \to \RR$ -- nur
 eine Funktion~$M \to \RR$, wobei~$M = \{ x \in \RR \ |\ \text{$x = 0$ oder $x \neq 0$} \}$.
+Auf solche ist unsere Definition der Differenzierbarkeit auch nicht anwendbar.
 
 Aus Sicht der Differentialgeometrie ist es ein Vorteil, dass es in
 synthetischer Differentialgeometrie keine nicht differenzierbaren Funktionen
@@ -964,7 +985,12 @@ das logische System an die Bedürfnisse von Differentialgeometrie an.
 
 Für andere Teilbereiche der Mathematik ist dieser Vorteil aber zugleich ein
 gravierender Nachteil, zum Beispiel in der Finanzmathematik: Börsenkursverläufe
-sind nicht differenzierbar.
+sind nicht differenzierbar. Ebenso ist synthetische Differentialgeometrie nicht
+in Teilgebieten der Mathematik wie der Analysis partieller
+Differentialgleichungen anwendbar, in denen es auf die genaue
+\emph{Regularität} von Funktionen ankommt -- grob ist das die Frage, wie oft eine
+Funktion differenzierbar ist und wie schnell sie zu den Grenzen des
+Definitionsbereichs hin abfällt.
 
 \begin{aufgabeShaded}{Schwebezustand infinitesimaler Zahlen}
 \label{aufg:schwebezustand}
@@ -978,23 +1004,30 @@ doch nicht Null. Dann \ldots}
 ist! Das würde dem Axiom der Mikroaffinität widersprechen
 (Proposition~\ref{prop:neg-delta0}). Dieses Kunststück -- \emph{nicht nicht}
 Null zu sein ohne Null zu sein -- ist nur ohne das Axiom vom ausgeschlossenen
-Dritten möglich. Mit diesem Axiom dagegen könnte man sofort die doppelte
+Dritten möglich. Mit dem Axiom dagegen könnte man sofort die doppelte
 Verneinung eliminieren.
 \end{aufgabeShaded}
-% XXX: Einordnung auf dem Zahlenstrahl
+
+\begin{bem}In klassischer Mathematik ist jede reelle Zahl entweder kleiner,
+gleich oder größer als Null. In synthetischer Differentialgeometrie gilt eine
+abgeschwächte Variante: Jede reelle Zahl~$x$ ist entweder kleiner als Null, größer
+als Null oder \emph{infinitesimal nahe an Null} -- das bedeutet, dass
+für alle positiven natürlichen Zahlen~$n$ die Zahl~$x$ zwischen~$-\frac{1}{n}$
+und~$\frac{1}{n}$ liegt.
+\end{bem}
 
 
 \section{Verhältnis zur klassischen Mathematik}
 
 Die Paradoxien in synthetischer Differentialgeometrie, die uns aufgefallen
-waren, haben wir im vorherigen Abschnitt ausgeräumt: Mit dem
+sind, haben wir im vorherigen Abschnitt ausgeräumt: Mit dem
 Mikroaffinitätsaxiom hat sich nur das Axiom vom ausgeschlossenen Dritten
 gebissen; ohne es haben sich die Paradoxien aufgelöst.
 
 Damit ist aber noch nicht bewiesen, dass synthetische Differentialgeometrie
 wirklich in sich konsistent ist. Denn nur, dass \emph{uns} keine weiteren
 Paradoxien aufgefallen sind, heißt ja noch nicht, dass es auch tatsächlich
-keine weiteren gibt. Um guten Gewissens mit synthetischer Differentialgeometrie
+keine weiteren gibt. Um ruhigen Gewissens mit synthetischer Differentialgeometrie
 arbeiten zu können, müssen wir also noch einen \emph{Konsistenzbeweis}
 erbringen -- wir müssen beweisen, dass aus dem Axiom der Mikroaffinität
 keine widersprüchlichen Aussagen folgen. In diesem Abschnitt arbeiten wir
@@ -1002,7 +1035,8 @@ wieder in klassischer Mathematik.
 
 Die übliche Art und Weise, die Konsistenz eines formalen Axiomensystems
 nachzuweisen, besteht darin, ein \emph{Modell} des Systems anzugeben. Das ist
-eine mathematische Struktur, in der die Axiome des Systems alle erfüllt sind.
+eine mathematische Struktur (innerhalb des gewöhnlichen mathematischen
+Universums), in der die Axiome des Systems alle erfüllt sind.
 Dieses Vorgehen funktioniert deswegen, weil inkonsistente Systeme keine Modelle
 zulassen.
 
@@ -1059,8 +1093,8 @@ mathematischen Universum arbeiten.
 \end{enumerate}
 \end{aufgabeShaded}
 
-Der Schlüssel zur Verbindung zwischen Ableitungen, die in der synthetischen
-Welt berechnet werden, und gewöhnlichen Ableitungen, liegt in dem \emph{Lemma
+Der Schlüssel zur Verbindung zwischen gewöhnlichen Ableitungen und Ableitungen, die in der synthetischen
+Welt berechnet werden, liegt in dem \emph{Lemma
 von Hadamard} aus der Analysis (benannt nach dem französischen Mathematiker
 Jacques Hadamard, *~1865, †~1963):
 
@@ -1156,9 +1190,9 @@ Wenn wir dies mit der synthetischen Definition der Ableitung vergleichen,
 erhalten wir
 \[ \U \models g(0) = a. \]
 Laut~$\U$ gilt also~$g(0) = a$. Daher gilt auch in der gewöhnlichen Welt~$g(0)
-= a$ (siehe das Faktum über~$\U$ auf Seite~\pageref{fact:sdg-universum}). Nach
+= a$ (siehe die vierte Aussage über~$\U$ aus dem Faktum auf Seite~\pageref{fact:sdg-universum}). Nach
 Aufgabe~\ref{aufg:bedeutung-hadamard} ist~$g(0)$ der Wert der gewöhnlichen
-Ableitung von~$f$ an der Stelle~$0$, also folgt die Behauptung: $g(0) = f'(0) =
+Ableitung von~$f$ an der Stelle~$0$, also folgt die Behauptung: $f'(0) = g(0) =
 a$.
 \end{proof}
 
@@ -1211,7 +1245,7 @@ Bei synthetischer Differentialgeometrie ist es dagegen ganz einfach: Ein
 Tangentialvektor an~$M$ ist nichts anderes als eine Abbildung~$f : \Delta \to M$,
 wobei~$\Delta$ wie bisher auch die in\-fi\-ni\-te\-si\-ma\-le Monade um Null bezeichnet.
 Sein Fußpunkt der Punkt~$f(0)$. In diesem Kontext gibt es für~$\Delta$
-auch die amüsante Bezeichnung \emph{wandelnder Tangentialvektor}.\footnote{Anmerkung an
+auch die amüsante Bezeichnung \emph{wandelnder Tangentialvektor}.\footnote{Anmerkung für
 mitlesende Experten: Diese Bezeichnung sollte man eigentlich nicht für~$\Delta$
 selbst, sondern für die Identitätsabbildung~$\Delta \to \Delta$ verwenden
 (wieso?).}
@@ -1240,7 +1274,7 @@ Der größte Unterschied liegt darin, dass die infinitesimalen Zahlen in
 synthetischer Differentialgeometrie \emph{nilquadratisch} sind -- das heißt,
 dass ihre Quadrat Null sind. Das war ja in diesen Notizen sogar die Definition des
 Begriffs \emph{infinitesimal}. Die infinitesimalen surrealen und hyperreellen
-Zahlen zeichnen sich dadurch aus, dass ihre Quadrate \emph{nicht} Null, sondern
+Zahlen zeichnen sich dagegen dadurch aus, dass ihre Quadrate \emph{nicht} Null, sondern
 \emph{noch kleinere} infinitesimale Zahlen sind.
 
 Außerdem sind die infinitesimalen surrealen und hyperreellen Zahlen
@@ -1306,16 +1340,17 @@ Wäre sie rational, so gäbe es ganze Zahlen~$p$ und~$q$ mit~$\sqrt{2} =
 \frac{p}{q}$. Nach Quadrieren und Umstellen gälte~$2q^2 = p^2$. Denkt man an die
 Eindeutigkeit der Primfaktorzerlegung, sieht man, dass das nicht möglich ist:
 Auf der linken Seite der Gleichung kommt der Primfaktor~$2$ ungerade oft,
-rechts gerade oft vor. Schließlich kommen Primfaktoren in Quadratzahlen stets
+rechts gerade oft vor -- denn in Quadratzahlen kommen Primfaktoren stets
 gerade oft vor.}
 war im fünften Jahrhundert~v.~Chr. eine erstaunliche Entdeckung
 -- manche sehen diese Entdeckung sogar als Geburtsstunde der modernen
-Mathematik an.\footnote{Als Entdecker der Irrationalität gilt Hippasos von
+Mathematik an.\footnote{Als Entdecker der Irrationalität gilt der griechische
+Mathematiker Hippasos von
 Metapont. Er erkannte, dass der \emph{goldene Schnitt} irrational ist. Damit
 erschütterte er die Schule der Pythagoreer, denn diese waren von dem Kredo
 \emph{Alles ist Zahl} überzeugt, wobei sie mit "`Zahl"' \emph{rationale Zahl}
 meinten. Ironischerweise kam der goldene Schnitt auch noch im Erkennungszeichen der
-Pythagoreer vor.}
+Pythagoreer vor, dem Pentagramm.}
 
 \begin{prop}Es gibt irrationale Zahlen~$x$ und~$y$, sodass~$x^y$ rational ist.
 \end{prop}
@@ -1323,7 +1358,8 @@ Pythagoreer vor.}
 rational. Im ersten Fall ist~$x := \sqrt{2}$, $y := \sqrt{2}$ ein Beispiel für
 die Behauptung, im zweiten Fall~$x := \sqrt{2}^{\sqrt{2}}$, $y := \sqrt{2}$.
 \end{proof}
-\begin{proof}[Beweis 2] Setze~$x := \sqrt{2}$ und~$y := \log_{\sqrt{2}} 3$.
+\begin{proof}[Beweis 2] Setze~$x := \sqrt{2}$ und~$y := \log_{\sqrt{2}} 3$
+(keine Angst vor Logarithmus- und Exponentialfunktion!).
 Dann ist die Potenz~$x^y = 3$ sicher rational. Die Irrationalität von~$y$ lässt sich
 sogar einfacher als die von~$\sqrt{2}$ beweisen:
 Gelte~$y = p/q$ mit~$p, q \in \ZZ$ und~$q \neq 0$. Da~$y > 0$, können wir
@@ -1337,7 +1373,8 @@ Der erste Beweis war \emph{unkonstruktiv}, er hat das Axiom vom
 ausgeschlossenen Dritten verwendet. Solange nicht geklärt ist,
 ob~$\sqrt{2}^{\sqrt{2}}$ nun rational oder irrational ist,\footnote{Tatsächlich
 ist~$\sqrt{2}^{\sqrt{2}}$ nach dem Satz von Gelfond--Schneider aus der
-Zahlentheorie irrational. Das ist aber nicht leicht zu erkennen.} kann man
+Zahlentheorie irrational. Zum Beweis dieses Satzes benötigt man aber
+nichttriviale Methoden aus der Funktionentheorie.} kann man
 immer noch nicht ein Zahlenpaar mit den gewünschten Eigenschaften nennen! Der
 zweite Beweis dagegen war konstruktiv: Die Existenzbehauptung wurde durch
 explizite Konstruktion eines Beispiels nachgewiesen.
@@ -1354,13 +1391,13 @@ Blog-Artikel.
 \url{http://math.andrej.com/2008/08/13/intuitionistic-mathematics-for-physics/}
 
 John Bell. \emph{A Primer of Infinitesimal Analysis}. Ein
-Buch, das für Physiker geschrieben ist. Online verfügbar.
+Buch, das für Physikerinnen und Physiker geschrieben ist. Online verfügbar.
 
 Anders Kock. \emph{Synthetic Differential Geometry}. Die Standardreferenz
 zum Thema. \url{http://home.imf.au.dk/kock/sdg99.pdf}
 
 Mike Shulman. \emph{Synthetic differential geometry}. Skript zu einem
-Pizzaseminar für Mathematikstudenten.
+Pizzaseminar für Mathematikstudierende.
 \url{http://home.sandiego.edu/~shulman/papers/sdg-pizza-seminar.pdf}
 \end{small}
 
@@ -1369,7 +1406,7 @@ Pizzaseminar für Mathematikstudenten.
 \label{aufg:nilkubisch}
 Eine reelle Zahl~$\varepsilon$ heißt genau dann \emph{nilkubisch}, wenn ihre dritte Potenz
 Null ist: $\varepsilon^3 = 0$. Kontrolliert werden nilkubische Zahlen durch
-folgende Allgemeinerung des Axioms der Mikroaffinität:
+folgende Verallgemeinerung des Axioms der Mikroaffinität:
 
 \textbf{Axiom der Mikroquadratizität.} Sei~$f : \Delta_3 \to \RR$ eine
 Funktion. Dabei ist~$\Delta_3 = \{ \varepsilon \in \RR \,|\, \varepsilon^3 = 0
@@ -1379,13 +1416,13 @@ $f(\varepsilon) = a + b\varepsilon + c\varepsilon^2$.
 
 \begin{enumerate}
 \item Zeige, dass jede nilquadratische Zahl auch nilkubisch ist.
-\item Das Axiom der Mikroquadrazität sagt aus, dass Funktionen, die auf
-der größeren Menge~$\Delta_3$ definiert sind, zwar nicht mehr durch einen
+\item Das Axiom der Mikroquadratizität sagt aus, dass Funktionen, die auf
+der im Vergleich zu~$\Delta$ größeren Menge~$\Delta_3$ definiert sind, zwar nicht mehr durch einen
 affinen, aber zumindest noch durch einen quadratischen Term beschrieben werden
 können. Illustriere diese Situation!
 
 \emph{Tipp:} Vergleiche mit Abbildung~\ref{fig:mikroaffinitaet}.
-\item Berechne für folgende Funktionen explizit~$f(\varepsilon)$
+\item Berechne für folgende Funktionen explizit~$f(x+\varepsilon)$
 für~$\varepsilon$ in~$\Delta_3$. Vereinfache
 also unter Verwendung der Rechenregel~$\varepsilon^3 = 0$ so weit wie möglich.
 \begin{itemize}
@@ -1393,8 +1430,7 @@ also unter Verwendung der Rechenregel~$\varepsilon^3 = 0$ so weit wie möglich.
 \item $f(x) = x^3$.
 \item $f(x) = x^4$.
 \end{itemize}
-Vergleiche deine Ergebnisse mit der bekannten ersten und zweiten Ableitung an
-der Stelle~$x = 0$.
+Vergleiche deine Ergebnisse mit den bekannten ersten und zweiten Ableitungen.
 \item Überlege, wie man mit Hilfe nilkubischer Zahlen analog zu
 Definition~\ref{defn:sdg-ableitung} die zweite Ableitung definieren kann.
 \item Zeige, dass die Annahme, jede nilkubische Zahl sei nilquadratisch, dem
@@ -1408,10 +1444,10 @@ Axiom der Mikroquadratizität widerspricht.
 \label{aufg:integrationstheorie}
 Der gewöhnliche Weg, bestimmte Integrale der Form~$\int_a^b f(x) \,dx$
 auszurechnen, besteht darin, eine \emph{Stammfunktion}~$F$ von~$f$ zu finden --
-das ist eine Funktion mit~$F = f$. Nach dem Hauptsatz der Differential- und
+das ist eine Funktion mit~$F' = f$. Nach dem Hauptsatz der Differential- und
 Integralrechnung gilt dann nämlich~$\int_a^b f(x) \,dx = F(b) - F(a)$. In
 klassischer Mathematik \emph{beweist} man, dass eine solche Stammfunktion existiert.
-Im synthetischen Zugang zu Integrationstheorie \emph{fordert} man das durch ein
+Im synthetischen Zugang zur Integrationstheorie \emph{fordert} man das durch ein
 neues Axiom:
 
 \textbf{Integrationsaxiom.} Für jede Funktion~$f : \RR \to \RR$ gibt es eine
