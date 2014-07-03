@@ -7,14 +7,14 @@ G = 6.6738480e-11
 M = 5.97219e24
 
 // Anfangsposition und -geschwindigkeit
-u = [0, 35786000]
+u = [0, 35786000+6371000]
 v = [-3070, 0]
 
 // Anfangszeit
 t = 0
 
 // Zu plottender Bereich
-dim = [-100000000, -100000000, 100000000, 100000000]
+dim = [-150000000, -150000000, 150000000, 150000000]
 
 // Zeit in Sekunden, die zwischen je zwei Zeitschritten vergehen soll
 dt = 12
@@ -60,13 +60,8 @@ endfunction
 clf;
 
 // Beispielmanöver: ein Hohmann-Transfer.
-advance(86400, 0,0);
-advance(86400, 60,1);
-advance(86400, 0,1);
-advance(86400, 60,1);
-advance(86400, 0,1);
-advance(86400, 0,1);
-advance(86400, 0,1);
-advance(86400, 0,1);
-advance(86400, 0,1);
-advance(86400, 0,1);
+advance(3600*24, 0,0);
+advance(3600*18, 0,0);
+advance(3600*6, 60,1);
+advance(3600*75, 0,0);
+advance(3600*144, 60,1);
