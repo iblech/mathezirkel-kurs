@@ -1,3 +1,5 @@
+// Scilab-Programm zur Simulation des Orbits eines Satelliten um die Erde
+
 // Alle physikalischen Größen sind in SI-Einheiten kodiert.
 
 // Gravitationskonstante
@@ -6,7 +8,7 @@ G = 6.6738480e-11
 // Masse der Erde
 M = 5.97219e24
 
-// Anfangsposition und -geschwindigkeit
+// Anfangsposition und -geschwindigkeit für einen geostationären Orbit
 u = [0, 35786000+6371000]
 v = [-3070, 0]
 
@@ -29,7 +31,7 @@ function advance(T, thrustTime, thrustDir)
     tbegin = t
 
     while t < tbegin+T do
-        // Jede Viertelstunde die Position ausgeben
+        // Jede simulierte Viertelstunde die Position ausgeben
         if(modulo(t,3600/4) == 0)
             plot2d([u(1)], [u(2)], rect=dim, style=-14);
             phi = 180-atan(u(1),u(2))*180/%pi;
@@ -42,9 +44,9 @@ function advance(T, thrustTime, thrustDir)
 
         // Beschleunigung durch Triebwerke
         if(t-tbegin < thrustTime)
-            if(thrustDir == 0)
+            if(thrustDir == 0)  // Normalrichtung
                 a = a + 10 * u/norm(u);
-            else
+            else  // Tangentialrichtung
                 a = a + 10 * [-u(2),u(1)]/norm(u);
             end
         end
