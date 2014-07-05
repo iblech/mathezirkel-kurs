@@ -61,9 +61,22 @@ endfunction
 
 clf;
 
+function reset()
+    global u v t
+    u = [0, 35786000+6371000]
+    v = [-3070, 0]
+
+    // Anfangszeit
+    t = 0
+endfunction
+
 // Beispielmanöver: ein Hohmann-Transfer.
-advance(3600*24, 0,0);
-advance(3600*18, 0,0);
-advance(3600*6, 60,1);
-advance(3600*75, 0,0);
-advance(3600*144, 60,1);
+function hohmann()
+    advance(3600*24, 0,0);
+    advance(3600*18, 0,0);
+    advance(3600*6, 60,1);
+    advance(3600*75, 0,0);
+    advance(3600*144, 60,1);
+endfunction
+
+hohmann();
