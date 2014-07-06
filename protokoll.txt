@@ -240,3 +240,19 @@
 * Schüler waren gut dabei. Fanden es nicht tragisch, das Axiom vom
   ausgeschlossenen Dritten nicht zu verwenden. Haben gut verstanden, wie sich
   die Paradoxa auflösen.
+
+
+=== Dreizehntes Treffen vom 5.7.2014
+
+* Poisson-Gleichung. Herleitung des einfachsten Finite-Differenzen-Verfahrens
+  dafür. Simulation der Wärmeverteilung in einem rechteckigen Zimmer.
+
+* Simulation der Bahn eines Satelliten. Irrtümer über die Bewegungen im
+  Weltall. Physikalisches Modell. Numerische Lösung mit implizitem
+  Euler-Verfahren.
+
+
+-- Kritik
+
+* Vier Schüler kamen. Themen kamen gut an. Gab sogar Vorschläge für bessere
+  Finite-Differenzen- und Euler-Schemata.
