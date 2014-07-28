@@ -40,6 +40,8 @@ Spektral-Galerkin-Verfahren
 Orbitalmechanik
 Fourierentwicklung
 
+http://www.math.cornell.edu/~mec/Winter2009/Victor/part5.htm
+
 
 --- nicht beim ersten Treffen angeschrieben:
 
