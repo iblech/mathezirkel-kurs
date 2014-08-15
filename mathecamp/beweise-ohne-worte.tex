@@ -74,12 +74,30 @@ diesen Beweis erklären?
 \end{center}
 
 
-\vfill
-\section*{Summe der Fibonacci-Zahlen}
-
-
-\vfill
 \newpage
+\section*{Summe der quadrierten Fibonacci-Zahlen}
+Bei den \emph{Fibonacci-Zahlen} ergibt die Summe zweier benachbarter Zahlen die
+nächste:
+\[ 1,\quad 1,\quad 2,\quad 3,\quad 5,\quad 8,\quad 13,\quad 21,\quad 34,\quad 55,\quad 89,\quad \ldots \]
+Die \emph{Quadrate} der Fibonacci-Zahlen erfüllen eine interessante Rechenregel:
+\begin{align*}
+  1\cdot1 \quad+\quad 1\cdot1 \quad+\quad 2\cdot2 \quad+\quad 3\cdot3 \quad+\quad 5\cdot5 \phantom{{} \quad+\quad 8\cdot8 \quad+\quad 13\cdot13}
+    &{\quad}=\quad \phantom{0}5 \cdot \phantom{0}8 \\
+  1\cdot1 \quad+\quad 1\cdot1 \quad+\quad 2\cdot2 \quad+\quad 3\cdot3 \quad+\quad 5\cdot5 \quad+\quad 8\cdot8 \phantom{{} \quad+\quad 13\cdot13}
+    &{\quad}=\quad \phantom{0}8 \cdot 13 \\
+  1\cdot1 \quad+\quad 1\cdot1 \quad+\quad 2\cdot2 \quad+\quad 3\cdot3 \quad+\quad 5\cdot5 \quad+\quad 8\cdot8 \quad+\quad 13\cdot13
+    &{\quad}=\quad 13 \cdot 21
+\end{align*}
+Erkennst du das Muster? Wieso die Formeln stimmen, soll die Skizze beweisen.
+Kannst du den Beweis erklären?
+
+\emph{Übrigens:} In die Skizze kann man die \emph{goldene Spirale} einzeichnen.
+Diese kommt in der Natur an vielen Stellen vor -- hole dir bei mir Beispielbilder ab.
+\begin{center}
+\includegraphics[scale=0.7]{fibonacci-quadrate}
+\end{center}
+
+\vfill
 \section*{Ein Kästchen verschwindet}
 \begin{floatingfigure}[r]{3.5cm}
   \vspace{-0.3cm}
@@ -101,10 +119,91 @@ Kannst du erklären, was schief läuft?
   \includegraphics[scale=0.8]{ein-kaestchen-verschwindet-2}
 \end{center}
 
+
+\vfill
+\section*{Summe der Dreier-Potenzen}
+Für wiederholte Produkte gibt es eine Kurzschreibweise mit \emph{Potenzen}:
+\begin{align*}
+  5^0 &= 1 \\
+  5^1 &= 5 \\
+  5^2 &= 5 \cdot 5 = 25 \\
+  5^3 &= 5 \cdot 5 \cdot 5 = 125 \\
+  5^4 &= 5 \cdot 5 \cdot 5 \cdot 5 = 625 \\\\
+  3^7 &= 3 \cdot 3 \cdot 3 \cdot 3 \cdot 3 \cdot 3 \cdot 3
+\end{align*}
+Was passiert, wenn man die \emph{Dreier-Potenzen} aufsummiert? Dafür gibt es
+eine kurze Formel:
+\begin{align*}
+  3^0 + 3^1 + 3^2 + 3^3 + 3^4 \phantom{{} + 3^5 + 3^6 + 3^7} &= (3^5 - 1) : 2 \\
+  3^0 + 3^1 + 3^2 + 3^3 + 3^4 + 3^5 \phantom{{} + 3^6 + 3^7} &= (3^6 - 1) : 2 \\
+  3^0 + 3^1 + 3^2 + 3^3 + 3^4 + 3^5 + 3^6 \phantom{{} + 3^7} &= (3^7 - 1) : 2 \\
+  3^0 + 3^1 + 3^2 + 3^3 + 3^4 + 3^5 + 3^6 + 3^7 &= (3^8 - 1) : 2
+\end{align*}
+\emph{Wieso gilt diese Formel?} Das soll die Skizze beweisen. Kannst du den
+Beweis erklären?
+\begin{center}
+\includegraphics[scale=0.7]{kubikzahlen}
+\end{center}
+
+
+\vfill
+\section*{Die geometrische Reihe}
+\emph{Diesen Beweis kann man leider nur verstehen, wenn man bereits Brüche
+wie~$\frac{3}{7}$ kennt.}
+Für wiederholte Produkte gibt es eine Kurzschreibweise mit \emph{Potenzen}:
+\begin{align*}
+  5^0 &= 1 \\
+  5^1 &= 5 \\
+  5^2 &= 5 \cdot 5 = 25 \\
+  5^3 &= 5 \cdot 5 \cdot 5 = 125 \\
+  5^4 &= 5 \cdot 5 \cdot 5 \cdot 5 = 625
+\end{align*}
+Den Wert der folgenden unendlichen Reihe kann man
+explizit angeben:
+\[ \frac{1}{4} + \left(\frac{1}{4}\right)^2 + \left(\frac{1}{4}\right)^3 +
+\left(\frac{1}{4}\right)^4 + \left(\frac{1}{4}\right)^5 +
+\left(\frac{1}{4}\right)^6 + \cdots = \frac{1}{3} \]
+Die Skizze soll das beweisen. Kannst du den Beweis erklären?
+\begin{center}
+\includegraphics[scale=0.3]{geometrische-reihe}
+\end{center}
+
+
+\vfill
+\section*{Mersenne-Primzahlen und perfekte Zahlen}
+Eine \emph{perfekte Zahl} ist eine Zahl, die gleich der Summe ihrer echten
+Teiler ist. Die kleinsten perfekten Zahlen sind~$6$, $28$ und $496$:
+\begin{align*}
+  6 &= 1 + 2 + 3 \\
+  28 &= 1 + 2 + 4 + 7 + 14 \\
+  496 &= 1 + 2 + 4 + 8 + 16 + 31 + 62 + 124 + 248
+\end{align*}
+Bisher hat man nur gerade perfekte Zahlen gefunden. Man weiß noch nicht, ob es
+auch ungerade perfekte Zahlen gibt -- das ist ein offenes Forschungsproblem.
+
+Eine \emph{Mersenne-Primzahl} ist eine Primzahl der Form~$2^m-1$. Die ersten
+Mersenne-Primzahlen sind:
+\begin{align*}
+  2^2 - 1 &= 3 \\
+  2^3 - 1 &= 7 \\
+  2^5 - 1 &= 31 \\
+  2^7 - 1 &= 127 \\
+  2^{13} - 1 &= 8191
+\end{align*}
+Es gibt nun folgendes zahlentheoretische Theorem: Ist~$2^{n+1}-1$ eine
+Mersenne-Primzahl, so ist die Zahl~$N = 2^n \cdot p$ eine perfekte Zahl. Die
+Skizze soll das beweisen. Kannst du den Beweis erklären?
+\begin{center}
+\includegraphics[scale=0.5]{mersenne-perfekt}
+\end{center}
+
 \end{document}
 
 http://upload.wikimedia.org/wikipedia/commons/d/d2/Pythagorean.svg
 http://jwilson.coe.uga.edu/EMT668/emt668.student.folders/HeadAngela/essay1/image1.gif
 Proofs without Words, Seite 69
 http://proofsfromthebook.com/wp-content/uploads/2013/01/sum-of-first-n-positive-integers.png
+http://i.stack.imgur.com/QJbdg.jpg
 http://i.stack.imgur.com/bLWK1.png
+Proofs without Word II, Seite 108
+Proofs without Word II, Seite 111
