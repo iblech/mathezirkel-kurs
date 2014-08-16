@@ -1,0 +1,23 @@
+to koch :size
+  ifelse :size <= 10 [ forward :size ] [
+    koch :size/3
+    left 60
+    koch :size/3
+    right 120
+    koch :size/3
+    left 60
+    koch :size/3
+  ]
+end
+
+to flake :size
+  koch :size
+  right 120
+  koch :size
+  right 120
+  koch :size
+  right 120
+end
+
+reset
+flake 100

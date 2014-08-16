@@ -1,0 +1,12 @@
+to levy :size
+  ifelse :size <= 10 [ forward 10 ] [
+    right 45
+    levy :size/sqrt(2)
+    left 90
+    levy :size/sqrt(2)
+    right 45
+  ]
+end
+
+reset
+levy 150
