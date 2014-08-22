@@ -65,6 +65,12 @@ Newton-Verfahren
 Große Zahlen nennen!
 http://www.scottaaronson.com/writings/bignumbers.html
 
+http://mathoverflow.net/questions/38245/what-is-the-easiest-randomized-algorithm-to-motivate-to-the-layperson/38298#38298
+Median schnell bestimmen
+Power of two choices
+
+Piratenspiel
+
 
 --- explizit genannt (beim dritten Treffen)
 
