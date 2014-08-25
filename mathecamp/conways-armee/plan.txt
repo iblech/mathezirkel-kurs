@@ -1,0 +1,52 @@
+Conways Armee, geeignet ab Klassenstufe 10
+
+
+=== Ablauf
+
+* Regeln erklären und spielen lassen (30 Minuten). Dazu Spielfelder und -steine
+  bereithalten (siehe ../../thema01-conways-armee).
+
+* Ins Messer laufen lassen: Für Höhe 4 benötigt man nicht etwa 16, sondern 20
+  Steine; und Höhe 5 ist mit endlich vielen Steinen unerreichbar.
+
+* Dann Lösung vorführen. Dazu:
+
+  1. Vorbereitungen treffen:
+  
+     x als positive Lösung der Gleichung x^2 + x - 1 = 0 definieren.
+     (Das ist x = 1 / Phi ~~ 0.62.)
+
+     Nachrechnen: x^2 + x^3 + ... = 1. Dazu Formel für die geometrische Reihe
+     herleiten.
+
+  2. Bewertungsidee einführen: Spielstein mit (Taxi-)Entfernung d zum Ziel hat
+     Wert x^d. Durch Fallunterscheidungen nachweisen, dass sich der Gesamtwert
+     bei den erlaubten Spielzügen nicht erhöhen kann.
+
+  3. Nachrechnen:
+
+     Eine vollständige Zeile unterhalb des Ziels: x + 2 (x^2 + x^3 + ...) = x + 2.
+
+     Vollständig besetzte Bretthälfte direkt unterhalb des Ziels:
+     (x + 2) * (1 + x + x^2 + x^3 + ...) = (x + 2) * (1 + x + 1) = 5 + 3x.
+
+     Vollständig besetzte Bretthälfte fünf Zeilen unterhalb des Ziels:
+     (5 + 3x) * x^4 = 1.
+
+     Wenn auch nur ein Stein fehlt: < 1. Spielstein im Ziel hätte aber
+     Bewertung x^0 = 1. Das schließt den Beweis ab.
+
+* Beweis bewundern lassen: Rein kombinatorische Fragestellung, Beweis benötigt
+  aber Mittel aus Analysis (Reihen, Konvergenz) und Algebra
+  (Gleichungsmanipulation, Polynome) sowie in besonderem Maße den goldenen
+  Schnitt. Außerdem benötigt man natürlich die zündende Idee der geeigneten
+  Bewertung.
+
+* Diskutieren, wie man mit unendlich vielen Spielsteinen in unendlicher Zeit
+  das Ziel erreichen könnte.
+
+
+=== Rezeption
+
+Schüler haben Spaß bei der anfänglichen Knobelphase. Für die Rechnungen sollte
+man sich etwas mehr Zeit nehmen, 45 Minuten reichen nicht. Besser sind 90 Minuten.
