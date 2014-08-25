@@ -1,5 +1,6 @@
 Beweise ohne Worte, eignet sich ab Klassenstufe 5.
 Auch für ältere Klassenstufen möglich, dafür aber zu wenig Material.
+(Getestet mit Klassenstufe 5.)
 
 
 === Ablauf
