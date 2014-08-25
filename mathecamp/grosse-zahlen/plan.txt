@@ -1,0 +1,102 @@
+Große Zahlen, geeignet ab Klassenstufe 7
+(getestet mit Klassenstufen 7 und 9)
+
+
+=== Ablauf
+
+* Gemeinsames Brainstorming: Große Zahlen nennen. Mit etwas Unterstützung
+  kommen die Schüler auf wiederholtes Potenzieren und die weiteren
+  Hyperoperatoren.
+
+* Gemeinsam Ordinalzahlen (Motto: "messen Anordnung") verstehen. Dazu:
+
+  1. Unendliche Warteschlange von Leuten vor einem Bürgerbüro malen.
+     Zur einfacheren Vorstellung Leute in einen verzauberten Bus packen, der
+     von außen eine endliche Länge hat. Sagen, dass die Zahl zu dieser
+     Anordnung omega ist.
+
+  2. omega + 1 und 1 + omega malen: Bei ersterer Zahl kommt eine weitere
+     Person nach den Buspersonen dran, bei zweiterer vor. Erklären, dass das
+     verschiedene Situationen sind: Bei ersterer Zahl muss eine arme Person bis
+     zum Ende der Zeit warten, bis sie an der Reihe ist. Bei zweiterer Zahl
+     dagegen kommt jede Person nach endlicher Zeit an die Reihe.
+
+     Diskutieren, dass das Kommutativgesetz offenbar nicht gilt.
+
+  3. Schüler nach omega + omega = omega * 2 befragen. Situation zeichnen.
+     Außerdem 2 * omega = omega zeichnen (da stehen unendlich viele Pärchen an).
+
+  4. omega * 3.
+
+  5. omega * omega = omega^2: Parkplatz mit durchnummerierten Stellplätzen,
+     auf jedem Platz ein verzauberter Bus.
+
+  6. omega^3: Parkhaus mit durchnummerierten Ebenen, auf jeder Ebene ein
+     Parkplatz wie bei omega^2. Die erste Person auf der zweiten Ebene muss
+     abwarten, bis unendlich oft das Ende der Zeit eingetreten ist! Das als
+     Argument anführen, wieso das wirklich mehr ist als die anderen
+     Unendlichkeiten.
+
+  7. Noch erwähnen, dass es omega^omega gibt, und dass für Mengentheoretiker
+     all diese Zahlen trotzdem noch klein sind.
+
+* Gemeinsam Kardinalzahlen (Motto: "messen Anzahl") verstehen. Dazu:
+
+  1. Erklären, dass Aleph_0 + 1 = Aleph_0 = 1 + Aleph_0, mit Analogie über
+     Spielzeughaufen: Wie kann man als kleines Kind herausfinden, welcher von
+     zwei Stapeln aus mehr Spielzeugen besteht? Einfach: Je ein Spielzeug der
+     beiden Stapel nehmen und weglegen. Fortfahren, bis einer der Stapel leer
+     ist.
+
+  2. Die folgenden Gleichungen mit Hilberts Hotel erklären:
+
+     Aleph_0 + 1 = Aleph_0
+     Aleph_0 + 2 = Aleph_0
+     Aleph_0 + Aleph_0 = Aleph_0
+     Aleph_0 * Aleph_0 = Aleph_0
+
+     Vorschläge der Schüler, Stockwerke oder Zimmer anzubauen, ablehnen.
+     Außerdem fordern, dass der Rezeptionist nur endlich lange mit der
+     Abfertigung beschäftigt sein möchte. Außerdem erklären, dass jeder
+     Reisegast nur endlich viel Zeit aufwenden möchte.
+
+  3. Cantors Beweis der Überabzählbarkeit der reellen Zahlen präsentieren.
+
+  4. Bei geeigneter Stimmung die Kontinuumshypothese erwähnen.
+
+  Als weiterführende Aufgaben außerhalb der Zirkelzeit bieten sich an:
+  |N| vs. |Z|, |N| vs. |Q|, Menge der binären Bäume.
+
+* Wenn noch genügend Zeit: Gemeinsam große, endliche, unberechenbare Zahlen
+  verstehen. Dazu die Busy-Beaver-Funktion vorstellen:
+
+  1. Erklären, dass Computerprogramme in bestimmten Sprachen verfasst werden
+     und dass Computerprogramme sich entweder in Endlosschleifen verfangen oder
+     nach einer gewissen Anzahl Ausführungsschritten halten.
+
+  2. Definition von BB(n) diskutieren.
+
+  3. Erklären, dass BB(1000) alle Vorschläge des anfangs getätigten
+     Brainstormings in den Schatten stellt: Jegliche clevere Ideen über
+     rekursive Potenzoperatoren usw. lassen sich in 1000 Zeichen einer
+     geeigneten Programmiersprache ausdrücken.
+
+  4. Erklären, dass die Busy-Beaver-Funktion nicht berechenbar ist:
+     Es kann kein Programm geben, dass eine Zahl n als Eingabe erwartet und
+     dann BB(n) zurückgibt. Denn sonst wäre das Halteproblem lösbar!
+     (Dazu Halteproblem diskutieren usw.)
+
+* Wenn immer noch genügend Zeit: Paradoxe Zahlen zum Knobeln.
+
+  "Die kleinste uninteressante natürliche Zahl."
+
+  "Die größte natürliche Zahl, die im Deutschen mit weniger als 1000 Buchstaben
+  beschrieben werden kann." (Berry-Paradoxon)
+
+
+=== Rezeption
+
+Kam ganz gut an. Schüler waren von Unendlichkeitshierarchie fasziniert. Schüler
+haben gut mitgemacht. Zur Busy-Beaver-Funktion und zu den paradoxen Zahlen kam
+ich nicht. Zur Busy-Beaver-Funktion gab es aber im Nachhinein interessante
+Diskussionen mit ein paar wenigen Schülern.
