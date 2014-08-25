@@ -1,0 +1,42 @@
+Nachmittagsaktivität, eignet sich für alle Schüler ab Klasse 5
+
+
+=== Ablauf
+
+* Apfelmännchen in XaoS zeigen. Auf Selbstähnlichkeit eingehen.
+  Nur zur Motivation, schöne Bildchen.
+
+* Kochsche Schneeflocke an Tafel malen. Erklären, wie sie zustande kommt.
+  Bei geeignetem Publikum: Endlichkeit des Flächeninhalts und Unendlichkeit des
+  Umfangs erklären.
+
+* Dann zur Programmierung überleiten. Logo im Browser gibt es unter
+  http://logo.twentygototen.org/, die Seite funktioniert auch offline (mit
+  HTTrack speichern). Die Grundkommandos (forward, left, right) erklären. Als
+  erste Aufgabe stellen, das Haus vom Nikolaus oder etwas anderes zu zeichnen.
+
+* Dann als Aufgabe stellen, den Grundzacken der Kochschen Schneeflocke zu
+  zeichnen.
+
+* Schließlich vormachen, wie man die Kochsche Schneeflocke (bzw. einen ihrer
+  drei Teile) rekursiv zeichnen kann: Zuerst den letzten forward-Befehl durch
+  einen rekursiven Aufruf ersetzen. Das wir die Erwartungen erfüllen. Dann alle
+  forward-Befehle durch rekursive Aufrufe ersetzen. Dann wird die Schildkröte
+  in einer unproduktiven Rekursion festsitzen. Diesen Umstand erklären und dann
+  beheben.
+
+* Als Aufgabe stellen, den Code zu übernehmen und dann herumzuspielen.
+  Etwa kann man an den Winkeln drehen; solange die Winkelsumme noch Null Grad
+  beträgt, bleiben die Figuren geschlossen.
+
+* Die Kinder spielen lassen. Nach Lust und Laune weitere Fraktale zeichnen
+  lassen. Dazu vielleicht Lindenmayer-Systeme erklären. Siehe auch:
+  http://www-user.uni-bremen.de/schmuhl/fractals/fractal_curves.html
+  Auch wäre das Baum-Fraktal sehr nett gewesen, das hatte ich leider vergessen.
+
+
+=== Rezeption
+
+Kam super an. Kinder haben als Varianten zum Beispiel die quadratische Kochsche
+Schneeflocke oder die Hilbertkurve implementiert, außerdem verschiedene
+Spiralformen.
