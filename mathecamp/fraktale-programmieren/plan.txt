@@ -33,6 +33,7 @@ Nachmittagsaktivität, eignet sich für alle Schüler ab Klasse 5
   lassen. Dazu vielleicht Lindenmayer-Systeme erklären. Siehe auch:
   http://www-user.uni-bremen.de/schmuhl/fractals/fractal_curves.html
   Auch wäre das Baum-Fraktal sehr nett gewesen, das hatte ich leider vergessen.
+  Fraktale mit Zufallselementen sind auch schön.
 
 
 === Rezeption
