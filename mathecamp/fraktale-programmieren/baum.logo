@@ -1,5 +1,5 @@
 to tree :size
-    if :size <= 5 [ forward :size back :size ] [
+    ifelse :size <= 5 [ forward :size back :size ] [
         forward :size/3
         left 30 tree :size*2/3 right 30
         forward :size/6
