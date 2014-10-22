@@ -1,0 +1,9 @@
+1. Objektebene vs. Metaebene
+   "kleinste uninteressante natürliche Zahl"
+   "größte in <= 1000 Wörtern beschreibbare Zahl"
+
+2. Formale Systeme und Modelle
+
+3. Unvollständigkeit
+   Beweis über Turing
+   Beweis über Gödel/Fixpunkt
