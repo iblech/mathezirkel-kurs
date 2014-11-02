@@ -1,6 +1,22 @@
+Logik, Philosophie, Grundlegung der Mathematik, Berechenbarkeitstheorie, Zufall
+
 1. Objektebene vs. Metaebene
    "kleinste uninteressante natürliche Zahl"
    "größte in <= 1000 Wörtern beschreibbare Zahl"
+
+?. Busy-Beaver-Funktion
+   Definition
+   Bemerkung, dass unabhängig von der Wahl der Sprache
+   Bemerkung, dass nicht durch einen Algorithmus berechenbar
+
+?. Das Halteproblem
+   Problemformulierung
+   Unmöglichkeitsresultat mit Beweis
+
+?. Haltewahrscheinlichkeit
+   Definition (wie viel Technik ist nötig?)
+   Bemerkung, dass nicht durch einen Algorithmus berechenbar
+   Bemerkung, dass Gültigkeit von Approximationen nicht beweisbar
 
 2. Formale Systeme und Modelle
 
