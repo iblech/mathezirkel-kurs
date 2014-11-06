@@ -93,6 +93,9 @@ Große Zahlen, geeignet ab Klassenstufe 7
   "Die größte natürliche Zahl, die im Deutschen mit weniger als 1000 Buchstaben
   beschrieben werden kann." (Berry-Paradoxon)
 
+  http://jdh.hamkins.org/largest-number-contest/
+  http://www.scottaaronson.com/writings/bignumbers.html
+
 
 === Rezeption
 
