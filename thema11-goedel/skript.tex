@@ -3,6 +3,7 @@
 \usepackage{dashrule}
 \floatstyle{ruled}
 \restylefloat{figure}
+\restylefloat{table}
 \let\raggedsection\centering
 \newcommand{\RR}{\mathbb{R}}
 
@@ -69,9 +70,9 @@ geschrieben werden kann. Noch ist die Vermutung im allgemeinen Fall aber ein
 offenes Forschungsproblem. Daher ist nicht klar, ob folgendes Programm hält
 oder nicht:
 \begin{listing}
-\item[1.] Beginne mit~$n := 3$.
+\item[1.] Beginne mit~$n := 4$.
 \item[2.] Prüfe, ob~$n$ die Summe zweier Primzahlen ist.
-\item[3.] Falls ja: Erhöhe~$n$ um Eins und gehe zurück zu Schritt~2.
+\item[3.] Falls ja: Erhöhe~$n$ um Zwei und gehe zurück zu Schritt~2.
 \item[4.] Falls nein: Halte.
 \end{listing}
 Dieses Programm hält genau dann, wenn es ein Gegenbeispiel zur Goldbachschen
@@ -108,6 +109,24 @@ nicht: Wir können zwar ein gegebenes Programm~$P$ simulieren und, zum Beispiel,
 wissen wir immer noch nicht, ob~$P$ später halten wird oder nicht.
 \end{bem}
 
+\begin{table}[t]
+  \begin{enumerate}
+    \item[1.] \texttt{a}
+    \item[2.] \texttt{b}
+    \item[] $\vdots$
+    \item[26.] \texttt{z}
+    \item[27.] \texttt{aa}
+    \item[28.] \texttt{ab}
+    \item[] $\vdots$
+    \item[41320.] \texttt{bice}
+    \item[] $\vdots$
+  \end{enumerate}
+  \centering
+  \caption{\label{tafel:liste-aller-programme}Ein Beispiel, wie die Liste aller
+  Programme aussehen könnte, wenn die verwendete Programmiersprache nur die
+  Zeichen~\texttt{a} bis~\texttt{z} verwendet.}
+\end{table}
+
 \begin{proof}[Beweis des Theorems]Als Vorbemerkung halten wir fest, dass wir
 die Gesamtheit aller Programme in einer unendlichen Liste organisieren können
 (Tafel~\ref{tafel:liste-aller-programme}) und darüber hinaus ein Programm~$F$
@@ -129,7 +148,7 @@ hält oder nicht.
 \item Falls es nicht hält: Halte.
 \end{listing}
 Das Programm~$R$ zeigt bei Eingabe von~$n$ also genau das entgegengesetzte
-Halteverhalten wie~$F(n)$. Wie jedes Programm ist auch~$R$ in der Liste aller
+Halteverhalten von~$F(n)$. Wie jedes Programm ist auch~$R$ in der Liste aller
 Programme verzeichnet, etwa an~$m$-ter Stelle: Es gilt also~$F(m) = R$.
 
 Wir können uns nun fragen, ob~$R$ bei Eingabe von~$m$ hält oder nicht. Verfolgen
@@ -149,6 +168,44 @@ auf der Liste aller Programme berechnen können?
 \vspace{-1em}
 \end{aufgabeShaded}
 
+Was ist eigentlich ein \emph{Programm}? Auf diese Frage sollten wir eine
+präzise Antwort haben, wenn wir rigoros Mathematik betreiben möchten. Zur
+Vorstellung ist es -- insbesondere, wenn man Programmiererfahrung hat --
+hilfreich, sich Programme einer realen Programmiersprache (Haskell, Perl,
+Python, \ldots) vorzustellen, welche aber auf \emph{idealisierten Computern}
+ablaufen: Computer, die niemals kaputt gehen und über beliebig viel
+Arbeitsspeicher verfügen.
+
+Um diese Vorstellung aber zu präzisieren, hat Turing das nach ihm benannte
+Konzept der \emph{Turingmaschine} entworfen. Turingmaschinen sind abstrakte
+Rechenmaschinen, die sich, weil sie von den vielen Details realer Computer
+abtrahieren, für mathematische Untersuchungen besonders gut eignen. Mit
+\emph{Programm} meinen wir also eigentlich \emph{Turingmaschine}.
+
+Eine Turingmaschine arbeitet auf einem in beide Richtungen unendlich langem
+Band, dessen Zellen die Werte~0 und~1 fassen können
+(Abbildung~\ref{abb:turing-maschine}).  In jedem Rechenschritt kann die
+Turingmaschine den gespeicherten Wert auf dem Band an der aktuellen Position
+lesen, einen neuen Wert schreiben und das Band um eine Zelle nach links oder
+rechts verschieben. Dabei befolgt sie ein für sie eindeutiges, endliches
+Regelwerk.
+
+\begin{aufgabeShaded}{Das Halteproblem für halbreale Computerprogramme}
+In dieser Aufgabe soll es um Programme gehen, die auf Computern laufen, welche
+zwar nie kaputt gehen und auch nicht aufgrund äußerer Einflüsse in ihrem
+Verhalten gestört werden (etwa durch kosmische Strahlung), aber trotzdem nur
+über endlichen Speicher verfügen. Außerdem sollen sie von der Außenwelt in dem
+Sinn isoliert seien, dass sie etwa keine Verbindung zum Internet besitzen.
+Kurz und präzise, aber vielleicht weniger anschaulich: Es soll um
+Turingmaschinen mit endlichem Band gehen.
+
+Erkläre, wieso das Halteproblem für solche Programme (zumindest in der
+Theorie) trivial lösbar ist.
+
+\emph{Tipp:} In wie vielen verschiedenen Zuständen kann sich ein derartiger
+Computer befinden?
+\end{aufgabeShaded}
+
 \begin{aufgabeShaded}{Der Satz von Rice}
 Der \emph{Satz von Rice} ist eine Verschärfung von Turings
 Unmöglichkeitstheorem. Er besagt: Für keine nichttriviale extensionale
@@ -158,7 +215,7 @@ oder~"`$P$ hat Eigenschaft~$E$ nicht"' hält.
 
 Dabei meint \emph{nichttrivial}, dass manche Programme die Eigenschaft~$E$
 haben und andere nicht. Etwa ist die Eigenschaft~"`$P$ hält oder hält nicht"'
-ein Beispiel für eine Eigenschaft, welche nicht nichttrivial ist.
+ein Beispiel für eine Eigenschaft, welche \emph{nicht} nichttrivial ist.
 
 \emph{Extensionalität} verlangt, dass sich die Eigenschaft~$E$ nur auf das von
 außen sichtbare Verhalten des Programms, nicht aber seine innere Struktur
@@ -178,24 +235,26 @@ Unentscheidbarkeit des Halteproblems orientieren.
 \vspace{-1em}
 \end{aufgabeShaded}
 
-\begin{table}[b]
-  \begin{enumerate}
-    \item[1.] \texttt{a}
-    \item[2.] \texttt{b}
-    \item[] $\vdots$
-    \item[26.] \texttt{z}
-    \item[27.] \texttt{aa}
-    \item[28.] \texttt{ab}
-    \item[] $\vdots$
-    \item[41320.] \texttt{bice}
-    \item[] $\vdots$
-  \end{enumerate}
+\begin{aufgabeShaded}{Die Church--Turing-These}
+Informiere dich auf Wikipedia, was es mit der Church--Turing-These auf sich
+hat. Hast dueine Meinung dazu?
+\end{aufgabeShaded}
+
+\begin{figure}[h]
   \centering
-  \caption{\label{tafel:liste-aller-programme}Ein Beispiel, wie die Liste aller
-  Programme aussehen könnte, wenn die verwendete Programmiersprache nur die
-  Zeichen~\texttt{a} bis~\texttt{z} verwendet.}
-\end{table}
+  \includegraphics[scale=0.7]{turing-machine}
+  \caption{\label{abb:turing-maschine}Eine künstlerische Darstellung einer
+  Turing-Maschine. Quelle:
+  \url{http://www.worldofcomputing.net/wp-content/uploads/2013/01/turingMachine.gif}}
+\end{figure}
+
+
+\section{Die unberechenbare Fleißiger-Biber-Funktion}
+
+\section{Chaitins Haltewahrscheinlichkeit}
+
+\section{Formale Systeme und Modelle}
+
+\section{Gödels Vollständigkeitssatz und sein Unvollständigkeitssatz}
 
 \end{document}
-
-XXX: Turingmaschinen erwähnen.

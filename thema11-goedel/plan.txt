@@ -17,6 +17,8 @@ Logik, Philosophie, Grundlegung der Mathematik, Berechenbarkeitstheorie, Zufall
    Definition (wie viel Technik ist nötig?)
    Bemerkung, dass nicht durch einen Algorithmus berechenbar
    Bemerkung, dass Gültigkeit von Approximationen nicht beweisbar
+   Bemerkung, dass Kenntnis der ersten N Bits genügt, um das Halteproblem für
+   Programme der Länge <= N zu lösen
 
 2. Formale Systeme und Modelle
 
