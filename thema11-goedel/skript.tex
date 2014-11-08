@@ -122,6 +122,21 @@ nicht: Wir können zwar ein gegebenes Programm~$P$ simulieren und, zum Beispiel,
 wissen wir immer noch nicht, ob~$P$ später halten wird oder nicht.
 \end{bem}
 
+\begin{bem}Einzelne Instanzen des Halteproblems können durchaus algorithmisch
+lösbar sein,\footnote{Tatsächlich gibt es sogar für \emph{jedes} Programm~$P$
+ein auf~$P$ maßgeschneidertes Orakelprogramm, welches korrekt die Meldung~"`$P$
+hält"' oder~"`$P$ hält nicht"' ausgibt. Denn es ist ja klar, dass~$P$ entweder
+hält oder nicht hält.  Im ersten Fall ist das triviale Programm, das sich
+direkt nach seinem Aufruf mit der Meldung~"`$P$ hält"' sofort wieder beendet,
+das gesuchte Halteorakel. Im zweiten Fall ist es das ebenso triviale Programm,
+das die Meldung~"`$P$ hält nicht"' ausgibt. Die Situation wirkt vielleicht
+etwas wundersam: Eines dieser beiden (trivialen!) Programme ist das gesuchte
+Halteorakel, wir können nur im Allgemeinen nicht sagen, welches es ist.}
+Turings Resultat sagt nur aus, dass es kein \emph{einzelnes}
+Programm gibt, welche \emph{alle} Instanzen des Problems lösen kann -- welches
+also bei Eingabe eines \emph{beliebigen} Programms in endlicher Zeit mit der
+Meldung~"`hält"' oder~"`hält nicht"' terminiert.\end{bem}
+
 \begin{table}[t]
   \begin{enumerate}
     \item[1.] \texttt{a}
