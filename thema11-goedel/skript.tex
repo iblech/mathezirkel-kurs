@@ -79,6 +79,19 @@ Dieses Programm hält genau dann, wenn es ein Gegenbeispiel zur Goldbachschen
 Vermutung gibt.
 \end{bsp}
 
+\begin{bsp}Eine \emph{Fermatsche Primzahl} ist eine Primzahl der
+Form~$2^{(2^n)} + 1$. Die Primzahlen~$3$, $5$, $17$, $257$ und~$65537$ sind von
+diesem Typ (für~$n = 0,1,2,3,4$), aber es ist ein offenes Forschungproblem, ob
+es weitere Fermatsche Primzahlen gibt. Daher ist von folgendem Programm nicht
+klar, ob es hält:
+\begin{listing}
+\item[1.] Beginne mit~$n := 5$.
+\item[2.] Prüfe, ob~$2^{(2^n)}$ eine Primzahl ist.
+\item[3.] Falls ja: Halte.
+\item[4.] Falls nein: Erhöhe~$n$ um Eins und gehe zurück zu Schritt~2.
+\end{listing}
+\end{bsp}
+
 Beim \emph{Halteproblem} geht es darum, von einem gegebenen Programm
 festzustellen, ob es hält oder nicht. Der britische Logiker, Mathematiker,
 Kryptoanalytiker und Informatiker Alan Turing\footnote{Turing leistete während des
