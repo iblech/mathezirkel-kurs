@@ -19,6 +19,8 @@ Logik, Philosophie, Grundlegung der Mathematik, Berechenbarkeitstheorie, Zufall
    Bemerkung, dass Gültigkeit von Approximationen nicht beweisbar
    Bemerkung, dass Kenntnis der ersten N Bits genügt, um das Halteproblem für
    Programme der Länge <= N zu lösen
+   http://www.emis.de/journals/EM/expmath/volumes/11/11.3/Calude361_370.pdf
+   (enthält tolles Zitat)
 
 2. Formale Systeme und Modelle
 
