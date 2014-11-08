@@ -1,0 +1,201 @@
+\documentclass[twoside]{../zirkelblatt1415}
+\usepackage{float}
+\usepackage{dashrule}
+\floatstyle{ruled}
+\restylefloat{figure}
+\let\raggedsection\centering
+\newcommand{\RR}{\mathbb{R}}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{axiom}[defn]{Axiom}
+\newtheorem{bsp}[defn]{Beispiel}
+
+\theoremstyle{plain}
+
+\newtheorem{prop}[defn]{Proposition}
+\newtheorem{motto}[defn]{Motto}
+\newtheorem{wunder}[defn]{Wunder}
+\newtheorem{ueberlegung}[defn]{Überlegung}
+\newtheorem{lemma}[defn]{Lemma}
+\newtheorem{kor}[defn]{Korollar}
+\newtheorem{hilfsaussage}[defn]{Hilfsaussage}
+\newtheorem{satz}[defn]{Satz}
+\newtheorem{thm}[defn]{Theorem}
+
+\theoremstyle{remark}
+\newtheorem{bem}[defn]{Bemerkung}
+\newtheorem{aufg}[defn]{Aufgabe}
+
+\definecolor{darkred}{rgb}{0.7,0,0}
+\definecolor{shadecolor}{rgb}{.95,.95,.95}
+
+\newenvironment{listing}{
+  \renewcommand*\theenumi{\arabic{enumi}}
+  \renewcommand{\labelenumi}{\theenumi.}
+  \begin{enumerate}\itemsep0em}{\end{enumerate}}
+
+\begin{document}
+
+\maketitleCustom{Klassen 10/11/12}{\textbf{\textsf{%
+  Gödels Unvollständigkeitssatz \\
+  \normalsize Zirkelzettel vom 7. November 2014}}}
+
+{\renewcommand{\addvspace}[1]{\vskip0.6em}
+\tableofcontents%
+}
+
+\section{Einleitung}
+
+
+\section{Berrys Paradoxon}
+
+
+\section{Das Halteproblem}
+
+Manche Computerprogramme stoppen nach endlich vielen Rechenschritten
+("`halten"'), andere nicht. Etwa hält das Programm "`Lese vom Benutzer eine
+Zahl ein, verdopple diese Zahl und gebe das Ergebis aus"', während das Programm
+"`Gebe alle natürlichen Zahlen aus"' nicht hält. Im Allgemeinen ist es sehr
+schwer, einem Programm anzusehen, ob es hält oder nicht.
+
+\begin{bsp}\label{bsp:unklares-programm}Die \emph{Goldbachsche Vermutung}
+besagt, dass jede gerade Zahl
+größer als~2 die Summe zweier Primzahlen ist. Für jede
+konkrete gerade Zahl~$n$ größer als~2 kann man das leicht überprüfen, indem man
+einfach alle Paare von Primzahlen, die kleiner als~$n$ sind, durchgeht; etwa
+sieht man durch Ausprobieren, dass~$14 = 3 + 11$ als Summe zweier Primzahlen
+geschrieben werden kann. Noch ist die Vermutung im allgemeinen Fall aber ein
+offenes Forschungsproblem. Daher ist nicht klar, ob folgendes Programm hält
+oder nicht:
+\begin{listing}
+\item[1.] Beginne mit~$n := 3$.
+\item[2.] Prüfe, ob~$n$ die Summe zweier Primzahlen ist.
+\item[3.] Falls ja: Erhöhe~$n$ um Eins und gehe zurück zu Schritt~2.
+\item[4.] Falls nein: Halte.
+\end{listing}
+Dieses Programm hält genau dann, wenn es ein Gegenbeispiel zur Goldbachschen
+Vermutung gibt.
+\end{bsp}
+
+Beim \emph{Halteproblem} geht es darum, von einem gegebenen Programm
+festzustellen, ob es hält oder nicht. Der britische Logiker, Mathematiker,
+Kryptoanalytiker und Informatiker Alan Turing\footnote{Turing leistete während des
+Zweiten Weltkriegs entscheidende Beiträge zur Kryptoanalyse der
+deutschen Verschlüsselungsmaschine Enigma und ermöglichte so die
+Entschlüsselung deutscher Funksprüche. Wegen seiner Homosexualität wurde er
+im März~1952 zur chemischen Kastration verurteilt. Er erkrankte an
+Depression und beging Suizid.} (*~1912, †~1954) bewies 1937, dass das Halteproblem
+\emph{nicht entscheidbar} ist. Genau formuliert bedeutet das:
+
+\begin{thm}Es gibt kein Programm, das bei Eingabe eines Programms~$P$ mit einer
+korrekten Ausgabe von~"`$P$ hält"' oder~"`$P$ hält nicht"' hält.\end{thm}
+
+Ein hypothetisches solches Programm wird auch \emph{Halteorakel} genannt.
+Bemerkenswert an dem Theorem ist, dass es eine absolute Aussage trifft --
+Turing behauptet nicht nur, dass \emph{wir} kein solches Halteorakel kennen.
+Diese schwächere Behauptung ist auch gar nicht erstaunlich, erfordert doch im
+Allgemeinen die Lösung des Halteproblems beliebige offene mathematische
+Probleme zu lösen (Beispiel~\ref{bsp:unklares-programm}).
+Vielmehr behauptet Turing, dass ein Halteorakel rein prinzipiell nicht
+existieren kann. Auch Außerirdische mit überlegener Technologie oder
+transzendente Wesen können kein Halteorakel programmieren.
+
+\begin{bem}Programme können durchaus andere Programme simulieren. Das hilft
+aber bei der (zum Scheitern verurteilten) Konstruktion eines Halteorakels
+nicht: Wir können zwar ein gegebenes Programm~$P$ simulieren und, zum Beispiel,
+10.000 Rechenschritte abwarten. Wenn~$P$ bis dahin aber nicht gehalten hat,
+wissen wir immer noch nicht, ob~$P$ später halten wird oder nicht.
+\end{bem}
+
+\begin{proof}[Beweis des Theorems]Als Vorbemerkung halten wir fest, dass wir
+die Gesamtheit aller Programme in einer unendlichen Liste organisieren können
+(Tafel~\ref{tafel:liste-aller-programme}) und darüber hinaus ein Programm~$F$
+schreiben können, das bei Eingabe einer natürlichen Zahl~$n$ das~$n$-te
+Programm dieser Liste ausgibt.
+
+Angenommen, es gibt ein Halteorakel~$H$.\footnote{Eigentlich müssen wir den
+Rest des Beweises in den Konjuktiv setzen, da wir ab dieser Stelle eine Annahme
+treffen (mit dem Ziel, einen Widerspruch zu erkennen, um die Falschheit
+der Annahme nachzuweisen). Das ist aber umständlich.}
+Dann können wir ein Programm~$R$
+programmieren, das wie folgt abläuft:
+\begin{listing}
+\item Lese eine Zahl~$n$ als Eingabe ein.
+\item Lasse das Halteorakel ablaufen, um herauszufinden, ob das
+Programm~$F(n)$ (also das~$n$-te Programm auf der Liste) bei Eingabe von~$n$
+hält oder nicht.
+\item Falls es hält: Gehe in eine Endlosschleife.
+\item Falls es nicht hält: Halte.
+\end{listing}
+Das Programm~$R$ zeigt bei Eingabe von~$n$ also genau das entgegengesetzte
+Halteverhalten wie~$F(n)$. Wie jedes Programm ist auch~$R$ in der Liste aller
+Programme verzeichnet, etwa an~$m$-ter Stelle: Es gilt also~$F(m) = R$.
+
+Wir können uns nun fragen, ob~$R$ bei Eingabe von~$m$ hält oder nicht. Verfolgen
+wir den Programmfluss, sehen wir aber, dass beide Fälle zu einem Widerspruch
+führen.
+\end{proof}
+
+\begin{aufgabeShaded}{Verstanden?}
+\begin{enumerate}
+\item Vollziehe den Beweis des Theorems nach. Könntest du jemand anderem
+erklären, welche Widersprüche die Existenz eines Halteorakels nach sich ziehen
+würde?
+\item Wieso war es für den Beweis wichtig, dass es das Programm~$F$ gibt? Wieso
+also war es wichtig, dass wir bei Eingabe einer Zahl~$n$ das~$n$-te Programm
+auf der Liste aller Programme berechnen können?
+\end{enumerate}
+\vspace{-1em}
+\end{aufgabeShaded}
+
+\begin{aufgabeShaded}{Der Satz von Rice}
+Der \emph{Satz von Rice} ist eine Verschärfung von Turings
+Unmöglichkeitstheorem. Er besagt: Für keine nichttriviale extensionale
+Programmeigenschaft~$E$ gibt es ein Orakel, das bei Eingabe
+eines Programms~$P$ mit einer korrekten Ausgabe von~"`$P$ hat Eigenschaft~$E$"'
+oder~"`$P$ hat Eigenschaft~$E$ nicht"' hält.
+
+Dabei meint \emph{nichttrivial}, dass manche Programme die Eigenschaft~$E$
+haben und andere nicht. Etwa ist die Eigenschaft~"`$P$ hält oder hält nicht"'
+ein Beispiel für eine Eigenschaft, welche nicht nichttrivial ist.
+
+\emph{Extensionalität} verlangt, dass sich die Eigenschaft~$E$ nur auf das von
+außen sichtbare Verhalten des Programms, nicht aber seine innere Struktur
+(seinen Quellcode) bezieht. Etwa sind die Eigenschaften~"`$P$ hält"',
+"`$P$ gibt als Ergebnis die Zahl~37 aus"' und "`$P$ gibt eine gerade Zahl als
+Ergebnis aus"' extensionale Eigenschaften. Keine extensionalen Eigenschaften
+sind~"`$P$ besteht aus weniger als~20 Zeilen Code"' und~"`$P$ tätigt
+mindestens~100 Rechenschritte"'.
+
+\begin{enumerate}
+\item Überlege, wieso es ganz einfach ist, ein Orakel zu programmieren, dass
+die nicht-extensionale Eigenschaft~"`$P$ besteht aus weniger als~20 Zeilen
+Code"' prüft.
+\item Beweise den Satz von Rice. Du kannst dich dabei am Beweis der
+Unentscheidbarkeit des Halteproblems orientieren.
+\end{enumerate}
+\vspace{-1em}
+\end{aufgabeShaded}
+
+\begin{table}[b]
+  \begin{enumerate}
+    \item[1.] \texttt{a}
+    \item[2.] \texttt{b}
+    \item[] $\vdots$
+    \item[26.] \texttt{z}
+    \item[27.] \texttt{aa}
+    \item[28.] \texttt{ab}
+    \item[] $\vdots$
+    \item[41320.] \texttt{bice}
+    \item[] $\vdots$
+  \end{enumerate}
+  \centering
+  \caption{\label{tafel:liste-aller-programme}Ein Beispiel, wie die Liste aller
+  Programme aussehen könnte, wenn die verwendete Programmiersprache nur die
+  Zeichen~\texttt{a} bis~\texttt{z} verwendet.}
+\end{table}
+
+\end{document}
+
+XXX: Turingmaschinen erwähnen.
