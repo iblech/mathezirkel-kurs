@@ -1,6 +1,7 @@
 \documentclass[twoside]{../zirkelblatt1415}
 \usepackage{float}
 \usepackage{dashrule}
+\usepackage{booktabs}
 \floatstyle{ruled}
 \restylefloat{figure}
 \restylefloat{table}
@@ -35,6 +36,8 @@
   \renewcommand*\theenumi{\arabic{enumi}}
   \renewcommand{\labelenumi}{\theenumi.}
   \begin{enumerate}\itemsep0em}{\end{enumerate}}
+
+\newcommand{\BB}{\mathrm{BB}}
 
 \begin{document}
 
@@ -280,6 +283,61 @@ hat. Hast du eine Meinung dazu?
 
 \section{Die unberechenbare Fleißiger-Biber-Funktion}
 
+\emph{Dieser Abschnitt wird noch ausgebaut. Wer möchte, kann sich aber schon
+vorab mit der Aufgabe beschäftigen.}
+
+Die \emph{Fleißiger-Biber-Funktion} ist eine Funktion~$\BB : \NN \to \NN$, die
+eng mit dem Halteproblem verknüpft ist. Per Definition ist~$\BB(n)$ die größte
+Anzahl Rechenschritte, die irgendein haltendes Programm mit
+Quelltextlänge~$\leq n$ macht.
+
+Anders formuliert: Unter den Programmen mit Länge~$\leq n$ gibt es welche, die
+halten, und welche, die nicht halten. Unter denen, die halten, gibt es ein
+Programm, dass unter all diesen Programmen am meisten Rechenschritte ausführt,
+bevor es schlussendlich hält. Die Anzahl dieser Rechenschritte ist~$\BB(n)$.
+
+Die exakten Werte der Fleißiger-Biber-Funktion hängen von der Wahl der
+Programmiersprache ab, denn in verschiedenen Sprachen drückt man sich beim
+Programmieren unterschiedlich aus. In der Literatur verwendet man daher die
+abstrakten Turingmaschinen als Referenzpunkt.
+
+Die Fleißiger-Biber-Funktion wächst rasant an, viel schneller als exponentiell;
+nur sehr wenige Funktionswerte sind bekannt (Tabelle~\ref{tab:bb}). Tatsächlich
+wächst sie (asymptotisch) \emph{schneller als jede durch Programme berechenbare
+Funktion}. Wie auch bei Turings Unmöglichkeitsresultat liegt der Grund dafür
+nicht in menschlichen technologischen Beschränkungen, sondern ist
+prinzipieller Natur.
+
+\begin{table}
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    $n$ & Anzahl Programme der Länge~$\leq n$ & $\BB(n)$ \\\midrule
+    1 & 64 & 1 (1962) \\
+    2 & 20736 & 4 (1962) \\
+    3 & 16777216 & 6 (1965) \\
+    4 & $25{,}6 \cdot 10^9$ & 13 (1972) \\
+    5 & $\approx 63{,}4 \cdot 10^{12}$ & $\geq 4098$ (1989) \\
+    6 & $\approx 232 \cdot 10^{15}$ & $> 3{,}514 \cdot 10^{18267}$ (2010) \\
+    \bottomrule
+  \end{tabular}
+  \centering
+  \caption{\label{tab:bb}Die bekannten Werte der Fleißiger-Biber-Funktion. Mit
+  \emph{Programm} ist hier \emph{Turingmaschine} und mit \emph{Länge}
+  die Anzahl der Zustände gemeint.}
+\end{table}
+
+\begin{thm}Die Fleißiger-Biber-Funktion ist nicht berechenbar, d.\,h. es gibt
+kein Programm~$P$, das bei Eingabe einer natürlichen Zahl~$n$ die Zahl~$\BB(n)$
+zurückgibt.\end{thm}
+
+\begin{aufgabeShaded}{Unberechenbarkeit der Fleißiger-Biber-Funktion}
+Beweise das Theorem, indem du folgende Argumentation ausformulierst:
+
+Wenn es ein Programm gäbe, dass die Fleißiger-Biber-Funktion
+berechnen könnte, dann könnte man daraus ein Halteorakel konstruieren (wie geht
+das?). Dass es ein solches nicht gibt, wissen wir schon.
+\end{aufgabeShaded}
+
 \section{Chaitins Haltewahrscheinlichkeit}
 
 \section{Formale Systeme und Modelle}
@@ -287,3 +345,18 @@ hat. Hast du eine Meinung dazu?
 \section{Gödels Vollständigkeitssatz und sein Unvollständigkeitssatz}
 
 \end{document}
+
+* Omega := sum_p 2^{-|p|}
+
+* Kennt man die ersten N Bits von Omega, so kann man das Halteproblem für
+  alle Programme der Länge <= N lösen:
+
+  * Lasse alle Programme dieser Länge in verzahnter Art und Weise ablaufen.
+  * Gelegentlich halten solche simulierten Programme an.
+  * Warte so lange, bis sum_{p bis jetzt gehalten} 2^{-|p|} >= bekannte
+    untere Schranke für Omega. (Das dauert nur endlich lange.)
+  * Hat das gegebene Programm bis jetzt gehalten?
+    Wenn ja: Es hält.
+    Wenn nein: Es wird nie halten. Denn wenn doch, dann
+
+        Omega >= sum_{bis jetzt} + 2^{-|p_0|} >= Omega + ... > Omega, Widerspruch.
