@@ -269,7 +269,8 @@ Unentscheidbarkeit des Halteproblems orientieren.
 
 \begin{aufgabeShaded}{Die Church--Turing-These}
 Informiere dich auf Wikipedia, was es mit der Church--Turing-These auf sich
-hat. Hast du eine Meinung dazu?
+hat; manche Leute halten sie für eine der größten ungeklärten Fragen der Physik
+und Informatik. Hast du eine Meinung dazu?
 \end{aufgabeShaded}
 
 \begin{figure}[h]
@@ -347,6 +348,34 @@ das?). Dass es ein solches nicht gibt, wissen wir schon.
 
 \end{document}
 
+
+=== Chaitins Haltewahrscheinlichkeit
+
+* Zitat (C. H. Bennett)
+
+  Omega comes from the Chaitin Omega Number, that "embodies an enormous amount
+  of wisdom in a very small space ... inasmuch as its first few thousand
+  digits, which could be written on a small piece of paper, contain the answers
+  to more mathematical questions than could be written down in the entire
+  universe.
+  
+  Throughout history mystics and philosophers have sought a compact
+  key to universal wisdom, a finite formula or text which, when known and
+  understood, would provide the answer to every question. The use of the Bible,
+  the Koran and the I Ching for divination and the tradition of the secret
+  books of Hermes Trismegistus, and the medieval Jewish Cabala exemplify this
+  belief or hope.
+  
+  Such sources of universal wisdom are traditionally protected from casual use
+  by being hard to find, hard to understand when found, and dangerous to use,
+  tending to answer more questions and deeper ones than the searcher wishes to
+  ask. The esoteric book is, like God, simple yet undescribable. It is
+  omniscient, and transforms all who know it.
+
+  Omega is in many senses a cabalistic number. It can be known of, but not
+  known, through human reason. To know it in detail, one would have to accept
+  its uncomputable digit sequence on faith, like words of a sacred text.
+
 * Omega := sum_p 2^{-|p|}
 
 * Kennt man die ersten N Bits von Omega, so kann man das Halteproblem für
@@ -361,3 +390,44 @@ das?). Dass es ein solches nicht gibt, wissen wir schon.
     Wenn nein: Es wird nie halten. Denn wenn doch, dann
 
         Omega >= sum_{bis jetzt} + 2^{-|p_0|} >= Omega + ... > Omega, Widerspruch.
+
+* Diskussion des Zufallscharakters von Omega: Programme, die die ersten N
+  Stellen von Omega ausgeben, können nicht kurz sein. (Anders als bei pi und
+  Konsorten!)
+
+  Motivieren durch:
+  * Bilder von Fraktalen
+  * Bild einer Ziffernfolge, die systematisch aufgebaut ist
+  * Bild einer zufälligen Ziffernfolge (ha!)
+
+* Diskussion der Flüchtigkeit von Omega: Kann Aussagen über Ziffern nicht beweisen.
+
+* Unbedingt referenzieren:
+  Grenzen der Mathematik: Eine Reise durch die Kerngebiete der mathematischen
+  Logik, Dirk W. Hoffmann.
+
+
+=== Formale Systeme und Modelle
+
+* Ein formales System besteht aus einer Ansammlung von Axiomen und zulässigen
+  logischen Schlussregeln.
+
+* Ein Modell für ein formales System ist eine Struktur, in der die Axiome
+  und Schlussregeln den Systems gelten.
+
+* Schreibweisen:
+  1. S |- phi
+  2. M |= phi
+  3. S |= phi
+
+* Beispiel: Peano-Arithmetik mit den gewöhnlichen natürlichen Zahlen als
+  intendiertes Modell
+
+* Beispiel: wie nichtstandard Modelle der natürlichen Zahlen aussehen.
+
+
+=== Gödels Sätze
+
+* Vollständigkeitssatz: Wenn S |= phi, dann auch S |- phi.
+
+* Unvollständigkeitssatz: Es gibt phi mit N |= phi, aber nicht PA |- phi.
