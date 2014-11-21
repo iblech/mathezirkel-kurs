@@ -1,6 +1,6 @@
 \documentclass[twoside]{../zirkelblatt1415}
+\usepackage{wrapfig}
 \usepackage{float}
-\usepackage{dashrule}
 \usepackage{booktabs}
 \floatstyle{ruled}
 \restylefloat{figure}
@@ -39,11 +39,14 @@
 
 \newcommand{\BB}{\mathrm{BB}}
 
+%\newcommand{\loesung}[1]{\rotatebox{180}{\vbox{#1}}}
+\newcommand{\loesung}[1]{#1}
+
 \begin{document}
 
 \maketitleCustom{Klassen 10/11/12}{\textbf{\textsf{%
   Gödels Unvollständigkeitssatz \\
-  \normalsize Zirkelzettel vom 7. November 2014}}}
+  \normalsize Zirkelzettel vom 7. und 21. November 2014}}}
 
 {\renewcommand{\addvspace}[1]{\vskip0.6em}
 \tableofcontents%
@@ -65,8 +68,8 @@ schwer, einem Programm anzusehen, ob es hält oder nicht.
 
 \begin{bsp}\label{bsp:unklares-programm}Die \emph{Goldbachsche Vermutung}
 besagt, dass jede gerade Zahl
-größer als~2 die Summe zweier Primzahlen ist. Für jede
-konkrete gerade Zahl~$n$ größer als~2 kann man das leicht überprüfen, indem man
+größer als~3 die Summe zweier Primzahlen ist. Für jede
+konkrete gerade Zahl~$n$ größer als~3 kann man das leicht überprüfen, indem man
 einfach alle Paare von Primzahlen, die kleiner als~$n$ sind, durchgeht; etwa
 sieht man durch Ausprobieren, dass~$14 = 3 + 11$ als Summe zweier Primzahlen
 geschrieben werden kann. Noch ist die Vermutung im allgemeinen Fall aber ein
@@ -105,7 +108,7 @@ im März~1952 zur chemischen Kastration verurteilt. Er erkrankte an
 Depression und beging Suizid.} (*~1912, †~1954) bewies 1937, dass das Halteproblem
 \emph{nicht entscheidbar} ist. Genau formuliert bedeutet das:
 
-\begin{thm}Es gibt kein Programm, das bei Eingabe eines Programms~$P$ mit einer
+\begin{thm}Es gibt kein Programm, das bei Eingabe eines beliebigen Programms~$P$ mit einer
 korrekten Ausgabe von~"`$P$ hält"' oder~"`$P$ hält nicht"' hält.\end{thm}
 
 Ein hypothetisches solches Programm wird auch \emph{Halteorakel} genannt.
@@ -118,14 +121,13 @@ Vielmehr behauptet Turing, dass ein Halteorakel rein prinzipiell nicht
 existieren kann. Auch Außerirdische mit überlegener Technologie oder
 transzendente Wesen können kein Halteorakel programmieren.
 
-\begin{bem}Programme können durchaus andere Programme simulieren. Das hilft
+Programme können durchaus andere Programme simulieren. Das hilft
 aber bei der (zum Scheitern verurteilten) Konstruktion eines Halteorakels
 nicht: Wir können zwar ein gegebenes Programm~$P$ simulieren und, zum Beispiel,
 10.000 Rechenschritte abwarten. Wenn~$P$ bis dahin aber nicht gehalten hat,
 wissen wir immer noch nicht, ob~$P$ später halten wird oder nicht.
-\end{bem}
 
-\begin{bem}Einzelne Instanzen des Halteproblems können durchaus algorithmisch
+Einzelne Instanzen des Halteproblems können durchaus algorithmisch
 lösbar sein,\footnote{Tatsächlich gibt es sogar für \emph{jedes} Programm~$P$
 ein auf~$P$ maßgeschneidertes Orakelprogramm, welches korrekt die Meldung~"`$P$
 hält"' oder~"`$P$ hält nicht"' ausgibt. Denn es ist ja klar, dass~$P$ entweder
@@ -138,18 +140,18 @@ Halteorakel, wir können nur im Allgemeinen nicht sagen, welches es ist.}
 Turings Resultat sagt nur aus, dass es kein \emph{einzelnes}
 Programm gibt, welche \emph{alle} Instanzen des Problems lösen kann -- welches
 also bei Eingabe eines \emph{beliebigen} Programms in endlicher Zeit mit der
-Meldung~"`hält"' oder~"`hält nicht"' terminiert.\end{bem}
+Meldung~"`hält"' oder~"`hält nicht"' terminiert.
 
 \begin{table}[t]
   \begin{enumerate}
-    \item[1.] \texttt{a}
-    \item[2.] \texttt{b}
-    \item[] $\vdots$
-    \item[26.] \texttt{z}
-    \item[27.] \texttt{aa}
-    \item[28.] \texttt{ab}
-    \item[] $\vdots$
-    \item[41320.] \texttt{bice}
+    \item[1.] \texttt{a} \\[-2.0em]
+    \item[2.] \texttt{b} \\[-2.0em]
+    \item[] $\vdots$ \\[-2.0em]
+    \item[26.] \texttt{z} \\[-2.0em]
+    \item[27.] \texttt{aa} \\[-2.0em]
+    \item[28.] \texttt{ab} \\[-2.0em]
+    \item[] $\vdots$ \\[-2.0em]
+    \item[41320.] \texttt{bice} \\[-2.0em]
     \item[] $\vdots$
   \end{enumerate}
   \centering
@@ -158,7 +160,8 @@ Meldung~"`hält"' oder~"`hält nicht"' terminiert.\end{bem}
   Zeichen~\texttt{a} bis~\texttt{z} verwendet.}
 \end{table}
 
-\begin{proof}[Beweis des Theorems]Als Vorbemerkung halten wir fest, dass wir
+\begin{proof}[Beweis des Theorems]
+Als Vorbemerkung halten wir fest, dass wir
 die Gesamtheit aller Programme in einer unendlichen Liste organisieren können
 (Tafel~\ref{tafel:liste-aller-programme}) und darüber hinaus ein Programm~$F$
 schreiben können, das bei Eingabe einer natürlichen Zahl~$n$ das~$n$-te
@@ -189,6 +192,7 @@ führen.
 \end{proof}
 
 \begin{aufgabeShaded}{Verstanden?}
+\vspace{-2em}%
 \begin{enumerate}
 \item Vollziehe den Beweis des Theorems nach. Könntest du jemand anderem
 erklären, welche Widersprüche die Existenz eines Halteorakels nach sich ziehen
@@ -199,6 +203,20 @@ auf der Liste aller Programme berechnen können?
 \end{enumerate}
 \vspace{-1em}
 \end{aufgabeShaded}
+
+
+\subsection{Turingmaschinen}
+
+\setlength{\wrapoverhang}{1cm}
+\setlength{\columnsep}{0.5cm}
+\begin{wrapfigure}{r}{0.3\textwidth}
+  \vspace{-3em}
+  \includegraphics[scale=0.3]{turing-machine}
+  \scriptsize
+  Eine künstlerische Darstellung einer
+  Turing-Maschine.\footnotemark
+\end{wrapfigure}
+\footnotetext{\url{http://www.worldofcomputing.net/wp-content/uploads/2013/01/turingMachine.gif}}
 
 Was ist eigentlich ein \emph{Programm}? Auf diese Frage sollten wir eine
 präzise Antwort haben, wenn wir rigoros Mathematik betreiben möchten. Zur
@@ -215,12 +233,15 @@ abstrahieren, für mathematische Untersuchungen besonders gut eignen. Mit
 \emph{Programm} meinen wir also eigentlich \emph{Turingmaschine}.
 
 Eine Turingmaschine arbeitet auf einem in beide Richtungen unendlich langem
-Band, dessen Zellen die Werte~0 und~1 fassen können
-(Abbildung~\ref{abb:turing-maschine}).  In jedem Rechenschritt kann die
+Band, dessen Zellen die Werte~0 und~1 fassen können.
+In jedem Rechenschritt kann die
 Turingmaschine den gespeicherten Wert auf dem Band an der aktuellen Position
 lesen, einen neuen Wert schreiben und das Band um eine Zelle nach links oder
 rechts verschieben. Dabei befolgt sie ein für sie eindeutiges, endliches
 Regelwerk.
+
+
+\subsection{Weitere Übungsaufgaben}
 
 \begin{aufgabeShaded}{Das Halteproblem für halbreale Computerprogramme}
 In dieser Aufgabe soll es um Programme gehen, die auf Computern laufen, welche
@@ -273,19 +294,8 @@ hat; manche Leute halten sie für eine der größten ungeklärten Fragen der Phy
 und Informatik. Hast du eine Meinung dazu?
 \end{aufgabeShaded}
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[scale=0.7]{turing-machine}
-  \caption{\label{abb:turing-maschine}Eine künstlerische Darstellung einer
-  Turing-Maschine. Quelle:
-  \url{http://www.worldofcomputing.net/wp-content/uploads/2013/01/turingMachine.gif}}
-\end{figure}
-
 
 \section{Die unberechenbare Fleißiger-Biber-Funktion}
-
-\emph{Dieser Abschnitt wird noch ausgebaut. Wer möchte, kann sich aber schon
-vorab mit der Aufgabe beschäftigen.}
 
 Die \emph{Fleißiger-Biber-Funktion} ist eine Funktion~$\BB : \NN \to \NN$, die
 eng mit dem Halteproblem verknüpft ist. Per Definition ist~$\BB(n)$ die größte
@@ -309,7 +319,7 @@ Funktion}. Wie auch bei Turings Unmöglichkeitsresultat liegt der Grund dafür
 nicht in menschlichen technologischen Beschränkungen, sondern ist
 prinzipieller Natur.
 
-\begin{table}
+\begin{table}[b]
   \begin{tabular}{@{}lll@{}}
     \toprule
     $n$ & Anzahl Programme der Länge~$\leq n$ & $\BB(n)$ \\\midrule
@@ -322,10 +332,11 @@ prinzipieller Natur.
     \bottomrule
   \end{tabular}
   \centering
-  \caption{\label{tab:bb}Die bekannten Werte der Fleißiger-Biber-Funktion. Mit
+  \caption{\label{tab:bb}Die bekannten Werte der Fleißiger-Biber-Funktion,
+  entnommen aus dem
+  \href{http://de.wikipedia.org/wiki/Fleißiger_Biber}{Wikipedia-Eintrag}. Mit
   \emph{Programm} ist hier \emph{Turingmaschine} und mit \emph{Länge}
-  die Anzahl der Zustände gemeint. Quelle:
-  \url{http://de.wikipedia.org/wiki/Fleißiger_Biber}}
+  die Anzahl der Zustände gemeint.}
 \end{table}
 
 \begin{thm}Die Fleißiger-Biber-Funktion ist nicht berechenbar, d.\,h. es gibt
@@ -333,6 +344,7 @@ kein Programm~$P$, das bei Eingabe einer natürlichen Zahl~$n$ die Zahl~$\BB(n)$
 zurückgibt.\end{thm}
 
 \begin{aufgabeShaded}{Unberechenbarkeit der Fleißiger-Biber-Funktion}
+\label{aufg:bb}
 Beweise das Theorem, indem du folgende Argumentation ausformulierst:
 
 Wenn es ein Programm gäbe, dass die Fleißiger-Biber-Funktion
@@ -370,6 +382,30 @@ die Worte eines heiligen Texts.
 \section{Formale Systeme und Modelle}
 
 \section{Gödels Vollständigkeitssatz und sein Unvollständigkeitssatz}
+
+
+\appendix
+
+\section{Lösungen zu Übungsaufgaben}
+
+\subsection{Lösung zu Aufgabe~\ref{aufg:bb} (Unberechenbarkeit der
+Fleißiger-Biber-Funktion)}
+
+\loesung{Angenommen, es gibt ein Programm, dass die Fleißiger-Biber-Funktion
+berechnet. Dann können wir mit dessen Hilfe ein Halteorakel programmieren.
+\begin{listing}
+\item Lese ein Programm~$P$ als Eingabe ein.
+\item Bestimme mit dem Hilfsprogramm die Zahl~$\BB(n)$, wobei~$n$ die Länge
+von~$P$ ist.
+\item Lasse~$P$ für~$\BB(n)$ Rechenschritte lang ablaufen.
+\item Wenn~$P$ bis dahin gehalten hat: Gib~"`$P$ hält"' aus und beende.
+Sonst gib~"`$P$ hält nicht"' aus und beende.
+\end{listing}
+Dieses Halteorakel arbeitet wirklich korrekt: Denn wenn~$P$ nach~$\BB(n)$
+Rechenschritten nicht gehalten hat, wird es niemals halten -- nach Definition
+ist ja~$\BB(n)$ die Maximalzahl Rechenschritte, die ein haltendes Programm der
+Länge~$\leq n$ ausführen kann, bevor es hält.
+}
 
 \end{document}
 
@@ -422,6 +458,8 @@ die Worte eines heiligen Texts.
 
   Motivieren durch:
   * Bilder von Fraktalen
+    http://www.dvice.com/sites/dvice/files/Fractal3.jpg
+    http://upload.wikimedia.org/wikipedia/commons/8/8b/Fractal_KRkr_City1_5600.jpg
   * Bild einer Ziffernfolge, die systematisch aufgebaut ist
   * Bild einer zufälligen Ziffernfolge (ha!)
 
@@ -430,7 +468,6 @@ die Worte eines heiligen Texts.
 * Unbedingt referenzieren:
   Grenzen der Mathematik: Eine Reise durch die Kerngebiete der mathematischen
   Logik, Dirk W. Hoffmann.
-
 
 === Formale Systeme und Modelle
 
