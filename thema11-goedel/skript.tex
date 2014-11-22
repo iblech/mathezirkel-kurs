@@ -1,4 +1,5 @@
 \documentclass[twoside]{../zirkelblatt1415}
+\usepackage{mathtools}
 \usepackage{wrapfig}
 \usepackage{float}
 \usepackage{booktabs}
@@ -10,6 +11,7 @@
 
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}[section]
+\newtheorem{defn'}{Vorläufge Definition}[section]
 \newtheorem{axiom}[defn]{Axiom}
 \newtheorem{bsp}[defn]{Beispiel}
 
@@ -38,6 +40,7 @@
   \begin{enumerate}\itemsep0em}{\end{enumerate}}
 
 \newcommand{\BB}{\mathrm{BB}}
+\newcommand{\defeq}{\vcentcolon=}
 
 %\newcommand{\loesung}[1]{\rotatebox{180}{\vbox{#1}}}
 \newcommand{\loesung}[1]{#1}
@@ -66,7 +69,7 @@ Zahl ein, verdopple diese Zahl und gebe das Ergebis aus"', während das Programm
 "`Gebe alle natürlichen Zahlen aus"' nicht hält. Im Allgemeinen ist es sehr
 schwer, einem Programm anzusehen, ob es hält oder nicht.
 
-\begin{bsp}\label{bsp:unklares-programm}Die \emph{Goldbachsche Vermutung}
+\begin{bsp}\label{bsp:unklares-programm1}Die \emph{Goldbachsche Vermutung}
 besagt, dass jede gerade Zahl
 größer als~3 die Summe zweier Primzahlen ist. Für jede
 konkrete gerade Zahl~$n$ größer als~3 kann man das leicht überprüfen, indem man
@@ -76,7 +79,7 @@ geschrieben werden kann. Noch ist die Vermutung im allgemeinen Fall aber ein
 offenes Forschungsproblem. Daher ist nicht klar, ob folgendes Programm hält
 oder nicht:
 \begin{listing}
-\item[1.] Beginne mit~$n := 4$.
+\item[1.] Beginne mit~$n \defeq 4$.
 \item[2.] Prüfe, ob~$n$ die Summe zweier Primzahlen ist.
 \item[3.] Falls ja: Erhöhe~$n$ um Zwei und gehe zurück zu Schritt~2.
 \item[4.] Falls nein: Halte.
@@ -85,13 +88,13 @@ Dieses Programm hält genau dann, wenn es ein Gegenbeispiel zur Goldbachschen
 Vermutung gibt.
 \end{bsp}
 
-\begin{bsp}Eine \emph{Fermatsche Primzahl} ist eine Primzahl der
+\begin{bsp}\label{bsp:unklares-programm2}Eine \emph{Fermatsche Primzahl} ist eine Primzahl der
 Form~$2^{(2^n)} + 1$. Die Primzahlen~$3$, $5$, $17$, $257$ und~$65537$ sind von
 diesem Typ (für~$n = 0,1,2,3,4$), aber es ist ein offenes Forschungproblem, ob
 es weitere Fermatsche Primzahlen gibt. Daher ist von folgendem Programm nicht
 klar, ob es hält:
 \begin{listing}
-\item[1.] Beginne mit~$n := 5$.
+\item[1.] Beginne mit~$n \defeq 5$.
 \item[2.] Prüfe, ob~$2^{(2^n)}$ eine Primzahl ist.
 \item[3.] Falls ja: Halte.
 \item[4.] Falls nein: Erhöhe~$n$ um Eins und gehe zurück zu Schritt~2.
@@ -116,7 +119,7 @@ Bemerkenswert an dem Theorem ist, dass es eine absolute Aussage trifft --
 Turing behauptet nicht nur, dass \emph{wir} kein solches Halteorakel kennen.
 Diese schwächere Behauptung ist auch gar nicht erstaunlich, erfordert doch im
 Allgemeinen die Lösung des Halteproblems beliebige offene mathematische
-Probleme zu lösen (Beispiel~\ref{bsp:unklares-programm}).
+Probleme zu lösen (Beispiele~\ref{bsp:unklares-programm1} und~\ref{bsp:unklares-programm2}).
 Vielmehr behauptet Turing, dass ein Halteorakel rein prinzipiell nicht
 existieren kann. Auch Außerirdische mit überlegener Technologie oder
 transzendente Wesen können kein Halteorakel programmieren.
@@ -300,7 +303,7 @@ und Informatik. Hast du eine Meinung dazu?
 Die \emph{Fleißiger-Biber-Funktion} ist eine Funktion~$\BB : \NN \to \NN$, die
 eng mit dem Halteproblem verknüpft ist. Per Definition ist~$\BB(n)$ die größte
 Anzahl Rechenschritte, die irgendein haltendes Programm mit
-Quelltextlänge~$\leq n$ macht.
+Quelltextlänge~$\leq n$ tätigt.
 
 Anders formuliert: Unter den Programmen mit Länge~$\leq n$ gibt es welche, die
 halten, und welche, die nicht halten. Unter denen, die halten, gibt es ein
@@ -321,7 +324,7 @@ prinzipieller Natur.
 
 \begin{table}[b]
   \begin{tabular}{@{}lll@{}}
-    \toprule
+%   \toprule
     $n$ & Anzahl Programme der Länge~$\leq n$ & $\BB(n)$ \\\midrule
     1 & 64 & 1 (1962) \\
     2 & 20736 & 4 (1962) \\
@@ -329,11 +332,11 @@ prinzipieller Natur.
     4 & $25{,}6 \cdot 10^9$ & 13 (1972) \\
     5 & $\approx 63{,}4 \cdot 10^{12}$ & $\geq 4098$ (1989) \\
     6 & $\approx 232 \cdot 10^{15}$ & $> 3{,}514 \cdot 10^{18267}$ (2010) \\
-    \bottomrule
+%   \bottomrule
   \end{tabular}
   \centering
   \caption{\label{tab:bb}Die bekannten Werte der Fleißiger-Biber-Funktion,
-  entnommen aus dem
+  entnommen aus ihrem
   \href{http://de.wikipedia.org/wiki/Fleißiger_Biber}{Wikipedia-Eintrag}. Mit
   \emph{Programm} ist hier \emph{Turingmaschine} und mit \emph{Länge}
   die Anzahl der Zustände gemeint.}
@@ -345,54 +348,17 @@ zurückgibt.\end{thm}
 
 \begin{aufgabeShaded}{Unberechenbarkeit der Fleißiger-Biber-Funktion}
 \label{aufg:bb}
-Beweise das Theorem, indem du folgende Argumentation ausformulierst:
+Beweise das Theorem, indem du folgende Argumentation ausformulierst. Schau dir
+erst danach den weiter unten ausgeführten Beweis an.
 
 Wenn es ein Programm gäbe, dass die Fleißiger-Biber-Funktion
 berechnen könnte, dann könnte man daraus ein Halteorakel konstruieren (wie geht
 das?). Dass es ein solches nicht gibt, wissen wir schon.
 \end{aufgabeShaded}
 
-\section{Chaitins Haltewahrscheinlichkeit}
-
-\begin{quote}
-Die Zahl~$\Omega$ verkörpert eine enorme Menge an Wissen auf sehr kleinem Raum.
-Die ersten paar Tausend Ziffern, die problemlos auf einem kleinen Stück Papier
-Platz finden könnten, enthalten die Antworten auf mehr mathematische Fragen,
-als man im ganzen Universum aufschreiben könnte.
-
-Im Laufe der Menschheitsgeschichte haben Mystiker und Philosophen nach einem
-kompakten Schlüssel zu universeller Weisheit gestrebt, einer endlichen Formel
-oder einem Text, der, wenn bekannt und verstanden, Antworten auf alle Fragen
-liefern würde. Das Studium der Bibel, des Korans oder des I~Gings, um
-Weissagungen zu treffen, illustriert diesen Glauben oder Hoffnung.
-
-Solche Quellen universeller Weisheit sind herkömmlicher Weise vor beiläufigem
-Zugriff geschützt: indem sie schwer zu finden, wenn gefunden schwierig zu
-verstehen und gefährlich zu benutzen sind, dazu neigend, mehr und
-tiefere Fragen zu beantworten als sich der Sucher wünschte. Das esoterische
-Buch ist, wie Gott, einfach und dennoch unbeschreibbar. Es ist allwissend, und
-verändert alle, die es kennen.
-
-$\Omega$ ist in vielerlei Hinsicht eine kabbalistische Zahl. Dem menschlichen
-Verstand ist sie bekannt, aber unkennbar. Um sie im Detail zu wissen, müsste
-man ihre unberechenbare Ziffernfolge als Glaubensgrundsatz akzeptieren, so wie
-die Worte eines heiligen Texts.
-\end{quote}
-
-\section{Formale Systeme und Modelle}
-
-\section{Gödels Vollständigkeitssatz und sein Unvollständigkeitssatz}
-
-
-\appendix
-
-\section{Lösungen zu Übungsaufgaben}
-
-\subsection{Lösung zu Aufgabe~\ref{aufg:bb} (Unberechenbarkeit der
-Fleißiger-Biber-Funktion)}
-
-\loesung{Angenommen, es gibt ein Programm, dass die Fleißiger-Biber-Funktion
-berechnet. Dann können wir mit dessen Hilfe ein Halteorakel programmieren.
+\begin{proof}[Beweis des Theorems]
+Angenommen, es gibt ein Programm, dass die Fleißiger-Biber-Funktion
+berechnet. Dann können wir mit dessen Hilfe wie folgt ein Halteorakel programmieren:
 \begin{listing}
 \item Lese ein Programm~$P$ als Eingabe ein.
 \item Bestimme mit dem Hilfsprogramm die Zahl~$\BB(n)$, wobei~$n$ die Länge
@@ -405,65 +371,248 @@ Dieses Halteorakel arbeitet wirklich korrekt: Denn wenn~$P$ nach~$\BB(n)$
 Rechenschritten nicht gehalten hat, wird es niemals halten -- nach Definition
 ist ja~$\BB(n)$ die Maximalzahl Rechenschritte, die ein haltendes Programm der
 Länge~$\leq n$ ausführen kann, bevor es hält.
-}
+\end{proof}
+
+
+\section{Chaitins Haltewahrscheinlichkeit}
+
+Bevor wir uns der präzisen Formulierung und des Beweises des Gödelschen
+Unvollständigkeitssatzes widmen, möchten wir noch einen Abstecher zu
+\emph{Chaitins Haltewahrscheinlichkeit}~$\Omega$ machen, einer bestimmte
+reellen mit faszinierenden Eigenschaften. In einem Artikel schrieben der
+amerikanische Physiker und Informatiker Charles Bennet~(*~1943) und der
+berühmte Wissenschaftsjournalist Martin Gardner~(*~1914, †~2010) folgendes über
+diese Zahl:\footnote{$\Omega$ embodies an enormous amount of wisdom in a very
+small space \ldots{} inasmuch as its first few thousand digits, which could be
+written on a small piece of paper, contain the answers to more mathematical
+questions than could be written down in the entire universe.
+
+Throughout history mystics and philosophers have sought a compact
+key to universal wisdom, a finite formula or text which, when known and
+understood, would provide the answer to every question. The use of the Bible,
+the Koran and the I Ching for divination and the tradition of the secret
+books of Hermes Trismegistus, and the medieval Jewish Cabala exemplify this
+belief or hope.
+
+Such sources of universal wisdom are traditionally protected from casual use
+by being hard to find, hard to understand when found, and dangerous to use,
+tending to answer more questions and deeper ones than the searcher wishes to
+ask. The esoteric book is, like God, simple yet undescribable. It is
+omniscient, and transforms all who know it.
+
+$\Omega$ is in many senses a cabalistic number. It can be known of, but not
+known, through human reason. To know it in detail, one would have to accept
+its uncomputable digit sequence on faith, like words of a sacred text.
+(C.~Bennett und M.~Gardner, "`The random number~$\Omega$ bids fair to hold
+the mysteries of the universe”', Scientific American (1979), Ausgabe 241,
+Seiten 20–-34.)}
+\begin{quote}
+Die Konstante~$\Omega$ verkörpert eine enorme Menge an Wissen auf sehr kleinem Raum.
+Die ersten paar Tausend Ziffern, die problemlos auf einem kleinen Stück Papier
+Platz finden könnten, enthalten die Antworten auf mehr mathematische Fragen,
+als man im ganzen Universum aufschreiben könnte.
+
+Im Laufe der Menschheitsgeschichte strebten Mystiker und Philosophen stets nach einem
+kompakten Schlüssel zu universeller Weisheit, einer endlichen Formel
+oder einem Text, der, wenn bekannt und verstanden, Antworten auf alle Fragen
+liefern würde; man denke nur an die Versuche, der Bibel, dem Koran oder dem I~Ging
+Weissagungen zu entlocken [\ldots].
+
+Solche Quellen universeller Weisheit sind herkömmlicherweise vor beiläufigem
+Zugriff geschützt: indem sie schwer zu finden, wenn gefunden schwierig zu
+verstehen und gefährlich zu benutzen sind, dazu neigend, mehr und
+tiefere Fragen zu beantworten als sich der Suchende wünschte. Das esoterische
+Buch ist, wie Gott, einfach und dennoch unbeschreibbar. Es ist allwissend, und
+verändert alle, die es kennen.
+
+$\Omega$ ist in vielerlei Hinsicht eine kabbalistische Zahl. Dem menschlichen
+Verstand ist sie bekannt, aber unkennbar. Um sie im Detail zu erfahren, müsste
+man ihre unberechenbare Ziffernfolge als Glaubensgrundsatz einfach hinnehmen,
+genau wie die Worte eines heiligen Texts.
+\end{quote}
+
+Angesichts dieser Auszeichnung überrascht es vielleicht, dass die Konstante~$\Omega$
+durch eine kurze Formel definiert werden kann:
+\[ \Omega \defeq \sum_p 2^{-|p|}. \]
+Das ist eine Kurzschreibweise, die ausgeschrieben für die unendliche Summe
+\[ \Omega := 2^{-|p_1|} + 2^{-|p_2|} + 2^{-|p_3|} + \cdots \]
+steht. Dabei ist~$p_1$, $p_2$, $p_3$, $\ldots$ die unendliche Liste aller
+\emph{anhaltenden Programme}, und für ein Programm~$p$ steht~"`$|p|$"' für
+seine Länge. Die Konstante~$\Omega$ errechnet sich also dadurch, indem man
+gedanklich alle anhaltenden Programme durchgeht und
+jeweils~$2^{-\text{Programmlänge}}$ addiert. Der Zahlenwert von~$\Omega$ hängt
+von der verwendeten Programmiersprache ab; wenn wir eine Definition wünschen,
+die nicht von einer solchen willkürlichen Wahl abhängt, können wir
+Turingmaschinen verwenden.
+
+Man kann zeigen, dass die unendliche Addition konvergiert, dass durch die
+Formel also wirklich genau eine reelle Zahl festgelegt wird, und dass diese
+zwischen~$0$ und~$1$ liegt.\footnote{Damit das stimmt, muss man zwei technische
+Einschränkungen treffen. Zum einen muss man Programme im Binärsystem notieren,
+Programme also durch~0/1-Folgen beschreiben. (Wenn man partout ein Alphabet
+aus mehr zwei Zeichen verwenden möchte, muss man in der Definition von~$\Omega$
+etwa~$26^{-|p|}$ statt~$2^{-|p|}$ schreiben.) Zum anderen muss die
+verwendete Programmiersprache \emph{präfixfrei} sein. Das bedeutet, dass man an
+ein syntaktisch korrektes Programm keine weiteren Zeichen anhängen kann, ohne
+Syntaxfehler zu verursachen. Beide Einschränkungen spielen im Folgenden aber
+kaum eine Rolle.} Die Bezeichnung als \emph{Haltewahrscheinlichkeit} erklärt
+sich dadurch, als dass~$\Omega$ gerade die Wahrscheinlichkeit ist, dass ein
+willkürzlich gezogenes Programm hält.
+
+
+\subsection{Unberechenbarkeit und Unkennbarkeit}
+
+Inwiefern sind in~$\Omega$ Antworten auf unzählige mathematische Fragen
+enthalten? Darüber gibt die folgende Proposition Auskunft. Um ihre volle
+Tragweite würdigen zu können, erinnern wir uns daran, dass wir viele
+bedeutende Forschungsprobleme als Fragen der Form "`Hält folgendes Programm?"'
+ausdrücken können (Beispiele~\ref{bsp:unklares-programm1}
+und~\ref{bsp:unklares-programm2}).
+
+\begin{prop}Kennen wir die ersten~$N$ Nachkommaziffern von~$\Omega$ im
+Binärsystem, so können wir das Halteproblem für alle Programme der Länge~$\leq
+N$ lösen, also für jedes solche Programm in endlicher Zeit entscheiden, ob es
+hält oder nicht.\end{prop}
+\begin{proof}Wir machen eine Liste aller Programme der Länge~$\leq N$. Das wird
+eine sehr lange, aber endliche Liste. Dann lassen wir all diese Programme
+in verzahnter Art und Weise laufen: Wir erlauben jedem Programm, einige
+Rechenschritte zu tätigen; danach ist das nächste Programm an der Reihe. Nach
+dem letzten Programm auf der Liste kommt wieder das erste an der Reihe.
+
+Im Laufe der Zeit werden immer mehr Programme anhalten. Immer, wenn das
+passiert, notieren wir uns die Zahl~$2^{-\text{Länge dieses
+Programms}}$. Die Summe dieser Zahlen wird immer weiter anwachsen und sich von
+unten der Konstante~$\Omega$ annähern. Sobald diese Summe größer oder gleich
+als die als bekannt vorausgesetzte untere Schranke für~$\Omega$ (gegeben durch
+die ersten~$N$ Binärziffern) ist, brechen wir alle noch laufenden Programme ab
+und ziehen folgende Bilanz:
+
+Alle Programme, die bis zu diesem Zeitpunkt noch nicht angehalten haben, werden
+niemals anhalten. Denn diese würden in der Summe die ersten~$N$
+Nachkommaziffern beeinflussen. So wissen wir also nun von allen Programmen der
+Länge~$\leq N$, ob sie halten oder nicht.
+\end{proof}
+
+Die Konstante~$\Omega$ ist also ein Beispiel für eine \emph{unberechenbare
+Zahl} -- es kann aus prinzipiellen Gründen kein Programm geben, dass ihre
+Nachkommaziffern berechnet. Das unterscheidet sie von anderen wichtigen
+Konstanten wie~$\pi$ und~$e$, für die viele Programme zu ihrer Berechnung
+bekannt sind.
+
+Es kommt aber noch schlimmer: Die Ziffern von~$\Omega$ sind nicht nur durch
+Programme unberechenbar, sie entziehen sich in einem gewissen Sinn auch allen
+anderen Arten der Erkenntnis; das ist, was Bennet und Gardner als
+\emph{unkennbar} bezeichnet haben. Die genaue Aussage enthält das folgende
+Theorem. Leider übersteigt sein Beweis etwas unsere technischen Mittel.
+
+\begin{thm}Zu jedem formalen System gibt es eine Schranke~$N$, sodass für
+alle~$n \geq N$ die Aussagen~"`$\Omega$ hat als~$n$-te Nachkommaziffer eine
+Null"' und~"`$\Omega$ hat als~$n$-te Nachkommaziffer eine Eins"' in dem System
+weder bewiesen noch widerlegt werden können.
+\end{thm}
+
+Wenn wir, auf welche Art und Weise auch immer, von den Nachkommaziffern
+von~$\Omega$ erfahren würden, könnten wir diese Erkenntnis also nicht beweisen.
+
+
+\subsection{Informationsgehalt und Zufall}
+
+Die Konstante~$\Omega$ hat eine weitere wundersame Eigenschaft: Ihre
+Ziffern sind \emph{Zufallsdaten}. Das ist natürlich nicht wörtlich zu verstehen
+-- $\Omega$ ist eine präzise eindeutig definierte Zahl -- aber in einem
+gewissen Sinn stimmt es doch. Um das einzusehen, müssen wir uns klarmachen, was
+eine \emph{zufällige Ziffernfolge} überhaupt ist. Das ist nicht ganz einfach!
+Eine erste Idee, Zufall zu charakterisieren, ist folgende:
+
+\begin{defn'}Eine Ziffernfolge heißt genau dann \emph{zufällig}, wenn in ihr alle
+Ziffern im Mittel gleich oft vorkommen.\end{defn'}
+
+Nach dieser Definition würde aber auch die völlig regelmäßige und anschaulich
+überhaupt nicht zufällige Ziffernfolge~$01234567890123456789\ldots$ als
+zufällig gelten. Etwas besser ist folgende Definition.
+
+\begin{defn'}Eine Ziffernfolge heißt genau dann \emph{zufällig}, wenn in ihre alle
+Ziffern, alle Ziffernpaare, alle Zifferntripel und so weiter im Mittel gleich
+oft vorkommen.\end{defn'}
+
+Damit gilt~$01234567890123456789\ldots$ nicht mehr als zufällig, denn zum
+Beispiel kommt das Ziffernpaar~$00$ überhaupt nicht vor. Allerdings ordnet auch
+diese Definition Zahlenfolgen falsch ein, denn die \emph{Champernowne-Folge}
+$0123456789101112131415161718192021\ldots$ ist offensichtlich nicht zufällig,
+sie erfüllt aber das statistische Kriterium der Definition. Andererseits gibt
+es auch Folgen, die anschaulich zufällig sind, das Kriterium aber nicht
+erfüllen. Notieren wir etwa die Augenzahlen eines fairen Würfels in einer
+Folge, so kommen in dieser Folge gewiss nicht alle Ziffern gleich oft vor --
+die Ziffern~$0$, $7$, $8$ und~$9$ kommen überhaupt nicht vor.
+
+Um eine wirklich nützliche Definition von Zufälligkeit zu erhalten, sollten wir
+daher Abstand von statistischen Anforderungen nehmen und eher einen
+\emph{informationstheoretischen Standpunkt} einnehmen: Lässt sich die
+regelmäßige Struktur einer Ziffernfolge in wenigen Worten beschreiben, so
+schätzen wir sie als eher unzufällig ein; ist dagegen die einzige Möglichkeit,
+die Ziffernfolge zu beschreiben, die, schlichtweg die Ziffern nacheinander
+aufzuzählen, so erachten wir sie als zufällig. Im ersten Fall sprechen wir von
+einem niedrigen \emph{Informationsgehalt}, im zweiten von einem hohen.
+
+\begin{figure}[b]
+  \hfill
+  \includegraphics[width=0.4\textwidth]{fraktal1}\hfill
+  \includegraphics[width=0.4\textwidth]{fraktal2}\hfill
+  \centering
+  \caption{\label{fig:fraktale}Wer interaktiv in Fraktale dieser Art
+  untersuchen möchte, kann sich das freie Programm XaoS herunterladen. \newline
+  {\tiny
+  \url{http://www.dvice.com/sites/dvice/files/Fractal3.jpg}
+  \url{http://upload.wikimedia.org/wikipedia/commons/8/8b/Fractal_KRkr_City1_5600.jpg}}}
+\end{figure}
+
+\begin{defn}Der \emph{Informationsgehalt} einer Ziffernfolge ist die Länge des
+kürzesten Programms, das diese Ziffernfolge berechnet und ausgibt.\end{defn}
+
+Wir können hier auch an \emph{Beschreibungen durch deutsche Texte} statt an
+Programme denken, solange wir nur klare und verständliche Beschreibungen
+akzeptieren -- sonst wird, wie bei Berrys Paradoxon, die Definition
+widersprüchlich.
+
+\begin{defn}Eine Ziffernfolge heißt genau dann \emph{zufällig}, wenn ihr
+Informationsgehalt nicht deutlich kleiner als ihre Länge ist.\end{defn}
+
+Diese Definition lässt sich nicht austricksen. Zum Beispiel erscheint die
+aus~325 Ziffern bestehende Folge
+\begin{quote}
+89793238462643383279502884197169399375105820974944592307816406286 \\
+20899862803482534211706798214808651328230664709384460955058223172 \\
+53594081284811174502841027019385211055596446229489549303819644288 \\
+10975665933446128475648233786783165271201909145648566923460348610 \\
+45432664821339360726024914127372458700660631558817488152092096282
+\end{quote}
+
+auf den ersten Blick völlig unregelmäßig. Tatsächlich aber handelt es sich
+einfach um die Nachkommaziffern von~$\pi$ ab der elften Stelle, ihr
+Informationsgehalt ist also viel geringer als~325. Ähnlich verhält es sich mit
+den Grafiken in Abbildung~\ref{fig:fraktale}: Wegen ihrer filigranen Struktur könnte man denken, dass
+eine präzise Beschreibung dieser Grafiken viel Platz in Anspruch nimmt.
+Tatsächlich sind es aber mathematische Fraktale, die schon durch eine kurze
+Formel und die Angabe von Koordinaten eindeutig bestimmt sind.
+
+\begin{thm}Die Ziffern von~$\Omega$ sind zufällig.\end{thm}
+\begin{proof}[Beweisskizze]Wir haben schon gesehen, dass~$\Omega$ unberechenbar
+ist. Ein Programm, dass die ersten~$N$ Nachkommaziffern von~$\Omega$ ausgibt,
+kann also die Ziffern nicht auf eine clevere Art und Weise berechnen, sondern
+muss sie schon im Quelltext gespeichert haben. Also muss der Quelltext in etwa
+selbst schon die Länge~$N$ haben.
+\end{proof}
+
+
+\section{Formale Systeme und Modelle}
+
+\section{Gödels Vollständigkeitssatz und sein Unvollständigkeitssatz}
 
 \end{document}
 
+XXX: Das Ende des Beweises über die Nützlichkeit der ersten N Binärziffern von
+Omega lässt sehr zu wünschen übrig.
 
-=== Chaitins Haltewahrscheinlichkeit
-
-* Zitat (C. H. Bennett)
-
-  Omega comes from the Chaitin Omega Number, that "embodies an enormous amount
-  of wisdom in a very small space ... inasmuch as its first few thousand
-  digits, which could be written on a small piece of paper, contain the answers
-  to more mathematical questions than could be written down in the entire
-  universe.
-  
-  Throughout history mystics and philosophers have sought a compact
-  key to universal wisdom, a finite formula or text which, when known and
-  understood, would provide the answer to every question. The use of the Bible,
-  the Koran and the I Ching for divination and the tradition of the secret
-  books of Hermes Trismegistus, and the medieval Jewish Cabala exemplify this
-  belief or hope.
-  
-  Such sources of universal wisdom are traditionally protected from casual use
-  by being hard to find, hard to understand when found, and dangerous to use,
-  tending to answer more questions and deeper ones than the searcher wishes to
-  ask. The esoteric book is, like God, simple yet undescribable. It is
-  omniscient, and transforms all who know it.
-
-  Omega is in many senses a cabalistic number. It can be known of, but not
-  known, through human reason. To know it in detail, one would have to accept
-  its uncomputable digit sequence on faith, like words of a sacred text.
-
-* Omega := sum_p 2^{-|p|}
-
-* Kennt man die ersten N Bits von Omega, so kann man das Halteproblem für
-  alle Programme der Länge <= N lösen:
-
-  * Lasse alle Programme dieser Länge in verzahnter Art und Weise ablaufen.
-  * Gelegentlich halten solche simulierten Programme an.
-  * Warte so lange, bis sum_{p bis jetzt gehalten} 2^{-|p|} >= bekannte
-    untere Schranke für Omega. (Das dauert nur endlich lange.)
-  * Hat das gegebene Programm bis jetzt gehalten?
-    Wenn ja: Es hält.
-    Wenn nein: Es wird nie halten. Denn wenn doch, dann
-
-        Omega >= sum_{bis jetzt} + 2^{-|p_0|} >= Omega + ... > Omega, Widerspruch.
-
-* Diskussion des Zufallscharakters von Omega: Programme, die die ersten N
-  Stellen von Omega ausgeben, können nicht kurz sein. (Anders als bei pi und
-  Konsorten!)
-
-  Motivieren durch:
-  * Bilder von Fraktalen
-    http://www.dvice.com/sites/dvice/files/Fractal3.jpg
-    http://upload.wikimedia.org/wikipedia/commons/8/8b/Fractal_KRkr_City1_5600.jpg
-  * Bild einer Ziffernfolge, die systematisch aufgebaut ist
-  * Bild einer zufälligen Ziffernfolge (ha!)
-
-* Diskussion der Flüchtigkeit von Omega: Kann Aussagen über Ziffern nicht beweisen.
 
 * Unbedingt referenzieren:
   Grenzen der Mathematik: Eine Reise durch die Kerngebiete der mathematischen
