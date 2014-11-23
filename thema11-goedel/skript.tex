@@ -29,6 +29,7 @@
 
 \theoremstyle{remark}
 \newtheorem{bem}[defn]{Bemerkung}
+\newtheorem{warnung}[defn]{Warnung}
 \newtheorem{aufg}[defn]{Aufgabe}
 
 \definecolor{darkred}{rgb}{0.7,0,0}
@@ -41,6 +42,7 @@
 
 \newcommand{\BB}{\mathrm{BB}}
 \newcommand{\defeq}{\vcentcolon=}
+\newcommand{\ol}[1]{\overline{#1}}
 
 %\newcommand{\loesung}[1]{\rotatebox{180}{\vbox{#1}}}
 \newcommand{\loesung}[1]{#1}
@@ -605,6 +607,70 @@ selbst schon die Länge~$N$ haben.
 
 
 \section{Formale Systeme und Modelle}
+
+Ein \emph{formales System} gibt Axiome und logische Schlussregeln vor.
+
+\begin{bsp}Das formale System \emph{Peano-Arithmetik} (PA) hat als Axiome:
+\begin{itemize}
+\item Es gibt eine Zahl $\ol{0}$.
+\item Jede Zahl~$n$ besitzt einen und nur einen Nachfolger~$S(n)$.
+\item Sind~$n$ und~$m$ Zahlen mit gleichem Nachfolger, so sind~$n$ und~$m$
+selbst schon gleich.
+\item Die Zahl~$\ol{0}$ ist kein Nachfolger einer Zahl.
+\item $n + \ol{0} \defeq n$.
+\item $n + S(m) \defeq S(n+m)$.
+\item $\ol{1} \defeq S(\ol{0})$, $\ol{2} \defeq S(S(\ol{0}))$, $\ol{3} \defeq S(S(S(\ol{0})))$, $\ol{4} \defeq
+S(S(S(S(\ol{0}))))$, \ldots
+\end{itemize}
+Dazu kommen noch einige weitere, insbesondere das wichtige
+\emph{Induktionsaxiom}.
+\end{bsp}
+
+In dem, was kommt, dürfen wir keinesfalls die \emph{Objektebene} mit der
+\emph{Metaebene} verwechseln. Seit Kindesbeinen an kennen wir die gewohnten
+natürlichen Zahlen; diese schreiben wir ganz normal, ohne Überstriche:
+$0,1,2,\ldots$ Diese natürlichen Zahlen gehören zur Metaebene.
+
+Die Axiome der Peano-Arithmetik sind ein Versuch, unsere Intuition über die
+natürlichen Zahlen einzufangen und ihren wesentlichen Kern herauszuarbeiten.
+Dabei haben die in den Axiomen verwendeten Symbole~"`$\ol{0}$"', "`$\ol{1}$"'
+usw. der Objektebene zunächst \emph{keine inhaltliche Bedeutung}. Insbesondere
+beziehen sie sich nicht auf die gewohnten natürlichen Zahlen. Um diesen
+Unterschied nicht zu vergessen, notieren wir diese Symbole daher mit einem
+Überstrich.
+
+In einem gegebenen formalen System kann man \emph{formale Beweise} führen. Das
+sind Beweise, die nur die durch das System vorgegebenen Axiome und
+Schlussregeln verwenden.
+
+\begin{bsp}In PA geht ein Beweis der Behauptung~$\ol{2} + \ol{2} = \ol{4}$ wie folgt:
+\[
+  \ol{2} + \ol{2} = \ol{2} + S(S(\ol{0})) = S(\ol{2} + S(\ol{0})) = S(S(\ol{2} + \ol{0})) = S(S(\ol{2})) = S(S(S(S(\ol{0})))) = \ol{4}.
+\]
+\end{bsp}
+
+\begin{aufgabeShaded}{Formale Beweise in Peano-Arithmetik}
+\begin{enumerate}
+\item Vollziehe den formalen Beweis, dass~$\ol{2} + \ol{2} = \ol{4}$ ist, im Detail nach. Welches
+Axiom wird in welchem Schritt verwendet?
+\item Die Axiome für die Multiplikation lauten
+\begin{align*}
+  n \cdot \ol{0} &:= \ol{0}, \\
+  n \cdot S(m) &:= n \cdot m + n.
+\end{align*}
+Führe mit diesen Axiomen einen formalen Beweis der Behauptung~$\ol{2} \cdot \ol{2} = \ol{4}$.
+\end{enumerate}
+\end{aufgabeShaded}
+
+\begin{warnung}Für uns sind die gewohnten natürlichen Zahlen \emph{nicht} durch
+die Peano-Axiome definiert. Wir setzen stattdessen voraus, dass wir aus der
+Schule und der Erfahrung einen intuitiven Zugang zu natürlichen Zahlen haben.
+Wenn man damit nicht einverstanden ist -- etwa, da man das informal erachtet --
+muss man die Diskussion in diesem Abschnitt ihrerseits in einem bestimmten formalen
+System interpretieren. Irgendwo aber muss man beginnen! Man kommt nicht umhin,
+\emph{Metalogik} vorauszusetzen.
+\end{warnung}
+
 
 \section{Gödels Vollständigkeitssatz und sein Unvollständigkeitssatz}
 
