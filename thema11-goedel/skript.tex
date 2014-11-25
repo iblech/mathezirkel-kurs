@@ -8,6 +8,7 @@
 \restylefloat{table}
 \let\raggedsection\centering
 \newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
 
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}[section]
@@ -670,6 +671,31 @@ muss man die Diskussion in diesem Abschnitt ihrerseits in einem bestimmten forma
 System interpretieren. Irgendwo aber muss man beginnen! Man kommt nicht umhin,
 \emph{Metalogik} vorauszusetzen.
 \end{warnung}
+
+Ein \emph{Modell} eines formalen Systems ist eine Struktur, in der die Axiome
+und Schlussregeln des Systems tatsächlich erfüllt sind. Zum Beispiel bilden die
+gewöhnlichen natürlichen Zahlen ein Modell von Peano-Arithmetik, wenn
+man~$\ol{0}$ als~$0$, $\ol{1}$ als~$1$, und so weiter, interpretiert.
+
+Kein Modell von Peano-Arithmetik bilden die ganzen Zahlen~$\ZZ = \{
+\ldots,-2,-1,0,1,2,\ldots \}$. Denn dort ist die Zahl~$0$ durchaus ein
+Nachfolger einer anderen Zahl (nämlich der Zahl~$-1$).
+
+\begin{aufgabeShaded}{Ein Nichtstandardmodell von Peano-Arithmetik}
+Man kann beweisen, dass Peano-Arithmetik neben den gewöhnlichen natürlichen
+Zahlen noch viele weitere Modelle besitzt: Strukturen, die wie die natürlichen
+Zahlen auch die Peano-Axiome erfüllen, aber nicht äquivalent zu den natürlichen
+Zahlen sind. Eines dieser Modelle umfasst die gewöhnlichen natürlichen Zahlen,
+enthält zusätzlich aber auch eine spezielle Zahl~$\lambda$, über die
+folgendes bekannt ist: $\lambda$ ist größer als~10, größer als~100, größer
+als~1000, und allgemein größer als jede gewöhnliche natürliche Zahl.
+
+Versuche, dir ein möglichst gutes Bild dieses wundersamen Modells zu machen!
+Die Zahl~$\lambda$ steht \emph{rechts} vom gewöhnlichen Zahlenstrahl; aber
+zusätzlich zu~$\lambda$ gibt es auch~$S(\lambda)$, $S(S(\lambda))$, und so
+weiter. Außerdem muss es auch einen Vorgänger von~$\lambda$ geben. Kannst du
+auf diese Weise weiter denken?
+\end{aufgabeShaded}
 
 
 \section{Gödels Vollständigkeitssatz und sein Unvollständigkeitssatz}
