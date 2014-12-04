@@ -700,6 +700,103 @@ auf diese Weise weiter denken?
 
 \section{Gödels Vollständigkeitssatz und sein Unvollständigkeitssatz}
 
+\subsection{Der Unvollständigkeitssatz}
+
+Grob formuliert besagt der Unvollständigkeitssatz: Es gibt Aussagen -- so
+genannte \emph{Gödel-Sätze}, die wahr, aber unbeweisbar sind. Das hört sich
+fantastisch, aber auch etwas seltsam an. Denn wie sollten wir denn von der
+Wahrheit dieser Gödel-Sätze überzeugt sein, wenn nicht durch einen Beweis?
+
+Die Verwirrung löst sich bei präzisen Formulierungen des
+Unvollständigkeitssatzes aus. Eine solche lautet wie folgt.
+
+\begin{thm}[Gödels Unvollständigkeitssatz]In jedem formalen System, das
+\begin{enumerate}
+\item effektiv axiomatisierbar ist,
+\item Peano-Arithmetik umfasst und
+\item korrekt ist,
+\end{enumerate}
+gibt es Aussagen, die im intendierten Modell wahr sind, aber keinen Beweis
+innerhalb des Systems zulassen.
+\end{thm}
+
+Dabei bedeutet \emph{effektiv axiomatisierbar}, dass die Axiome und
+Schlussregeln des Systems von so einfacher Form sind, dass ein Computerprogramm
+(eine Turingmaschine) mit ihnen umgehen kann. Das bedeutet insbesondere, dass
+man ein Programm schreiben kann, das nacheinander alle möglichen Versuche
+formaler Beweise durchgeht, jeweils prüft, ob sie korrekte Beweise innerhalb des
+Systems darstellen und wenn ja die durch sie bewiesene Aussage ausgeben. So
+erhält man also ein Programm, dass nacheinander alle beweisbaren (und keine
+unbeweisbaren) Aussagen ausgibt.
+
+Die Forderung, dass ein formalen System effektiv axiomatisierbar sein soll, ist
+vernünftig. Denn ein formales System soll ja aus wenigen und einfachen
+Grundbausteinen bestehen. Ein System, indem man nur mit Mühe entscheiden
+könnte, ob ein vorliegender Beweisversuch überhaupt korrekt ist, hat keinen
+großen Wert.
+
+Die zweite Forderung, \emph{Peano-Arithmetik zu umfassen}, bedeutet, dass das
+System insbesondere die Axiome und Schlussregeln von Peano-Arithmetik enthält
+und daher über Eigenschaften von Zahlen sprechen kann. Das erwartet man von
+jedem formalen System, das eine Grundlage für unser gesamtes mathematisches
+Wissen sein möchte. Es gibt aber auch interessante Systeme, die mit
+Peano-Arithmetik und Zahlen nichts am Hut haben; auf solche bezieht sich Gödels
+Unvollständigkeitssatz nicht.
+
+Schließlich ist mit \emph{Korrektheit} eines formalen Systems gemeint, dass
+jede Aussage, die im System formal beweisbar ist, auch tatsächlich im
+angedachten (intendierten) Modell wahr ist. Das ist etwa bei
+Peano-Arithmetik der Fall. Indem man unsinnige Axiome hinzufügt, kann man aber
+auch leicht formale Systeme konstruieren, die nicht korrekt sind. Solche Axiome
+könnten zum Beispiel sein: "`Die Null ist kein Nachfolger einer Zahl, und
+gleichzeitig ist die Null schon ein Nachfolger einer Zahl."' Oder auch: "`Das
+Doppelte einer jeden Zahl ist Null."' Beide Aussagen sind in den gewöhnlichen
+natürlichen Zahlen nicht erfüllt.
+
+Mit unseren Vorarbeiten zur Berechenbarkeitstheorie sind wir nun gerüstet, um
+einen Beweis von Gödels Unvollständigkeitssatz zu führen. Dabei sollten wir
+besonderes Augenmerk darauf richten, wo die drei Voraussetzungen eine Rolle
+spielen.
+
+\begin{proof}[Beweis von Gödels Unvollständigkeitssatz]
+Sei ein effektiv axiomatisierbares, Peano-Arith\-me\-tik umfassendes und
+korrekte System gegeben. Wir wollen die Annahme, es sei außerdem
+\emph{vollständig}, das heißt, dass jede im angedachten Modell wahre Aussage
+auch einen formalen Beweis im System besitze, zu einem Widersprüch führen.
+
+Dazu fixieren wir irgendeine Funktion~$f : \NN \to \{0,1\}$, welche nicht
+berechenbar ist. Im Abschnitt über das Halteproblem haben wir gelernt, dass es
+solche Funktionen gibt; zum Beispiel könnten wir die Funktion
+\[ f(n) = \begin{cases}1, & \text{falls das~$n$-te Programm hält,} \\
+0, & \text{sonst,}\end{cases} \]
+betrachten. Wir behaupten nun, dass unter der getätigten Annahme diese Funktion
+paradoxerweise doch berechenbar ist, und zwar durch den folgenden Algorithmus.
+Das zeigt dann den gewünschten Widerspruch.
+\begin{listing}
+\item Lese eine Zahl~$n$ als Eingabe ein.
+\item Generiere nacheinander alle beweisbaren Aussagen des formalen Systems.
+\item Wenn dabei die Aussage "`$f(n) = 0$"' auftritt: Beende mit der
+Meldung~"`$0$"'.
+\item Wenn dabei die Aussage "`$f(n) = 1$"' auftritt: Beende mit der
+Meldung~"`$1$"'.
+\end{listing}
+Dieser Algorithmus berechnet wirklich die Funktion~$f$, denn das untersuchte
+formale System ist korrekt. Das hat zur Folge, dass wenn es im System einen
+Beweis der Aussage~"`$f(n) = 0$"' (bzw.~"`$f(n) = 1$"') gibt, dann auch
+tatsächlich~$f(n) = 0$ (bzw.~$f(n) = 1$) der Fall ist.
+
+Außerdem hält dieser Algorithmus bei jeder beliebigen Eingabe nach endlicher
+Zeit an. Denn wir nehmen ja an, dass jede wahre Aussage im formalen System auch
+beweisbar ist. Da entweder~$f(n) = 0$ oder~$f(n) = 1$ wahr ist, muss daher eine
+dieser beiden Aussagen auch einen Beweis besitzen.
+\end{proof}
+
+\begin{aufgabeShaded}{Die Voraussetzung nach Umfassung von Peano-Arithmetik}
+Auch die Voraussetzung, dass das untersuchte formale System Peano-Arithmetik
+umfasst, geht -- etwas versteckt -- in den Beweis von Gödels
+Unvollständigkeitssatz ein. Siehst du, wo?
+\end{aufgabeShaded}
+
 \end{document}
 
 XXX: Das Ende des Beweises über die Nützlichkeit der ersten N Binärziffern von
