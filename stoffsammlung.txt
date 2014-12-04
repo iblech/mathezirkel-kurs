@@ -77,6 +77,8 @@ Quantenprogrammierung
 
 Primzahlen, Primzahlsatz, Zeta-Funktion, ...
 
+Buffonsche Nadelproblem
+
 
 --- explizit genannt (beim dritten Treffen)
 
