@@ -5,3 +5,5 @@
 *.toc
 *.snm
 *.nav
+*.hi
+*.o

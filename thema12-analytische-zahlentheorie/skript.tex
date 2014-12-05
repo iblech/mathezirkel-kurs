@@ -1,14 +1,10 @@
 \documentclass[twoside]{../zirkelblatt1415}
 \usepackage{mathtools}
 \usepackage{wrapfig}
-\usepackage{float}
+\usepackage{tabto}
 \usepackage{booktabs}
-\floatstyle{ruled}
-\restylefloat{figure}
-\restylefloat{table}
+\usepackage{relsize}
 \let\raggedsection\centering
-\newcommand{\RR}{\mathbb{R}}
-\newcommand{\ZZ}{\mathbb{Z}}
 
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}[section]
@@ -41,18 +37,22 @@
   \renewcommand{\labelenumi}{\theenumi.}
   \begin{enumerate}\itemsep0em}{\end{enumerate}}
 
-\newcommand{\BB}{\mathrm{BB}}
 \newcommand{\defeq}{\vcentcolon=}
-\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\prim}[1]{\text{\textnormal{$#1$ prim}}}
+\newcommand{\bigsum}{\mathop{\mathlarger{\mathlarger{\sum}}}}
+\newcommand{\bigprod}{\mathop{\mathlarger{\mathlarger{\prod}}}}
 
-%\newcommand{\loesung}[1]{\rotatebox{180}{\vbox{#1}}}
-\newcommand{\loesung}[1]{#1}
+\usepackage{mathpazo}
 
 \begin{document}
 
 \maketitleCustom{Klassen 10/11/12}{\textbf{\textsf{%
   Analytische Zahlentheorie \\
   \normalsize Zirkelzettel vom 5. Dezember 2014}}}
+
+\begin{center}
+\includegraphics[angle=90]{zeta-function-complex}
+\end{center}
 
 {\renewcommand{\addvspace}[1]{\vskip0.6em}
 \tableofcontents%
@@ -80,23 +80,23 @@ fortfahren.
 
 Die Eindeutigkeitsaussage ist interessanter (Aufgabe~\ref{aufg:eindt}).\end{proof}
 
-\begin{aufgabeShaded}{Primfaktorzerlegung der Eins}
+\begin{aufgabe}{Primfaktorzerlegung der Eins}
 Der Fundamentalsatz der Arithmetik behauptet, dass sich \emph{jede} positive
 natürliche Zahl in Primfaktoren zerlegen lässt. Die Zahl~$1$ ist auch eine
 solche positive natürliche Zahl. Siehst du, wie sich diese zerlegen lässt?
 
-\emph{Hinweis:} Das ist etwas versteckt. Beachte, dass~$1$ keine Primzahl ist.
-\end{aufgabeShaded}
+\emph{Hinweis.} Das ist etwas versteckt. Beachte, dass~$1$ keine Primzahl ist.
+\end{aufgabe}
 
-\begin{aufgabeShaded}{Soll Eins eine Primzahl sein?}
+\begin{aufgabe}{Soll Eins eine Primzahl sein?}
 Es gibt ein gutes mathematisches Argument, wieso es sinnvoll ist, die Eins
 nicht als Primzahl zu definieren. Finde es!
 
-\emph{Tipp:} Denke an die Eindeutigkeit der Primfaktorzerlegung. Was wäre, wenn
+\emph{Tipp.} Denke an die Eindeutigkeit der Primfaktorzerlegung. Was wäre, wenn
 man die Zahl Eins als Primzahl zulassen würde?
-\end{aufgabeShaded}
+\end{aufgabe}
 
-\begin{aufgabeShaded}{Eindeutigkeit der Primfaktorzerlegung}\label{aufg:eindt}
+\begin{aufgabe}{Eindeutigkeit der Primfaktorzerlegung}\label{aufg:eindt}
 Mit dieser Aufgabe beweisen wir, dass die Zerlegung einer Zahl in Primfaktoren
 bis auf Umordnung der Faktoren eindeutig ist. In Formeln ausgedrückt: Gilt
 \[ p_1 \cdots p_n = q_1 \cdots q_m, \]
@@ -109,18 +109,18 @@ linken Seite tritt auch genau einmal auf der rechten Seite auf und umgekehrt.
 teilt~$p$ schon~$a$ oder~$p$ teilt~$b$. In Formeln:
 \[ \text{Wenn $p \mid ab$, dann $p \mid a$ oder $p \mid b$.} \]
 
-\emph{Tipp:} Das ist gar nicht so leicht. Verwende, dass die Zahlen~$a$ und~$p$
+\emph{Tipp.} Das ist gar nicht so leicht. Verwende, dass die Zahlen~$a$ und~$p$
 irgendeinen größten gemeinsamen Teiler~$d$ haben, und dass sich dieser in der
 Form~$d = fa + gp$ für gewisse Zahlen~$f$ und~$g$ schreiben lässt. (Eine solche
 Darstellung des größten gemeinsamen Teilers heißt \emph{Bézoutdarstellung}.
 Dass es eine solche immer gibt, folgt aus dem \emph{euklidischen Algorithmus}.)
 
 \item Beweise mit dem Resultat aus Teilaufgabe~a) die Eindeutigkeitsbehauptung.
-\end{enumerate}
-\end{aufgabeShaded}
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
 
 
-\section{Irrationalität}
+\section{Die Entdeckung der Irrationalität}
 
 \begin{defn}Eine reelle Zahl~$x$ heißt genau dann \emph{rational}, wenn sie
 sich als Quotient zweier ganzer Zahlen schreiben lässt: $x = a/b$ für gewisse
@@ -128,21 +128,21 @@ ganze Zahlen~$a$ und~$b$.\end{defn}
 
 Dass nicht alle Zahlen rational sind, war eine erstaunliche Entdeckung im
 fünften Jahrhundert~v.~Chr. Manche sehen diese Erkenntnis sogar als
-Geburtsstunde der modernen Mathematik an.\footnote{Als Entdecker der
+Geburtsstunde der modernen Mathematik an. Als Entdecker der
 Irrationalität gilt der griechische Mathematiker Hippasos von Metapont. Er
 erkannte, dass der \emph{goldene Schnitt} irrational ist. Damit erschütterte er
 die Schule der Pythagoreer, denn diese waren von dem Kredo \emph{Alles ist
 Zahl} überzeugt, wobei sie mit "`Zahl"' \emph{rationale Zahl} meinten.
 Ironischerweise kam der goldene Schnitt auch noch im Erkennungszeichen der
-Pythagoreer vor, dem Pentagramm.}
+Pythagoreer vor, dem Pentagramm.
 
 \begin{thm}Die Zahl~$\sqrt{2}$ ist nicht rational.\end{thm}
 
-\begin{aufgabeShaded}{Irrationalität von Quadratwurzeln}
+\begin{aufgabe}{Irrationalität von Quadratwurzeln}
 \begin{enumerate}
 \item Beweise, dass~$\sqrt{2}$ nicht rational ist.
 
-\emph{Tipp:} Gehe nach folgendem Muster vor. Angenommen,~$\sqrt{2}$ ist doch
+\emph{Tipp.} Gehe nach folgendem Muster vor. Angenommen,~$\sqrt{2}$ ist doch
 rational. Nach Definition gibt es dann ganze Zahlen~$a$ und~$b$ mit~$\sqrt{2} =
 a/b$. Quadrieren und Umstellen zeigt~$2 b^2 = a^2$. Überlege nun, wie oft der
 Primfaktor~$2$ auf den beiden Seiten dieser Gleichung vorkommt.
@@ -152,27 +152,441 @@ ist.
 
 \item Beweise, dass für jede Zahl~$n$, in deren Primfaktorzerlegung mindestens
 eine Primzahl ungerade oft vorkommt, die Zahl~$\sqrt{n}$ nicht rational ist.
-\end{enumerate}
-\end{aufgabeShaded}
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
 
-\begin{aufgabeShaded}{Anschauliche Bedeutung von Quadratwurzeln}
+\begin{aufgabe}{Anschauliche Bedeutung von Quadratwurzeln}
 Wenn Quadratwurzeln sehr seltsame Zahlen ohne praktische Bedeutung wären,
-hätten die alten Griechen vielleicht die Entdeckung der Irrationalität nicht
-ganz so schlimm gefunden. Tatsächlich aber kommen Quadratwurzeln in der
+hätte die Entdeckung der Irrationalität vielleicht einen geringeren
+Stellenwert. Tatsächlich aber kommen Quadratwurzeln in der
 Geometrie überall vor: Finde eine geometrische Figur, deren Kantenlängen alle
 ganze Zahlen sind, sodass eine weitere eingezeichnete Hilfslinie aber
 irrationale Länge hat.
-\end{aufgabeShaded}
+\end{aufgabe}
 
 
 \section{Die Unendlichkeit der Primzahlen}
 
+Es gibt unendlich viele Primzahlen. Es ist bemerkenswert, dass wir das rigoros
+beweisen können -- obwohl wir natürlich niemals alle Primzahlen aufschreiben
+können.
 
-\section{Die riemannsche~$\zeta$-Funktion}
+\begin{thm}Zu jeder endlichen Liste von Primzahlen gibt es eine weitere
+Primzahl, die nicht in der Liste enthalten ist.\end{thm}
 
+\begin{aufgabe}{Euklids Beweis der Unendlichkeit der Primzahlen}
+\label{aufg:unendlich-euklid}
+Seien~$p_1,\ldots,p_n$ irgendwelche Primzahlen. Wir suchen eine weitere
+Primzahl, die ungleich den gegebenen Primzahlen ist. Dazu betrachten wir die
+Hilfszahl
+\[ N \defeq \prod_{i=1}^n p_i + 1 = p_1 p_2 \cdots p_{n-1} p_n + 1. \]
+\begin{enumerate}
+\item Wieso teilt keine der gegebenen Primzahlen~$p_1,\ldots,p_n$ die Zahl~$N$?
+\item Wie erhält man aus~$N$ also eine neue Primzahl, die ungleich den
+gegebenen ist?
+\end{enumerate}
+
+\emph{Bemerkung.} Euklids Argumentation wird gelegentlich auch in
+Widerspruchsbeweisen verwendet, in deren Kontext die hier definierte Zahl~$N$
+dann stets eine Primzahl ist. Im Allgemeinen ist~$N$ aber keine Primzahl. Etwa
+sind~$3 \cdot 5 + 1 = 16$ und~$2 \cdot 3 \cdot 5 \cdot 7 \cdot 11 \cdot 13 + 1
+= 30031 = 59 \cdot 509$ keine Primzahlen.
+\end{aufgabe}
+
+
+\section{Die Riemannsche~$\boldsymbol{\zeta}$-Funktion}
+
+\begin{defn}Für reelle Zahlen~$s > 1$ ist die \emph{Riemannsche
+$\zeta$-Funktion} durch folgende Formel definiert.
+\[ \zeta(s) \defeq \sum_{n=1}^\infty \frac{1}{n^s} =
+  \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \frac{1}{4^s} + \cdots \]
+\end{defn}
+
+\setlength{\wrapoverhang}{1cm}
+\setlength{\columnsep}{0.5cm}
+\begin{wrapfigure}{r}{0.25\textwidth}
+\vspace{-4em}
+\includegraphics[scale=1]{zeta-function-real}
+\end{wrapfigure}
+Die Riemannsche~$\zeta$-Funktion ist also durch eine \emph{unendliche Reihe}
+festgelegt. Je nachdem, wie schnell die Summanden einer unendlichen Reihe gegen
+Null streben, hat sie entweder einen richtigen Zahlenwert (sie
+\emph{konvergiert}), den Wert~$+\infty$ oder den Wert~$-\infty$ (sie
+\emph{divergiert bestimmt}) oder gar keinen Wert (sie \emph{divergiert
+unbestimmt}). Mit Reihen, die nicht konvergieren, kann man nicht wie gewöhnlich
+rechnen -- das soll Aufgabe~\ref{aufg:grandi} demonstrieren. Mit dem
+\emph{Integralvergleichskriterium}, das man im ersten Semester eines
+Mathe-Studiums lernt, kann man aber leicht nachweisen, dass für~$s > 1$ die
+gegebene Reihe konvergiert.
+
+Der reelle Graph der~$\zeta$-Funktion ist sehr unspektakulär. Er hat
+die Geraden~$x = 1$ und~$y = 1$ als Asymptoten.
+So unscheinbar dieser Graph und die Definition auch sein mögen, die Riemannsche~$\zeta$-Funktion
+hat eine Vielzahl kurioser Eigenschaften und ist Gegenstand vieler
+mathematischer Vermutungen. In der analytischen Zahlentheorie ist sie von
+fundamentaler Bedeutung, angewendet wird sie aber auch in Physik,
+Wahrscheinlichkeitstheorie und Statistik.
+
+\begin{itemize}
+\item Die~$\zeta$-Funktion lässt sich auch als ein zahlentheoretisches
+interessantes Produkt schreiben (Abschnitt~\ref{sect:euler-produkt}).
+\item Für~$s \to 1$ divergiert~$\zeta(s)$. Das ist eng mit der Unendlichkeit
+der Primzahlen verbunden.
+\item Es ist schwierig, geschlossene Ausdrücke für Funktionswerte
+der~$\zeta$-Funktion anzugeben. Aber beispielsweise gilt~$\zeta(2) = \pi^2/6$.
+Die Funktionswerte an allen anderen positiven geraden Zahlen~$n$ sind ebenfalls
+bekannt, sie sind wie~$\zeta(2)$ bestimmte rationale Vielfache von~$\pi^n$.
+\item Man vermutet, dass die Werte der~$\zeta$-Funktion an allen positiven
+ungeraden Zahlen (außer der Eins) irrational sind. Man weiß schon, dass zumindest unendlich
+viele dieser Werte irrational sind, und man weiß auch, dass~$\zeta(3)$
+irrational ist. Es ist aber noch nicht einmal bekannt, ob auch~$\zeta(5)$ irrational
+ist. (Kurioserweise weiß man aber, dass unter den Zahlen~$\zeta(5)$,
+$\zeta(7)$, $\zeta(9)$ und~$\zeta(11)$ mindestens eine irrational sein muss.)
+\item Obwohl die definierende Formel nur für~$s > 1$ konvergiert, lässt sich
+die~$\zeta$-Funktion auf den Bereich~$s < 1$ und sogar auf \emph{alle komplexen
+Zahlen} ungleich~$1$ fortsetzen.
+\item Die Werte der~$\zeta$-Funktion an allen negativen ganzen Zahlen sind
+bekannt. Bei allen negativen geraden Zahlen hat sie Nullstellen, die so
+genannten \emph{trivialen Nullstellen der~$\zeta$-Funktion}.
+\item Es ist bekannt, dass alle weiteren Nullstellen in den komplexen Zahlen
+Realteil zwischen~$0$ und~$1$ (jeweils ausgeschlossen) haben.
+\item Man vermutet, dass diese so genannten \emph{nichttrivialen Nullstellen}
+sogar alle Realteil genau~$1/2$ haben. Das besagt die berühmte \emph{Riemannsche
+Vermutung}.
+\item Die Riemannsche Vermutung ist eng verwandt mit der Verteilung der
+Primzahlen und der Goldbachschen Vermutung. Eine lange Liste von Konsequenzen
+der Riemannschen Vermutung gibt es auf
+\url{http://mathoverflow.net/questions/17209/consequences-of-the-riemann-hypothesis}.
+\end{itemize}
+
+\begin{aufgabe}{Eine einfache konvergente Reihe}\label{aufg:konvergente-reihen}
+\begin{enumerate}
+\item Was ergibt~$1 + 0{,}1 + 0{,}01 + 0{,}001 + \cdots$?
+\item Was ergibt~$1 + 0{,}1_2 + 0{,}01_2 + 0{,}001_2 + \cdots$, wenn man die
+Summanden im Binärsystem liest?
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
+
+\begin{aufgabe}{Grandis Reihe}\label{aufg:grandi}
+Sei~$s \defeq 1 - 1 + 1 - 1 + \cdots$. Diese Reihe divergiert, man kann mit ihr
+nicht wie gewöhnlich rechnen. Das sollen die folgenden Teilaufgaben
+illustrieren. Die Reihe ist nach dem italienischen Mathematiker und
+Geistlichen Guido Grandi (*~1671, †~1742) benannt.
+\begin{enumerate}
+\item Fasse die ersten beiden Summanden zusammen, dann die zweiten beiden, die
+dritten beiden, und so weiter. Welches Ergebnis erhält man auf diese Art und
+Weise für~$s$?
+\item Lass den ersten Summanden vorne stehen, fasse dann aber den zweiten und
+dritten Summanden zusammen, den vierten und fünften, und so weiter. Was
+ist nun das Ergebnis?
+\item Wie muss man die Summanden zusammenfassen, um deine Lieblingszahl als
+Ergebnis zu erhalten?
+\item Finde einen Weg, um die Gleichung~$1 - s = s$ nicht unplausibel zu
+finden. Welchen Wert hat~$s$ dieser Gleichung zufolge?
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
+
+
+\section{Die Eulersche Produktformel}\label{sect:euler-produkt}
+
+\begin{thm}Für alle~$s > 1$ gilt die Identität
+\[ \zeta(s) = \prod_{\substack{p\\\prim{p}}} \frac{1}{1 - p^{-s}} =
+  \frac{1}{1 - 2^{-s}} \cdot \frac{1}{1 - 3^{-s}} \cdot \frac{1}{1 - 5^{-s}} \cdots. \]
+\end{thm}
+Diese Beziehung ist aus mehreren Gründen bemerkenswert. Zunächst einmal ist es
+eine Seltenheit, dass sich eine \emph{Summe} (die linke Seite der Gleichung)
+auch als ein (nichttriviales) \emph{Produkt} schreiben lässt. Zudem noch gehen
+in die rechte Seite die Primzahlen ein, beim bloßen Anblick der Formel für
+die~$\zeta$-Funktion würde man das nicht vermuten.
+
+Für den Beweis benötigen wir die Formel für die \emph{geometrische Reihe}
+(Aufgabe~\ref{aufg:geometrische-reihe}),
+\[ \sum_{m = 0}^\infty x^m = 1 + x + x^2 + x^3 + \cdots = \frac{1}{1 - x}, \]
+und die Potenzgesetze~$x^{-a} = 1/x^a$ sowie~$(x^a)^b = x^{ab}$.
+
+\begin{proof}Wir beginnen mit der rechten Seite der Gleichung. Der Bruch passt
+auf die Formel für die geometrische Reihe, deswegen gilt
+\begin{align*}
+  \prod_{\substack{p\\\prim{p}}} \frac{1}{1 - p^{-s}} &=
+  \prod_{\substack{p\\\prim{p}}} \left(1 + p^{-s} + (p^2)^{-s} + \cdots\right).
+\end{align*}
+Wenn wir dieses unendliche Produkt ausmultiplizieren, erhalten wir
+die Summe über alle Zahlen der Form~$1/t^s$, wobei~$t$ alle Möglichkeiten,
+beliebig viele Primzahlen aufzumultiplizieren, durchläuft. Da sich nach dem
+Fundamentalsatz der Arithmetik jede positive natürliche Zahl auf genau eine Art
+und Weise als Produkt von Primzahlen schreiben lässt, erhalten wir also die
+Summe über alle Zahlen der Form~$1/n^s$, wobei~$n$ alle positiven natürlichen
+Zahlen durchläuft. Nach Definition ist diese Summe~$\zeta(s)$.
+\end{proof}
+
+Überblick verloren? Aufgabe~\ref{aufg:euler-produkt} wird in kleinen handlichen
+Stücken den Beweis verständlich machen.
+
+\begin{aufgabe}{Die geometrische Reihe}\label{aufg:geometrische-reihe}
+In dieser Aufgabe wollen wir die so genannte \emph{geometrishe Reihe}
+\[ s \defeq 1 + x + x^2 + x^3 + \cdots \]
+auswerten. Der erste Schritt dazu ist mit dieser Zeile schon getan -- in der
+Mathematik wird vieles einfacher, wenn man dem Unbekannten einen Namen
+gibt:~$s$. Denn dann steht der Weg für algebraische Umformungen offen.
+\begin{enumerate}
+\item Rechne nach: $s \cdot (1 - x) = 1$.
+
+\emph{Tipp.} Multipliziere die unendliche Summe aus.
+
+\item Folgere: $s = 1/(1-x)$.
+
+\item Löse Aufgabe~\ref{aufg:konvergente-reihen} erneut, und zwar unter
+Verwendung der Formel aus~b).
+\end{enumerate}
+
+\emph{Bemerkung.} Die Multiplikation mit~$(1-x)$, die zur Auswertung von~$s$
+also sehr hilfreich war, war ein \emph{Trick}. Der Definition von~$s$ ist
+dieser nicht zu entnehmen, man benötigt Kreativität und Geduld, um auf ihn zu
+kommen. Die geometrische Reihe konvergiert nur, falls der Betrag von~$s$
+kleiner als~$1$ ist, und nur in diesem Fall gilt die Formel~$s = 1/(1-x)$. Auf
+diese Subtilitäten wollen wir nicht weiter beachten, obwohl sie durchaus
+wichtig sind.
+\end{aufgabe}
+
+\begin{aufgabe}{Beweise ohne Worte}
+Die aus dem Internet ausgeliehenen Skizzen demonstrieren (von links
+nach rechts) folgende Sachverhalte -- und zwar ganz ohne
+Formeln und Rechnungen. Schaue dir die Skizzen lang genug an, um zu verstehen,
+wieso sie diese Sachverhalte wirklich beweisen.
+\begin{multicols}{2}
+\begin{enumerate}
+\item $\frac{1}{4} + \left(\frac{1}{4}\right)^2 + \left(\frac{1}{4}\right)^3 +
+\cdots = \frac{1}{3}$.
+\item Wie bei~a).
+\item $\frac{1}{3} + \left(\frac{1}{3}\right)^2 + \left(\frac{1}{3}\right)^3 +
+\cdots = \frac{1}{2}$.
+\item $\frac{1}{2} + \left(\frac{1}{2}\right)^2 + \left(\frac{1}{2}\right)^3 +
+\cdots = 1$.
+\end{enumerate}
+\end{multicols}
 \begin{center}
-\includegraphics[angle=90]{zeta-function}
+  \includegraphics[height=0.2\textwidth]{geometrische-reihe-1}\quad
+  \includegraphics[height=0.2\textwidth]{geometrische-reihe-2}\quad
+  \includegraphics[height=0.2\textwidth]{geometrische-reihe-3}\quad
+  \includegraphics[height=0.2\textwidth]{geometrische-reihe-4}
 \end{center}
+Es ist sogar möglich, die allgemeine Formel für die geometrische Reihe aus
+Aufgabe~\ref{aufg:geometrische-reihe} durch eine aussagekräftige Skizze zu
+beweisen. Kannst du erklären, wie das funktioniert? (Achtung, knifflig!)
+\begin{center}
+  \includegraphics[scale=0.5]{geometrische-reihe-6}
+\end{center}
+\end{aufgabe}
 
+\begin{aufgabe}{Die Eulersche Produktformel in fünf Schritten}
+\label{aufg:euler-produkt}
+\begin{enumerate}
+\item Zum Aufwärmen: Multipliziere folgendes Produkt aus.
+\[ \left(1 + \frac{1}{2} + \frac{1}{2^2}\right) \cdot
+  \left(1 + \frac{1}{3} + \frac{1}{3^2}\right). \]
+\item Multipliziere jetzt in dem Produkt
+\[ \left(1 + \frac{1}{2} + \frac{1}{2^2} + \frac{1}{2^3} + \cdots\right) \cdot
+  \left(1 + \frac{1}{3} + \frac{1}{3^2} + \frac{1}{3^3} + \cdots\right) \]
+die Klammern so lange aus, bis du genug von dem System verstehst, um zu
+erkennen: Hier kommt die Summe über die Kehrwerte von all den positiven
+natürlichen Zahlen, in deren Primfaktorzerlegung nur die Faktoren~$2$ und~$3$
+auftreten, heraus.
+\item Multipliziere nun das dreifache Produkt
+\[ \left(1 + \frac{1}{2} + \frac{1}{2^2} + \cdots\right) \cdot
+  \left(1 + \frac{1}{3} + \frac{1}{3^2} + \cdots\right) \cdot
+  \left(1 + \frac{1}{5} + \frac{1}{5^2} + \cdots\right) \]
+soweit aus, um zu erkennen, dass das die Summe über die Kehrwerte von all den
+positiven natürlichen Zahlen, in deren Primfaktorzerlegung nur die Faktoren~$2$,~$3$
+und~$5$ vorkommen, ergibt.
+\item Mit dieser Vorarbeit ist es nicht mehr schwer, zu glauben, dass das
+unendliche Produkt
+\[ \left(1 + \frac{1}{2} + \frac{1}{2^2} + \cdots\right)
+  \left(1 + \frac{1}{3} + \frac{1}{3^2} + \cdots\right)
+  \left(1 + \frac{1}{5} + \frac{1}{5^2} + \cdots\right) \cdots \]
+gleich der Summe über die Kehrwerte von \emph{allen} positiven natürlichen Zahlen ist.
+\item Schlussendlich: Ergänzen wir überall ein "`hoch~$s$"', so erhalten wir
+die Summe über alle Zahlen der Form~$1/n^s$, wobei~$n$ über alle positiven
+natürlichen Zahlen läuft. Das ist die Eulersche Produktformel.
+\[\textstyle \left(1 + \frac{1}{2^s} + \frac{1}{(2^2)^s} + \cdots\right)
+  \left(1 + \frac{1}{3^s} + \frac{1}{(3^2)^s} + \cdots\right)
+  \left(1 + \frac{1}{5^s} + \frac{1}{(5^2)^s} + \cdots\right) \cdots =
+  \sum_{n=1}^\infty \frac{1}{n^s}. \]
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
+
+
+\section{Die harmonische Reihe}
+\label{sect:harmonische-reihe}
+
+Die unendliche Reihe
+\[ \frac{1}{1} + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \cdots \]
+wird \emph{harmonische Reihe} genannt. Sie divergiert bestimmt, ihr Wert
+ist~$+\infty$.
+
+Mit ein wenig Hintergrundwissen aus Integrationstheorie kann man sich
+überlegen, dass die harmonische Reihe in etwa so schnell wächst wie der
+natürliche Logarithmus:
+\begin{equation}
+  \label{star}
+  \tag{$\star$}
+  \frac{1}{1} + \frac{1}{2} + \cdots + \frac{1}{n} \approx \ln(n),
+\end{equation}
+und eine verfeinerte Analyse liefert folgendes Resultat.
+
+\begin{thm}Es gibt eine Konstante~$\gamma \approx 0{,}57722$, die
+\emph{Euler--Mascheroni-Konstante}, der sich die Differenzen aus linker und
+rechter Seite von~\eqref{star} beliebig genau nähern. In Symbolen:
+\[ \sum_{i=1}^n \frac{1}{i} - \ln(n) \xrightarrow{n \to \infty}
+\gamma. \]
+\end{thm}
+
+In diesem Kontext gibt es eine Abschätzung, die für unsere Zwecke wichtig sein wird:
+\[ \sum_{i=1}^{\lceil e^{A-\gamma} \rceil} \tfrac{1}{i} > A. \]
+Die Klammern bezeichnen dabei die \emph{Aufrundungsoperation}.
+
+\begin{center}\begin{tabular}{rrrr}
+  \toprule
+  $A$ & $e^{A-\gamma}$ & $\lceil e^{A-\gamma} \rceil$ & $\sum_{i=1}^{\lceil e^{A-\gamma} \rceil} 1/i$ \\\midrule
+   1 &     1.56 &     2 &  1.50 \\
+   2 &     4.23 &     5 &  2.28 \\
+   3 &    11.50 &    12 &  3.10 \\
+   4 &    31.26 &    32 &  4.06 \\
+   5 &    84.97 &    85 &  5.03 \\
+   6 &   230.97 &   231 &  6.02 \\
+   7 &   627.84 &   628 &  7.02 \\
+   8 &  1706.63 &  1707 &  8.02 \\
+   9 &  4639.11 &  4640 &  9.02 \\
+  10 & 12610.42 & 12611 & 10.02 \\
+  \bottomrule
+\end{tabular}\end{center}
+
+\begin{aufgabe}{Divergenz der harmonischen Reihe}
+\begin{enumerate}
+\item Wieso ist~$\frac{1}{3} + \frac{1}{4} \geq \frac{1}{2}$?
+\tabto{6cm}
+\emph{Tipp.} $\frac{1}{3} \geq \frac{1}{4}$ und~$\frac{1}{4} + \frac{1}{4} =
+\frac{1}{2}$.
+\item Wieso ist~$\frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} \geq \frac{1}{2}$?
+\tabto{6cm}
+\emph{Tipp.} $\frac{1}{5}, \frac{1}{6}, \frac{1}{7} \geq \frac{1}{8}$.
+
+\item Wieso ist~$\frac{1}{9} + \cdots + \frac{1}{16} \geq \frac{1}{2}$?
+
+\item Wieso ist~$\frac{1}{17} + \cdots + \frac{1}{32} \geq \frac{1}{2}$?
+
+\item Folgere: Die harmonische Reihe ist größergleich
+$\frac{1}{1} + \frac{1}{2} + \frac{1}{2} + \frac{1}{2} + \cdots$,
+und das ist sicherlich~$+\infty$.
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
+
+\begin{aufgabe}{Slow harmonic series is slow}
+Die harmonische Reihe divergiert zwar, tut das aber sehr langsam. Addiere mit
+einem Taschenrechner oder einem Computerprogramm so viele Terme der Reihe, wie
+du möchtest. Ich wette, du wirst nicht über~$30$ hinauskommen.
+\end{aufgabe}
+
+\begin{aufgabe}{Eulers Beweis der Unendlichkeit der Primzahlen}
+\begin{enumerate}
+\item Was ist~$\zeta(1)$?
+\item Verwende Eulers Produktformel, um einen alternativen Beweis der
+Unendlichkeit der Primzahlen zu führen: Wie sähe die Formel aus, wenn es nur
+endlich viele Primzahlen gäbe?
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
+
+
+\section{Schranken für die Größen der Primzahlen}
+
+Es gibt keine geschlossene Formel für die Primzahlen.\footnote{Das ist nur halb
+wahr. Informiere dich über \emph{Mills Formel}.} Trotzdem kann man explizite
+\emph{Schranken} für die Größe der~$n$-ten Primzahl angeben. Mit deren Hilfe
+kann man angeben, wie viele Primzahlen es in einem vorgegebenem Bereich
+mindestens geben muss oder höchstens geben kann.
+
+Ein erstes Resultat in diese Richtung ist das folgende. Dabei
+sei~$p_1,p_2,p_3,\ldots$ die unendliche Liste aller Primzahlen.
+
+\begin{thm}\label{thm:schranke1}
+Die~$r$-te Primzahl ist höchstens~$2^{(2^r)}$: $p_r < 2^{(2^r)}$.
+\end{thm}
+
+Das folgende Resultat ist schwieriger zu beweisen, liefert aber auch eine
+bessere (kleinere) Abschätzung. Die Klammern bezeichnen wieder die
+Aufrundungoperation.
+
+\begin{thm}\label{thm:schranke2}
+Die~$r$-te Primzahl ist höchstens~$\lceil e^{r-\gamma} \rceil$: $p_r
+\leq \lceil e^{r-\gamma} \rceil$.
+\end{thm}
+
+Um diese beiden Behauptungen zu beweisen, werden wir eine interessante
+mathematische Technik anwenden: \emph{Proof mining}. Deren Ausgangspunkt ist
+die triviale Erkenntnis, dass ein \emph{Beweis} einer Aussage viel mehr enthält
+als die bloße Information, dass die bewiesene Aussage korrekt ist. Ein Beweis
+gibt auch (mehr oder weniger verständliche) Hintergründe zu ihrer Korrektheit,
+knüpft Verbindungen zwischen unterschiedlichen mathematischen Objekten und
+führt so Verborgenes auf Offensichtliches zurück.
+
+Das führt dazu, dass man aus Beweisen rein qualitativer Aussagen -- zum
+Beispiel: \emph{Es gibt unendlich viele Primzahlen.} -- oftmals quantitative
+Information extrahieren kann: \emph{Im Bereich von~$1$ bis~$n$ gibt es
+mindestens soundso viele Primzahlen.}
+
+Proof mining werden wir an Euklids und an Eulers Beweis der Unendlichkeit der
+Primzahlen üben. Euklids Beweis liefert Theorem~\ref{thm:schranke1}, Eulers
+komplexerer Beweis liefert das stärkere Theorem~\ref{thm:schranke2}.
+
+\begin{aufgabe}{Theorem~\ref{thm:schranke1} aus Euklids Beweis der
+Unendlichkeit der Primzahlen}
+\begin{enumerate}
+\item Studiere Euklids Beweis der Unendlichkeit der Primzahlen
+(Aufgabe~\ref{aufg:unendlich-euklid}), um zu sehen: Ist~$p$ eine Primzahl, so
+kommt spätestens bis zu~$p! + 1$ ("`$p$ Fakultät"', $p! = 1 \cdot 2 \cdot
+\ldots \cdot (p-1) \cdot p$) die nächste Primzahl.
+\item Zeige: Für die~$(r+1)$-te Primzahl gilt die Abschätzung
+\[ p_{r+1} \leq p_1 \cdots p_r + 1. \]
+\item Folgere mit vollständiger Induktion:
+\[ p_r < 2^{(2^r)}. \]
+
+\emph{Tipp.} Du darfst verwenden, dass für alle Zahlen~$m \geq 2$ gilt: $m/4 +
+1 \leq m$.
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
+
+\begin{aufgabe}{Theorem~\ref{thm:schranke2} aus Eulers Beweis der
+Unendlichkeit der Primzahlen}
+\begin{enumerate}
+\item Sei~$q$ eine natürliche Zahl. Studiere den Beweis von Eulers
+Produktformel, um folgende verfeinerte Aussage nachzuvollziehen:
+\[ \bigsum_n \frac{1}{n} = \bigprod_{\substack{p \leq q \\ \prim{p}}} \frac{1}{1 -
+p^{-1}}. \]
+Die Summe auf der linken Seite soll dabei über all diejenigen positiven
+natürlichen Zahlen laufen, in deren Primfaktoren nur Primzahlen~$\leq q$
+vorkommen. Passend dazu läuft das Produkt auf der rechten Seite über alle
+Primzahlen~$\leq q$.
+\item Beweise:
+\[
+  \bigprod_{\substack{p \leq q \\ \prim{p}}} \frac{1}{1 - p^{-1}} =
+  \bigprod_{\substack{p \leq q \\ \prim{p}}} \frac{p}{p - 1} \leq
+  \bigprod_{a=1}^q \frac{a}{a - 1} = q. \]
+\item Sei~$q$ eine Primzahl. Angenommen, bis zur Zahl~$\lceil e^{q-\gamma}
+\rceil$ (einschließlich) kommen keine weiteren Primzahlen. Zeige dann
+\[ \bigsum_{n=1}^{\lceil e^{q-\gamma} \rceil} \frac{1}{n} \leq q. \]
+\item Verwende die Abschätzung aus Abschnitt~\ref{sect:harmonische-reihe}, um
+zu sehen, dass das nicht sein kann und dass daher zwischen~$q+1$ und~$\lceil
+e^{q-\gamma} \rceil$ mindestens eine weitere Primzahl liegen muss.
+\item Beweise:
+\[
+  \bigprod_{i=1}^r \frac{1}{1 - p_i^{-1}} \leq
+  \bigprod_{i=1}^r \frac{1}{1 - (i+1)^{-1}} =
+  \bigprod_{i=1}^r \frac{i+1}{i} = r+1. \]
+\item Folgere: Die~$(r+1)$-te Primzahl ist kleinergleich~$\lceil e^{r+1-\gamma} \rceil$.
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
 
 \end{document}
+
+Casimir-Effekt
+Riemannsche Vermutung, Konsequenzen beweisen?
+Pentagramm

@@ -57,22 +57,25 @@
 \newlength{\aufgabenskip}
 \setlength{\aufgabenskip}{1.4em}
 \newcounter{aufgabennummer}
-\newenvironment{aufgabe}[1]{
+\newenvironment{aufgabeUnshaded}[1]{
   \refstepcounter{aufgabennummer}
   \textbf{Aufgabe \theaufgabennummer.} \emph{#1} \par
 }{\vspace{\aufgabenskip}}
-\NewEnviron{aufgabeShaded}[1]{%
+\makeatletter
+\NewEnviron{aufgabe}[1]{%
   \refstepcounter{aufgabennummer}%
   \begin{shaded}%
-    \noindent\textbf{Aufgabe \theaufgabennummer.} \emph{#1} \par\medskip
-    \noindent\BODY%
+    \@startsection{paragraph}{4}{\z@}%
+      {-0.00001ex}%
+      {\medskipamount}%
+      {}%
+      {\textbf{Aufgabe \theaufgabennummer.} \emph{#1}}%
+    %\noindent\subparagraph{\textbf{Aufgabe \theaufgabennummer.} \emph{#1}}
+    \BODY%
   \end{shaded}%
 }
-\newenvironment{aufgabeE}[1]{\begin{aufgabe}{#1}\begin{enumerate}}{\end{enumerate}\end{aufgabe}}
-
-\newenvironment{block}[1]{
-  \begin{center}\textbf{#1}\end{center}
-}{\vspace{\aufgabenskip}}
+\makeatother
+\newcommand{\fixlistspacing}{\vspace{-\medskipamount}\vspace{-\itemsep}}
 
 \clubpenalty=10000
 \widowpenalty=10000
