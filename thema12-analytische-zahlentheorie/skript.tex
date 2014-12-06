@@ -164,6 +164,29 @@ ganze Zahlen sind, sodass eine weitere eingezeichnete Hilfslinie aber
 irrationale Länge hat.
 \end{aufgabe}
 
+\begin{aufgabe}{Irrationalität des goldenen Schnitts}
+Der \emph{goldene Schnitt} ist diejenige positive Zahl~$\phi$, die die
+Gleichung~$\phi = 1 + \frac{1}{\phi}$ löst. Als Schnittverhältnis kommt der goldene
+Schnitt überall in der Natur vor.
+
+\begin{enumerate}
+\item Beweise rechnerisch, dass der goldene Schnitt irrational ist.
+
+\emph{Tipp.} Gehe nach folgendem Muster vor. Angenommen,~$\phi$ ist rational.
+Dann lässt sich~$\phi$ als ein vollständig gekürzter Bruch~$\phi = a/b$
+schreiben. Zähler und Nenner sind dabei zueinander teilerfremde Zahlen. Welche
+Beziehung erhält man zwischen~$a$ und~$b$, wenn man~$\phi = a/b$ in die
+Gleichung~$\phi = 1 + 1/\phi$ einsetzt?
+
+\item In dem Skript von Jost-Hinrich Eschenburg zu seiner letzten
+Vorlesungsreihe, den \emph{Sternstunden} (die du auch besuchen kannst, wenn du
+möchtest: jeden Freitag um 12:15~Uhr), findest du auch einen geometrischen
+Beweis der Irrationalität des goldenen Schnitts sowie eine Erklärung, wieso der
+goldene Schnitt die \emph{irrationalste} Zahl ist.
+\url{http://www.math.uni-augsburg.de/~eschenbu/sternstunden.pdf}
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
+
 
 \section{Die Unendlichkeit der Primzahlen}
 
@@ -290,7 +313,7 @@ finden. Welchen Wert hat~$s$ dieser Gleichung zufolge?
 \section{Die Eulersche Produktformel}\label{sect:euler-produkt}
 
 \begin{thm}Für alle~$s > 1$ gilt die Identität
-\[ \zeta(s) = \prod_{\substack{p\\\prim{p}}} \frac{1}{1 - p^{-s}} =
+\[ \zeta(s) = \bigprod_{\substack{p\\\prim{p}}} \frac{1}{1 - p^{-s}} =
   \frac{1}{1 - 2^{-s}} \cdot \frac{1}{1 - 3^{-s}} \cdot \frac{1}{1 - 5^{-s}} \cdots. \]
 \end{thm}
 Diese Beziehung ist aus mehreren Gründen bemerkenswert. Zunächst einmal ist es
@@ -306,10 +329,10 @@ und die Potenzgesetze~$x^{-a} = 1/x^a$ sowie~$(x^a)^b = x^{ab}$.
 
 \begin{proof}Wir beginnen mit der rechten Seite der Gleichung. Der Bruch passt
 auf die Formel für die geometrische Reihe, deswegen gilt
-\begin{align*}
-  \prod_{\substack{p\\\prim{p}}} \frac{1}{1 - p^{-s}} &=
-  \prod_{\substack{p\\\prim{p}}} \left(1 + p^{-s} + (p^2)^{-s} + \cdots\right).
-\end{align*}
+\[
+  \bigprod_{\substack{p\\\prim{p}}} \frac{1}{1 - p^{-s}} =
+  \bigprod_{\substack{p\\\prim{p}}} \left(1 + p^{-s} + (p^2)^{-s} + \cdots\right).
+\]
 Wenn wir dieses unendliche Produkt ausmultiplizieren, erhalten wir
 die Summe über alle Zahlen der Form~$1/t^s$, wobei~$t$ alle Möglichkeiten,
 beliebig viele Primzahlen aufzumultiplizieren, durchläuft. Da sich nach dem
@@ -589,4 +612,4 @@ e^{q-\gamma} \rceil$ mindestens eine weitere Primzahl liegen muss.
 
 Casimir-Effekt
 Riemannsche Vermutung, Konsequenzen beweisen?
-Pentagramm
+Goldener Schnitt ist die irrationalste Zahl
