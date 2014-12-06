@@ -66,6 +66,69 @@
 
 
 \section{Berrys Paradoxon}
+\label{sect:berry}
+
+Was ist die größte natürliche Zahl, die man im Deutschen in unter 1000
+Buchstaben beschreiben kann? Die Beschreibung soll für eine bestimmte
+Zielgruppe, zum Beispiel Mathematikerinnen und Mathematiker, klar verständlich
+sein und eine bestimmte Zahl eindeutig festlegen.
+\begin{listing}
+\item Ein guter Anfang: "`999\ldots999"' (1000 Neuner)
+\item Viel besser: "`10 hoch 999\ldots999"' (ein paar Neuner weniger)
+\item Noch besser: "`10 hoch (10 hoch (10 hoch \ldots))"'
+\end{listing}
+
+\begin{aufgabe}{Wettbewerb zu großen Zahlen}
+Wenn du hinreichend nerdige Freunde hast, kannst du einen Wettbewerb zu großen
+Zahlen abhalten: Jeder soll auf einem Kärtchen vorgegebener Größe eine Zahl
+beschreiben. Die Beschreibung muss für eine zuvor ausgemachte Zielgruppe
+verständlich sein und genau eine natürliche Zahl festlegen. Gewinner ist, wer
+die größte Zahl beschrieben hat.
+
+\begin{enumerate}
+\item Was passiert, wenn ein Teilnehmer folgenden Beitrag abgibt? "`Die größte
+Zahl, die meine Konkurrenten beschrieben haben, plus Eins"'
+\item Was passiert, wenn zwei Teilnehmer diesen Vorschlag machen?
+\item Vielleicht verbietest du expliziten Selbstbezug ("`meine Konkurrenten"').
+Was aber passiert, wenn dann jemand "`Die zweitgrößte Zahl, die eingereicht
+wurde, plus Eins"' einreicht?
+\item Als Ausrichter des Wettbewerbs könntest du eine große Geldsumme
+aussetzen. Der Gewinner (oder, bei Gleichstand, die Gewinner) erhält eine
+Million Euro, \emph{geteilt durch} die Zahl, mit der er gewonnen hat. Gibt es
+eine Strategie, die die Teilnehmer im Vorfeld absprechen könnten, um möglichst
+viel Geld zu kassieren? Ist es wahrscheinlich, dass sich alle Teilnehmer an
+eine solche Abmachung halten?
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
+
+Auf den ersten Blick erscheint die eingangs gestellte Frage eine
+eindeutige Antwort zu haben: Es gibt nur endlich viele Möglichkeiten, die
+Buchstaben des deutschen Alphabets (und die Interpunktszeichen) zu
+grammatikalisch korrekten deutschen Phrasen der Länge~$\leq 1000$
+zusammenzusetzen. Viele dieser Phrasen beschreiben keine Zahlen ("`Ich mag
+Schokolade."'), beschreiben keine natürlichen Zahlen ("`Das Verhältnis aus
+Durchmesser und Radius eines jeden Kreises"') oder beschreiben keine eindeutig
+bestimmte natürliche Zahl ("`alle Zahlen größer als 5"'). Die restlichen
+Phrasen aber beschreiben doch jeweils genau eine natürliche Zahl. Sollte es
+dann nicht unter diesen endlich vielen natürlichen Zahlen eine größte geben?
+
+Berrys Paradoxon zeigt uns, dass diese Frage in Wahrheit nicht korrekt gestellt
+ist. Die Frage hat keine Antwort, denn "`die größte natürliche Zahl, die im
+Deutschen in unter~1000 Buchstaben beschrieben werden kann, plus Eins"' ist
+einerseits selbst in unter~1000 Buchstaben beschreibbar (ich habe es in
+104~Zeichen geschafft, Leerzeichen mitgezählt), andererseits größer als alle in
+unter~1000 Buchstaben beschreibbaren Zahlen.
+
+\begin{aufgabe}{Uninteressante natürliche Zahlen}
+Beweise, dass es keine uninteressanten natürlichen Zahlen gibt.
+
+\emph{Tipp:} Gehe nach folgendem Muster vor. Angenommen, es gäbe uninteressante
+natürliche Zahlen (mindestens eine). Dann wäre unter all diesen uninteressanten
+natürlichen Zahlen eine die kleinste. Aber \ldots, Widerspruch.
+
+\emph{Hinweis:} Offensichtlich ist "`interessant"' kein rigoroses
+mathematisches Adjektiv und diese Aufgabe daher nicht besonders tiefsinnig.
+\end{aufgabe}
 
 
 \section{Das Halteproblem}
@@ -213,6 +276,7 @@ auf der Liste aller Programme berechnen können?
 \end{aufgabe}
 
 
+\newpage
 \subsection{Turingmaschinen}
 
 \setlength{\wrapoverhang}{1cm}
@@ -698,6 +762,8 @@ weiter. Außerdem muss es auch einen Vorgänger von~$\lambda$ geben. Kannst du
 auf diese Weise weiter denken?
 \end{aufgabe}
 
+\newpage
+
 
 \section{Gödels Vollständigkeitssatz und sein Unvollständigkeitssatz}
 
@@ -872,7 +938,7 @@ intendierten Modell), so ist sie auch im System beweisbar.
 
 \section{Wie geht's weiter?}
 
-In diesen 16 Seiten haben wir nur an der Oberfläche gekratzt. Folgende weitere
+In diesen 18 Seiten haben wir nur an der Oberfläche gekratzt. Folgende weitere
 Themen sind spannend:
 \begin{itemize}
 \item Philosophische Implikationen.
@@ -881,9 +947,10 @@ Themen sind spannend:
 von formalen Systemen betreffend.
 \item Beispiele für Aussagen, die in gewöhnlichen Axiomensystemen (wie
 Peano-Arith\-me\-tik oder Zermelo--Fraenkel-Mengenlehre) weder beweisbar noch
-widerlegbar sind: die Kontinuumshypothese, das Auswahlaxiom, das Axiom der
-Konstruktibilität; aber auch konkrete Dinge wie die Frage nach dem Verhalten
-der \emph{Goodstein-Folgen}.
+widerlegbar sind und keinen selbstbezüglichen Charakter haben: die
+Kontinuumshypothese, das Auswahlaxiom, das Axiom der Konstruktibilität; aber
+auch konkrete Dinge wie die Frage nach dem Verhalten der
+\emph{Goodstein-Folgen}.
 \end{itemize}
 
 Einiges davon kann man in folgendem netten Buch nachlesen, das ich sehr

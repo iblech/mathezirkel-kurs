@@ -66,6 +66,7 @@ Newton-Verfahren
 
 Große Zahlen nennen!
 http://www.scottaaronson.com/writings/bignumbers.html
+http://jdh.hamkins.org/largest-number-contest/
 
 http://mathoverflow.net/questions/38245/what-is-the-easiest-randomized-algorithm-to-motivate-to-the-layperson/38298#38298
 Median schnell bestimmen
