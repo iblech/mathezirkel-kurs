@@ -52,13 +52,17 @@
 
 \maketitleCustom{Klassen 10/11/12}{\textbf{\textsf{%
   Gödels Unvollständigkeitssatz \\
-  \normalsize Zirkelzettel vom 7. und 21. November 2014}}}
+  \normalsize Zirkelzettel vom 7. und 21. November 2014 und 5. Dezember 2014}}}
 
-{\renewcommand{\addvspace}[1]{\vskip0.6em}
+\begin{center}
+  \includegraphics[scale=1.1]{labyrinth_puzzle}
+
+  {\small \url{http://xkcd.com/246}\par}
+\end{center}
+
+{\renewcommand\contentsname{}\renewcommand{\addvspace}[1]{\vskip0.6em}\vspace{-1.5em}
 \tableofcontents%
 }
-
-\section{Einleitung}
 
 
 \section{Berrys Paradoxon}
@@ -197,8 +201,7 @@ wir den Programmfluss, sehen wir aber, dass beide Fälle zu einem Widerspruch
 führen.
 \end{proof}
 
-\begin{aufgabeShaded}{Verstanden?}
-\vspace{-2em}%
+\begin{aufgabe}{Verstanden?}
 \begin{enumerate}
 \item Vollziehe den Beweis des Theorems nach. Könntest du jemand anderem
 erklären, welche Widersprüche die Existenz eines Halteorakels nach sich ziehen
@@ -206,9 +209,8 @@ würde?
 \item Wieso war es für den Beweis wichtig, dass es das Programm~$F$ gibt? Wieso
 also war es wichtig, dass wir bei Eingabe einer Zahl~$n$ das~$n$-te Programm
 auf der Liste aller Programme berechnen können?
-\end{enumerate}
-\vspace{-1em}
-\end{aufgabeShaded}
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
 
 
 \subsection{Turingmaschinen}
@@ -249,7 +251,7 @@ Regelwerk.
 
 \subsection{Weitere Übungsaufgaben}
 
-\begin{aufgabeShaded}{Das Halteproblem für halbreale Computerprogramme}
+\begin{aufgabe}{Das Halteproblem für halbreale Computerprogramme}
 In dieser Aufgabe soll es um Programme gehen, die auf Computern laufen, welche
 zwar nie kaputt gehen und auch nicht aufgrund äußerer Einflüsse in ihrem
 Verhalten gestört werden (etwa durch kosmische Strahlung), aber trotzdem nur
@@ -263,9 +265,9 @@ Theorie) trivial lösbar ist.
 
 \emph{Tipp:} In wie vielen verschiedenen Zuständen kann sich ein derartiger
 Computer befinden?
-\end{aufgabeShaded}
+\end{aufgabe}
 
-\begin{aufgabeShaded}{Der Satz von Rice}
+\begin{aufgabe}{Der Satz von Rice}
 Der \emph{Satz von Rice} ist eine Verschärfung von Turings
 Unmöglichkeitstheorem. Er besagt: Für keine nichttriviale extensionale
 Programmeigenschaft~$E$ gibt es ein Orakel, das bei Eingabe
@@ -290,15 +292,14 @@ die nicht-extensionale Eigenschaft~"`$P$ besteht aus weniger als~20 Zeilen
 Code"' prüft.
 \item Beweise den Satz von Rice. Du kannst dich dabei am Beweis der
 Unentscheidbarkeit des Halteproblems orientieren.
-\end{enumerate}
-\vspace{-1em}
-\end{aufgabeShaded}
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
 
-\begin{aufgabeShaded}{Die Church--Turing-These}
+\begin{aufgabe}{Die Church--Turing-These}
 Informiere dich auf Wikipedia, was es mit der Church--Turing-These auf sich
 hat; manche Leute halten sie für eine der größten ungeklärten Fragen der Physik
 und Informatik. Hast du eine Meinung dazu?
-\end{aufgabeShaded}
+\end{aufgabe}
 
 
 \section{Die unberechenbare Fleißiger-Biber-Funktion}
@@ -349,7 +350,7 @@ prinzipieller Natur.
 kein Programm~$P$, das bei Eingabe einer natürlichen Zahl~$n$ die Zahl~$\BB(n)$
 zurückgibt.\end{thm}
 
-\begin{aufgabeShaded}{Unberechenbarkeit der Fleißiger-Biber-Funktion}
+\begin{aufgabe}{Unberechenbarkeit der Fleißiger-Biber-Funktion}
 \label{aufg:bb}
 Beweise das Theorem, indem du folgende Argumentation ausformulierst. Schau dir
 erst danach den weiter unten ausgeführten Beweis an.
@@ -357,7 +358,7 @@ erst danach den weiter unten ausgeführten Beweis an.
 Wenn es ein Programm gäbe, dass die Fleißiger-Biber-Funktion
 berechnen könnte, dann könnte man daraus ein Halteorakel konstruieren (wie geht
 das?). Dass es ein solches nicht gibt, wissen wir schon.
-\end{aufgabeShaded}
+\end{aufgabe}
 
 \begin{proof}[Beweis des Theorems]
 Angenommen, es gibt ein Programm, dass die Fleißiger-Biber-Funktion
@@ -650,7 +651,7 @@ Schlussregeln verwenden.
 \]
 \end{bsp}
 
-\begin{aufgabeShaded}{Formale Beweise in Peano-Arithmetik}
+\begin{aufgabe}{Formale Beweise in Peano-Arithmetik}
 \begin{enumerate}
 \item Vollziehe den formalen Beweis, dass~$\ol{2} + \ol{2} = \ol{4}$ ist, im Detail nach. Welches
 Axiom wird in welchem Schritt verwendet?
@@ -660,8 +661,8 @@ Axiom wird in welchem Schritt verwendet?
   n \cdot S(m) &:= n \cdot m + n.
 \end{align*}
 Führe mit diesen Axiomen einen formalen Beweis der Behauptung~$\ol{2} \cdot \ol{2} = \ol{4}$.
-\end{enumerate}
-\end{aufgabeShaded}
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
 
 \begin{warnung}Für uns sind die gewohnten natürlichen Zahlen \emph{nicht} durch
 die Peano-Axiome definiert. Wir setzen stattdessen voraus, dass wir aus der
@@ -681,7 +682,7 @@ Kein Modell von Peano-Arithmetik bilden die ganzen Zahlen~$\ZZ = \{
 \ldots,-2,-1,0,1,2,\ldots \}$. Denn dort ist die Zahl~$0$ durchaus ein
 Nachfolger einer anderen Zahl (nämlich der Zahl~$-1$).
 
-\begin{aufgabeShaded}{Ein Nichtstandardmodell von Peano-Arithmetik}
+\begin{aufgabe}{Ein Nichtstandardmodell von Peano-Arithmetik}
 Man kann beweisen, dass Peano-Arithmetik neben den gewöhnlichen natürlichen
 Zahlen noch viele weitere Modelle besitzt: Strukturen, die wie die natürlichen
 Zahlen auch die Peano-Axiome erfüllen, aber nicht äquivalent zu den natürlichen
@@ -695,7 +696,7 @@ Die Zahl~$\lambda$ steht \emph{rechts} vom gewöhnlichen Zahlenstrahl; aber
 zusätzlich zu~$\lambda$ gibt es auch~$S(\lambda)$, $S(S(\lambda))$, und so
 weiter. Außerdem muss es auch einen Vorgänger von~$\lambda$ geben. Kannst du
 auf diese Weise weiter denken?
-\end{aufgabeShaded}
+\end{aufgabe}
 
 
 \section{Gödels Vollständigkeitssatz und sein Unvollständigkeitssatz}
@@ -783,7 +784,7 @@ Meldung~"`$1$"'.
 Dieser Algorithmus berechnet wirklich die Funktion~$f$, denn das untersuchte
 formale System ist korrekt. Das hat zur Folge, dass wenn es im System einen
 Beweis der Aussage~"`$f(n) = 0$"' (bzw.~"`$f(n) = 1$"') gibt, dann auch
-tatsächlich~$f(n) = 0$ (bzw.~$f(n) = 1$) der Fall ist.
+tatsächlich~$f(n) = 0$ (bzw.~$f(n) = 1$) gilt.
 
 Außerdem hält dieser Algorithmus bei jeder beliebigen Eingabe nach endlicher
 Zeit an. Denn wir nehmen ja an, dass jede wahre Aussage im formalen System auch
@@ -791,11 +792,106 @@ beweisbar ist. Da entweder~$f(n) = 0$ oder~$f(n) = 1$ wahr ist, muss daher eine
 dieser beiden Aussagen auch einen Beweis besitzen.
 \end{proof}
 
-\begin{aufgabeShaded}{Die Voraussetzung nach Umfassung von Peano-Arithmetik}
+\begin{aufgabe}{Die Voraussetzung nach Umfassung von Peano-Arithmetik}
 Auch die Voraussetzung, dass das untersuchte formale System Peano-Arithmetik
 umfasst, geht -- etwas versteckt -- in den Beweis von Gödels
 Unvollständigkeitssatz ein. Siehst du, wo?
-\end{aufgabeShaded}
+
+\emph{Tipp:} Für den Beweis war es wichtig, dass~"`$f(n) = 0$"' und~"`$f(n) =
+1$"' Aussagen des untersuchten formalen Systems sind.
+\end{aufgabe}
+
+
+\subsection{Ein konkretes Beispiel für einen Gödel-Satz}
+
+Mit dem vorgestellten Beweis von Gödels Unvollständigkeitssatz kann man noch
+etwas unzufrieden sein: Er ist nämlich \emph{unkonstruktiv}, das heißt, er
+liefert kein explizites Beispiel für eine Aussage, die wahr, aber nicht formal
+beweisbar ist. Daher führen wir nun noch einen zweiten Beweis, der allerdings
+einen anderen Makel hat: Er ist unvollständig.
+
+\begin{proof}[Alternativer Beweis von Gödels Unvollständigkeitssatz]
+Wir betrachten folgende Aussage~$A$: "`Diese Aussage ist im formalen System nicht
+beweisbar."'
+
+Die Aussage~$A$ ist tatsächlich nicht im formalen System beweisbar. Denn wenn
+sie es wäre, würde sie -- wegen der vorausgesetzten Korrektheit des formalen
+Systems -- auch stimmen. Dann aber wäre sie nicht beweisbar. Das wäre ein
+Widerspruch.
+
+Da~$A$ ihre eigene formale Unbeweisbarkeit behauptet, und~$A$ -- wie wir gerade
+gesehen haben -- tatsächlich im gegebenen System nicht beweisbar ist, ist~$A$
+wahr. Somit ist~$A$ ein Beispiel für eine wahre und im System unbeweisbare
+Aussage.
+\end{proof}
+
+Das Problem an diesem Beweis ist, dass gar nicht klar ist, dass die Aussage~$A$
+wirklich eine wohlgeformte Aussage des untersuchten Systems ist. Als deutscher
+Satz ist sie zwar grammatikalisch korrekt gebildet, doch schon Berrys Paradoxon
+(Abschnitt~\ref{sect:berry}) hat uns gezeigt, dass nicht alle grammatikalisch
+korrekten Aussagesätze wirklich Aussagen im Sinne der Logik sein können.
+
+Man kann nun beweisen, dass die Aussage~$A$ tatsächlich wohlgeformt ist, und so
+die Lücke in diesem alternativen Beweis schließen. Dabei gehen dann auch die
+bisher im Alternativbeweis nicht verwendeten Voraussetzungen~a) und~b) ein. Zum
+Nachweis müssten wir uns aber tiefer mit technischen Details beschäftigen.
+
+Ist die Lücke wirklich so groß? Wie schlimm kann es, mit nicht
+wohlgeformten Aussagen zu operieren? Ja und \emph{sehr schlimm}. Das
+illustriert \emph{Currys Paradoxon}.
+
+\begin{prop}Der Mond ist aus Käse.\end{prop}
+\begin{proof}Wir betrachten folgende Aussage~$B$: "`Wenn diese Aussage stimmt,
+dann ist der Mond aus Käse."'
+
+Wir möchten zunächst rein hypothetisch untersuchen, was wäre, wenn Aussage~$B$
+stimmen würde. Nach Definition von~$B$ würde dann also aus der Korrektheit
+von~$B$ folgen, dass der Mond aus Käse ist. Somit wäre (in dieser
+hypothetischen Situation) der Mond wirklich aus Käse.
+
+In dem vorherigen Absatz haben wir gezeigt: \emph{Sollte~$B$ stimmen, so ist der Mond
+aus Käse.} Das ist aber gerade die Aussage von~$B$. Somit haben wir gezeigt,
+dass~$B$ stimmt.
+
+Da nun~$B$ stimmt, ist der Mond aus Käse.
+\end{proof}
+
+Da die Behauptung Unsinn ist, muss dieser "`Beweis"' fehlerhaft sein. Die
+eigentliche Argumentation war aber völlig korrekt; der Fehler liegt schon in der
+ersten Zeile: Die so genannte Aussage~$B$ ist in Wahrheit keine, zumindest
+nicht im strengen Sinn eines formalen Systems.
+
+
+\subsection{Der Vollständigkeitssatz}
+
+\begin{thm}[Gödels Vollständigkeitssatz]
+Gilt eine Aussage in allen Modellen eines formalen Systems (und nicht nur im
+intendierten Modell), so ist sie auch im System beweisbar.
+\end{thm}
+
+
+\section{Wie geht's weiter?}
+
+In diesen 16 Seiten haben wir nur an der Oberfläche gekratzt. Folgende weitere
+Themen sind spannend:
+\begin{itemize}
+\item Philosophische Implikationen.
+\item Gödels Vollständigkeitssatz in mehr Details.
+\item Gödels zweiter Unvollständigkeitssatz, die Beweisbarkeit der Konsistenz
+von formalen Systemen betreffend.
+\item Beispiele für Aussagen, die in gewöhnlichen Axiomensystemen (wie
+Peano-Arith\-me\-tik oder Zermelo--Fraenkel-Mengenlehre) weder beweisbar noch
+widerlegbar sind: die Kontinuumshypothese, das Auswahlaxiom, das Axiom der
+Konstruktibilität; aber auch konkrete Dinge wie die Frage nach dem Verhalten
+der \emph{Goodstein-Folgen}.
+\end{itemize}
+
+Einiges davon kann man in folgendem netten Buch nachlesen, das ich sehr
+empfehle:
+\begin{quote}
+Dirk W. Hoffmann. \emph{Grenzen der Mathematik: Eine Reise durch die
+Kerngebiete der mathematischen Logik}. Springer-Verlag, 2013.
+\end{quote}
 
 \end{document}
 
@@ -807,35 +903,8 @@ Omega lässt sehr zu wünschen übrig.
   Grenzen der Mathematik: Eine Reise durch die Kerngebiete der mathematischen
   Logik, Dirk W. Hoffmann.
 
-=== Formale Systeme und Modelle
-
-* Ein formales System besteht aus einer Ansammlung von Axiomen und zulässigen
-  logischen Schlussregeln.
-
-* Ein Modell für ein formales System ist eine Struktur, in der die Axiome
-  und Schlussregeln den Systems gelten.
-
-* Schreibweisen:
-  1. S |- phi
-  2. M |= phi
-  3. S |= phi
-
-* Beispiel: Peano-Arithmetik mit den gewöhnlichen natürlichen Zahlen als
-  intendiertes Modell
-
 * Beispiel: wie nichtstandard Modelle der natürlichen Zahlen aussehen.
 
-
-=== Gödels Sätze
-
-* Vollständigkeitssatz: Wenn S |= phi, dann auch S |- phi.
-
-* Unvollständigkeitssatz: Es gibt phi mit N |= phi, aber nicht PA |- phi.
-
-* Beispiele für Gödel-Sätze:
-
-  * "Dieser Satz hat keinen Beweis."
-  * Goodstein-Folgen
-  * Aussagen über Ziffern von Omega
-
-* Currys Paradox!
+* "Dieser Satz hat keinen Beweis."
+* Goodstein-Folgen
+* Aussagen über Ziffern von Omega
