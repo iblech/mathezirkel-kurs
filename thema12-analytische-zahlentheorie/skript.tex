@@ -227,7 +227,8 @@ sind~$3 \cdot 5 + 1 = 16$ und~$2 \cdot 3 \cdot 5 \cdot 7 \cdot 11 \cdot 13 + 1
 \end{aufgabe}
 
 
-\section{Die Riemannsche~$\boldsymbol{\zeta}$-Funktion}
+\section{\texorpdfstring{Die Riemannsche~$\boldsymbol{\zeta}$-Funktion}{Die
+Riemannsche~ζ-Funktion}}
 
 \begin{defn}Für reelle Zahlen~$s > 1$ ist die \emph{Riemannsche
 $\zeta$-Funktion} durch folgende Formel definiert.
@@ -316,6 +317,33 @@ ist nun das Ergebnis?
 Ergebnis zu erhalten?
 \item Finde einen Weg, um die Gleichung~$1 - s = s$ nicht unplausibel zu
 finden. Welchen Wert hat~$s$ dieser Gleichung zufolge?
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
+
+\begin{aufgabe}{Was ist~$\zeta(2)$?}
+Die Zahl~$\zeta(2)$ ist gleich~$\pi^2/6$. Der übliche Beweis dieser Tatsache
+verwendet mehrdimensionale Integrationstheorie und erfordert daher mehr
+Vorkenntnisse, als wir hier voraussetzen möchten. Es ist aber auch schon spannend
+zu verstehen, wieso~$\zeta(2)$ überhaupt \emph{endlich} ist. Das ist ja,
+angesichts der Definition von~$\zeta(2)$ als die unendliche Reihe
+\[ \zeta(2) = \frac{1}{1} + \frac{1}{4} + \frac{1}{9} + \frac{1}{16} + \cdots,
+\]
+gar nicht klar.
+\begin{enumerate}
+\item Finde zunächst den Wert von
+\[ \sum_{n=2}^\infty \frac{1}{(n-1) \cdot n} =
+  \frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \frac{1}{3 \cdot 4} + \cdots. \]
+
+\emph{Tipp.} Rechne nach, dass gilt: $\frac{1}{(n-1) \cdot n} = \frac{1}{n-1} -
+\frac{1}{n}$. Mit dieser Erkenntnis kannst du die Summe umschreiben und
+ausrechnen. Dabei wirst du feststellen, dass sich die meisten Summanden
+gegenseitig wegheben; Summen, bei denen das passiert, heißen auch
+\emph{Teleskopsummen}.
+
+\item Zeige: $\zeta(2) < \infty$.
+
+\emph{Tipp.} In welchem Größenverhältnis stehen~$\frac{1}{n^2}$
+und~$\frac{1}{(n-1) \cdot n}$ zueinander?
 \end{enumerate}\fixlistspacing
 \end{aufgabe}
 
