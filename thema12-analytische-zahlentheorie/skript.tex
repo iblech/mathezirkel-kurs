@@ -42,6 +42,8 @@
 \newcommand{\bigsum}{\mathop{\mathlarger{\mathlarger{\sum}}}}
 \newcommand{\bigprod}{\mathop{\mathlarger{\mathlarger{\prod}}}}
 
+\DeclareMathOperator{\ld}{ld}
+
 \usepackage{mathpazo}
 
 \begin{document}
@@ -320,7 +322,7 @@ finden. Welchen Wert hat~$s$ dieser Gleichung zufolge?
 \end{enumerate}\fixlistspacing
 \end{aufgabe}
 
-\begin{aufgabe}{Was ist~$\zeta(2)$?}
+\begin{aufgabe}{Was ist~$\zeta(2)$?}\label{aufg:zeta2}
 Die Zahl~$\zeta(2)$ ist gleich~$\pi^2/6$. Der übliche Beweis dieser Tatsache
 verwendet mehrdimensionale Integrationstheorie und erfordert daher mehr
 Vorkenntnisse, als wir hier voraussetzen möchten. Es ist aber auch schon spannend
@@ -557,7 +559,7 @@ endlich viele Primzahlen gäbe?
 \end{aufgabe}
 
 
-\section{Schranken für die Größen der Primzahlen}
+\section{Grobe Schranken für die Größen der Primzahlen}
 
 Es gibt keine geschlossene Formel für die Primzahlen.\footnote{Das ist nur halb
 wahr. Informiere dich über \emph{Mills Formel}.} Trotzdem kann man explizite
@@ -568,17 +570,28 @@ mindestens geben muss oder höchstens geben kann.
 Ein erstes Resultat in diese Richtung ist das folgende. Dabei
 sei~$p_1,p_2,p_3,\ldots$ die unendliche Liste aller Primzahlen.
 
-\begin{thm}\label{thm:schranke1}
+\begin{thm}\label{thm:schranke1}\ \\[-2em]
+\begin{enumerate}
+\item
+Ist~$p$ eine Primzahl, so ist die nächste Primzahl~$\leq p! + 1$. \\[-2em]
+\item
 Die~$r$-te Primzahl ist höchstens~$2^{(2^r)}$: $p_r < 2^{(2^r)}$.
+\end{enumerate}
 \end{thm}
 
 Das folgende Resultat ist schwieriger zu beweisen, liefert aber auch eine
 bessere (kleinere) Abschätzung. Die Klammern bezeichnen wieder die
 Aufrundungoperation.
 
-\begin{thm}\label{thm:schranke2}
+\begin{thm}\label{thm:schranke2}\ \\[-2em]
+\begin{enumerate}
+\item
+Ist~$p$ eine Primzahl, so ist die nächste Primzahl~$\leq \lceil e^{p-\gamma}
+\rceil$. \\[-2em]
+\item
 Die~$r$-te Primzahl ist höchstens~$\lceil e^{r-\gamma} \rceil$: $p_r
 \leq \lceil e^{r-\gamma} \rceil$.
+\end{enumerate}
 \end{thm}
 
 Um diese beiden Behauptungen zu beweisen, werden wir eine interessante
@@ -597,6 +610,14 @@ mindestens soundso viele Primzahlen.}
 Proof mining werden wir an Euklids und an Eulers Beweis der Unendlichkeit der
 Primzahlen üben. Euklids Beweis liefert Theorem~\ref{thm:schranke1}, Eulers
 komplexerer Beweis liefert das stärkere Theorem~\ref{thm:schranke2}.
+
+Beide Theoreme sind aber nur allererste Schritte im Verständnis der Asymptotik
+der Primzahlen. Es gibt nämlich die beiden folgenden, viel schärferen Aussagen.
+Wir werden sie später im Detail diskutieren.
+
+\begin{thm}[Bertrands Postulat]Ist~$p$ eine Primzahl, so ist die nächste
+Primzahl höchstens~$2p$.
+\end{thm}
 
 \begin{aufgabe}{Theorem~\ref{thm:schranke1} aus Euklids Beweis der
 Unendlichkeit der Primzahlen}
@@ -644,6 +665,92 @@ e^{q-\gamma} \rceil$ mindestens eine weitere Primzahl liegen muss.
   \bigprod_{i=1}^r \frac{i+1}{i} = r+1. \]
 \item Folgere: Die~$(r+1)$-te Primzahl ist kleinergleich~$\lceil e^{r+1-\gamma} \rceil$.
 \end{enumerate}\fixlistspacing
+\end{aufgabe}
+
+
+\section{Grobe Schranken für die Anzahl der Primzahlen}
+
+In der Zahlentheorie interessieren wir uns für den Verlauf der
+\emph{Primzahlfunktion}~$\pi$:
+\[ \pi(n) \defeq \text{Anzahl Primzahlen zwischen $1$ und $n$}. \]
+Der gefeierte \emph{Primzahlsatz} gibt zwar keine explizite Formel für~$\pi(n)$,
+macht aber sehr wohl eine Aussage über die \emph{Asymptotik} von~$\pi$. Er gibt
+also eine Antwort auf die Frage, welchem Term sich~$\pi(n)$ für größer
+werdendes~$n$ immer weiter annähert.
+
+\begin{thm}[Primzahlsatz]
+Asymptotisch gilt
+\[ \pi(n) \sim \frac{n}{\ln n}. \]
+Genauer: Der Grenzwert für~$n \to \infty$ von~$\pi(n) / \frac{n}{\ln n}$ ist
+Eins.
+\end{thm}
+
+Dieses Resultat wurde schon Ende des 18. Jahrhunderts von Gauß und Legendre
+vermutet, konnte aber erst 1896 durch Hadamard und De La Vallée-Poussin rigoros
+bewiesen werden. Wegweisend für den Beweis war eine Arbeit Riemanns aus dem
+Jahr~1859 mit dem viel versprechenen Titel \emph{Über die Anzahl der Primzahlen
+unter einer gegebenen Größe}. Wie der Beweis in etwa funktioniert, werden wir
+noch verstehen. Die noch unbewiesene Riemannsche Vermutung impliziert übrigens
+eine Verbesserung des Primzahlsatzes.
+
+Um die Aussage des Primzahlsatzes besser wertschätzen zu können, möchten wir
+zwei deutlich schwächere Abschätzungen angeben, die wir mit den Ergebnissen aus
+dem vorherigen Abschnitt beweisen können. Dabei ist~$\ld$ der Logarithmus zur
+Basis~$2$.
+
+\begin{thm}\label{thm:pi-schranke1}$\pi(n) \geq \ld \ld n$.\end{thm}
+\begin{thm}\label{thm:pi-schranke2}$\pi(n) \geq \ln n$.\end{thm}
+
+\begin{aufgabe}{Theorem~\ref{thm:pi-schranke1} aus Euklids Beweis der
+Unendlichkeit der Primzahlen}
+Aus Euklids Beweis haben wir die Abschätzung
+\[ p_n < 2^{2^n} \]
+extrahiert. Zeige damit für alle Primzahlen~$p$, dass~$\pi(p) > \ld \ld p$.
+
+\emph{Tipp.} Es gilt~$\pi(p_n) = n$, wieso?
+
+\emph{Hinweis.} Wenn du möchtest, kannst du versuchen, auch noch~$\pi(n) > \ld
+\ld n$ für alle natürlichen Zahlen (statt nur für die Primzahlen) zu beweisen.
+Die Hauptarbeit ist dabei schon erledigt, denn die linke Seite macht nur bei
+Primzahlen Sprünge, und die rechte wächst zwar kontinuierlich, ändert sich bis
+zur nächsten Primzahl aber stets um weniger als Eins. Diese letzte Teilaussage
+ohne weitere Hilfsmittel, insbesondere ohne Bertrands Postulat, zu beweisen,
+ist aber nicht ganz einfach.
+\end{aufgabe}
+
+\begin{aufgabe}{Theorem~\ref{thm:pi-schranke2} aus Eulers Beweis der
+Unendlichkeit der Primzahlen}
+Aus Eulers Beweis haben wir die Abschätzung
+\[ p_n \leq \lceil e^{n-\gamma} \rceil \]
+extrahiert; tatsächlich gilt sogar "`$<$"' statt nur~"`$\leq$"'. Beweise damit
+für alle Primzahlen~$p$, dass~$\pi(p) > \gamma + \ln p > \ln p$.
+\end{aufgabe}
+
+% XXX: Tabelle
+
+
+\section{Die Summe der Kehrwerte der Primzahlen}
+
+Es gibt genauso viele Quadratzahlen wie Primzahlen, nämlich jeweils
+\emph{abzählbar unendlich viele}. Intuitiv würde man trotzdem behauptet, dass
+die Primzahlen dichter gesäht seien als die Quadratzahlen. Eine Möglichkeit,
+den Unterschied mathematisch präzise zu verdeutlichen, besteht darin, die Summe
+der Kehrwerte zu vergleichen:
+\[ \frac{1}{1} + \frac{1}{4} + \frac{1}{9} + \frac{1}{16} + \cdots
+  \quad\text{vs.}\quad
+  \frac{1}{2} + \frac{1}{3} + \frac{1}{5} + \frac{1}{7} + \cdots \]
+Wie wir nämlich in Aufgabe~\ref{aufg:zeta2} gesehen haben, hat die linke Reihe
+einen endlichen Wert ($\pi^2/6$). Die rechte Reihe dagegen divergiert, sie hat
+den Wert~$+\infty$. Das zeigt, dass die Kehrwerte der Quadratzahlen viel schneller
+kleiner werden als die Kehrwerte der Primzahlen; umgekehrt formuliert: die
+Quadratzahlen wachsen viel schneller an als die Primzahlen.
+
+\begin{thm}Die Summe der Kehrwerte der Primzahlen ist unendlich:
+$\frac{1}{2} + \frac{1}{3} + \frac{1}{5} + \cdots = \infty$.
+\end{thm}
+
+\begin{aufgabe}{Die Summe der Kehrwerte der Primzahlen}
+XXX
 \end{aufgabe}
 
 \end{document}
