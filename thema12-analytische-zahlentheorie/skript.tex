@@ -339,7 +339,7 @@ gar nicht klar.
 \emph{Tipp.} Rechne nach, dass gilt: $\frac{1}{(n-1) \cdot n} = \frac{1}{n-1} -
 \frac{1}{n}$. Mit dieser Erkenntnis kannst du die Summe umschreiben und
 ausrechnen. Dabei wirst du feststellen, dass sich die meisten Summanden
-gegenseitig wegheben; Summen, bei denen das passiert, heißen auch
+gegenseitig wegheben. Summen, bei denen das passiert, heißen auch
 \emph{Teleskopsummen}.
 
 \item Zeige: $\zeta(2) < \infty$.
@@ -546,7 +546,8 @@ rechter Seite von~\eqref{star} beliebig genau nähern. In Symbolen:
 
 In diesem Kontext gibt es eine Abschätzung, die für unsere Zwecke wichtig sein wird:
 \[ \sum_{i=1}^{\lceil e^{A-\gamma} \rceil} \tfrac{1}{i} > A. \]
-Die Klammern bezeichnen dabei die \emph{Aufrundungsoperation}.
+Die Klammern bezeichnen dabei die \emph{Aufrundungsoperation} (zur nächsten
+ganzen Zahl).
 
 \begin{center}\begin{tabular}{rrrr}
   \toprule
@@ -831,6 +832,8 @@ Divergenz von sum 1/p:
   benötige dafür Taylorentwicklung von ln(1-x).
 * nach Wikipedia ("dritter Beweis"), liefert quantitative Abschätzung
 * Kann man das sogar als Proof-mining-Aufgabe stellen?
+* Auch Seite 160 von:
+  http://download.springer.com/static/pdf/279/bok%253A978-0-387-21820-5.pdf?auth66=1418294555_505a668078c55a9b5ab2ba00b5226434&ext=.pdf
 
 Beweis von Bertrands Postulat aus geeigneter leichter Approximation an den
 Primzahlsatz
@@ -858,3 +861,12 @@ sagen, wie weit nach außen man gehen muss. Es gibt aber auch bessere
 Abschätzungen.
 
 zeta(s) hat bei s = infty eine wesentliche Singularität.
+
+Jedes nichtkonstante Polynom mit ganzzahligen Koeffizienten hat unendlich viele
+nicht-primzahlige Werte. Seite 138 von:
+http://download.springer.com/static/pdf/279/bok%253A978-0-387-21820-5.pdf?auth66=1418294555_505a668078c55a9b5ab2ba00b5226434&ext=.pdf
+
+lim (s-1) * zeta(s) für s --> 1 ausrechnen, um zu sehen, dass der Pol ein
+einfacher ist.
+
+Abrundung statt Aufrundung
