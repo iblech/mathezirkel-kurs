@@ -495,6 +495,29 @@ natürlichen Zahlen läuft. Das ist die Eulersche Produktformel.
 \end{enumerate}\fixlistspacing
 \end{aufgabe}
 
+\begin{aufgabe}{Nullstellen der~$\zeta$-Funktion rechts von der Eins}
+Die Nullstellen der~$\zeta$-Funktion spielen in der Zahlentheorie eine große
+Rolle und sind Gegenstand der Riemannschen Vermutung. In dieser Aufgabe wollen
+wir zwei erste Schritte in diese Richtung gehen.
+\begin{enumerate}
+\item Zeige, dass für alle reellen Zahlen~$s > 1$ die Zahl~$\zeta(s)$ ungleich
+Null ist.
+\item Zeige, dass auch für alle komplexen Zahlen~$s$ mit Realteil größer
+als~Eins die Zahl~$\zeta(s)$ ungleich Null ist.
+
+\emph{Hinweis.} Ist~$s$ komplex, so können die Summanden in der definierenden
+Reihe für~$\zeta(s)$ unübersichtliche komplexe Zahlen werden, mit Real- und
+Imaginärteilen, die sowohl positiv als auch negativ sein können. Verwende also
+nicht die Reihendarstellung für~$\zeta(s)$, um diese Aufgabe zu lösen.
+\end{enumerate}
+
+\emph{Warnung.} Es stimmt auch, dass~$\zeta(s)$ für komplexe Zahlen~$s$ mit
+Realteil genau gleich Eins nicht Null ist -- diese Tatsache ist äquivalent zum
+Primzahlsatz (Theorem~\ref{thm:primzahlsatz}). Das kann man aber weder mit der
+Reihendarstellung noch mit der Eulerschen Produktformel zeigen, denn diese
+konvergieren nur für Realteil größer als Eins.
+\end{aufgabe}
+
 
 \section{Die harmonische Reihe}
 \label{sect:harmonische-reihe}
@@ -696,7 +719,7 @@ macht aber sehr wohl eine Aussage über die \emph{Asymptotik} von~$\pi$. Er gibt
 also eine Antwort auf die Frage, welchem Term sich~$\pi(n)$ für größer
 werdendes~$n$ immer weiter annähert.
 
-\begin{thm}[Primzahlsatz]
+\begin{thm}[Primzahlsatz]\label{thm:primzahlsatz}
 Asymptotisch gilt
 \[ \pi(n) \sim \frac{n}{\ln n}. \]
 Genauer: Der Grenzwert für~$n \to \infty$ von~$\pi(n) / \frac{n}{\ln n}$ ist
