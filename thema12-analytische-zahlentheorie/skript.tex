@@ -606,7 +606,7 @@ endlich viele Primzahlen gäbe?
 Es gibt keine geschlossene Formel für die Primzahlen.\footnote{Das ist nur halb
 wahr. Informiere dich über \emph{Mills Formel}.} Trotzdem kann man explizite
 \emph{Schranken} für die Größe der~$n$-ten Primzahl angeben. Mit deren Hilfe
-kann man angeben, wie viele Primzahlen es in einem vorgegebenem Bereich
+kann man bestimmen, wie viele Primzahlen es in einem vorgegebenem Bereich
 mindestens geben muss oder höchstens geben kann.
 
 Ein erstes Resultat in diese Richtung ist das folgende. Dabei
@@ -637,7 +637,7 @@ Die~$r$-te Primzahl ist höchstens~$\lceil e^{r-\gamma} \rceil$: $p_r
 \end{thm}
 
 Um diese beiden Behauptungen zu beweisen, werden wir eine interessante
-mathematische Technik anwenden: \emph{Proof mining}. Deren Ausgangspunkt ist
+mathematische Technik verwenden: \emph{Proof mining}. Deren Ausgangspunkt ist
 die triviale Erkenntnis, dass ein \emph{Beweis} einer Aussage viel mehr enthält
 als die bloße Information, dass die bewiesene Aussage korrekt ist. Ein Beweis
 gibt auch (mehr oder weniger verständliche) Hintergründe zu ihrer Korrektheit,
@@ -660,6 +660,9 @@ Wir werden sie später im Detail diskutieren.
 \begin{thm}[Bertrands Postulat]Ist~$p$ eine Primzahl, so ist die nächste
 Primzahl höchstens~$2p$.
 \end{thm}
+
+\begin{thm}[Primzahlsatz, ungenau formuliert]Zwischen~$1$ und~$n$ gibt es
+etwa~$n/\ln n$ viele Primzahlen.\end{thm}
 
 \begin{aufgabe}{Theorem~\ref{thm:schranke1} aus Euklids Beweis der
 Unendlichkeit der Primzahlen}
@@ -774,7 +777,7 @@ für alle Primzahlen~$p$, dass~$\pi(p) > \gamma + \ln p > \ln p$.
 \section{Die Summe der Kehrwerte der Primzahlen}
 
 Es gibt genauso viele Quadratzahlen wie Primzahlen, nämlich jeweils
-\emph{abzählbar unendlich viele}. Intuitiv würde man trotzdem behauptet, dass
+\emph{abzählbar unendlich viele}. Intuitiv würde man trotzdem behaupten, dass
 die Primzahlen dichter gesäht seien als die Quadratzahlen. Eine Möglichkeit,
 den Unterschied mathematisch präzise zu verdeutlichen, besteht darin, die Summe
 der Kehrwerte zu vergleichen:
