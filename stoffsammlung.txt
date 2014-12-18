@@ -82,6 +82,10 @@ Buffonsche Nadelproblem
 
 Quantencomputerprogrammierung
 
+Erzeugende Funktionen
+
+Anzahl Partitionen, Link von Jörg damals
+
 
 --- explizit genannt (beim dritten Treffen)
 
