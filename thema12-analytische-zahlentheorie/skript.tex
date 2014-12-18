@@ -359,7 +359,7 @@ bestimmen, zeigt folgende Rechnung auf.
   \sum_{n=1}^\infty \int_0^1 \int_0^1 x^{n-1} y^{n-1} \,dx\,dy
   = \int_0^1 \int_0^1 \sum_{n=1}^\infty x^{n-1} y^{n-1} \,dx\,dy \\
   &= \int_0^1 \int_0^1 \sum_{i=0}^\infty (xy)^i \,dx\,dy
-  = \int_0^1 \int_0^1 \frac{1}{1 - xy} \,dx\,dy
+  \stackrel{\text{A\ref{aufg:geometrische-reihe}}}{=} \int_0^1 \int_0^1 \frac{1}{1 - xy} \,dx\,dy
 \end{align*}
 Dabei ist insbesondere zu begründen, dass die unendliche Summe mit dem Integral
 vertauscht werden kann. Das mehrdimensionale Integral am Ende muss
@@ -594,7 +594,7 @@ du möchtest. Ich wette, du wirst nicht über~$30$ hinauskommen.
 \begin{aufgabe}{Eulers Beweis der Unendlichkeit der Primzahlen}
 \begin{enumerate}
 \item Was ist~$\zeta(1)$?
-\item Verwende Eulers Produktformel, um einen alternativen Beweis der
+\item Verwende Eulers Produktformel, um einen Beweis der
 Unendlichkeit der Primzahlen zu führen: Wie sähe die Formel aus, wenn es nur
 endlich viele Primzahlen gäbe?
 \end{enumerate}\fixlistspacing
@@ -785,7 +785,7 @@ der Kehrwerte zu vergleichen:
   \quad\text{vs.}\quad
   \frac{1}{2} + \frac{1}{3} + \frac{1}{5} + \frac{1}{7} + \cdots \]
 Wie wir nämlich in Aufgabe~\ref{aufg:zeta2} gesehen haben, hat die linke Reihe
-einen endlichen Wert ($\pi^2/6$). Die rechte Reihe dagegen divergiert, sie hat
+einen endlichen Wert (nämlich $\pi^2/6$). Die rechte Reihe dagegen divergiert, sie hat
 den Wert~$+\infty$. Das zeigt, dass die Kehrwerte der Quadratzahlen viel schneller
 kleiner werden als die Kehrwerte der Primzahlen; umgekehrt formuliert: die
 Quadratzahlen wachsen viel schneller an als die Primzahlen.
@@ -797,6 +797,229 @@ $\frac{1}{2} + \frac{1}{3} + \frac{1}{5} + \cdots = \infty$.
 \begin{aufgabe}{Die Summe der Kehrwerte der Primzahlen}
 XXX
 \end{aufgabe}
+
+
+\section{\texorpdfstring{Die Mangoldt-Funktion~$\boldsymbol{\Lambda}$}{Die
+Mangoldt-Funktion~Λ}}
+
+Die Mangoldt-Funktion~$\Lambda$ (benannt nach dem deutschen Mathematiker Hans
+von Mangoldt, *~1854, †~1925 und notiert durch ein großes griechisches Lambda)
+ist in der analytischen Zahlentheorie eine wichtige Funktion. Sie ist eng
+verwandt mit der Primzahlfunktion~$\pi$ und mit der
+Riemannschen~$\zeta$-Funktion. Außerdem kommt sie in der Definition der
+\emph{Tschebyschow-Funktion} vor -- eine Funktion, die wie~$\pi$ die Anzahl der
+Primzahlen misst, mit der man aber dank besserer Eigenschaften leichter umgehen
+kann.
+
+\begin{defn}Für Primzahlpotenzen~$n = p^k$ mit~$k \geq 1$ ist die
+\emph{Mangoldt-Funktion}~$\Lambda$ definiert durch~$\Lambda(n) = \ln p$. Für
+alle anderen natürlichen Zahlen ist~$\Lambda(n) = 0$.\end{defn}
+
+Im Graphen sind die unzähligen Nullstellen von~$\Lambda$ (alle Zahlen, die
+keine reinen Primzahlpotenzen sind) anhand der Lücken erkennbar.
+
+\begin{center}
+  \includegraphics{mangoldt-function}
+\end{center}
+
+Ein erster Grund, wieso die Mangoldt-Funktion eine große zahlentheoretische
+Bedeutung hat, zeigt das folgende Theorem.
+
+\begin{thm}\label{thm:mangoldt-hauptsatz}Für jede positive natürliche Zahl~$n$
+gilt
+\[ \ln n = \sum_{d|n} \Lambda(d). \]
+Dabei geht die Summe auf der rechten Seite über alle positiven Teiler von~$n$.
+\end{thm}
+
+Zum Beispiel sind die positiven Teiler von~$12$ die Zahlen~$1$, $2$, $3$, $4$,
+$6$ und~$12$, und tatsächlich gilt, unter Verwendung der Rechenregel~$\ln(a
+\cdot b) = \ln a + \ln b$ für Logarithmen:
+\begin{align*}
+  \ln 12 &= \ln(2 \cdot 2 \cdot 3) =
+  \ln 2 + \ln 2 + \ln 3 =
+  \Lambda(2) + \Lambda(4) + \Lambda(3) \\
+  &= \Lambda(1) + \Lambda(2) + \Lambda(3) + \Lambda(4) + \Lambda(6) +
+  \Lambda(12) \\
+  &= \sum_{d|12} \Lambda(d).
+\end{align*}
+
+Den Zusammenhang zur Riemannschen~$\zeta$-Funktion stellt folgende Formel dar.
+
+\begin{thm}\label{thm:mangoldt-zeta}
+Die Ableitung von~$\zeta$, $\zeta$ selbst und~$\Lambda$ erfüllen
+die Identität
+\[ -\frac{\zeta'(s)}{\zeta(s)} = \sum_{n=1}^\infty \frac{\Lambda(n)}{n^s}. \]
+\end{thm}
+
+\begin{aufgabe}{Der Fundamentalsatz der Arithmetik in Mangoldt-Sprache}
+Beweise Theorem~\ref{thm:mangoldt-hauptsatz}, zeige also für alle positiven
+Zahlen~$n$, dass~$\ln n = \sum_{d|n} \Lambda(d)$.
+
+\emph{Tipp.} Überlege dir anhand der Primfaktorzerlegung der Zahl~$n$, welche
+Teiler~$n$ hat und welchen Wert die Mangoldt-Funktion~$\Lambda$ bei ihnen
+annimmt. Erinnere dich außerdem an die Rechenregel~$\ln(a \cdot b) = \ln a +
+\ln b$ für Logarithmen.
+\end{aufgabe}
+
+\begin{aufgabe}{Zusammenhang von~$\Lambda$ mit~$\zeta$}
+Beweise Theorem~\ref{thm:mangoldt-zeta}.
+
+\emph{Tipp.} Verwende die Eulersche Produktformel
+(Abschnitt~\ref{sect:euler-produkt}), die Ableitungsregel~$(a^s)' = a^s \cdot
+\ln a$ und die Produktregel für unendlich viele Faktoren:
+\begin{align*}
+  (f_1(s) \cdot f_2(s) \cdot f_3(s) \cdots)' &=
+  f_1'(s) \cdot f_2(s) \cdot f_3(s) \cdots \\
+  &\mathrel{+} f_1(s) \cdot f_2'(s) \cdot f_3(s) \cdots \\
+  &\mathrel{+} f_1(s) \cdot f_2(s) \cdot f_3'(s) \cdots \\
+  &\mathrel{+} \cdots.
+\end{align*}
+\vspace{-2em}
+\end{aufgabe}
+
+\begin{aufgabe}{Exkurs: Wieso das Zwölfersystem besser als das Zehnersystem ist}
+Im Zwölfersystem verwendet man insgesamt zwölf Ziffern, nämlich die üblichen
+Ziffern von~$0$ bis~$9$ und dann zwei neue Ziffern: $A$ für~$10$ und~$B$
+für~$11$. Zum Beispiel steht die Zahl~$3B5_{12}$ für~$5$ Einer, $11$~Zwölfer
+und~$3$ Vielfache von~144, also für die Zahl~$569$. Die Zahl~$2{,}2_{12}$ steht
+für~$2$ Einer und~$2$ Zwölftel, also für~$2 + \frac{2}{12} =
+2{,}1\overline{6}$.
+\begin{enumerate}
+\item Wie schreibt sich $1/3$ im Zwölfersystem?
+\item Wie $1/4$ und $1/6$?
+\item Wie $1/5$?
+\item Welchen Vorteil hat also das Zwölfersystem gegenüber dem Zehnersystem? An
+welcher Eigenschaft der Zahl~$12$ liegt das?
+\end{enumerate}
+\end{aufgabe}
+
+
+\section{Asymptotische Notation}
+
+\begin{defn}Sind~$f(x)$ und~$g(x)$ nichtnegative Funktionsterme, so schreiben
+wir genau dann $f(x) \ll g(x)$ (in Worten: "`$f(x)$ ist asymptotisch kleiner
+oder gleich~$g(x)$"'), wenn es eine Konstante~$C \geq 0$ gibt, sodass ab einer
+gewissen Stelle~$x_0$ für alle~$x \geq x_0$ gilt, dass
+\[ f(x) \leq C \cdot g(x). \]
+\end{defn}
+
+Auf Deutsch: Wenn wir~$f(x) \ll g(x)$ schreiben, meinen wir nicht, dass an
+allen Stellen der Graph von~$f$ unterhalb von dem von~$g$ liegt. Wir meinen
+stattdessen, dass -- ab einer gewissen Grenze, vorher dürfen~$f(x)$ und~$g(x)$
+völlig beliebig verlaufen -- die Funktion~$f$ kleiner ist als irgendein
+konstantes Vielfaches von~$g$. Um mit dieser Kurzschreibweise vertraut zu
+werden, müssen wir uns ein paar Beispiele ansehen.
+
+\begin{itemize}
+\item $x \ll x^2$. Für~$x \in \left]0,1\right[$ ist zwar~$x$ größer als~$x^2$, danach aber
+ist~$x$ kleiner als~$x^2$.
+\item $100x \ll x^2$. Hier dauert es etwas länger, bis das stärkere Wachstum
+der Quadratfunktion überwiegt.
+\item $x^2 \ll x^2$. An diesem Beispiel sieht man, dass~"`$\ll$"' eine
+asymptotische Variante von~"`$\leq$"', und nicht etwa von~"`$<$"' ist.
+\item $3x^2 \ll x^2$. Es ist~$3x^2$ zwar nie kleiner als~$x^2$,
+aber kleiner als ein bestimmtes konstantes Vielfaches von~$x^2$, nämlich zum
+Beispiel dem Zehnfachen von~$x^2$.
+\item $x^3 \not\ll x^2$. Die Kubikfunktion wächst stärker als die
+Quadratfunktion, und sie wächst auch stärker als jedes konstante Vielfache der
+Quadratfunktion.
+\item $\arctan(x) \ll 1$. Im Grenzwert für~$x \to \infty$ strebt~$\arctan(x)$
+gegen~$\pi/2 \approx 1{,}6$. Das ist zwar nicht kleiner als Eins, aber kleiner
+als ein konstantes Vielfaches der Eins.
+\item $1/x \ll x$. Für kleine~$x$ ist~$1/x$ viel größer als~$x$. Ab der
+Stelle~$1$ jedoch ist~$1/x$ kleiner als~$x$.
+\end{itemize}
+
+\begin{lemma}\label{lemma:asympt}\begin{enumerate}
+\item Wenn~$f(x) \ll g(x)$ und~$g(x) \ll h(x)$, dann auch~$f(x) \ll h(x)$.
+\item Wenn~$f(x) \ll g(x)$ und~$a(x) \ll b(x)$, dann auch~$f(x)+a(x) \ll
+g(x)+b(x)$.
+\item Wenn~$f(x) \ll g(x)$ und~$a(x) \ll b(x)$, dann auch~$f(x) \cdot a(x) \ll
+g(x) \cdot b(x)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{aufgabe}{Weitere Beispiele zur asymptotischen Notation}
+\begin{wrapfigure}{r}{0.25\textwidth}
+\includegraphics[width=3cm]{asymptotic-notation}
+\end{wrapfigure}
+\ \\
+\vspace{-3em}
+\begin{enumerate}
+\item Gilt~$e^5 \ll x^5$ oder $x^5 \ll e^5$?
+\item Gilt~$x \cdot \ln x \ll x$ oder $x \ll x \cdot \ln x$?
+\item Gilt~$x \cdot \sin(x)^2 \ll x^5$?
+\item Erkläre, wieso \emph{weder} $x \cdot \sin(x)^2 \ll 1$ \emph{noch} $1 \ll x
+\cdot \sin(x)^2$ stimmt (siehe Skizze).
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
+
+\begin{aufgabe}{Theorie zur asymptotischen Notation}
+Beweise Lemma~\ref{lemma:asympt}. Für Behauptung~a) kannst du dabei nach
+folgendem Muster vorgehen; es sind nur noch die Lücken auszufüllen.
+
+Da~$f(x) \ll g(x)$, gibt es eine Konstante~$C \geq 0$ und eine Schranke~$x_0$,
+sodass für alle~$x \geq x_0$ gilt: $f(x) \leq C \cdot g(x)$. Da~$g(x) \ll
+h(x)$, gibt es eine weitere Konstante~$D \geq 0$ und eine weitere
+Schranke~$x_1$, sodass für alle~$x \geq x_1$ gilt: $g(x) \leq D \cdot h(x)$.
+Daher gilt zusammengenommen für alle~$x \geq {??}$, dass~$f(x) \leq {??} \cdot
+h(x)$. Also~$f(x) \ll h(x)$.
+\end{aufgabe}
+
+
+\section{\texorpdfstring{Die Tschebyschow-Funktion~$\boldsymbol{\psi}$}{Die
+Tschebyschow-Funktion~ψ}}
+
+\begin{defn}Die (zweite) \emph{Tschebyschow-Funktion}~$\psi$ ist definiert als
+\[ \psi(x) \defeq \sum_{n \leq x} \Lambda(n). \]
+Dabei geht die Summe über alle natürlichen Zahlen~$n \leq x$.\end{defn}
+
+\begin{wrapfigure}{r}{0.3\textwidth}
+  \vspace{-2em}
+  \includegraphics[width=0.25\textwidth]{chebyshev-function}
+\end{wrapfigure}
+Im Graphen (obere Kurve, in Rot) sind die Sprünge der Tschebyschow-Funktion bei
+den Primzahlen gut erkennbar. Zum Vergleich ist die Mangoldt-Funktion in Blau
+eingezeichnet.
+
+Unmittelbar sind wir eigentlich nicht an der Tschebyshow-Funktion, sondern an
+der Primzahlfunktion~$\pi$ interessiert. Das folgende Theorem zeigt aber, dass
+der Unterschied zwischen den beiden Funktionen gar nicht so groß ist.
+
+\begin{thm}\label{thm:psi-pi}
+Sollte~$\psi(n)/n$ im Grenzwert~$n \to \infty$ den Wert~$1$ annehmen, so nimmt
+auch~$\pi(n)/\frac{n}{\ln n}$ im Grenzwert den Wert~$1$ an; und umgekehrt.
+\end{thm}
+
+Der Primzahlsatz (Theorem~\ref{thm:primzahlsatz}) ist also äquivalent zur
+Aussage, dass~$\psi(n)$ asymptotisch äquivalent zu~$n$ ist. Es hat sich
+herausgestellt, dass es leichter ist, den Primzahlsatz über diesen Umweg über
+die Tschebyschow-Funktion als direkt zu beweisen.
+
+Bevor wir uns im nächsten Abschnitt einem Beweis des Primzahlsatzes stellen,
+möchten wir in diesem Abschnitt eine schwächere, aber immer noch interessante
+Aussage verstehen.
+
+\begin{thm}\label{thm:psi-obere-schranke}
+Asymptotisch ist~$\psi(N)$ kleiner als~$N$: $\psi(N) \ll N$.
+\end{thm}
+
+\begin{proof}Der Beweis folgt in voneinander unabhängigen Schritten, die wir in
+den folgenden Aufgaben bearbeiten.
+\begin{itemize}
+\item Um das Theorem zu beweisen, genügt es nachzuweisen, dass~$\sum_{N < n
+\leq 2N} \Lambda(n) \ll N$.
+\item In der Summe~$\sum_{N < n \leq 2N} \Lambda(n) = \Lambda(N+1) +
+\Lambda(N+2) + \cdots + \Lambda(2N)$ untersuchen wir separat folgende Arten von
+Summanden~$\Lambda(n)$: die, für die~$n$ eine Primzahlpotenz der Form~$p^j$
+mit~$j \geq 2$ ist; die, für die~$n$ eine Primzahl ist; und alle restlichen
+Zahlen.
+\item Die Summe über die Summanden der ersten Art ist~$\ll N$.
+\item Die Summe über die Summanden der zweiten Art ist~$\ll N$.
+\item Die Summe über die Summanden der dritten Art ist Null und daher erst
+recht~$\ll N$. \qedhere
+\end{itemize}
+\end{proof}
 
 \end{document}
 
