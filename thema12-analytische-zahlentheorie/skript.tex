@@ -429,7 +429,7 @@ Diese Subtilitäten wollen wir nicht weiter beachten, obwohl sie durchaus
 wichtig sind.
 \end{aufgabe}
 
-\begin{aufgabe}{Beweise ohne Worte}
+\begin{aufgabe}{Beweise ohne Worte}\label{aufg:ohne-worte}
 Die aus dem Internet ausgeliehenen Skizzen demonstrieren (von links
 nach rechts) folgende Sachverhalte -- und zwar ganz ohne
 Formeln und Rechnungen. Schaue dir die Skizzen lang genug an, um zu verstehen,
@@ -966,6 +966,15 @@ Daher gilt zusammengenommen für alle~$x \geq {??}$, dass~$f(x) \leq {??} \cdot
 h(x)$. Also~$f(x) \ll h(x)$.
 \end{aufgabe}
 
+\begin{aufgabe}{Asymptotik und Grenzwerte}\label{aufg:asymp-limes}
+Gelte, dass~$f(n) / g(n)$ für~$n \to \infty$ gegen eine Zahl~$a < \infty$
+konvergiert. Überlege dir, dass dann~$f(n) \ll g(n)$.
+
+\emph{Tipp.} Wenn~$\lim_{n \to \infty} \frac{f(n)}{g(n)} = a$, dann gibt es
+irgendeine Stelle~$n_0$, sodass für alle~$n \geq n_0$ gilt: $f(n)/g(n) \leq
+a+1$.
+\end{aufgabe}
+
 
 \section{\texorpdfstring{Die Tschebyschow-Funktion~$\boldsymbol{\psi}$}{Die
 Tschebyschow-Funktion~ψ}}
@@ -993,8 +1002,8 @@ auch~$\pi(n)/\frac{n}{\ln n}$ im Grenzwert den Wert~$1$ an; und umgekehrt.
 
 Der Primzahlsatz (Theorem~\ref{thm:primzahlsatz}) ist also äquivalent zur
 Aussage, dass~$\psi(n)$ asymptotisch äquivalent zu~$n$ ist. Es hat sich
-herausgestellt, dass es leichter ist, den Primzahlsatz über diesen Umweg über
-die Tschebyschow-Funktion als direkt zu beweisen.
+herausgestellt, dass es leichter ist, den Primzahlsatz über diesen Umweg mit
+der Tschebyschow-Funktion als direkt zu beweisen.
 
 Bevor wir uns im nächsten Abschnitt einem Beweis des Primzahlsatzes stellen,
 möchten wir in diesem Abschnitt eine schwächere, aber immer noch interessante
@@ -1020,6 +1029,73 @@ Zahlen.
 recht~$\ll N$. \qedhere
 \end{itemize}
 \end{proof}
+
+\begin{aufgabe}{Beweis von Theorem~\ref{thm:psi-obere-schranke}, Teil I:
+Reduktionsschritt}
+Nimm an, dass schon bewiesen wurde, dass
+\[ \sum_{N < n \leq 2N} \Lambda(n) \ll N. \]
+Dabei geht die Summe über alle natürlichen Zahlen zwischen~$N$ (ausschließlich)
+und~$2N$ (einschließlich). Zeige unter dieser Annahme, dass dann auch
+\[ \psi(N) = \sum_{n \leq N} \Lambda(n) \ll N. \]
+Hierbei geht die Summe über alle natürlichen Zahlen~$\leq N$.
+
+\emph{Tipp.} Zerlege die Summe~$\psi(N)$ in mehrere Teilbereiche:
+von~$N/2$ bis~$N$; von~$N/4$ bis~$N/2$; von~$N/8$ bis~$N/4$; und so weiter.
+Wende die Annahme auf jeden dieser Teilbereiche an und erinnere dich, dass~$1 +
+1/2 + 1/4 + 1/8 + \cdots = 2$ (Aufgabe~\ref{aufg:ohne-worte}).
+\end{aufgabe}
+
+\begin{aufgabe}{Beweis von Theorem~\ref{thm:psi-obere-schranke}, Teil II:
+Summanden erster Art}
+In dieser Aufgabe betrachten wir in der Summe~$\sum_{N < n \leq 2N} \Lambda(n)$
+all diejenigen Summanden, die zu Zahlen~$n$ der Form~$n = p^j$ mit einer Primzahl~$p$
+und~$j \geq 2$ gehören (im Folgenden "`Summanden erster Art"' genannt).
+\begin{enumerate}
+\item Zeige: Eine solche Primzahl~$p$ ist~$\leq \sqrt{N}$.
+\item Folgere: Von den Summanden dieser Art gibt es höchstens~$\sqrt{N}$ viele.
+\item Mache dir klar, dass der Exponent~$j$ eines solchen Summanden
+höchstens~$j_\text{max} \defeq \log_p(2N)$ ist.
+\item Der Beitrag der Primzahl~$p$ zu Summanden dieser Art ist daher höchstens
+$\ln p^2 + \ln p^3 + \cdots + p^{j_\text{max}}$ (wieso?). Zeige, dass dieser
+Beitrag höchstens $\ln(2N) \cdot \ln(2N) / 2$ ist.
+
+\emph{Tipp.} Verwende das Logarithmusgesetz~$\log_p(2N) = \ln(2N)/\ln(p)$,
+zähle die Anzahl der Summanden und nutze aus, dass~$p \geq 2$.
+\item Folgere: Der Gesamtbeitrag aller Summanden erster Art ist höchstens
+$\sqrt{N} \cdot \ln(2N) \cdot \ln(2N)$.
+\item Beweise, dass diese obere Grenze~$\ll N$ ist.
+
+\emph{Hinweis.} Wenn du bis zu dieser Stelle gekommen bist, hast du vielleicht
+keine Lust mehr auf Rechnungen. Dann skizziere einfach~$\sqrt{N} \cdot \ln(2N)
+\cdot ln(2N) / N$ (zum Beispiel auf WolframAlpha.com) und ermittle empirisch
+den Grenzwert für~$N \to \infty$. Aufgabe~\ref{aufg:asymp-limes} verrät dir
+dann, dass mehr nicht zu tun ist.
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
+
+\begin{aufgabe}{Beweis von Theorem~\ref{thm:psi-obere-schranke}, Teil III:
+Summanden zweiter Art}
+Es geht nun um die Summanden der Form~$\Lambda(p)$ in~$\sum_{N < n \leq 2N}
+\Lambda(n)$, wobei~$p$ eine Primzahl zwischen~$N$ (ausschließlich) und~$2N$
+(einschließlich) ist ("`Summanden zweiter Art"'). Die folgenden Teilaufgaben
+können unabhängig voneinander bearbeitet werden.
+\begin{enumerate}
+\item Beweise, dass eine solche Primzahl~$p$ den
+Binomialkoeffizienten~$\binom{2N}{N}$ teilt. Verwende dazu folgende Formel:
+\[ \binom{2N}{N} = \frac{(2N)!}{N! \cdot N!} =
+  \frac{(2N) \cdot (2N-1) \cdot \ldots \cdot 2 \cdot 1}{
+  N \cdot (N-1) \cdot \ldots \cdot 2 \cdot 1 \cdot
+  N \cdot (N-1) \cdot \ldots \cdot 2 \cdot 1} \]
+\item Folgere, dass das Produkt aller Primzahlen zwischen~$N$
+(ausschließlich) und~$2N$ (einschließlich) die Zahl~$\binom{2N}{N}$ teilt.
+\item Beweise: Der Gesamtbeitrag der Summanden zweiter Art, also~$\sum_{N < p
+\leq 2N} \ln p$, ist höchstens~$\ln 2^{2N}$.
+
+\emph{Hinweis.} Es gilt~$\binom{2N}{N} \leq 2^{2N}$. Das folgt zum Beispiel aus
+dem \emph{binomischen Lehrsatz}.
+\item Beweise, dass~$\ln 2^{2N} \ll N$.
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
 
 \end{document}
 
