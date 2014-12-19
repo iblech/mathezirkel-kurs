@@ -717,11 +717,23 @@ e^{q-\gamma} \rceil$ mindestens eine weitere Primzahl liegen muss.
 
 In der Zahlentheorie interessieren wir uns für den Verlauf der
 \emph{Primzahlfunktion}~$\pi$:
-\[ \pi(n) \defeq \text{Anzahl Primzahlen zwischen $1$ und $n$}. \]
+\begin{align*}
+  \pi(n) &\defeq \text{Anzahl Primzahlen zwischen $1$ und $n$} \\
+  = \sum_{p \leq n} 1.
+\end{align*}
 Der gefeierte \emph{Primzahlsatz} gibt zwar keine explizite Formel für~$\pi(n)$,
 macht aber sehr wohl eine Aussage über die \emph{Asymptotik} von~$\pi$. Er gibt
 also eine Antwort auf die Frage, welchem Term sich~$\pi(n)$ für größer
 werdendes~$n$ immer weiter annähert.
+
+Im Graphen links sind gut die Sprünge bei den Primzahlen zu erkennen. Das etwas
+chaotische Verhalten verschwindet, wenn man die Primzahlfunktion auf größeren
+Skalen betrachtet (rechts).
+
+\begin{center}
+  \includegraphics[scale=0.5]{pi-function-1}\qquad\qquad
+  \includegraphics[scale=0.5]{pi-function-2}
+\end{center}
 
 \begin{thm}[Primzahlsatz]\label{thm:primzahlsatz}
 Asymptotisch gilt
@@ -745,6 +757,31 @@ Basis~$2$.
 
 \begin{thm}\label{thm:pi-schranke1}$\pi(n) \geq \ld \ld n$.\end{thm}
 \begin{thm}\label{thm:pi-schranke2}$\pi(n) \geq \ln n$.\end{thm}
+
+\begin{center}
+  \begin{tabular}{rrrrrr}
+    \toprule
+    $n$ & $\pi(n)$ & $n/\ln n$ & $\pi(n)/\frac{n}{\ln n}$ & $\ld\ld n$ & $\ln n$ \\\midrule
+    10    & 4    &   4.3     & 0.921     & 1.7 & 2.3 \\
+    100   & 25    &  21.7      & 1.151   &    2.7 & 4.6 \\
+    1000  & 168    & 144.8     & 1.161   &   3.3 & 6.9 \\
+    10000 & 1229   & 1085.7    &  1.132 & 3.7 &  9.2 \\
+    100000  &  9592 &    8685.9      & 1.104 & 4.1 &  11.5 \\
+    1000000 &      78498 &  72382.4     &  1.084 & 4.3 &  13.8 \\
+    10000000 &     664579 & 620420.7    &   1.071 & 4.5 &  16.1 \\
+    100000000 &    5761455 & 5428681.0  &     1.061 & 4.7 & 18.4 \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+\begin{bem}Der Primzahlsatz behauptet nicht, dass der Unterschied
+zwischen~$\pi(n)$ und~$\frac{n}{\ln n}$, also die Differenz~$\pi(n) - \frac{n}{\ln n}$, für~$n
+\to \infty$ gegen Null geht. Tatsächlich strebt diese Differenz
+gegen~$+\infty$. Der Primzahlsatz trifft eine Aussage über den \emph{relativen
+Fehler}, also den Bruch~$(\pi(n)-\frac{n}{\ln n})/\pi(n)$. Dieser geht für~$n \to
+\infty$ gegen Null.
+\end{bem}
+
 
 \begin{aufgabe}{Theorem~\ref{thm:pi-schranke1} aus Euklids Beweis der
 Unendlichkeit der Primzahlen}
@@ -795,7 +832,28 @@ $\frac{1}{2} + \frac{1}{3} + \frac{1}{5} + \cdots = \infty$.
 \end{thm}
 
 \begin{aufgabe}{Die Summe der Kehrwerte der Primzahlen}
-XXX
+Zeige:
+\[ \ln \bigsum_{n=1}^N \frac{1}{n} \leq \bigsum_{p \leq N} \frac{1}{p} + C, \]
+wobei~$C$ eine bestimmte Konstante ist. Die Summe auf der rechten Seite soll
+über alle Primzahlen~$p$ zwischen~$1$ und~$N$ gehen. Beginne dazu mit der
+linken Seite und führe eine lange Abschätzungskette, die zum Schluss in der
+rechten Seite mündet. Verwende folgende Zutaten:
+\begin{itemize}
+\item $\sum_{n=1}^N \frac{1}{n} \leq \sum_n \frac{1}{n}$, wobei die Summe auf
+der rechten Seite über all diejenigen natürlichen Zahlen läuft, in deren
+Primfaktorzerlegung nur Primzahlen~$\leq N$ vorkommen. Wieso stimmt das?
+\item $\sum_n \frac{1}{n} = \prod_{p \leq N} \frac{1}{1 - p^{-1}}$. Warum gilt
+das?
+\item $\ln(1-x^{-1}) = \frac{1}{x} + \frac{1}{2x^2} + \frac{1}{3x^3} + \cdots$.
+Diese Formel musst du nicht beweisen, sie ist eine so genannte
+\emph{Taylorentwicklung}.
+\item Trenne eine Summe der Form $\sum_{p \leq N} (\frac{1}{p} + {??})$ in zwei
+Teile auf: $\sum_{p \leq N} \frac{1}{p} + \sum_{p \leq N} {?}$.
+\item Sobald du $\frac{1}{p^2}$ ausklammern kannst, mach das.
+\item Verwende die Formel für die geometrische Reihe, um $1 + \frac{1}{p} +
+\frac{1}{p^2} + \cdots$ zu vereinfachen.
+\item Verwende zum Schluss das Ergebnis aus Aufgabe~\ref{aufg:zeta2}a).
+\end{itemize}\fixlistspacing
 \end{aufgabe}
 
 
@@ -992,8 +1050,14 @@ den Primzahlen gut erkennbar. Zum Vergleich ist die Mangoldt-Funktion in Blau
 eingezeichnet.
 
 Unmittelbar sind wir eigentlich nicht an der Tschebyshow-Funktion, sondern an
-der Primzahlfunktion~$\pi$ interessiert. Das folgende Theorem zeigt aber, dass
-der Unterschied zwischen den beiden Funktionen gar nicht so groß ist.
+der Primzahlfunktion~$\pi$ interessiert. Die beiden Funktionen sind aber eng
+miteinander verwandt: Bei der Primzahlfunktion wird bei jeder neuen
+Primzahl~$p$ der konstante Summand~$1$ addiert. Bei der Tschebyschow-Funktion
+dagegen wird der Summand~$\ln p$ addiert, und außerdem wird~$\ln p$ auch bei
+allen Potenzen von~$p$ addiert.
+
+Das folgende Theorem zeigt, dass man den Primzahlsatz, der eine asymptotische
+Aussage über~$\pi(n)$ trifft, auch auf~$\psi(n)$ umformulieren kann.
 
 \begin{thm}\label{thm:psi-pi}
 Sollte~$\psi(n)/n$ im Grenzwert~$n \to \infty$ den Wert~$1$ annehmen, so nimmt
@@ -1170,8 +1234,6 @@ http://download.springer.com/static/pdf/279/bok%253A978-0-387-21820-5.pdf?auth66
 
 lim (s-1) * zeta(s) für s --> 1 ausrechnen, um zu sehen, dass der Pol ein
 einfacher ist.
-
-Abrundung statt Aufrundung
 
 Wilson-Lagrange?
 
