@@ -50,7 +50,7 @@
 
 \maketitleCustom{Klassen 10/11/12}{\textbf{\textsf{%
   Analytische Zahlentheorie \\
-  \normalsize Zirkelzettel vom 5. Dezember 2014}}}
+  \normalsize Zirkelzettel vom 5. und 19. Dezember 2014}}}
 
 \begin{center}
 \includegraphics[angle=90]{zeta-function-complex}
@@ -59,6 +59,8 @@
 {\renewcommand{\addvspace}[1]{\vskip0.6em}
 \tableofcontents%
 }
+
+\newpage
 
 \section{Der Fundamentalsatz der Arithmetik}
 
@@ -719,7 +721,7 @@ In der Zahlentheorie interessieren wir uns für den Verlauf der
 \emph{Primzahlfunktion}~$\pi$:
 \begin{align*}
   \pi(n) &\defeq \text{Anzahl Primzahlen zwischen $1$ und $n$} \\
-  = \sum_{p \leq n} 1.
+  &= \sum_{p \leq n} 1.
 \end{align*}
 Der gefeierte \emph{Primzahlsatz} gibt zwar keine explizite Formel für~$\pi(n)$,
 macht aber sehr wohl eine Aussage über die \emph{Asymptotik} von~$\pi$. Er gibt
@@ -830,8 +832,18 @@ Quadratzahlen wachsen viel schneller an als die Primzahlen.
 \begin{thm}Die Summe der Kehrwerte der Primzahlen ist unendlich:
 $\frac{1}{2} + \frac{1}{3} + \frac{1}{5} + \cdots = \infty$.
 \end{thm}
+\begin{proof}In Aufgabe~\ref{aufg:div-sum-p} zeigen wir, dass
+\begin{align*}
+  \ln \bigsum_{n=1}^N \frac{1}{n} &\leq \bigsum_{p \leq N} \frac{1}{p} + C, \\
+\intertext{wobei~$C$ eine Konstante ist. Wenn wir das umstellen, erhalten wir}
+\bigsum_{p \leq N} \frac{1}{p} &\geq \exp(\ln \bigsum_{n=1}^N \frac{1}{n} -
+C).
+\end{align*}
+Auf der rechten Seite kommt also die harmonische Reihe vor, von der wir bereits
+wissen, dass sie divergiert (Abschnitt~\ref{sect:harmonische-reihe}).
+\end{proof}
 
-\begin{aufgabe}{Die Summe der Kehrwerte der Primzahlen}
+\begin{aufgabe}{Die Summe der Kehrwerte der Primzahlen}\label{aufg:div-sum-p}
 Zeige:
 \[ \ln \bigsum_{n=1}^N \frac{1}{n} \leq \bigsum_{p \leq N} \frac{1}{p} + C, \]
 wobei~$C$ eine bestimmte Konstante ist. Die Summe auf der rechten Seite soll
