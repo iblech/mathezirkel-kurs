@@ -58,7 +58,7 @@
 \vspace{0.4cm}
 \begin{minipage}{0.9\textwidth}
 \scriptsize Die Werte der Riemannschen~$\zeta$-Funktion auf einem Streifen um den
-Ursprung in der komplexen Zahlenebene (um 90~Grad gedreht).
+Ursprung in der komplexen Zahlen\-ebene (um 90~Grad gedreht).
 \url{http://en.wikipedia.org/wiki/File:Riemann-Zeta-Detail.png}\par
 \end{minipage}
 \end{center}
@@ -218,11 +218,17 @@ positive natürliche Lösung.
 \item Finde eine Lösung im Fall~$n = 2$, also drei positive natürliche
 Zahlen~$a,b,c$ mit~$a^2 + b^2 = c^2$. Solche Lösungen heißen auch
 \emph{pythagoräische Zahlentripel}.
-\item Beweise mit dem Großen Fermatschen Satz, dass~$\sqrt{2}$ nicht rational
+\item Beweise mit dem Großen Fermatschen Satz, dass für keine natürliche
+Zahl~$n \geq 3$ die~$n$-te Wurzel aus~$2$,~$\sqrt[n]{2}$, rational
 ist.
 \item Warum ist das witzig?
 
 \emph{Tipp.} Wie schwer war der Beweis von Fermats letztem Satz?
+
+\item Lässt sich der Beweis aus b) übertragen, um die Irrationalität
+von~$\sqrt{2}$ zu zeigen?
+
+\emph{Tipp.} Das ist ein Bonuswitz.
 \end{enumerate}\fixlistspacing
 \end{aufgabe}
 
@@ -719,8 +725,11 @@ kommt spätestens bis zu~$p! + 1$ ("`$p$ Fakultät"', $p! = 1 \cdot 2 \cdot
 \item Folgere mit vollständiger Induktion:
 \[ p_r < 2^{(2^r)}. \]
 
-\emph{Tipp.} Du darfst verwenden, dass für alle Zahlen~$m \geq 2$ gilt: $m/4 +
-1 \leq m$.
+\emph{Tipp.} Verwende, dass für alle Zahlen~$m \geq 2$ gilt: $m/4 +
+1 \leq m$. Verwende außerdem die Formel~$2^1 + 2^2 + \cdots + 2^k = 2^{k+1} -
+2$.
+\item Es gilt sogar~$p_r \leq \sqrt{2}^{(2^r)} = 2^{(2^{r-1})}$. Kannst du das
+auch zeigen?
 \end{enumerate}\fixlistspacing
 \end{aufgabe}
 
@@ -873,13 +882,10 @@ Quadratzahlen wachsen viel schneller an als die Primzahlen.
 \begin{thm}Die Summe der Kehrwerte der Primzahlen ist unendlich:
 $\frac{1}{2} + \frac{1}{3} + \frac{1}{5} + \cdots = \infty$.
 \end{thm}
-\begin{proof}In Aufgabe~\ref{aufg:div-sum-p} zeigen wir, dass
-\begin{align*}
-  \ln \bigsum_{n=1}^N \frac{1}{n} &\leq \bigsum_{p \leq N} \frac{1}{p} + C, \\
-\intertext{wobei~$C$ eine Konstante ist. Wenn wir das umstellen, erhalten wir}
-\bigsum_{p \leq N} \frac{1}{p} &\geq \exp(\ln \bigsum_{n=1}^N \frac{1}{n} -
-C).
-\end{align*}
+\begin{proof}Wenn wir das Resultat aus Aufgabe~\ref{aufg:div-sum-p} umstellen,
+erhalten wir
+\[ \bigsum_{p \leq N} \frac{1}{p} \geq \ln \bigsum_{n=1}^N \frac{1}{n} - C, \]
+wobei~$C$ eine Konstante ist.
 Auf der rechten Seite kommt also die harmonische Reihe vor, von der wir bereits
 wissen, dass sie divergiert (Abschnitt~\ref{sect:harmonische-reihe}).
 \end{proof}
@@ -901,7 +907,7 @@ das?
 Diese Formel musst du nicht beweisen, sie ist eine so genannte
 \emph{Taylorentwicklung}.
 \item Trenne eine Summe der Form $\sum_{p \leq N} (\frac{1}{p} + {??})$ in zwei
-Teile auf: $\sum_{p \leq N} \frac{1}{p} + \sum_{p \leq N} {?}$.
+Teile auf: $\sum_{p \leq N} \frac{1}{p} + \sum_{p \leq N} {??}$.
 \item Sobald es sich anbietet, $\frac{1}{p^2}$ auszuklammern, mach das.
 \item Verwende die Formel für die geometrische Reihe, um $1 + \frac{1}{p} +
 \frac{1}{p^2} + \cdots$ zu vereinfachen.
@@ -1168,23 +1174,22 @@ In dieser Aufgabe betrachten wir in der Summe~$\sum_{N < n \leq 2N} \Lambda(n)$
 all diejenigen Summanden, die zu Zahlen~$n$ der Form~$n = p^j$ mit einer Primzahl~$p$
 und~$j \geq 2$ gehören (im Folgenden "`Summanden erster Art"' genannt).
 \begin{enumerate}
-\item Zeige: Eine solche Primzahl~$p$ ist~$\leq \sqrt{N}$.
-\item Folgere: Von den Summanden dieser Art gibt es höchstens~$\sqrt{N}$ viele.
+\item Zeige: Eine solche Primzahl~$p$ ist~$\leq \sqrt{2N}$.
+\item Folgere: Von den Summanden dieser Art gibt es höchstens~$\sqrt{2N}$ viele.
 \item Mache dir klar, dass der Exponent~$j$ eines solchen Summanden
 höchstens~$j_\text{max} \defeq \log_p(2N)$ ist.
 \item Der Beitrag der Primzahl~$p$ zu Summanden dieser Art ist daher höchstens
-$\ln p^2 + \ln p^3 + \cdots + p^{j_\text{max}}$ (wieso?). Zeige, dass dieser
-Beitrag höchstens $\ln(2N) \cdot \ln(2N) / 2$ ist.
+$\ln p \cdot (j_\text{max}-2)$ (wieso?). Zeige, dass dieser
+Beitrag höchstens $\ln(2N)$ ist.
 
-\emph{Tipp.} Verwende das Logarithmusgesetz~$\log_p(2N) = \ln(2N)/\ln(p)$,
-zähle die Anzahl der Summanden und nutze aus, dass~$p \geq 2$.
+\emph{Tipp.} Verwende das Logarithmusgesetz~$\log_p(2N) = \ln(2N)/\ln(p)$.
 \item Folgere: Der Gesamtbeitrag aller Summanden erster Art ist höchstens
-$\sqrt{N} \cdot \ln(2N) \cdot \ln(2N)$.
+$\sqrt{2N} \cdot \ln(2N)$.
 \item Beweise, dass diese obere Grenze~$\ll N$ ist.
 
 \emph{Hinweis.} Wenn du bis zu dieser Stelle gekommen bist, hast du vielleicht
-keine Lust mehr auf Rechnungen. Dann skizziere einfach~$\sqrt{N} \cdot \ln(2N)
-\cdot ln(2N) / N$ (zum Beispiel auf WolframAlpha.com) und ermittle empirisch
+keine Lust mehr auf Rechnungen. Dann skizziere einfach~$\sqrt{2N} \cdot \ln(2N)
+/ N$ (zum Beispiel auf WolframAlpha.com) und ermittle empirisch
 den Grenzwert für~$N \to \infty$. Aufgabe~\ref{aufg:asymp-limes} verrät dir
 dann, dass mehr nicht zu tun ist.
 \end{enumerate}\fixlistspacing
@@ -1208,11 +1213,67 @@ Binomialkoeffizienten~$\binom{2N}{N}$ teilt. Verwende dazu folgende Formel:
 \item Beweise: Der Gesamtbeitrag der Summanden zweiter Art, also~$\sum_{N < p
 \leq 2N} \ln p$, ist höchstens~$\ln 2^{2N}$.
 
-\emph{Hinweis.} Es gilt~$\binom{2N}{N} \leq 2^{2N}$. Das folgt zum Beispiel aus
-dem \emph{binomischen Lehrsatz}.
+\emph{Hinweis.} Es gilt~$\binom{2N}{N} \leq 2^{2N}$. Das zeigt die folgende
+Aufgabe.
 \item Beweise, dass~$\ln 2^{2N} \ll N$.
 \end{enumerate}\fixlistspacing
 \end{aufgabe}
+
+\begin{aufgabe}{Eine Abschätzung für Binomialkoeffizienten}
+In dieser Aufgabe wollen wir folgende Abschätzung beweisen:
+\[ \binom{n}{k} = \frac{n!}{k! \cdot (n-k)!} \leq 2^n. \]
+\begin{enumerate}
+\item Erkläre, wieso es~$2^n$ viele Teilmengen der Menge~$\{1,\ldots,n\}$ gibt
+-- die leere Teilmenge und ganz~$\{1,\ldots,n\}$ mitgezählt.
+\item In der Kombinatorik lernt man, dass~$\binom{n}{k}$ die Anzahl der
+\emph{$k$-elementigen} Teilmengen der Menge~$\{1,\ldots,n\}$ ist. Wieso genügt
+diese Einsicht in Kombinatin mit Teilaufgabe~a), um die Abschätzung zu
+beweisen?
+\end{enumerate}
+Es gibt auch einen rechnerischen Beweis der Abschätzung. Und zwar besagt
+der \emph{binomische Lehrsatz}, dass
+\begin{align*}
+  (x+y)^n &= \textstyle \binom{n}{0} x^n + \binom{n}{1} x^{n-1} y
+  + \binom{n}{2} x^{n-2} y^2 +
+  \cdots
+  +
+  \binom{n}{n-2} x^2 y^{n-2} +
+  \binom{n}{n-1} x y^{n-1} +
+  \binom{n}{n} y^n.
+\end{align*}
+Für~$n = 2$ erhält man aus dieser Formel die bekannte erste binomische Formel,
+\begin{align*}
+  (x+y)^2 &= x^2 + 2xy + y^2, \\
+\intertext{und für~$n = 3$ erhält man}
+  (x+y)^3 &= x^3 + 3x^2y + 3xy^2 + y^3.
+\end{align*}
+\begin{enumerate}
+\addtocounter{enumi}{2}
+\item Schreibe~$2^n$ als~$(1 + 1)^n$ und führe damit einen Beweis der
+Abschätzung über den binomischen Lehrsatz.
+\end{enumerate}\fixlistspacing
+\end{aufgabe}
+
+
+\section{Weitere Stichpunkte}
+
+Ausblick in Stichpunkten, muss noch ausgeführt werden:
+\begin{itemize}
+\item Zusammenhang zwischen~$\pi$ und~$\psi$
+\item Beweis, dass~$\pi(x) \ll x/\ln x$
+\item Beweis, dass der Primzahlsatz äquivalent dazu ist, dass die
+Riemannsche~$\zeta$-Funktion keine Nullstellen mit Realteil~1 hat
+\item Beweis, dass die Riemannsche~$\zeta$-Funktion keine Nullstellen mit
+Realteil~1 hat, unter Verwendung einer expliziten Formel für~$\Lambda(n)$, in
+der die Nullstellen von~$\zeta$ vorkommen
+\item Erklärung, inwieweit die Nullstellen der~$\zeta$-Funktion wie Klänge
+sind; und Erklärung, inwieweit die Riemannsche Vermutung impliziert, dass die
+Nullstellen sogar einen Akkord bilden (auf Terence Tao verweisen)
+\item Erklärung, inwieweit sich Primzahlen wie Zufallszahlen verhalten; und
+Erklärung, inwieweit sie das nicht tun
+\item Erklärung, in welchem Sinn~$1 + 2 + 3 + \cdots = -1/12$ gilt; und was das mit
+dem Casimir-Effekt aus der Physik zu tun hat
+\end{itemize}
 
 \end{document}
 
@@ -1307,3 +1368,9 @@ http://terrytao.wordpress.com/2014/11/23/254a-notes-1-elementary-multiplicative-
 http://www.math.ucsb.edu/~stopple/explicit.html
 http://www.dms.umontreal.ca/~andrew/Courses/Chapter8.pdf
 http://pbelmans.wordpress.com/2012/01/09/the-flaw-in-all-western-music-is-related-to-the-riemann-zeta-function/
+
+Nullstellen von zeta =(Mellin) Frequenzen in Lambda/psi
+
+Noch zu texen: keine Nullstellen auf Re = 1 <==> PNT.
+
+Nachsehen: Explizite Formel, Weyl
