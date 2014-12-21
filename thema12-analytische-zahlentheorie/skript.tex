@@ -54,8 +54,16 @@
 
 \begin{center}
 \includegraphics[angle=90]{zeta-function-complex}
+
+\vspace{0.4cm}
+\begin{minipage}{0.9\textwidth}
+\scriptsize Die Werte der Riemannschen~$\zeta$-Funktion auf einem Streifen um den
+Ursprung in der komplexen Zahlenebene (um 90~Grad gedreht).
+\url{http://en.wikipedia.org/wiki/File:Riemann-Zeta-Detail.png}\par
+\end{minipage}
 \end{center}
 
+\vspace{1em}
 {\renewcommand{\addvspace}[1]{\vskip0.6em}
 \tableofcontents%
 }
@@ -213,12 +221,12 @@ Primzahl, die nicht in der Liste enthalten ist.\end{thm}
 
 \begin{aufgabe}{Euklids Beweis der Unendlichkeit der Primzahlen}
 \label{aufg:unendlich-euklid}
-Seien~$p_1,\ldots,p_n$ irgendwelche Primzahlen. Wir suchen eine weitere
+Seien~$q_1,\ldots,q_n$ irgendwelche Primzahlen. Wir suchen eine weitere
 Primzahl, die ungleich den gegebenen Primzahlen ist. Dazu betrachten wir die
 Hilfszahl
-\[ N \defeq \prod_{i=1}^n p_i + 1 = p_1 p_2 \cdots p_{n-1} p_n + 1. \]
+\[ N \defeq \prod_{i=1}^n q_i + 1 = q_1 q_2 \cdots q_{n-1} q_n + 1. \]
 \begin{enumerate}
-\item Wieso teilt keine der gegebenen Primzahlen~$p_1,\ldots,p_n$ die Zahl~$N$?
+\item Wieso teilt keine der gegebenen Primzahlen~$q_1,\ldots,q_n$ die Zahl~$N$?
 \item Wie erhält man aus~$N$ also eine neue Primzahl, die ungleich den
 gegebenen ist?
 \end{enumerate}
@@ -861,7 +869,7 @@ Diese Formel musst du nicht beweisen, sie ist eine so genannte
 \emph{Taylorentwicklung}.
 \item Trenne eine Summe der Form $\sum_{p \leq N} (\frac{1}{p} + {??})$ in zwei
 Teile auf: $\sum_{p \leq N} \frac{1}{p} + \sum_{p \leq N} {?}$.
-\item Sobald du $\frac{1}{p^2}$ ausklammern kannst, mach das.
+\item Sobald es sich anbietet, $\frac{1}{p^2}$ auszuklammern, mach das.
 \item Verwende die Formel für die geometrische Reihe, um $1 + \frac{1}{p} +
 \frac{1}{p^2} + \cdots$ zu vereinfachen.
 \item Verwende zum Schluss das Ergebnis aus Aufgabe~\ref{aufg:zeta2}a).
@@ -938,10 +946,10 @@ Beweise Theorem~\ref{thm:mangoldt-zeta}.
 (Abschnitt~\ref{sect:euler-produkt}), die Ableitungsregel~$(a^s)' = a^s \cdot
 \ln a$ und die Produktregel für unendlich viele Faktoren:
 \begin{align*}
-  (f_1(s) \cdot f_2(s) \cdot f_3(s) \cdots)' &=
-  f_1'(s) \cdot f_2(s) \cdot f_3(s) \cdots \\
-  &\mathrel{+} f_1(s) \cdot f_2'(s) \cdot f_3(s) \cdots \\
-  &\mathrel{+} f_1(s) \cdot f_2(s) \cdot f_3'(s) \cdots \\
+  (f_1(s) \cdot f_2(s) \cdot f_3(s) \cdot \ldots)' &=
+  f_1'(s) \cdot f_2(s) \cdot f_3(s) \cdot \ldots \\
+  &\mathrel{+} f_1(s) \cdot f_2'(s) \cdot f_3(s) \cdot \ldots \\
+  &\mathrel{+} f_1(s) \cdot f_2(s) \cdot f_3'(s) \cdot \ldots \\
   &\mathrel{+} \cdots.
 \end{align*}
 \vspace{-2em}
@@ -960,7 +968,7 @@ für~$2$ Einer und~$2$ Zwölftel, also für~$2 + \frac{2}{12} =
 \item Wie $1/5$?
 \item Welchen Vorteil hat also das Zwölfersystem gegenüber dem Zehnersystem? An
 welcher Eigenschaft der Zahl~$12$ liegt das?
-\end{enumerate}
+\end{enumerate}\fixlistspacing
 \end{aufgabe}
 
 
