@@ -1,0 +1,5 @@
+* Zugang nach http://blog.sigfpe.com/2009/10/buffons-needle-easy-way.html.
+
+* Simulation mit http://mste.illinois.edu/activity/buffon/#simulation.
+
+* Kam gut an.

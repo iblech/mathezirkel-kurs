@@ -1,0 +1,6 @@
+* Nach dem Rezept von generatingfunctionology
+  (http://www.math.upenn.edu/~wilf/gfology2.pdf) haben wir eine explizite
+  Formel für die n-te Fibonacci-Zahl hergeleitet.
+
+* Abschließend haben wir die Fibonacci-Zahlen im Apfelmännchen-Fraktal
+  bewundert: http://math.bu.edu/DYSYS/FRACGEOM2/node7.html
