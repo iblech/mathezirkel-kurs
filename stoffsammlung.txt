@@ -88,6 +88,10 @@ Anzahl Partitionen, Link von Jörg damals
 
 Fermi-Probleme
 
+Approximationen von Pi aus der Antike, Kettenbruchentwicklung
+Harte Knobelaufgaben
+Spielanalyse
+
 
 --- explizit genannt (beim dritten Treffen)
 
