@@ -56,6 +56,8 @@ function advance(T, thrustTime, thrustDir)
         v = v + dt*a;
         u = u + dt*v;
         t = t + dt;
+        // XXX: Das ist nicht wirklich das implizite Euler-Verfahren, da die
+        // Beschleunigung a zum alten Zeitpunkt ausgewertet wird.
     end
 endfunction
 
