@@ -1,0 +1,36 @@
+Kam gut an! Die meisten Leute haben gut mitdiskutiert, aber nicht alle.
+
+Wir haben folgende Rätsel besprochen:
+
+1. Jemand baut ein rechteckiges Haus. Jede der Mauern zeigt nach Süden. Ein Bär
+kommt vorbei. Welche Farbe hat er?
+
+2. Auf einem ein Meter langen Stab sitzen hundert Ameisen. Jede bewegt sich mit
+genau einem Zentimeter pro Sekunde. Anfangs schaut jede Ameise in eine
+bestimmte Richtung. Sobald zwei Ameisen aufeinander stoßen, kehren sie um und
+laufen in die jeweils andere Richtung weiter. Wie lange dauert es höchstens,
+bis alle Ameisen das Ende des Stabs erreicht haben? (Dort fallen sie dann
+herunter und gehören nicht mehr zum Spiel.)
+
+3. Auf einem Tisch liegen 20 Münzen. Dir werden die Augen verbunden und dicke
+Handschuhe angezogen. Zehn der Münzen zeigen Kopf, die anderen Zahl. Wie kannst
+du die Münzen in zwei Gruppen aufteilen, sodass in den beiden Gruppen gleich
+oft Zahl vorkommt? Du darfst die Münzen umdrehen, allerdings nicht erfühlen
+oder anderweitig herausfinden, ob eine Münze gerade Zahl oder Kopf zeigt.
+
+4. Erika und Meru haben ein eine Tute mit 200 roten und eine Tute mit 200
+blauen Bonbons. Erika nimmt 50 rote Bonbons aus der Tute und gibt sie in die
+Tute mit den blauen Bonbons. Danach nimmt Meru zufällig 50 Bonbons aus der Tute
+mit den gemischten Bonbons und gibt sie in die Tute mit den roten Bonbons, so
+dass sich jetzt in beiden Tuten wieder je 200 Bonbons befinden. Sind jetzt in der
+ursprünglich roten Tüte mehr oder weniger blaue Bonbons als umgekehrt?
+
+5. Zwanzig Zwerge in einer Reihe ...
+
+6. Unendlich viele Zwerge ...
+
+7. 100 blauäugige Augen
+
+8. 100 Gefangene
+
+9. Smullyan
