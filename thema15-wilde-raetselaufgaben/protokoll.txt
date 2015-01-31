@@ -25,11 +25,47 @@ mit den gemischten Bonbons und gibt sie in die Tute mit den roten Bonbons, so
 dass sich jetzt in beiden Tuten wieder je 200 Bonbons befinden. Sind jetzt in der
 ursprünglich roten Tüte mehr oder weniger blaue Bonbons als umgekehrt?
 
-5. Zwanzig Zwerge in einer Reihe ...
+5. Zwanzig Zwerge stehen in einer Reihe. Ein böser Troll zwingt sie dazu, nur
+nach vorne zu sehen. Der Troll setzt jedem Zwerg einen weißen oder schwarzen
+Hut auf. Dann geht er die Reihe der Zwerge von hinten nach vorne ab (zuerst ist
+er also bei dem Zwerg, der Blick auf die 19 vor ihm stehenden Zwerge hat).
+Nacheinander muss jeder Zwerg "schwarz" oder "weiß" sagen. Wenn das seine
+Hutfarbe ist, darf er weiterleben. Ansonsten bringt der Troll ihn um.
+Vor der Gefangenname durch die Trolle können die Zwerge eine Strategie
+ausmachen, danach aber ist jede Kommunikation streng verboten, und natürlich
+dürfen die Zwerge nicht ihre eigene Hutfarbe nachsehen. Was ist eine Strategie,
+mit der sicher 19 und mit Glück sogar alle 20 Zwerge gerettet werden können?
 
-6. Unendlich viele Zwerge ...
+5½. Wie ist die Strategie anzupassen, wenn die Hüte nicht nur zwei
+verschiedene, sondern 12 verschiedene Farben haben? Welche Farben grundsätzlich
+zur Verfügung stehen, ist den Zwergen vorab bekannt.
 
-7. 100 blauäugige Augen
+6. Die bösen Trolle haben unendlich viele Zwerge versammelt und wieder Hüte der
+Farben Schwarz und Weiß aufgesetzt. Anders als beim vorherigen Rätsel können
+sich alle Zwerge gegenseitig sehen, nur ihre eigene Hutfarbe bleibt ihnen
+verborgen. Auf Kommando müssen dann alle Zwerge jeweils "schwarz" oder "weiß"
+rufen. Wer damit seine eigene Hutfarbe errät, bleibt am Leben; andernfalls wird
+er umgebracht. Vorab dürfen die Zwerge eine Strategie ausmachen, danach aber
+ist jede Kommunikation verboten. Finde eine Strategie, mit der auf jeden Fall
+*alle bis auf endlich viele* Zwerge überleben! (Achtung: Das ist eine stärkere
+Anforderung als nur zu verlangen, dass *unendlich viele* Zwerge überleben. Wenn
+zum Beispiel jeder zweite Zwerg überlebt, dann überleben zwar unendlich viele
+Zwerge, aber es sterben auch unendlich viele.)
+
+7. Auf einer tropischen Insel leben 100 Blauäugige und 100 Braunäugige, die
+alle perfekte Logiker sind. Ihre Religion verbietet ihnen, über Augenfarben zu
+sprechen. Außerdem gibt es keine Spiegel, Pfützen oder andere Möglichkeiten,
+die eigene Augenfarbe in Erfahrung zu bringen. Die Religion gebietet außerdem,
+dass jeder, der (auf welche Weise auch immer) seine Augenfarbe herausfindet,
+sich auf dem Marktplatz umbringen muss. Eines Tages besucht ein Reisender die
+Insel, der die Gepflogenheiten nicht kennt. Er selbst hat blaue Augen. Bei
+einem großen Festmahl, bei dem das gesamte Dorf versammelt ist, verkündet er:
+"Ach wie schön, dass es auf dieser Insel mindestens eine Person gibt, die
+dieselbe Augenfarbe hat wie ich!" (Das scheint keine neue Information zu sein,
+sehen doch die Blauäugigen 99 andere Blauäugige und die Braunäugigen sogar 100
+Blauäugige.) Trotzdem -- was passiert, und warum? (Es ist nicht so einfach wie
+es scheint.) Siehe auch https://xkcd.com/blue_eyes.html für eine andere
+Formulierung.
 
 8. 100 Gefangene
 
