@@ -67,6 +67,39 @@ Blauäugige.) Trotzdem -- was passiert, und warum? (Es ist nicht so einfach wie
 es scheint.) Siehe auch https://xkcd.com/blue_eyes.html für eine andere
 Formulierung.
 
-8. 100 Gefangene
+8. 100 Mathematiker werden gefangen genommen. Im Gefängnis sind sie in
+Einzelzellen untergebracht, die jegliche Kommunikation unter den
+Gefangenen verhindert. Vor der Gefangennahme konnten die Gefangenen aber
+eine Strategie ausmachen.
+
+Jede Nacht ruft der Gefängnisdirektor einen zufällig gewählten
+Gefangenen zu sich [1]. (Es kann also auch passieren, dass derselbe
+Gefangene mehrmals in Folge zum Direktor geschickt wird.) Der Gefangene
+darf dann verkünden, dass zu diesem Zeitpunkt schon alle Gefangenen
+mindestens einmal beim Direktor waren.
+
+Stimmt das, werden alle Gefangenen sofort freigelassen. Stimmt das
+nicht, werden alle sofort umgebracht. Der Gefangene darf auch einfach
+gar nichts sagen, dann geht es halt am nächsten Tag weiter.
+
+Im Büro des Direktors gibt es eine Lampe, die an oder aus sein kann und
+zum Zeitpunkt der Gefangennahme ausgeschaltet ist. Immer, wenn ein
+Gefangener zum Direktor gerufen wird, sieht er den Status der Lampe und
+kann die Lampe entweder anschalten, ausschalten, oder so lassen, wie sie
+ist. Der Direktor wird die Lampe niemals an- oder ausschalten. Auf diese
+Weise können die Gefangenen also ein Bit an Information austauschen.
+
+Finde eine Strategie, mit der die Gefangenen schlussendlich freikommen!
+Es ist keine Trickfrage. Es geht nicht um Restwärme der Lampe oder so
+etwas.
+
+Die Gefangenen bekommen nicht mit, welcher Gefangene in jeder Nacht zum
+Direktor gerufen wird. Es gibt sowohl eine Lösung, wenn die Gefangenen
+ihr Tag-/Nacht-Gefühl behalten; als auch, wenn sie es verlieren.
+
+[1] Um die Auswahl wirklich zufällig zu treffen, verwendet der Direktor
+einen ungezinkten 100-seitigen Würfel. Dieses Detail ist aber auch gar
+nicht so wichtig; wichtig ist nur, dass jeder Gefangene immer mal wieder
+zum Direktor geschickt wird.
 
 9. Smullyan
