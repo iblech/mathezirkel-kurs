@@ -1,0 +1,27 @@
+* Golden Balls.
+  https://www.youtube.com/watch?v=S0qjK3TWZE8
+
+* Nash-Gleichgewicht: Filmausschnitt
+  https://www.youtube.com/watch?v=frcjRXb5ZrI
+
+  * Definition Nash-Gleichgewicht: Kombination von Strategien,
+    sodass es für keinen einzelnen Spieler sinnvoll ist, seine Strategie zu
+    wechseln.
+
+  * Nash-Gleichgewicht wäre hier: einer geht zur Blondine, die anderen zu
+    den Brünetten.
+
+  * Bezüglich des Filmausschnitts auch Bechdel-Test diskutieren.
+
+  * Gefangenendilemma. Das Dilemma liegt darin, dass "kollektive und
+    individuelle Analysen zu unterschiedlichen Handlungsempfehlungen führen".
+
+* Piratenspiel. Zunächst keine Analyse, sondern Spiel.
+
+* Analyse des Streichholzspiels.
+
+* Ziegenproblem. Mit Simulation in Python.
+
+* Wiederholtes Gefangenendilemma.
+
+  Strategien in Python ausprobieren.
