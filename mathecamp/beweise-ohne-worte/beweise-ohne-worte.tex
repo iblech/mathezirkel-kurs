@@ -1,10 +1,27 @@
-\documentclass{../../zirkelblatt}
+\documentclass[a5paper,ngerman,landscape,11pt]{scrartcl}
+% Mit folgendem Befehl zu A4-Seiten zusammenfassen:
+%
+%     pdfjam --outfile a.pdf --nup 1x2 beweise-ohne-worte.pdf 
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[protrusion=true,expansion=true]{microtype}
+
+\usepackage{graphicx,amsmath,color}
 \usepackage{floatflt}
+\usepackage{vwcol}
 \usepackage{geometry}
-\geometry{tmargin=1.5cm,bmargin=1.5cm,lmargin=2cm,rmargin=2cm}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+
+\geometry{tmargin=1cm,bmargin=1cm,lmargin=2.5cm,rmargin=2.5cm}
+
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
 
 \let\raggedsection\centering
 \pagestyle{empty}
+
 \begin{document}
 
 \section*{Satz des Pythagoras}
@@ -19,13 +36,14 @@ rechts). Als Formel:
 \[ a \cdot a + b \cdot b = c \cdot c. \]
 \emph{Wieso ist das so?} Das sollen die beiden anderen Skizzen beantworten.
 Kannst du diesen Beweis erklären?
+
+\vfill
 \begin{center}
 \includegraphics{pythagoras-2}
 \end{center}
 % XXX: Die Farben der Quadrate sollten in den beiden Abbildungen konsistent
 % sein.
 
-\vfill
 
 \section*{Summe der natürlichen Zahlen I}
 Was ist $1 + 2 + 3 + 4$? Was ist $1 + 2 + 3 + 4 + 5 + 6 + 7 + 8$? Das zu
@@ -39,6 +57,8 @@ Ergebnis sofort liefert:
 Die Formel funktioniert auch mit jeder anderen Obergrenze als $100$. \emph{Wieso
 stimmt die Formel?} Das soll die Skizze beantworten. Bei ihr ist die
 Obergrenze~$6$. Kannst du den Beweis erklären?
+
+\vfill
 \begin{center}
 \includegraphics[scale=0.3]{kleiner-gauss-1}
 \end{center}
@@ -61,7 +81,6 @@ Obergrenze~$100$. Kannst du den Beweis erklären?
 % XXX: Evtl. die Formel als (100 : 2) \cdot 101 angeben.
 
 
-\vfill
 \section*{Summe der ungeraden Zahlen}
 Was ist $1 + 3 + 5 + 7 + 9$? Was ist $1 + 3 + 5 + 7 + 9 + 11 + 13 + 15$? Das zu
 berechnen, wird immer mühsamer. Zum Glück gibt es eine einfache Formel, die das
@@ -73,12 +92,11 @@ Ergebnis sofort liefert:
 \end{align*}
 \emph{Wieso stimmt die Formel?} Das soll die Skizze beantworten. Kannst du
 diesen Beweis erklären?
+
+\vfill
 \begin{center}
 \includegraphics[scale=0.4]{summe-ungerade-zahlen}
 \end{center}
-
-
-\newpage
 
 
 \section*{Summe der Kubikzahlen I}
@@ -103,39 +121,11 @@ Beweis erklären?
 \end{center}
 
 
-\vfill
-\section*{Ein Kästchen verschwindet}
-\begin{floatingfigure}[r]{3.5cm}
-  \vspace{-0.3cm}
-  \scalebox{0.4}{\input{flaecheninhalt-dreieck.pspdftex}}
-\end{floatingfigure}
-Der Flächeninhalt eines Rechtecks mit den Seitenlängen~$a$ und~$b$ ist~$a \cdot
-b$. Der Flächeninhalt eines rechtwinkligen Dreiecks mit Grundseite~$a$ und
-Höhe~$h$ ist~$a \cdot h : 2$ (siehe Skizze rechts). Diese beiden Formeln helfen
-dir vielleicht für die Aufgabe (oder auch nicht, es gibt mehrere Lösungswege).
-
-In den unteren beiden Skizzen ist irgendwo der Wurm drin. Denn die beiden
-Figuren scheinen \emph{denselben Flächeninhalt} zu haben, doch die linke
-scheint offensichtlich aus einem Kästchen mehr als die rechte zu bestehen!
-Kannst du erklären, was schief läuft?
-
-\begin{center}
-  \includegraphics[scale=0.8]{ein-kaestchen-verschwindet-1}
-  \hfill
-  \includegraphics[scale=0.8]{ein-kaestchen-verschwindet-2}
-\end{center}
-\section*{Anzahl der Punkte auf Kreis und Gerade}
-Ein Kreis hat sicher einen viel kürzeren Umfang als eine unendliche Gerade.
-Trotzdem besteht ein Kreis (ohne seinen obersten Punkt) aus \emph{gleich vielen
-Punkten} wie eine Gerade. Das soll die Skizze demonstrieren. Kannst du den
-Beweis erklären?
-\begin{center}
-\input{kardinalitaet-kreislinie.pspdftex}
-\end{center}
-
-
-\vfill
 \section*{Summe der Kubikzahlen II}
+\begin{floatingfigure}[r]{5cm}
+  \vspace{1cm}
+  \includegraphics[scale=0.6]{kubikzahlen-2}
+\end{floatingfigure}
 Für das mehrfache Multiplizieren gibt es eine Kurzschreibweise mit \emph{Potenzen}:
 \begin{align*}
   4^2 &= 4 \cdot 4 = 16 \\
@@ -153,13 +143,48 @@ eine interessante Formel:
 \end{align*}
 \emph{Wieso gilt diese Formel?} Das soll die Skizze beweisen. Kannst du den
 Beweis erklären?
+
+
+\newpage
+\section*{Ein Kästchen verschwindet}
+\begin{floatingfigure}[r]{3.5cm}
+  \vspace{-0.3cm}
+  \scalebox{0.4}{\input{flaecheninhalt-dreieck.pspdftex}}
+\end{floatingfigure}
+Der Flächeninhalt eines Rechtecks mit den Seitenlängen~$a$ und~$b$ ist~$a \cdot
+b$. Der Flächeninhalt eines rechtwinkligen Dreiecks mit Grundseite~$a$ und
+Höhe~$h$ ist~$a \cdot h : 2$ (siehe Skizze rechts). Diese beiden Formeln helfen
+dir vielleicht für die Aufgabe (oder auch nicht, es gibt mehrere Lösungswege).
+
+In den unteren beiden Skizzen ist irgendwo der Wurm drin. Denn die beiden
+Figuren scheinen \emph{denselben Flächeninhalt} zu haben, setzen sie doch aus
+gleichen Bestandteilen zusammen, aber trotzdem scheint doch die linke
+offensichtlich aus einem Kästchen mehr als die rechte zu bestehen!
+Kannst du erklären, was schief läuft?
+
+\begin{raggedright}
+\phantom{foobarfrobnicate}
+\includegraphics[scale=0.75]{ein-kaestchen-verschwindet-1}
+\end{raggedright}
+
+\hfill
+\includegraphics[scale=0.75]{ein-kaestchen-verschwindet-2}
+
+
+\newpage
+\section*{Anzahl der Punkte auf Kreis und Gerade}
+Ein Kreis hat sicher einen viel kürzeren Umfang als eine unendliche Gerade.
+Trotzdem besteht ein Kreis (ohne seinen obersten Punkt) aus \emph{gleich vielen
+Punkten} wie eine Gerade. Das soll die Skizze demonstrieren. Kannst du den
+Beweis erklären?
 \begin{center}
-\includegraphics[scale=0.7]{kubikzahlen-2}
+\input{kardinalitaet-kreislinie.pspdftex}
 \end{center}
 
 
 \vfill
 \section*{Summe der Dreier-Potenzen}
+\hspace*{-1cm}\vbox{\begin{vwcol}[widths={0.5,0.5},sep=0cm,rule=0pt,indent=0em,justify=flush]
 Für wiederholte Produkte gibt es eine Kurzschreibweise mit \emph{Potenzen}:
 \begin{align*}
   5^0 &= 1 \\
@@ -179,12 +204,12 @@ eine kurze Formel:
 \end{align*}
 \emph{Wieso gilt diese Formel?} Das soll die Skizze beweisen. Kannst du den
 Beweis erklären?
-\begin{center}
-\includegraphics[scale=0.7]{geometrische-reihe-5}
-\end{center}
+
+\includegraphics[scale=0.5]{geometrische-reihe-5}
+% ursprünglicher Skalierungsfaktor: 0.7
+\end{vwcol}}
 
 
-\vfill
 \section*{Unendliche Summe der Viertel-Potenzen I}
 \emph{Diesen Beweis kann man leider nur verstehen, wenn man bereits Brüche
 wie~$\frac{3}{7}$ kennt.}
@@ -193,6 +218,8 @@ explizit angeben:
 \[ \frac{1}{4} + \frac{1}{16} + \frac{1}{64} +
 \frac{1}{256} + \frac{1}{1024} + \cdots = \frac{1}{3} \]
 Die Skizze soll das beweisen. Kannst du den Beweis erklären?
+
+\vfill
 \begin{center}
 \includegraphics[scale=0.3]{geometrische-reihe-1}
 \end{center}
@@ -207,6 +234,8 @@ explizit angeben:
 \[ \frac{1}{4} + \frac{1}{16} + \frac{1}{64} +
 \frac{1}{256} + \frac{1}{1024} + \cdots = \frac{1}{3} \]
 Die Skizze soll das beweisen. Kannst du den Beweis erklären?
+
+\vfill
 \begin{center}
 \includegraphics[scale=0.5]{geometrische-reihe-2}
 \end{center}
@@ -221,6 +250,8 @@ explizit angeben:
 \[ \frac{1}{3} + \frac{1}{9} + \frac{1}{27} +
 \frac{1}{81} + \frac{1}{243} + \cdots = \frac{1}{2} \]
 Die Skizze soll das beweisen. Kannst du den Beweis erklären?
+
+\vfill
 \begin{center}
 \includegraphics[scale=0.5]{geometrische-reihe-3}
 \end{center}
@@ -238,6 +269,8 @@ Die Skizze soll das beweisen. Kannst du den Beweis erklären?
 
 \emph{Übrigens:} Im Dualsystem hat die Reihe eine interessante Interpretation. Sie
 ist dann analog zur Zahl~$0{,}999\ldots$ im Zehnersystem.
+
+\vfill
 \begin{center}
 \includegraphics[scale=0.5]{geometrische-reihe-4}
 \end{center}
@@ -259,16 +292,17 @@ Die \emph{Quadrate} der Fibonacci-Zahlen erfüllen eine interessante Rechenregel
 \end{align*}
 Erkennst du das Muster? Wieso die Formeln stimmen, soll die Skizze beweisen.
 Kannst du den Beweis erklären?
-
 \emph{Übrigens:} In die Skizze kann man die \emph{goldene Spirale} einzeichnen.
 Diese kommt in der Natur an vielen Stellen vor -- hole dir bei mir Beispielbilder ab.
+
+\vfill
 \begin{center}
-\includegraphics[scale=0.7]{fibonacci-quadrate}
+\includegraphics[scale=0.6]{fibonacci-quadrate}
 \end{center}
 
 
-\newpage
 \section*{Mersenne-Primzahlen und perfekte Zahlen}
+\hspace*{-1cm}\vbox{\begin{vwcol}[widths={0.7,0.35},sep=1cm,rule=0pt,indent=0em,justify=flush]
 Eine \emph{perfekte Zahl} ist eine Zahl, die gleich der Summe ihrer echten
 Teiler ist. Die kleinsten perfekten Zahlen sind~$6$, $28$ und $496$:
 \begin{align*}
@@ -278,6 +312,7 @@ Teiler ist. Die kleinsten perfekten Zahlen sind~$6$, $28$ und $496$:
 \end{align*}
 Bisher hat man nur gerade perfekte Zahlen gefunden. Man weiß noch nicht, ob es
 auch ungerade perfekte Zahlen gibt -- das ist ein offenes Forschungsproblem.
+\medskip
 
 Eine \emph{Mersenne-Primzahl} ist eine Primzahl der Form~$p = 2^m-1$. Die ersten
 Mersenne-Primzahlen sind:
@@ -288,12 +323,17 @@ Mersenne-Primzahlen sind:
   2^7 - 1 &= 127 \\
   2^{13} - 1 &= 8191
 \end{align*}
-Es gibt nun folgendes zahlentheoretische Theorem: Ist~$p = 2^{n+1}-1$ eine
+In der Zahlentheorie gibt es folgendes Theorem: Ist~$p = 2^{n+1}-1$ eine
 Mersenne-Primzahl, so ist die Zahl~$N = 2^n \cdot p$ eine perfekte Zahl. Die
 Skizze soll das beweisen. Kannst du den Beweis erklären?
-\begin{center}
-\includegraphics[scale=0.5]{mersenne-perfekt}
-\end{center}
+
+\ \\
+\ \\
+\ \\
+
+\includegraphics[scale=0.45]{mersenne-perfekt}
+\end{vwcol}}
+
 \end{document}
 
 Quellen:
