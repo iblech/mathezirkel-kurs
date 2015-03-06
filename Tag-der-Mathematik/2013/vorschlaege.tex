@@ -1,0 +1,134 @@
+\documentclass[a4paper,ngerman]{scrartcl}
+
+%\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+
+\usepackage[ngerman]{babel}
+
+\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+
+%\usepackage[small,nohug]{diagrams}
+%\diagramstyle[labelstyle=\scriptstyle]
+
+\usepackage[protrusion=true,expansion=true]{microtype}
+
+\usepackage{lmodern}
+\usepackage{tabto}
+
+\usepackage[natbib=true,style=numeric]{biblatex}
+\usepackage[babel]{csquotes}
+\bibliography{lit}
+
+\usepackage[all]{xy}
+
+\usepackage{hyperref}
+
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
+
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+%\newarrow{Equals}=====
+
+%\usepackage{geometry}
+%\geometry{tmargin=2cm,bmargin=4cm,lmargin=3cm,rmargin=3cm}
+
+\renewcommand{\labelitemi}{--}
+
+\begin{document}
+
+\section*{Fraktale}
+
+\begin{itemize}
+\item
+Interaktive Fraktalexploration mit Computerunterstützung:
+Schüler können interessante und ästhetische Bereiche etwa des
+Mandelbrotfraktals suchen~\cite{fraktale}.
+\item
+Kochsche Schneeflocke~\cite{koch}: Schüler können die Kochsche Schneeflocke
+Schritt für Schritt konstruieren und einsehen, dass ihr Umfang paradoxerweise
+unendlich ist.
+\item
+Länge von Küstenlinien: Man könnte Landkarten derselben Küste, aber
+verschiedenen Maßstabs austeilen und die Schüler die scheinbaren Längen
+bestimmen lassen. Verblüffenderweise werden die Antworten dann jeweils
+unterschiedlich ausfallen.
+\item
+Chaosspiel~\cite{chaosspiel}, um das Sierpinskidreieck zu konstruieren, mit
+Com\-pu\-ter\-un\-ter\-stüt\-zung: Zunächst lässt man den Computer die Ecken zufällig
+bestimmen. Das Ergebnis wird das Sierpinskidreieck sein, allerdings werden
+uns die Schüler vielleicht Manipulation unterstellen. Dann sollen sie selbst
+die Zufallsecken vorgeben, um jede Einmischung unsererseits auszuschließen.
+Verblüffenderweise wird sich wieder Ordnung aus dem Chaos ergeben.
+\item Labyrinthe: Schüler können auf systematische Art und Weise komplizierte
+Labyrinthe zeichnen, die dann fraktaler Natur sind.
+\end{itemize}
+Botschaften: Aus Zufall kann Ordnung entstehen; Dinge sind manchmal nicht so,
+wie sie scheinen; auch einfache Objekte können faszinierende mathematische
+Eigenschaften haben; Mathematik kann ästhetisch sein.
+
+
+\section*{Kryptographie und Steganographie}
+
+\begin{itemize}
+\item Cäsar-Chiffre und allgemeine Substitutionschiffren~\cite{subst}: Schüler können Texte
+gegenseitig verschlüsseln und sich an ihrer Entschlüsselung (über bekannte
+Buchstabenhäufigkeitsverteilung) versuchen.
+\item Steganographie: Schüler können gegenseitig kurze Botschaften in größeren Texten
+verstecken (etwa über die Anfangsbuchstaben jeder Zeile) und sich an ihrer Enttarnung
+versuchen. Kann mit Musik kombiniert werden, indem man Botschaften über
+Notennamen kodiert.
+\item Idee hinter Public-Key-Kryptographie: Wie kann Alice an Bob ein
+wertvolles Paket per Post schicken, ohne dass Briefträger Zugriff auf den
+Inhalt erhalten können? Schüler können verschiedene Strategien dazu entwickeln
+und auf ihre Sicherheit untersuchen.
+\end{itemize}
+Botschaften: Datensicherheit ist wichtig; Mathematik ist in der Praxis (und
+nicht nur im Supermarkt) nützlich; Mathematik kann sehr kreativ sein.
+
+
+\section*{Dynamische Labyrinthe}
+
+Wir könnten den erprobten Baukasten \emph{Dynamische Labyrinthe} nach Inge
+Schwank~\cite{laby} einsetzen:
+Schüler könnten verschiedene Schaltpläne testen und selbst erfinden. Damit
+würde man Sensibilität dafür, wie Computer arbeiten, wecken; spielerischen
+Umgang mit Programmierung zeigen; und kreatives Potenzial nutzen.
+
+
+\section*{Rechenverfahren der Antike}
+
+Hier könnte man das Rechnen mit
+\begin{itemize}
+\item Abakus,
+\item Rechenschieber,
+\item römischen Zahlen,
+\item usw.
+\end{itemize}
+üben.
+
+Botschaften: Die geschickte Darstellung von Zahlen kann das Rechnen erheblich
+vereinfachen; schon mit einfachen Hilfsmitteln kann man effizient mit großen
+Zahlen arbeiten; Mathematik ist ein Kulturgut.
+
+
+\section*{Magische Quadrate}
+
+\begin{itemize}
+\item Man könnte Schüler zunächst an kleinen Quadraten knobeln lassen.
+\item Dann können sie wertschätzen, dass es Algorithmen gibt, um systematisch
+magische Quadrate aufzustellen.
+\item Die Unterraumeigenschaften magischer Quadrate könnte man (entsprechend
+aufbereitet) diskutieren.
+\end{itemize}
+
+Botschaften: Mathematik hilft, um Rätsel zu lösen und allgemeiner Knobeln durch
+systematische Lösungsversuche zu ersetzen bzw. zu ergänzen.
+
+\renewcommand\refname{Internetverweise}
+\nocite{*}
+\printbibliography
+
+\end{document}
