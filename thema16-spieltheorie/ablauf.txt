@@ -1,3 +1,5 @@
+=== Erster Zirkel
+
 * Golden Balls.
   https://www.youtube.com/watch?v=S0qjK3TWZE8
 
@@ -25,3 +27,32 @@
 * Wiederholtes Gefangenendilemma.
 
   Strategien in Python ausprobieren.
+
+
+=== Zweiter Zirkel
+
+Wir haben in Python diverse spieltheoretische Simulationen programmiert, unter
+anderem:
+
+* Wie groß ist die Wahrscheinlichkeit, bei dem Wurf zweier Würfel
+  eine gerade Augenzahlsumme zu erreichen? (Okay, das ist noch nicht so
+  schwer.)
+
+* Wie groß ist die Wahrscheinlichkeit, beim Monty-Hall-Ziegenproblem
+  zu gewinnen, wenn man bei seiner Entscheidung bleibt bzw. wenn man die
+  Tür wechselt? Alles zum Ziegenproblem steht auf Wikipedia:
+  http://de.wikipedia.org/wiki/Ziegenproblem
+
+* Welche Strategie ist beim wiederholten ("iterierten")
+  Gefangenendilemma die beste? Siehe http://de.wikipedia.org/wiki/Gefangenendilemma,
+  insbesondere den Abschnitt "Strategien".
+
+* Was ist von folgendem Vorgehen zu halten, bei dem man angeblich bei
+  einem Roulette-Spiel sicheren Gewinn machen kann? Man startet mit
+  einem Einsatz von einem Euro und setzt auf irgendeine Farbe. Wenn man
+  gewinnt, hört man auf und streicht den Gewinn von einem Euro ein. Wenn
+  man aber verliert, setzt man im nächsten Zug den doppelten Einsatz,
+  also zwei Eure, ein. Wenn man dann gewinnt, ist der Verlust wieder
+  ausgeglichen und man streicht insgesamt einen Gewinn von einem Euro
+  ein. Wenn man wieder verliert, verdoppelt man den Einsatz wieder,
+  setzt also vier Euro. Und so weiter.
