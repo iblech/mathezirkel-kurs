@@ -1,7 +1,7 @@
 \documentclass[a4paper,ngerman]{scrartcl}
 
 \usepackage[utf8]{inputenc}
-\usepackage{amssymb}
+\usepackage{amssymb,amsmath}
 
 \usepackage[ngerman]{babel}
 \usepackage{pdfpages}
@@ -11,7 +11,7 @@
 \usepackage[protrusion=true,expansion=true]{microtype}
 
 \usepackage{hyperref}
-\usepackage{lmodern}
+\usepackage{libertine}
 \usepackage{tabto}
 
 \setlength\parskip{\medskipamount}
@@ -33,7 +33,7 @@
 \newcommand{\header}{%
   \begin{raggedleft}
   \tiny Universität Augsburg \\
-  Tag der Mathematik 2014 \par
+  Tag der Mathematik 2015 \par
   \end{raggedleft}}
 
 \begin{document}
@@ -45,26 +45,64 @@
   Das Pascalsche Dreieck
 \end{center}
 
-\vspace{8 mm}
 \begin{center}
-    %\includegraphics[scale=0.25]{moebiusband.jpeg}
+\includegraphics[scale=1.2]{pascal-triangle}
 \end{center}
 
-\renewcommand{\labelitemi}{$\infty$}
+\renewcommand{\labelitemi}{$\triangle$}
 
-\vspace{10 mm}
 \Large
 \begin{itemize}
+\item Fülle das Dreieck aus. Trage dazu überall am Rand den Wert $1$ ein. Der
+Wert jedes Kästchens ergibt sich dann als Summe der beiden Kästchen darüber.
+\item Die \emph{Dreieckszahlen} werden gebildet, indem man natürliche Zahlen
+aufsummiert: Die erste Dreieckszahl ist $1$, danach kommt $1+2 = 3$, dann
+$1+2+3 = 6$ und so weiter. Berechne doch mal die ersten acht Dreieckszahlen!
+\begin{center}
+% Quelle: http://www.cs4fn.org/algorithms/images/triangular.jpg
+\includegraphics[scale=0.5]{triangular-numbers}
+\end{center}
+\item Kannst du die Dreieckszahlen im Pascalschen Dreieck entdecken? Wenn ja, wo?
+\emph{Kannst du erklären, wieso sie dort auftreten?}
+\item Male alle Felder mit ungeraden Zahlen im Pascalschen Dreieck aus. Kannst
+du ein Muster erkennen?          
 \end{itemize}
 
-% Aufgaben:
-% * Pascalsches Dreieck berechnen lassen
-% * Partialsummen der zweiten Diagonalen bestimmen lassen,
-%   Vergleich zu den Dreieckszahlen ziehen
-% * Auf der Rückseite (für zu Hause): Fibonacci-Zahlen erkennen
+% Auf der Rückseite (für zu Hause): Fibonacci-Zahlen erkennen
 
 \newpage
 
+Am Pascalschen Dreieck gibt es noch viel mehr zu entdecken.
+
+\begin{itemize}
+\item Addiert man die Zahlen auf den einzelnen Zeilen des Pascalschen Dreiecks,
+so erhält man die \emph{Zweier-Potenzen}: $1, 2, 4, 8, 16, \ldots$
+
+\item Kennst du schon die \emph{binomische Formel}~$(x+y)^2 = x^2 + 2xy + y^2$?
+Wolltest du schon immer wissen, wie man ähnlich flott~$(x+y)^3$, $(x+y)^4$ und
+so weiter ausrechnen kann, ohne ewig die Klammern ausmultiplizieren zu müssen?
+Mit dem Pascalschen Dreieck geht das ganz einfach:
+\begin{align*}
+  (x+y)^3 &= x^3 + 3x^2y + 3xy^2 + y^3 \\
+  (x+y)^4 &= x^4 + 4x^3y + 6x^2y^2 + 4xy^3 + y^4 \\
+  (x+y)^5 &= x^5 + 5x^4y + 10x^3y^2 + 10x^2y^3 + 5xy^4 + y^5
+\end{align*}
+
+\item Addiert man die Zahlen des Pascalschen Dreiecks wie in der Skizze auf, so
+erhält man die \emph{Fibonacci-Zahlen}! Das ist die Folge der Zahlen
+\[ 1, \quad 1, \quad 2, \quad 3, \quad 5, \quad 8, \quad 13, \quad 21, \quad
+\ldots, \]
+die nächste Zahl ist also immer die Summe der beiden vorhergehenden Zahlen.
+Fibonacci-Zahlen kommen in der Natur sehr oft vor, zum Beispiel bei
+Tannenzapfen und Sonnenblumen. Informiere dich doch bei Wikipedia darüber!
+
+\begin{center}
+% Quelle: http://www.geocities.ws/millers_math/famous/fiban.gif
+\includegraphics[scale=0.9]{pascal-fibonacci}
+\end{center}
+\end{itemize}
+
+\newpage
 
 \header
 
@@ -121,9 +159,6 @@
   \end{enumerate}
 \end{itemize}
 
-\enlargethispage{3em}
-\begin{minipage}{0.9\textwidth}
-
 \begin{itemize}
   \item Obwohl man den Startpunkt und die Ecken völlig zufällig wählt, ergibt
   sich erstaunlicherweise näherungsweise eine regelmäßige Figur: das \emph{Sierpinski-Dreieck}.
@@ -162,8 +197,6 @@
   Wolken automatisiert
   generieren zu können.
 \end{itemize}
-
-\end{minipage}
 
 \vfill
 \hfill\small Chaosspiel direkt auf \url{http://tiny.cc/chaosspiel} spielbar
