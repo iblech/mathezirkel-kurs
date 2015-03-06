@@ -1,0 +1,15 @@
+Kochsche Schneeflocke:
+* XaoS starten. Palettenemulation aktivieren (unter "Filter").
+  Mit "y" Farbzirkulation einschalten. Schließlich mit "M" die Kochsche
+  Schneeflocke auswählen.
+
+Pascalsches Dreieck:
+* In XaoS Sierpinski-Dreieck vorbereitet haben ("K").
+
+Chaosspiel:
+* Netzwerk zwischen Laptops aufsetzen.
+* Auf den Clients: Minimaloberfläche fahren und
+  ./push-key-presses.sh server-ip ausführen.
+* Auf dem Server: ./fetch-key-presses.pl ausführen und
+  Ctrl und Alt mit ./control-modifier-keys.sh disable deaktivieren.
+* Im Browser das Chaosspiel vorladen.
