@@ -9,7 +9,8 @@ Pascalsches Dreieck:
 Chaosspiel:
 * Netzwerk zwischen Laptops aufsetzen.
 * Auf den Clients: Minimaloberfläche fahren und
-  ./push-key-presses.sh server-ip ausführen.
-* Auf dem Server: ./fetch-key-presses.pl ausführen und
-  Ctrl und Alt mit ./control-modifier-keys.sh disable deaktivieren.
+  ./push-key-presses.sh server-ip und ./control-modifier-keys.sh disable
+  ausführen.
+* Auf dem Server: ./fetch-key-presses.pl ausführen.
+  Außerdem mit Tastenkürzel das jederzeit stoppen können.
 * Im Browser das Chaosspiel vorladen.
