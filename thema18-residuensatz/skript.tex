@@ -1,9 +1,5 @@
 \documentclass[twoside]{../zirkelblatt1415}
 \usepackage{mathtools}
-\usepackage{wrapfig}
-\usepackage{tabto}
-\usepackage{booktabs}
-\usepackage{relsize}
 \let\raggedsection\centering
 
 \theoremstyle{definition}
@@ -37,6 +33,7 @@
 \DeclareMathOperator{\ld}{ld}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\CC}{\mathbb{C}}
+\newcommand{\Res}{\mathrm{Res}}
 
 \usepackage[T1]{fontenc}
 \usepackage{libertine}
@@ -47,18 +44,6 @@
   Der Residuensatz \\
   \normalsize Zirkelzettel vom 20. März 2015}}}
 
-\begin{center}
-%\includegraphics[angle=90]{zeta-function-complex}
-
-\vspace{0.4cm}
-\begin{minipage}{0.9\textwidth}
-\scriptsize Die Werte der Riemannschen~$\zeta$-Funktion auf einem Streifen um den
-Ursprung in der komplexen Zahlen\-ebene (um 90~Grad gedreht).
-\url{http://en.wikipedia.org/wiki/File:Riemann-Zeta-Detail.png}\par
-\end{minipage}
-\end{center}
-
-\vspace{1em}
 {\renewcommand{\addvspace}[1]{\vskip0.6em}
 \tableofcontents%
 }
@@ -109,7 +94,7 @@ liegt diese Zahl in der komplexen Zahlenebene?
 \begin{aufgabe}{Parametrisierungen von Kreisen}
 Finde eine Parametrisierung des \ldots
 \begin{enumerate}
-\item Einheitskreises,
+\item Einheitskreises (damit ist immer gemeint: entgegen des Uhrzeigersinns),
 \item um den Faktor~$r$ vergrößerten Einheitskreises,
 \item Kreises mit Radius~$r$ und Mittelpunkt~$p$.
 \end{enumerate}
@@ -171,14 +156,119 @@ eines beliebig kleinen Kreises~$K$ um den Ursprung gilt nämlich
 \[ \int_K (\cdots + a_{-1} z^{-1} + \cdots) \,dz = 2\pi i \cdot a_{-1}. \]
 All die anderen Koeffizienten spielen also keine Rolle!
 
-\begin{aufgabe}{Baby-Version des Residuensatzes}
+\begin{aufgabe}{Baby-Version des Residuensatzes}\label{aufg:residuensatz-baby}
 Beweise diese Formel.
+\end{aufgabe}
+
+Eine \emph{holomorphe Funktion} ist eine, in deren Laurententwicklungen (um
+jeden Punkt) nur nichtnegative Exponenten vorkommen. Solche Funktionen sind
+also \emph{überall definiert} und besitzen keine Polstellen. Unter anderem sind
+folgende Funktionen holomorph:
+\begin{itemize}
+\item Jedes Polynom, zum Beispiel $5z^2 - 3z + 8$.
+\item Die Exponentialfunktion.
+\item Die Summe zweier holomorphen Funktionen.
+\item Das Produkt zweier holomorphen Funktionen.
+\item Die Verkettung zweier holomorphen Funktionen.
+\end{itemize}
+Der Quotient zweier holomorpher Funktionen hat im Allgemeinen Polstellen
+-- nämlich dort, wo der Nenner Nullstellen hat. Solche Funktionen heißen
+\emph{meromorph}. In deren Laurententwicklung dürfen endlich viele -- aber
+nicht unendlich viele! -- negative Exponenten vorkommen. Zum Beispiel sind die
+Funktionen
+\[ \frac{1}{z} \qquad \frac{z^2 - 3}{z^2 - 1} \qquad \frac{1}{z^2 + 1} \]
+meromorph. Die Funktion~$\frac{z^2 - 2z + 1}{z - 1}$ scheint ebenfalls nur
+meromorph zu sein, tatsächlich aber ist sie holomorph (wieso?).
+
+\begin{aufgabe}{Formeln fürs Residuum}\label{aufg:residuum-formeln}
+\begin{enumerate}
+\item Sei~$f$ eine holomorphe Funktion. Erkläre, wieso das Residuum von~$f$ an
+jeder Stelle Null ist.
+\item Sei~$f$ eine meromorphe Funktion, die an einem Punkt~$c$ eine
+\emph{einfache Polstelle} besitzt. Das bedeutet, dass die Laurententwicklung
+von~$f$ um~$c$ so aussieht:
+\[ f(z) = a_{-1} (z-c)^{-1} + a_0 + a_1 (z-c) + a_2 (z-c)^2 + \cdots. \]
+Zeige, dass das Residuum von~$f$ bei~$c$, also~$a_{-1}$, über folgende Formel
+berechnet werden kann:
+\[ a_{-1} = \lim_{z \to c} \bigl((z-c) f(z)\bigr). \]
+\item Sei~$f$ eine meromorphe Funktion mit~$f(z) = g(z) / h(z)$. Sei~$h(c) = 0$
+und~$h'(c) \neq 0$. (Somit besitzt~$f$ eine einfache Polstelle bei~$c$.) Zeige,
+dass das Residuum von~$f$ bei~$c$ dann gleich~$g(c) / h'(c)$ ist.
+\end{enumerate}\fixlistspacing
 \end{aufgabe}
 
 
 \section{Der Residuensatz}
 
-% Wegunabhängigkeit
-% holomorphe und meromorphe Funktionen
+Das tolle an holomorphen und meromorphen Funktionen ist, dass man bei der
+Berechnung des Kurvenintegrals den Integrationsweg deformieren kann, ohne dass
+sich der Integralwert ändert! Das ist etwas ganz besonderes, zu dem es auch
+kein reelles Analogon gibt -- schließlich lassen sich Intervalle auf der
+eindimensionalen reellen Zahlengerade auch gar nicht deformieren.
+
+Eine präzisere Aussage lautet: Sei~$f$ eine meromorphe Funktion. Sei~$K$ eine
+Kurve in der komplexen Zahlenebene. Lasse sich~$K$ zu einer anderen Kurve~$L$
+deformieren, \emph{ohne dabei die Polstellen von~$f$ zu überstreichen}. Dann
+ist~$\int_K f(z) \,dz = \int_L f(z) \,dz$.
+
+Seien zum Beispiel die Pole von~$f$ wie durch die roten Punkte gekennzeichnet
+verteilt. Dann spielt es keine Rolle, ob man über die blaue oder die rosa Kurve
+der linken Skizze integriert. Es macht aber durchaus einen Unterschied, ob man
+über die blaue oder die rosa Kurve der rechten Seite integriert. Denn bei
+dieser Deformation hat man den oberen rechten Pol überstrichen.
+
+\begin{center}
+\includegraphics[scale=0.75]{path-independence-1}\qquad\qquad
+\includegraphics[scale=0.75]{path-independence-2}
+\end{center}
+
+In der folgenden Aufgabe beweist du den mächtigen Residuensatz. Er erlaubt es,
+auch Integrale mit komplizierten Integrationswegen ganz einfach zu berechnen.
+\begin{aufgabe}{Der Residuensatz}
+Sei~$f$ eine meromorphe Funktion. Sei~$K$ eine geschlossene Kurve in der
+komplexen Zahlenebene, die alle Polstellen von~$f$ in ihrem Inneren umfasst.
+Beweise: Das Integral~$\int_K f(z) \,dz$ ist gleich der Summe der Residuen
+von~$f$ an den Polstellen, multipliziert mit~$2 \pi i$. Als Formel:
+\[ \int_K f(z) \,dz = \sum_z \Res(f,z) \cdot 2 \pi i. \]
+Deformiere dazu den Integrationsweg auf geeignete Art und Weise und verwende
+Aufgabe~\ref{aufg:residuensatz-baby}. Verwende außerdem folgende Rechenregeln:
+Setzt sich eine Kurve aus mehreren Teilkurven zusammen, so ist das Integral
+über die Gesamtkurve die Summe der Integrale über die Teilkurven. Kehrt man die
+Durchlaufrichtung einer Kurve um, so ändert der Integralwert sein Vorzeichen.
+\end{aufgabe}
+
+
+\section{Berechnung reeller Integrale mit dem Residuensatz}
+
+Den Residuensatz kann man verwenden, um reelle Integrale zu berechnen. Wie das
+geht, soll das folgende Beispiel zeigen. Wir wollen das Integral
+\[ \int_{-\infty}^\infty \frac{1}{x^2+1} \,dx = \lim_{R \to \infty} \int_{-R}^R
+\frac{1}{x^2+1} \,dx \]
+bestimmen. Unsere Strategie liegt darin, dazu den Integrationsweg abzuändern:
+Anstatt nur von~$-R$ nach~$R$ zu gehen, ergänzen wir einen großen
+Halbkreisbogen in der komplexen Zahlenebene ("`nach oben"'), um zurück zu~$-R$
+zu gelangen. Auf diese Weise erhalten wir ein Integral über eine geschlossene
+Kurve, die wir mit dem Residuensatz leicht berechnen können. Danach zeigen wir,
+dass das Integral über den zusätzlich eingefügten Weg im Grenzwert~$R \to
+\infty$ keine Rolle spielt, d.\,h. gegen Null geht.
+
+Die Polstellen des Integranden~$f$ liegen bei~$i$ und~$-i$. Im Halbkreis liegt nur
+die Polstelle~$i$. Das Residuum dort können wir mit der Formel aus
+Aufgabe~\ref{aufg:residuum-formeln} leicht berechnen:
+\[ \Res(f, i) = \frac{1}{2 i}. \]
+Nach dem Residuensatz ist daher das Integral über die Halbkreislinie gleich
+\[ \frac{1}{2 i} \cdot 2\pi i = \pi. \]
+
+Was ist das Integral über den zusätzlich eingefügten Weg~$L$?
+\begin{align*}
+  \left|\int_L \frac{1}{z^2+1} \,dz\right| &\leq
+  \int_L \left| \frac{1}{z^2+1} \right| \,dz
+  = \int_L \frac{1}{|z^2+1|} \,dz
+  \leq \int_L \frac{1}{R^2-1} \,dz \\[0.5em]
+  &= \frac{1}{R^2 - 1} \cdot \int_L 1 \,dz
+  = \frac{1}{R^2 - 1} \cdot \pi R
+  = \frac{R}{R^2 - 1} \cdot \pi \xrightarrow{R \to \infty} 0.
+\end{align*}
+Wieso ist wohl~$\int_L 1 \,dz$ gleich dem Umfang von~$L$, also gleich~$\pi R$?
 
 \end{document}
