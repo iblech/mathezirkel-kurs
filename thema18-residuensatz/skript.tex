@@ -108,9 +108,9 @@ Berechne das Integral von~$1/z$ längs des Einheitskreises.
 \begin{aufgabe}{Weitere wichtige komplexe Kurvenintegrale}
 Der Integrationsweg~$L$ sei in den folgenden Fällen stets der Einheitskreis.
 \begin{enumerate}
-\item Was ist~$\int_L z \,dz$?
-\item Was ist~$\int_L z^2 \,dz$?
-\item Was ist~$\int_L \frac{1}{z^2} \,dz$?
+\item Was ist~$\oint_L z \,dz$?
+\item Was ist~$\oint_L z^2 \,dz$?
+\item Was ist~$\oint_L \frac{1}{z^2} \,dz$?
 \end{enumerate}
 \end{aufgabe}
 
@@ -153,7 +153,7 @@ z^3/3! + z^4/4! + \cdots$ nützlich.
 Der Koeffizient~$a_{-1}$ ist besonders wichtig. Er heißt auch \emph{Residuum}
 der Laurentreihe an dem gegebenen Entwicklungspunkt. Für die Integration längs
 eines beliebig kleinen Kreises~$K$ um den Ursprung gilt nämlich
-\[ \int_K (\cdots + a_{-1} z^{-1} + \cdots) \,dz = 2\pi i \cdot a_{-1}. \]
+\[ \oint_K (\cdots + a_{-1} z^{-1} + \cdots) \,dz = 2\pi i \cdot a_{-1}. \]
 All die anderen Koeffizienten spielen also keine Rolle!
 
 \begin{aufgabe}{Baby-Version des Residuensatzes}\label{aufg:residuensatz-baby}
@@ -229,12 +229,19 @@ Sei~$f$ eine meromorphe Funktion. Sei~$K$ eine geschlossene Kurve in der
 komplexen Zahlenebene, die alle Polstellen von~$f$ in ihrem Inneren umfasst.
 Beweise: Das Integral~$\int_K f(z) \,dz$ ist gleich der Summe der Residuen
 von~$f$ an den Polstellen, multipliziert mit~$2 \pi i$. Als Formel:
-\[ \int_K f(z) \,dz = \sum_z \Res(f,z) \cdot 2 \pi i. \]
+\[ \oint_K f(z) \,dz = \sum_z \Res(f,z) \cdot 2 \pi i. \]
 Deformiere dazu den Integrationsweg auf geeignete Art und Weise und verwende
 Aufgabe~\ref{aufg:residuensatz-baby}. Verwende außerdem folgende Rechenregeln:
 Setzt sich eine Kurve aus mehreren Teilkurven zusammen, so ist das Integral
 über die Gesamtkurve die Summe der Integrale über die Teilkurven. Kehrt man die
 Durchlaufrichtung einer Kurve um, so ändert der Integralwert sein Vorzeichen.
+\end{aufgabe}
+
+\begin{aufgabe}{Beispiel zum Residuensatz}
+Berechne
+\[ \oint_K \frac{1}{(z-1) (z^2-4)} \,dz, \]
+wobei~$K$ eine geschlossene Kurve ist, die in ihrem Inneren alle Polstellen des
+Integranden umfasst.
 \end{aufgabe}
 
 
@@ -270,5 +277,25 @@ Was ist das Integral über den zusätzlich eingefügten Weg~$L$?
   = \frac{R}{R^2 - 1} \cdot \pi \xrightarrow{R \to \infty} 0.
 \end{align*}
 Wieso ist wohl~$\int_L 1 \,dz$ gleich dem Umfang von~$L$, also gleich~$\pi R$?
+
+\thispagestyle{empty}
+\enlargethispage{8em}
+
+
+\begin{aufgabe}{Endgegner I}
+Berechne $\int_{-\infty}^\infty \frac{\sin x}{x^2 + 2x + 2} \,dx$ mit dem Residuensatz.
+
+\emph{Tipps:} Wegen der Formel~$e^{it} = \cos(t) + i \sin(t)$ ist das gesuchte
+Integral der Imaginärteil des Integrals~$\int_{-\infty}^\infty
+\frac{e^{ix}}{x^2 + 2x + 2} \,dx$. Die Nullstellen des Nenners liegen
+bei~$-1+i$ und~$-1-i$.
+\end{aufgabe}
+% Lösung: http://sym.lboro.ac.uk/resources/Handout_ResidueTheorem.pdf
+
+\begin{aufgabe}{Endgegner II}
+Berechne $\int_{-\infty}^\infty \frac{1}{x^4 + 1} \,dx$ mit dem Residuensatz.
+
+\emph{Auflösung auf YouTube:} \url{https://www.youtube.com/watch?v=MRLa5bk3_R4}
+\end{aufgabe}
 
 \end{document}
