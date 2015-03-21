@@ -103,3 +103,11 @@ nicht so wichtig; wichtig ist nur, dass jeder Gefangene immer mal wieder
 zum Direktor geschickt wird.
 
 9. Smullyan
+
+
+Haben wir nicht gemacht, wäre aber interessant: Paritätsrätsel.
+Gefängnischef legt ein (8 x 8)-Schachbrett mit Münzen voll (jeweils Kopf oder
+Zahl). Dann zeigt er auf ein Feld seiner Wahl. Ein Mathematiker darf nun eine
+der Münzen umdrehen (muss aber nicht). Daraufhin muss ein weiterer
+Mathematiker, der erst jetzt dazu gerufen wird, erschließen, auf welche Stelle
+der Chef gezeigt hat.

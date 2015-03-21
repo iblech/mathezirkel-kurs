@@ -5,6 +5,7 @@ apt-get install vnc4server vncviewer lxde kate openssh-server
 # passwd iblech nicht vergessen
 
 # In .vnc/xstartup:
+# ulimit -v 800000  # ca. 800 MB
 # lxsession
 
 # Dann:
