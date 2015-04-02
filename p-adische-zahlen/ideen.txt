@@ -1,0 +1,19 @@
+* Definition, Grundrechenarten, Vorstellung.
+* Negation.
+* Quotienten.
+* Anschauliche Vorstellung von +1 und *p.
+
+* Z_2 ist homöomorph zur Cantormenge.
+
+* Lustige Grenzwerte: 1/(1+p^n), p^n/(1+p^n).
+
+* Wenn p = 10: Finde x^2 = x mit x != 0, x != 1.
+
+* 1 + 2 + 4 + 8 + ... = -1.
+
+* http://en.wikipedia.org/wiki/Monsky%27s_theorem?
+
+* Finde in Q_5 eine Quadratwurzel aus -1.
+  Antwort: ...3032431212.
+
+* Nutzen: lokal-global-Prinzip.

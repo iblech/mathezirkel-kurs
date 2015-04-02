@@ -73,6 +73,7 @@ http://jdh.hamkins.org/largest-number-contest/
 http://mathoverflow.net/questions/38245/what-is-the-easiest-randomized-algorithm-to-motivate-to-the-layperson/38298#38298
 Median schnell bestimmen
 Power of two choices
+Solovay--Strassen Primalitätstest oder Rabin--Miller
 
 Piratenspiel
 
@@ -113,6 +114,8 @@ Spielanalyse
 * Möbiussachen: https://www.youtube.com/watch?v=1wAaI_6b9JE
   Four Dimensional Maths: Things to See and Hear in the Fourth Dimension with
   Matt Parker.
+* http://statweb.stanford.edu/~cgates/PERSI/papers/MCMCRev.pdf
+  MCMC-Methoden, um Substitutionschiffren zu knacken
 
 
 --- explizit genannt (beim vierten Treffen)
