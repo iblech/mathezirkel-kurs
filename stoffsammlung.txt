@@ -110,6 +110,9 @@ Spielanalyse
 * komplexe Zahlen, etwas Funktionentheorie (Residuensatz)
 * ein oder zwei Treffen über Fraktale
 * p-adische Zahlen (Grundrechenarten, Grenzwerte, Nutzen??)
+* Möbiussachen: https://www.youtube.com/watch?v=1wAaI_6b9JE
+  Four Dimensional Maths: Things to See and Hear in the Fourth Dimension with
+  Matt Parker.
 
 
 --- explizit genannt (beim vierten Treffen)
