@@ -16,4 +16,6 @@
 * Finde in Q_5 eine Quadratwurzel aus -1.
   Antwort: ...3032431212.
 
+* Hensels Lemma.
+
 * Nutzen: lokal-global-Prinzip.
