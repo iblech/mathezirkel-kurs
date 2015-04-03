@@ -1,0 +1,66 @@
+* Leitfrage: Welche Zahlen sind konstruierbar, ausgehend von den Punkten 0 und 1
+  in der komplexen Zahlenebene?
+
+  Dabei heißt eine Zahl genau dann "konstruierbar", wenn man ausgehend von nur
+  den beiden gegebenen Punkten über endlich viele Anwendungen von Zirkel und
+  Lineal den Punkt, der zu der Zahl gehört, als Schnittpunkt erhalten kann.
+
+  Anmerkung: Eine reelle Zahl r ist genau dann konstruierbar, wenn eine Strecke
+  der Länge r konstruierbar ist.
+
+* Welche Zahlen sind auf jeden Fall konstruierbar?
+
+  * Alle natürlichen Zahlen sind konstruierbar.
+
+  * Alle rationalen Zahlen sind konstruierbar.
+    Lemma: Kann Strecken teilen.
+
+  * Alle Zahlen aus Q[i] sind konstruierbar.
+    Lemma: Kann Lot auf eine Gerade durch einen Punkt fällen.
+
+  * Die Summe konstruierbarer Zahlen ist konstruierbar.
+    Lemma: Parallelverschiebung ist möglich.
+
+  * Das Negative einer konstruierbaren Zahl ist konstruierbar.
+
+  * Das Produkt zweier reeller konstruierbarer Zahlen ist konstruierbar.
+    Lemma: Parallelverschiebung ist möglich.
+    Tipp: Strahlensatz.
+
+  * Das Produkt zweier beliebiger konstruierbarer Zahlen ist konstruierbar.
+    Lemma: Winkel kann man addieren.
+
+  * Das Inverse einer reeller konstruierbarer Zahlen ist konstruierbar.
+
+  * Das Inverse einer beliebigen konstruierbarer Zahlen ist konstruierbar.
+
+  * Die Wurzel einer konstruierbaren Zahlen ist konstruierbar.
+    Tipp: Erst reell versuchen.
+
+* Jede konstruierbare Zahl lässt sich als großer Quadratwurzelturm
+  von rationalen Ausdrücken schreiben.
+
+* Die Quadratur des Kreises ist unmöglich.
+
+* Background: Algebraische und transzendente Zahlen.
+  * Definition
+  * Grad und Minimalpolynom
+  * Beispiele
+
+* Der Grad konstruierbarer Zahlen ist stets eine Zweierpotenz.
+
+* Die Würfelverdopplung ist unmöglich.
+
+* Die Winkeldreiteilung ist unmöglich.
+
+  Beweis: Ein Winkel von 60° ist konstruierbar. Wir zeigen, dass ein Winkel von
+  20° nicht konstruierbar ist. Sei a = cos(20°) und b = 2a. Ein
+  Additionstheorem sagt:
+
+      1/2 = cos(60°) = 4 cos^3(20°) - 3 cos(20°).
+
+  Also 1/2 = 4 a^3 - 3 a, also 1 = 8 a^3 - 6 a = b^3 - 3 b, also
+
+      b^3 - 3b - 1 = 0.
+
+  Da dieses Polynom irreduzibel ist, ist deg(b) = 3. Das kann nicht sein.
