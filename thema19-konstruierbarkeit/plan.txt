@@ -1,3 +1,6 @@
+* Motivation: Die drei großen Probleme der Antike, die Quadratur des Kreises,
+  die Winkeldreiteilung und die Würfelverdopplung.
+
 * Leitfrage: Welche Zahlen sind konstruierbar, ausgehend von den Punkten 0 und 1
   in der komplexen Zahlenebene?
 
@@ -6,7 +9,7 @@
   Lineal den Punkt, der zu der Zahl gehört, als Schnittpunkt erhalten kann.
 
   Anmerkung: Eine reelle Zahl r ist genau dann konstruierbar, wenn eine Strecke
-  der Länge r konstruierbar ist.
+  der Länge r konstruierbar ist. (Wieso?)
 
 * Welche Zahlen sind auf jeden Fall konstruierbar?
 
@@ -15,13 +18,15 @@
   * Alle rationalen Zahlen sind konstruierbar.
     Lemma: Kann Strecken teilen.
 
-  * Alle Zahlen aus Q[i] sind konstruierbar.
+  * Alle Zahlen aus Q[i], d.h. alle Gitterpunkte der komplexen Zahlenebene mit
+    rationalen Koeffizienten, sind konstruierbar.
     Lemma: Kann Lot auf eine Gerade durch einen Punkt fällen.
 
   * Die Summe konstruierbarer Zahlen ist konstruierbar.
     Lemma: Parallelverschiebung ist möglich.
 
   * Das Negative einer konstruierbaren Zahl ist konstruierbar.
+    Lemma: Punktspiegelung ist möglich.
 
   * Das Produkt zweier reeller konstruierbarer Zahlen ist konstruierbar.
     Lemma: Parallelverschiebung ist möglich.
@@ -41,6 +46,12 @@
   von rationalen Ausdrücken schreiben.
 
 * Die Quadratur des Kreises ist unmöglich.
+
+  Beweis: Angenommen, man könnte ausgehend von einem Kreis mit Radius 1 ein
+  Quadrat mit gleichem Flächeninhalt konstruieren. Dann könnte man also eine
+  Strecke der Länge sqrt(pi) konstruieren. Da das Produkt konstruierbarer
+  Zahlen konstruierbar ist, wäre damit auch pi selbst konstruierbar. Die Zahl
+  pi ist aber transzendent und daher erst recht kein Quadratwurzelturm.
 
 * Background: Algebraische und transzendente Zahlen.
   * Definition
