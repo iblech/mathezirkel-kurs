@@ -1,0 +1,12 @@
+* Grundlagen
+
+* Fibonacci
+
+* Periodische und nichtperiodische Kettenbrüche
+
+* Konvergenz
+
+* Bestapproximation
+
+http://archives.math.utk.edu/articles/atuyl/confrac/intro.html
+http://www.millersville.edu/~bikenaga/number-theory/infinite-continued-fractions/infinite-continued-fractions.html
