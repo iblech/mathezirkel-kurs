@@ -7,11 +7,11 @@
 \begin{document}
 
 \pagestyle{empty}
-\enlargethispage{4.5cm}
-\vspace*{-2.5cm}
+
+\vspace*{-2cm}
+\enlargethispage{2cm}
 
 \section*{Gelangweilt?}
-\subsection*{Harte Bonusaufgaben zum Knobeln.}
 
 \begin{aufgabe}{Der binomische Lehrsatz}
 Zeige mit Induktion über~$n$, dass für alle Zahlen~$a$ und~$b$ gilt:
@@ -24,43 +24,35 @@ Zeige mit Induktion über~$n$, dass für alle Zahlen~$a$ und~$b$ gilt:
 \emph{Tipp:} $\binom{n+1}{k} = \binom{n}{k-1} + \binom{n}{k}$.
 \end{aufgabe}
 
-\begin{aufgabe}{Kettenbruchentwicklung des goldenen Schnitts}
-\label{aufg:phi}
+\begin{aufgabe}{Kettenbruchentwicklungen}
 Der \emph{goldene Schnitt} ist die Zahl~$\Phi = \frac{1 + \sqrt{5}}{2}$. Als
 Teilungsverhältnis kommt~$\Phi$ an erstaunlich vielen Orten in der Natur und in
 der Kunst vor. Zeige:
-\[ \Phi = 1 + \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{1}{1 + \ddots}}}. \]
-\emph{Hinweis:} Du darfst voraussetzen, dass der Ausdruck auf der rechten Seite
-überhaupt Sinn ergibt, d.\,h. konvergiert. Wie man das beweist, lernt man in
+\[ \Phi = 1 + \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{1}{1 + \ddots}}},
+  \qquad\qquad\qquad
+  \sqrt{2} = 1 + \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \ddots}}}. \]
+\emph{Hinweis:} Du darfst voraussetzen, dass die unendlichen Kettenbrüche
+überhaupt Sinn ergeben, d.\,h. konvergieren. Wie man das beweist, lernt man in
 Analysis~I.
 \end{aufgabe}
 
-\begin{aufgabe}{Kettenbruchentwicklung von~$\sqrt{2}$}
-Zeige:
-\[ \sqrt{2} = 1 + \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \ddots}}}. \]
-\emph{Hinweis:} Du darfst wieder die Konvergenz des
-unendlichen Kettenbruchs voraussetzen.
-\end{aufgabe}
-
 \begin{aufgabe}{Die 10-adischen Zahlen}
-{\scriptsize
-Bei den gewöhnlichen reellen Zahlen kommen in ihrer Dezimalschreibweise vor dem
+Bei den gewöhnlichen reellen Zahlen stehen in ihrer Dezimalschreibweise vor dem
 Komma nur endlich viele Ziffern, hinter dem Komma aber gelegentlich unendlich
-viele Ziffern vor. Bei den~$10$-adischen Zahlen ist es genau umgekehrt: Vor dem
+viele Ziffern. Bei den~$10$-adischen Zahlen ist es genau umgekehrt: Vor dem
 Komma dürfen unendlich viele Ziffern stehen, hinter dem Komma dagegen nur
 endlich viele. Die Rechenverfahren zur Addition, Subtraktion und
 Multiplikation, wie man sie aus der Schule kennt, funktionieren weitestgehend
-unverändert. Die Division wird etwas komplizierter.\par}
+unverändert. Die Division wird etwas komplizierter.
 \begin{enumerate}
 \item Vollziehe folgende Rechnung nach:
 $\ldots 13562 + \ldots 90081 = \ldots 03643$.
 \item Was ist $\ldots 99999 + 1$? Dabei ist~$1 = \ldots 00001$.
 \item Was ist~$-123$?
-\item Finde eine~$10$-adische Zahl~$x$ -- weder Null noch Eins -- mit der
-besonderen Eigenschaft~$x^2 = x$.
+\item Finde eine~$10$-adische Zahl~$x$ -- weder Null noch Eins -- mit~$x^2 = x$.
 \end{enumerate}
-\scriptsize
-\emph{Bemerkung:} Die Gleichung in Teilaufgabe~c) kann man zu~$x \cdot (x-1) =
+{\scriptsize
+\emph{Bemerkung:} Die Gleichung in Teilaufgabe~d) kann man zu~$x \cdot (x-1) =
 0$ umstellen. In den~$10$-adischen Zahlen kann also ein Produkt Null sein, ohne
 dass einer der Faktoren Null ist. Wegen dieser schlechten Eigenschaft werden
 die~$10$-adischen Zahlen kaum verwendet. \emph{Allerdings:} Verwendet man als
@@ -68,9 +60,15 @@ Basis nicht~$10$, sondern eine Primzahl, so gibt es dieses Problem nicht.
 Die~$2$-adischen Zahlen werden gelegentlich in der Informatik und
 die~$p$-adischen Zahlen, wobei~$p$ irgendeine Primzahl ist, überall in der
 Zahlentheorie verwendet. Dort gibt es beispielsweise folgendes mächtiges
-Prinzip: Eine Gleichung einer bestimmten Art hat genau dann eine Lösung
-in~$\mathbb{Z}$, wenn sie eine Lösung in~$\mathbb{R}$ und in allen~$p$-adischen
-Zahlen hat.\par
+"`lokal-zu-global"' Prinzip: Eine Gleichung einer bestimmten Art hat genau dann
+eine Lösung in~$\mathbb{Z}$, wenn sie eine Lösung in~$\mathbb{R}$ und jeweils
+eine Lösung in allen~$p$-adischen Zahlen hat.\par}
 \end{aufgabe}
+
+\begin{center}
+  \emph{
+  Lösungsbesprechung individuell per Mail (iblech@web.de) oder \\
+  persönlich im Büro 2031/L1}
+\end{center}
 
 \end{document}
