@@ -1,0 +1,76 @@
+\documentclass{../zirkelblatt1415}
+
+\let\raggedsection\centering
+
+\definecolor{shadecolor}{rgb}{1,1,1}
+
+\begin{document}
+
+\pagestyle{empty}
+\enlargethispage{4.5cm}
+\vspace*{-2.5cm}
+
+\section*{Gelangweilt?}
+\subsection*{Harte Bonusaufgaben zum Knobeln.}
+
+\begin{aufgabe}{Der binomische Lehrsatz}
+Zeige mit Induktion über~$n$, dass für alle Zahlen~$a$ und~$b$ gilt:
+\[ (a + b)^n =
+  \binom{n}{0} a^n +
+  \binom{n}{1} a^{n-1} b +
+  \binom{n}{2} a^{n-2} b^2 + \cdots +
+  \binom{n}{n-1} a b^{n-1} +
+  \binom{n}{n} b^n. \]
+\emph{Tipp:} $\binom{n+1}{k} = \binom{n}{k-1} + \binom{n}{k}$.
+\end{aufgabe}
+
+\begin{aufgabe}{Kettenbruchentwicklung des goldenen Schnitts}
+\label{aufg:phi}
+Der \emph{goldene Schnitt} ist die Zahl~$\Phi = \frac{1 + \sqrt{5}}{2}$. Als
+Teilungsverhältnis kommt~$\Phi$ an erstaunlich vielen Orten in der Natur und in
+der Kunst vor. Zeige:
+\[ \Phi = 1 + \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{1}{1 + \ddots}}}. \]
+\emph{Hinweis:} Du darfst voraussetzen, dass der Ausdruck auf der rechten Seite
+überhaupt Sinn ergibt, d.\,h. konvergiert. Wie man das beweist, lernt man in
+Analysis~I.
+\end{aufgabe}
+
+\begin{aufgabe}{Kettenbruchentwicklung von~$\sqrt{2}$}
+Zeige:
+\[ \sqrt{2} = 1 + \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \ddots}}}. \]
+\emph{Hinweis:} Du darfst wieder die Konvergenz des
+unendlichen Kettenbruchs voraussetzen.
+\end{aufgabe}
+
+\begin{aufgabe}{Die 10-adischen Zahlen}
+{\scriptsize
+Bei den gewöhnlichen reellen Zahlen kommen in ihrer Dezimalschreibweise vor dem
+Komma nur endlich viele Ziffern, hinter dem Komma aber gelegentlich unendlich
+viele Ziffern vor. Bei den~$10$-adischen Zahlen ist es genau umgekehrt: Vor dem
+Komma dürfen unendlich viele Ziffern stehen, hinter dem Komma dagegen nur
+endlich viele. Die Rechenverfahren zur Addition, Subtraktion und
+Multiplikation, wie man sie aus der Schule kennt, funktionieren weitestgehend
+unverändert. Die Division wird etwas komplizierter.\par}
+\begin{enumerate}
+\item Vollziehe folgende Rechnung nach:
+$\ldots 13562 + \ldots 90081 = \ldots 03643$.
+\item Was ist $\ldots 99999 + 1$? Dabei ist~$1 = \ldots 00001$.
+\item Was ist~$-123$?
+\item Finde eine~$10$-adische Zahl~$x$ -- weder Null noch Eins -- mit der
+besonderen Eigenschaft~$x^2 = x$.
+\end{enumerate}
+\scriptsize
+\emph{Bemerkung:} Die Gleichung in Teilaufgabe~c) kann man zu~$x \cdot (x-1) =
+0$ umstellen. In den~$10$-adischen Zahlen kann also ein Produkt Null sein, ohne
+dass einer der Faktoren Null ist. Wegen dieser schlechten Eigenschaft werden
+die~$10$-adischen Zahlen kaum verwendet. \emph{Allerdings:} Verwendet man als
+Basis nicht~$10$, sondern eine Primzahl, so gibt es dieses Problem nicht.
+Die~$2$-adischen Zahlen werden gelegentlich in der Informatik und
+die~$p$-adischen Zahlen, wobei~$p$ irgendeine Primzahl ist, überall in der
+Zahlentheorie verwendet. Dort gibt es beispielsweise folgendes mächtiges
+Prinzip: Eine Gleichung einer bestimmten Art hat genau dann eine Lösung
+in~$\mathbb{Z}$, wenn sie eine Lösung in~$\mathbb{R}$ und in allen~$p$-adischen
+Zahlen hat.\par
+\end{aufgabe}
+
+\end{document}
