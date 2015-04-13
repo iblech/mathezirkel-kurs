@@ -79,9 +79,13 @@ ist.
 \begin{enumerate}
 \item[$\star$ c)] Berechne den Gesamtwert einer \emph{vollständig mit
 Steinen besetzten Zeile}, die sich eine Ebene unterhalb des Zielsteins befindet.
+% x + 2 sum_{n >= 2} x^n = x + 2 x^2 * 1/(1-x) = x + 2.
+% Nutze x^2 = 1 - x und 1/x = x + 1.
 \item[$\star$ d)] Was ist der Gesamtwert einer \emph{vollständig besetzten unteren Bretthälfte}?
+% (x + 2) * sum_{n >= 0} x^n = (x + 2) (x + 1)^2.
 \item[$\star$ e)] Folgere: Höhe~$5$ ist nur mit unendlich vielen Steinen
 erreichbar.
+% x^4 * (x + 2) (x + 1)^2 = 1.
 \item[$\star$ f)] Vielleicht möchtest du Conways Armee im Computer implementieren.
 \end{enumerate}
 \end{aufgabe}
