@@ -52,6 +52,11 @@ Anforderung als nur zu verlangen, dass *unendlich viele* Zwerge überleben. Wenn
 zum Beispiel jeder zweite Zwerg überlebt, dann überleben zwar unendlich viele
 Zwerge, aber es sterben auch unendlich viele.)
 
+Variante: http://www.math.uni-konstanz.de/~carl/Mengenlehre1/MLZettel6.pdf (Dr.
+Merlin Carl) Es stehen omega viele Zwerge in einer Reihe. Ansonsten wie die
+übliche Aufgabe. Auswahlaxiom erlaubt. Lösung auf
+http://www.math.uni-konstanz.de/~carl/Mengenlehre1/LsgZ6.pdf.
+
 7. Auf einer tropischen Insel leben 100 Blauäugige und 100 Braunäugige, die
 alle perfekte Logiker sind. Ihre Religion verbietet ihnen, über Augenfarben zu
 sprechen. Außerdem gibt es keine Spiegel, Pfützen oder andere Möglichkeiten,
