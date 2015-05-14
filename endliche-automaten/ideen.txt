@@ -1,0 +1,3 @@
+* Geeignete Automaten selbst überlegen.
+
+* Pumping-Lemma?

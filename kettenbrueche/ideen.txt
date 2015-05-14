@@ -8,5 +8,9 @@
 
 * Bestapproximation
 
+* Näherungen für pi aus der Antike
+
+* Kettenbruchentwicklung von e
+
 http://archives.math.utk.edu/articles/atuyl/confrac/intro.html
 http://www.millersville.edu/~bikenaga/number-theory/infinite-continued-fractions/infinite-continued-fractions.html
