@@ -1,3 +1,7 @@
+* Motto: Die rationalen Zahlen aus dem Blickwinkel einer Primzahl.
+  (Motto geklaut von Holly Swisher,
+  https://www.mathcamp.org/2014/academics/Week1Blurbs.pdf.)
+
 * Definition, Grundrechenarten, Vorstellung.
 * Negation.
 * Quotienten.
