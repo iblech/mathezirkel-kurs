@@ -1,4 +1,8 @@
 Wie viele außerirdische Zivilisationen gibt es in unserer Galaxie?
+* http://en.wikipedia.org/wiki/Drake_equation
+* https://xkcd.com/384/
+
+
 Wie viele Klavierstimmer gibt es in New York?
 Wie viele Wespen gibt es in Augsburg?
 Wie viel verdient die/der Leiter/in eines Schullandheims?
@@ -28,7 +32,21 @@ Wieviel Zeit hat deine Klasse insgesamt in diesem Schuljahr für Hausaufgaben au
 Wieviel Papier hat deine Schule im letzten Schuljahr insgesamt verbraucht?
 Wieviele Noten werden von deiner Lieblingsradiostation pro Jahr insgesamt gespielt?
 Welche Distanz läuft ein Fußballspieler pro Spiel im Schnitt?
+
 Wieviel wiegt eine Wolke?
+* Pro Jahr gibt es in Deutschland etwa 1000 mm Regen.
+* Vielleicht regnet es in Deutschland 1/20-tel der Zeit.
+* Also fallen 1000 mm Regen in ca. 20 Volltagen.
+* Eine Cumulus-Wolke regnet vielleicht vier Stunden lang.
+* Das macht etwa 9 mm auf ein Quadratmeter.
+* In einem Meter Entfernung scheint eine Wolke etwa 60 Zentimer lang und breit zu sein.
+* Tatsächlich sind Wolken einige Kilometer entfernt.
+* Also ist die tatsächliche Länge und Breite circa 0,60 * 2000 m = 1 km.
+* Die Querschnittsfläche ist also 1 km^2.
+* Somit ergibt sich ein Regenvolumen von 1 km^2 * 10 mm = 10000 m^3.
+* Das sind 10000 Tonnen.
+[ Im Zirkel sind wir auf 1000 Tonnen gekommen, und das war auch ein Wert, der
+auf irgendeiner Wetter-Webseite stand. ]
 
 Svens Quellen:
 http://www.lions.odu.edu/~lweinste/courses/309s08/estimation_list.pdf
