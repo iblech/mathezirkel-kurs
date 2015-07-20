@@ -1,0 +1,5 @@
+* Grob Modell erklären. Außerdem Gradientenabstieg.
+
+* http://googleresearch.blogspot.ch/2015/06/inceptionism-going-deeper-into-neural.html
+* http://www.matthewzeiler.com/pubs/arxive2013/arxive2013.pdf
+* https://www.youtube.com/watch?v=ocB8uDYXtt0
