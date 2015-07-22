@@ -49,6 +49,13 @@ Mal durchblättern: Mathematische Beweise unglaublicher Ideen.
 http://r6.ca/blog/20070816T193609Z.html
 Kelly's criterion
 
+Lambda-Kalkül
+Türme von Hanoi
+Kara (Programmieren mit Marienkäfern)
+Zauberzirkel
+Hyperbolische Funktionen, x^2 - y^2 = 1 verstehen und so weiter
+Pascalsches Dreieck auf Steroiden
+
 
 --- nicht beim ersten Treffen angeschrieben:
 
