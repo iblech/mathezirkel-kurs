@@ -1,0 +1,15 @@
+Ideen (größtenteils von Tim):
+
+* Y-Kombinator
+* ein divergierender Term
+* Die Axiome von Martin-Löf-Typtheorie
+* Eine Curry-Howard-Übersetzungstafel
+* Haskell-Typsignaturen, die man gerne mal vergisst (foldl vs. foldr,
+traverse, *>, <*, etc.)
+* Einen Minispickzettel zur Lens-Library von Edward Kmett.
+* Die Haskell-Implementierung einer unendlichen Liste von Primzahlen
+(kann man z.B. gebrauchen, um das Sicherheitssystem von Gebäuden
+umzuprogrammieren, siehe [1])
+* Eigenschaften des einfach typisierten Lambda-Kalküls: Preservation,
+Progress, Confluence (oder nur eine Eigenschaft, aber dafür mit
+Beweisskizze?)
