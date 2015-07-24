@@ -1,0 +1,9 @@
+Von Sven:
+
+1. Den falschen Beweis von Lame aus den 30ern (?), der das Polynom                                    
+eindeutig über Q[\zeta_n] faktorisiert. \zeta_n ist hier die n-te                                     
+Einheitswurzel.                                                                                       
+2. Beweis für n=4                                                                                     
+3. Rückführung auf teilerfremde Tupeln und Primzahlexponenten.                                        
+4. Kummers Beweis für reguläre Primzahlen (keine Ahnung wie lang das                                  
+ist, aber nutzt zumindest keine elliptischen Kurven)                                                  
