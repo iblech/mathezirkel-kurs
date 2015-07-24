@@ -12,6 +12,9 @@
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\RR}{\mathbb{R}}
 
+\usepackage{mathtools}
+\newcommand{\defeq}{\vcentcolon=}
+
 \begin{document}
 
 \maketitle{Klasse 11./12., Gruppe 2}{3. Mai 2014: \\ Elliptische Kurven}
@@ -33,8 +36,8 @@ Kurve?
 
 \textbf{Das Besondere an elliptischen Kurven} ist folgende bemerkenswerte Tatsache:
 \begin{quote}
-Jede Gerade durch zwei Punkte einer elliptischen Kurve schneidet die Kurve in
-\emph{genau einem weiteren Punkt} -- wenn man richtig zählt.
+\emph{Jede Gerade durch zwei Punkte einer elliptischen Kurve schneidet die Kurve in
+\emph{genau einem weiteren Punkt} -- wenn man richtig zählt.}
 \end{quote}
 \begin{figure}[b]
   \centering
@@ -85,13 +88,13 @@ Dank der besonderen Schnitteigenschaft kann man eine
 \emph{Gruppenstruktur} auf der Menge der Punkte einer elliptischen Kurve definieren.
 Das ist eine Rechenoperation "`Punkt plus Punkt gibt Punkt"'. Wie die
 gewöhnliche Addition von Zahlen notiert man diese mit dem Plus-Symbol, und wie
-bei der gewöhnliche Addition gelten Eigenschaften wie
+bei der gewöhnlichen Addition gelten Eigenschaften wie
 \[ P + 0 = P, \qquad P + Q = Q + P, \qquad (P + Q) + R = P + (Q + R). \]
 Sonst hat diese neue Rechenoperation aber wenig mit der bekannten Addition zu
-tun. Auch die Vektoraddition ist hierfür nur indirekt relevant.
+tun. Auch die Vektoraddition hängt mit ihr nur indirekt zusammen.
 
-\begin{quote}Immer, wenn Kurvenpunkte~$P, Q, R$ auf einer gemeinsamen Geraden
-liegen, definieren wir~$P + Q + R = 0$.
+\begin{quote}\emph{Immer, wenn Kurvenpunkte~$P, Q, R$ auf einer gemeinsamen Geraden
+liegen, definieren wir~$P + Q + R = 0$.}
 \end{quote}
 
 \begin{aufgabeShaded}{Erste Rechnungen mit Kurvenpunkten}
@@ -121,7 +124,7 @@ Mit Teilaufgabe~b) kann man also die Summe von Kurvenpunkten explizit
 bestimmen. Ferner können wir eine Rechenoperation "`natürliche Zahl mal Punkt
 gibt Punkt"' definieren -- und zwar genau so, wie man auch die gewöhnliche
 Multiplikation von Zahlen auf die Addition von Zahlen zurückführt:
-\[ n P := \underbrace{P + P + \cdots + P + P}_{\text{$n$ Summanden}}. \]
+\[ n P \defeq \underbrace{P + P + \cdots + P + P}_{\text{$n$ Summanden}}. \]
 Ganz konkret ist~$2 P = P + P$ und~$3 P = P + P + P$.
 
 \begin{aufgabeShaded}{Effiziente Multiplikation}
@@ -244,12 +247,12 @@ Anzahl Runs aufweist wie eine gegebene. Details stehen etwa auf
 Lineare Kongruenzgeneratoren gehören zu den einfachsten und effizientesten,
 aber auch unsichersten Pseudozufallszahlengeneratoren. Ausgehend von einer
 Startzahl~$x_0$ errechnet man eine Pseudozufallszahl durch die Formel
-\[ x_1 := ax_0 + b \mod m, \]
+\[ x_1 \defeq ax_0 + b \mod m, \]
 wobei~$a$,~$b$ und~$m$ feste Parameter sind. Die nächste und alle weiteren
 Pseudozufallszahlen berechnet man ebenfalls nach dieser Formel, wobei man
 für~"`$x_0$"' jeweils die zuletzt berechnete Zahl einsetzt.
 \begin{enumerate}
-\item Spiele für die konkrete Parameterwahl~$a := 2$, $b := 1$ und~$m := 5$ das
+\item Spiele für die konkrete Parameterwahl~$a \defeq 2$, $b \defeq 1$ und~$m \defeq 5$ das
 Verfahren durch, beginnend bei der Zahl~$x_0 = 3$. Auf den ersten Blick wird kein
 offensichtliches Muster zu erkennen sein -- so soll es auch sein.
 \item Tatsächlich aber sind lineare Kongruenzgeneratoren für
@@ -279,10 +282,10 @@ eine Zahl, kein Kurvenpunkt). Um dann eine Pseudozufallszahl zu erzeugen,
 führt man folgende drei Rechnungen aus:
 
 \begin{enumerate}
-\item[1.] $r := \text{$x$-Koordinate von~$sP$}$.
-\item[2.] $s' := \text{$x$-Koordinate von~$rP$}$; das wird der neue interne Zustand
+\item[1.] $r \defeq \text{$x$-Koordinate von~$sP$}$.
+\item[2.] $s' \defeq \text{$x$-Koordinate von~$rP$}$; das wird der neue interne Zustand
 für den nächsten Schritt.
-\item[3.] $t := \text{$x$-Koordinate von~$rQ$}$; das ist die gesuchte
+\item[3.] $t \defeq \text{$x$-Koordinate von~$rQ$}$; das ist die gesuchte
 Pseudozufallszahl.
 \end{enumerate}
 
