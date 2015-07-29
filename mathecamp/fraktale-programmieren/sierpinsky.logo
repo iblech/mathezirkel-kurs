@@ -1,0 +1,14 @@
+; von http://logo.twentygototen.org/dZ1f62XY
+
+to sierpinski :n :length
+  ifelse :n = 0 [] [
+    repeat 3 [
+      sierpinski :n-1 :length/2
+      forward :length
+      rightt 120
+    ]
+  ]
+end
+
+reset
+sierpinski 5 200
