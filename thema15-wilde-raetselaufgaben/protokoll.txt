@@ -117,7 +117,7 @@ der Münzen umdrehen (muss aber nicht). Daraufhin muss ein weiterer
 Mathematiker, der erst jetzt dazu gerufen wird, erschließen, auf welche Stelle
 der Chef gezeigt hat.
 
-
+Von Gil Kalai auf http://mathoverflow.net/a/30192/31233:
 100 Zwerge haben Hüte aufgesetzt bekommen, die
 zwar alle die gleiche Farbe haben, aber mit einer (ganzen) Zahl zwischen
 0 und 99 (einschließlich) beschriftet sind. Die Zahlen können nach
