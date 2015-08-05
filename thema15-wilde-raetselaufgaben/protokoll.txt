@@ -116,3 +116,16 @@ Zahl). Dann zeigt er auf ein Feld seiner Wahl. Ein Mathematiker darf nun eine
 der Münzen umdrehen (muss aber nicht). Daraufhin muss ein weiterer
 Mathematiker, der erst jetzt dazu gerufen wird, erschließen, auf welche Stelle
 der Chef gezeigt hat.
+
+
+100 Zwerge haben Hüte aufgesetzt bekommen, die
+zwar alle die gleiche Farbe haben, aber mit einer (ganzen) Zahl zwischen
+0 und 99 (einschließlich) beschriftet sind. Die Zahlen können nach
+irgendeinem System geordnet sein oder auch völlig zufällig verteilt
+sein. Es kann auch sein, dass manche Zahlen mehrmals und andere gar
+nicht vorkommen. Jeder Zwerg sieht die Zahlen der anderen Zwerge, aber
+nicht seine eigene. Auf Zuruf müssen dann alle Zwerge gleichzeitig eine
+Zahl zwischen 0 und 99 nennen. Stimmt sie mit der eigenen Hutzahl 
+überein, überlebt der betreffende Zwerg. Sonst nicht. Auf welche 
+Strategie müssen sich die Zwerge im Vorhinein einigen, damit sicher 
+(unabhängig vom Zufall) mindestens ein Zwerg überlebt?
