@@ -1,0 +1,26 @@
+Gewünschtes Thema war /Mathe-Mythen/.
+
+* 0,999... = 1.
+
+* Beweise, dass 1 = 0.
+
+* |R| > |N|.
+
+* p_1 * ... * p_n + 1 ist nicht immer prim.
+
+* Wo ist der fehlende Euro?
+
+* Geburtstagsparadoxon
+
+* Wenn man ein Kartenspiel gut mischt, ist die Wahrscheinlichkeit fast 1,
+  dass die erhaltene Reihung noch nie vorher da gewesen war.
+
+* 10! = Anzahl Sekunden in 6 Wochen.
+
+* e^(i pi) + 1 = 0.
+
+* 1/89
+
+* Sphäreninversion
+
+* Benfords Gesetz (beobachtet 1881 bei Logarithmustafeln)
