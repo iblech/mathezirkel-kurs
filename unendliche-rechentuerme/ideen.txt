@@ -1,0 +1,13 @@
+* Welche Zahl x erfüllt
+
+	x^(x^(x^(...))) = 2?
+
+  Antwort: x = sqrt(2). Witzig: x = sqrt(4) "scheint" dieselbe Gleichung zu
+  erfüllen, allerdings konvergiert in diesem Fall die linke Seite gar nicht.
+
+* Unendliche Kettenbrüche.
+
+* Nested radicals:
+  sqrt(2 + sqrt(2 + sqrt(2 + ...))) = 2.
+  sqrt(1 + sqrt(1 + sqrt(1 + ...))) = Phi.
+  2/pi = sqrt(1/2) sqrt(1/2 + 1/2 sqrt(1/2)) ...
