@@ -1,0 +1,8 @@
+* Kara: http://www.swisseduc.ch/informatik/karatojava/
+
+* Aufgabenstellungen sind bereits dabei. Aber schön ist zum Beispiel,
+  mit der Rechte-Hand-Regel aus einem Labyrinth zu finden (dafür genügen ein
+  Zustand mit den zwei Sensoren "Baum vorne" und "Baum rechts").
+
+* Kam sehr gut an (getestet mit 5. bis 8. Klasse). Die Kinder benötigen
+  sehr wenig Input zu Beginn und arbeiten dann größtenteils völlig eigenständig.
