@@ -2,16 +2,31 @@
   (Motto geklaut von Holly Swisher,
   https://www.mathcamp.org/2014/academics/Week1Blurbs.pdf.)
 
-* Definition, Grundrechenarten, Vorstellung.
+* Definition, Beispiele.
+* Addition.
 * Negation.
-* Quotienten.
-* Anschauliche Vorstellung von +1 und *p.
+* Subtraktion.
+* Multiplikation.
+* Quotienten. (Das kann man alles auch noch mit p = 10 machen.)
+  Hier ist krass, dass in Z_n die Division durch alle zu n teilerfremden Zahlen
+  aufgeht! Also geht zum Beispiel 2 : 7 auf.
 
-* Z_2 ist homöomorph zur Cantormenge.
+* Dazwischen: "Herleitung" der anschaulichen Vorstellung von Z_p
+  oder Q_p, mittels der Idee, dass Zahlen wie 10000 und 10001 weit auseinander
+  und Zahlen wie 10000 und 2000 nah beieinander liegen sollten.
 
 * Lustige Grenzwerte: 1/(1+p^n), p^n/(1+p^n).
 
 * Wenn p = 10: Finde x^2 = x mit x != 0, x != 1.
+  Betonen, dass man auf diese Zahl schon in der vierten Klasse hätte kommen
+  können. Folgern, dass es in Z_10 Nullteiler gibt.
+
+* Das obige kam bei 8., 9. und 10./11. gut an. Besonders cool wurde die
+  Divisionssache empfunden.
+
+* Anschauliche Vorstellung von +1 und *p.
+
+* Z_2 ist homöomorph zur Cantormenge.
 
 * 1 + 2 + 4 + 8 + ... = -1.
 
