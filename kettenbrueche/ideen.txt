@@ -1,3 +1,55 @@
+=== Kettenbruchzirkel auf dem Mathecamp 2015
+
+* Als Teaser: [1; 2, 2, 2, ...]. Mit der Mitternachtsformel den Wert dieses Bruchs
+  bestimmen: sqrt(2).
+
+* Weitere Beispiele (nur aufzählen):
+  [2; 4, 4, ...] = sqrt(5),
+  [3; 6, 6, ...] = sqrt(10).
+
+* Nun sqrt(3) = [1; 1, 2, 1, 2, ...] herleiten. Und zwar so:
+
+  sqrt(3) = 1 + 1/x,
+      also x = 1/(sqrt(3) - 1) = (sqrt(3) + 1) / 2 (approx 1.36).
+
+  (sqrt(3) + 1) / 2 = 1 + 1/y,
+      also y = ... = sqrt(3) + 1 = 2 + 1/x.
+
+  Also sqrt(3) = 1 + 1/(1 + 1/(2 + 1/(1 + 1/(2 + 1/(...))))).
+
+* Dann mit dem euklidischen Algorithmus erneut die Kettenbruchentwicklung von
+  sqrt(2) bestimmen. Wenn Zeit ist, kurz erklären, wie man aus den Zahlen beim
+  euklidischen Algorithmus wirklich die Kettenbruchkoeffizienten erhält.
+
+* Dann mit dem euklidischen Algorithmus die Kettenbruchentwicklung von Pi
+  berechnen: pi = [3; 7, 15, 1, 292, 1, ...].
+
+* Nun den großen Satz anschreiben:
+
+      Wenn man die Kettenbruchentwicklung einer Zahl x an irgendeiner Stelle
+      abschneidet, so liegt die erhaltene Näherung y näher (oder gleich nah) an
+      x als alle Bruchzahlen, deren Nenner kleiner als der (ungekürzte) Nenner
+      von y ist.
+
+      Bonus: Die Näherung ist umso besser, je größer der nächste Koeffizient in
+      der Kettenbruchentwicklung ist.
+
+* Damit Näherungen für pi angeben: 3, 22/7, 333/106, 355/113, 97258/30959, ...
+
+* Dann zum goldenen Schnitt eskalieren. Seine Kettenbruchentwicklung angeben.
+  Die Approximationen durch Abschneidung angeben (Quotienten aus
+  aufeinanderfolgenden Fibonaccizahlen). Von Fruchtständen und Spiralen bei
+  Sonnenblumen erzählen. Vi Harts Video zum Thema Ananas bei Spongebob
+  bewerben.
+
+* Schließen mit der Kettenbruchentwicklung von e:
+  [2; 1,2, 1,1,4, 1,1,6, 1,1,8, ...]
+
+* Kam bei 9. Klasse gut an!
+
+
+=== Grobe Stoffsammlung von früher
+
 * Grundlagen
 
 * Fibonacci
@@ -14,3 +66,4 @@
 
 http://archives.math.utk.edu/articles/atuyl/confrac/intro.html
 http://www.millersville.edu/~bikenaga/number-theory/infinite-continued-fractions/infinite-continued-fractions.html
+https://lama.uni-paderborn.de/fileadmin/Mathematik/MathematikDidaktik/Personen/Frischemeier/PiundKettenbr%C3%BCche_Examensarbeit.pdf
