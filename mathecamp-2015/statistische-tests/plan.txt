@@ -1,0 +1,37 @@
+=== Run-Test, um zwischen echter Münze und Fake zu unterscheiden
+
+* Live-Vorführung als Zaubertrick: Tutor verlässt den Raum, Schüler sollen
+  sich in zwei Gruppen aufteilen -- die einen werfen eine echte Münze, die
+  anderen denken sich Münzergebnisse aus. Ihre Ergebnisse notieren sie auf
+  Zetteln (zum Beispiel "KZKKKZZKZKZZ..."). Dann errät der Tutor, welche
+  Aufzeichnung von einer echten Münze stammt und welche nicht.
+
+  Auf dem Camp hat n = 50 gut geklappt.
+
+  Auch zulassen (war eine coole Eigeninitiative der Campkids), beide Zettel als
+  Fakes abzugeben.
+
+* Theoretische Erklärung:
+
+  - Zunächst nur E(X_(n+1)) = 1/2 E(X_n) + 1/2 (1 + E(X_n)) herleiten.
+    Damit folgt E(X_n) = (n-1) / 2.
+
+  - Dann sogar die Verteilung bestimmen:
+    P(X_n - 1 = k) = 2 * \binom{n-1}{k} / 2^n = \binom{n-1}{k} * (1/2)^{n-1}.
+
+    X_n - 1 ist also binomialverteilt mit den Parametern n - 1 und 1/2.
+    Damit sind Erwartungswert und Standardabweichung klar (sd = sqrt(n-1)/2).
+
+* Logische Argumentation klar formulieren: Mit dem Run-Test kann man
+  herausfinden, wie unwahrscheinlich eine Beobachtung wäre, wenn sie durch eine
+  echte ideale Münze zustande gekommen wäre. Wenn diese Wahrscheinlichkeit zu
+  gering ist, verwirft man die "Nullhypothese", die Münze sei ungezinkt.
+
+* Kam bei 11./12. Klasse (unerwartet) gut an!
+
+
+=== χ^2-Test, um (Vierfelder-)Tafeln auf Unabhängigkeit zu prüfen
+
+* Beispiel-Einsatzzweck nennen
+* Formel anschreiben
+* Im Fall der Unabhängigkeit Verteilung plotten (chisq-test.hs)
