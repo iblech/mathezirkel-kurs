@@ -1,0 +1,78 @@
+=== Zusammenfassung
+
+Welches Problem ist schwieriger: Zwei zwanzigstellige Zahlen zu
+multiplizieren oder einen Hund von einer Katze zu unterscheiden? Die
+Antwort hängt davon ab, wen man fragt:
+
+Ein Mensch hat typischerweise keine Schwierigkeiten damit, Dinge zu
+klassifizieren. Sein Organismus ist darauf ausgelegt, Muster wie
+"Freund, Feind, giftig, essbar" in Sekundenbruchteilen zu erkennen.
+Das Rechnen mit sehr großen Zahlen bereitet ihm viel Mühe.
+
+Ein Computer ist eine spezialisierte Rechenmaschine. Daher wird ihm
+die erste Aufgabe leicht fallen. Die zweite Aufgabe dagegen ist
+kompliziert und Gegenstand aktueller Forschung.
+
+Ein wichtiger Ansatz, um die zweite Aufgabe zu lösen, sind
+künstliche neuronale Netze. Diese sind von der partiell verstandenen
+Funktionsweise des menschlichen Gehirns inspiriert und erfreuen sich
+momentan großer Beliebtheit. Die zentralen Ideen, die diesen Netzen
+zugrundeliegen, lassen sich erstaunlich einfach nachvollziehen.
+
+Der Vortrag wird in die Thematik einführen und mit Bildern, Videos
+und Live-Demos die Sachverhalte veranschaulichen. Wir werden auch
+"Convolutional Neuronal Networks", eine Variante, die besonders
+wichtig ist, ansprechen. Mathematische Vorkenntnisse sind nicht
+erforderlich.
+
+
+=== Gliederung
+
+== Einstieg mit ML-Videos
+
+* https://www.youtube.com/watch?v=MzJ0CytAsec
+  Windows Vista Speech Recognition Tested - Perl Scripting
+
+* https://www.youtube.com/watch?v=M1ONXea0mXg
+  Hound Internal Demo
+
+* https://www.youtube.com/watch?v=zsVsUvx8ieo
+  NVIDIA CES 2015 press conference: DRIVE PX Computer Vision (part 7)
+
+* https://www.youtube.com/watch?v=qv6UVOQ0F44  
+  MarI/O - Machine Learning for Video Games
+
+
+== Funktionsweise neuronaler Netze
+
+* Eingabeneuronen (Bilder als Eingabesignale! http://cs231n.github.io/assets/classify.png)
+* Ausgabeneuronen
+* Zwischenschichten
+* Formel
+* interaktive Demo mit http://neuralnetworksanddeeplearning.com/chap4.html
+
+
+== Wie lernen neuronale Netze?
+
+* Zielvorgabe (Anschauungsmaterial: MNIST-Ziffern)
+* Abstand zur Zielvorgabe in Abhängigkeit der Gewichte und Biases
+* "Gradientenabstieg"
+* Videos: Abschneidefunktion lernen, XOR lernen
+
+
+== Live-Demo: Ziffernerkennung
+
+* Erkennen (demo.py und mnist-beispiel.py im mathematik-der-vorhersagen-Ordner)
+* Trainieren (im Hintergrund laufen lassen)
+
+
+== Ausblick
+
+* Convolutional Neural Networks
+  http://deeplearning.net/tutorial/_images/mylenet.png
+  http://www.matthewzeiler.com/pubs/arxive2013/eccv2014.pdf
+
+* Deep Dreaming
+  http://googleresearch.blogspot.de/2015/06/inceptionism-going-deeper-into-neural.html
+
+* Pseudoziffern(?)
