@@ -1,0 +1,9 @@
+Die Ideen kommen von Alex.
+
+* Wo ist Waldo?
+
+* Das Wikipedia-Beispiel mit der Höhle.
+
+* Dreifärbbarkeit von Graphen.
+
+* Sodoku.
