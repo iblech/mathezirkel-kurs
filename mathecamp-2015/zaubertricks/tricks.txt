@@ -1,0 +1,10 @@
+* Geschlossenes Seil auf Knoten wegrutschen lassen:
+  http://mathoverflow.net/a/130441/31233
+
+* Carinas Paritätstrick
+
+* Der krasse Paritätstrick mit dem 8x8-Schachfeld von Münzen
+
+* Ryans Trick auf Basis des Erdős–Szekeres-Theorems
+
+* Der Fakemünzerkenntrick auf Basis des Run-Tests
