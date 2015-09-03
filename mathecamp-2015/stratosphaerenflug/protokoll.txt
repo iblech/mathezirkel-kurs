@@ -1,8 +1,9 @@
 === Genehmigungen
 
-* Luftamt Südbayern: mehrere Wochen vor dem Start, Kontaktperson XXX.
+* Luftamt Südbayern: mehrere Wochen vor dem Start, Kontaktperson
+  Karl.Oexler@reg-ob.bayern.de.
 
-* DFS: drei Wochen vor dem Start, Kontaktperson XXX.
+* DFS: drei Wochen vor dem Start, Kontaktperson Petra Allhoff <bnl@dfs.de>.
 
 
 === Kameras
@@ -16,7 +17,7 @@
 
 === GPS-Sender
 
-* Verwendetes Modell: XXX
+* Verwendetes Modell: GPS Tracker TK102b
 
 * D1-SIM-Karte verwenden!
 
@@ -45,3 +46,4 @@ http://www.augsburger-allgemeine.de/augsburg-land/Schueler-schicken-Ballon-ins-W
 http://www.augsburger-allgemeine.de/augsburg-land/Junge-Mathe-Asse-schicken-20-000-Bilder-von-Weltraumflug-id35310592.html
 http://www.augsburger-allgemeine.de/augsburg-land/Die-ersten-Bilder-vom-Violauer-Himmelsflug-id35311247.html
 http://www.augsburger-allgemeine.de/augsburg-land/Der-Weltraumflug-von-Violau-in-Bildern-id35311107.html
+http://www.augsburger-allgemeine.de/augsburg-land/Mathematik-Asse-sind-immer-noch-im-Hoehenflug-id35325772.html
