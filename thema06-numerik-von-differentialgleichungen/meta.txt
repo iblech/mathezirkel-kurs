@@ -1,0 +1,9 @@
+Numerik von Differentialgleichungen
+
+Thema für eine Zirkelstunde. Gewöhnliche Differentialgleichungen am Beispiel
+des Newtonschen Gravitationsgesetzes (Satellitenorbitsimulation) und partielle
+Differentialgleichungen am Beispiel der Poisson- und Wärmeleitungsgleichung.
+
+Konzipiert für 11. und 12. Klasse. Geht nicht für niedrigere Klassen, da
+Vertrautheit mit Ableitungen nötig ist. Kam im Präsenzzirkel gut, aber nicht
+unendlich gut an. Kam im verbotenen Geheimzirkel dafür super gut an.

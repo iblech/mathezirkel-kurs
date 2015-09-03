@@ -1,0 +1,8 @@
+Fundamentalsatz der Algebra
+
+Thema für eine Zirkelstunde. Beweis des Fundamentalsatzes der Algebra mit der
+topologischen Idee von http://www.cut-the-knot.org/fta/fta_sketch1.shtml.
+
+Konzipiert für Klassenstufen 11 und 12. Voraussetzung ist Vertrautheit mit
+komplexen Zahlen. Kam gut an, aber nicht ultra gut: Ich habe die Krassheit des
+Resultats zu schlecht motiviert.

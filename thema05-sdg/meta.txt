@@ -1,0 +1,9 @@
+Synthetische Differentialgeometrie
+
+Thema für mehrere Zirkelstunden. Infinitesimale Zahlen und synthetische
+Differentialgeometrie.
+
+Konzipiert für 11. und 12. Klasse. Kam super an (insbesondere auch die
+Auskopplung der dualen Zahlen beim verbotenen Geheimzirkel auf dem Camp). Geht
+nicht für niedrigere Klassenstufen, da Vertrautheit mit Ableitungen
+Voraussetzung ist. Man könnte aus dem Thema auch Korrespondenzbriefe machen.

@@ -1,0 +1,8 @@
+Kryptographie
+
+Thema für mehrere Zirkelstunden. Ein Teil behandelt klassische kryptographische
+Verfahren (mit RSA als Höhepunkt), der andere behandelt Kryptographie mit
+elliptischen Kurven.
+
+Konzipiert für 11. und 12. Klasse. Kam sehr gut an. Kann auch mit niedrigeren
+Klassenstufen funktionieren.
