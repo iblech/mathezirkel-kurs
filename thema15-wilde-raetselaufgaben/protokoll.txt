@@ -109,15 +109,14 @@ zum Direktor geschickt wird.
 
 9. Smullyan
 
+10. Paritätsrätsel. Gefängnischef legt ein (8 x 8)-Schachbrett mit Münzen voll
+(jeweils Kopf oder Zahl). Dann zeigt er auf ein Feld seiner Wahl. Ein
+Mathematiker darf nun eine der Münzen umdrehen (muss aber nicht). Daraufhin
+muss ein weiterer Mathematiker, der erst jetzt dazu gerufen wird, erschließen,
+auf welche Stelle der Chef gezeigt hat. Kann man auch super als Zaubertrick
+formulieren.
 
-Haben wir nicht gemacht, wäre aber interessant: Paritätsrätsel.
-Gefängnischef legt ein (8 x 8)-Schachbrett mit Münzen voll (jeweils Kopf oder
-Zahl). Dann zeigt er auf ein Feld seiner Wahl. Ein Mathematiker darf nun eine
-der Münzen umdrehen (muss aber nicht). Daraufhin muss ein weiterer
-Mathematiker, der erst jetzt dazu gerufen wird, erschließen, auf welche Stelle
-der Chef gezeigt hat.
-
-Von Gil Kalai auf http://mathoverflow.net/a/30192/31233:
+11. Von Gil Kalai auf http://mathoverflow.net/a/30192/31233:
 100 Zwerge haben Hüte aufgesetzt bekommen, die
 zwar alle die gleiche Farbe haben, aber mit einer (ganzen) Zahl zwischen
 0 und 99 (einschließlich) beschriftet sind. Die Zahlen können nach
@@ -129,3 +128,94 @@ Zahl zwischen 0 und 99 nennen. Stimmt sie mit der eigenen Hutzahl
 überein, überlebt der betreffende Zwerg. Sonst nicht. Auf welche 
 Strategie müssen sich die Zwerge im Vorhinein einigen, damit sicher 
 (unabhängig vom Zufall) mindestens ein Zwerg überlebt?
+
+12. Achtung, ein bisschen Fun-Frage. Auf dem Tisch stehen zwei Schachteln, eine
+rote und eine grüne. Eine der beiden enthält einen Schatz. Auf der roten Box
+steht "Genau eine der beiden Beschriftungen stimmt". Auf der grünen steht "Der
+Schatz ist in dieser Schachtel". Kannst du herausfinden, in welcher Schachtel
+sich der Schatz befindet?
+
+13. Der Spielleiter schreibt zwei beliebige, verschiedene ganze Zahlen auf zwei
+Zettel und legt sie nebeneinander verdeckt auf den Tisch. Der Kandidat darf nun
+einen der beiden Zettel aufdecken und sich die Zahl anschauen. Er kann dann
+entweder bei seiner Wahl bleiben oder den anderen Zettel auswählen. Er gewinnt,
+wenn er den Zettel mit der größeren der beiden Zahlen ausgewählt hat. Gibt es
+eine Strategie, die dem Kandidat erlaubt, mit Wahrscheinlichkeit > 50% zu
+gewinnen? (Antwort: Ja! Und das ist völlig krass.)
+
+14. Es macht Spaß, das Blaue-Augen-Rätsel weiterzudenken: Angenommen, dem Forscher
+fällt n Tage nach seiner Abreise von der Insel sein Missgeschick auf. Was kann
+er dann unternehmen, um die Katastrophe abzuwenden?
+
+15. Drei Zwerge stehen mit je einem gelben oder roten hut auf dem Kopf im Kreis (sie
+können also die Hutfarben der anderen, nicht aber ihre eigene sehen). Man teilt
+ihnen mit, dass mindestens ein Hut rot ist. Der erste wird gefragt, ob er die
+Farbe seines Huts weiß; er verneint. Der 2. wird gefragt, ob er die Farbe
+seines Huts weiß; er verneint. Jetzt weiß der dritte seine Farbe; wieso und
+welche ist es?
+
+16. Obwohl Bram Stokers Geschichte über Drakulas Ende berichtet, gibt es immer
+wieder Menschen, die ihr keinen Glauben schenken und der Sache selbst auf den
+Grund gehen wollen. Der Held dieser Rätsel reiste nach Transilvanien, um
+herauszufinden, ob Dracula noch lebt und, je nachdem, um ihn zu treffen oder
+seine Überreste mit eigenen Augen zu sehen. Zu jener Zeit bestand fast die
+Hälfte der Bevölkerung aus Vampiren und der Rest aus Menschen. Diese Gruppen
+waren durch ihr Aussehen nicht zu unterscheiden. Jedoch sprachen die Vampire
+nie die Wahrheit, die Menschen hingegen immer. Allerdings gab es noch eine
+zusätzliche Komplikation: Die Hälfte jeder Bevölkerungsgruppe war verrückt.
+Verrückte verwechselten Wahrheit und Lüge und verhielten sich daher immer genau
+anders als die gesunden Vertreter ihrer Rasse. (Ein verrückter Mensch würde
+also glauben, dass etwas Falsches wahr ist, und daher diese Lüge sagen.)
+1. Bevor sich unser Held in Drakulas Schloss wagte, begab er sich zuerst in das
+Dorf und erkundigte sich bei einigen Bürgern, was sie denn für Wesen seien.
+Dies waren ihre Aussagen:
+(a) Ich bin ein Mensch, oder ich bin gesund.
+(b) Ich bin kein gesunder Mensch.
+(c) Ich bin ein verrückter Mensch.
+(d) Ich bin ein Vampir.
+Was kann man dadurch über die Bürger herausfinden? Welcher ist Mensch, welcher
+Vampir? Welcher verrückt und welcher gesund?
+2. (etwas schwieriger)  Als nächstes wollte sich unser Held nach Drakula selbst
+erkundigen. Ihm war klar, dass eine Frage wie "Lebt Drakula noch?" ihn nicht
+viel weiterbringen würde, solange er nicht wüsste, ob sein Gegenüber lügt oder
+nicht. Allerdings konnte er keinen Bürger zu einem Gespräch bewegen, das lang
+genug war, um Antworten auf seine Fragen zu bekommen (d.h. er kann immer nur
+eine Frage stellen). Also stellte er folgende Vorüberlegungen an: Gegeben eine
+Aussage A (z.B. Drakula lebt noch) und angenommen, dass sie wahr ist:
+(a) Welche Bevölkerungsgruppen glauben, dass A wahr ist?
+(b) Welche Bevölkerungsgruppen glauben, dass sie glauben, dass A wahr ist?
+Fortsetzung vom Transilvanien-Rätsel:
+Unser Held hat es aufgegeben weiter darüber nachzudenken, ob es ihm hilft, was
+jeder zu glauben glaubt. Stattdessen beschäftigt er sich mit konkreteren
+Aussagen.
+1. Was kann er über Drakula schließen, wenn ein Bürger folgendes sagt?
+(a) "Wenn ich ein Mensch bin, lebt Drakula noch"
+(b) "Wenn ich gesund bin, lebt Drakula noch"
+2. Angenommen ein Transilvanier trifft folgende Aussagen:
+Ich bin gesund. Ich glaube, dass Drakula tot ist.
+Kann man daraus schließen, ob Drakula noch lebt?
+3. Angenommen ein Transilvanier trifft folgende Aussagen:
+Ich bin ein Mensch. Wenn ich ein Mensch bin, dann lebt Drakula noch.
+Kann man daraus schließen, ob Drakula noch lebt?
+4. (schwer!) Gibt es eine Aussage, mit der ein Transilvanier unseren Helden
+davon überzeugen kann, dass Drakula noch lebt und...
+(a) ...man weiß, dass seine Aussage falsch ist?
+(b) ... man nicht weiß, ob seine Aussage wahr, oder falsch ist?
+
+17. Numerakles kämpft bei einem Turnier um Ruhm und Ehre. Um das Turnier zu
+gewinnen muss er zwei aufeinanderfolgende von insgesamt drei Kämpfen gewinnen.
+Dabei muss er abwechselnd gegen Abrahamus und gegen Hellenus kämpfen, d.h.
+entweder ist die Reihenfolge seiner Gegner Abrahamus-Hellenus-Abrahamus oder
+Hellenus-Abrahamus-Hellenus. Numerakles weiß, dass Hellenus ein besserer
+Kämpfer ist als Abrahamus - für welche Kampfreihenfolge sollte Numerakles sich
+also entscheiden, um bessere Chancen auf den Turniersieg zu haben?
+Numerakles erhält von einem Riesen zwei identische goldene Eier und den
+Schlüssel zu einem 100-stöckigen Turm. Numerakles' Aufgabe ist es das höchste
+Stockwerk zu ermitteln, von dem die Eier den Fall noch überstehen ohne zu
+zerbrechen (er darf für die Ermittlungen die beiden Eier zerbrechen). Überlebt
+ein Ei den Fall aus einem Stockwerk, so überlebt es auch den Fall aus allen
+niedrigeren Stockwerken und das Ei kann weiterhin verwendet werden. Zerbricht
+ein Ei bei dem Fall, so kann Numerakles es nicht mehr verwenden für seine
+Ermittlungen. Was ist die minimale Anzahl an Würfen, die maximal nötig ist um
+das höchste Stockwerk herauszufinden, bei dem die Eier den Fall heil
+überstehen?
