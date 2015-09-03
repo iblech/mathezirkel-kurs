@@ -1,0 +1,13 @@
+Buffons Nadel
+
+Thema für dreißig Minuten. Eine Nadel wird wiederholt fallengelassen. Der
+Boden, auf den die Nadel auftrifft, besteht aus mehreren gleich breiten Dielen.
+Was ist die Wahrscheinlichkeit, dass die Nadel zwei Dielen kreuzt?
+
+In der Antwort kommt Pi vor; in der Tat stellt diese Aufgabe eine Möglichkeit
+da, Pi (sehr langsam) zu approximieren. Es gibt eine komplizierte Lösung mit
+Integralen und eine sehr einfache.
+
+Ist ab einschließlich siebte Klasse machbar. Das Konzept des Erwartungswerts
+muss möglicherweise mit Händen und Füßen erklärt werden. War ein leichtes und
+lockeres Thema, das gut ankam.

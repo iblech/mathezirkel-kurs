@@ -1,0 +1,7 @@
+Spieltheorie mit Python-Programmierung
+
+Thema für zwei Zirkeleinheiten. In der ersten Stunde paar spieltheoretische
+Überlegungen, in der zweiten Monte-Carlo-Simulationen mancher
+Zufallsexperimente.
+
+Konzipiert für 11. und 12. Klasse. Kam sehr gut an.

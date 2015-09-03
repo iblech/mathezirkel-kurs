@@ -1,0 +1,13 @@
+Erzeugende Funktionen und das Geheimnis der Fibonnaci-Zahlen
+
+Thema für einen Zirkel. Spiel und Spaß mit erzeugenden Funktionen. Die Vorlage,
+das Buch generatingfunctionology, ist super und kann fast wörtlich übernommen
+werden.
+
+Konzipiert für Klassenstufen 11 und 12. Kann vermutlich auch für Klassenstufen 9
+und 10 verwendet werden, wobei für die das Thema vielleicht weniger spannend
+ist. Sicherheit im Umformen von Termen (Ausmultiplizieren und so) ist
+unabdingbar. Das Geheimnis der Fibonacci-Zahlen (sum_n f_n/10^n = 10/89) kam
+sehr gut an. Die allgemeine Technik der erzeugenden Funktionen kam auch gut an.
+Man sollte den Zirkel unbedingt mit Übungsaufgaben abrunden, denn das tolle am
+Zirkel ist die Vermittlung einer allgemeinen Technik.

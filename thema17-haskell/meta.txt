@@ -1,0 +1,7 @@
+Einstieg in die Haskell-Programmierung
+
+Thema für eine Zirkelstunde. Angefangen mit einer kleinen Live-Demo am Beamer
+steigert man sich immer weiter und programmiert zum Schluss das
+Mandelbrot-Fraktal.
+
+Konzipiert für 11. und 12. Klasse. Kam gut an.

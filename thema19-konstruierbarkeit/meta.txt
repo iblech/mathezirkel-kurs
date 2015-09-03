@@ -1,0 +1,9 @@
+Quadratur des Kreises und andere klassische Konstruktionsprobleme
+
+Thema für eine Zirkelstunde. Höhepunkt ist ein (bis auf die Transzendenz
+von Pi) vollständiger Beweis der Unmöglichkeit der Quadratur des Kreises.
+Auch die Unmöglichkeit der Winkeldreiteilung kann behandelt werden, wenn man
+das Thema eine weitere Zirkelstunde widmet.
+
+Sehr erfolgreich getestet mit 9., 10., 11. und 12. Klasse (im Präsenzzirkel und
+auf dem Mathecamp 2015).

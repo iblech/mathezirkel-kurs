@@ -4,3 +4,15 @@
 
 * Abschließend haben wir die Fibonacci-Zahlen im Apfelmännchen-Fraktal
   bewundert: http://math.bu.edu/DYSYS/FRACGEOM2/node7.html
+
+* Auf dem Mathecamp haben wir als Warmup auch noch eine explizite Formel
+  für das n-te Folgeglied in der Folge
+
+      a_0 = 1,  a_{n+1} = 2 a_n - 1
+
+  hergeleitet.
+
+* Außerdem haben wir auf dem Mathecamp (durch Einsetzen in die erzeugende
+  Funktion) bewiesen, dass
+
+      sum_n f_n/10^n = 10/89.

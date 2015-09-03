@@ -1,0 +1,4 @@
+Der Residuensatz
+
+Konzipiert für 11. und 12. Klasse. Unabdingbare Voraussetzung ist Vertrautheit
+mit Integralen. Getestet mit zwei 12. Klässlern (nur schriftlich).

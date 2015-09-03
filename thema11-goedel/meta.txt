@@ -1,0 +1,12 @@
+Gödels Unvollständigkeitssatz
+
+Thema für drei Zirkelstunden. Großes Ziel in der dritten Zirkelstunde war ein
+Beweis des gödelschen Unvollständigkeitssatzes über die Existenz
+unberechenbarer Funktionen (wobei auf manche logische Subtilitäten natürlich
+nicht eingegangen wurde). Auf dem Weg dahin haben wir auch andere nette
+Dinge kennengelernt: manche logische Paradoxa, das Halteproblem, die
+Fleißiger-Biber-Funktion, Chaitins Haltewahrscheinlichkeit und formale Systeme.
+
+Konzipiert für Klassenstufen 10, 11, 12. Hat gut funktioniert. Für niedrigere
+Klassenstufen ist das Thema sicherlich schwierig, da abstrakt und vielleicht
+dann auch gar nicht so interessant.

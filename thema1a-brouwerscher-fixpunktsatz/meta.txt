@@ -1,0 +1,15 @@
+Brouwerscher Fixpunktsatz
+
+Thema für eine Zirkelstunde. Sperners Lemma aus der Kombinatorik und der damit
+geführte Beweis des brouwerschen Fixpunktsatzes.
+
+Der erste Teil (Sperners Lemma) kam sehr gut an. Der zweite Teil hat sich etwas
+in die Länge gezogen. Man könnte den zweiten Teil auch ersetzen durch einen
+Beweis von Monskys Theorem (ein Rechteck lässt sich nicht durch eine ungerade
+Anzahl von flächeninhaltsgleichen Dreiecken überdecken), der ebenfalls an
+zentraler Stelle Sperners Lemma verwendet.
+
+Konzipiert für 11. und 12. Klasse. Sperners Lemma funktioniert aber sicherlich
+auch ab einschließlich 7. Klasse. Der Brouwsersche Fixpunktsatz geht wohl nicht
+mit Kleineren (bzw. ist dann langweilig), Monskys Theorem geht aber vermutlich
+ab der 9. Klasse.

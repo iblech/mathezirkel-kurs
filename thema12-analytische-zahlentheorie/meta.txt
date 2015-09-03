@@ -1,0 +1,26 @@
+Analytische Zahlentheorie
+
+Thema für mehrere Zirkelstunden. Endziel war ein Beweis des Primzahlsatzes. Vor
+Erreichen dieses Ziels haben wir aber das Thema gewechselt; auch in den
+schriftlichen Notizen ist der Beweis nicht enthalten. Auf dem Weg dahin haben
+wir einen Streifzug durch die analytische Zahlentheorie unternommen. Der
+vollständige Beweis könnte mit recht wenig weiterem Aufwand ergänzt werden.
+
+* Als Warmup:
+  * Der Fundamentalsatz der Arithmetik
+  * Die Entdeckung der Irrationalität
+  * Die Unendlichkeit der Primzahlen
+
+* Die Riemannsche ζ-Funktion und die eulersche Produktformel
+
+* Schranken für die Größe und Anzahl der Primzahlen.
+  Hergeleitet mit der allgemeinen Technik des proof minings aus zwei Beweisen
+  der Unendlichkeit der Primzahlen. Harmonische Reihe als Hilfsmittel.
+
+* Mangoldt-Funktion und Tschebyschow-Funktion.
+  Mit Beweis, dass psi(N) << N; daraus könnte man dann mit recht wenig weiterem
+  Aufwand den Primzahlsatz beweisen.
+
+Konzipiert für Klassenstufen 11, 12. Hat gut funktioniert. Allerdings ist bei
+diesem Thema nicht wenig Technik dabei. Daher benötigt man schon viel
+Motivation für das Thema.
