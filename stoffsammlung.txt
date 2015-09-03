@@ -55,6 +55,12 @@ Kara (Programmieren mit Marienkäfern)
 Zauberzirkel
 Hyperbolische Funktionen, x^2 - y^2 = 1 verstehen und so weiter
 Pascalsches Dreieck auf Steroiden
+reguläre Ausdrücke
+Galoistheorie
+modale Logik? Kripke-Semantik?
+Quantencomputer
+Markov-Ketten
+Zufall
 
 
 --- nicht beim ersten Treffen angeschrieben:

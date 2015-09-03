@@ -11,3 +11,6 @@
   sqrt(2 + sqrt(2 + sqrt(2 + ...))) = 2.
   sqrt(1 + sqrt(1 + sqrt(1 + ...))) = Phi.
   2/pi = sqrt(1/2) sqrt(1/2 + 1/2 sqrt(1/2)) ...
+
+* http://math.stackexchange.com/questions/1219598/remainder-of-a-power-tower-under-modulo-2013
+  6000^5999^5998^... mod 2013
