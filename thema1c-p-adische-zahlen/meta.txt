@@ -1,0 +1,10 @@
+Die Welt aus den Augen einer Primzahl
+
+Thema für eine Zirkelstunde. Spiel und Spaß mit den p-adischen Zahlen. Das
+Wunder der Division bei den p-adischen Zahlen. Das Phänomen der Nullteiler
+(wenn p doch keine Primzahl ist).
+
+Konzipiert und getestet mit 9., 10., 11. und 12. Klasse. Kam (für mich etwas
+überraschend) sehr gut an. Bei diesem Zirkel ist viel Interaktivität dabei.
+Auch können die SchülerInnen prima beim schriftlichen Addieren, Subtrahieren,
+Multiplizieren und Dividieren helfen.

@@ -1,0 +1,10 @@
+Spiel und Spaß mit unendlichen Kettenbrüchen
+
+Thema für eine Zirkelstunde. Was sind unendliche Kettenbrüche? Wie wertet man
+sie aus? Wie bestimmt man die Kettenbruchentwicklung einer Zahl? Wozu sind
+Kettenbrüche gut? (Antwort: Für tolle Approximation.) Welche antiken Näherungen
+für Pi gibt es? Wieso kommen Fibonacci-Zahlen so oft in der Natur vor?
+
+Getestet mit 9. und 10. Klasse. Kam super an. Funktioniert sicher auch für 11.
+und 12. Klasse. Kleiner geht's leider nicht: Denn zur Auswertung von
+Kettenbrüchen benötigt man die Mitternachtsformel.
