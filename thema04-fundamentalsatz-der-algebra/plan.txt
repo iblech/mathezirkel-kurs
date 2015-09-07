@@ -1,0 +1,52 @@
+(kopiert aus Rundmail)
+
+Crashkurs komplexe Zahlen. Das haben wir an der Tafel gemacht,
+daher keine Materialien, die ich anhängen könnte. Für die von euch,
+die wissen, was komplexe Zahlen sind, hier eine Zusammenfassung der
+beiden Höhepunkte:
+
+Zum einen haben wir gesehen, wie man aus der eulerschen Formel
+e^(i phi) = cos(phi) + i sin(phi) Additionstheoreme für Sinus und
+Kosinus ableiten kann: Zum Beispiel kann man e^(i (alpha+beta))
+ansetzen und auf zwei verschiedene Arten und Weisen vereinfachen --
+zum einen direkt durch die eulersche Formel, zum anderen durch ein
+Potenzgesetz und anschließende doppelte Verwendung der eulerschen
+Formel.
+
+Zum anderen haben wir einen Beweis des Fundamentalsatzes der Algebra
+gesehen. Dieser Satz sagt aus, dass *jede* (!!) (nicht konstante)
+Polynomgleichung über den komplexen Zahlen eine Lösung besitzt.
+Beispiele sind quadratische, kubische, quartische und höhere
+Gleichungen.
+
+Ein erster Beweis wurde von Gauß in seiner Doktorarbeit erbracht.
+Mittlerweile ist man in der Mathematik so viel weiter, dass es eine
+Vielzahl von Beweisen gibt, die das Problem von vielen verschiedenen
+Blickwinkeln beleuchten. Beim heute typischen Anspruch an Rigorosität
+kann man manche Beweise schon nach dem ersten Semester eines
+Mathe-Studiums verstehen; für andere benötigt man etwas mehr
+Vorwissen, sind dann aber noch einfacher.
+
+Ich habe einen Beweis vorgeführt, der auf der Idee der Windungszahl
+beruht. Sei f(z) ein Polynom, etwa f(z) = z^2 - 3z + 5.
+Wenn man Punkte des r-heitskreises in der komplexen Zahlenebene
+einsetzt, wobei r eine genügend große Zahl ist, so werden die
+Bildpunkte f(z) eine Kurve beschreiben, die sich genau so oft um den
+Ursprung windet, wie der Grad des Polynoms vorgibt.
+
+Wenn der Radius r dagegen sehr klein ist, windet sich die Bildkurve
+dagegen weniger oft um den Ursprung.
+
+Wenn das Polynom keine Nullstelle hätte, würde für kein Radius r
+die Bildkurve den Ursprung treffen. Dann könnte man sich die
+Bildkurven aber als Faden vorstellen, der um eine Stange gewickelt
+ist; man sieht, dass sich die Anzahl Windungen dieses Fadens um die
+Stange nicht ändern kann. Das wäre dann ein Widerspruch zur Tatsache,
+dass sich die Windungszahl eben doch ändert. Also muss das Polynom
+doch eine Nullstelle besitzen.
+
+Mit Skizzen wird das anschaulicher. Die findet ihr etwa auf
+http://www.cut-the-knot.org/fta/fta_sketch1.shtml. Wenn ihr mit dem
+Graphenplotter Gnuplot umgehen könnt (den gibt es für Linux und
+Windows), könnt ihr auch live mit den Kurven experimentieren:
+https://github.com/iblech/mathezirkel-kurs/blob/master/thema04-fundamentalsatz-der-algebra/fundamentalsatz-der-algebra.gnuplot

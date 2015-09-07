@@ -1,0 +1,26 @@
+(kopiert aus Rundmail)
+
+Vierdimensionale Geometrie. Was passiert, wenn eine vierdimensionale
+Kugel durch unseren dreidimensionalen Raum dringt? Wieso kann man
+Knoten in geschlossenen Seilen im Vierdimensionalen stets entwirren?
+Wieso kann man aus Gefängnissen mühelos entkommen, wenn man sich
+vierdimensional bewegen könnte?
+
+Fragen dieser Art haben wir auch nur an der Tafel diskutiert. Wenn
+ihr sie aber spannend findet, dann informiert euch etwa bei Wikipedia
+unter dem Stichwort "Tesserakt" (das ist ein vierdimensionaler
+Würfel). Ganz nett ist auch der Film "Flatland", nach dem
+gleichnamigen Roman von Edwin Abbott aus dem Jahr 1884 (!).
+Beim nächsten Treffen können wir das dann genauer thematisieren.
+
+http://www.flatlandthefilm.com/videos.php
+http://en.wikipedia.org/wiki/Flatland (über den Roman)
+http://www.youtube.com/watch?v=Mfglluny8Z0 (der vollständige Film)
+http://www.rdrop.com/~half/Creations/Puzzles/visualizing.4D/ (wieso
+man Knoten im Vierdimensionalen immer entheddern kann)
+
+
+Weitere Stichpunkte (Ideen nach dem Zirkel):
+* Schnitt von einem 4D-Würfel mit der 3D-Welt
+* Anzahl Ecken, Kanten, ...
+* Volumenberechnung, auch von Hyperkugeln
