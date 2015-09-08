@@ -61,6 +61,7 @@ modale Logik? Kripke-Semantik?
 Quantencomputer
 Markov-Ketten
 Zufall
+Erzeugende Funktionen in der Kombinatorik (Spezies dekategorifiziert)
 
 
 --- nicht beim ersten Treffen angeschrieben:
