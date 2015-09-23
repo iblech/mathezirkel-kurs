@@ -219,3 +219,28 @@ ein Ei bei dem Fall, so kann Numerakles es nicht mehr verwenden für seine
 Ermittlungen. Was ist die minimale Anzahl an Würfen, die maximal nötig ist um
 das höchste Stockwerk herauszufinden, bei dem die Eier den Fall heil
 überstehen?
+
+18. Das Schubladenrätsel. Wie üblich wurden 100 Zwerge (mit den Nummern 1, 2,
+..., 100) gefangen genommen. Der Gefängnischef erklärt die Regeln:
+
+    Die Zwerge werden, jeder für sich, in einen Raum geführt. In
+    diesem Raum befinden sich 100 Schubladen (durchnummeriert von 1
+    bis 100). In jeder der Schubladen befindet sich ein Zettel. Auf
+    den Zetteln steht jeweils eine Nummer von 1 bis 100. Jede Nummer
+    steht auf genau einem Zettel, es kommt also nicht zu
+    Wiederholungen.
+
+    Jeder Zwerg darf nun fünfzig Schubladen seiner Wahl öffnen.
+    Entdeckt er dabei den Zettel mit seiner eigenen Nummer, ist
+    alles gut. Entdeckt er seine eigene Nummer dagegen nicht, so
+    sterben alle (!) Zwerge.
+
+    Schafft jeder Zwerg, seine Nummer zu finden, so kommen alle
+    Zwerge frei. Die Zwerge können sich vorab auf eine Strategie
+    einigen, ab Beginn des "Spiels" aber nicht mehr miteinander
+    kommunizieren. Den Raum mit den Schubladen müssen sie genau so
+    verlassen, wie sie ihn vorgefunden haben.
+
+Die Frage lautet: Gibt es eine Strategie, sodass die Zwerge nicht nur
+mit verschwindend geringer Wahrscheinlichkeit überleben und freigelassen
+werden? Lösung: http://www.mast.queensu.ca/~peter/inprocess/prisoners.pdf
