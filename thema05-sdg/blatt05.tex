@@ -3,6 +3,7 @@
 \usepackage{float}
 \usepackage{dashrule}
 \usepackage{manfnt}
+\usepackage{mathtools}
 \floatstyle{ruled}
 \restylefloat{figure}
 \newcommand{\head}[1]{\section*{\rmfamily #1}}
@@ -11,6 +12,7 @@
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\U}{\mathcal{U}}
 \newcommand{\xra}[1]{\xrightarrow{#1}}
+\newcommand{\defeq}{\vcentcolon=}
 
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}[section]
@@ -78,7 +80,7 @@ falsch ist:
 \newcommand{\axiommikro}{
   \begin{shaded}
   \textbf{Axiom der Mikroaffinität.}
-  Sei~$\Delta := \{ \varepsilon \in \RR \,|\, \varepsilon^2 = 0 \}$ die
+  Sei~$\Delta \defeq \{ \varepsilon \in \RR \,|\, \varepsilon^2 = 0 \}$ die
   \emph{infinitesimale Monade} um~$0$. Sei~$f : \Delta \to \RR$ eine beliebige
   Funktion. Dann gibt es gewisse eindeutig bestimmte reelle Zahlen~$a$ und~$b$,
   sodass für alle Zahlen~$\varepsilon$ in~$\Delta$ folgende Gleichung gilt:
@@ -276,7 +278,7 @@ Differentialquotienten: Die Sekantensteigungen konvergieren für~$\varepsilon
 Wenn du möchtest, kannst du das auch noch rechnerisch nachvollziehen. Berechne
 den \emph{links-} und den \emph{rechtsseitigen} Grenzwert des
 Differenzenquotienten. Nutze dazu folgende Definition der Betragsfunktion:
-\[ |x| := \begin{cases}\phantom{-}x, & \text{falls $x \geq 0$,} \\ -x, & \text{falls $x <
+\[ |x| \defeq \begin{cases}\phantom{-}x, & \text{falls $x \geq 0$,} \\ -x, & \text{falls $x <
 0$.}\end{cases} \]
 \item Es gibt auch Funktionen, deren Graphen keine offensichtlichen
 Knickpunkte haben und die trotzdem nicht überall differenzierbar sind. Erkläre
@@ -356,7 +358,7 @@ Funktion. (Das wird \emph{nicht} die übliche Normalparabel.)
 
 Im Axiom der Mikroaffinität kommt die \emph{infinitesimale Monade um die
 Zahl~$0$} vor. Damit ist folgende Menge reeller Zahlen gemeint:
-\[ \Delta := \{ x \in \RR \,|\, x^2 = 0 \}. \]
+\[ \Delta \defeq \{ x \in \RR \,|\, x^2 = 0 \}. \]
 Die Elemente von~$\Delta$ sind also all diejenigen Zahlen, deren Quadrat Null
 ist. In klassischer Mathematik gilt die Regel "`wenn das Quadrat einer Zahl
 Null ist, dann ist auch die Zahl selbst Null"'. Daher besteht~$\Delta$ in klassischer
@@ -444,7 +446,7 @@ anders als in klassischer Mathematik nicht nur die Null enthält.
 \begin{prop}\label{prop:neg-delta0}Es stimmt nicht, dass~$\Delta = \{ 0 \}$.\end{prop}
 \begin{proof}Angenommen, es wäre doch der Fall, dass~$\Delta = \{ 0 \}$. Dann
 erhalten wir mit der Eindeutigkeitsaussage im Axiom der Mikroaffinität einen
-Widerspruch: Betrachte die konstante Funktion $f : \Delta \to \RR,\,\varepsilon \mapsto 0$.
+Widerspruch: Betrachten wir die konstante Funktion $f : \Delta \to \RR,\,\varepsilon \mapsto 0$.
 Dann gelten für alle~$\varepsilon$ in~$\Delta$ -- das ist etwas verklausuliert
 gesprochen, denn nach Annahme enthält~$\Delta$ ja nur die Null -- \emph{beide}
 der folgenden Gleichungen:
@@ -816,7 +818,7 @@ Verwendung nicht so leicht bemerkt, wenn man nicht absichtlich sein Auge
 diesbezüglich schult. Das liegt daran, dass es gewissermaßen in unsere Sprache
 und unser Wahrheitsempfinden eingebaut ist.
 
-Wir müssen uns also zunächst einmal klarmachen, in welche Beweise das Axiom vom
+Wir müssen uns also zunächst einmal klarmachen, in welchen Beweisen das Axiom vom
 ausgeschlossenen Dritten wesentlich eingeht. Beispiele für solche
 Situationen sind die folgenden:
 
@@ -903,8 +905,8 @@ natürlich entweder Null oder nicht Null. Aber im Allgemeinen können wir in
 endlicher Zeit keinen Beleg dieser Behauptung produzieren: In endlicher Zeit
 können wir im Allgemeinen zwar beliebig viele, aber nicht alle,
 Nachkommaziffern von~$x$ berechnen. Sollte~$x$ tatsächlich Null sein, können
-wir uns uns nach Überprüfung von nur endlich vielen Nachkommaziffern nie sicher
-sein, ob nicht doch noch eine von Null verschiedene Ziffer auftritt. Wir können
+wir uns nach Überprüfung von nur endlich vielen Nachkommaziffern nie sicher
+sein, ob nicht doch noch eine von Null verschiedene Ziffer auftreten wird. Wir können
 also die wahre Aussage~"`$x = 0$"' nicht belegen.
 \end{itemize}
 
@@ -1050,7 +1052,7 @@ zulassen.
 \begin{bsp}Wir erweitern die üblichen Axiome der reellen
 Zahlen um eine Konstante~$\heartsuit$ und das Axiom~$\heartsuit^2 - 4 = 0$.
 Diese Erweiterung ist konsistent, denn ein mögliches Modell besteht aus den
-üblichen reellen Zahlen mit der Setzung~$\heartsuit := 2$. Wenn wir außerdem
+üblichen reellen Zahlen mit der Setzung~$\heartsuit \defeq 2$. Wenn wir außerdem
 noch das Axiom~$\heartsuit + 1 = 4$ fordern, erhalten wir ein inkonsistentes
 System: In jedem Modell müsste wegen des ersten Axioms~$\heartsuit$
 entweder~$+2$ oder~$-2$ sein. Das zweite Axiom diktiert aber~$\heartsuit =
@@ -1115,7 +1117,7 @@ folgende Gleichung gilt:
 \end{lemma}
 \begin{proof}Wenn man die Integration als Gegenstück zur Differentiation kennt,
 kann man die gesuchte Funktion~$g$ explizit angeben. Ihr Funktionsterm lautet:
-\[ g(x) := \int_0^1 f'(tx) \, dt. \]
+\[ g(x) \defeq \int_0^1 f'(tx) \, dt. \]
 Diese Funktion ist wirklich glatt (wieso?) und erfüllt die geforderte
 Gleichung. Denn wenn wir die Hilfsfunktion~$h : \RR \to \RR$ mit~$h(t) = f(tx)$
 einführen, sehen wir mit dem Hauptsatz der Differential- und Integralrechnung
@@ -1134,7 +1136,7 @@ Die zu~$f$ gehörige Funktion~$g$ aus dem Lemma von Hadamard heißt auch
 dass der Hadamard-Quotient~$g$ auf \emph{ganz~$\RR$ definiert ist} (also keine
 Definitionslücken hat) und wieder glatt ist. Ohne
 die letzte Forderung hätte man für~$x \neq 0$ auch einfach
-\[ g(x) := \frac{f(x) - f(0)}{x} \]
+\[ g(x) \defeq \frac{f(x) - f(0)}{x} \]
 definieren und für~$x = 0$ den Funktionswert~$g(0)$ beliebig festsetzen können.
 Anders formuliert: Der Bruch~$\frac{f(x) - f(0)}{x}$ hat zwar bei~$x = 0$ eine
 Definitionslücke, diese ist jedoch \emph{hebbar}.\enlargethispage{1em}
@@ -1282,14 +1284,14 @@ Thema) enthalten ebenfalls eine bestimmte Art infinitesimaler Zahlen. Wie
 vergleichen sich diese Ansätze mit dem von synthetischer Differentialgeometrie?
 Der größte Unterschied liegt darin, dass die infinitesimalen Zahlen in
 synthetischer Differentialgeometrie \emph{nilquadratisch} sind -- das heißt,
-dass ihre Quadrat Null sind. Das war ja in diesen Notizen sogar die Definition des
+dass ihre Quadrate Null sind. Das war ja in diesen Notizen sogar die Definition des
 Begriffs \emph{infinitesimal}. Die infinitesimalen surrealen und hyperreellen
 Zahlen zeichnen sich dagegen dadurch aus, dass ihre Quadrate \emph{nicht} Null, sondern
 \emph{noch kleinere} infinitesimale Zahlen sind.
 
 Außerdem sind die infinitesimalen surrealen und hyperreellen Zahlen
 invertierbar; die Kehrwerte solcher Zahlen sind transfinite Zahlen. Als
-Konsequenz bilden die surrealen Zahlen einen \emph{Körper} -- jede Zahl ist
+Konsequenz bilden die surrealen und hyperreellen Zahlen einen \emph{Körper} -- jede Zahl ist
 entweder Null oder invertierbar. Die Zahlen in synthetischer
 Differentialgeometrie erfüllen nur die schwächere Bedingung, dass jede Zahl, die
 nicht Null ist, invertierbar ist.\footnote{Wenn die beiden Bedingungen für dich
@@ -1365,10 +1367,10 @@ Pythagoreer vor, dem Pentagramm.}
 \begin{prop}Es gibt irrationale Zahlen~$x$ und~$y$, sodass~$x^y$ rational ist.
 \end{prop}
 \begin{proof}[Beweis 1] Die Zahl~$\sqrt{2}^{\sqrt{2}}$ ist rational oder nicht
-rational. Im ersten Fall ist~$x := \sqrt{2}$, $y := \sqrt{2}$ ein Beispiel für
-die Behauptung, im zweiten Fall~$x := \sqrt{2}^{\sqrt{2}}$, $y := \sqrt{2}$.
+rational. Im ersten Fall ist~$x \defeq \sqrt{2}$, $y \defeq \sqrt{2}$ ein Beispiel für
+die Behauptung, im zweiten Fall~$x \defeq \sqrt{2}^{\sqrt{2}}$, $y \defeq \sqrt{2}$.
 \end{proof}
-\begin{proof}[Beweis 2] Setze~$x := \sqrt{2}$ und~$y := \log_{\sqrt{2}} 3$
+\begin{proof}[Beweis 2] Setze~$x \defeq \sqrt{2}$ und~$y \defeq \log_{\sqrt{2}} 3$
 (keine Angst vor Logarithmus- und Exponentialfunktion!).
 Dann ist die Potenz~$x^y = 3$ sicher rational. Die Irrationalität von~$y$ lässt sich
 sogar einfacher als die von~$\sqrt{2}$ beweisen:
