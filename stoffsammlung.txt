@@ -62,6 +62,7 @@ Quantencomputer
 Markov-Ketten
 Zufall
 Erzeugende Funktionen in der Kombinatorik (Spezies dekategorifiziert)
+Fold and Cut Theorem: https://www.youtube.com/watch?v=ZREp1mAPKTM
 
 
 --- nicht beim ersten Treffen angeschrieben:
