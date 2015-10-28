@@ -1,3 +1,9 @@
+-- Dieses Programm sucht magische Quadrate. Das sind (3x3)-Quadrate,
+-- in deren Felder derart die Zahlen 1 bis 9 verteilt werden müssen,
+-- sodass die Summen in jeder Zeile, jeder Spalte und den beiden
+-- Diagonalen jeweils gleich sind.
+module Main where
+
 import Control.Monad
 
 -- a1 a2 a3
