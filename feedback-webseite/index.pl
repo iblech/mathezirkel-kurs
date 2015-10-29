@@ -133,7 +133,7 @@ my %courses = (
     name => "Korrespondenzzirkel bei Jorid (7. Klasse)",
     text => KORRESPONDENZ,
     mail => 'jorid.kretzschmar@aol.de',
-    anrede => "Lieber Ralph",
+    anrede => "Liebe Jorid",
     gruss  => ANON_GRUSS,
   },
   a_08 => {
