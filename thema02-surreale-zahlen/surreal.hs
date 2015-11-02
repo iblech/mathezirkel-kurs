@@ -86,7 +86,11 @@ birthday x = MkGame $ Mk [birthday x' | x' <- left x ++ right x] []
 
 -- Prüft, ob ein gegebenes Game eine surreale Zahl ist.
 isNumber :: Game -> Bool
-isNumber x = null [(xL, xR) | xL <- left x, xR <- right x, xL >= xR]
+isNumber x = and
+    [ null [(xL, xR) | xL <- left x, xR <- right x, xL >= xR]
+    , all isNumber (left  x)
+    , all isNumber (right x)
+    ]
 
 -- Vereinfacht eine surreale Zahl gemäß der Vereinfachungsregel
 -- aus den Aufgaben: In der linken Menge können kleinere, in der rechten Menge
