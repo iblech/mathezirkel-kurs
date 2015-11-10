@@ -57,7 +57,7 @@ instance Eq Game where
 -- Definition der Rechenoperationen auf Games.
 instance Num Game where
     x + y = MkGame $ Mk
-        ( [xL + y | xL <- left x]  ++ [x + yL | yL <- left y] )
+        ( [xL + y | xL <- left  x] ++ [x + yL | yL <- left  y] )
         ( [xR + y | xR <- right x] ++ [x + yR | yR <- right y] )
 
     negate x = MkGame $ Mk [-xR | xR <- right x] [-xL | xL <- left x]
@@ -95,6 +95,7 @@ isNumber x = and
 -- Vereinfacht eine surreale Zahl gemäß der Vereinfachungsregel
 -- aus den Aufgaben: In der linken Menge können kleinere, in der rechten Menge
 -- größere Zahlen weggelassen werden.
+-- Achtung: Funktioniert wirklich nur für surreale Zahlen, nicht für Spiele.
 strip :: Game -> Game
 strip (MkGame (Mk l r)) = MkGame $ Mk l' r'
     where
@@ -149,7 +150,6 @@ subtr :: Int -> Int -> Game
 subtr k n | n < 0 = error "subtract negative"
 subtr k n = mkImp [subtr k n' | n' <- [n-k..n-1], n' >= 0]
 
-
 -- Berechnet das Game, das die Situation eines Haufens der Größe n
 -- in dem Spiel PRIM beschreibt.
 prim :: Int -> Game
@@ -169,3 +169,6 @@ main = do
     print $ nim 1
     print $ nim 2
     print $ grundy $ box 7
+
+-- FIXME: Sharing einbauen. Idealerweise kann das memoize-Paket schon alles
+-- retten. Siehe auch: https://gitlab.imn.htwk-leipzig.de/waldmann/kst-ws01
