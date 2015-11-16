@@ -12,7 +12,7 @@
 
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}[section]
-\newtheorem{defn'}{Vorläufge Definition}[section]
+\newtheorem{defn'}{Vorläufige Definition}[section]
 \newtheorem{axiom}[defn]{Axiom}
 \newtheorem{bsp}[defn]{Beispiel}
 
@@ -476,7 +476,7 @@ $\Omega$ is in many senses a cabalistic number. It can be known of, but not
 known, through human reason. To know it in detail, one would have to accept
 its uncomputable digit sequence on faith, like words of a sacred text.
 (C.~Bennett und M.~Gardner, "`The random number~$\Omega$ bids fair to hold
-the mysteries of the universe”', Scientific American (1979), Ausgabe 241,
+the mysteries of the universe"', Scientific American (1979), Ausgabe 241,
 Seiten 20–-34.)}
 \begin{quote}
 Die Konstante~$\Omega$ verkörpert eine enorme Menge an Wissen auf sehr kleinem Raum.
@@ -507,7 +507,7 @@ Angesichts dieser Auszeichnung überrascht es vielleicht, dass die Konstante~$\O
 durch eine kurze Formel definiert werden kann:
 \[ \Omega \defeq \sum_p 2^{-|p|}. \]
 Das ist eine Kurzschreibweise, die ausgeschrieben für die unendliche Summe
-\[ \Omega := 2^{-|p_1|} + 2^{-|p_2|} + 2^{-|p_3|} + \cdots \]
+\[ \Omega \defeq 2^{-|p_1|} + 2^{-|p_2|} + 2^{-|p_3|} + \cdots \]
 steht. Dabei ist~$p_1$, $p_2$, $p_3$, $\ldots$ die unendliche Liste aller
 \emph{anhaltenden Programme}, und für ein Programm~$p$ steht~"`$|p|$"' für
 seine Länge. Die Konstante~$\Omega$ errechnet sich also dadurch, indem man
@@ -566,7 +566,7 @@ Länge~$\leq N$, ob sie halten oder nicht.
 \end{proof}
 
 Die Konstante~$\Omega$ ist also ein Beispiel für eine \emph{unberechenbare
-Zahl} -- es kann aus prinzipiellen Gründen kein Programm geben, dass ihre
+Zahl} -- es kann aus prinzipiellen Gründen kein Programm geben, das ihre
 Nachkommaziffern berechnet. Das unterscheidet sie von anderen wichtigen
 Konstanten wie~$\pi$ und~$e$, für die viele Programme zu ihrer Berechnung
 bekannt sind.
@@ -631,7 +631,7 @@ einem niedrigen \emph{Informationsgehalt}, im zweiten von einem hohen.
   \includegraphics[width=0.4\textwidth]{fraktal1}\hfill
   \includegraphics[width=0.4\textwidth]{fraktal2}\hfill
   \centering
-  \caption{\label{fig:fraktale}Wer interaktiv in Fraktale dieser Art
+  \caption{\label{fig:fraktale}Wer interaktiv Fraktale dieser Art
   untersuchen möchte, kann sich das freie Programm XaoS herunterladen. \newline
   {\tiny
   \url{http://www.dvice.com/sites/dvice/files/Fractal3.jpg}
@@ -725,8 +725,8 @@ Schlussregeln verwenden.
 Axiom wird in welchem Schritt verwendet?
 \item Die Axiome für die Multiplikation lauten
 \begin{align*}
-  n \cdot \ol{0} &:= \ol{0}, \\
-  n \cdot S(m) &:= n \cdot m + n.
+  n \cdot \ol{0} &\defeq \ol{0}, \\
+  n \cdot S(m) &\defeq n \cdot m + n.
 \end{align*}
 Führe mit diesen Axiomen einen formalen Beweis der Behauptung~$\ol{2} \cdot \ol{2} = \ol{4}$.
 \end{enumerate}\fixlistspacing
@@ -735,7 +735,7 @@ Führe mit diesen Axiomen einen formalen Beweis der Behauptung~$\ol{2} \cdot \ol
 \begin{warnung}Für uns sind die gewohnten natürlichen Zahlen \emph{nicht} durch
 die Peano-Axiome definiert. Wir setzen stattdessen voraus, dass wir aus der
 Schule und der Erfahrung einen intuitiven Zugang zu natürlichen Zahlen haben.
-Wenn man damit nicht einverstanden ist -- etwa, da man das informal erachtet --
+Wenn man damit nicht einverstanden ist -- etwa, da man das unrigoros erachtet --
 muss man die Diskussion in diesem Abschnitt ihrerseits in einem bestimmten formalen
 System interpretieren. Irgendwo aber muss man beginnen! Man kommt nicht umhin,
 \emph{Metalogik} vorauszusetzen.
@@ -746,7 +746,7 @@ und Schlussregeln des Systems tatsächlich erfüllt sind. Zum Beispiel bilden di
 gewöhnlichen natürlichen Zahlen ein Modell von Peano-Arithmetik, wenn
 man~$\ol{0}$ als~$0$, $\ol{1}$ als~$1$, und so weiter, interpretiert.
 
-Kein Modell von Peano-Arithmetik bilden die ganzen Zahlen~$\ZZ = \{
+\emph{Kein} Modell von Peano-Arithmetik bilden die ganzen Zahlen~$\ZZ = \{
 \ldots,-2,-1,0,1,2,\ldots \}$. Denn dort ist die Zahl~$0$ durchaus ein
 Nachfolger einer anderen Zahl (nämlich der Zahl~$-1$).
 
@@ -774,7 +774,7 @@ auf diese Weise weiter denken?
 \subsection{Der Unvollständigkeitssatz}
 
 Grob formuliert besagt der Unvollständigkeitssatz: Es gibt Aussagen -- so
-genannte \emph{Gödel-Sätze}, die wahr, aber unbeweisbar sind. Das hört sich
+genannte \emph{Gödel-Sätze} -- die wahr, aber unbeweisbar sind. Das hört sich
 fantastisch, aber auch etwas seltsam an. Denn wie sollten wir denn von der
 Wahrheit dieser Gödel-Sätze überzeugt sein, wenn nicht durch einen Beweis?
 
@@ -797,7 +797,7 @@ Schlussregeln des Systems von so einfacher Form sind, dass ein Computerprogramm
 man ein Programm schreiben kann, das nacheinander alle möglichen Versuche
 formaler Beweise durchgeht, jeweils prüft, ob sie korrekte Beweise innerhalb des
 Systems darstellen und wenn ja die durch sie bewiesene Aussage ausgeben. So
-erhält man also ein Programm, dass nacheinander alle beweisbaren (und keine
+erhält man also ein Programm, das nacheinander alle beweisbaren (und keine
 unbeweisbaren) Aussagen ausgibt.
 
 Die Forderung, dass ein formalen System effektiv axiomatisierbar sein soll, ist
@@ -903,12 +903,12 @@ korrekten Aussagesätze wirklich Aussagen im Sinne der Logik sein können.
 
 Man kann nun beweisen, dass die Aussage~$A$ tatsächlich wohlgeformt ist, und so
 die Lücke in diesem alternativen Beweis schließen. Dabei gehen dann auch die
-bisher im Alternativbeweis nicht verwendeten Voraussetzungen~a) und~b) ein. Zum
+bisher im Alternativbeweis nicht explizit verwendeten Voraussetzungen~a) und~b) ein. Zum
 Nachweis müssten wir uns aber tiefer mit technischen Details beschäftigen.
 
-Ist die Lücke wirklich so groß? Wie schlimm kann es, mit nicht
+Ist die Lücke wirklich so groß? Wie schlimm kann es sein, mit nicht
 wohlgeformten Aussagen zu operieren? Ja und \emph{sehr schlimm}. Das
-illustriert \emph{Currys Paradoxon}.
+illustriert \emph{Currys Paradoxon}:
 
 \begin{prop}Der Mond ist aus Käse.\end{prop}
 \begin{proof}Wir betrachten folgende Aussage~$B$: "`Wenn diese Aussage stimmt,
