@@ -64,6 +64,9 @@ Zufall
 Erzeugende Funktionen in der Kombinatorik (Spezies dekategorifiziert)
 Fold and Cut Theorem: https://www.youtube.com/watch?v=ZREp1mAPKTM
 
+Statistische Paradoxa:
+http://www2.hs-fulda.de/~grams/dnkfln.htm
+
 
 --- nicht beim ersten Treffen angeschrieben:
 
