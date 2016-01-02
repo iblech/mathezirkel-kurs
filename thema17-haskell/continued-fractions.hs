@@ -9,3 +9,6 @@ cf x = a : cf (1 / (x - fromIntegral a))
 -- eines verschwindenden Rests.
 cf' x = a : if x == fromIntegral a then [] else cf' (1 / (x - fromIntegral a))
     where a = floor x
+
+-- Evaluiert einen (endlichen) Kettenbruch.
+uncf = foldr1 (\x y -> x + 1/y)
