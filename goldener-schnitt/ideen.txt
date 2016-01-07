@@ -7,3 +7,5 @@
 
 * Auf Fotos von Sonnenblumen usw. Spiralen zählen lassen;
   Beziehung zu Fibonacci-Zahlen.
+
+Vergleiche: http://rawgit.com/iblech/number5/master/talk-32c3.pdf
