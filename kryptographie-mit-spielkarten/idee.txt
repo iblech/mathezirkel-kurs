@@ -1,6 +1,7 @@
 Heiko Stamer. Cryptography without computers - computations with a deck of cards.
 
 https://events.ccc.de/congress/2015/wiki/Projects:Cryptography_without_computers_-_computations_with_a_deck_of_cards
+https://events.ccc.de/congress/2015/wiki/images/8/8f/InfoBlatt.pdf
 
 Die Grundidee ist folgende: Eine binäre "0" kodiert man als als eine
 rote Spielkarte gefolgt von einer schwarzen. Diese Karten legt man
@@ -21,3 +22,7 @@ Aber wie funktioniert "AND" oder "XOR"?
 
 Und, sehr faszinierend: Wie kann man ein solches Kartenpaar kopieren,
 ohne die Karten anzusehen?
+
+Tipp von Heiko: "Webseite von Eran Tromer, der noch weitere Hinweise für
+anschauliche Vermittlung von Kryptografie hat:
+http://www.cs.tau.ac.il/~tromer/wondercrypt.html"
