@@ -1,0 +1,23 @@
+Heiko Stamer. Cryptography without computers - computations with a deck of cards.
+
+https://events.ccc.de/congress/2015/wiki/Projects:Cryptography_without_computers_-_computations_with_a_deck_of_cards
+
+Die Grundidee ist folgende: Eine binäre "0" kodiert man als als eine
+rote Spielkarte gefolgt von einer schwarzen. Diese Karten legt man
+nebeneinander und verdeckt auf einen Tisch.
+
+Eine binäre "1" kodiert man umgekehrt als eine schwarze Karte gefolgt
+von einer roten.
+
+Nun kann man sich die Frage stellen, wie man -- ohne die Karten, mit
+denen man startet aufzudecken -- verschiedene Operationen durchführen
+kann.
+
+Zum Beispiel ist die Operation "NOT", also "0" und "1" vertauschen,
+schnell erledigt: Einfach die beiden Karten vertauschen. Um das zu
+machen, muss man die Karten offensichtlich nicht aufdecken.
+
+Aber wie funktioniert "AND" oder "XOR"?
+
+Und, sehr faszinierend: Wie kann man ein solches Kartenpaar kopieren,
+ohne die Karten anzusehen?
