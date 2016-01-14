@@ -1,9 +1,11 @@
+{-# LANGUAGE TupleSections, DeriveFunctor #-}
 module Main where
 
 import Data.Ratio
+import Data.List
 
 data Tree a = Nil | Fork a (Tree a) (Tree a)
-    deriving (Show,Eq)
+    deriving (Show,Eq,Functor)
 
 type Rat = (Integer,Integer)
 
@@ -36,3 +38,17 @@ cut n (Fork x l r) = Fork x (cut (n-1) l) (cut (n-1) r)
 leaves :: Int -> Tree a -> [a]
 leaves 0 (Fork x l r) = [x]
 leaves n (Fork x l r) = leaves (n-1) l ++ leaves (n-1) r
+
+connections :: Tree a -> [(a,a)]
+connections Nil          = []
+connections (Fork x l r) = map (x,) (labels l ++ labels r) ++ connections l ++ connections r
+    where
+    labels Nil          = []
+    labels (Fork a _ _) = [a]
+
+graphviz :: Tree String -> String
+graphviz t = concat $ concat
+    [ ["digraph tree { rankdir=LR; node [ shape=box ]; "]
+    , intersperse ";" $ map (\(src,dst) -> show src ++ " -> " ++ show dst) $ connections t
+    , ["}"]
+    ]
