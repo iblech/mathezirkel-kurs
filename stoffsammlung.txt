@@ -73,6 +73,8 @@ http://www2.hs-fulda.de/~grams/dnkfln.htm
 * Reale Turing-Maschinen
 * Wang-Parkettierung
 
+https://en.wikipedia.org/wiki/Lenstra_elliptic_curve_factorization
+
 
 --- nicht beim ersten Treffen angeschrieben:
 
