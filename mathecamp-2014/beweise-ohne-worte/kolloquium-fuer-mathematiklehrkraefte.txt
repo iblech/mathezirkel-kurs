@@ -1,0 +1,38 @@
+1. Einstieg: Ein Ziel beim Mathezirkel ist es, mathematische Gedanken und
+   Denkweisen zu vermitteln. Beweise ohne Worte sind eine tolle Möglichkeit
+   dafür, da sie ohne Technik auskommen.
+
+2. Beweise ohne Worte vorstellen und rätseln lassen.
+
+3. Lösungen vorstellen. Von unseren Erfahrungen berichten.
+
+4. Falsche Beweise vorstellen.
+
+5. Ausblick: 10^5 Punkte, Buffons Nadel, ...
+
+Diagramme Kathrin:
+6
+10
+11
+12
+16 (im Quellcode: Man-Keung Siu, University of Hong Kong)
+26
+29
+30
+
+Diagramme Ingo:
+7
+8
+9
+17
+18
+19
+24
+25
+Binomi
+
+Für die Zukunft:
+* Seiten 49, 63, 131, 146 aus dem Buch
+* alternierende Summe der ungeraden Zahlen
+* geometrischer Beweis der Irrationalität von Phi
+* kubische Summe der zentralen Hexagonalzahlen
