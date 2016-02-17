@@ -65,10 +65,11 @@ Beim nächsten Mal besser machen
 * Beispiele für interessante mathematische Argument bringen
   (zum Beispiel: Überabzählbarkeit von R, Gleichmächtigkeit von R und den
   Punkten auf dem Kreis mit einem Beweis ohne Worte, -1 = ...999 in den
-  10-adischen Zahlen), um einen kleinen Einblick in Uni-Mathe zu geben.
-  Damit einsteigen. Von Anfang an klarstellen, dass Schulmathe größtenteils die
-  Mathematik von vor 300 Jahren ist. Mit den Beispielen kann man dann auch die
-  persönlichen Gründe für die Faszination an Mathematik besser erläutern.
+  10-adischen Zahlen, Nichtexistenz von Lösungsformeln), um einen kleinen
+  Einblick in Uni-Mathe zu geben. Damit einsteigen. Von Anfang an klarstellen,
+  dass Schulmathe größtenteils die Mathematik von vor 300 Jahren ist. Mit den
+  Beispielen kann man dann auch die persönlichen Gründe für die Faszination an
+  Mathematik besser erläutern.
 * Spaß an der Bearbeitung der Übungsblätter stärker betonen!
 * Gimmicks mitbringen. Wieder DMV-Monatshefte verteilen.
 * Einen mathematischen Aufsatz durchreichen und die geringe Anzahl Formeln
