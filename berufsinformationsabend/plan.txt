@@ -56,6 +56,7 @@ Offene Probleme und witzige Beispiele
 * Pi = 4
 * Orbits
 * Primzahlzwillinge
+* Wurstkatastrophe
 * Homotopiegruppen der Sphären
 
 Werbung für den Mathezirkel
