@@ -165,7 +165,16 @@ Vermutung gibt.
 \begin{bsp}\label{bsp:unklares-programm2}Eine \emph{Fermatsche Primzahl} ist eine Primzahl der
 Form~$2^{(2^n)} + 1$. Die Primzahlen~$3$, $5$, $17$, $257$ und~$65537$ sind von
 diesem Typ (für~$n = 0,1,2,3,4$), aber es ist ein offenes Forschungproblem, ob
-es weitere Fermatsche Primzahlen gibt. Daher ist von folgendem Programm nicht
+es weitere Fermatsche Primzahlen gibt.\footnote{Das ist nicht nur eine Frage,
+die von zahlentheoretischem Interesse ist: Man kann beweisen -- das macht man
+in vielen Algebra-Vorlesungen an der Uni -- dass genau solche
+regelmäßigen~$n$-Ecke rein mit Zirkel und Lineal konstruierbar sind, für die~$n$ ein
+Produkt von einer Zweierpotenz und verschiedenen Fermatschen Primzahlen ist.
+Zum Beispiel ist das~$7$-Eck nicht konstruierbar, da die Zahl~$7$ nicht von
+dieser Form ist. So übersetzt sich unsere Unkenntnis über die Existenz von
+weiteren Fermatschen Primzahl in Unkenntnis über die Konstruierbarkeit weiterer
+regelmäßiger Polygone.}
+Daher ist von folgendem Programm nicht
 klar, ob es hält:
 \begin{listing}
 \item[1.] Beginne mit~$n \defeq 5$.
@@ -187,6 +196,8 @@ Depression und beging Suizid.} (*~1912, †~1954) bewies 1937, dass das Haltepro
 
 \begin{thm}Es gibt kein Programm, das bei Eingabe eines beliebigen Programms~$P$ mit einer
 korrekten Ausgabe von~"`$P$ hält"' oder~"`$P$ hält nicht"' hält.\end{thm}
+
+\enlargethispage{2em}
 
 Ein hypothetisches solches Programm wird auch \emph{Halteorakel} genannt.
 Bemerkenswert an dem Theorem ist, dass es eine absolute Aussage trifft --
@@ -236,6 +247,8 @@ Meldung~"`hält"' oder~"`hält nicht"' terminiert.
   Programme aussehen könnte, wenn die verwendete Programmiersprache nur die
   Zeichen~\texttt{a} bis~\texttt{z} verwendet.}
 \end{table}
+
+\enlargethispage{3em}
 
 \begin{proof}[Beweis des Theorems]
 Als Vorbemerkung halten wir fest, dass wir
