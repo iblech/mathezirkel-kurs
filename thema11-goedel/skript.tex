@@ -392,7 +392,7 @@ Quelltextlänge~$\leq n$ tätigt.
 
 Anders formuliert: Unter den Programmen mit Länge~$\leq n$ gibt es welche, die
 halten, und welche, die nicht halten. Unter denen, die halten, gibt es ein
-Programm, dass unter all diesen Programmen am meisten Rechenschritte ausführt,
+Programm, das unter all diesen Programmen am meisten Rechenschritte ausführt,
 bevor es schlussendlich hält. Die Anzahl dieser Rechenschritte ist~$\BB(n)$.
 
 Die exakten Werte der Fleißiger-Biber-Funktion hängen von der Wahl der
@@ -402,8 +402,8 @@ abstrakten Turingmaschinen als Referenzpunkt.
 
 Die Fleißiger-Biber-Funktion wächst rasant an, viel schneller als exponentiell;
 nur sehr wenige Funktionswerte sind bekannt (Tabelle~\ref{tab:bb}). Tatsächlich
-wächst sie (asymptotisch) \emph{schneller als jede durch Programme berechenbare
-Funktion}. Wie auch bei Turings Unmöglichkeitsresultat liegt der Grund dafür
+wächst sie (asymptotisch) \emph{schneller als alle durch Programme berechenbare
+Funktionen}. Wie auch bei Turings Unmöglichkeitsresultat liegt der Grund dafür
 nicht in menschlichen technologischen Beschränkungen, sondern ist
 prinzipieller Natur.
 
@@ -463,8 +463,8 @@ Länge~$\leq n$ ausführen kann, bevor es hält.
 
 Bevor wir uns der präzisen Formulierung und des Beweises des Gödelschen
 Unvollständigkeitssatzes widmen, möchten wir noch einen Abstecher zu
-\emph{Chaitins Haltewahrscheinlichkeit}~$\Omega$ machen, einer bestimmte
-reellen mit faszinierenden Eigenschaften. In einem Artikel schrieben der
+\emph{Chaitins Haltewahrscheinlichkeit}~$\Omega$ machen, einer bestimmten
+reellen Zahl mit faszinierenden Eigenschaften. In einem Artikel schrieben der
 amerikanische Physiker und Informatiker Charles Bennet~(*~1943) und der
 berühmte Wissenschaftsjournalist Martin Gardner~(*~1914, †~2010) folgendes über
 diese Zahl:\footnote{$\Omega$ embodies an enormous amount of wisdom in a very
@@ -490,7 +490,7 @@ known, through human reason. To know it in detail, one would have to accept
 its uncomputable digit sequence on faith, like words of a sacred text.
 (C.~Bennett und M.~Gardner, "`The random number~$\Omega$ bids fair to hold
 the mysteries of the universe"', Scientific American (1979), Ausgabe 241,
-Seiten 20–-34.)}
+Seiten 20--34.)}
 \begin{quote}
 Die Konstante~$\Omega$ verkörpert eine enorme Menge an Wissen auf sehr kleinem Raum.
 Die ersten paar Tausend Ziffern, die problemlos auf einem kleinen Stück Papier
@@ -542,7 +542,7 @@ ein syntaktisch korrektes Programm keine weiteren Zeichen anhängen kann, ohne
 Syntaxfehler zu verursachen. Beide Einschränkungen spielen im Folgenden aber
 kaum eine Rolle.} Die Bezeichnung als \emph{Haltewahrscheinlichkeit} erklärt
 sich dadurch, als dass~$\Omega$ gerade die Wahrscheinlichkeit ist, dass ein
-willkürzlich gezogenes Programm hält.
+willkürlich gezogenes Programm hält.
 
 
 \subsection{Unberechenbarkeit und Unkennbarkeit}
@@ -616,7 +616,7 @@ Nach dieser Definition würde aber auch die völlig regelmäßige und anschaulic
 überhaupt nicht zufällige Ziffernfolge~$01234567890123456789\ldots$ als
 zufällig gelten. Etwas besser ist folgende Definition.
 
-\begin{defn'}Eine Ziffernfolge heißt genau dann \emph{zufällig}, wenn in ihre alle
+\begin{defn'}Eine Ziffernfolge heißt genau dann \emph{zufällig}, wenn in ihr alle
 Ziffern, alle Ziffernpaare, alle Zifferntripel und so weiter im Mittel gleich
 oft vorkommen.\end{defn'}
 
@@ -634,7 +634,7 @@ Um eine wirklich nützliche Definition von Zufälligkeit zu erhalten, sollten wi
 daher Abstand von statistischen Anforderungen nehmen und eher einen
 \emph{informationstheoretischen Standpunkt} einnehmen: Lässt sich die
 regelmäßige Struktur einer Ziffernfolge in wenigen Worten beschreiben, so
-schätzen wir sie als eher unzufällig ein; ist dagegen die einzige Möglichkeit,
+schätzen wir sie als eher unzufällig ein; ist dagegen die im Wesentlichen einzige Möglichkeit,
 die Ziffernfolge zu beschreiben, die, schlichtweg die Ziffern nacheinander
 aufzuzählen, so erachten wir sie als zufällig. Im ersten Fall sprechen wir von
 einem niedrigen \emph{Informationsgehalt}, im zweiten von einem hohen.
@@ -682,7 +682,7 @@ Formel und die Angabe von Koordinaten eindeutig bestimmt sind.
 
 \begin{thm}Die Ziffern von~$\Omega$ sind zufällig.\end{thm}
 \begin{proof}[Beweisskizze]Wir haben schon gesehen, dass~$\Omega$ unberechenbar
-ist. Ein Programm, dass die ersten~$N$ Nachkommaziffern von~$\Omega$ ausgibt,
+ist. Ein Programm, das die ersten~$N$ Nachkommaziffern von~$\Omega$ ausgibt,
 kann also die Ziffern nicht auf eine clevere Art und Weise berechnen, sondern
 muss sie schon im Quelltext gespeichert haben. Also muss der Quelltext in etwa
 selbst schon die Länge~$N$ haben.
@@ -719,7 +719,7 @@ natürlichen Zahlen einzufangen und ihren wesentlichen Kern herauszuarbeiten.
 Dabei haben die in den Axiomen verwendeten Symbole~"`$\ol{0}$"', "`$\ol{1}$"'
 usw. der Objektebene zunächst \emph{keine inhaltliche Bedeutung}. Insbesondere
 beziehen sie sich nicht auf die gewohnten natürlichen Zahlen. Um diesen
-Unterschied nicht zu vergessen, notieren wir diese Symbole daher mit einem
+Unterschied nicht zu vergessen, notieren wir diese Symbole mit einem
 Überstrich.
 
 In einem gegebenen formalen System kann man \emph{formale Beweise} führen. Das
@@ -815,7 +815,7 @@ unbeweisbaren) Aussagen ausgibt.
 
 Die Forderung, dass ein formalen System effektiv axiomatisierbar sein soll, ist
 vernünftig. Denn ein formales System soll ja aus wenigen und einfachen
-Grundbausteinen bestehen. Ein System, indem man nur mit Mühe entscheiden
+Grundbausteinen bestehen. Ein System, in dem man nur mit Mühe entscheiden
 könnte, ob ein vorliegender Beweisversuch überhaupt korrekt ist, hat keinen
 großen Wert.
 
