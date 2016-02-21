@@ -24,12 +24,13 @@ Diagramme Ingo:
 7
 8
 9
-17
-18
-19
+17*
+18*
+19*
+23*
 24
-25
-Binomi
+25*
+Binomi* (ein Teil)
 
 Für die Zukunft:
 * Seiten 49, 63, 131, 146 aus dem Buch
