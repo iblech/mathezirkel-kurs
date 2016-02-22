@@ -11,26 +11,26 @@
 5. Ausblick: 10^5 Punkte, Buffons Nadel, ...
 
 Diagramme Kathrin:
-6
-10
-11
+8
+9
 12
-16 (im Quellcode: Man-Keung Siu, University of Hong Kong)
+14
+24
+25 (wie das andere)
 26
-29
 30
 
 Diagramme Ingo:
-7
-8
-9
+13
+15
+16
+21
 17*
 18*
 19*
 23*
-24
-25*
 Binomi* (ein Teil)
+16 (im Quellcode: Man-Keung Siu, University of Hong Kong)
 
 Für die Zukunft:
 * Seiten 49, 63, 131, 146 aus dem Buch
