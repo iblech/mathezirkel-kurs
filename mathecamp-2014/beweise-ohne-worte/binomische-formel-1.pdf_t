@@ -10,12 +10,12 @@
   \selectfont}%
 \fi\endgroup%
 \begin{picture}(2049,2049)(439,-1198)
-\put(976,450){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$a \cdot b$}%
-}}}}
-\put(976,-539){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$a \cdot a$}%
-}}}}
 \put(1988,450){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$b \cdot b$}%
 }}}}
 \put(1988,-539){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$a \cdot b$}%
+}}}}
+\put(976,450){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$a \cdot b$}%
+}}}}
+\put(976,-539){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$a \cdot a$}%
 }}}}
 \end{picture}%
