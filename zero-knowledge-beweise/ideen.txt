@@ -7,3 +7,6 @@ Die Ideen kommen von Alex.
 * Dreifärbbarkeit von Graphen.
 
 * Sodoku.
+
+* https://people.xiph.org/~greg/simple_verifyable_execution.txt
+  https://bitcoincore.org/en/2016/02/26/zero-knowledge-contingent-payments-announcement/
