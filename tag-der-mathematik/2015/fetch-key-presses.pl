@@ -16,5 +16,5 @@ while(1) {
   $socket->recv(my $data, 1024);
 
   print "$data";
-  system "xdotool", "key", "--clearmodifiers", split //, $data;
+  system "xdotool", "key", "--clearmodifiers", "--", split //, $data;
 }
