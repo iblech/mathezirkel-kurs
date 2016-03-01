@@ -77,6 +77,8 @@ https://en.wikipedia.org/wiki/Lenstra_elliptic_curve_factorization
 
 Moiré "Freaky Dot Patterns" https://www.youtube.com/watch?v=QAja2jp1VjE
 
+Zirkel zu PID-Regelung
+
 
 --- nicht beim ersten Treffen angeschrieben:
 
