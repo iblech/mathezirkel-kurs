@@ -33,12 +33,6 @@
 \setbeamertemplate{headline}{}
 \setbeamertemplate{navigation symbols}{}
 
-\newcommand{\floatbox}[3]{%
-  \raisebox{0pt}[0pt][0pt]{%
-    \begin{picture}(0,0)(#1,#2)#3\end{picture}\leavevmode%
-  }%
-}
-
 \newcommand*\oldmacro{}%
 \let\oldmacro\insertshorttitle%
 \renewcommand*\insertshorttitle{%
@@ -50,6 +44,16 @@
   \begin{frame}\frametitle{#1}
     \centering
     \includegraphics[height=0.85\textheight]{#2}
+    \par
+  \end{frame}
+}
+
+\newcommand{\imgslideslogan}[3]{
+  \begin{frame}\frametitle{#1}
+    \centering
+    \includegraphics[height=0.75\textheight]{#2}
+    \par
+    #3
     \par
   \end{frame}
 }
@@ -77,10 +81,14 @@
   \end{columns}
 \end{frame}
 
+% im Hintergrund abspielen:
+% 10_Hours_of_Infinite_Fractal_and_Falling_Shepard_s_Tone
+% https://www.youtube.com/watch?v=u9VMfdG873E
+
 \imgslide{Unendlichkeit}{infinity-mirrors}
 % xawtv -c /dev/video0  # jemand aus dem Publikum kann nach vorne kommen
 
-% Unendlich lange Warteschlange
+\imgslideslogan{Ordinalzahlen}{infinite-queue}{\hil{Ordinalzahlen messen Anordnung.}}
 
 \begin{frame}\frametitle{Hilbert und Noether}
   \includegraphics[width=0.45\textwidth]{hilbert}
@@ -88,7 +96,7 @@
   \includegraphics[width=0.45\textwidth]{noether}
 \end{frame}
 
-% Hilberts Hotel
+\imgslideslogan{Kardinalzahlen}{hilberts-hotel}{\hil{Kardinalzahlen messen Anzahl.}}
 % Gewittergeräusche
 
 \begin{frame}\frametitle{Aleph}
@@ -97,7 +105,26 @@
   \par
 \end{frame}
 
+\begin{frame}
+  \centering
+  \hil{In der Mathematik gibt es eine unendliche Hierarchie \\ immer größer
+  werdender Unendlichkeiten.}
+  \medskip
+
+  {\quad\,\,\,}\includegraphics[width=3cm]{gregor}
+  \medskip
+
+  Lust auf spannende Mathematik abseits des Schulunterrichts? \\
+  In kleinen Gruppen auf dem Campus? Oder lieber per Post?
+
+  Dann komm zum \hil{Matheschülerzirkel Augsburg}!
+  \par
+\end{frame}
+
 \end{document}
 
+% für sshlatex
 \includegraphics{mandelbrot}
 \includegraphics{infinity-mirrors}
+\includegraphics{infinite-queue}
+\includegraphics{hilberts-hotel}
