@@ -8,7 +8,7 @@ case "$1" in
     xawtv -c /dev/video0
     ;;
   3)
-    animate -geometry +32+97 harry-potter-bus.gif 
+    animate -geometry 735x405 harry-potter-bus.gif 
     ;;
   4)
     mplayer Forest_Rain_\&_Thunderstorm_Sounds_10_Hours___Sleep_or_Study_to_Rain_Falling_White_Noise_Ambiance.mp3
