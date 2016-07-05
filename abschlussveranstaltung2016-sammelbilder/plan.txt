@@ -1,0 +1,25 @@
+=== Zutaten
+
+* Schätzfrage stellen und während des Vortrags durch jemand anderen
+  auswerten lassen.
+
+* Klar, Würfel austeilen und spielen lassen.
+
+* "Geht es mit weniger als 6 Würfen?"
+
+* Vorher Tafel vorbereiten: "Mindestens einer im Publikum wird
+  mindestens 30 Würfe brauchen." Ein Kind soll dann die Tafel aufdecken!
+
+  Bei 30 Mitmachenden kann ich beim W6 wie folgt pokern:
+
+  Erfolgswahrscheinlichkeit >= 95 %: >= 23 Würfe.
+  Erfolgswahrscheinlichkeit >= 90 %: >= 25 Würfe.
+  Erfolgswahrscheinlichkeit >= 85 %: >= 26 Würfe.
+
+* sim-race.pl vorführen.
+
+* Erklären, wie man die Simulationen in LibreOffice selbst durchführen kann?
+
+* Durchspielen, wie viel besser es mit Kooperation wird?
+
+* Zum Abschluss der Run-Trick?
