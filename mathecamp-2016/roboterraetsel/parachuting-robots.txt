@@ -1,0 +1,18 @@
+http://david-peter.de/parachuting-robots/
+
+# Idee: Beide Roboter laufen (langsam) nach links.
+# Sobald einer der Roboter den Fallschirm des anderen gefunden hat, läuft er
+# schneller nach links. So holt er den anderen ein.
+
+left
+
+start:         skipNext
+               goto stilllooking
+               goto found
+
+stilllooking:  goto stilllooking2
+stilllooking2: left
+               goto start
+
+found:         left
+               goto found
