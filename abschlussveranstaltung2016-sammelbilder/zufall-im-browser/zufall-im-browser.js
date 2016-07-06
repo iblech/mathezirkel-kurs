@@ -57,12 +57,18 @@ for i in range(N):\n\
         if not v in vars: vars[v] = {}\n\
         if not localVars[v] in vars[v]: vars[v][localVars[v]] = 0\n\
         vars[v][localVars[v]] = vars[v][localVars[v]] + 1\n\
+print(\"__JS:clearOutputs()\")\n\
 for k in sorted(vars):\n\
     if len(vars[k]) > 1:\n\
         print(\"__JS:histogram('\" + k + \"', \" + str(vars[k]) + \")\")\n\
 "
 
     return code;
+}
+
+function clearOutputs() {
+    d3.selectAll("#plots > *").remove();
+    document.getElementById("output").innerHTML = "";
 }
 
 function run() { 
@@ -88,8 +94,6 @@ function run() {
         }
     });
 
-    d3.selectAll("#plots > *").remove();
-    document.getElementById("output").innerHTML = "";
     window.location.hash = "#" + encodeURI(editor.getValue());
     document.getElementById("spinner").style.visibility = "visible";
 
