@@ -27,29 +27,32 @@ except Exception:\n\
     code = code.replace(/^#zufall/, "def run(__variables):");
     code = code + "\n\
 import random\n\
-__number_of_rolls = 0\n\
-__rolls_seen = {}\n\
+__numberOfRolls = 0\n\
+__rollsSeen = {}\n\
+__maximalNumberOfRolls = 10000\n\
 augenzahl = 0\n\
 geseheneAugenzahlen = 0\n\
-def roll():\n\
-    global __number_of_rolls\n\
+def roll(sides=6):\n\
+    global __numberOfRolls\n\
     global augenzahl\n\
     global geseheneAugenzahlen\n\
-    __number_of_rolls = __number_of_rolls + 1\n\
-    augenzahl = random.randint(1,6)\n\
-    __rolls_seen[augenzahl] = True\n\
-    geseheneAugenzahlen = len(__rolls_seen)\n\
+    __numberOfRolls = __numberOfRolls + 1\n\
+    if __numberOfRolls > __maximalNumberOfRolls:\n\
+        raise Exception(\"Too many rolls.\\n\")\n\
+    augenzahl = random.randint(1,sides)\n\
+    __rollsSeen[augenzahl] = True\n\
+    geseheneAugenzahlen = len(__rollsSeen)\n\
     return augenzahl\n\
 N = " + repetitions + "\n\
 vars = {}\n\
 for i in range(N):\n\
-    __number_of_rolls = 0\n\
-    __rolls_seen = {}\n\
+    __numberOfRolls = 0\n\
+    __rollsSeen = {}\n\
     augenzahl = 0\n\
     geseheneAugenzahlen = 0\n\
     localVars = {}\n\
     run(localVars)\n\
-    localVars['numberOfDiceRolls'] = __number_of_rolls\n\
+    localVars['numberOfDiceRolls'] = __numberOfRolls\n\
     for v in localVars:\n\
         if not v in vars: vars[v] = {}\n\
         if not localVars[v] in vars[v]: vars[v][localVars[v]] = 0\n\
@@ -87,58 +90,72 @@ function run() {
 
     d3.selectAll("#plots > *").remove();
     document.getElementById("output").innerHTML = "";
-    window.location.hash = encodeURI(editor.getValue());
+    window.location.hash = "#" + encodeURI(editor.getValue());
+    document.getElementById("spinner").style.visibility = "visible";
 
-    var myPromise = Sk.misceval.asyncToPromise(function() {
-        return Sk.importMainWithBody("<stdin>", false, prog, true);
-    });
-    myPromise.then(function(mod) {
-    }, function(err) {
-       alert(err.toString());
-    });
+    window.setTimeout(function () {
+        Sk.misceval.asyncToPromise(function() {
+            return Sk.importMainWithBody("<stdin>", false, prog, true);
+        })
+        .then(function(mod) {
+            document.getElementById("spinner").style.visibility = "hidden";
+        }, function(err) {
+            document.getElementById("spinner").style.visibility = "hidden";
+           alert(err.toString());
+        });
+    }, 0);
 }
 
 function histogram(name, data) {
     var bins = [];
     var average = 0;
+    var maximum = 0;
     var numEntries = 0;
     for(var k in data) {
         bins.push({ x: +k, y: +data[k] });
         average += (+k) * +data[k];
         numEntries += +data[k];
+        if(+k > maximum && +data[k] > 0) maximum = +k;
     }
     average /= numEntries;
 
     var margin = {top: 10, right: 20, bottom: 20, left: 60},
-        width = 400 - margin.left - margin.right,
+        width  = 400 - margin.left - margin.right,
         height = 300 - margin.top - margin.bottom;
 
     var svg = d3.select("#plots").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
-      .append("g")
+        .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     svg.append("text")
-        .attr("x", (width / 2))
+        .attr("x", width)
         .attr("y", 0)
-        .attr("text-anchor", "middle")
-        .text(name + " (Durchschnitt: " + average.toFixed(2) + ")");
+        .attr("text-anchor", "end")
+        .attr("font-weight", "bold")
+        .text(name);
+    svg.append("text")
+        .attr("x", width)
+        .attr("y", "1.2em")
+        .attr("text-anchor", "end")
+        .text("Durchschnitt: " + average.toFixed(2));
+    svg.append("text")
+        .attr("x", width)
+        .attr("y", "2.4em")
+        .attr("text-anchor", "end")
+        .text("Maximum: " + maximum);
 
-    var x = d3.scale.linear()
-        .range([0, width]);
+    var x = d3.scale.linear().range([0, width]);
 
-    var y = d3.scale.linear()
-        .range([height, 0]);
+    var y = d3.scale.linear().range([height, 0]);
 
-    // Set the scale domains.
     x.domain([0, d3.max(bins.map(function(d) { return d.x; }))]).nice();
     y.domain([0, d3.max(bins.map(function(d) { return d.y; }))]).nice();
 
-    // Add the bins.
     svg.selectAll(".bin")
         .data(bins)
-      .enter().append("line")
+        .enter().append("line")
         .attr("class", "bin")
         .attr("x1", function(d) { return x(d.x); })
         .attr("x2", function(d) { return x(d.x); })
@@ -148,24 +165,21 @@ function histogram(name, data) {
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.svg.axis()
-        .scale(x)
-        .orient("bottom"));
+        .call(d3.svg.axis().scale(x).orient("bottom"));
 
     svg.append("g")
         .attr("class", "y axis")
-        .call(d3.svg.axis()
-        .scale(y)
-        .orient("left"));
+        .call(d3.svg.axis().scale(y).orient("left"));
 }
 
 $(window).load(function(){
     if(window.location.hash) {
-        editor.setValue(decodeURI(window.location.hash));
+        editor.setValue(decodeURI(window.location.hash).substring(1));
     } else {
         loadExample('sum');
     }
 
+    // Source: http://stackoverflow.com/a/32883919/4533618
     var i = 0;
     var dragging = false;
     $('#dragbar').mousedown(function(e) {
@@ -179,7 +193,7 @@ $(window).load(function(){
                 height: main.outerHeight(),
                 top: main.offset().top,
                 left: main.offset().left
-                }
+            }
         }).appendTo('body');
 
         $(document).mousemove(function(e) {
@@ -216,7 +230,7 @@ summe = x + y",
 while True:\n\
     # ... würfeln und würfeln wir immer wieder.\n\
     roll()\n\
-    \n\
+\n\
     # Haben wir insgesamt sechs verschiedene Augenzahlen gesehen?\n\
     if geseheneAugenzahlen == 6:\n\
         # Ja! Dann hören wir auf.\n\
@@ -228,7 +242,7 @@ while True:\n\
 while True:\n\
     # ... würfeln und würfeln wir immer wieder.\n\
     roll()\n\
-    \n\
+\n\
     # Ist die Augenzahl eine Sechs?\n\
     if augenzahl == 6:\n\
         # Ja! Dann hören wir auf.\n\

@@ -1,0 +1,80 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Ubuntu, sans-serif;
+}
+
+.wrapper { display: table; height: 100%; width: 100%; }
+.scroll-wrapper { height: 100%; overflow: auto; }
+
+ul { margin: 0; padding: 0; width: 100%; }
+li { margin: 0; height: 1.5em; padding-bottom: 0; padding-top: 0px; padding-right: 10px; display: inline; float: left; border-right: 1px solid BurlyWood; }
+
+.banner {
+    display: table-row;
+    width: 100%;
+}
+
+p { padding-left: 1em; }
+
+.content {
+    display: table-row;
+    height: 100%;
+}
+
+.clearfix { height: 100%; }
+.clearfix:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+#editor-pane {
+    float: left;
+    width: 50%;
+    height: 100%;
+    overflow: auto;
+}
+
+#output-pane {
+    float: right;
+    width: 50%;
+    height: 100%;
+    overflow: auto;
+}
+
+#dragbar {
+    background-color: #ccc;
+    height: 100%;
+    float: right;
+    width: 3px;
+    cursor: col-resize;
+}
+
+#ghostbar {
+    width: 3px;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    position: absolute;
+    cursor: col-resize;
+    z-index: 999;
+}
+
+.CodeMirror { height: 100%; }
+
+svg {
+  font: 10px sans-serif;
+  margin-bottom: 30px;
+}
+
+line.bin {
+    stroke: IndianRed;
+    stroke-width: 7px;
+}
+
+.axis path, .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
