@@ -1,10 +1,12 @@
+var editor;
+
 function wrap(code, repetitions) {
     if(code.substring(0, "#zufall\n".length) !== "#zufall\n")
         return code;
 
     addendum = "";
 
-    var re   = /(\w+)\s*=/g;
+    var re   = /(\w+)\s*=[^=]/g;
     var match;
     while(match = re.exec(code)) {
         var name = match[1];
@@ -26,38 +28,55 @@ except Exception:\n\
     code = code + "\n\
 import random\n\
 __number_of_rolls = 0\n\
+__rolls_seen = {}\n\
 augenzahl = 0\n\
+geseheneAugenzahlen = 0\n\
 def roll():\n\
     global __number_of_rolls\n\
     global augenzahl\n\
+    global geseheneAugenzahlen\n\
     __number_of_rolls = __number_of_rolls + 1\n\
     augenzahl = random.randint(1,6)\n\
+    __rolls_seen[augenzahl] = True\n\
+    geseheneAugenzahlen = len(__rolls_seen)\n\
     return augenzahl\n\
 N = " + repetitions + "\n\
 vars = {}\n\
 for i in range(N):\n\
     __number_of_rolls = 0\n\
+    __rolls_seen = {}\n\
+    augenzahl = 0\n\
+    geseheneAugenzahlen = 0\n\
     localVars = {}\n\
     run(localVars)\n\
-    localVars['AnzahlWuerfe'] = __number_of_rolls\n\
+    localVars['numberOfDiceRolls'] = __number_of_rolls\n\
     for v in localVars:\n\
         if not v in vars: vars[v] = {}\n\
         if not localVars[v] in vars[v]: vars[v][localVars[v]] = 0\n\
         vars[v][localVars[v]] = vars[v][localVars[v]] + 1\n\
-print(vars)\n\
-for k in vars:\n\
-    print('<script type=\\'text/javascript\\'>histogram(\\'' + k + '\\', ' + str(vars[k]) + ');</script>')\n\
+for k in sorted(vars):\n\
+    if len(vars[k]) > 1:\n\
+        print(\"__JS:histogram('\" + k + \"', \" + str(vars[k]) + \")\")\n\
 "
-    alert(code);
 
     return code;
 }
 
 function run() { 
-    var prog = wrap(document.getElementById("code").value, document.getElementById("repetitions").value);
+    var prog = wrap(editor.getValue(), document.getElementById("repetitions").value);
+    var skipNewline = false;
     Sk.configure({
         output: function(text) {
-            document.getElementById("output").innerHTML += text;
+            if(text.substring(0, "__JS:".length) == "__JS:") {
+                eval(text.substring("__JS:".length));
+                skipNewline = true;
+            } else {
+                if(skipNewline && text === "\n") {
+                    skipNewline = false;
+                } else {
+                    document.getElementById("output").innerHTML += text;
+                }
+            }
         },
         read: function(x) {
             if(Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
@@ -65,32 +84,46 @@ function run() {
             return Sk.builtinFiles["files"][x];
         }
     });
+
+    d3.selectAll("#plots > *").remove();
+    document.getElementById("output").innerHTML = "";
+    window.location.hash = encodeURI(editor.getValue());
+
     var myPromise = Sk.misceval.asyncToPromise(function() {
         return Sk.importMainWithBody("<stdin>", false, prog, true);
     });
     myPromise.then(function(mod) {
-       console.log('success');
     }, function(err) {
-       console.log(err.toString());
+       alert(err.toString());
     });
 }
 
 function histogram(name, data) {
-    alert(data);
     var bins = [];
+    var average = 0;
+    var numEntries = 0;
     for(var k in data) {
-        bins.push({ x: k, y: data[k] });
+        bins.push({ x: +k, y: +data[k] });
+        average += (+k) * +data[k];
+        numEntries += +data[k];
     }
+    average /= numEntries;
 
     var margin = {top: 10, right: 20, bottom: 20, left: 60},
-        width = 960 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+        width = 400 - margin.left - margin.right,
+        height = 300 - margin.top - margin.bottom;
 
-    var svg = d3.select("body").append("svg")
+    var svg = d3.select("#plots").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
       .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    svg.append("text")
+        .attr("x", (width / 2))
+        .attr("y", 0)
+        .attr("text-anchor", "middle")
+        .text(name + " (Durchschnitt: " + average.toFixed(2) + ")");
 
     var x = d3.scale.linear()
         .range([0, width]);
@@ -124,4 +157,83 @@ function histogram(name, data) {
         .call(d3.svg.axis()
         .scale(y)
         .orient("left"));
+}
+
+$(window).load(function(){
+    if(window.location.hash) {
+        editor.setValue(decodeURI(window.location.hash));
+    } else {
+        loadExample('sum');
+    }
+
+    var i = 0;
+    var dragging = false;
+    $('#dragbar').mousedown(function(e) {
+        e.preventDefault();
+
+        dragging = true;
+        var main = $('#output-pane');
+        var ghostbar = $('<div>', {
+            id: 'ghostbar',
+            css: {
+                height: main.outerHeight(),
+                top: main.offset().top,
+                left: main.offset().left
+                }
+        }).appendTo('body');
+
+        $(document).mousemove(function(e) {
+            ghostbar.css("left",e.pageX+2);
+        });
+    });
+
+    $(document).mouseup(function(e) {
+        if(dragging) {
+            var percentage = (e.pageX / window.innerWidth) * 100;
+            var mainPercentage = 100-percentage;
+
+            $('#editor-pane').css("width",percentage + "%");
+            $('#output-pane').css("width",mainPercentage + "%");
+            $('#ghostbar').remove();
+            $(document).unbind('mousemove');
+            dragging = false;
+        }
+    });
+});
+
+function loadExample(name) {
+    var examples = {
+        sum: "\
+#zufall\n\
+\n\
+x = roll()\n\
+y = roll()\n\
+summe = x + y",
+        coupon: "\
+#zufall\n\
+\n\
+# Bis wir etwas anderes sagen, ...\n\
+while True:\n\
+    # ... würfeln und würfeln wir immer wieder.\n\
+    roll()\n\
+    \n\
+    # Haben wir insgesamt sechs verschiedene Augenzahlen gesehen?\n\
+    if geseheneAugenzahlen == 6:\n\
+        # Ja! Dann hören wir auf.\n\
+        break",
+        till6: "\
+#zufall\n\
+\n\
+# Bis wir etwas anderes sagen, ...\n\
+while True:\n\
+    # ... würfeln und würfeln wir immer wieder.\n\
+    roll()\n\
+    \n\
+    # Ist die Augenzahl eine Sechs?\n\
+    if augenzahl == 6:\n\
+        # Ja! Dann hören wir auf.\n\
+        break"
+    }
+
+    editor.setValue(examples[name]);
 }
