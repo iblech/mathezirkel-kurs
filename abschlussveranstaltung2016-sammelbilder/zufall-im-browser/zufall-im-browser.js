@@ -250,6 +250,18 @@ while True:\n\
     # Ist die Augenzahl eine Sechs?\n\
     if augenzahl == 6:\n\
         # Ja! Dann hören wir auf.\n\
+        break",
+        triplets: "\
+#zufall\n\
+\n\
+letzter, vorletzter, vorvorletzter = None, None, None\n\
+\n\
+while True:\n\
+    vorvorletzter = vorletzter\n\
+    vorletzter    = letzter\n\
+    letzter       = roll()\n\
+\n\
+    if letzter == vorletzter and vorletzter == vorvorletzter:\n\
         break"
     }
 
