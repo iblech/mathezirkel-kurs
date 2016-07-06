@@ -31,14 +31,14 @@ p { padding-left: 1em; }
 
 #editor-pane {
     float: left;
-    width: 50%;
+    width: 35%;
     height: 100%;
     overflow: auto;
 }
 
 #output-pane {
     float: right;
-    width: 50%;
+    width: 65%;
     height: 100%;
     overflow: auto;
 }

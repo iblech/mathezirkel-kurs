@@ -107,7 +107,7 @@ function run() {
             document.getElementById("spinner").style.visibility = "hidden";
            alert(err.toString());
         });
-    }, 0);
+    }, 50);
 }
 
 function histogram(name, data) {
