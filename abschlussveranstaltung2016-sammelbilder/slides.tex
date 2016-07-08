@@ -1,0 +1,89 @@
+\documentclass[12pt,compress,ngerman,utf8]{beamer}
+\usepackage[ngerman]{babel}
+\usepackage{multicol}
+\usepackage{animate}
+\usepackage{xstring}
+\usepackage[protrusion=true,expansion=true]{microtype}
+
+\DeclareSymbolFont{extraup}{U}{zavm}{m}{n}
+\DeclareMathSymbol{\varheart}{\mathalpha}{extraup}{86}
+\DeclareMathSymbol{\vardiamond}{\mathalpha}{extraup}{87}
+
+\title{Wie lange braucht man, bis das Sammelalbum voll ist?}
+\author{Ingo\phantom{bert} Blechschmidt}
+\date{Mathezirkel Augsburg am 9. Juli 2016}
+
+\usetheme{Warsaw}
+
+\useinnertheme{rectangles}
+
+\usecolortheme{seahorse}
+\definecolor{mypurple}{RGB}{150,0,255}
+\setbeamercolor{structure}{fg=mypurple}
+
+\usefonttheme{serif}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{frametitle}[default][colsep=-2bp,rounded=false,shadow=false,center]
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+\renewcommand*\insertshorttitle{Matheschülerzirkel Augsburg}
+
+\newcommand{\hil}[1]{{\usebeamercolor[fg]{item}{\textbf{#1}}}}
+
+\newcommand{\imgslide}[1]{{\usebackgroundtemplate{\parbox[c][\paperheight][c]{\paperwidth}{\centering\includegraphics[height=\paperheight]{#1}}}\begin{frame}[plain]\end{frame}}}
+\newcommand{\imgslideWidth}[1]{{\usebackgroundtemplate{\parbox[c][\paperheight][c]{\paperwidth}{\centering\includegraphics[width=\paperwidth]{#1}}}\begin{frame}[plain]\end{frame}}}
+
+\begin{document}
+
+\newcommand{\mytitlepage}{
+  \centering
+  {\quad\,\,\,}\includegraphics[scale=0.1]{images/gregor}
+  \bigskip
+
+  \Large
+  \hil{Wie lange braucht man, bis das Sammelalbum voll ist?}
+  \bigskip
+
+  \scriptsize
+  \insertauthor \\
+  Lehrstuhl für Algebra und Zahlentheorie \\
+  Universität Augsburg
+  \medskip
+
+  \normalsize
+  9. Juli 2016
+  \par
+}
+
+\frame{\mytitlepage}
+
+\author{Ingobert Blechschmidt}
+
+\frame{\mytitlepage\transfade[duration=20]}
+
+\imgslide{images/mandelbrot}
+
+\imgslide{images/carina}
+
+% https://images.booklooker.de/cover/local/xxl/00/ZM/dS.jpg
+\imgslide{images/wwf-tier-abenteuer}
+
+% http://www.fooneo.de/wp-content/uploads/2015/05/Panini-DFB-Deutschland-Kader-Frauen-WM-2015.jpg
+\imgslideWidth{images/panini}
+
+% http://animus-klub.de/wordpress/wp-content/uploads/2014/12/W%C3%BCrfel-2.jpg
+\imgslide{images/wuerfel}
+
+% http://cdn-media-1.lifehack.org/wp-content/files/2014/10/3770585-9693277282-vlcsn-copy.png
+\imgslide{images/dumbledore}
+
+\imgslide{images/wuerfel}
+
+% http://img.memecdn.com/Huge-Blackboard_o_91630.jpg
+\imgslide{images/tafel}
+
+\end{document}
