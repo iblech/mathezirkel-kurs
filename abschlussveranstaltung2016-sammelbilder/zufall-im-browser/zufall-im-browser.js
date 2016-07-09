@@ -197,18 +197,18 @@ $(window).load(function(){
             css: {
                 height: main.outerHeight(),
                 top: main.offset().top,
-                left: main.offset().left
+                left: main.offset().left - 3
             }
         }).appendTo('body');
 
         $(document).mousemove(function(e) {
-            ghostbar.css("left",e.pageX+2);
+            ghostbar.css("left", e.pageX);
         });
     });
 
     $(document).mouseup(function(e) {
         if(dragging) {
-            var percentage = (e.pageX / window.innerWidth) * 100;
+            var percentage = ((e.pageX + 3) / window.innerWidth) * 100;
             var mainPercentage = 100-percentage;
 
             $('#editor-pane').css("width",percentage + "%");
