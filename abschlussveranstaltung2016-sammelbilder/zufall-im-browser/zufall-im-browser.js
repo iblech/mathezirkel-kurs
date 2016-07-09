@@ -282,40 +282,6 @@ while True:\n\
     letzter       = roll()\n\
 \n\
     if letzter == vorletzter and vorletzter == vorvorletzter:\n\
-        break",
-        "sum#": "\
-#zufall\n\
-\n\
-x = roll()\n\
-y = roll()\n\
-summe = x + y",
-        "coupon#": "\
-#zufall\n\
-\n\
-while True:\n\
-    roll()\n\
-\n\
-    if geseheneAugenzahlen == 6:\n\
-        break",
-        "till6#": "\
-#zufall\n\
-\n\
-while True:\n\
-    roll()\n\
-\n\
-    if augenzahl == 6:\n\
-        break",
-        "triplets#": "\
-#zufall\n\
-\n\
-letzter, vorletzter, vorvorletzter = None, None, None\n\
-\n\
-while True:\n\
-    vorvorletzter = vorletzter\n\
-    vorletzter    = letzter\n\
-    letzter       = roll()\n\
-\n\
-    if letzter == vorletzter and vorletzter == vorvorletzter:\n\
         break"
     }
 
