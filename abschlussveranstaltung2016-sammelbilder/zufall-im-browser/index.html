@@ -17,16 +17,27 @@
 
 <div class="wrapper">
     <div class="banner">
-        <p style="text-align: center">
-            <strong style="font-size: large">Zufall im Browser</strong>
-        </p>
-        <p>
-            Beispiele:
-            <a href="#" onclick="loadExample('sum'); return false">Summe der Augenzahlen bei zwei Würfeln</a> &bull;
-            <a href="#" onclick="loadExample('till6'); return false">Wie oft bis zur Sechs?</a> &bull;
-            <a href="#" onclick="loadExample('triplets'); return false">Wie oft bis zum Dreier-Pasch?</a> &bull;
-            <a href="#" onclick="loadExample('coupon'); return false">Wie oft, bis man alle hat?</a>
-        </p>
+        <ul>
+            <li class="button attention" onclick="run()">►&nbsp;Los!</li>
+            <li>
+                Anzahl Simulationen:
+                <input id="repetitions" value="200" style="font-size: inherit; width: 3em; height: 1em; padding: 4px; border: 1px solid #e7e7e7; border-radius: 2px">
+            </li>
+            <li class="button">
+                Beispiele ▾
+                <ul>
+                    <li class="button" onclick="loadExample('sum')">Summe der Augenzahlen bei zwei Würfeln</li>
+                    <li class="button" onclick="loadExample('till6')">Wie oft bis zur Sechs?</li>
+                    <li class="button" onclick="loadExample('triplets')">Wie oft bis zum Dreier-Pasch?</li>
+                    <li class="button" onclick="loadExample('coupon')">Wie oft, bis man alle hat?</li>
+                </ul>
+            </li>
+            <li class="button" style="float: right">Hilfe <strong>?</strong></li>
+            <li style="float: right"><strong>Zufall im Browser</strong></li>
+            <li style="float: right">
+                <img src="spinner.gif" id="spinner" style="visibility: hidden; height: 1em; vertical-align: middle">
+            </li>
+        </ul>
     </div>
 
     <div class="content"><div class="clearfix">
@@ -57,11 +68,6 @@
 
         <div id="output-pane"><div class="scroll-wrapper">
             <div style="margin: 10px">
-                Anzahl Simulationen:
-                <input id="repetitions" value="200" style="width: 3em">
-                <button type="button" onclick="run()">Los!</button>
-                <img src="spinner.gif" id="spinner" style="visibility: hidden; height: 1em">
-
                 <pre id="output"></pre>
 
                 <div id="plots"></div>
@@ -69,6 +75,7 @@
         </div></div>
     </div></div>
 
+    <!--
     <div class="banner"><p>
         Demonstration für den
         <a href="https://www.math.uni-augsburg.de/schueler/mathezirkel/">Mathezirkel Augsburg</a>
@@ -77,9 +84,8 @@
         <a href="https://www.codemirror.net/">CodeMirror</a>,
         <a href="https://www.d3js.org/">D3.js</a>.
         <a href="mailto:iblech@web.de">Fragen und Pull Requests willkommen!</a>
-
-        <img src="gregor.png" style="position: absolute; top: 3px; right: 3px">
     </p></div>
+    -->
 </div>
 
 </body>
