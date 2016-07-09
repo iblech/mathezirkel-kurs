@@ -286,4 +286,5 @@ while True:\n\
     }
 
     editor.setValue(examples[name]);
+    pinning = {};
 }
