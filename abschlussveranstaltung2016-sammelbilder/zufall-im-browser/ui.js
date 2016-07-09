@@ -11,7 +11,7 @@ function loadCode() {
     if(window.location.hash) {
         editor.setValue(decodeURI(window.location.hash).substring(1));
     } else {
-        loadExample('sum');
+        loadExample("01-sum");
     }
 }
 
@@ -24,6 +24,20 @@ function loadExample(name) {
 
     editor.setValue(examples[name].code);
     pinningTable = {};
+}
+
+function setupExamplesMenu() {
+    var list  = document.getElementById("examples-menu");
+    var names = Object.keys(examples).sort();
+
+    for(var k in names) {
+        var elem = document.createElement("li");
+        elem.className = "button";
+        elem.onclick = (function (k) { return function() { loadExample(names[k]); }; })(k);
+        elem.appendChild(document.createTextNode(examples[names[k]].description));
+
+        list.appendChild(elem);
+    }
 }
 
 // Source: http://stackoverflow.com/a/32883919/4533618

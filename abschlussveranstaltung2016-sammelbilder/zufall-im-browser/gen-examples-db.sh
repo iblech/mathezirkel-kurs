@@ -11,7 +11,8 @@
             $description =~ s/^# //;
 
             local $/;
-            chomp(my $code = <>);
+            my $code = <>;
+            $code =~ s/\n$//;
             $code =~ s/(["\\])/\\$1/g;
             $code =~ s/\n/\\n/gm;
             print "examples[\"$name\"] = { description: \"$description\", code: \"$code\" };\n";

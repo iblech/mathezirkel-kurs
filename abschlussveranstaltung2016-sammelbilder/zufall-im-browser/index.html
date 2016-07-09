@@ -16,7 +16,7 @@
 <script type="text/javascript" src="plotting.js"></script>
 <script type="text/javascript" src="examples-db.js"></script>
 </head>
-<body onload="loadCode(); setupDragbar()">
+<body onload="loadCode(); setupExamplesMenu(); setupDragbar()">
 
 <div class="wrapper">
     <div class="banner">
@@ -33,12 +33,7 @@
             </li>
             <li class="button">
                 Beispiele ▾
-                <ul id="examples-menu">
-                    <li class="button" onclick="loadExample('sum')">Summe der Augenzahlen bei zwei Würfeln</li>
-                    <li class="button" onclick="loadExample('till6')">Wie oft bis zur Sechs?</li>
-                    <li class="button" onclick="loadExample('triplets')">Wie oft bis zum Dreier-Pasch?</li>
-                    <li class="button" onclick="loadExample('coupon')">Wie oft, bis man alle hat?</li>
-                </ul>
+                <ul id="examples-menu"><!-- filled in by JavaScript --></ul>
             </li>
             <li class="button" style="float: right" onclick="document.getElementById('help').style.display = document.getElementById('help').style.display === 'block' ? 'none' : 'block'">Hilfe <strong>?</strong></li>
             <li style="float: right"><strong>Zufall im Browser</strong></li>
