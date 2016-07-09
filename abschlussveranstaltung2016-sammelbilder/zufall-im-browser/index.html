@@ -16,7 +16,7 @@
 <script type="text/javascript" src="plotting.js"></script>
 <script type="text/javascript" src="examples-db.js"></script>
 </head>
-<body onload="loadCode(); setupExamplesMenu(); setupDragbar()">
+<body onload="setupEditor(); loadCode(); setupExamplesMenu(); setupDragbar()">
 
 <div class="wrapper">
     <div class="banner">
@@ -57,16 +57,6 @@
                 Browser, daher muss JavaScript aktiviert sein, damit die
                 Demonstration funktioniert.
             </p></noscript>
-
-            <script type="text/javascript">
-                editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-                    lineNumbers: true,
-                    mode: "python",
-                    indentUnit: 4,
-                    scrollbarStyle: "simple",
-                    matchBrackets: true
-                });
-            </script>
         </div></div>
 
         <div id="output-pane"><div class="scroll-wrapper">

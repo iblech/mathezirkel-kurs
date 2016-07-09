@@ -16,10 +16,10 @@ function histogram(domID, pinningTable, name, bins) {
     var average = 0;
     var maximum = 0;
     var numEntries = 0;
-    for(var k in bins) {
-        average += bins[k].x * bins[k].y;
-        numEntries += bins[k].y;
-        if(bins[k].x > maximum && bins[k].y > 0) maximum = bins[k].x;
+    for(var i = 0; i < bins.length; i++) {
+        average += bins[i].x * bins[i].y;
+        numEntries += bins[i].y;
+        if(bins[i].x > maximum && bins[i].y > 0) maximum = bins[i].x;
     }
     average /= numEntries;
 

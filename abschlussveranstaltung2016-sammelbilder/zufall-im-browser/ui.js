@@ -30,14 +30,24 @@ function setupExamplesMenu() {
     var list  = document.getElementById("examples-menu");
     var names = Object.keys(examples).sort();
 
-    for(var k in names) {
+    for(var i = 0; i < names.length; i++) {
         var elem = document.createElement("li");
         elem.className = "button";
-        elem.onclick = (function (k) { return function() { loadExample(names[k]); }; })(k);
-        elem.appendChild(document.createTextNode(examples[names[k]].description));
+        elem.onclick = (function (i) { return function() { loadExample(names[i]); }; })(i);
+        elem.appendChild(document.createTextNode(examples[names[i]].description));
 
         list.appendChild(elem);
     }
+}
+
+function setupEditor() {
+    editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        lineNumbers: true,
+        mode: "python",
+        indentUnit: 4,
+        scrollbarStyle: "simple",
+        matchBrackets: true,
+    });
 }
 
 // Source: http://stackoverflow.com/a/32883919/4533618

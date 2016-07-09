@@ -4,17 +4,23 @@ function wrap(code, repetitions) {
 
     addendum = "";
 
+    var names = {};
     var re   = /(\w+)\s*=[^=]/g;
     var match;
     while(match = re.exec(code)) {
         var name = match[1];
         if(name === "augenzahl") continue;
+        names[name] = 1;
+    }
+    names = Object.keys(names);
+
+    for(var i = 0; i < names.length; i++) {
         addendum += "\n\
 try:\n\
-    if '" + name + "' in __variables:\n\
-        __variables['" + name + "'] = __variables['" + name + "'] + " + name + "\n\
+    if '" + names[i] + "' in __variables:\n\
+        __variables['" + names[i] + "'] = __variables['" + names[i] + "'] + " + names[i] + "\n\
     else:\n\
-        __variables['" + name + "'] = " + name + "\n\
+        __variables['" + names[i] + "'] = " + names[i] + "\n\
 except Exception:\n\
     pass"
     }
@@ -80,7 +86,7 @@ function run(output, spinner, code, repetitions) {
                 if(skipNewline && text === "\n") {
                     skipNewline = false;
                 } else {
-                    output.innerText += text;
+                    output.innerHTML += text;
                 }
             }
         },
