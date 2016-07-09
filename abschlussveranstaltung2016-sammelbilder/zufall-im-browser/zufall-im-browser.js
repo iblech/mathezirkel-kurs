@@ -196,14 +196,16 @@ function histogram(name, bins) {
         .call(d3.svg.axis().scale(y).orient("left"));
 }
 
-$(window).load(function(){
+function loadCode() {
     if(window.location.hash) {
         editor.setValue(decodeURI(window.location.hash).substring(1));
     } else {
         loadExample('sum');
     }
+}
 
-    // Source: http://stackoverflow.com/a/32883919/4533618
+// Source: http://stackoverflow.com/a/32883919/4533618
+function setupDragbar() {
     var i = 0;
     var dragging = false;
     $('#dragbar').mousedown(function(e) {
@@ -237,7 +239,7 @@ $(window).load(function(){
             dragging = false;
         }
     });
-});
+}
 
 function loadExample(name) {
     var examples = {
@@ -285,6 +287,11 @@ while True:\n\
         break"
     }
 
+    // Hack to hide the menu after click
+    document.getElementById("examples-menu").style.display = "none";
+    window.setTimeout(function () {
+        document.getElementById("examples-menu").style.display = "block";
+    }, 500);
     editor.setValue(examples[name]);
     pinning = {};
 }

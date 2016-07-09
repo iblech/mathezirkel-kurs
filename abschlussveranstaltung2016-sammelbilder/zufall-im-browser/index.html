@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <title>Zufall im Browser</title>
-<link rel="stylesheet" href="codemirror.css">
-<link rel="stylesheet" href="zufall-im-browser.css">
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&amp;subset=latin,latin-ext">
+<link rel="stylesheet" type="text/css" href="codemirror.css">
+<link rel="stylesheet" type="text/css" href="zufall-im-browser.css">
+<link rel="stylesheet" type="text/css" href="ubuntu.css">
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript" src="codemirror-compressed.js"></script>
 <script type="text/javascript" src="d3.v3.min.js"></script>
@@ -13,7 +13,7 @@
 <script type="text/javascript" src="skulpt-stdlib.js"></script>
 <script type="text/javascript" src="zufall-im-browser.js"></script>
 </head>
-<body>
+<body onload="loadCode(); setupDragbar()">
 
 <div class="wrapper">
     <div class="banner">
@@ -25,7 +25,7 @@
             </li>
             <li class="button">
                 Beispiele ▾
-                <ul>
+                <ul id="examples-menu">
                     <li class="button" onclick="loadExample('sum')">Summe der Augenzahlen bei zwei Würfeln</li>
                     <li class="button" onclick="loadExample('till6')">Wie oft bis zur Sechs?</li>
                     <li class="button" onclick="loadExample('triplets')">Wie oft bis zum Dreier-Pasch?</li>
