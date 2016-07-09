@@ -111,6 +111,22 @@ function run() {
     }, 50);
 }
 
+var pinning = {};
+
+function pin(name, type, direction, value) {
+    var f = direction === "up"
+        ? function (x,y) { return x < y ? y : x }
+        : function (x,y) { return x < y ? x : y };
+
+    if(!(name in pinning)) pinning[name] = {};
+
+    if(type in pinning[name]) {
+        value = f(pinning[name][type], value);
+    }
+
+    return pinning[name][type] = value;
+}
+
 function histogram(name, bins) {
     var average = 0;
     var maximum = 0;
@@ -153,10 +169,13 @@ function histogram(name, bins) {
 
     var y = d3.scale.linear().range([height, 0]);
 
-    var smartMin = d3.min(bins.map(function(d) { return d.x; }));
-    if(smartMin > 0) smartMin = 0;
-    x.domain([smartMin, d3.max(bins.map(function(d) { return d.x; }))]).nice();
-    y.domain([0, d3.max(bins.map(function(d) { return d.y; }))]).nice();
+    var smartXMax = pin(name, "x-max", "up", d3.max(bins.map(function(d) { return d.x; })));
+    var smartYMax = pin(name, "y-max", "up", d3.max(bins.map(function(d) { return d.y; })));
+    var smartXMin = d3.min(bins.map(function(d) { return d.x; }));
+    if(smartXMin > 0) smartXMin = 0;
+    smartXMin = pin(name, "x-min", "down", smartXMin);
+    x.domain([smartXMin, smartXMax]).nice();
+    y.domain([0, smartYMax]).nice();
 
     svg.selectAll(".bin")
         .data(bins)

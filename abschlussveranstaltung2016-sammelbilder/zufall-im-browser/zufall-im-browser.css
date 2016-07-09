@@ -33,6 +33,15 @@ li.button:hover {
 
 .attention { text-shadow: 0px 0px 5px #26bf12; }
 
+input {
+    font-size: inherit;
+    width: 3em;
+    height: 1em;
+    padding: 4px;
+    border: 1px solid #e7e7e7;
+    border-radius: 2px;
+}
+
 ul ul {
     position: absolute;
     box-shadow: 0 5px 20px #aaa;
