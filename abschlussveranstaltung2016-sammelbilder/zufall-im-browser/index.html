@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <title>Zufall im Browser</title>
-<link rel="stylesheet" type="text/css" href="codemirror.css">
+<link rel="stylesheet" type="text/css" href="vendor/codemirror.css">
+<link rel="stylesheet" type="text/css" href="vendor/ubuntu.css">
 <link rel="stylesheet" type="text/css" href="zufall-im-browser.css">
-<link rel="stylesheet" type="text/css" href="ubuntu.css">
-<script type="text/javascript" src="jquery.min.js"></script>
-<script type="text/javascript" src="codemirror-compressed.js"></script>
-<script type="text/javascript" src="d3.v3.min.js"></script>
-<script type="text/javascript" src="skulpt.js"></script>
-<script type="text/javascript" src="skulpt-stdlib.js"></script>
+<script type="text/javascript" src="vendor/jquery.min.js"></script>
+<script type="text/javascript" src="vendor/codemirror.js"></script>
+<script type="text/javascript" src="vendor/d3.v3.min.js"></script>
+<script type="text/javascript" src="vendor/skulpt.js"></script>
+<script type="text/javascript" src="vendor/skulpt-stdlib.js"></script>
 <script type="text/javascript" src="zufall-im-browser.js"></script>
 </head>
 <body onload="loadCode(); setupDragbar()">
@@ -35,7 +35,7 @@
             <li class="button" style="float: right" onclick="document.getElementById('help').style.display = document.getElementById('help').style.display === 'block' ? 'none' : 'block'">Hilfe <strong>?</strong></li>
             <li style="float: right"><strong>Zufall im Browser</strong></li>
             <li style="float: right">
-                <img src="spinner.gif" id="spinner" style="visibility: hidden; height: 1em; vertical-align: middle">
+                <img src="images/spinner.gif" id="spinner" style="visibility: hidden; height: 1em; vertical-align: middle">
             </li>
         </ul>
     </div>
