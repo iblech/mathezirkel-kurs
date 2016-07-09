@@ -32,7 +32,7 @@
                     <li class="button" onclick="loadExample('coupon')">Wie oft, bis man alle hat?</li>
                 </ul>
             </li>
-            <li class="button" style="float: right">Hilfe <strong>?</strong></li>
+            <li class="button" style="float: right" onclick="document.getElementById('help').style.display = document.getElementById('help').style.display === 'block' ? 'none' : 'block'">Hilfe <strong>?</strong></li>
             <li style="float: right"><strong>Zufall im Browser</strong></li>
             <li style="float: right">
                 <img src="spinner.gif" id="spinner" style="visibility: hidden; height: 1em; vertical-align: middle">
@@ -67,25 +67,48 @@
         </div></div>
 
         <div id="output-pane"><div class="scroll-wrapper">
+            <div id="help">
+                <p><span class="close-button" onclick="document.getElementById('help').style.display = 'none'">&nbsp;×&nbsp;</span>
+                <strong>Was?</strong> Mit dieser Webseite kann man
+                Zufallsexperimente beschreiben, simulieren und analysieren. Sie
+                wurde für den <a
+                href="https://www.math.uni-augsburg.de/schueler/mathezirkel/">Mathezirkel
+                Augsburg</a>
+                erstellt.</p>
+
+                <p><strong>Wie?</strong> Im linken Teil notiert man Arbeitsanweisungen
+                an den Computer in der
+                <a href="https://py-tutorial-de.readthedocs.io/de/python-3.3/">Programmiersprache
+                Python</a>. Dabei kann man einige vordefinierte Befehle und Variablen
+                verwenden, die für die Beschreibung von Zufallsexperimenten zweckmäßig
+                sind. Diese werden weiter unten erklärt. Ein Klick auf
+                &bdquo;Los!&ldquo; in der Menüleiste führt dazu, dass das Programm
+                wiederholt ausgeführt wird. Der Endstand aller vorkommenden Variablen
+                in jedem Durchgang der Simulation wird in Histogrammform im
+                rechten Teil des Fensters angezeigt.</p>
+
+                <p><strong>Fragen?</strong> Bei Fragen einfach <a href="mailto:iblech@web.de">dem
+                Autor eine E-Mail schreiben</a>.</p>
+
+                <p><strong>Über diese Umsetzung:</strong>
+                Der eigene Python-Code verlässt den Browser nie und auch die
+                statistische Auswertung erfolgt vollständig im Browser. Diese
+                Webseite funktioniert daher auch offline, wenn man sie lokal speichert.
+                Außerdem muss man selbst bei lang laufenden Zufallexperimenten
+                keine Sorgen haben, einen zentralen Server zu überlasten.
+                Dieses Projekt baut auf den Open-Source-Projekten
+                <a href="http://www.skulpt.org/">Skulpt</a>,
+                <a href="https://www.codemirror.net/">CodeMirror</a> und
+                <a href="https://www.d3js.org/">D3.js</a> auf.
+                <a href="https://github.com/iblech/mathezirkel-kurs/tree/master/abschlussveranstaltung2016-sammelbilder/zufall-im-browser">Pull Requests sind willkommen!</a>
+                </p>
+            </div>
             <div style="margin: 10px">
                 <pre id="output"></pre>
-
                 <div id="plots"></div>
             </div>
         </div></div>
     </div></div>
-
-    <!--
-    <div class="banner"><p>
-        Demonstration für den
-        <a href="https://www.math.uni-augsburg.de/schueler/mathezirkel/">Mathezirkel Augsburg</a>
-        aufbauend auf mehreren Open-Source-Projekten:
-        <a href="http://www.skulpt.org/">Skulpt</a>,
-        <a href="https://www.codemirror.net/">CodeMirror</a>,
-        <a href="https://www.d3js.org/">D3.js</a>.
-        <a href="mailto:iblech@web.de">Fragen und Pull Requests willkommen!</a>
-    </p></div>
-    -->
 </div>
 
 </body>

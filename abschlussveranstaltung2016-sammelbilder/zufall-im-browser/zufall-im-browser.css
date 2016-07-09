@@ -31,7 +31,7 @@ li.button:hover {
     background-color: #ccc;
 }
 
-.attention { text-shadow: 0px 0px 5px #26BF12; }
+.attention { text-shadow: 0px 0px 5px #26bf12; }
 
 ul ul {
     position: absolute;
@@ -43,7 +43,6 @@ ul ul {
 }
 
 ul li:hover ul { top: 40px; }
-
 
 ul ul li {
     float: none;
@@ -62,7 +61,20 @@ ul ul li:last-child { border: none; }
     width: 100%;
 }
 
-p { padding-left: 1em; }
+#help {
+    padding: 5px;
+    background-color: #f3f3f3;
+    display: none;
+}
+
+.close-button {
+    float: right;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+p { padding-left: 1em; padding-right: 1em; }
 
 .content {
     display: table-row;
@@ -111,8 +123,8 @@ p { padding-left: 1em; }
 .CodeMirror { height: 100%; }
 
 svg {
-  font: 10px sans-serif;
-  margin-bottom: 30px;
+    font: 10px sans-serif;
+    margin-bottom: 30px;
 }
 
 line.bin {
