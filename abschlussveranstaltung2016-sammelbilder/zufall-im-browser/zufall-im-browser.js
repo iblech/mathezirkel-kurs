@@ -60,7 +60,8 @@ for i in range(N):\n\
 print(\"__JS:clearOutputs()\")\n\
 for k in sorted(vars):\n\
     if len(vars[k]) > 1:\n\
-        print(\"__JS:histogram('\" + k + \"', \" + str(vars[k]) + \")\")\n\
+        data = [ { 'x': i, 'y': vars[k][i] } for i in vars[k] ]\n\
+        print(\"__JS:histogram('\" + k + \"', \" + str(data) + \")\")\n\
 "
 
     return code;
@@ -110,16 +111,14 @@ function run() {
     }, 50);
 }
 
-function histogram(name, data) {
-    var bins = [];
+function histogram(name, bins) {
     var average = 0;
     var maximum = 0;
     var numEntries = 0;
-    for(var k in data) {
-        bins.push({ x: +k, y: +data[k] });
-        average += (+k) * +data[k];
-        numEntries += +data[k];
-        if(+k > maximum && +data[k] > 0) maximum = +k;
+    for(var k in bins) {
+        average += bins[k].x * bins[k].y;
+        numEntries += bins[k].y;
+        if(bins[k].x > maximum && bins[k].y > 0) maximum = bins[k].x;
     }
     average /= numEntries;
 
@@ -154,7 +153,9 @@ function histogram(name, data) {
 
     var y = d3.scale.linear().range([height, 0]);
 
-    x.domain([0, d3.max(bins.map(function(d) { return d.x; }))]).nice();
+    var smartMin = d3.min(bins.map(function(d) { return d.x; }));
+    if(smartMin > 0) smartMin = 0;
+    x.domain([smartMin, d3.max(bins.map(function(d) { return d.x; }))]).nice();
     y.domain([0, d3.max(bins.map(function(d) { return d.y; }))]).nice();
 
     svg.selectAll(".bin")
