@@ -2,9 +2,12 @@ var examples = {};
 var editor;
 var pinningTable = {};
 
-function clearOutputs() {
-    d3.selectAll("#plots > *").remove();
+function clearConsole() {
     document.getElementById("output").innerHTML = "";
+}
+
+function clearPlots() {
+    d3.selectAll("#plots > *").remove();
 }
 
 function loadCode() {

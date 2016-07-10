@@ -41,7 +41,7 @@ def roll(sides=6):\n\
     return random.randint(1,sides)\n\
 N = " + repetitions + "\n\
 vars = {}\n\
-print(\"__JS:clearOutputs()\")\n\
+print(\"__JS:clearConsole()\")\n\
 for i in range(N):\n\
     __numberOfRolls = 0\n\
     localVars = {}\n\
@@ -51,6 +51,7 @@ for i in range(N):\n\
         if not v in vars: vars[v] = {}\n\
         if not localVars[v] in vars[v]: vars[v][localVars[v]] = 0\n\
         vars[v][localVars[v]] = vars[v][localVars[v]] + 1\n\
+print(\"__JS:clearPlots()\")\n\
 for k in sorted(vars):\n\
     if len(vars[k]) > 1:\n\
         data = [ { 'x': i, 'y': vars[k][i] } for i in vars[k] ]\n\
