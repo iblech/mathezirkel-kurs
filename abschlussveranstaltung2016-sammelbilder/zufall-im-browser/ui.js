@@ -52,21 +52,20 @@ function setupEditor() {
 
 // Source: http://stackoverflow.com/a/32883919/4533618
 function setupDragbar() {
-    var i = 0;
     var dragging = false;
-    $('#dragbar').mousedown(function(e) {
+    $("#dragbar").mousedown(function(e) {
         e.preventDefault();
 
         dragging = true;
-        var main = $('#output-pane');
-        var ghostbar = $('<div>', {
-            id: 'ghostbar',
+        var main = $("#output-pane");
+        var ghostbar = $("<div>", {
+            id: "ghostbar",
             css: {
                 height: main.outerHeight(),
                 top: main.offset().top,
                 left: main.offset().left - 3
             }
-        }).appendTo('body');
+        }).appendTo("body");
 
         $(document).mousemove(function(e) {
             ghostbar.css("left", e.pageX);
@@ -76,12 +75,12 @@ function setupDragbar() {
     $(document).mouseup(function(e) {
         if(dragging) {
             var percentage = ((e.pageX + 3) / window.innerWidth) * 100;
-            var mainPercentage = 100-percentage;
+            var mainPercentage = 100 - percentage;
 
-            $('#editor-pane').css("width",percentage + "%");
-            $('#output-pane').css("width",mainPercentage + "%");
-            $('#ghostbar').remove();
-            $(document).unbind('mousemove');
+            $("#editor-pane").css("width", percentage + "%");
+            $("#output-pane").css("width", mainPercentage + "%");
+            $("#ghostbar").remove();
+            $(document).unbind("mousemove");
             dragging = false;
         }
     });

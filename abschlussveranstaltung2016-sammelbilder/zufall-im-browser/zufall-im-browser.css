@@ -89,6 +89,8 @@ ul ul li:last-child { border: none; }
     vertical-align: middle;
 }
 
+#code { display: none; }
+
 p { padding-left: 1em; padding-right: 1em; }
 
 .content {
