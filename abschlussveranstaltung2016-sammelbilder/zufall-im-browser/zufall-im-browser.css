@@ -4,6 +4,8 @@ html, body {
     font-family: Ubuntu, sans-serif;
 }
 
+body { overflow-y: scroll; }
+
 ul {
     list-style-type: none;
     margin: 0;
