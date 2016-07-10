@@ -1,0 +1,165 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Ubuntu, sans-serif;
+}
+
+body { overflow-y: scroll; }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-bottom: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li {
+    float: left;
+    display: block;
+    padding: 8px 16px;
+    margin: 0;
+    vertical-align: middle;
+    height: 1.5em;
+    line-height: 1.5em;
+}
+
+li.button {
+    cursor: pointer;
+}
+
+li.button:hover {
+    background-color: #ccc;
+}
+
+.attention { text-shadow: 0px 0px 5px #26bf12; }
+
+input {
+    font-size: inherit;
+    width: 3em;
+    height: 1em;
+    padding: 4px;
+    border: 1px solid #e7e7e7;
+    border-radius: 2px;
+}
+
+ul ul {
+    position: absolute;
+    box-shadow: 0 5px 20px #aaa;
+    top: -9999px;
+    z-index: 20;
+    border: none;
+    margin-left: -16px;
+}
+
+ul li:hover ul { top: 40px; }
+
+ul ul li {
+    float: none;
+    margin: 0;
+    border-bottom: 1px solid #ddd;
+    height: 25px;
+}
+
+ul ul li:last-child { border: none; }
+
+.wrapper { display: table; height: 100%; width: 100%; }
+.scroll-wrapper { height: 100%; overflow: auto; }
+
+.banner {
+    display: table-row;
+    width: 100%;
+}
+
+#help {
+    padding: 5px;
+    background-color: #f3f3f3;
+    display: none;
+}
+
+#close-button {
+    float: right;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+#spinner {
+    visibility: hidden;
+    height: 1em;
+    vertical-align: middle;
+}
+
+#run-button, #help-button {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+}
+
+#code { display: none; }
+
+p { padding-left: 1em; padding-right: 1em; }
+
+.content {
+    display: table-row;
+    height: 100%;
+}
+
+.clearfix { height: 100%; }
+.clearfix:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+#editor-pane {
+    float: left;
+    width: 35%;
+    height: 100%;
+    overflow: auto;
+}
+
+#output-pane {
+    float: right;
+    width: 65%;
+    height: 100%;
+    overflow: auto;
+}
+
+#dragbar {
+    background-color: #ccc;
+    height: 100%;
+    float: right;
+    width: 3px;
+    cursor: col-resize;
+}
+
+#ghostbar {
+    width: 3px;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    position: absolute;
+    cursor: col-resize;
+    z-index: 999;
+}
+
+.CodeMirror { height: 100%; }
+
+svg {
+    font: 10px sans-serif;
+    margin-bottom: 30px;
+}
+
+line.bin {
+    stroke: IndianRed;
+    stroke-width: 7px;
+}
+
+.axis path, .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
