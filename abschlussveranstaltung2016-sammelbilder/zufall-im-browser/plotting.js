@@ -43,12 +43,12 @@ function histogram(domID, pinningTable, name, bins) {
         .attr("x", width)
         .attr("y", "1.2em")
         .attr("text-anchor", "end")
-        .text("Durchschnitt: " + average.toFixed(2));
+        .text("average: " + average.toFixed(2));
     svg.append("text")
         .attr("x", width)
         .attr("y", "2.4em")
         .attr("text-anchor", "end")
-        .text("Maximum: " + maximum);
+        .text("maximum: " + maximum);
 
     var x = d3.scale.linear().range([0, width]);
 

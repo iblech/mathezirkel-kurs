@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Experimenting with randomness in the browser</title>
+<link rel="stylesheet" type="text/css" href="vendor/ubuntu.css">
+<link rel="stylesheet" type="text/css" href="vendor/codemirror.css">
+<link rel="stylesheet" type="text/css" href="layout.css">
+<script type="text/javascript" src="vendor/jquery.min.js"></script>
+<script type="text/javascript" src="vendor/codemirror.js"></script>
+<script type="text/javascript" src="vendor/d3.v3.min.js"></script>
+<script type="text/javascript" src="vendor/skulpt.js"></script>
+<script type="text/javascript" src="vendor/skulpt-stdlib.js"></script>
+<script type="text/javascript" src="ui.js"></script>
+<script type="text/javascript" src="exec.js"></script>
+<script type="text/javascript" src="plotting.js"></script>
+<script type="text/javascript" src="examples-db.en.js"></script>
+</head>
+<body onload="setup()">
+
+<div class="wrapper">
+    <div class="banner">
+        <ul>
+            <li class="button attention" id="run-button">►&nbsp;Run!</li>
+            <li>
+                Number of simulations:
+                <input id="repetitions" value="200">
+            </li>
+            <li class="button">
+                Examples ▾
+                <ul id="examples-menu"><!-- filled in by JavaScript --></ul>
+            </li>
+            <li class="button" id="help-button" style="float: right">Help <strong>?</strong></li>
+            <li style="float: right"><strong>Experimenting with randomness in the browser</strong></li>
+            <li style="float: right"><img src="images/spinner.gif" id="spinner" alt=""></li>
+        </ul>
+    </div>
+
+    <div class="content"><div class="clearfix">
+        <div id="editor-pane">
+            <div id="dragbar"></div>
+
+            <textarea id="code"></textarea>
+            <noscript>
+                <p><strong>Please enable JavaScript.</strong></p>
+                <p>
+                    This website allows you to simulate simple experiments with
+                    randomness by describing them in Python. Your code is
+                    interpreted in the browser by the amazing JavaScript
+                    library <em>Skulpt</em>.
+                </p>
+            </noscript>
+        </div>
+
+        <div id="output-pane">
+            <div id="help">
+                <p><span id="close-button">&nbsp;×&nbsp;</span>
+                <strong>What?</strong> With this website, you can describe,
+                simulate, and analyze simple experiments with randomness. It
+                was created for the <a
+                href="https://www.math.uni-augsburg.de/schueler/mathezirkel/">Mathezirkel
+                Augsburg</a>. This is a local group of PhD students in
+                mathematics who teach free courses to school children who want
+                to learn cool parts of mathematics not taught in school.</p>
+
+                <p><strong>How?</strong> Write <a
+                href="https://www.python.org/">Python code</a> in the left
+                pane. You can use the builtin command <code>roll()</code>,
+                which returns a random number between 1 and 6. (You can also
+                use <code>roll(sides=N)</code> to generate numbers in a
+                different range.) After clicking on <em>Run!</em>, your code is
+                run a specified number of times and histograms depicting the
+                final values of all occuring variables of number type are
+                plotted in the right pane.</p>
+
+                <p><strong>Questions?</strong> <a
+                href="mailto:ingo.blechschmidt@math.uni-augsburg.de">Just drop
+                me a line</a>.</p>
+
+                <p><strong>About this demo:</strong>
+                This demo is just thin glue connecting several awesome open
+                source projects: <a href="http://www.skulpt.org/">Skulpt</a>,
+                <a href="https://www.codemirror.net/">CodeMirror</a>, and
+                <a href="https://www.d3js.org/">D3.js</a>.
+                Your custom Python code never leaves the browser. This demo
+                is fully functional when stored offline. Please feel invited to
+                propose <a
+                href="https://github.com/iblech/mathezirkel-kurs/tree/master/abschlussveranstaltung2016-sammelbilder/zufall-im-browser">Pull
+                Requests</a>!</p>
+            </div>
+            <div style="margin: 10px">
+                <pre id="output"></pre>
+                <div id="plots"></div>
+            </div>
+        </div>
+    </div></div>
+</div>
+
+</body>
+</html>

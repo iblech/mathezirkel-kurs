@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <title>Zufall im Browser</title>
-<link rel="stylesheet" type="text/css" href="vendor/codemirror.css">
 <link rel="stylesheet" type="text/css" href="vendor/ubuntu.css">
-<link rel="stylesheet" type="text/css" href="zufall-im-browser.css">
+<link rel="stylesheet" type="text/css" href="vendor/codemirror.css">
+<link rel="stylesheet" type="text/css" href="layout.css">
 <script type="text/javascript" src="vendor/jquery.min.js"></script>
 <script type="text/javascript" src="vendor/codemirror.js"></script>
 <script type="text/javascript" src="vendor/d3.v3.min.js"></script>
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="ui.js"></script>
 <script type="text/javascript" src="exec.js"></script>
 <script type="text/javascript" src="plotting.js"></script>
-<script type="text/javascript" src="examples-db.js"></script>
+<script type="text/javascript" src="examples-db.de.js"></script>
 </head>
 <body onload="setup()">
 
@@ -65,12 +65,12 @@
                 <p><strong>Wie?</strong> Im linken Teil notiert man Arbeitsanweisungen
                 an den Computer in der
                 <a href="https://py-tutorial-de.readthedocs.io/de/python-3.3/">Programmiersprache
-                Python</a>. Dabei kann man einige vordefinierte Befehle und Variablen
-                verwenden, die für die Beschreibung von Zufallsexperimenten zweckmäßig
-                sind. Diese werden weiter unten erklärt. Ein Klick auf
-                &bdquo;Los!&ldquo; in der Menüleiste führt dazu, dass das Programm
-                wiederholt ausgeführt wird. Der Endstand aller vorkommenden Variablen
-                in jedem Durchgang der Simulation wird in Histogrammform im
+                Python</a>. Dabei kann man den vordefinierten Befehl
+                <code>roll()</code> verwenden, der eine Zufallszahl zwischen 1
+                und 6 zurückgibt. Ein Klick auf &bdquo;Los!&ldquo; in der
+                Menüleiste führt dazu, dass das Programm wiederholt ausgeführt
+                wird. Der Endstand aller vorkommenden numerischen Variablen in
+                jedem Durchgang der Simulation wird in Histogrammform im
                 rechten Teil des Fensters angezeigt.</p>
 
                 <p><strong>Fragen?</strong> Bei Fragen einfach <a href="mailto:iblech@web.de">dem

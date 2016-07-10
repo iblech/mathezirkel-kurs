@@ -11,4 +11,5 @@ while True:
     if letzter == vorletzter and vorletzter == vorvorletzter:
         break
 
+# Variablen zurücksetzen, damit sie nicht geplottet werden
 letzter, vorletzter, vorvorletzter = None, None, None

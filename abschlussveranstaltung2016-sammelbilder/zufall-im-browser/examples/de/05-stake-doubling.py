@@ -2,11 +2,11 @@
 #random
 
 balance = 100  # Startkapitel
-stake   = 1    # Einsatz
+stake   = 1
 
-# Solange wir nicht mehr als 100 Euro in den Miesen sind, ...
+# Solange wir noch nicht pleite und noch nicht zufrieden sind, ...
 while balance >= stake and balance < 120:
-    # ... treffe eine Zufallsauswahl.
+    # ... werfen wir eine Münze.
     coin = roll(sides=2)
 
     # Wenn wir verlieren:
