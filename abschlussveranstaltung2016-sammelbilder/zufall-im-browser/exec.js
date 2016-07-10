@@ -17,10 +17,11 @@ function wrap(code, repetitions) {
     for(var i = 0; i < names.length; i++) {
         addendum += "\n\
 try:\n\
-    if '" + names[i] + "' in __variables:\n\
-        __variables['" + names[i] + "'] = __variables['" + names[i] + "'] + " + names[i] + "\n\
-    else:\n\
-        __variables['" + names[i] + "'] = " + names[i] + "\n\
+    if isinstance(" + names[i] + ", int) or isinstance(" + names[i] + ", float):\n\
+        if '" + names[i] + "' in __variables:\n\
+            __variables['" + names[i] + "'] = __variables['" + names[i] + "'] + " + names[i] + "\n\
+        else:\n\
+            __variables['" + names[i] + "'] = " + names[i] + "\n\
 except Exception:\n\
     pass"
     }
