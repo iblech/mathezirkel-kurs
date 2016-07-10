@@ -1,5 +1,5 @@
 function wrap(code, repetitions) {
-    if(code.substring(0, "#zufall\n".length) !== "#zufall\n")
+    if(code.substring(0, "#random\n".length) !== "#random\n")
         return code;
 
     addendum = "";
@@ -9,7 +9,6 @@ function wrap(code, repetitions) {
     var match;
     while(match = re.exec(code)) {
         var name = match[1];
-        if(name === "augenzahl") continue;
         names[name] = 1;
     }
     names = Object.keys(names);
@@ -29,35 +28,24 @@ except Exception:\n\
     code += addendum;
 
     code = code.replace(/\n/g, "\n ");
-    code = code.replace(/^#zufall/, "def run(__variables):");
+    code = code.replace(/^#random/, "def __runSimulation(__variables):");
     code = code + "\n\
 import random\n\
 __numberOfRolls = 0\n\
-__rollsSeen = {}\n\
 __maximalNumberOfRolls = 10000\n\
-augenzahl = 0\n\
-geseheneAugenzahlen = 0\n\
 def roll(sides=6):\n\
     global __numberOfRolls\n\
-    global augenzahl\n\
-    global geseheneAugenzahlen\n\
     __numberOfRolls = __numberOfRolls + 1\n\
     if __numberOfRolls > __maximalNumberOfRolls:\n\
         raise Exception(\"Too many rolls.\\n\")\n\
-    augenzahl = random.randint(1,sides)\n\
-    __rollsSeen[augenzahl] = True\n\
-    geseheneAugenzahlen = len(__rollsSeen)\n\
-    return augenzahl\n\
+    return random.randint(1,sides)\n\
 N = " + repetitions + "\n\
 vars = {}\n\
 print(\"__JS:clearOutputs()\")\n\
 for i in range(N):\n\
     __numberOfRolls = 0\n\
-    __rollsSeen = {}\n\
-    augenzahl = 0\n\
-    geseheneAugenzahlen = 0\n\
     localVars = {}\n\
-    run(localVars)\n\
+    __runSimulation(localVars)\n\
     localVars['numberOfDiceRolls'] = __numberOfRolls\n\
     for v in localVars:\n\
         if not v in vars: vars[v] = {}\n\

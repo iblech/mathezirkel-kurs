@@ -1,11 +1,11 @@
 # Einsatzverdopplungsstrategie bei Roulette
-#zufall
+#random
 
 balance = 100  # Startkapitel
 stake   = 1    # Einsatz
 
 # Solange wir nicht mehr als 100 Euro in den Miesen sind, ...
-while balance >= stake:
+while balance >= stake and balance < 120:
     # ... treffe eine Zufallsauswahl.
     coin = roll(sides=2)
 
@@ -16,7 +16,7 @@ while balance >= stake:
     # Wenn wir gewinnen:
     else:
         balance = balance + stake
-        break
+        stake = 1
 
 # Variablen zurücksetzen, damit sie nicht geplottet werden.
 coin, stake = None, None

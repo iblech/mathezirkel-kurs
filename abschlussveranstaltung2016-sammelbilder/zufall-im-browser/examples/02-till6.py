@@ -1,12 +1,12 @@
 # Wie oft bis zur Sechs?
-#zufall
+#random
 
 # Bis wir etwas anderes sagen, ...
 while True:
     # ... würfeln und würfeln wir immer wieder.
-    roll()
+    x = roll()
 
     # Ist die Augenzahl eine Sechs?
-    if augenzahl == 6:
+    if x == 6:
         # Ja! Dann hören wir auf.
         break

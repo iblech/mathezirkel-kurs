@@ -1,5 +1,5 @@
 # Summe der Augenzahlen bei zwei Würfeln
-#zufall
+#random
 
 x = roll()
 y = roll()

@@ -1,5 +1,5 @@
 # Wie oft bis zum Dreier-Pasch?
-#zufall
+#random
 
 letzter, vorletzter, vorvorletzter = None, None, None
 
