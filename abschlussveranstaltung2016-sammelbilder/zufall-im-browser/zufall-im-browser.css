@@ -76,11 +76,17 @@ ul ul li:last-child { border: none; }
     display: none;
 }
 
-.close-button {
+#close-button {
     float: right;
     cursor: pointer;
     background-color: #ccc;
     border-radius: 5px;
+}
+
+#spinner {
+    visibility: hidden;
+    height: 1em;
+    vertical-align: middle;
 }
 
 p { padding-left: 1em; padding-right: 1em; }

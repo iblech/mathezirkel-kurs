@@ -1,4 +1,4 @@
-# Einsatzverdopplungsstrategie bei Roulette
+# Einsatzverdopplungsstrategie
 #random
 
 balance = 100  # Startkapitel

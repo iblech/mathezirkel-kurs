@@ -86,3 +86,38 @@ function setupDragbar() {
         }
     });
 }
+
+function setupButtons() {
+    document.getElementById("run-button").onclick = function() {
+        run(
+            document.getElementById("output"),
+            document.getElementById("spinner"),
+            editor.getValue(),
+            +document.getElementById("repetitions").value
+        );
+    };
+
+    document.getElementById("repetitions").onchange = function() {
+        pinningTable = {};
+        return true;
+    };
+
+    document.getElementById("help-button").onclick = function() {
+        document.getElementById("help").style.display =
+            document.getElementById("help").style.display === "block"
+                ? "none"
+                : "block";
+    }
+
+    document.getElementById("close-button").onclick = function() {
+        document.getElementById("help").style.display = "none";
+    };
+}
+
+function setup() {
+    setupEditor();
+    loadCode();
+    setupButtons();
+    setupExamplesMenu();
+    setupDragbar();
+}

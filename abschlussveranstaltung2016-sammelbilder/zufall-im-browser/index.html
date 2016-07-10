@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
 <meta charset="utf-8">
 <title>Zufall im Browser</title>
@@ -16,30 +16,23 @@
 <script type="text/javascript" src="plotting.js"></script>
 <script type="text/javascript" src="examples-db.js"></script>
 </head>
-<body onload="setupEditor(); loadCode(); setupExamplesMenu(); setupDragbar()">
+<body onload="setup()">
 
 <div class="wrapper">
     <div class="banner">
         <ul>
-            <li class="button attention" onclick="run(
-                document.getElementById('output'),
-                document.getElementById('spinner'),
-                editor.getValue(),
-                +document.getElementById('repetitions').value
-            )">►&nbsp;Los!</li>
+            <li class="button attention" id="run-button">►&nbsp;Los!</li>
             <li>
                 Anzahl Simulationen:
-                <input id="repetitions" value="200" onchange="pinningTable = {}; return true">
+                <input id="repetitions" value="200">
             </li>
             <li class="button">
                 Beispiele ▾
                 <ul id="examples-menu"><!-- filled in by JavaScript --></ul>
             </li>
-            <li class="button" style="float: right" onclick="document.getElementById('help').style.display = document.getElementById('help').style.display === 'block' ? 'none' : 'block'">Hilfe <strong>?</strong></li>
+            <li class="button" id="help-button" style="float: right">Hilfe <strong>?</strong></li>
             <li style="float: right"><strong>Zufall im Browser</strong></li>
-            <li style="float: right">
-                <img src="images/spinner.gif" id="spinner" style="visibility: hidden; height: 1em; vertical-align: middle">
-            </li>
+            <li style="float: right"><img src="images/spinner.gif" id="spinner" alt=""></li>
         </ul>
     </div>
 
@@ -47,10 +40,10 @@
         <div id="editor-pane"><div class="scroll-wrapper">
             <div id="dragbar"></div>
 
-            <textarea id="code" style="display: none"></textarea>
-            <noscript><p style="padding: 5px">
+            <textarea id="code"></textarea>
+            <noscript><p>
                 <strong>Bitte JavaScript aktivieren.</strong>
-            </p><p style="padding: 5px">
+            </p><p>
                 Diese Demonstration erlaubt, Zufallsabläufe in Python zu
                 programmieren, und stellt die Simulationsergebnisse in grafisch
                 aufbereiteter Form dar. Der gesamte Code läuft vollständig im
@@ -61,7 +54,7 @@
 
         <div id="output-pane"><div class="scroll-wrapper">
             <div id="help">
-                <p><span class="close-button" onclick="document.getElementById('help').style.display = 'none'">&nbsp;×&nbsp;</span>
+                <p><span id="close-button">&nbsp;×&nbsp;</span>
                 <strong>Was?</strong> Mit dieser Webseite kann man
                 Zufallsexperimente beschreiben, simulieren und analysieren. Sie
                 wurde für den <a
