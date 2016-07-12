@@ -31,6 +31,7 @@ except Exception:\n\
     code = code.replace(/^#random/, "def __runSimulation(__variables):");
     code = code + "\n\
 import random\n\
+import js as __js\n\
 __numberOfRolls = 0\n\
 __maximalNumberOfRolls = 10000\n\
 def roll(sides=6):\n\
@@ -41,7 +42,7 @@ def roll(sides=6):\n\
     return random.randint(1,sides)\n\
 N = " + repetitions + "\n\
 vars = {}\n\
-print(\"__JS:clearConsole()\")\n\
+__js.evaljs(\"clearConsole()\")\n\
 for i in range(N):\n\
     __numberOfRolls = 0\n\
     localVars = {}\n\
@@ -51,11 +52,11 @@ for i in range(N):\n\
         if not v in vars: vars[v] = {}\n\
         if not localVars[v] in vars[v]: vars[v][localVars[v]] = 0\n\
         vars[v][localVars[v]] = vars[v][localVars[v]] + 1\n\
-print(\"__JS:clearPlots()\")\n\
+__js.evaljs('clearPlots()')\n\
 for k in sorted(vars):\n\
     if len(vars[k]) > 1:\n\
         data = [ { 'x': i, 'y': vars[k][i] } for i in vars[k] ]\n\
-        print(\"__JS:histogram('plots', pinningTable, '\" + k + \"', \" + str(data) + \")\")\n\
+        __js.evaljs(\"histogram('plots', pinningTable, '\" + k + \"', \" + str(data) + \")\")\n\
 "
 
     return code;
@@ -66,21 +67,21 @@ function run(output, spinner, code, repetitions) {
     // We expand these to four spaces (the same amount as it looks like),
     // to be compatible with identation keyed in by <Space>.
     var prog = wrap(code.replace(/\t/g, "    "), repetitions);
-    var skipNewline = false;
     Sk.configure({
         output: function(text) {
-            if(text.substring(0, "__JS:".length) == "__JS:") {
-                eval(text.substring("__JS:".length));
-                skipNewline = true;
-            } else {
-                if(skipNewline && text === "\n") {
-                    skipNewline = false;
-                } else {
-                    output.innerHTML += text;
-                }
-            }
+            output.innerHTML += text;
         },
         read: function(x) {
+            if(x === "./js.js") {
+                return '\
+                    var $builtinmodule = function(name) { \
+                        var mod = {}; \
+                        mod.evaljs = new Sk.builtin.func(function (code) { eval(code.v); }); \
+                        return mod; \
+                    }; \
+                ';
+            }
+
             if(Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
                 throw "File not found: '" + x + "'";
             return Sk.builtinFiles["files"][x];
