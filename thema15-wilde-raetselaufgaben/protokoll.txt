@@ -147,7 +147,7 @@ gewinnen? (Antwort: Ja! Und das ist völlig krass.)
 fällt n Tage nach seiner Abreise von der Insel sein Missgeschick auf. Was kann
 er dann unternehmen, um die Katastrophe abzuwenden?
 
-15. Drei Zwerge stehen mit je einem gelben oder roten hut auf dem Kopf im Kreis (sie
+15. Drei Zwerge stehen mit je einem gelben oder roten Hut auf dem Kopf im Kreis (sie
 können also die Hutfarben der anderen, nicht aber ihre eigene sehen). Man teilt
 ihnen mit, dass mindestens ein Hut rot ist. Der erste wird gefragt, ob er die
 Farbe seines Huts weiß; er verneint. Der 2. wird gefragt, ob er die Farbe
