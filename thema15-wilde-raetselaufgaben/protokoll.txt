@@ -244,3 +244,14 @@ das höchste Stockwerk herauszufinden, bei dem die Eier den Fall heil
 Die Frage lautet: Gibt es eine Strategie, sodass die Zwerge nicht nur
 mit verschwindend geringer Wahrscheinlichkeit überleben und freigelassen
 werden? Lösung: http://www.mast.queensu.ca/~peter/inprocess/prisoners.pdf
+
+19. Zwei Spieler, einer denkt sich ein Polynom beliebigen Grades mit
+nichtnegativen ganzzahligen Koeffizienten aus. Danach darf der andere Spieler
+eine ganze Zahl nennen, woraufhin der erste den Wert des Polynoms an dieser
+Stelle nennt. Daraufhin darf der zweite Spieler den Wert des Polynoms an einer
+weiteren ganzzahligen Stelle erfragen. Wie kann der zweite Spieler das Polynom
+in zwei Anfragen dieser Art ermitteln?
+
+(Beispiele für "Polynome beliebigen Grades mit nichtnegativen ganzzahligen
+Koeffizienten" sind 3x² + 5x + 2, 7x³ + x² + 9, 100x³. Nichtbeispiele sind
+3x² - 2, sin(x) und 1/x.)
