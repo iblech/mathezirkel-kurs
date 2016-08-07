@@ -77,6 +77,10 @@
     var recht = [ 'unrecht', 'recht' ];
 
     function guess() {
+        document.getElementById('zahl-links').value =
+            document.getElementById('zahl-links').value.replace(',', '.');
+        document.getElementById('zahl-rechts').value =
+            document.getElementById('zahl-rechts').value.replace(',', '.');
         var numbers = [parseFloat(document.getElementById('zahl-links').value), parseFloat(document.getElementById('zahl-rechts').value)];
 
         if(numbers[0] == numbers[1]) {
@@ -111,6 +115,10 @@
             '' + total + '. ' +
             'Habe in Box ' + namen[pick] + ' geschaut und daraufhin vermutet, dass Box ' + namen[guess] + ' die größere Zahl enthält. Damit hatte ich ' + recht[numbers[guess] > numbers[1 - guess] ? 1 : 0] + '.<br>' +
             document.getElementById('log').innerHTML;
+
+        if(total == 314) {
+            alert('Ooh, die Anzahl Runden ist aber eine schöne Zahl!');
+        }
     }
 </script>
 </head>
@@ -155,9 +163,12 @@ aber nur auf Grundlage des Werts in einer der beiden Boxen getroffen.</p>
     <div class="sep"></div>
 
     <div class="box">
-        <button type="submit" style="height: 100%">Fertig!</button><br>
+        <button type="submit" style="height: 100%">Fertig!</button>
+        <noscript>
+            <strong>Diese interaktive Demo funktioniert nur mit aktiviertem
+            JavaScript.</strong>
+        </noscript>
     </div>
-    <br>
 </form>
 
 <table>
