@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Magische Vorhersage</title>
+
+<style>
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Ubuntu'), url(https://fonts.gstatic.com/s/ubuntu/v9/pFZGRS3ywNfpSqkEIed1Ww.ttf) format('truetype');
+    }
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-weight: 700;
+      src: local('Ubuntu Bold'), local('Ubuntu-Bold'), url(https://fonts.gstatic.com/s/ubuntu/v9/nsLtvfQoT-rVwGTHHnkeJqCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+    }
+
+    body {
+        font-family: Ubuntu, sans-serif;
+        line-height: 1.5em;
+    }
+
+    h1 {
+        text-align: center;
+        color: darkviolet;
+    }
+
+    .page {
+        margin: 0 auto;
+        background-color: #fafafa;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .box {
+        background-color: #eee;
+        border: 1px solid darkviolet;
+        border-radius: 10px;
+        display: table-cell;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .sep {
+        display: table-cell;
+        width: 10px;
+    }
+
+    th { text-align: left;  color: darkviolet; }
+    td { text-align: right; }
+    strong { color: darkviolet; }
+
+    input {
+        font-size: inherit;
+        width: 7em;
+        height: 1em;
+        padding: 4px;
+        border: 1px solid #e7e7e7;
+        border-radius: 10px;
+    }
+
+    #log { margin-top: 1em; }
+</style>
+
+<script type="text/javascript">
+    var total = 0;
+    var won   = 0;
+
+    function sigmoid(x) {
+        return 1 / (1 + Math.exp(-x));
+    }
+
+    var namen = [ 'A', 'B' ];
+    var recht = [ 'unrecht', 'recht' ];
+
+    function guess() {
+        var numbers = [parseFloat(document.getElementById('zahl-links').value), parseFloat(document.getElementById('zahl-rechts').value)];
+
+        if(numbers[0] == numbers[1]) {
+            alert('Regelverstoß: Die Zahlen in den beiden Umschlägen müssen verschieden sein.');
+            return;
+        }
+
+        var pick  = Math.random() < 0.5 ? 0 : 1;
+        var guess;
+
+        // In eine der Boxen hineinsehen; ist pick == 0, dann in die linke,
+        // ansonsten in die rechte.
+        if(sigmoid(numbers[pick]) > Math.random()) {
+            // Vermutung abgeben, dass die Box mit der größeren Zahl die ist,
+            // in die eben hineingesehen wurde.
+            guess = pick;
+        } else {
+            // Vermutung abgeben, dass die Box mit der größeren Zahl die andere ist.
+            guess = 1 - pick;
+        }
+
+        // Statistik aktualisieren
+        total++;
+        if(numbers[guess] > numbers[1 - guess]) {
+            won++;
+        }
+
+        document.getElementById('total').innerHTML = total;
+        document.getElementById('won').innerHTML = won;
+        document.getElementById('rate').innerHTML = (won / total * 100).toFixed(1);
+        document.getElementById('log').innerHTML =
+            '' + total + '. ' +
+            'Habe in Box ' + namen[pick] + ' geschaut und daraufhin vermutet, dass Box ' + namen[guess] + ' die größere Zahl enthält. Damit hatte ich ' + recht[numbers[guess] > numbers[1 - guess] ? 1 : 0] + '.<br>' +
+            document.getElementById('log').innerHTML;
+    }
+</script>
+</head>
+<body>
+<div class="page">
+
+<h1>Magische Vorhersage</h1>
+
+<p>Dies ist ein Spiel mit zwei Boxen.</p>
+
+<p>Du schreibst in die beiden Boxen je eine beliebige reelle Zahl
+(&bdquo;Kommazahl&ldquo;) und klickst dann auf <em>Fertig!</em> (oder drückst
+einfach die <em>Enter</em>-Taste). Du kannst große oder kleine, positive oder
+negative Zahlen verwenden, ganz wie du magst. Einzige Bedingung ist, dass du in
+die beiden Boxen nicht dieselbe Zahl schreibst.</p>
+
+<p>Ich schaue dann in <em>eine</em> der Boxen und gebe alleine mit dieser
+Information eine Vermutung darüber ab, welche Box vermutlich die größere
+Zahl enthält. Wenn ich recht habe, gewinne ich. Wenn ich unrecht habe,
+gewinnst du.</p>
+
+<p>Spoilerwarnung: Im statistischen Mittel werde ich gewinnen.</p>
+
+<p>Wer den Quellcode dieser Seite inspiziert, sieht auch, dass ich als
+Programmautor nicht betrüge. Natürlich hätte die Programmlogik Zugriff auf die
+Werte in beiden Boxen. Die Entscheidung, welche Vermutung abgegeben wird, wird
+aber nur auf Grundlage des Werts in einer der beiden Boxen getroffen.</p>
+
+<form action="#" onsubmit="guess(); return false">
+    <div class="box">
+        <strong>Box A</strong><br>
+        <input id="zahl-links" type="text" value="-3.14">
+    </div>
+
+    <div class="sep"></div>
+
+    <div class="box">
+        <strong>Box B</strong><br>
+        <input id="zahl-rechts" type="text" value="42">
+    </div>
+
+    <div class="sep"></div>
+
+    <div class="box">
+        <button type="submit" style="height: 100%">Fertig!</button><br>
+    </div>
+    <br>
+</form>
+
+<table>
+    <tr><th>Gesamtzahl Runden:</th><td><span id="total">0</span></td></tr>
+    <tr><th>Davon habe ich gewonnen:</th><td><span id="won">0</span></td></tr>
+    <tr><th>Das sind in Prozent:</th><td><span id="rate">100</span> %</td></tr>
+</table>
+
+<div id="log"></div>
+
+</div>
+</body>
+</html>
