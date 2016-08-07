@@ -109,9 +109,9 @@
         }
 
         document.getElementById('total').innerHTML = total;
-        document.getElementById('won').innerHTML = won;
-        document.getElementById('rate').innerHTML = (won / total * 100).toFixed(1);
-        document.getElementById('log').innerHTML =
+        document.getElementById('won').innerHTML   = won;
+        document.getElementById('rate').innerHTML  = (won / total * 100).toFixed(1);
+        document.getElementById('log').innerHTML   =
             '' + total + '. ' +
             'Habe in Box ' + namen[pick] + ' geschaut und daraufhin vermutet, dass Box ' + namen[guess] + ' die größere Zahl enthält. Damit hatte ich ' + recht[numbers[guess] > numbers[1 - guess] ? 1 : 0] + '.<br>' +
             document.getElementById('log').innerHTML;
