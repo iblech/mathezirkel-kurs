@@ -76,6 +76,26 @@
     var namen = [ 'A', 'B' ];
     var recht = [ 'unrecht', 'recht' ];
 
+    var hist = [];
+
+    function scaled(x) {
+        if(hist.length == 0) return x;
+
+        var sumValues = 0, sumDistances = 0;
+        var j = 0;
+        for(var i = hist.length - 5; i < hist.length; i++) {
+            if(i < 0) continue;
+            sumValues    = sumValues    + hist[i][0] + hist[i][1];
+            sumDistances = sumDistances + Math.abs(hist[i][0] - hist[i][1]);
+            j++;
+        }
+
+        var avgValue    = sumValues / (2*j);
+        var avgDistance = sumDistances / j;
+
+        return((x - avgValue) / avgDistance * 10);
+    }
+
     function guess() {
         document.getElementById('zahl-links').value =
             document.getElementById('zahl-links').value.replace(',', '.');
@@ -93,7 +113,7 @@
 
         // In eine der Boxen hineinsehen; ist pick == 0, dann in die linke,
         // ansonsten in die rechte.
-        if(sigmoid(numbers[pick]) > Math.random()) {
+        if(sigmoid(scaled(numbers[pick])) > Math.random()) {
             // Vermutung abgeben, dass die Box mit der größeren Zahl die ist,
             // in die eben hineingesehen wurde.
             guess = pick;
@@ -107,6 +127,7 @@
         if(numbers[guess] > numbers[1 - guess]) {
             won++;
         }
+        hist.push(numbers);
 
         document.getElementById('total').innerHTML = total;
         document.getElementById('won').innerHTML   = won;
