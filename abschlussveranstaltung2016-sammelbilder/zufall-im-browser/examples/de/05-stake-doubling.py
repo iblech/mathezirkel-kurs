@@ -1,7 +1,7 @@
 # Einsatzverdopplungsstrategie
 #random
 
-balance = 100  # Startkapitel
+balance = 100  # Startkapital
 stake   = 1
 
 # Solange wir noch nicht pleite und noch nicht zufrieden sind, ...
