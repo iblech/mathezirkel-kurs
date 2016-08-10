@@ -28,3 +28,34 @@
 
 * Parat haben: Verteilungen ohne langen Schwanz, zum Beispiel
   Normalverteilungen (was ist ein gutes Beispiel? Körpergröße?)
+
+
+* 680 Sticker, eine Sammlerin, kein Nachbestellung
+0.9-Quantil: <= 5955
+0.95-Quantil: <= 6443
+0.99-Quantil: <= 7576
+Erwartungswert: 4824.4
+
+* 680 Sticker, zwei Sammlerinnen, kein Nachbestellung
+0.9-Quantil: <= 3831
+0.95-Quantil: <= 4097
+0.99-Quantil: <= 4682
+Erwartungswert: 3208.3
+
+* 680 Sticker, eine Sammlerin, Nachbestellung von 50 Stickern
+0.9-Quantil: <= 1875
+0.95-Quantil: <= 1908
+0.99-Quantil: <= 1971
+Erwartungswert: 1768.8
+
+* 680 Sticker, zwei Sammlerinnen, jeweils Nachbestellung von 50 Stickern
+0.9-Quantil: <= 1075
+0.95-Quantil: <= 1091
+0.99-Quantil: <= 1119
+Erwartungswert: 1023.1
+
+* 680 Sticker, drei Sammlerinnen, jeweils Nachbestellung von 50 Stickern
+0.9-Quantil: <= 1039
+0.95-Quantil: <= 1049
+0.99-Quantil: <= 1067
+Erwartungswert: 1005.6
