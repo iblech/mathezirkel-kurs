@@ -77,7 +77,7 @@ function setupDragbar() {
 
     $(document).mouseup(function(e) {
         if(dragging) {
-            var percentage = ((e.pageX + 3) / window.innerWidth) * 100;
+            var percentage = ((e.pageX + 9) / window.innerWidth) * 100;
             var mainPercentage = 100 - percentage;
 
             $("#editor-pane").css("width", percentage + "%");
