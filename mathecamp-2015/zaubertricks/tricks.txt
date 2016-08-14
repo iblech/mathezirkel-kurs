@@ -8,3 +8,9 @@
 * Ryans Trick auf Basis des Erdős–Szekeres-Theorems
 
 * Der Fakemünzerkenntrick auf Basis des Run-Tests
+
+* The Kruskal Count
+
+* Simons 5-Personen-Trick
+
+* Boxratespiel
