@@ -273,3 +273,5 @@ Koeffizienten" sind 3x² + 5x + 2, 7x³ + x² + 9, 100x³. Nichtbeispiele sind
 
   Can you think of a strategy Alice and Bob can use that is guaranteed to win
   every time?
+
+* http://gurmeet.net/puzzles/
