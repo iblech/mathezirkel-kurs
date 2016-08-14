@@ -128,6 +128,11 @@ Approximationen von Pi aus der Antike, Kettenbruchentwicklung
 Harte Knobelaufgaben
 Spielanalyse
 
+Mal nachdenken:
+* Perplexing Paperclips
+* Euler--Lagrange-Gleichung
+* Penney's Game
+
 
 --- explizit genannt (beim dritten Treffen)
 
