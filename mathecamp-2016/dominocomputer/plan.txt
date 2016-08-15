@@ -1,4 +1,4 @@
-* Wie Matt Parker?
+* Wie Matt Parker!
 
 * Negation durch einen zusätzlichen Input, der möglicherweise
   vorzeitig gestoppt wird.
@@ -8,6 +8,52 @@
 * https://web.archive.org/web/20040607071009/http://pinkandaint.com/oldhome/comp/dominoes/index.html
 
 * http://www.annodomino.de/english/tricks/for-no-longer-beginners/
+
+
+=== AND-Schaltung
+
+  +-------------+--->
+  |l            |
+  |            s|       Längen: l >= r + s
+  |        r    |
+  +---   -------+       tb+ < ta- + r
+      \ /     |
+       |      |
+       |      |
+       a      b
+
+Damit diese Schaltung funktioniert, müssen der Umweg (hoch rechts) und
+die Verbindung von a-Verzweigung zu b-Endpunkt hinreichend lang sein.
+
+
+=== XOR-Schaltung
+
+      |
+      +
+     / \
+    /   \
+   /     \
+  |       |
+  |       |
+   \     /
+    +---+
+   /     \
+  |       |
+  |       |
+  a       b
+
+
+=== Halbaddierer
+
+...
+
+
+=== Volladdierer
+
+...
+
+
+=== Rollende Kugeln
 
 Man kann auch einen Computer aus rollenden Kugeln bauen!
 
