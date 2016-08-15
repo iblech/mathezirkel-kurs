@@ -1,1 +1,20 @@
 * Wie Matt Parker?
+
+* Negation durch einen zusätzlichen Input, der möglicherweise
+  vorzeitig gestoppt wird.
+
+* http://www.think-maths.co.uk/sites/default/files/downloads/think_maths_domino_computer_worksheets.pdf
+
+* https://web.archive.org/web/20040607071009/http://pinkandaint.com/oldhome/comp/dominoes/index.html
+
+* http://www.annodomino.de/english/tricks/for-no-longer-beginners/
+
+Man kann auch einen Computer aus rollenden Kugeln bauen!
+
+* Entweder in kompletter Analogie zum Dominocomputer. Dazu benötigt man eine
+  Art Schalter, der das vorzeitige Stoppen bei Dominosteilen emuliert.
+
+* Oder wie bei Kryptographie mit Spielkarten. Dazu benötigt man
+  eine Möglichkeit, eine Bahn bei Eintreffen einer Kugel umzuschalten.
+
+* https://en.wikipedia.org/wiki/Billiard-ball_computer
