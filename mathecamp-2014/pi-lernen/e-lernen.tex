@@ -29,17 +29,11 @@
       551 702 7618 386 062 6133 138 458 3000 752 044 9338 265 602 9760 
 
       673 711 3200 709 328 7091 274 437 4704 723 069 6977 209 310 1416 
-
-      928 368 1902 551 510 8657 463 772 1112 523 897 8442 505 695 3696 
-
-      770 785 4499 699 679 4686 445 490 5987 931 636 8892 300 987 9312 
     \end{center}
 
-    \vfill
-    \includegraphics[scale=0.070]{pi-1}\hfill%
-    \includegraphics[scale=0.070]{pi-2}\hfill%
-    \includegraphics[scale=0.070]{pi-3}\hfill%
-    \includegraphics[scale=0.070]{pi-4}
+    \centering%
+    \includegraphics[width=0.95\textwidth,height=1cm]{essential-singularity}
+    \par
   \end{minipage}
 }
 
@@ -50,8 +44,8 @@
     \tiny
 
     Die Eulersche Zahl~$e$ ist ungefähr 3: $e = 2{,}718\ldots$
-    Sie findet bei der Beschreibung exponentieller Prozesse Anwendung. Wenn~$n$
-    Leute ihre Namen auf Zettel schreiben, die Zettel mischen und dann
+    Sie findet bei der Beschreibung \textbf{exponentieller Prozesse} Anwendung.
+    Wenn~$n$ Mathematikerinnen und Mathematiker ihre Namen auf Zettel schreiben, die Zettel mischen und dann
     zufällig je einen Zettel ziehen, ist im Grenzwert~$n \to \infty$ die
     Wahrscheinlichkeit, dass niemand seinen eigenen Zettel zieht, genau~$1/e$.
     Die Zahl~$e$ ist \textbf{irrational}, lässt sich also nicht als Bruch
@@ -60,13 +54,15 @@
     Erstaunlicherweise ist die Kettenbruchentwicklung von~$e$ aber völlig
     regelmäßig. Die rechts angegebene Näherung ist auf
     18\,457\,734\,525\,360\,901\,453\,873\,570 Dezimalen korrekt.
-    \scalebox{0.7}{\begin{minipage}{1.42\textwidth}
+    \scalebox{0.7}{\begin{minipage}{0.71\textwidth}
+      \[ e = 1 + 1 + \frac{1}{1 + \frac{1}{2 + \frac{1}{1 + \frac{1}{1 +
+      \frac{1}{4 + \frac{1}{1 + \frac{1}{1 + \frac{1}{6 + \cdots}}}}}}}} \]
+    \end{minipage}\begin{minipage}{0.71\textwidth}
     \begin{align*}
-      e &= 1 + 1 + \frac{1}{1 + \frac{1}{2 + \frac{1}{1 + \frac{1}{1 + \frac{1}{4 + \frac{1}{1 + \frac{1}{1 + \frac{1}{6 + \cdots}}}}}}}} &
-      e^{i \pi} + 1 &= 0 \\
-      &&
+      e &= \frac{1}{1} + \frac{1}{1} + \frac{1}{1\cdot2} + \frac{1}{1\cdot2\cdot3} + \cdots \\
       e &= \lim_{n\to\infty} (1+\tfrac{1}{n})^n \approx
       (1+9^{-4^{7\cdot6}})^{3^{2^{85}}} \\
+      0 &= e^{i \pi} + 1
     \end{align*}\end{minipage}}
   \end{minipage}
 }
