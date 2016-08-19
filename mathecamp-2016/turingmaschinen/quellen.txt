@@ -1,1 +1,5 @@
 https://courses.engr.illinois.edu/cs498374/notes/36-turing-machines.pdf
+http://www.math-cs.gordon.edu/courses/cps111/Notes/Turing%20Machine/Lect-TM.html
+
+http://morphett.info/turing/turing.html
+Simulator
