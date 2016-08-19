@@ -6,6 +6,9 @@
 \geometry{top=1.5cm,bottom=1cm,left=2cm,right=2cm}
 \pagestyle{empty}
 
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
 \begin{document}
 \sffamily
 
@@ -14,6 +17,12 @@
   \bigskip
 
   \includegraphics[width=\textwidth]{images/p#1}
+
+  \begin{tikzpicture}[remember picture, overlay]
+    \node [anchor=south west, outer sep=0pt, inner sep=0pt]  at ($(current page.south west) +(0.2cm,0.3cm)$)
+        {\includegraphics[height=2cm]{gregor-gespiegelt-klein}};
+  \end{tikzpicture}
+
   \newpage
 }
 
@@ -25,6 +34,12 @@
   \bigskip
 
   \includegraphics[width=\textwidth]{images/digits}
+
+  \begin{tikzpicture}[remember picture, overlay]
+    \node [anchor=south west, outer sep=0pt, inner sep=0pt]  at ($(current page.south west) +(0.2cm,0.3cm)$)
+        {\includegraphics[height=2cm]{gregor-gespiegelt-klein}};
+  \end{tikzpicture}
+
   \newpage
 }
 
