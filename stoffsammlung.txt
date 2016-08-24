@@ -147,6 +147,7 @@ Mal nachdenken:
 * Perplexing Paperclips
 * Euler--Lagrange-Gleichung
 * Penney's Game
+* Vorteile, wenn man verschränkte Qubits besitzt
 
 
 --- explizit genannt (beim dritten Treffen)
