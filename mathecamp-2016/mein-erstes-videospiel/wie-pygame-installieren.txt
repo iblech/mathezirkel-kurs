@@ -1,0 +1,22 @@
+Zunächst muss man Python installieren. Unter Linux und Mac OS X ist dazu nichts
+zu tun, Python wird schon mitgeliefert. Unter Windows muss man sich Anaconda
+von https://www.continuum.io/downloads herunterladen. Wir haben gute
+Erfahrungen mit der 64-Bit-Version "Python 2.7" gemacht. Die 64-Bit-Version
+"Python 3.5" sollte ebenfalls funktionieren. Auf den 32-Bit-Versionen dagegen
+läuft PyGame nicht.
+
+Um die PyGame-Bibliothek zu installieren, muss man bestimmte Befehle in ein
+Terminal (bzw. unter Windows die "Anaconda-Shell") eingeben.
+
+Unter Linux:
+
+    apt-get install python-pygame
+
+Unter Mac OS X:
+
+    pip install pygame
+
+Unter Windows:
+
+    conda install -c https://conda.anaconda.org/tlatorre python
+    conda install -c https://conda.binstar.org/krisvanneste pygame
