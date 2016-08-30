@@ -79,6 +79,10 @@ Moiré "Freaky Dot Patterns" https://www.youtube.com/watch?v=QAja2jp1VjE
 
 Surreale Zahlen über die Ordinalzahlbusmetapher einführen, nur mit Vorzeichen
 
+Wärmeaustauschexperimente mit kleinen Robotern, die man aneinander stecken
+kann, damit sie ihre "Wärme" austauschen. Oder gleich Roboter, die sich selbst
+organisieren und damit Figuren bauen. Das wäre schon ziemlich krass.
+
 Zirkel zu PID-Regelung
 
 
