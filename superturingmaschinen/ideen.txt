@@ -1,0 +1,8 @@
+* Andrejs Bemerkung über Berechenbarkeit auf verschiedenen Stufen
+* R-Maschinen
+* Superturingmaschinen im eigentlichen Sinn
+* Lost-Melody-Phänomen
+* Andrejs N^N ^--> N?
+* Wie steht's um P = NP?
+
+http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.94.8720&rep=rep1&type=pdf
