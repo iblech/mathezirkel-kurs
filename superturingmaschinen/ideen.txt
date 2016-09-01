@@ -4,5 +4,6 @@
 * Lost-Melody-Phänomen
 * Andrejs N^N ^--> N?
 * Wie steht's um P = NP?
+* Quantenturingmaschinen
 
 http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.94.8720&rep=rep1&type=pdf
