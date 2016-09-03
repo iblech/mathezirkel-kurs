@@ -1,3 +1,4 @@
+* Robustheit des Turingmaschinenkonzepts
 * Andrejs Bemerkung über Berechenbarkeit auf verschiedenen Stufen
 * R-Maschinen
 * Superturingmaschinen im eigentlichen Sinn
@@ -7,3 +8,29 @@
 * Quantenturingmaschinen
 
 http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.94.8720&rep=rep1&type=pdf
+http://arxiv.org/pdf/math/9808093v1.pdf
+
+* Eine Ordinalzahl ist genau dann in R einbettbar, wenn sie in Q einbettbar
+  ist, wenn sie abzählbar ist, wenn sie kleiner als omega_1 ist.
+
+  Das liefert eine Einschränkung darüber, wie lange Superturingmaschinen laufen
+  können, wenn es eine Injektion der Zeitschrittmenge nach R ("physikalische
+  Zeit") geben soll!
+
+  Wegen Thm. 1.1 von http://arxiv.org/pdf/math/9808093v1.pdf ist das aber nicht
+  schlimm.
+
+* Superturingmaschinen können nicht alle Prädikate auf N berechnen!
+  Denn es gibt nur abzählbar viele Superturingmaschinen.
+  
+  Ein Beispiel für ein solches Prädikat ist vielleicht das Halteprädikat für
+  Superturingmaschinen.
+
+* Superturingmaschinen können aus Wiederholungen ausbrechen! Siehe Bemerkung
+  nach Thm. 1.1 im genannten Artikel.
+
+* STMs können das Halteproblem für gewöhnliche TMs entscheiden. Außerdem
+  können sie den Wahrheitsgehalt jeder arithmetischen Aussage entscheiden.
+
+* Eine interessante Frage: Welche Ordinalzahlen sind abmessbar? Für welche
+  Ordinalzahlen gibt es STMs, die nach genau dieser Anzahl Schritte halten?
