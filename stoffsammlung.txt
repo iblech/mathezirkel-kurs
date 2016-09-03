@@ -148,6 +148,7 @@ Mal nachdenken:
 * Euler--Lagrange-Gleichung
 * Penney's Game
 * Vorteile, wenn man verschränkte Qubits besitzt
+* Burnside-Zeug
 
 
 --- explizit genannt (beim dritten Treffen)
