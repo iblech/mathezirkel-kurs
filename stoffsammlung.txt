@@ -83,7 +83,16 @@ Wärmeaustauschexperimente mit kleinen Robotern, die man aneinander stecken
 kann, damit sie ihre "Wärme" austauschen. Oder gleich Roboter, die sich selbst
 organisieren und damit Figuren bauen. Das wäre schon ziemlich krass.
 
+Mehr zu Kettenbrüchen: unter anderem die Sache mit rationalen Knoten
+und https://plus.google.com/+DanPiponi/posts/EGefvErd54R (Cluster-Algebren),
+http://arxiv.org/abs/1608.06568.
+
 Zirkel zu PID-Regelung
+
+Quantencomputerprogrammierung:
+http://machinelevel.com/qc/siggraph/hello_siggraph_2016.html
+
+Teslaspulenexperiment
 
 
 --- nicht beim ersten Treffen angeschrieben:
