@@ -11,6 +11,7 @@
 
 http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.94.8720&rep=rep1&type=pdf
 http://arxiv.org/pdf/math/9808093v1.pdf
+http://math.andrej.com/wp-content/uploads/2014/03/real-world-realizability.pdf
 
 * Eine Ordinalzahl ist genau dann in R einbettbar, wenn sie in Q einbettbar
   ist, wenn sie abzählbar ist, wenn sie kleiner als omega_1 ist.
