@@ -6,6 +6,8 @@
 * Andrejs N^N ^--> N?
 * Wie steht's um P = NP?
 * Quantenturingmaschinen
+* Mit einem Rätsel anfangen, nämlich dieser Sache mit der Kodierung
+  von Registermaschinen über Primzahlen?
 
 http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.94.8720&rep=rep1&type=pdf
 http://arxiv.org/pdf/math/9808093v1.pdf
@@ -34,3 +36,11 @@ http://arxiv.org/pdf/math/9808093v1.pdf
 
 * Eine interessante Frage: Welche Ordinalzahlen sind abmessbar? Für welche
   Ordinalzahlen gibt es STMs, die nach genau dieser Anzahl Schritte halten?
+  (Nimm dazu am besten drei Tapes (Eingabe/Ausgabe/Arbeit), um mit der
+  Literatur konsistent zu sein. Es gibt sonst feine Unterschiede, die in
+  https://gupea.ub.gu.se/bitstream/2077/25473/1/gupea_2077_25473_1.pdf
+  diskutiert werden.)
+
+* Behandle auf jeden Fall das Lost-Melody-Theorem. Ein Beweis, der ohne Gödels
+  Mengenhierarchie auskommt, steht in
+  https://gupea.ub.gu.se/bitstream/2077/25473/1/gupea_2077_25473_1.pdf.
