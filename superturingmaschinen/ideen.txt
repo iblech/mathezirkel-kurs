@@ -45,3 +45,47 @@ http://math.andrej.com/wp-content/uploads/2014/03/real-world-realizability.pdf
 * Behandle auf jeden Fall das Lost-Melody-Theorem. Ein Beweis, der ohne Gödels
   Mengenhierarchie auskommt, steht in
   https://gupea.ub.gu.se/bitstream/2077/25473/1/gupea_2077_25473_1.pdf.
+
+* Wie steht's um Marcs Frage: Kann eine Superturingmaschine mit Zugriff auf ein
+  überabzählbares Band die Kontinuumshypothese entscheiden?
+
+* Allgemein sollten im Vortrag auch Maschinen vorgeführt werden, deren
+  Halteverhalten von mengentheoretischen Eigenschaften abhängt.
+
+* Wie steht's um Super-Endliche-Automaten? Für Wörter, deren Länge
+  eine Ordinalzahl ist.
+
+* Beispiel für eine Berechnung, die deutlich mehr als omega viele Schritte
+  benötigt: Prüfen, ob eine gegebene Relation auf N wohlgeordnet ist. (Kodiert
+  als unendliche 0/1-Folge, mit einer 1 an Stelle <a,b> genau dann, wenn aRb.
+  Damit ist <__,__> eine Paarungsfunktion.)
+
+  Das ist interessant, denn die Menge WO der wohlgeordneten Relationen ist
+  nicht nur eine Pi_1^1-Menge, sondern eine vollständige Pi_1^1-Menge: Zu jeder
+  Pi_1^1-Menge A gibt es eine rekursive Funktion f mit x in A <==> f(x) in WO.
+
+  Das Entscheiden geht so. Beachte, dass die Relation auf dem Eingabeband
+  angegeben wird (und im Laufe des Programms verändert wird) und
+  Nebenrechnungen auf dem Arbeitsband erfolgen.
+
+  1. Kläre in omega vielen Schritten, ob die Relation überhaupt transitiv,
+  antisymmetrisch und total ist.
+
+  2. Versuche, die der Relation nach kleinste natürliche Zahl zu finden:
+  Ist die Relation leer? Dann fertig, die ursprüngliche Relation war
+  wohlgeordnet! Ansonsten betrachte die kleinere Zahl x des gefundenen Paars
+  als Kandidaten fürs Minimum. Suche nun nach einer Zahl y mit yRx. Notiere
+  diese neue Zahl als Kandidaten und flashe ein Flag. Mach immer so weiter.
+  Wenn nach omega Schritten das Flag nicht gesetzt ist, wissen wir: Die als
+  "Kandidat" angegebene Zahl ist die der Relation nach kleinste Zahl. Wenn das
+  Flag gesetzt ist, ist die Relation nicht wohlgeordnet.
+
+  3. Lösche in omega vielen Schritten jedes Vorkommen des im zweiten Schritt
+  gefundenen Minimums.
+
+  4. Wiederhole die Schritte 2 und 3 immer wieder. Bei compound-limit-Schritten
+  darauf achten, das Arbeitsband zurückzusetzen. Schlussendlich ist die
+  Relation entweder leer oder als nicht wohl geordnet erkannt.
+
+  Wie lange dauert das? Im Fall, dass die Relation eine Wohlordnung war, in
+  etwa so lange, wie der Ordnungstyp dieser Relation.
