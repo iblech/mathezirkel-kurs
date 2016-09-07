@@ -33,6 +33,7 @@
 
 \newcommand*\oldmacro{}%
 \let\oldmacro\insertshorttitle%
+\renewcommand*\insertshortauthor{LUGA-Treffen im September 2016}
 \renewcommand*\insertshorttitle{%
   \oldmacro\hfill\insertframenumber\,/\,\inserttotalframenumber\hfill}
 
@@ -123,10 +124,10 @@
     \item Lese eine Zahl~$n$ vom Band als Eingabe ein.
     \pause
     \item Befrage das Halteorakel, ob das~$n$-te Programm (in einer Liste aller
-    Programme) hält oder nicht.
+    Programme) bei Eingabe von~$n$ hält oder nicht.
     \pause
-    \item Falls ja: Dann gehe in eine Endlosschleife.
-    \item Falls nein: Dann halte an.
+    \item Falls ja: Dann gehe in eine Endlosschleife. \\
+    Falls nein: Dann halte an.
   \end{enumerate}
   \pause
 
