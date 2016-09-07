@@ -50,7 +50,9 @@ http://math.andrej.com/wp-content/uploads/2014/03/real-world-realizability.pdf
   überabzählbares Band die Kontinuumshypothese entscheiden?
 
 * Allgemein sollten im Vortrag auch Maschinen vorgeführt werden, deren
-  Halteverhalten von mengentheoretischen Eigenschaften abhängt.
+  Halteverhalten von mengentheoretischen Eigenschaften abhängt. Zum Beispiel
+  die Sache mit der Unabhängigkeit von BB(n) für kleine Wert von n von Adam
+  Yedidia und Scott Aaronson. http://www.scottaaronson.com/busybeaver.pdf
 
 * Wie steht's um Super-Endliche-Automaten? Für Wörter, deren Länge
   eine Ordinalzahl ist.
