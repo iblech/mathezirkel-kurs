@@ -107,13 +107,30 @@ Ihr Team vom Mathecamp:
 Meru Alagalingam, Tim Baumann, Martin Baur, Ingo Blechschmidt, Philipp Düren, Alexander Engel, Andrea Geck, Kathrin Helmsauer, Andreas Hohl, Saadettin Karaca, Jorid Kretzschmar, Dorothea Pörtge, Veronika Pörtge, Sven Prüfer, Lisa Reischmann, Max Schloegel, Peter Uebele, Florian Wadas, Carina Willbold
 TMPL
 
+use constant CAMP => <<TMPL;
+Liebe Eltern,
+
+hier haben Sie Gelegenheit für anonymes Feedback: Was ist gut gelaufen, was schlecht, was können wir nächstes Jahr besser machen?:
+/SONSTIGES/
+
+Wir danken Ihnen herzlich für Ihre Unterstützung!
+
+Ihr Team vom Mathecamp:
+Meru Alagalingam, Veronika Auer, Martin Baur, Ingo Blechschmidt, Tim Dafler, Justin Gassner, Christoph Gräupner, Kathrin Helmsauer, Andreas Hohl, Matthias Hutzler, Alexander Mai, Dorothea Pörtge, Veronika Pörtge, Sven Prüfer, Lisa Reischmann, Raphael Schlarb, Max Schlögel, Matthias Schlüter, Dominik Schmucker, David Wiedemann, Rolf Wittmann, Carina Ziegler
+TMPL
 use constant ANON_GRUSS => "Viele Grüße\neine anonyme Teilnehmerin oder ein anonymer Teilnehmer deines Zirkels";
 
 my %courses = (
-  a00_camptermin => {
+# a00_camptermin => {
+#   name => "Mathecamp",
+#   text => CAMPTERMIN,
+#   mail => 'iblech@speicherleck.de',
+# },
+  a00_camp => {
     name => "Mathecamp",
-    text => CAMPTERMIN,
+    text => CAMP,
     mail => 'iblech@speicherleck.de',
+    formal => 1,
   },
   a_05 => {
     name => "Korrespondenzzirkel bei Carina (5. Klasse)",
@@ -260,14 +277,20 @@ TMPL
       </div>
     };
   } else {
+    my $danke = $courses{$cid}{formal}
+        ? "<p>Ihre Rückmeldung ist uns sehr wichtig, damit wir die Zirkel
+        verbessern können. Wenn Ihnen später noch weitere Anregungen, Ideen
+        oder Wünsche einfallen, können Sie das Formular einfach erneut
+        ausfüllen.</p><p>Sie können dieses Fenster jetzt schließen.</p>"
+        : "<p>Deine Rückmeldung ist uns sehr wichtig, damit wir die Zirkel
+        verbessern können. Wenn dir später noch weitere Anregungen, Ideen oder
+        Wünsche einfallen, kannst du das Formular einfach erneut
+        ausfüllen.</p><p>Du kannst dieses Fenster jetzt schließen.</p>";
     print qq{
       <h1>Vielen Dank!</h1>
 
       <div class="page">
-      <p>Deine Rückmeldung ist uns sehr wichtig, damit wir die Zirkel verbessern
-      können. Wenn dir später noch weitere Anregungen, Ideen oder
-      Wünsche einfallen, kannst du das Formular einfach erneut ausfüllen.</p>
-      <p>Du kannst dieses Fenster jetzt schließen.</p>
+      $danke
       <div class="letter"><p>$msgH</p></div>
       </div>
     };
