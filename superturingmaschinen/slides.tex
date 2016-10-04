@@ -1,0 +1,176 @@
+\documentclass[12pt,compress,ngerman,utf8,t]{beamer}
+\usepackage[ngerman]{babel}
+\usepackage{ragged2e,wasysym,multicol}
+\usepackage[protrusion=true,expansion=true]{microtype}
+
+\hypersetup{colorlinks=true}
+
+\title[Superturingmaschinen]{Superturingmaschinen}
+\author[Ingo Blechschmidt]{\textcolor{white}{Ingo Blechschmidt}}
+\date[2016-10-04]{\vspace*{-4em}\ \\\textcolor{white}{\scriptsize Augsburger Curry-Club \\ 4.
+Oktober 2016\par}}
+
+\usetheme{Warsaw}
+
+\useinnertheme{rectangles}
+
+\usecolortheme{seahorse}
+\definecolor{mypurple}{RGB}{150,0,255}
+\setbeamercolor{structure}{fg=mypurple}
+\definecolor{myred}{RGB}{150,0,0}
+\setbeamercolor*{title}{bg=myred,fg=white}
+\setbeamercolor*{titlelike}{bg=myred,fg=white}
+
+\usefonttheme{serif}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+
+\newcommand{\NN}{\mathbb{N}}
+
+\newcommand{\slogan}[1]{%
+  \begin{center}%
+    \setlength{\fboxrule}{2pt}%
+    \setlength{\fboxsep}{8pt}%
+    {\usebeamercolor[fg]{item}\fbox{\usebeamercolor[fg]{normal text}\parbox{0.91\textwidth}{#1}}}%
+  \end{center}%
+}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+
+\setbeamertemplate{title page}[default][colsep=-1bp,rounded=false,shadow=false]
+\setbeamertemplate{frametitle}[default][colsep=-2bp,rounded=false,shadow=false,center]
+
+\newcommand*\oldmacro{}%
+\let\oldmacro\insertshorttitle%
+\renewcommand*\insertshorttitle{%
+  \oldmacro\hfill\insertframenumber\,/\,\inserttotalframenumber\hfill}
+
+\newcommand{\hil}[1]{{\usebeamercolor[fg]{item}{\textbf{#1}}}}
+\setbeamertemplate{frametitle}{%
+  \vskip1em%
+  \leavevmode%
+  \begin{beamercolorbox}[dp=1ex,center]{}%
+      \usebeamercolor[fg]{item}{\textbf{\textsf{\Large \insertframetitle}}}
+  \end{beamercolorbox}%
+}
+
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hfill%
+  \begin{beamercolorbox}[ht=2.25ex,dp=1ex,right]{}%
+    \usebeamerfont{date in head/foot}
+    \insertframenumber\,/\,\inserttotalframenumber\hspace*{1ex}
+  \end{beamercolorbox}%
+  \vskip0pt%
+}
+
+\newcommand{\backupstart}{
+  \newcounter{framenumberpreappendix}
+  \setcounter{framenumberpreappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+  \addtocounter{framenumberpreappendix}{-\value{framenumber}}
+  \addtocounter{framenumber}{\value{framenumberpreappendix}}
+}
+
+\setbeameroption{show notes}
+\setbeamertemplate{note page}[plain]
+
+\begin{document}
+
+% http://www.ufointernationalproject.com/wp-content/uploads/2015/11/a23.jpg
+{\usebackgroundtemplate{\includegraphics[height=\paperheight]{images/interstellar}}
+\frame{\tableofcontents}}
+
+\section{Erinnerungen}
+
+\subsection{Gewöhnliche Turingmaschinen}
+\begin{frame}{Ein Hoch auf Turingmaschinen}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/turing-machine}
+  \end{center}
+
+  \begin{multicols}{2}
+    \begin{enumerate}
+      \item Schlichtheit
+      \item Mechanischer Bezug
+      \item Robustheit des Konzepts
+      \item Äquivalenz zu anderen Modellen
+      \item Querverbindungen
+    \end{enumerate}
+  \end{multicols}
+\end{frame}
+% mündlich: Es gibt Turingmaschinen mit 2 Zuständen und 4 Symbolen
+% sowie mit 3 Zuständen und 3 Symbolen, deren Halteverhalten unbekannt ist.
+
+\begin{frame}{Fun Facts zu Turingmaschinen}
+  \begin{enumerate}
+    \item Schon kleine Turingmaschinen sind diffizil.
+    \item Es gibt Turingmaschinen, deren Halteverhalten unabhängig von
+    Standard-Axiomen der Mathematik ist.
+    % Zum Beispiel: die TM, die nach einem Widerspruch in ZFC sucht.
+    % Wenn ZFC konsistent ist, dann hält diese nicht.
+    % Dieser Umstand ist aber nicht in ZFC beweisbar (Gödel II).
+    \pause
+
+    \item Alle sinnvollen Modelle für Berechenbarkeit stimmen für
+    Funktionen~$\NN \to \NN$ überein.
+    % Aber nicht für Funktionen höherer Ordnung!
+    \pause
+
+    \item Eine Menge ist genau dann rekursiv aufzählbar, wenn
+    sie durch eine~$\Sigma_1$-Aussage definierbar ist:
+    \[ \{ n \in \NN \,|\, \text{es gibt $m \in \NN$ mit $\heartsuit$} \}, \]
+    \pause
+    und wenn sie diophantisch ist:
+    \[ \{ n \in \NN \,|\, \text{die Gl. $f(n,x_1,\ldots,x_m) = 0$
+    besitzt eine Lösung} \}, \]
+    wobei $f$ ein Polynom mit ganzzahligen Koeffizienten ist.
+  \end{enumerate}
+\end{frame}
+
+
+\subsection{Ordinalzahlen}
+
+\begin{frame}{Ordinalzahlen messen Anordnung}
+\end{frame}
+
+
+\section{Erste Schritte mit Superturingmaschinen}
+
+\subsection{Definition}
+
+\begin{frame}{Was sind Superturingmaschinen?}
+\end{frame}
+
+
+\end{document}
+
+Ein Hoch auf Turingmaschinen
+* Einfachheit
+* Maschinelle Umsetzung klar
+* Robustheit des Konzepts
+* Äquivalenz zu anderen Modellen (aber nur für N --> N)
+* Verbindungen zur Logik
+* (aber: "TM sind nicht alles", siehe zum Beispiel R-Maschinen oder QTM)
+
+Crashkurs Ordinalzahlen
+
+Erste Schritte mit Superturingmaschinen
+* Definition
+* Beispielaufgaben
+* Halteproblem
+* Schwerere Aufgaben
+
+Besondere Phänomene
+* Ausbrechen aus Wiederholungen
+* Lost Melody
+* Abmessbare Ordinalzahlen
+
+Effektiver Topos
+
+"Allgemein sollten im Vortrag auch Maschinen vorgeführt werden, deren
+Halteverhalten von mengentheoretischen Eigenschaften abhängt. Zum Beispiel die
+Sache mit der Unabhängigkeit von BB(n) für kleine Wert von n von Adam Yedidia
+und Scott Aaronson. http://www.scottaaronson.com/busybeaver.pdf"
