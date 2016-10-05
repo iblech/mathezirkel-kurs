@@ -36,6 +36,14 @@ Oktober 2016}}
   \end{center}%
 }
 
+\newcommand{\code}[1]{%
+  \begin{center}%
+    \setlength{\fboxrule}{1pt}%
+    \setlength{\fboxsep}{8pt}%
+    {\fbox{\parbox{0.81\textwidth}{#1}}}%
+  \end{center}%
+}
+
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{headline}{}
 
@@ -154,8 +162,9 @@ Oktober 2016}}
 
   Wird eine Limesordinalzahl erreicht, so wird
   \begin{itemize}
-    \item die Maschine in einen designierten Zustand versetzt und
-    \item der "`lim sup"' der vorherigen Bandinhalte genommen.
+    \item die Maschine in einen designierten Zustand versetzt,
+    \item der Schreib-/Lesekopf auf den Anfang bewegt und
+    \item der "`lim sup"' aller vorherigen Bandinhalte genommen.
   \end{itemize}
 
   \begin{center}
@@ -185,6 +194,20 @@ Oktober 2016}}
   \hil{Aber:} Superturingmaschinen können nicht alle Funktionen $\NN \to \NN$ berechnen.
   % Es gibt~$2^{\aleph_0}$ viele Funktionen $\NN \to \NN$, aber nur $\aleph_0$
   % viele Superturingmaschinen.
+\end{frame}
+
+\begin{frame}{Wann halten Superturingmaschinen?}
+  Was macht folgende Superturingmaschine?
+
+  \code{Prüfe im Start- und Limeszustand, ob die aktuelle Zelle eine Eins enthält.
+  \begin{itemize}
+    \item Wenn ja, dann halte.
+    \item Wenn nein, dann flashe die Zelle und laufe ohne Unterlass nach
+    rechts.
+  \end{itemize}}
+  \pause
+
+  Sie scheint sich zu wiederholen, hält aber nach Schritt~$\omega^2$.
 \end{frame}
 
 
