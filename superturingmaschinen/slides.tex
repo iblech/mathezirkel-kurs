@@ -1,5 +1,6 @@
 \documentclass[12pt,compress,ngerman,utf8,t]{beamer}
 \usepackage[ngerman]{babel}
+\usepackage{calc}
 \usepackage{ragged2e,wasysym,multicol}
 \usepackage[protrusion=true,expansion=true]{microtype}
 
@@ -8,7 +9,7 @@
 \title[Superturingmaschinen]{Superturingmaschinen}
 \author[Ingo Blechschmidt]{\textcolor{white}{Ingo Blechschmidt}}
 \date[2016-10-04]{\vspace*{-4em}\ \\\textcolor{white}{\scriptsize Augsburger Curry-Club \\ 4.
-Oktober 2016\par}}
+Oktober 2016}}
 
 \usetheme{Warsaw}
 
@@ -81,6 +82,7 @@ Oktober 2016\par}}
 
 % http://www.ufointernationalproject.com/wp-content/uploads/2015/11/a23.jpg
 {\usebackgroundtemplate{\includegraphics[height=\paperheight]{images/interstellar}}
+\frame{\vspace*{12em}\titlepage}
 \frame{\tableofcontents}}
 
 \section{Erinnerungen}
@@ -137,13 +139,81 @@ Oktober 2016\par}}
 \end{frame}
 
 
-\section{Erste Schritte mit Superturingmaschinen}
+\section{Grundlagen zu Superturingmaschinen}
 
-\subsection{Definition}
+\subsection{Erste Schritte}
 
 \begin{frame}{Was sind Superturingmaschinen?}
+  Bei Superturingmaschinen ist die Zeitachse spannender:
+  \begin{itemize}
+    \item normal: $0,\ 1,\ 2,\ \ldots$
+    \item super:\phantom{rl} $0,\ 1,\ 2,\ \ldots,\ \omega,\ \omega + 1,\ \ldots,\ 2\omega,\ 2\omega
+    + 1,\ \makebox[\widthof{R}][l]{$\ldots\ldots\ldots\ldots\ldots\ldots$}$
+  \end{itemize}
+  \bigskip
+
+  Wird eine Limesordinalzahl erreicht, so wird
+  \begin{itemize}
+    \item die Maschine in einen designierten Zustand versetzt und
+    \item der "`lim sup"' der vorherigen Bandinhalte genommen.
+  \end{itemize}
+
+  \begin{center}
+    \includegraphics[width=0.35\textwidth]{images/ordinal-omega-squared}
+  \end{center}
 \end{frame}
 
+\begin{frame}{Was können Superturingmaschinen?}
+  \begin{itemize}
+    \item Alles, was gewöhnliche Turingmaschinen können.
+    \item Zahlentheoretische Behauptungen überprüfen:
+      \begin{itemize}
+        \item $\forall$ -- "`Für alle Zahlen gilt \ldots"'    % omega
+        \item $\exists$ -- "`Es gibt eine Zahl mit \ldots"'   % omega
+        \item $\forall\,\exists$ -- "`Für alle Zahlen~$n$
+        gibt es jeweils eine Zahl~$m$ mit \ldots"'            % 2 omega
+        \item $\exists\,\forall$ -- "`Es gibt eine Zahl~$n$,
+        sodass für alle Zahlen~$m$ gilt: \ldots"'             % omega
+        \item $\forall\,\exists\,\forall$                     % omega^2
+        \item $\exists\,\forall\,\exists$
+      \end{itemize}
+    \item Entscheiden, ob gewöhnliche Turingmaschinen halten.
+    \item Superturingmaschinen und verwandte Maschinen emulieren.
+  \end{itemize}
+  \pause
+
+  \hil{Aber:} Superturingmaschinen können nicht alle Funktionen $\NN \to \NN$ berechnen.
+  % Es gibt~$2^{\aleph_0}$ viele Funktionen $\NN \to \NN$, aber nur $\aleph_0$
+  % viele Superturingmaschinen.
+\end{frame}
+
+
+\section{Besondere Phänomene}
+
+\subsection{Stempelbare Ordinalzahlen}
+
+\begin{frame}{Stempelbare Ordinalzahlen}
+  Eine Ordinalzahl~$\alpha$ ist genau dann \hil{stempelbar} (clockable),
+  falls es eine Superturingmaschine gibt, die genau nach Schritt~$\alpha$ hält.
+
+  \begin{enumerate}
+    \item Jede endliche Ordinalzahl ist stempelbar.
+    \item Stempelbar sind außerdem: $\omega$, $2\omega$, $\omega^2$
+    \item Sind~$\alpha$ und~$\beta$ stempelbar, so auch~$\alpha+\beta$
+    und~$\alpha \cdot \beta$.
+    \item Nur abzählbar viele Ordinalzahlen sind stempelbar.
+    \pause
+    \item Jede rekursive Ordinalzahl ist stempelbar.
+    \item Beschleunigungssatz: Ist~$\alpha + n$ stempelbar, so auch~$\alpha$.
+    \pause
+    \item Große-Lücken-Satz: Für jede stempelbare Ordinalzahl~$\alpha$
+    gibt eine Lücke der Länge~$\geq \alpha$ in den stempelbaren Ordinalzahlen.
+    \item Viele-Lücken-Satz: Ist~$\alpha$ eine schreibbare Ordinalzahl,
+    so gibt es mindestens~$\alpha$ viele Lücken der Länge~$\geq \alpha$ in den
+    stempelbaren Ordinalzahlen.
+    % Lückenlose-Blöcke-Satz?
+  \end{enumerate}
+\end{frame}
 
 \end{document}
 
