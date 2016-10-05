@@ -32,6 +32,9 @@ http://math.andrej.com/wp-content/uploads/2014/03/real-world-realizability.pdf
 * Superturingmaschinen können aus Wiederholungen ausbrechen! Siehe Bemerkung
   nach Thm. 1.1 im genannten Artikel.
 
+  Zum Beispiel: Falls die Startzelle eine Eins enthält, dann höre auf.
+  Ansonsten flashe die Zelle und laufe ohne Ende nach Rechts.
+
 * STMs können das Halteproblem für gewöhnliche TMs entscheiden. Außerdem
   können sie den Wahrheitsgehalt jeder arithmetischen Aussage entscheiden.
 
