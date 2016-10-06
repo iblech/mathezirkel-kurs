@@ -25,8 +25,8 @@ http://math.andrej.com/wp-content/uploads/2014/03/real-world-realizability.pdf
 
 * Superturingmaschinen können nicht alle Prädikate auf N berechnen!
   Denn es gibt nur abzählbar viele Superturingmaschinen.
-  
-  Ein Beispiel für ein solches Prädikat ist vielleicht das Halteprädikat für
+
+  Ein Beispiel für ein solches Prädikat ist das Halteprädikat für
   Superturingmaschinen.
 
 * Superturingmaschinen können aus Wiederholungen ausbrechen! Siehe Bemerkung

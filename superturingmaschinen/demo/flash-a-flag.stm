@@ -1,0 +1,9 @@
+# Zustand  Zellinhalt  Bewegung  neuer Inhalt  neuer Zustand
+
+start      0           _         1             go
+start      1           _         _             halt
+
+limit      0           _         1             go
+limit      1           _         _             halt
+
+go         _           R         0             go

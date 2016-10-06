@@ -4,14 +4,18 @@
 \usepackage{ragged2e,wasysym,multicol}
 \usepackage[protrusion=true,expansion=true]{microtype}
 
-\hypersetup{colorlinks=true}
+\graphicspath{{images/}}
 
 \title[Superturingmaschinen]{Superturingmaschinen}
 \author[Ingo Blechschmidt]{\textcolor{white}{Ingo Blechschmidt}}
-\date[2016-10-04]{\vspace*{-4em}\ \\\textcolor{white}{\scriptsize Augsburger Curry-Club \\ 4.
-Oktober 2016}}
+\date[2016-10-04]{\vspace*{-4em}\ \\\textcolor{white}{\scriptsize Curry Club Augsburg \\ 4. Oktober 2016}}
 
-\usetheme{Warsaw}
+%\usetheme{Warsaw}
+\useinnertheme[shadow=true]{rounded}
+\useoutertheme{split}
+\usecolortheme{orchid}
+\usecolortheme{whale}
+\setbeamerfont{block title}{size={}}
 
 \useinnertheme{rectangles}
 
@@ -26,7 +30,13 @@ Oktober 2016}}
 \usepackage[T1]{fontenc}
 \usepackage{libertine}
 
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\R}{\mathrm{R}}
 \newcommand{\NN}{\mathbb{N}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\Eff}{\mathrm{Eff}}
+\newcommand{\TM}{\mathrm{TM}}
+\newcommand{\STM}{\mathrm{STM}}
 
 \newcommand{\slogan}[1]{%
   \begin{center}%
@@ -44,8 +54,20 @@ Oktober 2016}}
   \end{center}%
 }
 
+\newcommand{\explanation}[2]{
+  #1 \\
+  \qquad bedeutet: \\[0.4em]
+  \qquad\qquad \begin{minipage}{0.81\textwidth}
+  #2
+  \end{minipage}
+}
+
+\newcommand{\explanationspoiler}[3]{
+  \explanation{#1}{#2} \\[0.4em]
+  \qquad\qquad\qquad #3
+}
+
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{headline}{}
 
 \setbeamertemplate{title page}[default][colsep=-1bp,rounded=false,shadow=false]
 \setbeamertemplate{frametitle}[default][colsep=-2bp,rounded=false,shadow=false,center]
@@ -90,12 +112,13 @@ Oktober 2016}}
 
 % http://www.ufointernationalproject.com/wp-content/uploads/2015/11/a23.jpg
 {\usebackgroundtemplate{\includegraphics[height=\paperheight]{images/interstellar}}
-\frame{\vspace*{12em}\titlepage}
-\frame{\tableofcontents}}
+\frame{\vspace*{12em}\titlepage}}
+\frame{\tableofcontents}
 
 \section{Erinnerungen}
 
 \subsection{Gewöhnliche Turingmaschinen}
+
 \begin{frame}{Ein Hoch auf Turingmaschinen}
   \begin{center}
     \includegraphics[width=0.6\textwidth]{images/turing-machine}
@@ -114,7 +137,7 @@ Oktober 2016}}
 % mündlich: Es gibt Turingmaschinen mit 2 Zuständen und 4 Symbolen
 % sowie mit 3 Zuständen und 3 Symbolen, deren Halteverhalten unbekannt ist.
 
-\begin{frame}{Fun Facts zu Turingmaschinen}
+\begin{frame}{Lustiges zu Turingmaschinen}
   \begin{enumerate}
     \item Schon kleine Turingmaschinen sind diffizil.
     \item Es gibt Turingmaschinen, deren Halteverhalten unabhängig von
@@ -144,10 +167,31 @@ Oktober 2016}}
 \subsection{Ordinalzahlen}
 
 \begin{frame}{Ordinalzahlen messen Anordnung}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/ordinal-intuition}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Kardinalzahlen messen Anzahl}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{images/hilberts-hotel}
+  \end{center}
+
+  \begin{itemize}
+    \item Es gibt~$\aleph_0$ viele natürliche Zahlen.
+    \pause
+    \item $\aleph_0 + 1 = \aleph_0$, \quad
+    \pause
+    $\aleph_0 + \aleph_0 = \aleph_0$, \quad
+    \pause
+    $\aleph_0 \cdot \aleph_0 = \aleph_0$.
+    \pause
+    \item Es gibt mehr als~$\aleph_0$ viele reelle Zahlen.
+  \end{itemize}
 \end{frame}
 
 
-\section{Grundlagen zu Superturingmaschinen}
+\section[Grundlagen]{Grundlagen zu Superturingmaschinen}
 
 \subsection{Erste Schritte}
 
@@ -172,6 +216,9 @@ Oktober 2016}}
   \end{center}
 \end{frame}
 
+
+\subsection[Fähigkeiten]{Fähigkeiten von Superturingmaschinen}
+
 \begin{frame}{Was können Superturingmaschinen?}
   \begin{itemize}
     \item Alles, was gewöhnliche Turingmaschinen können.
@@ -183,35 +230,106 @@ Oktober 2016}}
         gibt es jeweils eine Zahl~$m$ mit \ldots"'            % 2 omega
         \item $\exists\,\forall$ -- "`Es gibt eine Zahl~$n$,
         sodass für alle Zahlen~$m$ gilt: \ldots"'             % omega
-        \item $\forall\,\exists\,\forall$                     % omega^2
-        \item $\exists\,\forall\,\exists$
+        \item $\forall\,\exists\,\forall$,                    % omega^2
+        $\exists\,\forall\,\exists$, \ldots
       \end{itemize}
     \item Entscheiden, ob gewöhnliche Turingmaschinen halten.
-    \item Superturingmaschinen und verwandte Maschinen emulieren.
+    \item \ \\[-1.2em]\mbox{Superturingmaschinen und verwandte Maschinen emulieren.}
+    \item $\Pi_1^1$- und $\Sigma_1^1$-Aussagen entscheiden.
   \end{itemize}
   \pause
 
-  \hil{Aber:} Superturingmaschinen können nicht alle Funktionen $\NN \to \NN$ berechnen.
+  \hil{Aber:} Superturingmaschinen können nicht alle Funktionen berechnen
+  und nicht jede 0/1-Folge aufs Band schreiben.
   % Es gibt~$2^{\aleph_0}$ viele Funktionen $\NN \to \NN$, aber nur $\aleph_0$
   % viele Superturingmaschinen.
 \end{frame}
 
+\begin{frame}{Wohlfundierung von Bäumen}
+  Ein Baum ist genau dann \hil{wohlfundiert}, wenn er keinen unendlichen Pfad enthält.
+
+  \begin{center}
+    \scalebox{0.4}{\input{images/nonwellfounded-tree.pdf_t}}
+  \end{center}
+
+  Superturingmaschinen können die Wohlfundiertheit von Bäumen entscheiden.
+\end{frame}
+
+\begin{frame}{Ein kleines Wunder}
+  Superturingmaschinen können~$\Pi_1^1$- und $\Sigma_1^1$-Aussagen entscheiden:
+  \[ \text{"`Für jede Funktion~$\NN \to \NN$ gilt \ldots"'} \]
+  \[ \text{"`Es gibt eine Funktion~$\NN \to \NN$ mit \ldots"'} \]
+\end{frame}
+
+
+\subsection[Laufzeit]{Laufzeit von Superturingmaschinen}
+
 \begin{frame}{Wann halten Superturingmaschinen?}
+  Schon nach \hil{abzählbar vielen} ($\aleph_0$ vielen) Schritten hält jede
+  Superturingmaschine entweder an oder wiederholt sich.
+  \bigskip
+  \pause
+
+  \emph{Sprechweise.} Eine Ordinalzahl ist genau dann \hil{abzählbar}, wenn sie
+  nur abzählbar viele Vorgänger hat.
+  \bigskip
+
+  Genau die abzählbaren Ordinalzahlen lassen sich in~$\RR$ einbetten.
+
+  \begin{center}
+    \includegraphics[width=0.35\textwidth]{images/ordinal-omega-squared}
+  \end{center}
+\end{frame}
+
+\note{
+  \emph{Notation.} Es ist~$\omega_1$ die erste Ordinalzahl, vor der
+  überabzählbar unendlich viele Ordinalzahlen kommen.
+  \bigskip
+
+  \justifying
+  \emph{Beweis.} Angenommen, eine Superturingmaschine hat vor
+  Schritt~$\omega_1$ noch nicht gehalten. Dann gibt es eine
+  Ordinalzahl~$\alpha_0 < \omega_1$, zu der sich alle Zellen, die sich bis
+  vor~$\omega_1$ stabilisieren werden, schon stabiliert haben. Ferner gibt es
+  Ordinalzahlen
+  \[ \alpha_0 < \alpha_1 < \alpha_2 < \cdots < \omega_1, \]
+  sodass sich zwischen~$\alpha_n$ und~$\alpha_{n+1}$ all die Zellen, die sich
+  bis~$\omega_1$ noch ändern werden, jeweils mindestens einmal ändern.
+  Sei~$\delta = \lim_{n \to \infty} \alpha_n$. Dann ist die Aufnahme der
+  Superturingmaschine bei~$\delta$ gleich der bei~$\omega_1$. Es ist~$\delta <
+  \omega_1$.
+  \par
+}
+
+
+\section{Besondere Phänomene}
+
+\subsection[Wiederholungen]{Ausbrechen aus Wiederholungen}
+
+\begin{frame}{\only<2->{Ausbrechen aus Wiederholungen}}
   Was macht folgende Superturingmaschine?
 
   \code{Prüfe im Start- und Limeszustand, ob die aktuelle Zelle eine Eins enthält.
   \begin{itemize}
     \item Wenn ja, dann halte.
-    \item Wenn nein, dann flashe die Zelle und laufe ohne Unterlass nach
+    \item Wenn nein, dann lass die Zelle aufleuchten und laufe ohne Unterlass nach
     rechts.
   \end{itemize}}
   \pause
 
   Sie scheint sich zu wiederholen, hält aber nach Schritt~$\omega^2$.
+  \bigskip
+  \pause
+
+  Eine Superturingmaschine wiederholt sich genau dann, wenn
+  \begin{itemize}
+    \item die Aufnahmen zu zwei
+    Limesordinalzeiten gleich sind und
+    \item zwischen diesen Zeiten keine Zellen, die
+    Null waren, zu Eins werden.
+  \end{itemize}
 \end{frame}
 
-
-\section{Besondere Phänomene}
 
 \subsection{Stempelbare Ordinalzahlen}
 
@@ -219,23 +337,178 @@ Oktober 2016}}
   Eine Ordinalzahl~$\alpha$ ist genau dann \hil{stempelbar} (clockable),
   falls es eine Superturingmaschine gibt, die genau nach Schritt~$\alpha$ hält.
 
-  \begin{enumerate}
+  \only<1>{\begin{itemize}
     \item Jede endliche Ordinalzahl ist stempelbar.
     \item Stempelbar sind außerdem: $\omega$, $2\omega$, $\omega^2$
     \item Sind~$\alpha$ und~$\beta$ stempelbar, so auch~$\alpha+\beta$
     und~$\alpha \cdot \beta$.
     \item Nur abzählbar viele Ordinalzahlen sind stempelbar.
-    \pause
     \item Jede rekursive Ordinalzahl ist stempelbar.
-    \item Beschleunigungssatz: Ist~$\alpha + n$ stempelbar, so auch~$\alpha$.
-    \pause
-    \item Große-Lücken-Satz: Für jede stempelbare Ordinalzahl~$\alpha$
+  \end{itemize}}
+
+  \only<2>{
+    \begin{block}{Beschleunigungssatz}
+    Ist~$\alpha + n$ stempelbar, so auch~$\alpha$.
+    \end{block}
+
+    \begin{block}{Große-Lücken-Satz}
+    Für jede stempelbare Ordinalzahl~$\alpha$
     gibt eine Lücke der Länge~$\geq \alpha$ in den stempelbaren Ordinalzahlen.
-    \item Viele-Lücken-Satz: Ist~$\alpha$ eine schreibbare Ordinalzahl,
+    \end{block}
+
+    \begin{block}{Viele-Lücken-Satz}
+    Ist~$\alpha$ eine schreibbare Ordinalzahl,
     so gibt es mindestens~$\alpha$ viele Lücken der Länge~$\geq \alpha$ in den
     stempelbaren Ordinalzahlen.
+    \end{block}
     % Lückenlose-Blöcke-Satz?
-  \end{enumerate}
+  }
+\end{frame}
+
+\begin{frame}{Erinnerung: Diagonalisierung}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{images/diagonalization}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Lückenexistenzsatz}
+  \mbox{Die erste Lücke nach jeder stempelbaren Ordinalzahl hat
+  Länge~$\omega$.}
+  \bigskip
+
+  \vspace*{-1.2em}
+  \justifying
+  \emph{Beweis.} Sei~$\alpha$ eine stempelbare Ordinalzahl.
+  Sei~$\beta$ die kleinste nicht-stempelbare Ordinalzahl nach~$\alpha$.
+  Dann gibt es keine stempelbaren Ordinalzahlen zwischen~$\beta$ und~$\beta +
+  \omega$. Und~$\beta + \omega$ selbst ist stempelbar durch folgendes Programm:
+  \code{
+    Emuliere alle Superturingmaschinen auf verzahnte Art und Weise.
+    Behalte dabei insbesondere das Programm im Auge, das nach Schritt~$\alpha$
+    halten wird. Sobald dieses gehalten hat, emuliere so lange weiter, bis der
+    Zeitpunkt~$\beta$ erreicht ist, zu dem keine Superturingmaschine hält, und halte
+    dann.}
+  Zur Erkennung waren aber noch~$\omega$ Schritte nötig.
+\end{frame}
+
+
+\subsection{Lost-Melody-Theorem}
+
+\begin{frame}{Lost-Melody-Theorem}
+  Es gibt Bandinhalte, die
+  \begin{itemize}
+    \item Superturingmaschinen nicht schreiben, aber
+    \item erkennen können.
+  \end{itemize}
+  \pause
+  \bigskip
+
+  \emph{Beweis.} Sei~$c$ eine Kodierung aller Ablauffolgen aller
+  Superturingmaschinen als unendliche 0/1-Folge.
+  \begin{itemize}
+    \item Dann ist~$c$ nicht schreibbar.
+    \item Aber~$c$ ist erkennbar.
+  \end{itemize}
+
+  \hfill\includegraphics[width=0.4\textwidth]{images/diagonalization}
+\end{frame}
+
+
+\section[Effektive Topoi]{Der effektive Topos}
+
+\subsection[Alternativuniversen]{Mathematische Alternativuniversen}
+
+\begin{frame}{Mathematische Alternativuniversen}
+  \justifying
+  Zu jedem Rechenmodell~$\M$ gibt es einen
+  \hil{Topos}~$\Eff(\M)$, in den wir mit \hil{Realisierbarkeitstheorie}
+  hineinschauen können.
+  \bigskip
+  \pause
+
+  \explanation{$\Eff(\TM) \models \text{"`Für jede Zahl~$n$ gibt es eine
+  Primzahl~$p > n$."'}$}{Es gibt eine Turingmaschine, die eine Zahl~$n$ vom Band einliest
+  und eine Primzahl~$p > n$ als Ausgabe aufs Band schreibt.}
+  \bigskip
+
+  \explanation{$\Eff(\TM) \models \text{"`Jede Zahl besitzt eine
+  Primfaktorzerlegung."'}$}{Es gibt eine Turingmaschine, die eine Zahl~$n$ vom
+  Band einliest und eine Liste von Primzahlen, deren Produkt~$n$ ist, aufs Band
+  schreibt.}
+\end{frame}
+
+
+\subsection[Intuitionistische Logik]{Das Wunder intuitionistischer Logik}
+
+\begin{frame}{Was gilt in Alternativuniversen?}
+  \hil{Metatheorem:} Jede Aussage, die sich \hil{intuitionistisch} beweisen
+  lässt, gilt in allen Topoi.
+
+  \begin{block}{Schon gewusst?}
+    Intuitionistische Logik ist wie klassische Logik, nur ohne:
+    \begin{itemize}
+      \item Axiom vom ausgeschlossenen Dritten (LEM): $\varphi \vee \neg\varphi$
+      \item Axiom der Doppelnegationselimination (DNE): $\neg\neg\varphi \Rightarrow \varphi$
+    \end{itemize}
+    So sind Widerspruchsbeweise nicht pauschal möglich.
+  \end{block}
+  \pause
+
+  \explanation{$\Eff(\TM) \models \varphi \vee \neg\varphi$}{Es gibt eine
+  Turingmaschine, die entweder einen Zeugen von~$\varphi$ oder einen Zeugen
+  von~$\neg\varphi$ berechnet.}
+\end{frame}
+
+
+\subsection[Tautologien]{Effektive Bedeutung klassischer Tautologien}
+
+\begin{frame}{LEM für Gleichheit von Funktionen}
+  \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
+  "`Für jede Funktion~$f : \NN \to \NN$ gilt: Entweder ist~$f$ die Nullfunktion
+  oder nicht."'\end{minipage}$}{Es gibt eine Turingmaschine, die eine Kodierung
+  einer Turingmaschine~$M$, welche eine Funktion~$\NN \to \NN$ berechnet, als
+  Eingabe vom Band liest und dann entscheidet, ob~$M$ stets Null als Ausgabe
+  produziert oder nicht.}{Das stimmt nicht.}
+  \bigskip
+  \pause
+
+  In~$\Eff(\STM)$ stimmt die Aussage.
+\end{frame}
+
+\begin{frame}{LEM fürs Halten von Turingmaschinen}
+   \explanationspoiler{$\Eff(\TM) \models \text{"`Jede Turingmaschine~$M$ hält
+   oder hält nicht."'}$}{Es gibt eine Turingmaschine, die die Kodierung einer
+   Turingmaschine~$M$ als Eingabe vom Band liest und dann entscheidet, ob~$M$
+   hält oder nicht.}{Das stimmt nicht.}
+\end{frame}
+
+\begin{frame}{Markovs Prinzip}
+  \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
+  "`Für jede Funktion~$f : \NN \to \NN$, welche nicht die Nullfunktion ist,
+  gibt es eine Stelle~$n \in \NN$ mit~$f(n) \neq 0$."'\end{minipage}$}{Es gibt
+  eine Turingmaschine, die eine Kodierung einer Turingmaschine~$M$, welche eine
+  Funktion~$\NN \to \NN$ und zwar nicht die Nullfunktion berechnet, als Eingabe
+  vom Band liest und dann eine Zahl~$n$ aufs Band schreibt, sodass~$M$ bei
+  Eingabe von~$n$ nicht Null aufs Band schreibt.}{Das stimmt!}
+\end{frame}
+
+\begin{frame}{Church--Turing-These}
+  \justifying
+  Die \hil{Church--Turing-These} besagt: Lässt sich eine Funktion~$f : \NN \to
+  \NN$ in der "`realen Welt berechnen"', so gibt es eine Turingmaschine,
+  die~$f$ berechnet.
+  \bigskip
+
+  \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
+  "`Jede Funktion~$f : \NN \to \NN$ lässt sich durch eine Turingmaschine
+  berechnen."'\end{minipage}$}{Es gibt eine Turingmaschine, die eine Kodierung
+  einer Turingmaschine~$M$, welche eine Funktion~$f : \NN \to \NN$ berechnet, als
+  Eingabe vom Band liest und dann die Kodierung einer Turingmaschine,
+  welche~$f$ berechnet, aufs Band schreibt.}{Das ist trivial!}
+  \bigskip
+  \pause
+
+  In~$\Eff(\lambda)$ stimmt die Aussage nicht.
 \end{frame}
 
 \end{document}
