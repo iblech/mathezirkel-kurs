@@ -72,11 +72,6 @@
 \setbeamertemplate{title page}[default][colsep=-1bp,rounded=false,shadow=false]
 \setbeamertemplate{frametitle}[default][colsep=-2bp,rounded=false,shadow=false,center]
 
-\newcommand*\oldmacro{}%
-\let\oldmacro\insertshorttitle%
-\renewcommand*\insertshorttitle{%
-  \oldmacro\hfill\insertframenumber\,/\,\inserttotalframenumber\hfill}
-
 \newcommand{\hil}[1]{{\usebeamercolor[fg]{item}{\textbf{#1}}}}
 \setbeamertemplate{frametitle}{%
   \vskip1em%
@@ -312,7 +307,7 @@
 
 \subsection[Wiederholungen]{Ausbrechen aus Wiederholungen}
 
-\begin{frame}{\only<2->{Ausbrechen aus Wiederholungen}}
+\begin{frame}{Ausbrechen aus Wiederholungen}
   Was macht folgende Superturingmaschine?
 
   \code{Prüfe im Start- und Limeszustand, ob die aktuelle Zelle eine Eins enthält.
@@ -514,7 +509,40 @@
   \bigskip
   \pause
 
-  In~$\Eff(\lambda)$ stimmt die Aussage nicht.
+  In~$\Eff(\STM)$ und~$\Eff(\lambda)$ stimmt die Aussage nicht.
+\end{frame}
+
+\begin{frame}{Seltsame Größenverhältnisse}
+  Es gibt keine Surjektion~$\NN \to \NN^\NN$; die Menge~$\NN^\NN$ der
+  Funktionen~$\NN \to \NN$ ist viel größer als~$\NN$.
+  \bigskip
+
+  In klassischer Logik folgt: Es gibt auch keine Injektion~$\NN^\NN \to \NN$.
+  Das drückt dieselbe Intuition über das Größenverhältnis aus.
+  Aber in~$\Eff(\STM)$ gibt es eine solche Injektion!
+  \bigskip
+
+  \explanation{$\Eff(\STM) \models \text{"`Es gibt eine Injektion~$\NN^\NN \to
+  \NN$"'}$}{Es gibt eine Superturingmaschine, welche bei Eingabe einer
+  Kodierung einer Superturingmaschine~$A$, welche eine Funktion~$\NN \to \NN$ berechnet,
+  eine Zahl~$n(A)$ berechnet und aufs Band schreibt. Dabei darf nur dann~$n(A)
+  = n(B)$ sein, wenn~$A$ und~$B$ dieselbe Funktion berechnen.}
+\end{frame}
+
+\begin{frame}{Seltsame Größenverhältnisse}
+  \justifying
+  Die Superturingmaschine
+  \code{
+    Lese die Kodierung einer Superturingmaschine~$A$ vom Band ein.
+    Gehe nun alle natürlichen Zahlen~$n$ der Reihe nach durch und prüfe
+    jeweils, ob die~$n$-te Superturingmaschine dasselbe Verhalten zeigt
+    wie~$A$. Da~$A$ terminiert, ist das entscheidbar. Gebe die kleinste so
+    gefundene Zahl~$n$ aus.
+  }
+  schreibt bei Eingabe einer Kodierung einer Superturingmaschine~$A$, welche
+  eine Funktion~$\NN \to \NN$ berechnet, eine Zahl~$n(A)$ aufs Band. Dabei ist
+  nur dann~$n(A) = n(B)$, wenn~$A$ und~$B$ dieselbe Funktion berechnen.
+  \par
 \end{frame}
 
 \end{document}
