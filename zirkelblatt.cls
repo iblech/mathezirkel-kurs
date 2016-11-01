@@ -13,7 +13,7 @@
 \LoadClass[a4paper,ngerman]{scrartcl}
 
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[ngerman]{babel}
+\RequirePackage[english,ngerman]{babel}
 \RequirePackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
 \RequirePackage{environ}
 \RequirePackage{framed}
