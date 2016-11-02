@@ -135,7 +135,7 @@ my %courses = (
   a_05 => {
     name => "Präsenzzirkel bei Dominik und Hannah (5./6. Klasse, Mi 16:30)",
     text => PRAESENZ,
-    mail => 'd.schmucker1995@gmail.com',  # Hannah fehlt
+    mail => 'd.schmucker1995@gmail.com,hanhant@web.de',
     anrede => "Lieber Dominik, liebe Hannah",
     gruss  => ANON_GRUSS,
   },
@@ -156,7 +156,7 @@ my %courses = (
   a_08 => {
     name => "Präsenzzirkel bei Tim, Alexander und Benjamin (8./9. Klasse, Fr 16:30)",
     text => PRAESENZ,
-    mail => 'tim@timbaumann.info,alex.m.s@gmx.de',  # Ben fehlt
+    mail => 'tim@timbaumann.info,alex.m.s@gmx.de,bennymoeckl@icloud.com',
     anrede => "Lieber Tim, lieber Alex, lieber Ben",
     gruss  => ANON_GRUSS,
   },
