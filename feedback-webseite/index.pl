@@ -297,7 +297,7 @@ TMPL
   }
 
   open my $fh, "|-",
-    "mail", "-s", "Rückmeldung zu deinem Mathezirkel",
+    "mail", "-s", "Rueckmeldung zu deinem Mathezirkel",
     $courses{$cid}{mail} or die $!;
   print $fh $msg or die $1;
   close $fh or die $1;
