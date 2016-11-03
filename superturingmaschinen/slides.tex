@@ -8,7 +8,7 @@
 
 \title[Superturingmaschinen]{Superturingmaschinen}
 \author[Ingo Blechschmidt]{\textcolor{white}{Ingo Blechschmidt}}
-\date[2016-10-04]{\vspace*{-4em}\ \\\textcolor{white}{\scriptsize Curry Club Augsburg \\ 4. Oktober 2016}}
+\date[2016-10-04]{\vspace*{-4em}\ \\\textcolor{white}{\scriptsize Curry Club Augsburg \\ 4. Oktober 2016 und 3. November 2016}}
 
 %\usetheme{Warsaw}
 \useinnertheme[shadow=true]{rounded}
@@ -37,6 +37,7 @@
 \newcommand{\Eff}{\mathrm{Eff}}
 \newcommand{\TM}{\mathrm{TM}}
 \newcommand{\STM}{\mathrm{STM}}
+\newcommand{\RW}{\mathrm{RW}}
 
 \newcommand{\slogan}[1]{%
   \begin{center}%
@@ -57,7 +58,7 @@
 \newcommand{\explanation}[2]{
   #1 \\
   \qquad bedeutet: \\[0.4em]
-  \qquad\qquad \begin{minipage}{0.81\textwidth}
+  \qquad\qquad \begin{minipage}{0.84\textwidth}
   #2
   \end{minipage}
 }
@@ -158,6 +159,21 @@
   \end{enumerate}
 \end{frame}
 
+\note{\justifying
+  Eine~$\Sigma_1$-Aussage ist eine Aussage der Form
+  \[ \text{"`Es gibt~$m \in \NN$ mit $\heartsuit$."',} \]
+  wobei in der Teilaussage~$\heartsuit$ nur noch \emph{beschränkte
+  Quantifikation} vorkommen darf -- also Formeln wie
+  \[ \text{"`Für alle Zahlen kleiner als~$\cdots$ gilt \ldots"'} \]
+  oder
+  \[ \text{"`Es gibt eine Zahl kleiner als~$\cdots$ mit \ldots"'} \]
+  und nicht Formeln wie
+  \[ \text{"`Für alle Zahlen gilt \ldots"'} \]
+  und
+  \[ \text{"`Es gibt eine Zahl mit \ldots"'}. \]
+  Die Teilaussage~$\heartsuit$ muss also in endlicher Zeit überprüfbar sein.\par
+}
+
 
 \subsection{Ordinalzahlen}
 
@@ -166,6 +182,11 @@
     \includegraphics[width=\textwidth]{images/ordinal-intuition}
   \end{center}
 \end{frame}
+
+\note{\centering
+  \includegraphics[width=0.7\textwidth]{images/ordinal-omega-omega}
+  \par
+}
 
 \begin{frame}{Kardinalzahlen messen Anzahl}
   \begin{center}
@@ -229,7 +250,7 @@
         $\exists\,\forall\,\exists$, \ldots
       \end{itemize}
     \item Entscheiden, ob gewöhnliche Turingmaschinen halten.
-    \item \ \\[-1.2em]\mbox{Superturingmaschinen und verwandte Maschinen emulieren.}
+    \item \ \\[-1.2em]\mbox{Superturingmaschinen und verwandte Maschinen simulieren.}
     \item $\Pi_1^1$- und $\Sigma_1^1$-Aussagen entscheiden.
   \end{itemize}
   \pause
@@ -284,21 +305,27 @@
 
 \note{
   \emph{Notation.} Es ist~$\omega_1$ die erste Ordinalzahl, vor der
-  überabzählbar unendlich viele Ordinalzahlen kommen.
+  \emph{überabzählbar} unendlich viele Ordinalzahlen kommen.
+  \bigskip
+
+  \emph{Behauptung.}
+  Hat eine Superturingmaschine nach \emph{abzählbar vielen} Schritten noch
+  nicht angehalten, so hält sie nie.
   \bigskip
 
   \justifying
   \emph{Beweis.} Angenommen, eine Superturingmaschine hat vor
   Schritt~$\omega_1$ noch nicht gehalten. Dann gibt es eine
   Ordinalzahl~$\alpha_0 < \omega_1$, zu der sich alle Zellen, die sich bis
-  vor~$\omega_1$ stabilisieren werden, schon stabiliert haben. Ferner gibt es
+  vor~$\omega_1$ stabilisieren werden, schon stabilisiert haben. Ferner gibt es
   Ordinalzahlen
   \[ \alpha_0 < \alpha_1 < \alpha_2 < \cdots < \omega_1, \]
   sodass sich zwischen~$\alpha_n$ und~$\alpha_{n+1}$ all die Zellen, die sich
   bis~$\omega_1$ noch ändern werden, jeweils mindestens einmal ändern.
-  Sei~$\delta = \lim_{n \to \infty} \alpha_n$. Dann ist die Aufnahme der
-  Superturingmaschine bei~$\delta$ gleich der bei~$\omega_1$. Es ist~$\delta <
-  \omega_1$.
+  Sei~$\delta = \lim_{n \to \infty} \alpha_n$. Das ist eine Ordinalzahl~$<
+  \omega_1$, also eine abzählbare Ordinalzahl. Dann ist die Aufnahme der
+  Superturingmaschine bei~$\delta$ gleich der bei~$\omega_1$. Die
+  Superturingmaschine wiederholt sich also.
   \par
 }
 
@@ -366,6 +393,13 @@
   }
 \end{frame}
 
+\note{\justifying
+  Kurioserweise gibt es auch den \emph{Lückenlose-Blöcke-Satz} (Gapless Blocks
+  Theorem): Es gibt in den Ordinalzahlen "`lange Abschnitte"' von lauter
+  stempelbaren Ordinalzahlen.
+  \par
+}
+
 \begin{frame}{Erinnerung: Diagonalisierung}
   \begin{center}
     \includegraphics[width=0.8\textwidth]{images/diagonalization}
@@ -384,9 +418,9 @@
   Dann gibt es keine stempelbaren Ordinalzahlen zwischen~$\beta$ und~$\beta +
   \omega$. Und~$\beta + \omega$ selbst ist stempelbar durch folgendes Programm:
   \code{
-    Emuliere alle Superturingmaschinen auf verzahnte Art und Weise.
+    Simuliere alle Superturingmaschinen auf verzahnte Art und Weise.
     Behalte dabei insbesondere das Programm im Auge, das nach Schritt~$\alpha$
-    halten wird. Sobald dieses gehalten hat, emuliere so lange weiter, bis der
+    halten wird. Sobald dieses gehalten hat, simuliere so lange weiter, bis der
     Zeitpunkt~$\beta$ erreicht ist, zu dem keine Superturingmaschine hält, und halte
     dann.}
   Zur Erkennung waren aber noch~$\omega$ Schritte nötig.
@@ -444,6 +478,7 @@
 \begin{frame}{Was gilt in Alternativuniversen?}
   \hil{Metatheorem:} Jede Aussage, die sich \hil{intuitionistisch} beweisen
   lässt, gilt in allen Topoi.
+  \bigskip
 
   \begin{block}{Schon gewusst?}
     Intuitionistische Logik ist wie klassische Logik, nur ohne:
@@ -453,11 +488,10 @@
     \end{itemize}
     So sind Widerspruchsbeweise nicht pauschal möglich.
   \end{block}
-  \pause
 
-  \explanation{$\Eff(\TM) \models \varphi \vee \neg\varphi$}{Es gibt eine
-  Turingmaschine, die entweder einen Zeugen von~$\varphi$ oder einen Zeugen
-  von~$\neg\varphi$ berechnet.}
+  %\explanation{$\Eff(\TM) \models \varphi \vee \neg\varphi$}{Es gibt eine
+  %Turingmaschine, die entweder einen Zeugen von~$\varphi$ oder einen Zeugen
+  %von~$\neg\varphi$ berechnet.}
 \end{frame}
 
 
@@ -467,7 +501,7 @@
   \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
   "`Für jede Funktion~$f : \NN \to \NN$ gilt: Entweder ist~$f$ die Nullfunktion
   oder nicht."'\end{minipage}$}{Es gibt eine Turingmaschine, die eine Kodierung
-  einer Turingmaschine~$M$, welche eine Funktion~$\NN \to \NN$ berechnet, als
+  einer Turingmaschine~$M$, welche eine Funktion $\NN \to \NN$ berechnet, als
   Eingabe vom Band liest und dann entscheidet, ob~$M$ stets Null als Ausgabe
   produziert oder nicht.}{Das stimmt nicht.}
   \bigskip
@@ -477,10 +511,14 @@
 \end{frame}
 
 \begin{frame}{LEM fürs Halten von Turingmaschinen}
-   \explanationspoiler{$\Eff(\TM) \models \text{"`Jede Turingmaschine~$M$ hält
-   oder hält nicht."'}$}{Es gibt eine Turingmaschine, die die Kodierung einer
-   Turingmaschine~$M$ als Eingabe vom Band liest und dann entscheidet, ob~$M$
-   hält oder nicht.}{Das stimmt nicht.}
+  \explanationspoiler{$\Eff(\TM) \models \text{"`Jede Turingmaschine~$M$ hält
+  oder hält nicht."'}$}{Es gibt eine Turingmaschine, die die Kodierung einer
+  Turingmaschine~$M$ als Eingabe vom Band liest und dann entscheidet, ob~$M$
+  hält oder nicht.}{Das stimmt nicht.}
+  \bigskip
+  \pause
+
+  In~$\Eff(\STM)$ stimmt die Aussage.
 \end{frame}
 
 \begin{frame}{Markovs Prinzip}
@@ -488,9 +526,10 @@
   "`Für jede Funktion~$f : \NN \to \NN$, welche nicht die Nullfunktion ist,
   gibt es eine Stelle~$n \in \NN$ mit~$f(n) \neq 0$."'\end{minipage}$}{Es gibt
   eine Turingmaschine, die eine Kodierung einer Turingmaschine~$M$, welche eine
-  Funktion~$\NN \to \NN$ und zwar nicht die Nullfunktion berechnet, als Eingabe
+  Funktion $\NN \to \NN$ und zwar nicht die Nullfunktion berechnet, als Eingabe
   vom Band liest und dann eine Zahl~$n$ aufs Band schreibt, sodass~$M$ bei
-  Eingabe von~$n$ nicht Null aufs Band schreibt.}{Das stimmt!}
+  Eingabe von~$n$ nicht Null aufs Band schreibt.}{Das stimmt! (Unbeschränkte
+  Suche.)}
 \end{frame}
 
 \begin{frame}{Church--Turing-These}
@@ -505,44 +544,81 @@
   berechnen."'\end{minipage}$}{Es gibt eine Turingmaschine, die eine Kodierung
   einer Turingmaschine~$M$, welche eine Funktion~$f : \NN \to \NN$ berechnet, als
   Eingabe vom Band liest und dann die Kodierung einer Turingmaschine,
-  welche~$f$ berechnet, aufs Band schreibt.}{Das ist trivial!}
+  welche~$f$ berechnet, aufs Band schreibt.}{Das ist trivial! "`cat"' ist die
+  gesuchte Maschine.}
   \bigskip
   \pause
 
   In~$\Eff(\STM)$ und~$\Eff(\lambda)$ stimmt die Aussage nicht.
 \end{frame}
 
-\begin{frame}{Seltsame Größenverhältnisse}
-  Es gibt keine Surjektion~$\NN \to \NN^\NN$; die Menge~$\NN^\NN$ der
-  Funktionen~$\NN \to \NN$ ist viel größer als~$\NN$.
-  \bigskip
+\begin{frame}{Automatische Stetigkeit}
+  \justifying
+  Im üblichen Universum stimmt folgende Aussage \hil{nicht}:
+  \[ \text{"`Jede Funktion~$f : \RR \to \RR$ ist stetig."'} \]
+  Eine Funktion~$f$ heißt genau dann \hil{stetig}, falls für jede Zahl~$x$ zur
+  Bestimmung von endlich vielen Nachkomma\-stel\-len von~$f(x)$ schon
+  endlich viele Nachkommastellen von~$x$ genügen.\par
 
-  In klassischer Logik folgt: Es gibt auch keine Injektion~$\NN^\NN \to \NN$.
-  Das drückt dieselbe Intuition über das Größenverhältnis aus.
-  Aber in~$\Eff(\STM)$ gibt es eine solche Injektion!
-  \bigskip
+  \centering
+  \includegraphics[width=0.5\textwidth]{images/plot-1}
+  \includegraphics[width=0.5\textwidth]{images/plot-2}
+  \par
+  \pause
 
-  \explanation{$\Eff(\STM) \models \text{"`Es gibt eine Injektion~$\NN^\NN \to
-  \NN$"'}$}{Es gibt eine Superturingmaschine, welche bei Eingabe einer
-  Kodierung einer Superturingmaschine~$A$, welche eine Funktion~$\NN \to \NN$ berechnet,
-  eine Zahl~$n(A)$ berechnet und aufs Band schreibt. Dabei darf nur dann~$n(A)
-  = n(B)$ sein, wenn~$A$ und~$B$ dieselbe Funktion berechnen.}
+  \justifying
+  Stimmt in~$\Eff(\TM)$. \pause
+  Stimmt in~$\Eff(\RW)$, falls black boxes und private Kommunikationskanäle
+  möglich sind und in endlicher Zeit nur endlich viele Rechenschritte
+  ausgeführt werden können.
+  \par
 \end{frame}
 
 \begin{frame}{Seltsame Größenverhältnisse}
-  \justifying
-  Die Superturingmaschine
-  \code{
-    Lese die Kodierung einer Superturingmaschine~$A$ vom Band ein.
-    Gehe nun alle natürlichen Zahlen~$n$ der Reihe nach durch und prüfe
-    jeweils, ob die~$n$-te Superturingmaschine dasselbe Verhalten zeigt
-    wie~$A$. Da~$A$ terminiert, ist das entscheidbar. Gebe die kleinste so
-    gefundene Zahl~$n$ aus.
+  \only<1-2>{
+    Es gibt keine Surjektion~$\NN \to \NN^\NN$; die Menge~$\NN^\NN$ der
+    Funktionen~$\NN \to \NN$ ist viel größer als~$\NN$.
+    \bigskip
+
+    In klassischer Logik folgt: Es gibt auch keine Injektion~$\NN^\NN \to \NN$.
+    Das drückt dieselbe Intuition über das Größenverhältnis aus.
+    \bigskip
+
+    {\centering
+    \includegraphics[width=0.8\textwidth]{images/groessenverhaeltnisse}
+    \par}
+
+    \pause
+    Aber in~$\Eff(\STM)$ gibt es eine solche Injektion!
   }
-  schreibt bei Eingabe einer Kodierung einer Superturingmaschine~$A$, welche
-  eine Funktion~$\NN \to \NN$ berechnet, eine Zahl~$n(A)$ aufs Band. Dabei ist
-  nur dann~$n(A) = n(B)$, wenn~$A$ und~$B$ dieselbe Funktion berechnen.
-  \par
+
+  \only<3>{
+    {\centering
+    \includegraphics[width=0.7\textwidth]{images/groessenverhaeltnisse}
+    \par}
+
+    \explanation{$\Eff(\STM) \models \text{"`Es gibt eine Injektion~$\NN^\NN \to
+    \NN$."'}$}{Es gibt eine Superturingmaschine, welche bei Eingabe einer
+    Kodierung einer Superturingmaschine~$A$, welche eine Funktion~$\NN \to \NN$ berechnet,
+    eine Zahl~$n(A)$ berechnet und aufs Band schreibt. Dabei darf nur dann~$n(A)
+    = n(B)$ sein, wenn~$A$ und~$B$ dieselbe Funktion berechnen.}
+  }
+
+  \only<4>{
+    \justifying
+    Die Superturingmaschine
+    \code{
+      Lese die Kodierung einer Superturingmaschine~$A$ vom Band ein.
+      Gehe nun alle natürlichen Zahlen~$n$ der Reihe nach durch und prüfe
+      jeweils, ob die~$n$-te Superturingmaschine dasselbe Verhalten zeigt
+      wie~$A$. Da~$A$ terminiert, ist das entscheidbar. Gebe die kleinste so
+      gefundene Zahl~$n$ aus.
+    }
+    schreibt bei Eingabe einer Kodierung einer Superturingmaschine~$A$, welche
+    eine Funktion~$\NN \to \NN$ berechnet, eine Zahl~$n(A)$ aufs Band. Dabei ist
+    nur dann~$n(A) = n(B)$, wenn~$A$ und~$B$ dieselbe Funktion berechnen.
+    \par
+  }
 \end{frame}
 
 \end{document}
