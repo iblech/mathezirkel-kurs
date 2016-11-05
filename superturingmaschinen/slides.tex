@@ -3,6 +3,7 @@
 \usepackage{calc}
 \usepackage{ragged2e,wasysym,multicol}
 \usepackage[protrusion=true,expansion=true]{microtype}
+\hypersetup{colorlinks=true}
 
 \graphicspath{{images/}}
 
@@ -38,6 +39,7 @@
 \newcommand{\TM}{\mathrm{TM}}
 \newcommand{\STM}{\mathrm{STM}}
 \newcommand{\RW}{\mathrm{RW}}
+\newcommand{\lambdaC}{\lambda\mathrm{C}}
 
 \newcommand{\slogan}[1]{%
   \begin{center}%
@@ -472,6 +474,31 @@
   schreibt.}
 \end{frame}
 
+\note{\justifying
+  Wenn man ganz normal Mathematik betreibt, so arbeitet man im "`Topos der
+  Mengen"'. Es gibt aber auch andere mathematische Universen neben diesem. In
+  diesen anderen Topoi gelten teilweise leicht andere logische Gesetze als die
+  uns vertrauten; somit sieht die mathematische Landschaft in manchen Topoi
+  etwas anders aus als die bekannte Landschaft im Topos der Mengen.
+  \bigskip
+
+  Jede geometrische Form (jeder topologischer Raum, jeder "`Situs"') gibt
+  Anlass zu jeweils einem Topos (den "`Topos der Garben über der Form"');
+  die entstehenden Topoi heißen "`Grothendieck-Topoi"', da es Grothendieck war,
+  der dieses Konzept in den 1960er Jahren einführte. Topoi anderer Art sind die
+  effektiven Topoi, die es für jeden Rechenmodell gibt: gewöhnliche
+  Turingmaschinen ($\TM$), Superturingmaschinen ($\STM$), untypisiertes
+  $\lambda$-Kalkül ($\lambdaC$), Maschinen in
+  der realen Welt ($\RW$), \ldots\par
+  \bigskip
+
+  Neben der logischen Sicht gibt es auch eine geometrische Sicht auf Topoi:
+  Topoi kann man sich als verallgemeinerte Arten von Räumen vorstellen. Etwa
+  gibt es das Konzept des \emph{Punkts} eines Topos, das von offenen,
+  abgeschlossenen und dichten \emph{Untertopoi} und das von stetigen
+  Abbildungen zwischen Topoi.\par
+}
+
 
 \subsection[Intuitionistische Logik]{Das Wunder intuitionistischer Logik}
 
@@ -492,11 +519,103 @@
     \end{itemize}
     So sind Widerspruchsbeweise nicht pauschal möglich.
   \end{block}
-
-  %\explanation{$\Eff(\TM) \models \varphi \vee \neg\varphi$}{Es gibt eine
-  %Turingmaschine, die entweder einen Zeugen von~$\varphi$ oder einen Zeugen
-  %von~$\neg\varphi$ berechnet.}
 \end{frame}
+
+\begin{frame}{Wertschätzung intuitionistischer Logik}
+  Der Verzicht aufs Axiom vom ausgeschlossenen Dritten erscheint zunächst
+  schade, ist es doch ein gelegentlich hilfreiches Axiom. Allerdings:
+
+  \begin{itemize}\justifying
+    \item Man benötigt das Axiom seltener, als man vielleicht denkt.
+    \item Der Verzicht ist gut für die mentale Hygiene.
+    \item Mit intuitionistischer Logik kann man feinere Unterschiede abbilden.
+    \item Aus intuitionistischen Beweisen kann man stets Programme extrahieren,
+    die die bewiesenen Behauptungen bezeugen.
+    \item \hil{Der Verzicht auf LEM ermöglicht die Hinzunahme
+    kurioser unkonventioneller Axiome.}
+  \end{itemize}
+\end{frame}
+
+\note{\justifying
+  In klassischer Logik ist man gewohnt, doppelte Verneinungen sofort
+  wegzustreichen. Da das in intuitionistischer Logik nicht möglich ist, muss
+  man etwas mehr sprachliche Sorgfalt walten lassen. Insbesondere muss man
+  zwischen echten Widerspruchsbeweisen und Beweisen von negierten Aussagen
+  unterscheiden, in denen ebenfalls das Wort "`Widerspruch"' vorkommt:
+
+  \begin{itemize}
+  \item\justifying
+  \emph{Beweis einer negierten Aussage (intuitionistisch zulässig):}
+  Wir möchten~$\neg\psi$ zeigen. Angenommen, die Aussage~$\psi$ würde stimmen.
+  Dann \ldots, das wäre ein Widerspruch. Somit~$\neg\psi$.
+
+  In intuitionistischer Logik (wie auch in klassischer Logik) ist~$\neg\psi$
+  nämlich als die Implikation $(\psi \Rightarrow \bot)$ definiert.
+
+  \item \emph{Beweis durch Widerspruch (intuitionistisch nicht pauschal
+  möglich):} Angenommen, die zu zeigende Aussage~$\varphi$ wäre falsch. Dann
+  \ldots, das wäre ein Widerspruch. Somit ist~$\varphi$ wahr.
+
+  Das intuitionistisch zulässige Teil in diesem Argument zeigt nur,
+  dass~$\varphi$ \emph{nicht nicht} gilt: $\neg\neg\varphi$.\par
+  \end{itemize}
+}
+
+\note{\justifying
+  Vor ein paar Jahren tauchte ein Video von Kate Moss auf, das sie beim
+  Konsumieren von Drogen zeigte. Aus dem Video war klar, dass es sich dabei entweder um
+  Drogen von einem gewissen Typ~$A$ oder von einem gewissen Typ~$B$ handelte;
+  aber es gab keinen direkten Beleg für einen der beiden Typen.
+  Kate Moss wurde nicht verfolgt; in diesem Sinn verwendete das Justizsystem
+  also intuitionistische Logik. Siehe
+  \href{http://blog.sigfpe.com/2008/06/drugs-kate-moss-and-intuitionistic.html}{ein
+  Blog-Post von Dan Piponi} über das Thema.
+  \bigskip
+
+  Intuitionistische Logik kann feinere Unterschiede abbilden als klassische Logik.
+  Wenn wir zum Beispiel wissen, dass sich unser Haustürschlüssel irgendwo in
+  der Wohnung befinden muss (da wir ihn letzte Nacht verwendet haben, um die Tür
+  aufzusperren), wir ihn momentan aber nicht finden, so können wir intuitionistisch
+  nicht die Aussage vertreten, dass es eine Stelle gäbe, an der der Schlüssel
+  liege. Denn dazu müssten wir in der Lage sein, einen expliziten Zeugen dieser
+  Existenzbehauptung (also den Aufenthaltsort des Schlüssels) anzugeben.
+  Wir können intuitionistisch nur die durch doppelte Negation abgeschwächte Aussage
+  vertreten.
+  (Die Beispiele hinken etwas, da sie sich auf den Kenntnisstand von gewissen
+  Personen beziehen.)
+  \par
+}
+
+\note{\justifying
+  Nebenbei bemerkt: Intuitionistische Mathematikerinnen behaupten \emph{nicht}, dass
+  das Axiom vom ausgeschlossenen Dritten falsch sei (d.\,h. dass seine Negation
+  gelten würde). Sie setzen es nur nicht in seiner vollen Allgemeinheit voraus.
+  \bigskip
+
+  Tatsächlich lassen sich manche Instanzen des Axioms auch intuitionistisch zeigen:
+  Zum Beispiel folgt mit Induktion, dass jede natürliche Zahl gleich Null oder
+  ungleich Null ist.
+  \bigskip
+
+  Die analoge Behauptung für reelle Zahlen lässt sich intuitionistisch nicht
+  zeigen. Das hat eine Parallele in der Programmierung: Bekanntlich ist es
+  unschicklich, Fließkommazahlen auf Gleichheit zu testen, während das bei
+  Ganzzahlen kein Problem ist. Das wird auf einer späteren Folie noch näher
+  ausgeführt.
+  \par
+}
+
+\note{\justifying
+  Eine letzte Bemerkung. Philosophinnen untersuchen nicht nur was \emph{wahr}
+  ist, sondern auch was stimmen \emph{sollte}, was \emph{möglich} ist, was
+  \emph{notwendig} ist, was jemand \emph{weiß} oder was jemand \emph{glaubt}.
+  Das formalisiert man mit \emph{modalen Operatoren}.
+  \bigskip
+
+  Als Mathematikerin kann man daher manchmal neidisch werden. In
+  intuitionistischer Logik aber gibt es durchaus auch eine Vielzahl von modalen
+  Operatoren! Die Doppelnegation ist das wichtigste Beispiel.\par
+}
 
 
 \subsection[Tautologien]{Effektive Bedeutung klassischer Tautologien}
@@ -530,6 +649,41 @@
   In~$\Eff(\STM)$ stimmt die Aussage.
 \end{frame}
 
+\begin{frame}{LEM für Gleichheit reeller Zahlen}
+  \justifying
+  Die Aussage
+  \[ \text{"`Jede reelle Zahl ist Null oder ungleich Null."'} \]
+  ist in intuitionistischer Logik äquivalent zu
+  \[ \text{"`Jede Turingmaschine hält oder hält nicht."'}, \]
+  gilt also nicht in~$\Eff(\TM)$, aber in~$\Eff(\STM)$.
+  \bigskip
+
+  Denn zu einer Turingmaschine~$M$ kann man die reelle Zahl~$0{,}000\ldots$
+  betrachten, deren~$n$-te Nachkommastelle genau dann eine~$1$ ist, wenn~$M$
+  nach Schritt~$n$ hält, und sonst~$0$ ist.
+  \bigskip
+
+  Umgekehrt kann man zu einer reelen Zahl~$x$ diejenige Turingmaschine
+  betrachten, die die Nachkommaziffern von~$x$ nach einer von Null
+  verschiedenen Ziffer absucht und genau dann hält, wenn sie eine solche Ziffer
+  gefunden hat.\par
+\end{frame}
+
+\note{\justifying
+  Stimmt die Aussage in~$\Eff(\RW)$, dem effektiven Topos zu Maschinen der
+  realen Welt? Das heißt: Ist es möglich, in der realen Welt ein Halteorakel zu
+  bauen? Also eine Maschine, welche die Beschreibung einer Turingmaschine einliest
+  und dann korrekt ausgibt, ob die Turingmaschine hält oder nicht?
+  \bigskip
+
+  Da es hier nicht um das Halteproblem für Maschinen der realen Welt geht
+  (welches für Maschinen der realen Welt wegen des üblichen Arguments nicht
+  entscheidbar ist), sondern nur um das Halteproblem für Turingmaschinen, ist
+  die Antwort "`ja"' nicht prinzipiell ausgeschlossen. Vielleicht sind Tricks
+  mit schwarzen Löchern und relativistischer Zeitdilatation möglich.
+  \par
+}
+
 \begin{frame}{Markovs Prinzip}
   \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
   "`Für jede Funktion~$f : \NN \to \NN$, welche nicht die Nullfunktion ist,
@@ -543,7 +697,7 @@
 
 \begin{frame}{Church--Turing-These}
   \justifying
-  Die \hil{Church--Turing-These} besagt: Lässt sich eine Funktion~$f : \NN \to
+  Die \hil{Church--Turing-These} besagt: Lässt sich eine Funktion $f : \NN \to
   \NN$ in der "`realen Welt berechnen"', so gibt es eine Turingmaschine,
   die~$f$ berechnet.
   \bigskip
@@ -558,8 +712,32 @@
   \bigskip
   \pause
 
-  In~$\Eff(\STM)$ und~$\Eff(\lambda)$ stimmt die Aussage nicht.
+  In~$\Eff(\STM)$ und~$\Eff(\lambdaC)$ stimmt die Aussage nicht.
 \end{frame}
+
+\note{\justifying
+  Der effektive Topos zu Turingmaschinen ist also eine schöne Umgebung für die
+  Informatik, da in ihm \emph{jede Funktion~$\NN \to \NN$ berechenbar ist} und
+  unberechenbare Funktionen aussortiert wurden.
+  \bigskip
+
+  Vielleicht vermutet man hierbei einen Widerspruch. Sind nicht etwa folgende
+  Funktionen unberechenbar? Was verhindert ihre Existenz im effektiven Topos?
+  \begin{align*}
+    H(n) &= \begin{cases}
+      1, & \text{falls die~$n$-te Turingmaschine hält,} \\
+      0, & \text{sonst.}
+    \end{cases} \\
+    BB(n) &= \text{höchste Anzahl Schritte, die eine haltende Turingmaschine} \\
+    &\qquad\quad \text{mit~$n$ Zuständen durchführt, bevor sie hält.}
+  \end{align*}
+
+  Um zu zeigen, dass~$H$ und~$BB$ beides totale Funktionen~$\NN \to \NN$ sind
+  -- und nur auf solche bezieht sich die Church--Turing-These --, ist LEM nötig!
+  Für~$H$, damit die Fallunterscheidung getroffen werden kann. Für~$BB$, weil
+  implizit das Lemma verwendet wurde, dass eine subendliche Menge natürlicher
+  Zahlen ein größtes Element enthält.\par
+}
 
 \begin{frame}{Automatische Stetigkeit}
   \justifying
