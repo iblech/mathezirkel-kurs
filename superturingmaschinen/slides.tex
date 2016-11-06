@@ -1,7 +1,7 @@
 \documentclass[12pt,compress,ngerman,utf8,t]{beamer}
 \usepackage[ngerman]{babel}
 \usepackage{calc}
-\usepackage{ragged2e,wasysym,multicol}
+\usepackage{ragged2e,wasysym,multicol,mathtools}
 \usepackage[protrusion=true,expansion=true]{microtype}
 \hypersetup{colorlinks=true}
 
@@ -31,6 +31,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{libertine}
 
+\renewcommand{\_}{\mathpunct{.}\,}
+\newcommand{\BB}{\mathbb{B}}
 \newcommand{\M}{\mathcal{M}}
 \newcommand{\R}{\mathrm{R}}
 \newcommand{\NN}{\mathbb{N}}
@@ -631,7 +633,7 @@
   \pause
 
   \emph{Bemerkung:} Aus externer Sicht ist das Objekt~$\NN^\NN$ des effektiven
-  Topos die Menge der \hil{berechenbaren} Funktionen.
+  Topos die Menge der \hil{berechenbaren} Funktionen~$\NN \to \NN$.
   \bigskip
   \pause
 
@@ -695,6 +697,89 @@
   Suche.)}
 \end{frame}
 
+\begin{frame}{Das Auswahlaxiom}
+  \justifying
+  Eine Menge~$X$ ist genau dann \hil{projektiv}, wenn für jede Menge~$Y$ und
+  jede Aussage~$\varphi(x,y)$ mit Parametern~$x \in X$, $y \in Y$ gilt:
+  \begin{center}\parbox{0.86\textwidth}{
+    Wenn es zu jedem~$x \in X$ ein~$y \in Y$ mit~$\varphi(x,y)$ gibt,
+    so gibt es eine Abbildung~$f : X \to Y$ mit~$\varphi(x,f(x))$ für alle~$x \in X$.
+  }\end{center}
+  % \[ \forall x \in X\_ \exists y \in Y\_ \varphi(x,y) \ \Longrightarrow\
+  %   \exists f : X \to Y\_ \forall x \in X\_ \varphi(x,f(x)) \]
+  Das \hil{Auswahlaxiom} klassischer Mathematik besagt, dass dort jede Menge
+  projektiv ist.
+
+  \begin{itemize}
+    \item In~$\Eff(\TM)$ ist~$\NN$ projektiv,~$\NN^\NN$ aber nicht.
+    \item In~$\Eff(\STM)$ sind~$\NN$ und~$\NN^\NN$ projektiv.
+    \item In~$\Eff(\RW)$ ist~$\NN^\NN$ projektiv, falls Blackboxes möglich
+    sind.
+  \end{itemize}
+\end{frame}
+
+\note{\justifying
+  Auch intuitionistisch ist jede endliche Menge projektiv. Der Beweis, dass~$X =
+  \{ 1, \ldots, n \}$ projektiv ist, geht so: Nach Voraussetzung existiert
+  für jede Zahl~$i = 1,\ldots,n$ je mindestens ein Element~$y_i \in Y$
+  mit~$\varphi(i, y_i)$. Also ist~$f : X \to Y$ mit~$i \mapsto y_i$ eine
+  Abbildung der gewünschten Art.
+  \bigskip
+
+  Der Beweis lässt sich allerdings nicht auf den Fall übertragen, dass die
+  Menge~$X$ unendlich groß ist. Der Grund dafür ist etwas subtil. Es hängt
+  damit zusammen, dass Beweise nicht unendlich lang sein dürfen und dass in
+  einem Geltungsbereich (Scope) nur endlich viele Variablen vorkommen
+  dürfen.\par
+}
+
+\note{\justifying
+  Dass die Aussage des Auswahlaxioms nicht trivial ist, zeigt sich,
+  wenn man die Aussage~"`$\NN^\NN$ ist projektiv"' in~$\Eff(\TM)$
+  interpretiert. Aus
+  \begin{center}\parbox{0.86\textwidth}{
+    Es gibt eine Turingmaschine~$M$, die die Kodierung einer
+    Turingmaschine~$P$, welche eine Funktion~$f : \NN \to \NN$ berechnet, vom Band
+    einliest und die Kodierung eines Elements~$M(P) \in Y$ zusammen mit einem
+    Zeugen von~$\varphi(f,M(P))$ ausgibt.
+  }\end{center}
+  folgt nämlich nicht, dass:
+  \begin{center}\parbox{0.86\textwidth}{
+    Es gibt eine berechenbare Abbildung~$g$ von der Menge der berechenbaren
+    Funktionen~$f : \NN \to \NN$ in die Menge~$Y$ sodass für alle solche
+    Funktionen~$f$ in~$\Eff(\TM)$ gilt, dass~$\varphi(f,g(f))$.
+  }\end{center}
+  Man könnte denken, dass die gesuchte berechenbare Abbildung~$g$ einfach
+  von~$M$ berechnet wird. Aber das stimmt im Allgemeinen nicht. Denn ist~$f :
+  \NN \to \NN$ eine durch eine Turingmaschine~$P$ berechenbare Funktion, so
+  hängt das Element~$M(P)$ im Allgemeinen von der konkreten Umsetzung von~$f$
+  durch~$P$ ab. Verschiedene Umsetzungen können verschiedene Elemente geben.
+  Bei einer Abbildung, wie es~$g$ werden soll, darf das nicht sein.\par
+}
+
+\note{\justifying
+  Man kann zeigen (schöne Übungsaufgabe): In~$\Eff(\M)$ ist eine Assembly~$X$
+  genau dann projektiv, wenn es eine~$\M$-Maschine~$A$ gibt, die kanonische
+  Darstellungen für alle Elemente von~$X$ berechnet: Ist~$r$ eine Kodierung
+  eines Elements~$x$ von~$X$, so ist auch~$A(r)$ eine Kodierung von~$x$; und
+  ist~$s$ eine weitere Kodierung von~$x$, so ist~$A(r) = A(s)$.
+
+  \begin{itemize}
+    \item\justifying Für~$X = \NN^\NN$ aus~$\Eff(\TM)$ gibt es keine solche Maschine.
+    \item Für~$X = \NN^\NN$ aus~$\Eff(\STM)$ gibt es eine solche Maschine:
+    Lese die Kodierung einer Superturingmaschine~$R$, welche eine Funktion~$f :
+    \NN \to \NN$ berechnet, vom Band ein. Simuliere dann auf verzahnte Art und
+    Weise alle Superturingmaschinen. Sobald eine gefunden ist, deren
+    Ausgabeverhalten dem von~$R$ gleicht, stoppe und gebe die Kodierung der
+    gefundenen Superturingmaschine aus.
+    \item Für~$X = \NN^\NN$ aus~$\Eff(\RW)$ gibt es eine solche Maschine, falls
+    in der realen Welt Blackboxes möglich sind: Die gesucht Maschine nimmt eine
+    Maschine der realen Welt entgegen und verpackt sie in eine Blackbox,
+    sodass die Kommunikation mit der Maschine nur noch über ihr Interface
+    möglich und ihre innere Funktionsweise unbeobachtbar ist.
+  \end{itemize}
+}
+
 \begin{frame}{Church--Turing-These}
   \justifying
   Die \hil{Church--Turing-These} besagt: Lässt sich eine Funktion $f : \NN \to
@@ -739,6 +824,34 @@
   Zahlen ein größtes Element enthält.\par
 }
 
+\note{\justifying
+  Die Aussage, dass \emph{jede} Funktion~$\NN \to \NN$ durch eine
+  Turingmaschine berechenbar ist, ist auch als \emph{formale
+  Church--Turing-These} bekannt.
+  \begin{itemize}
+    \item\justifying In~$\Eff(\STM)$ gilt sie nicht, denn aus einer
+    Superturingmaschine, welche eine Funktion~$\NN \to \NN$ berechnet, kann man
+    nur in den seltensten Fällen in eine gewöhnliche Turingmaschine mit
+    demselben Ausgabeverhalten umwandeln.
+    \item In~$\Eff(\lambdaC)$ gilt die formale Church--Turing-These ebenfalls
+    nicht, aber aus einem anderen Grund. Die These lautet in diesem Fall:
+    \begin{center}\parbox{0.83\textwidth}{
+      Es gibt einen~$\lambda$-Term~$T$, sodass für jeden~$\lambda$-Term~$u$,
+      welcher eine Funktion~$f : \NN \to \NN$ berechnet, der~$\lambda$-Term~$T\ u$
+      die Kodierung einer Turingmaschine ist, welche~$f$ berechnet.
+    }\end{center}
+    Der ominöse Term~$T$ kann sein Argument~$u$ nur auf Eingaben auswerten, er
+    hat aber keinen Zugriff auf die syntaktische Struktur von~$u$.
+    (Konventionsgemäß werden in~$\Eff(\TM)$ Turingmaschinen höherer Ordnung
+    dadurch realisiert, dass sie als Argument Kodierungen von
+    Turingmaschinen erhalten. Beim~$\lambda$-Kalkül ist der Umweg über
+    syntaktische Kodierungen nicht nötig und wird in~$\Eff(\lambdaC)$ auch
+    nicht verfolgt.)
+  \end{itemize}
+}
+
+% \begin{document}
+
 \begin{frame}{Automatische Stetigkeit}
   \justifying
   Im üblichen Universum stimmt folgende Aussage \hil{nicht}:
@@ -755,11 +868,94 @@
 
   \justifying
   Stimmt in~$\Eff(\TM)$. \pause
-  Stimmt in~$\Eff(\RW)$, falls black boxes und private Kommunikationskanäle
+  Stimmt in~$\Eff(\RW)$, falls private Kommunikationskanäle
   möglich sind und in endlicher Zeit nur endlich viele Rechenschritte
-  ausgeführt werden können.
-  \par
+  ausgeführt werden können.\par
 \end{frame}
+
+\note{\justifying
+  Gibt es nicht offensichtlich unstetige Funktionen? Wie etwa die
+  Signumfunktion?
+  \[ \mathrm{sgn} : \RR \to \RR, \quad
+    x \mapsto \begin{cases}
+      -1, & \text{falls $x < 0$,} \\
+      0,  & \text{falls $x = 0$,} \\
+      1,  & \text{falls $x > 0$.}
+    \end{cases}
+  \]
+  Ohne Verwendung von LEM ist die Situation nicht so trivial. Ohne es kann man
+  nämlich nicht zeigen, dass diese Zuordnung eine auf ganz~$\RR$ definierte
+  Funktion definiert: Dazu benötigte man das Lemma, dass jede reelle Zahl
+  kleiner, gleich oder größer als Null ist. Dieses Lemma impliziert aber die
+  schwächere Aussage, dass jede reelle Zahl gleich Null oder ungleich Null ist.
+  Wir haben schon gesehen, dass diese Aussage in~$\Eff(\TM)$ nicht stimmt.
+  \medskip
+
+  Ohne LEM definiert obige Zuordnung nur eine Funktion~$M \to \RR$, wobei~$M =
+  \{ x \in \RR \,|\, x < 0 \vee x = 0 \vee x > 0 \}$. Über solche Funktionen
+  geht es hier aber nicht.
+  \par
+}
+
+\note{\justifying
+  Die in der Mathematik üblichen Definitionen des Konzepts reeller Zahlen sind
+  in~$\Eff(\TM)$, $\Eff(\STM)$ und~$\Eff(\RW)$ alle zueinander äquivalent
+  (obwohl sie es unter bloßer Verwendung von intuitionistischer Logik nicht
+  sind).\bigskip
+
+  Aus externer Sicht ist eine reelle Zahl in jedem der drei Fälle durch
+  eine Maschine gegeben, die in sich konsistente, beliebig genaue
+  Approximationen produziert. Etwa kann man eine solche Maschine nach
+  Approximationen auf drei, sieben und zehn Ziffern fragen und die Antworten
+  \[ 3.1417777777, \quad 3.1415926777 \quad\text{und}\quad 3.1415926535 \]
+  erhalten.
+  \bigskip
+
+  Maschinen, welche andere, aber genauso gute Approximationen
+  liefern, stellen dieselbe reelle Zahl dar.\par
+}
+
+\note{\justifying\footnotesize
+  Die Aussage~"`Alle Funktionen~$\RR \to \RR$ sind stetig."' des effektiven
+  Topos bedeutet: Es gibt eine Maschine~$M$, die
+  \begin{enumerate}
+    \item\justifying eine Maschine~$A$, welche eine Funktion~$f : \RR \to \RR$
+    berechnet,
+    \item eine Maschine~$X$, welche eine reelle Zahl~$x$ repräsentiert, sowie
+    \item eine natürliche Zahl~$n$
+  \end{enumerate}
+  als Argumente nimmt und eine natürliche Zahl~$m$ mit folgender Eigenschaft
+  ausgibt: Für jede reelle Zahl~$\tilde x$, deren erste~$m$ Ziffern mit denen
+  von~$x$ übereinstimmen, stimmen die ersten~$n$ Ziffern von~$f(x)$ mit denen
+  von~$f(\tilde x)$ überein.\smallskip
+
+  Im Fall der realen Welt kann man wie folgt versuchen, eine derartige
+  Maschine~$M$ zu konstruieren. Gegeben~$A$, $X$ und~$n$, wendet sie~$A$ auf
+  eine leichte Variante~$X'$ von~$X$ an: Die Maschine~$X'$ soll dasselbe
+  Ausgabeverhalten zeigen wie~$X$, allerdings bei jedem Aufruf über einen
+  privaten Kommunikationskanal an~$M$ die Information übermitteln, wie viele
+  Stellen abgefragt wurden. Da~$X'$ dasselbe Ausgabeverhalten wie~$X$ zeigt,
+  muss~$A$ per Vertrag auf~$X'$ genauso reagieren wie auf~$X$.\smallskip
+
+  Wenn nun in endlicher Zeit nur endlich viele Rechenschritte durchführbar sind, so
+  muss~$M$ nur warten, bis~$A$ die Zahl~$f(x)$ auf~$n$ Stellen genau berechnet
+  hat, und kann dann nachsehen, wie viele Stellen~$A$ für diese Berechnung
+  benötigt hat. Für jede andere Zahl, die~$x$ in diesen Stellen gleicht,
+  produziert somit~$A$ dieselben~$n$ Ziffern.\par
+}
+
+\note{\justifying
+  Kein Fan von reellen Zahlen? Dasselbe Phänomen zeigt sich auch bei Funktionen
+  von anderen Typen. Zum Beispiel für Funktionen~$f : \BB^\NN \to \BB$. Dabei
+  ist~$\BB = \{ 0, 1 \}$ die Menge der Bools. Eine solche Funktion heißt genau
+  dann \emph{stetig}, wenn es für jedes Argument~$x \in \BB^\NN$ (also jede
+  Funktion~$x : \NN \to \BB$) eine natürliche Zahl~$m$ gibt, sodass~$f(x)$ nur
+  von den ersten~$m$ Funktionswerten von~$x$ abhängt.\bigskip
+
+  In~$\Eff(\TM)$ stimmt es, dass jede solche Funktion~$f$ stetig ist. Das ist
+  der tiefere Grund dafür, wieso die "`scheinbar unmöglichen
+  Haskell-Programme"' funktionieren.\par
+}
 
 \begin{frame}{Seltsame Größenverhältnisse}
   \only<1-2>{
@@ -796,10 +992,9 @@
     Die Superturingmaschine
     \code{
       Lese die Kodierung einer Superturingmaschine~$A$ vom Band ein.
-      Gehe nun alle natürlichen Zahlen~$n$ der Reihe nach durch und prüfe
-      jeweils, ob die~$n$-te Superturingmaschine dasselbe Verhalten zeigt
-      wie~$A$. Da~$A$ terminiert, ist das entscheidbar. Gebe die kleinste so
-      gefundene Zahl~$n$ aus.
+      Simuliere nun alle Superturingmaschinen auf verzahnte Art und Weise.
+      Sobald eine gefunden ist, deren Ausgabeverhalten dem von~$A$ gleicht,
+      höre auf und gebe die Nummer~$n$ dieser Maschine aus.
     }
     schreibt bei Eingabe einer Kodierung einer Superturingmaschine~$A$, welche
     eine Funktion~$\NN \to \NN$ berechnet, eine Zahl~$n(A)$ aufs Band. Dabei ist
@@ -807,6 +1002,49 @@
     \par
   }
 \end{frame}
+
+\note{\justifying
+  Die von der beschriebenen Superturingmaschine ausgegebene Zahl~$n$ hängt vom
+  Ausgabeverhalten von~$A$, der gewählten Reihenfolge aller
+  Superturingmaschinen und von den Details der Verzahnung ab -- nicht aber von
+  der Implementierung von~$A$.\medskip
+
+  Die Suche terminiert, da es ja mindestens eine Superturingmaschine gibt, die
+  bei Eingabe einer jeden natürlichen Zahl terminiert und dabei dasselbe
+  Ausgabeverhalten wie~$A$ zeigt: $A$ selbst.\par
+}
+
+\note{\justifying
+  Weil er so schön ist, hier der intuitionistisch zulässige Beweis, dass es
+  keine Surjektion~$\NN \to \NN^\NN$ gibt:\bigskip
+
+  Sei~$s : \NN \to \NN^\NN$ irgendeine Abbildung. Wir möchten nachweisen,
+  dass~$s$ nicht surjektiv ist. Dazu betrachten wir die Abbildung~$f : \NN \to
+  \NN$ mit
+  \[ f(n) \vcentcolon= s(n)(n) + 1. \]
+  Dieses Element~$f \in \NN^\NN$ kann von~$s$ nicht getroffen werden: Wenn es
+  eine natürliche Zahl~$m$ mit~$s(m) = f$ gäbe, so wäre
+  \[ s(m)(m) = f(m) = s(m)(m) + 1. \]
+}
+
+\note{\justifying
+  Bei dieser Thematik ist es wichtig, nicht die externe und die interne Sicht
+  durcheinanderzubringen. Sonst landet man bei \emph{Skolems Paradox}: Wie kann
+  es sein, dass es in~$\Eff(\TM)$ keine Surjektion~$\NN \to \NN^\NN$ gibt, wo
+  doch~$\NN^\NN$ nur berechenbare Funktionen enthält und es von diesen nur
+  abzählbar viele gibt?\bigskip
+
+  Die Auflösung ist: Es stimmt zwar, dass aus externer Sicht das
+  Objekt~$\NN^\NN$ von~$\Eff(\TM)$, das ist aus externer Sicht die Menge der
+  berechenbaren Funktionen~$\NN \to \NN$, abzählbar ist und dass es daher eine
+  Surjektion (sogar Bijektion)~$\NN \to \NN^\NN$ gibt.\bigskip
+
+  Diese Surjektion, und auch jede andere, ist aber entweder berechenbar, daher
+  nicht in~$\Eff(\TM)$ enthalten, oder zwar berechenbar, aber so beschaffen,
+  dass es keinen berechenbaren Zeugen ihrer Surjektivitätgibt. Daher
+  sieht~$\NN^\NN$ aus der Sicht von~$\Eff(\TM)$ wie eine überabzählbare Menge
+  aus, in Übereinstimmung mit Cantors intuitionistisch zulässigen Beweis.\par
+}
 
 \end{document}
 
