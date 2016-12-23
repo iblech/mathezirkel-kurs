@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Orbital mechanics</title>
+
+    <style type="text/css" media="screen">
+      body {
+        background: #fff;
+        font-family: Verdana, sans-serif;
+        font-size: 1em;
+        line-height: 1.3em;
+        margin: 10px;
+      }
+      #page { background: #ffffff; margin: 50px; border: 2px solid #c0c0c0; padding: 10px; }
+      #header { background: #4b6983; border: 2px solid #7590ae; text-align: center; padding: 10px; color: #ffffff; }
+      #header h1 { color: #ffffff; }
+      #body { padding: 10px; }
+
+      th { text-align: right; }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <canvas id="canvas" style="position: absolute; left: 20px; top: 20px; z-index: 0">
+        Dieser Browser kann kein HTML5-canvas-Element darstellen.
+      </canvas>
+    </div>
+
+    <script type="text/javascript" src="model.js"></script>
+    <script type="text/javascript" src="camera.js"></script>
+    <script type="text/javascript" src="ui.js"></script>
+
+    <script type="text/javascript">//<![CDATA[
+      var canvas = document.getElementById('canvas');
+      var ctx    = canvas.getContext('2d');
+      canvas.setAttribute('width', 1000);
+      canvas.setAttribute('height', 1000);
+      ctx.lineWidth = 4;
+
+      var ui = new UI(new Model(), new Camera(), ctx);
+      ui.run();
+    //]]</script>
+  </body>
+</html>
