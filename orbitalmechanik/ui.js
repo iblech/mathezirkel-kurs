@@ -51,7 +51,8 @@ UI.prototype.handleMouse = function (wait, abort, ev) {
     this.drawJustBody(body);
     if(ev.type !== "click") return;
 
-    var bodyPixelPos = this.toPixelCoordinates(this.model.bodies[body]["pos"]);
+    var bodyPos      = this.model.bodies[body]["pos"];
+    var bodyPixelPos = this.toPixelCoordinates(bodyPos);
 
     var wasPaused = this.pauseTime;
     this.pause();
@@ -59,33 +60,44 @@ UI.prototype.handleMouse = function (wait, abort, ev) {
     wait(function (ev) {
         this.canvas1.clearRect(0,0, this.width, this.height);
 
+        var mousePos = this.fromPixelCoordinates([ev.offsetX, ev.offsetY]);
+        var delta    = [ mousePos[0] - bodyPos[0], mousePos[1] - bodyPos[1] ];
+        var vel      = this.model.bodies[body]["vel"];
+
+        if(ev.shiftKey) {   // tangent direction
+            var gamma = (delta[0] * vel[0] + delta[1] * vel[1]) / (vel[0]*vel[0] + vel[1]*vel[1]);
+            delta = [ gamma * vel[0], gamma * vel[1] ];
+        } else if(ev.ctrlKey) {   // normal direction
+            var gamma = (delta[0] * vel[0] + delta[1] * vel[1]) / (vel[0]*vel[0] + vel[1]*vel[1]);
+            delta = [ delta[0] - gamma * vel[0], delta[1] - gamma * vel[1] ];
+        }
+
         if(ev.which == 27) {
             if(! wasPaused) this.unpause();
             return abort();
         } else if(ev.type === "mousemove") {
             this.canvas1.beginPath();
-            this.arrowFromTo(this.canvas1, bodyPixelPos[0], bodyPixelPos[1], ev.offsetX, ev.offsetY);
+            this.arrowFromTo(this.canvas1, [bodyPixelPos[0], bodyPixelPos[1]], this.toPixelCoordinates([bodyPos[0]+delta[0], bodyPos[1]+delta[1]]));
             this.canvas1.strokeStyle = "black";
             this.canvas1.lineWidth = 3;
             this.canvas1.stroke();
         } else if(ev.type === "click") {
-            var pos = this.fromPixelCoordinates([ev.offsetX, ev.offsetY]);
             var scale = 1e-3;
-            this.model.applyThrust(body, [scale * (pos[0] - this.model.bodies[body]["pos"][0]), scale * (pos[1] - this.model.bodies[body]["pos"][1])]);
+            this.model.applyThrust(body, [scale * delta[0], scale * delta[1]]);
             this.unpause();
             return abort();
         }
     });
 };
 
-UI.prototype.arrowFromTo = function (canvas, x0,y0, x1,y1) {
+UI.prototype.arrowFromTo = function (canvas, src, dst) {
     var len   = 20;
-    var angle = Math.atan2(y1 - y0, x1 - x0);
-    canvas.moveTo(x0, y0);
-    canvas.lineTo(x1, y1);
-    canvas.lineTo(x1 - len*Math.cos(angle-Math.PI/6), y1 - len*Math.sin(angle-Math.PI/6));
-    canvas.moveTo(x1, y1);
-    canvas.lineTo(x1 - len*Math.cos(angle+Math.PI/6), y1 - len*Math.sin(angle+Math.PI/6));
+    var angle = Math.atan2(dst[1] - src[1], dst[0] - src[0]);
+    canvas.moveTo(src[0], src[1]);
+    canvas.lineTo(dst[0], dst[1]);
+    canvas.lineTo(dst[0] - len*Math.cos(angle-Math.PI/6), dst[1] - len*Math.sin(angle-Math.PI/6));
+    canvas.moveTo(dst[0], dst[1]);
+    canvas.lineTo(dst[0] - len*Math.cos(angle+Math.PI/6), dst[1] - len*Math.sin(angle+Math.PI/6));
 };
 
 UI.prototype.bodyNearPixelCoordinates = function (pos) {
