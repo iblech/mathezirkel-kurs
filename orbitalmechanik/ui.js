@@ -69,12 +69,18 @@ UI.prototype.handleMouse = function (wait, abort, ev) {
         var delta    = [ mousePos[0] - bodyPos[0], mousePos[1] - bodyPos[1] ];
         var vel      = this.model.bodies[body]["vel"];
 
-        if(ev.shiftKey) {   // tangent direction
+        if(ev.shiftKey) {  // tangent direction
             var gamma = (delta[0] * vel[0] + delta[1] * vel[1]) / (vel[0]*vel[0] + vel[1]*vel[1]);
             delta = [ gamma * vel[0], gamma * vel[1] ];
-        } else if(ev.ctrlKey) {   // normal direction
+        } else if(ev.ctrlKey) {  // normal direction
             var gamma = (delta[0] * vel[0] + delta[1] * vel[1]) / (vel[0]*vel[0] + vel[1]*vel[1]);
             delta = [ delta[0] - gamma * vel[0], delta[1] - gamma * vel[1] ];
+        }
+
+        if(ev.altKey) {  // length quantization
+            var len   = Math.sqrt(delta[0]*delta[0] + delta[1]*delta[1]);
+            var gamma = Math.round(len / 3e6) * 3e6 / len;
+            delta = [ gamma * delta[0], gamma * delta[1] ];
         }
 
         if(ev.which == 27) {
