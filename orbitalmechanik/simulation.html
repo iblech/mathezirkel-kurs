@@ -23,23 +23,21 @@
 
   <body>
     <div>
-      <canvas id="canvas" style="position: absolute; left: 20px; top: 20px; z-index: 0">
+      <canvas id="canvas-0" style="position: absolute; left: 20px; top: 20px; z-index: 0">
+        Dieser Browser kann kein HTML5-canvas-Element darstellen.
+      </canvas>
+      <canvas id="canvas-1" style="position: absolute; left: 20px; top: 20px; z-index: 1">
         Dieser Browser kann kein HTML5-canvas-Element darstellen.
       </canvas>
     </div>
 
+    <script type="text/javascript" src="cont.js"></script>
     <script type="text/javascript" src="model.js"></script>
     <script type="text/javascript" src="camera.js"></script>
     <script type="text/javascript" src="ui.js"></script>
 
     <script type="text/javascript">//<![CDATA[
-      var canvas = document.getElementById('canvas');
-      var ctx    = canvas.getContext('2d');
-      canvas.setAttribute('width', 1000);
-      canvas.setAttribute('height', 1000);
-      ctx.lineWidth = 4;
-
-      var ui = new UI(new Model(), new Camera(), ctx);
+      var ui = new UI(new Model(), new Camera(), document.getElementById('canvas-0'), document.getElementById('canvas-1'));
       ui.run();
     //]]</script>
   </body>

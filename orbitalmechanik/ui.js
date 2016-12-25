@@ -1,17 +1,25 @@
-function UI(model, camera, canvas) {
-    this.model  = model;
-    this.camera = camera;
-    this.canvas = canvas;
-    this.width  = 1000;
-    this.height = 1000;
+function UI(model, camera, canvas0, canvas1) {
+    this.model   = model;
+    this.camera  = camera;
+    this.canvas0 = canvas0.getContext("2d");
+    this.canvas1 = canvas1.getContext("2d");
+    this.width   = 1000;
+    this.height  = 1000;
 
     this.startTime = new Date().getTime();
     this.speedup   = 600;
     this.dt        = 1;
 
+    this.selectedBody = undefined;
+
     this.model.runFirstPhysicsStep(this.dt);
+
+    canvas0.setAttribute("width",  1000);
+    canvas0.setAttribute("height", 1000);
+    canvas1.setAttribute("width",  1000);
+    canvas1.setAttribute("height", 1000);
+
     var t = this;
-    window.setInterval(function () { t.refresh() }, 50);
 
     document.getElementsByTagName("body")[0].addEventListener("keyup", function (ev) {
         switch(String.fromCharCode(ev.which)) {
@@ -24,13 +32,79 @@ function UI(model, camera, canvas) {
                 break;
         }
     });
+
+    var k = Cont(this, this.handleMouse);
+    canvas1.addEventListener("click",     k);
+    canvas1.addEventListener("mousemove", k);
+    document.getElementsByTagName("body")[0].addEventListener("keyup", k);
+
+    window.setInterval(function () { t.refresh() }, 100);
+}
+
+UI.prototype.handleMouse = function (wait, abort, ev) {
+    var body = this.bodyNearPixelCoordinates([ev.offsetX, ev.offsetY]);
+    if(!body) {
+        this.selectedBody = undefined;
+        return;
+    }
+    this.selectedBody = body;
+    this.drawJustBody(body);
+    if(ev.type !== "click") return;
+
+    var bodyPixelPos = this.toPixelCoordinates(this.model.bodies[body]["pos"]);
+
+    var wasPaused = this.pauseTime;
+    this.pause();
+
+    wait(function (ev) {
+        this.canvas1.clearRect(0,0, this.width, this.height);
+
+        if(ev.which == 27) {
+            if(! wasPaused) this.unpause();
+            return abort();
+        } else if(ev.type === "mousemove") {
+            this.canvas1.beginPath();
+            this.arrowFromTo(this.canvas1, bodyPixelPos[0], bodyPixelPos[1], ev.offsetX, ev.offsetY);
+            this.canvas1.strokeStyle = "black";
+            this.canvas1.lineWidth = 3;
+            this.canvas1.stroke();
+        } else if(ev.type === "click") {
+            var pos = this.fromPixelCoordinates([ev.offsetX, ev.offsetY]);
+            var scale = 1e-3;
+            this.model.applyThrust(body, [scale * (pos[0] - this.model.bodies[body]["pos"][0]), scale * (pos[1] - this.model.bodies[body]["pos"][1])]);
+            this.unpause();
+            return abort();
+        }
+    });
+};
+
+UI.prototype.arrowFromTo = function (canvas, x0,y0, x1,y1) {
+    var len   = 20;
+    var angle = Math.atan2(y1 - y0, x1 - x0);
+    canvas.moveTo(x0, y0);
+    canvas.lineTo(x1, y1);
+    canvas.lineTo(x1 - len*Math.cos(angle-Math.PI/6), y1 - len*Math.sin(angle-Math.PI/6));
+    canvas.moveTo(x1, y1);
+    canvas.lineTo(x1 - len*Math.cos(angle+Math.PI/6), y1 - len*Math.sin(angle+Math.PI/6));
+};
+
+UI.prototype.bodyNearPixelCoordinates = function (pos) {
+    for(var name in this.model.bodies) {
+        var bodyPos = this.toPixelCoordinates(this.model.bodies[name]["pos"]);
+        if((bodyPos[0]-pos[0])*(bodyPos[0]-pos[0]) + (bodyPos[1]-pos[1])*(bodyPos[1]-pos[1]) <= 20*20) {
+            return name;
+        }
+    }
+    return undefined;
 }
 
 UI.prototype.pause = function () {
+    if(this.pauseTime) return;
     this.pauseTime = new Date().getTime();
 };
 
 UI.prototype.unpause = function () {
+    if(! this.pauseTime) return;
     this.startTime += new Date().getTime() - this.pauseTime;
     this.pauseTime = 0;
 };
@@ -46,34 +120,42 @@ UI.prototype.toPixelCoordinates = function (pos) {
     return [(pos[0] + 0.5) * this.width, (0.5 - pos[1]) * this.height];
 }
 
-UI.prototype.draw = function () {
-    this.canvas.fillStyle   = "white";
-    this.canvas.strokeStyle = "black";
+UI.prototype.fromPixelCoordinates = function (pos) {
+    return this.camera.fromDisplayCoordinates([pos[0] / this.width - 0.5, -pos[1] / this.height + 0.5]);
+}
 
-    this.canvas.clearRect(0,0, this.width, this.height);
+UI.prototype.drawJustBody = function (body) {
+    var pos = this.toPixelCoordinates(this.model.bodies[body]["pos"]);
+    this.canvas0.beginPath();
+    this.canvas0.arc(pos[0], pos[1], 0.5 * Math.log(this.model.bodies[body]["mass"]), 0, 2 * Math.PI, false);
+    this.canvas0.fillStyle = this.selectedBody === body ? "black" : this.model.bodies[body]["color"];
+    this.canvas0.fill();
+};
+
+UI.prototype.draw = function () {
+    this.canvas0.fillStyle   = "white";
+    this.canvas0.strokeStyle = "black";
+
+    this.canvas0.clearRect(0,0, this.width, this.height);
 
     for(name in this.model.bodies) {
         var body = this.model.bodies[name];
         var pos  = this.toPixelCoordinates(body["pos"]);
-        this.canvas.beginPath();
-        this.canvas.arc(pos[0], pos[1], 0.5 * Math.log(body["mass"]), 0, 2 * Math.PI, false);
-        this.canvas.fillStyle = body["color"];
-        this.canvas.fill();
+        this.drawJustBody(name);
 
-        this.canvas.beginPath();
-
+        this.canvas0.beginPath();
         for(var i = 0; i < body["hist"].length; i++) {
             var oldPos = this.toPixelCoordinates(body["hist"][i]);
             if(i == 0) {
-                this.canvas.moveTo(oldPos[0], oldPos[1]);
+                this.canvas0.moveTo(oldPos[0], oldPos[1]);
             } else {
-                this.canvas.lineTo(oldPos[0], oldPos[1]);
+                this.canvas0.lineTo(oldPos[0], oldPos[1]);
             }
         }
-        this.canvas.lineTo(pos[0], pos[1]);
-        this.canvas.lineWidth   = 5;
-        this.canvas.strokeStyle = "gray";
-        this.canvas.stroke();
+        this.canvas0.lineTo(pos[0], pos[1]);
+        this.canvas0.lineWidth   = 5;
+        this.canvas0.strokeStyle = "gray";
+        this.canvas0.stroke();
     }
 };
 

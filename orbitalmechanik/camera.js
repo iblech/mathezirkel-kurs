@@ -9,3 +9,7 @@ function Camera() {
 Camera.prototype.toDisplayCoordinates = function (pos) {
     return [this.scale * (this.offset[0] + pos[0]), this.scale * (this.offset[1] + pos[1])];
 };
+
+Camera.prototype.fromDisplayCoordinates = function (pos) {
+    return [pos[0] / this.scale - this.offset[0], pos[1] / this.scale - this.offset[1]];
+};

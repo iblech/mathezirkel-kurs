@@ -30,7 +30,7 @@ Model.prototype.calcAcceleration = function (name) {
         if(name == name_ || this.bodies[name_]["mass"] == 0) continue;
         r0 = this.bodies[name_]["pos"][0] - this.bodies[name]["pos"][0];
         r1 = this.bodies[name_]["pos"][1] - this.bodies[name]["pos"][1];
-        mu = this.G * this.bodies[name_]["mass"] / Math.sqrt(r0*r0 + r1*r1)**3;
+        mu = this.G * this.bodies[name_]["mass"] / Math.pow(Math.sqrt(r0*r0 + r1*r1), 3);
         acc0 = acc0 + mu * r0;
         acc1 = acc1 + mu * r1;
     }
@@ -82,3 +82,8 @@ Model.prototype.runPhysicsTo = function (userTime, dt) {
         this.time += dt;
     }
 };
+
+Model.prototype.applyThrust = function (body, vel) {
+    this.bodies[body]["vel"][0] += vel[0];
+    this.bodies[body]["vel"][1] += vel[1];
+}
