@@ -10,7 +10,8 @@ function UI(model, camera, canvas0, canvas1) {
     this.speedup   = 600;
     this.dt        = 1;
 
-    this.selectedBody = undefined;
+    this.selectedBody   = undefined;
+    this.stopAfterAngle = undefined;
 
     this.model.runFirstPhysicsStep(this.dt);
 
@@ -29,6 +30,9 @@ function UI(model, camera, canvas0, canvas1) {
                 } else {
                     t.pause();
                 }
+                break;
+            case "0": case "1": case "2": case "3":
+                t.stopAfterAngle = (ev.which - 48) / 4 * 2*Math.PI;
                 break;
         }
     });
@@ -123,6 +127,17 @@ UI.prototype.unpause = function () {
 
 UI.prototype.refresh = function () {
     if(this.pauseTime) return;
+
+    if(!(typeof(this.stopAfterAngle) === "undefined")) {
+        var pos   = this.model.bodies["iss"].pos;
+        var angle = Math.atan2(pos[1], pos[0]);
+        if(angle < 0) angle += 2*Math.PI;
+        if(angle >= this.stopAfterAngle && angle < this.stopAfterAngle + 2*Math.PI/4) {
+            this.pause();
+            this.stopAfterAngle = undefined;
+        }
+    }
+
     this.model.runPhysicsTo((new Date().getTime() - this.startTime) * this.speedup / 1000, this.dt);
     this.draw();
 };
