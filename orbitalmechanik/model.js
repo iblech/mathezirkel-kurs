@@ -1,4 +1,8 @@
 function Model() {
+    var rotate = function (phi, pos) {
+        return [ Math.cos(phi)*pos[0] - Math.sin(phi)*pos[1], Math.sin(phi)*pos[0] + Math.cos(phi)*pos[1] ];
+    };
+
     this.G      = 6.67408e-11;
     this.bodies = {
         "earth": {
@@ -8,10 +12,16 @@ function Model() {
             "color": "blue",
         },
         "iss": {
-            "mass":  419455,
+            "mass":  0,  // 419455,
             "pos":   [0.0, 409000 + 6370000],
             "vel":   [-7660.0, 0.0],
             "color": "red",
+        },
+        "iss2": {
+            "mass":  0,  // 419455,
+            "pos":   rotate(Math.PI / 5, [0.0, 409000 + 6370000]),
+            "vel":   rotate(Math.PI / 5, [-7660.0, 0.0]),
+            "color": "darkred",
         },
     };
 

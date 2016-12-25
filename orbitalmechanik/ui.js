@@ -52,6 +52,11 @@ UI.prototype.handleMouse = function (wait, abort, ev) {
         this.selectedBody = undefined;
         return;
     }
+    if(this.selectedBody && this.selectedBody !== body) {
+        var oldSelectedBody = this.selectedBody;
+        this.selectedBody = undefined;
+        this.drawJustBody(oldSelectedBody);
+    }
     this.selectedBody = body;
     this.drawJustBody(body);
     if(ev.type !== "click") return;
@@ -164,7 +169,7 @@ UI.prototype.fromPixelCoordinates = function (pos) {
 UI.prototype.drawJustBody = function (body) {
     var pos = this.toPixelCoordinates(this.model.bodies[body]["pos"]);
     this.canvas0.beginPath();
-    this.canvas0.arc(pos[0], pos[1], 0.5 * Math.log(this.model.bodies[body]["mass"]), 0, 2 * Math.PI, false);
+    this.canvas0.arc(pos[0], pos[1], 0.5 * Math.log(this.model.bodies[body]["mass"] || 1e5), 0, 2 * Math.PI, false);
     this.canvas0.fillStyle = this.selectedBody === body ? "black" : this.model.bodies[body]["color"];
     this.canvas0.fill();
 };
