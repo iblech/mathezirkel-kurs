@@ -1,8 +1,9 @@
-function UI(model, camera, canvas0, canvas1) {
+function UI(model, camera, canvas0, canvas1, deltaVElement) {
     this.model   = model;
     this.camera  = camera;
     this.canvas0 = canvas0.getContext("2d");
     this.canvas1 = canvas1.getContext("2d");
+    this.deltaVElement = deltaVElement;
     this.width   = 1000;
     this.height  = 1000;
 
@@ -12,6 +13,7 @@ function UI(model, camera, canvas0, canvas1) {
 
     this.selectedBody   = undefined;
     this.stopAfterAngle = undefined;
+    this.totalDeltaV    = 0;
 
     this.model.runFirstPhysicsStep(this.dt);
 
@@ -100,6 +102,8 @@ UI.prototype.handleMouse = function (wait, abort, ev) {
         } else if(ev.type === "click") {
             var scale = 1e-4;
             this.model.applyThrust(body, [scale * delta[0], scale * delta[1]]);
+            this.totalDeltaV += scale * Math.sqrt(delta[0]*delta[0] + delta[1]*delta[1]);
+            this.deltaVElement.innerHTML = (this.totalDeltaV / 1000).toFixed(2);
             this.unpause();
             return abort();
         }
