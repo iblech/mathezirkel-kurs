@@ -31,8 +31,9 @@ function UI(model, camera, canvas0, canvas1) {
                     t.pause();
                 }
                 break;
-            case "0": case "1": case "2": case "3":
-                t.stopAfterAngle = (ev.which - 48) / 4 * 2*Math.PI;
+            case "0": case "1": case "2": case "3": case "4": case "5": case "6": case "7":
+                t.unpause();
+                t.stopAfterAngle = (ev.which - 48) / 8 * 2*Math.PI;
                 break;
         }
     });
@@ -86,7 +87,7 @@ UI.prototype.handleMouse = function (wait, abort, ev) {
             this.canvas1.lineWidth = 3;
             this.canvas1.stroke();
         } else if(ev.type === "click") {
-            var scale = 1e-3;
+            var scale = 1e-4;
             this.model.applyThrust(body, [scale * delta[0], scale * delta[1]]);
             this.unpause();
             return abort();
@@ -128,17 +129,20 @@ UI.prototype.unpause = function () {
 UI.prototype.refresh = function () {
     if(this.pauseTime) return;
 
+    var stoppingCondition;
     if(!(typeof(this.stopAfterAngle) === "undefined")) {
-        var pos   = this.model.bodies["iss"].pos;
-        var angle = Math.atan2(pos[1], pos[0]);
-        if(angle < 0) angle += 2*Math.PI;
-        if(angle >= this.stopAfterAngle && angle < this.stopAfterAngle + 2*Math.PI/4) {
-            this.pause();
-            this.stopAfterAngle = undefined;
-        }
+        stoppingCondition = (function () {
+            var pos   = this.model.bodies["iss"].pos;
+            var angle = Math.atan2(pos[1], pos[0]);
+            if(angle < 0) angle += 2*Math.PI;
+            if(angle >= this.stopAfterAngle && angle < this.stopAfterAngle + 2*Math.PI/8) {
+                this.pause();
+                this.stopAfterAngle = undefined;
+            }
+        }).bind(this);
     }
 
-    this.model.runPhysicsTo((new Date().getTime() - this.startTime) * this.speedup / 1000, this.dt);
+    this.model.runPhysicsTo((new Date().getTime() - this.startTime) * this.speedup / 1000, this.dt, stoppingCondition);
     this.draw();
 };
 

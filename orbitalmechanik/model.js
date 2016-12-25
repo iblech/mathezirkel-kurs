@@ -71,13 +71,13 @@ Model.prototype.runPhysicsStep = function (dt) {
         for(name in this.bodies) {
             if(name == "earth") continue;
             this.bodies[name]["hist"].push([this.bodies[name]["pos"][0], this.bodies[name]["pos"][1]]);
-            if(this.bodies[name]["hist"].length > 600) this.bodies[name]["hist"].shift();
+            if(this.bodies[name]["hist"].length > 2000) this.bodies[name]["hist"].shift();
         }
     }
 };
 
-Model.prototype.runPhysicsTo = function (userTime, dt) {
-    while(this.time < userTime) {
+Model.prototype.runPhysicsTo = function (userTime, dt, stoppingCondition) {
+    while(this.time < userTime && (!stoppingCondition || !stoppingCondition())) {
         this.runPhysicsStep(dt);
         this.time += dt;
     }
