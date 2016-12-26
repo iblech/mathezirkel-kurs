@@ -1,0 +1,14 @@
+Teil 1: Crashkurs in Orbitalmechanik
+* Nicht ins Weltall zu kommen, sondern dort zu bleiben, ist das schwierige!
+* Erste Fluchtgeschwindigkeit [in welcher Richtung?]. Videoclip Bruce Willis. Erste Δv-Erwähnung.
+* "Schwerelosigkeit" in Raumstationen
+* Hohmann-Transfer (auch über Mondlandung sprechen)
+* Phasenänderung (auch über gescheiterten ersten Andockversuch sprechen)
+* Tyrannei der Raketengleichung
+
+Teil 2: Niedrigenergietrajektorien
+* Lagrange-Punkte (mit Demos)
+* Motto: Komplexe Dynamik des Mehrkörpersystems ausnutzen.
+* Hiten-Mission
+* Reduzierte Δv-Anforderungen (und Reisezeiten) auflisten
+* Natürliche Vorkommen ansprechen (Kometen, Galaxien)
