@@ -1,15 +1,15 @@
 \documentclass[12pt,compress,ngerman,utf8,t]{beamer}
 \usepackage[ngerman]{babel}
 \usepackage{calc}
-\usepackage{ragged2e,wasysym,multicol}  %,mathtools}
+\usepackage{ragged2e,wasysym,multicol,mathtools}
 \usepackage[protrusion=true,expansion=true]{microtype}
 \hypersetup{colorlinks=true}
 
 \graphicspath{{images/}}
 
-\title[Alternate mathematical universes]{Exploring alternate mathematical universes}
+\title[Alternate mathematical universes]{Alternate mathematical universes}
 \author[Ingo Blechschmidt]{\textcolor{white}{Ingo Blechschmidt}}
-\date[2016-12-28]{\vspace*{-4em}\ \\\textcolor{white}{\scriptsize Institut für Mathematik \\ Universität Augsburg \\ December 28th, 2016}}
+\date[2016-12-28]{\vspace*{-7em}\ \\\textcolor{white}{\scriptsize Institut für Mathematik \\ Universität Augsburg \\ December 28th, 2016}}
 
 %\usetheme{Warsaw}
 \useinnertheme[shadow=true]{rounded}
@@ -29,8 +29,8 @@
 
 \usefonttheme{serif}
 \usepackage[T1]{fontenc}
-%\usepackage{libertine}
-\usepackage{mathpazo}
+\usepackage{libertine}
+%\usepackage{mathpazo}
 
 \renewcommand{\_}{\mathpunct{.}\,}
 \newcommand{\BB}{\mathbb{B}}
@@ -43,7 +43,7 @@
 \newcommand{\STM}{\mathrm{STM}}
 \newcommand{\RW}{\mathrm{RW}}
 \newcommand{\lambdaC}{\lambda\mathrm{C}}
-\newcommand{\defeq}{:=}
+\newcommand{\defeq}{\vcentcolon=}
 
 \newcommand{\slogan}[1]{%
   \begin{center}%
@@ -73,6 +73,11 @@
   \explanation{#1}{#2} \\[0.4em]
   \qquad\qquad\qquad #3
 }
+
+\newcommand{\fmini}[2]{%
+  \setlength{\fboxrule}{2pt}%
+  \setlength{\fboxsep}{-3pt}%
+  \usebeamercolor[fg]{item}\fbox{\usebeamercolor[fg]{normal text}\parbox{#1}{\begin{center}#2\end{center}}}}
 
 \setbeamertemplate{navigation symbols}{}
 
@@ -137,12 +142,31 @@
   \begin{itemize}
     \item Mathematical statements are thought to be absolutely objective and
     independent of human sentiments.
+    \pause
     \item But in fact, their truth depends on the \hil{choice of mathematical universe} (``topos'').
     \item The usual axioms of logic hold in the \hil{standard topos}.
     \item In other topoi, slightly different axioms are true.
   \end{itemize}
 \end{frame}
-% mention examples: sheaf topoi
+
+\begin{frame}{Examples}
+  There are topoi in which \ldots
+  \begin{itemize}
+    \item there is an intermediate infinity between~$\NN$ and~$\RR$,
+    \item there is no such intermediate infinity,
+    \item there are \hil{infinitesimal real
+    numbers}~$\varepsilon$ such that~$\varepsilon \neq 0$ but $\varepsilon^2 = 0$, or
+    \item any function $\RR \to \RR$ is a polynomial.
+  \end{itemize}
+  \bigskip
+  \pause
+
+  \begin{center}
+    \fmini{0.19\textwidth}{proving}
+    {\usebeamercolor[fg]{item}$\boldsymbol{\xleftrightarrow{\quad\text{\normalsize effective topos}\quad}}$}
+    \fmini{0.27\textwidth}{programming}
+  \end{center}
+\end{frame}
 
 \begin{frame}{The effective topos}
   There are many \hil{models of computation}:
@@ -173,7 +197,7 @@
   \pause
 
   \explanation{$\Eff(\M) \models \text{``Any number is either prime or not
-  prime.''}$}{There is program which reads a number $n$ as input and outputs
+  prime.''}$}{There is a program which reads a number $n$ as input and outputs
   YES or NO depending on whether $n$ is prime or not.}
 \end{frame}
 
@@ -221,20 +245,6 @@
   \end{enumerate}
 \end{frame}
 
-\begin{frame}{Appreciating constructive logic}
-  At first sight, dropping the axiom of excluded middle looks like a sad thing
-  to do. It's a useful axiom! However:
-
-  \begin{itemize}\justifying
-    \item The axiom is not needed as often as one would think.
-    \item The abstinence is good for your mental hygiene.
-    \item Constructive logic allows finer distinctions.
-    \item From constructive proofs one can mechanically extract programs which
-    witness the proved statements.
-    \item \hil{Dropping the law of excluded middle allows to add curious unconvential axioms.}
-  \end{itemize}
-\end{frame}
-
 \note{\justifying\footnotesize
   Der Beweis ist schön und kurz. Allerdings kennen wir nach dem Beweis immer noch
   nicht ein konkretes Beispiel für ein Paar irrationaler Zahlen, die potenziert
@@ -255,18 +265,35 @@
   \par
 }
 
+\begin{frame}{Appreciating constructive logic}
+  At first sight, dropping the axiom of excluded middle looks like a sad thing
+  to do. It's a useful axiom! However:
+
+  \begin{itemize}\justifying
+    \item The axiom is not needed as often as one would think.
+    \item The abstinence is good for your mental hygiene.
+    \item Constructive logic allows for finer distinctions.
+    \item From constructive proofs one can mechanically extract programs which
+    witness the proved statements.
+    \item \hil{Dropping the law of excluded middle allows to add curious unconvential axioms.}
+  \end{itemize}
+\end{frame}
+
 
 \section[Tautologies]{Effective content of classical tautologies}
 
 \begin{frame}{LEM for equality of functions}
   \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
   ``Any function~$f : \NN \to \NN$ is either the zero function or
-  not.''\end{minipage}$}{There is a program which reads the source of a program~$M$, which calculates a function $\NN \to \NN$, as input, and finds out whether~$M$ always yields zero or not.}{That's false.}
+  not.''\\[-0.7em]\end{minipage}$}{There is a program which reads the source of a program~$M$, which calculates a function $\NN \to \NN$, as input, and finds out whether~$M$ always yields zero or not.}{That's false.}
   \bigskip
   \pause
 
   The statement is true in~$\Eff(\STM)$, the effective topos associated to
   \hil{super Turing machines}.
+  \begin{center}
+    \includegraphics[width=0.3\textwidth]{images/ordinal-omega-squared}
+  \end{center}
 \end{frame}
 
 \begin{frame}{LEM for the halting problem}
@@ -314,15 +341,14 @@
   \par
 }
 
-\begin{frame}{Markovs Prinzip}
+\begin{frame}{Markov's principle}
   \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
-  "`Für jede Funktion~$f : \NN \to \NN$, welche nicht die Nullfunktion ist,
-  gibt es eine Stelle~$n \in \NN$ mit~$f(n) \neq 0$."'\end{minipage}$}{Es gibt
-  eine Turingmaschine, die eine Kodierung einer Turingmaschine~$M$, welche eine
-  Funktion $\NN \to \NN$ und zwar nicht die Nullfunktion berechnet, als Eingabe
-  vom Band liest und dann eine Zahl~$n$ aufs Band schreibt, sodass~$M$ bei
-  Eingabe von~$n$ nicht Null aufs Band schreibt.}{Das stimmt! (Unbeschränkte
-  Suche.)}
+  ``For any function~$f : \NN \to \NN$ which is not the zero function,
+  there is a number~$n \in \NN$ such that~$f(n) \neq
+  0$.''\\[-0.7em]\end{minipage}$}{There is a program which reads the source of a
+  program~$M$, which calculates a function~$\NN \to \NN$ which is not the zero
+  function, as input and outputs a number~$n$ such that~$M(n)$ is not
+  zero.}{\pause That's true! By unbounded search.}
 \end{frame}
 
 \begin{frame}{Church--Turing thesis}
@@ -334,18 +360,15 @@
 
   \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
   ``Any function~$f : \NN \to \NN$ is calculable by a
-  program.''\end{minipage}$}{There is a program which reads the source of a
+  program.''\\[-0.7em]\end{minipage}$}{There is a program which reads the source of a
   program calculating a function~$f : \NN \to \NN$ as input and
   outputs the source of a program which calculates~$f$.}{That's trivial!
   ``cat'' is the looked-for program.}
   \bigskip
   \pause
 
-  In~$\Eff(\STM)$ und~$\Eff(\lambdaC)$ stimmt die Aussage nicht.
+  In~$\Eff(\STM)$ and~$\Eff(\lambdaC)$ the statement is false.
 \end{frame}
-
-\end{document}
-
 
 \note{\justifying
   Der effektive Topos zu Turingmaschinen ist also eine schöne Umgebung für die
@@ -396,6 +419,10 @@
     nicht verfolgt.)
   \end{itemize}
 }
+
+\end{document}
+
+
 
 % \begin{document}
 
@@ -734,68 +761,6 @@
   \par
 }
 
-\begin{frame}{Markovs Prinzip}
-  \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
-  "`Für jede Funktion~$f : \NN \to \NN$, welche nicht die Nullfunktion ist,
-  gibt es eine Stelle~$n \in \NN$ mit~$f(n) \neq 0$."'\end{minipage}$}{Es gibt
-  eine Turingmaschine, die eine Kodierung einer Turingmaschine~$M$, welche eine
-  Funktion $\NN \to \NN$ und zwar nicht die Nullfunktion berechnet, als Eingabe
-  vom Band liest und dann eine Zahl~$n$ aufs Band schreibt, sodass~$M$ bei
-  Eingabe von~$n$ nicht Null aufs Band schreibt.}{Das stimmt! (Unbeschränkte
-  Suche.)}
-\end{frame}
-
-
-\note{\justifying
-  Der effektive Topos zu Turingmaschinen ist also eine schöne Umgebung für die
-  Informatik, da in ihm \emph{jede Funktion~$\NN \to \NN$ berechenbar ist} und
-  unberechenbare Funktionen aussortiert wurden.
-  \bigskip
-
-  Vielleicht vermutet man hierbei einen Widerspruch. Sind nicht etwa folgende
-  Funktionen unberechenbar? Was verhindert ihre Existenz im effektiven Topos?
-  \begin{align*}
-    H(n) &= \begin{cases}
-      1, & \text{falls die~$n$-te Turingmaschine hält,} \\
-      0, & \text{sonst.}
-    \end{cases} \\
-    BB(n) &= \text{höchste Anzahl Schritte, die eine haltende Turingmaschine} \\
-    &\qquad\quad \text{mit~$n$ Zuständen durchführt, bevor sie hält.}
-  \end{align*}
-
-  Um zu zeigen, dass~$H$ und~$BB$ beides totale Funktionen~$\NN \to \NN$ sind
-  -- und nur auf solche bezieht sich die Church--Turing-These --, ist LEM nötig!
-  Für~$H$, damit die Fallunterscheidung getroffen werden kann. Für~$BB$, weil
-  implizit das Lemma verwendet wurde, dass eine subendliche Menge natürlicher
-  Zahlen ein größtes Element enthält.\par
-}
-
-\note{\justifying
-  Die Aussage, dass \emph{jede} Funktion~$\NN \to \NN$ durch eine
-  Turingmaschine berechenbar ist, ist auch als \emph{formale
-  Church--Turing-These} bekannt.
-  \begin{itemize}
-    \item\justifying In~$\Eff(\STM)$ gilt sie nicht, denn aus einer
-    Superturingmaschine, welche eine Funktion~$\NN \to \NN$ berechnet, kann man
-    nur in den seltensten Fällen in eine gewöhnliche Turingmaschine mit
-    demselben Ausgabeverhalten umwandeln.
-    \item In~$\Eff(\lambdaC)$ gilt die formale Church--Turing-These ebenfalls
-    nicht, aber aus einem anderen Grund. Die These lautet in diesem Fall:
-    \begin{center}\parbox{0.83\textwidth}{
-      Es gibt einen~$\lambda$-Term~$T$, sodass für jeden~$\lambda$-Term~$u$,
-      welcher eine Funktion~$f : \NN \to \NN$ berechnet, der~$\lambda$-Term~$T\ u$
-      die Kodierung einer Turingmaschine ist, welche~$f$ berechnet.
-    }\end{center}
-    Der ominöse Term~$T$ kann sein Argument~$u$ nur auf Eingaben auswerten, er
-    hat aber keinen Zugriff auf die syntaktische Struktur von~$u$.
-    (Konventionsgemäß werden in~$\Eff(\TM)$ Turingmaschinen höherer Ordnung
-    dadurch realisiert, dass sie als Argument Kodierungen von
-    Turingmaschinen erhalten. Beim~$\lambda$-Kalkül ist der Umweg über
-    syntaktische Kodierungen nicht nötig und wird in~$\Eff(\lambdaC)$ auch
-    nicht verfolgt.)
-  \end{itemize}
-}
-
 % \begin{document}
 
 \begin{frame}{Automatische Stetigkeit}
@@ -1015,5 +980,3 @@ Grober Aufbau:
   * Dabei achten auf:
     * Abhängigkeit von den Fähigkeiten von Programmiersprachen
     * Realweltmaschinen
-
-Jakub schreiben!!!
