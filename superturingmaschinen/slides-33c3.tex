@@ -44,6 +44,7 @@
 \newcommand{\RW}{\mathrm{RW}}
 \newcommand{\lambdaC}{\lambda\mathrm{C}}
 \newcommand{\defeq}{\vcentcolon=}
+\newcommand{\Set}{\mathrm{Set}}
 
 \newcommand{\slogan}[1]{%
   \begin{center}%
@@ -112,7 +113,7 @@
   \addtocounter{framenumber}{\value{framenumberpreappendix}}
 }
 
-\setbeameroption{show notes}
+\setbeameroption{hide notes}
 \setbeamertemplate{note page}[plain]
 
 \begin{document}
@@ -124,6 +125,8 @@
 
 
 \section[Alternate universes]{Alternate mathematical universes}
+
+\subsection{On truth}
 
 \begin{frame}{On truth}
   \begin{columns}[c]
@@ -144,10 +147,13 @@
     independent of human sentiments.
     \pause
     \item But in fact, their truth depends on the \hil{choice of mathematical universe} (``topos'').
-    \item The usual axioms of logic hold in the \hil{standard topos}.
+    \item The usual axioms of logic hold in the \hil{standard topos}~$\Set$.
     \item In other topoi, slightly different axioms are true.
   \end{itemize}
 \end{frame}
+
+
+\subsection{Examples for topoi}
 
 \begin{frame}{Examples}
   There are topoi in which \ldots
@@ -168,6 +174,37 @@
   \end{center}
 \end{frame}
 
+
+\subsection{The effective topos}
+
+\begin{frame}{The effective topos}
+  \begin{itemize}
+    \item ``$1 + 1 = 2$.''
+
+    True in $\Set$, true in~$\Eff(\TM)$.
+    \medskip
+
+    \item ``Any number is either prime or not.''
+
+    Trivially true in $\Set$, nontrivially true in~$\Eff(\TM)$.
+    \medskip
+
+    \item ``Any function $\NN \to \NN$ is either the zero function or not.''
+
+    Trivially true in $\Set$, false in~$\Eff(\TM)$.
+    \medskip
+
+    \item ``Any function $\NN \to \NN$ is computable by a Turing machine.''
+
+    False in $\Set$, trivially true in~$\Eff(\TM)$.
+    \medskip
+
+    \item ``Any function $\RR \to \RR$ is continuous.''
+
+    False in $\Set$, true in~$\Eff(\TM)$.
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{The effective topos}
   There are many \hil{models of computation}:
   \begin{itemize}
@@ -178,8 +215,15 @@
   \end{itemize}
 
   For any such model~$\M$, there is a special topos~$\Eff(\M)$, the associated
-  \hil{effective topos}.\pause\vfill
+  \hil{effective topos}.
+  
+  \only<1>{\begin{center}
+    \includegraphics[width=0.4\textwidth]{images/turing-machine}
+  \end{center}}
 
+  \bigskip
+  
+  \pause
   \explanation{$\Eff(\M) \models \text{``For any number~$n$ there is a prime~$p
   > n$.''}$}{There is a program which reads a number~$n$ as input and outputs a
   prime number~$p > n$.}
@@ -204,6 +248,8 @@
 
 \section[Constructive logic]{The wonder of constructive logic}
 
+\subsection{What's true in alternate topoi?}
+
 \begin{frame}{What's true in alternate topoi?}
   \hil{Metatheorem:} If a statement has a \hil{constructive proof},
   then it holds in \hil{any topos}.
@@ -220,6 +266,9 @@
   \includegraphics[width=0.2\textwidth]{images/lem}
   \par
 \end{frame}
+
+
+\subsection{Nonconstructive proofs}
 
 \begin{frame}{Nonconstructive proofs}
   A number is \hil{rational} if and only if its decimal digits eventually repeat.
@@ -265,6 +314,9 @@
   \par
 }
 
+
+\subsection[Praise]{Appreciating constructive logic}
+
 \begin{frame}{Appreciating constructive logic}
   At first sight, dropping the axiom of excluded middle looks like a sad thing
   to do. It's a useful axiom! However:
@@ -282,6 +334,8 @@
 
 \section[Tautologies]{Effective content of classical tautologies}
 
+\subsection[Functions]{Equality of functions}
+
 \begin{frame}{LEM for equality of functions}
   \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
   ``Any function~$f : \NN \to \NN$ is either the zero function or
@@ -296,6 +350,9 @@
   \end{center}
 \end{frame}
 
+
+\subsection[Halting]{The halting problem}
+
 \begin{frame}{LEM for the halting problem}
   \explanationspoiler{$\Eff(\TM) \models \text{``Any program halts or
   doesn't halt.''}$}{There is a program which reads the source of a program~$M$
@@ -306,24 +363,26 @@
   The statement is true in~$\Eff(\STM)$.
 \end{frame}
 
-\begin{frame}{LEM für Gleichheit reeller Zahlen}
+
+\subsection[Real numbers]{Equality of real numbers}
+
+\begin{frame}{LEM for equality of real numbers}
   \justifying
-  Die Aussage
-  \[ \text{"`Jede reelle Zahl ist Null oder ungleich Null."'} \]
-  ist in intuitionistischer Logik äquivalent zu
-  \[ \text{"`Jede Turingmaschine hält oder hält nicht."'}, \]
-  gilt also nicht in~$\Eff(\TM)$, aber in~$\Eff(\STM)$.
+  The statement
+  \[ \text{``Every real number is either zero or not zero.''} \]
+  is in constructive logic equivalent to
+  \[ \text{``Every Turing machine halts or doesn't halt.''}, \]
+  so it's not true in~$\Eff(\TM)$, but in~$\Eff(\STM)$.
+  \bigskip
+  \pause
+
+  For a Turing machine~$M$ consider the real number~$0.000\ldots$, whose~$n$'th
+  decimal digit is a one if and only if~$M$ halts after step~$n$.
   \bigskip
 
-  Denn zu einer Turingmaschine~$M$ kann man die reelle Zahl~$0{,}000\ldots$
-  betrachten, deren~$n$-te Nachkommastelle genau dann eine~$1$ ist, wenn~$M$
-  nach Schritt~$n$ hält, und sonst~$0$ ist.
-  \bigskip
-
-  Umgekehrt kann man zu einer reellen Zahl~$x$ diejenige Turingmaschine
-  betrachten, die die Nachkommaziffern von~$x$ nach einer von Null
-  verschiedenen Ziffer absucht und genau dann hält, wenn sie eine solche Ziffer
-  gefunden hat.\par
+  For a real number~$x$ consider the Turing machine which searches the digits
+  of~$x$ for a nonzero digit.
+  \par
 \end{frame}
 
 \note{\justifying
@@ -341,6 +400,9 @@
   \par
 }
 
+
+\subsection[Markov]{Markov's principle}
+
 \begin{frame}{Markov's principle}
   \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
   ``For any function~$f : \NN \to \NN$ which is not the zero function,
@@ -351,7 +413,10 @@
   zero.}{\pause That's true! By unbounded search.}
 \end{frame}
 
-\begin{frame}{Church--Turing thesis}
+
+\subsection[Church--Turing]{The Church--Turing thesis}
+
+\begin{frame}{The Church--Turing thesis}
   \justifying
   The \hil{Church--Turing thesis} states: If a function $f : \NN \to
   \NN$ is calculable in the real world, then it's also calculable by a program
@@ -420,19 +485,15 @@
   \end{itemize}
 }
 
-\end{document}
 
+\subsection[Cont.\@]{Automatic continuity}
 
-
-% \begin{document}
-
-\begin{frame}{Automatische Stetigkeit}
+\begin{frame}{Automatic continuity}
   \justifying
-  Im üblichen Universum stimmt folgende Aussage \hil{nicht}:
-  \[ \text{"`Jede Funktion~$f : \RR \to \RR$ ist stetig."'} \]
-  Eine Funktion~$f$ heißt genau dann \hil{stetig}, falls für jede Zahl~$x$ zur
-  Bestimmung von endlich vielen Nachkomma\-stel\-len von~$f(x)$ schon
-  endlich viele Nachkommastellen von~$x$ genügen.\par
+  The following statement is wildly \hil{false} in~$\Set$:
+  \[ \text{``Every function $f : \RR \to \RR$ is continuous.''} \]
+  A function~$f$ is \hil{continuous} if and only if, for calculating~$f(x)$ to
+  finitely many digits, finitely many digits of~$x$ suffice.\par
 
   \centering
   \includegraphics[width=0.5\textwidth]{images/plot-1}
@@ -441,10 +502,9 @@
   \pause
 
   \justifying
-  Stimmt in~$\Eff(\TM)$. \pause
-  Stimmt in~$\Eff(\RW)$, falls private Kommunikationskanäle
-  möglich sind und in endlicher Zeit nur endlich viele Rechenschritte
-  ausgeführt werden können.\par
+  \hil{True} in $\Eff(\TM)$. \pause
+  True in~$\Eff(\RW)$, if private communication channels are possible and
+  only finitely many computational steps can be executed in finite time.\par
 \end{frame}
 
 \note{\justifying
@@ -530,6 +590,31 @@
   der tiefere Grund dafür, wieso die "`scheinbar unmöglichen
   Haskell-Programme"' funktionieren.\par
 }
+
+\section{Wrapping up}
+
+\begin{frame}{Wrapping up}
+  \begin{itemize}
+    \item Effective topoi are a good vehicle for studying the nature of computation.
+    \item The effective topoi build links between constructive mathematics and programming.
+    \item Topoi allow for curious dream axioms.
+    \item Topoi have a geometric flavour: points, subtopoi, maps between topoi.
+  \end{itemize}
+  \pause
+
+  \centering
+  \bigskip
+  \hil{There is more to mathematics \\
+  than the standard topos.}
+  \par
+\end{frame}
+
+\end{document}
+
+
+
+% \begin{document}
+
 
 \end{document}
 
