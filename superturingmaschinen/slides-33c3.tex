@@ -364,7 +364,7 @@
 \end{frame}
 
 
-\subsection[Real numbers]{Equality of real numbers}
+\subsection[Reals]{Equality of real numbers}
 
 \begin{frame}{LEM for equality of real numbers}
   \justifying
@@ -411,6 +411,26 @@
   program~$M$, which calculates a function~$\NN \to \NN$ which is not the zero
   function, as input and outputs a number~$n$ such that~$M(n)$ is not
   zero.}{\pause That's true! By unbounded search.}
+\end{frame}
+
+
+\subsection[Imp.\@]{Searching uncountable sets}
+
+\begin{frame}{Searching uncountable sets}
+  \begin{center}\parbox{0.91\textwidth}{
+    ``For any function $f : \NN \to \NN$ from numbers to numbers,
+    there either exists a number~$n$ such that $f(n)$ is one or there is no such number.''
+  }\end{center}
+  This statement is false in~$\Eff(\TM)$.
+  \bigskip
+  \bigskip
+
+  \begin{center}\parbox{0.91\textwidth}{
+    ``For any function $P : L(\BB) \to \BB$ from infinite lists of booleans to booleans,
+    there either exists a list~$x$ such that $P(x)$ is true or there is no such list.''
+  }\end{center}
+  \pause
+  This statement is true in~$\Eff(\TM)$!
 \end{frame}
 
 
