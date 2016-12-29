@@ -9,8 +9,8 @@
 \graphicspath{{images/}}
 
 \title[Four-dimensional geometry]{The curious world of \\ four-dimensional geometry}
-\author[Ingo Blechschmidt, Matthias Hutzler]{\textcolor{white}{Ingo Blechschmidt and Matthias Hutzler}}
-\date[2016-12-29]{\vspace*{-7em}\ \\\textcolor{white}{\scriptsize Institut für Mathematik \\ Universität Augsburg \\ December 29th, 2016}}
+\author[Ingo Blechschmidt, Matthias Hutzler]{\small Ingo Blechschmidt and Matthias Hutzler \\ with thanks to Sven Prüfer}
+\date[2016-12-29]{\vspace*{-7em}\ \\\scriptsize Universität Augsburg \\ December 29th, 2016 \\ \phantom{foo}}
 
 %\usetheme{Warsaw}
 \useinnertheme[shadow=true]{rounded}
@@ -119,8 +119,18 @@
 
 \begin{document}
 
-{\usebackgroundtemplate{\includegraphics[height=\paperheight]{images/interstellar}}
-\frame{\vspace*{10em}\titlepage}}
+\frame{
+  \centering
+  \only<1>{
+    \vspace*{1.15cm}
+    \[ V_n = \int_0^1 \int_0^{2\pi} V_{n-2}(\sqrt{1-r^2})^{n-2} \, r \, d\theta \, dr \]
+    \vspace*{1.15cm}
+  }%
+  \only<2>{\includegraphics[width=0.4\textwidth]{great-grand-120-cell}}
+  \smallskip
+
+  \titlepage
+}
 \frame{\tableofcontents}
 
 
@@ -139,7 +149,7 @@
 \end{frame}
 
 
-\subsection{Knots in four dimensions}
+\subsection{Knot theory}
 
 \begin{frame}{Tieing your shoelaces}
   % Erklären, dass Schnürsenkel immer aufgehen würden
@@ -250,6 +260,46 @@ in 4D: Schnur, Schnur     ; 1, 1
 % Tesserakt mit Raum schneiden
 
 
+\section{Platonic solids}
+
+\newcommand{\solid}[4]{\begin{column}{0.31\textwidth}\centering\hil{#2}\par#3 faces, #4 vertices\\\medskip\includegraphics[height=0.7\textwidth]{#1}\end{column}}
+\newcommand{\solidd}[3]{\begin{column}{0.35\textwidth}\centering\hil{#2}\par#3\\\medskip\includegraphics[height=0.6\textwidth]{#1}\end{column}}
+
+
+\subsection{in 3D}
+
+\begin{frame}{Platonic solids in 3D}
+  \begin{columns}[c]
+    \solid{tetrahedron}{Tetrahedron}{4}{4}
+    \solid{hexahedron}{Hexahedron}{6}{8}
+    \solid{octahedron}{Octahedron}{8}{6}
+  \end{columns}
+  \bigskip
+  \begin{columns}[c]
+    \solid{dodecahedron}{Dodecahedron}{12}{20}
+    \solid{icosahedron}{Icosahedron}{20}{12}
+  \end{columns}
+\end{frame}
+
+
+\subsection{in 4D}
+
+\begin{frame}{Platonic solids in 4D}
+  \begin{columns}[c]
+    \solidd{005-cell}{Pentachoron}{5v, 10e, 10f, 5c}
+    \solidd{008-cell}{Octachoron}{16v, 32e, 24f, 8c}
+    \solidd{016-cell}{Hexadecahedron}{8v, 24e, 32f, 16c}
+  \end{columns}
+  \bigskip
+  \bigskip
+  \begin{columns}[c]
+    \solidd{024-cell}{Icositetrachoron}{24v, 96e, 96f, 24c}
+    \solidd{120-cell}{Hecatonicosachoron}{600v, 1200e, 720f, 120c}
+    \only<2>{\solidd{600-cell}{Hexacosichoron}{120v, 720e, 1200f, 600c}}
+  \end{columns}
+\end{frame}
+
+
 % Gravitation
 
 % Verkleben am Ende
@@ -259,6 +309,10 @@ in 4D: Schnur, Schnur     ; 1, 1
 Namen für Bewegung in w-Richtung nachschauen
 Bezeichnung für 3-Faces finden
 Würfelnetz auf Englisch
+Wie man ihn zeichnet (schon zu Beginn)
+platonische Körper
+Fraktale
+
 
 
 Ecken:     2 4  8 16
