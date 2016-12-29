@@ -1,0 +1,12 @@
+body {
+  font-family: Verdana, sans-serif;
+  font-size: 1em;
+  line-height: 1.3em;
+  margin: 10px;
+}
+
+canvas {
+  position: absolute;
+  left:     0;
+  top:      0;
+}

@@ -1,5 +1,4 @@
 function UI(model, camera, canvas0, canvas1, deltaVElement) {
-    this.model   = model;
     this.camera  = camera;
     this.canvas0 = canvas0.getContext("2d");
     this.canvas1 = canvas1.getContext("2d");
@@ -7,15 +6,9 @@ function UI(model, camera, canvas0, canvas1, deltaVElement) {
     this.width   = 1000;
     this.height  = 1000;
 
-    this.startTime = new Date().getTime();
     this.speedup   = 600;
     this.dt        = 1;
-
-    this.selectedBody   = undefined;
-    this.stopAfterAngle = undefined;
-    this.totalDeltaV    = 0;
-
-    this.model.runFirstPhysicsStep(this.dt);
+    this.resetModel(model);
 
     canvas0.setAttribute("width",  1000);
     canvas0.setAttribute("height", 1000);
@@ -37,6 +30,12 @@ function UI(model, camera, canvas0, canvas1, deltaVElement) {
                 t.unpause();
                 t.stopAfterAngle = (ev.which - 48) / 8 * 2*Math.PI;
                 break;
+            case "M":
+                t.setSpeedup(t.speedup * 1.5);
+                break;
+            case "N":
+                t.setSpeedup(t.speedup / 1.5);
+                break;
         }
     });
 
@@ -47,6 +46,22 @@ function UI(model, camera, canvas0, canvas1, deltaVElement) {
 
     window.setInterval(function () { t.refresh() }, 100);
 }
+
+UI.prototype.setSpeedup = function (newSpeedup) {
+    // hack
+    this.model.time *= newSpeedup / this.speedup;
+    this.speedup = newSpeedup;
+};
+
+UI.prototype.resetModel = function (model) {
+    this.model          = model;
+    this.startTime      = new Date().getTime();
+    this.pauseTime      = undefined;
+    this.selectedBody   = undefined;
+    this.stopAfterAngle = undefined;
+    this.totalDeltaV    = 0;
+    this.model.runFirstPhysicsStep(this.dt);
+};
 
 UI.prototype.handleMouse = function (wait, abort, ev) {
     var body = this.bodyNearPixelCoordinates([ev.offsetX, ev.offsetY]);
