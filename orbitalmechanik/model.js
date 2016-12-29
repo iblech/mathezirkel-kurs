@@ -1,10 +1,10 @@
-function Model() {
+function Model(bodies) {
     var rotate = function (phi, pos) {
         return [ Math.cos(phi)*pos[0] - Math.sin(phi)*pos[1], Math.sin(phi)*pos[0] + Math.cos(phi)*pos[1] ];
     };
 
     this.G      = 6.67408e-11;
-    this.bodies = {
+    this.bodies = bodies || {
         "earth": {
             "mass":  5.927e24,
             "pos":   [0.0, 0.0],
@@ -96,4 +96,21 @@ Model.prototype.runPhysicsTo = function (userTime, dt, stoppingCondition) {
 Model.prototype.applyThrust = function (body, vel) {
     this.bodies[body]["vel"][0] += vel[0];
     this.bodies[body]["vel"][1] += vel[1];
+}
+
+function AppleDropModel() {
+  return new Model({
+    "earth": {
+        "mass":  5.927e24,
+        "pos":   [0.0, 0.0],
+        "vel":   [0.0, 0.0],
+        "color": "blue",
+    },
+    "apple": {
+        "mass":  0,
+        "pos":   [0.0, 9370000.0],
+        "vel":   [0.0, 0.0],
+        "color": "red",
+    },
+  });
 }
