@@ -1,15 +1,16 @@
 \documentclass[12pt,compress,ngerman,utf8,t]{beamer}
 \usepackage[ngerman]{babel}
 \usepackage{calc}
-\usepackage{ragged2e,wasysym,multicol}  %,mathtools}
+\usepackage{ragged2e,wasysym,multicol,mathtools}
 \usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{booktabs}
 \hypersetup{colorlinks=true}
 
 \graphicspath{{images/}}
 
-\title[Alternate mathematical universes]{How space travel is revolutionized with this one weird trick from chaos theory}
-\author[Ingo Blechschmidt]{\textcolor{white}{Ingo Blechschmidt}}
-\date[2016-12-30]{\vspace*{-4em}\ \\\textcolor{white}{\scriptsize Institut für Mathematik \\ Universität Augsburg \\ December 30th, 2016}}
+\title[Orbital mechanics and low-energy transfers]{\large How space travel is revolutionized with this one weird trick from chaos theory}
+\author[Ingo Blechschmidt]{\textcolor{white}{Ingo Blechschmidt \\ thanking Sven Prüfer}}
+\date[2016-12-30]{\vspace*{-5em}\ \\\textcolor{white}{\scriptsize Institut für Mathematik \\ Universität Augsburg \\ December 30th, 2016 \\}}
 
 %\usetheme{Warsaw}
 \useinnertheme[shadow=true]{rounded}
@@ -29,8 +30,7 @@
 
 \usefonttheme{serif}
 \usepackage[T1]{fontenc}
-%\usepackage{libertine}
-\usepackage{mathpazo}
+\usepackage{libertine}
 
 \renewcommand{\_}{\mathpunct{.}\,}
 \newcommand{\BB}{\mathbb{B}}
@@ -87,11 +87,11 @@
 
 % http://www.ufointernationalproject.com/wp-content/uploads/2015/11/a23.jpg
 {\usebackgroundtemplate{\includegraphics[height=\paperheight]{images/interstellar}}
-\frame{\vspace*{12em}\titlepage}}
+\frame{\vspace*{9em}\titlepage}}
 \frame{\tableofcontents}
 
 
-\section{A crash course on orbital mechanics}
+\section[Crash course]{A crash course on orbital mechanics}
 
 {\usebackgroundtemplate{\begin{minipage}{\paperwidth}\vspace*{6.5cm}\includegraphics[width=\paperwidth]{images/orbit-wide}\end{minipage}}
 \begin{frame}
@@ -105,8 +105,111 @@
   \par
 \end{frame}}
 
+{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\hfill\includegraphics[height=\paperheight]{images/orbit-tall}\end{minipage}}
+\begin{frame}{Basic facts}
+  \begin{itemize}
+    \item Getting to space is easy. \\ The hard part is staying there.
+    % Mention: no friction.
+  \end{itemize}
+\end{frame}}
 
-\section{One weird trick from chaos theory}
+
+\subsection{Basic facts}
+
+\begin{frame}{Basic facts}
+  \begin{itemize}
+    \item<1-> Getting to space is easy. \\ The hard part is staying there.
+    \item<3-> Velocity is very important.
+    \item<4-> In the \hil{one-body problem}, there are only three kinds of
+    orbits: elliptic, parabolic, and hyperbolic.
+    \item<5-> Have your models straight: Earth is \ldots
+    \begin{enumerate}
+      \item a perfect ball?
+      \item has atmosphere?
+      \item rotating?
+    \end{enumerate}
+    % instantaneous impulses?
+  \end{itemize}
+
+  \only<1>{
+    \centering
+    % https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Newton_Cannon.svg/240px-Newton_Cannon.svg.png
+    \vspace*{-7em}
+    \includegraphics[width=0.4\textwidth]{images/newton-cannon}
+
+    $F_{\text{centripetal}} = F_{\text{gravitation}}
+    \leadsto v_1 = \sqrt{GM/r}$
+
+    $E_{\text{kinetic}} = E_{\text{gravitation}}
+    \leadsto v_2 = \sqrt{2} \, v_1$
+    \par
+  }
+
+  \only<2>{
+    \centering
+    \vspace*{-4em}
+    \begin{tabular}{ll}
+      \toprule
+      body & second escape velocity \\\midrule
+      Earth & $11.2 \,\mathrm{km}/\mathrm{s} \approx 40\,000 \,\mathrm{km}/\mathrm{h}$ \\
+      Moon  & $2.4  \,\mathrm{km}/\mathrm{s}$ \\
+      Sun   & $618  \,\mathrm{km}/\mathrm{s}$ \\
+      Milky Way & $\approx 550 \,\mathrm{km}/\mathrm{s}$ \\
+      \bottomrule
+    \end{tabular}
+    \par
+  }
+\end{frame}
+
+
+\subsection[Changing orbits]{Changing orbits}
+
+\begin{frame}{Changing orbits}
+  \begin{center}
+    \hil{``Live demo''}
+  \end{center}
+
+  \begin{itemize}
+    \item Changing the eccentricity
+    % Accelerate in tangential direction
+
+    \item Changing the radius
+    % Hohmann transfer
+
+    \item Changing the phase
+    % Speed away from the central body.
+    % Necessary Δv depends on eccentricity.
+    % If eccentricity is zero, need to Δv.
+
+    \item Changing inclination
+    % Easy, just accelerate normal to the plane.
+  \end{itemize}
+\end{frame}
+
+
+\subsection[Rocket equation]{The tyranny of the rocket equation}
+
+\begin{frame}{The tyranny of the rocket equation}
+  \centering
+  % http://tsiolkovsky.org/wp-content/uploads/2015/02/icon_en.png
+  \includegraphics[width=0.4\textwidth]{images/tsiolkovsky}
+  \bigskip
+
+  \scalebox{2}{$m_\text{total} = m_\text{payload} \cdot e^{\Delta v / v_\text{eff.\@ exhaust}}$}
+  \par
+\end{frame}
+
+% Weltall ist nah.
+% Extrem wichtig: (Ort,Geschwindigkeit) des Ziels
+% Erste Fluchtgeschwindigkeit
+% Filmausschnitt Bruce Willis
+% Filmausschnitt Gravity?
+% Arten von Trajektorien (stets Ellipsen, Parabeln oder Hyperbeln)
+% Tyrannei der Raketengleichung
+% Orbitwechsel
+% Gravity assist
+
+\section[Chaos theory]{One weird trick from chaos theory}
 
 {\usebackgroundtemplate{\includegraphics[height=\paperheight]{images/Interplanetary_Superhighway}}
 \begin{frame}
@@ -119,5 +222,14 @@
   \Large\textcolor{white}{\textbf{One weird trick from chaos theory}}
   \par
 \end{frame}}
+
+% Probleme mit konventionellem Ansatz
+% Ziel: ballistisches Einfangen
+% Lagrange-Punkte
+% dazu mitrotierendes Bezugssystem, Zentrifugalkraft, Corioliskraft
+% WSM
+% Wie man sie findet
+% Hiten
+% In der Natur
 
 \end{document}

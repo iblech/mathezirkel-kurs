@@ -119,7 +119,7 @@ UI.prototype.handleMouse = function (wait, abort, ev) {
             this.canvas1.lineWidth = 3;
             this.canvas1.stroke();
         } else if(ev.type === "click") {
-            var scale = 1e-4;
+            var scale = 3e-4;
             this.model.applyThrust(body, [scale * delta[0], scale * delta[1]]);
             this.totalDeltaV += scale * Math.sqrt(delta[0]*delta[0] + delta[1]*delta[1]);
             this.deltaVElement.innerHTML = (this.totalDeltaV / 1000).toFixed(2);
