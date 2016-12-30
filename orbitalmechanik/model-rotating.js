@@ -25,9 +25,27 @@ function Model(bodies) {
             "vel":   [0.0, 0.0],
             "color": "green",
         },
+        "l2": {
+            "mass":  0,
+            "pos":   [0.0, 400000000.0 * (1 + Math.pow(7.342e22/(3*5.927e24), 1/3)) - dy],
+            "vel":   [0.0, 0.0],
+            "color": "green",
+        },
+        "l3": {
+            "mass":  0,
+            "pos":   [0.0, -dy - 400000000.0 * (1 + 7*7.342e22/(12*5.927e24))],
+            "vel":   [0.0, 0.0],
+            "color": "green",
+        },
         "l4": {
             "mass":  0,
             "pos":   rotate(Math.PI/3, [0.0, 400000000.0 - dy]),
+            "vel":   [0.0, 0.0],
+            "color": "green",
+        },
+        "l5": {
+            "mass":  0,
+            "pos":   rotate(-Math.PI/3, [0.0, 400000000.0 - dy]),
             "vel":   [0.0, 0.0],
             "color": "green",
         },
@@ -61,9 +79,9 @@ Model.prototype.runFirstPhysicsStep = function (dt) {
     for(name in this.bodies) {
         if(name == "earth" || name == "moon") continue;
         var acc = this.calcAcceleration(name);  // by gravitation
-        acc[0] -= 2*this.omega*this.bodies[name]["vel"][0];
-        acc[1] -= 2*this.omega*this.bodies[name]["vel"][1];
-        acc[0] -=  this.omega*this.omega*this.bodies[name]["pos"][0];
+        acc[0] -= -2*this.omega*this.bodies[name]["vel"][1];
+        acc[1] -=  2*this.omega*this.bodies[name]["vel"][0];
+        acc[0] -= -this.omega*this.omega*this.bodies[name]["pos"][0];
         acc[1] -= -this.omega*this.omega*this.bodies[name]["pos"][1];
         this.bodies[name]["vel"][0] += dt * acc[0] / 2;
         this.bodies[name]["vel"][1] += dt * acc[1] / 2;
@@ -81,9 +99,9 @@ Model.prototype.runPhysicsStep = function (dt) {
     for(name in this.bodies) {
         if(name == "earth" || name == "moon") continue;
         accs[name] = this.calcAcceleration(name);
-        accs[name][0] -= 2*this.omega*this.bodies[name]["vel"][0];
-        accs[name][1] -= 2*this.omega*this.bodies[name]["vel"][1];
-        accs[name][0] -=  this.omega*this.omega*this.bodies[name]["pos"][0];
+        accs[name][0] -= -2*this.omega*this.bodies[name]["vel"][1];
+        accs[name][1] -=  2*this.omega*this.bodies[name]["vel"][0];
+        accs[name][0] -= -this.omega*this.omega*this.bodies[name]["pos"][0];
         accs[name][1] -= -this.omega*this.omega*this.bodies[name]["pos"][1];
     }
 
