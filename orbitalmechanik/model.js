@@ -114,3 +114,20 @@ function AppleDropModel() {
     },
   });
 }
+
+function MoonModel() {
+  return new Model({
+    "earth0": {
+        "mass":  5.927e24,
+        "pos":   [0.0, 0.0],
+        "vel":   [7.342e22/5.927e24 * 1022.0, 0.0],
+        "color": "blue",
+    },
+    "moon": {
+        "mass":  7.342e22,
+        "pos":   [0.0, 400000000.0],
+        "vel":   [-1022.0, 0],
+        "color": "red",
+    },
+  });
+}

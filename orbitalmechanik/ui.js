@@ -36,9 +36,19 @@ function UI(model, camera, canvas0, canvas1, deltaVElement) {
             case "N":
                 t.setSpeedup(t.speedup / 1.5);
                 break;
+            case "K":
+                t.dt /= 1.5;
+                break;
+            case "L":
+                t.dt *= 1.5;
+                break;
             case "A":
                 t.resetModel(new AppleDropModel());
                 t.camera.scale = 1/30000000;
+                break;
+            case "B":
+                t.resetModel(new MoonModel());
+                t.camera.scale = 2/3000000000;
                 break;
         }
     });
