@@ -93,7 +93,7 @@ UI.prototype.resetModel = function (model) {
 };
 
 UI.prototype.handleMouse = function (wait, abort, ev) {
-    this.deltaVProposalElement.innerHTML = 0.toFixed(3);
+    this.deltaVProposalElement.innerHTML = (0).toFixed(3);
     var body = this.bodyNearPixelCoordinates([ev.offsetX, ev.offsetY]);
     if(!body) {
         this.selectedBody = undefined;
@@ -110,6 +110,11 @@ UI.prototype.handleMouse = function (wait, abort, ev) {
 
     var bodyPos      = this.model.bodies[body]["pos"];
     var bodyPixelPos = this.toPixelCoordinates(bodyPos);
+
+    if(ev.shiftKey) {
+        this.camera.offset = [-bodyPos[0], -bodyPos[1]];
+        return;
+    }
 
     var wasPaused = this.pauseTime;
     this.pause();

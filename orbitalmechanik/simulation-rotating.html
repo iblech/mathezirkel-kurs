@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Orbital mechanics</title>
+    <link rel="stylesheet" type="text/css" href="layout.css">
+  </head>
+  <body>
+    <div>
+      <canvas id="canvas-0" style="z-index: 0">
+        Dieser Browser kann kein HTML5-canvas-Element darstellen.
+      </canvas>
+      <canvas id="canvas-1" style="z-index: 1">
+        Dieser Browser kann kein HTML5-canvas-Element darstellen.
+      </canvas>
+      <div style="position: absolute; right: 20px">
+        Δv = <span id="deltav">0</span> km/s<br>
+        proposal Δv = <span id="deltav-proposal">0</span> km/s<br>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="cont.js"></script>
+    <script type="text/javascript" src="model-rotating.js"></script>
+    <script type="text/javascript" src="camera.js"></script>
+    <script type="text/javascript" src="ui.js"></script>
+
+    <script type="text/javascript">//<![CDATA[
+      var c = new Camera();
+      c.scale /= 0.5e2;
+      var ui = new UI(new Model(), c, document.getElementById('canvas-0'), document.getElementById('canvas-1'), document.getElementById('deltav'), document.getElementById('deltav-proposal'));
+      ui.run();
+    //]]</script>
+  </body>
+</html>
