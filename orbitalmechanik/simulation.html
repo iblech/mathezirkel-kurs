@@ -14,7 +14,8 @@
         Dieser Browser kann kein HTML5-canvas-Element darstellen.
       </canvas>
       <div style="position: absolute; right: 20px">
-        Δv = <span id="deltav">0</span> km/s
+        Δv = <span id="deltav">0</span> km/s<br>
+        proposal Δv = <span id="deltav-proposal">0</span> km/s<br>
       </div>
     </div>
 
@@ -24,7 +25,7 @@
     <script type="text/javascript" src="ui.js"></script>
 
     <script type="text/javascript">//<![CDATA[
-      var ui = new UI(new Model(), new Camera(), document.getElementById('canvas-0'), document.getElementById('canvas-1'), document.getElementById('deltav'));
+      var ui = new UI(new Model(), new Camera(), document.getElementById('canvas-0'), document.getElementById('canvas-1'), document.getElementById('deltav'), document.getElementById('deltav-proposal'));
       ui.run();
     //]]</script>
   </body>

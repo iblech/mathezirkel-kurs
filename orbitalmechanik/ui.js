@@ -1,8 +1,9 @@
-function UI(model, camera, canvas0, canvas1, deltaVElement) {
+function UI(model, camera, canvas0, canvas1, deltaVElement, deltaVProposalElement) {
     this.camera  = camera;
     this.canvas0 = canvas0.getContext("2d");
     this.canvas1 = canvas1.getContext("2d");
     this.deltaVElement = deltaVElement;
+    this.deltaVProposalElement = deltaVProposalElement;
     this.width   = 1000;
     this.height  = 1000;
 
@@ -32,15 +33,17 @@ function UI(model, camera, canvas0, canvas1, deltaVElement) {
                 break;
             case "M":
                 t.setSpeedup(t.speedup * 1.5);
+                t.dt *= 1.5;
                 break;
             case "N":
                 t.setSpeedup(t.speedup / 1.5);
-                break;
-            case "K":
                 t.dt /= 1.5;
                 break;
-            case "L":
-                t.dt *= 1.5;
+            case "I":
+                t.camera.scale *= 1.5;
+                break;
+            case "O":
+                t.camera.scale /= 1.5;
                 break;
             case "A":
                 t.resetModel(new AppleDropModel());
@@ -48,6 +51,18 @@ function UI(model, camera, canvas0, canvas1, deltaVElement) {
                 break;
             case "B":
                 t.resetModel(new MoonModel());
+                t.camera.scale = 2/3000000000;
+                break;
+            case "C":
+                t.resetModel(new MoonAndRocketModel());
+                t.camera.scale = 2/3000000000;
+                break;
+            case "D":
+                t.resetModel(new MoonAndRocketModel2());
+                t.camera.scale = 2/3000000000;
+                break;
+            case "E":
+                t.resetModel(new MoonAndRocketModel3());
                 t.camera.scale = 2/3000000000;
                 break;
         }
@@ -78,6 +93,7 @@ UI.prototype.resetModel = function (model) {
 };
 
 UI.prototype.handleMouse = function (wait, abort, ev) {
+    this.deltaVProposalElement.innerHTML = 0.toFixed(3);
     var body = this.bodyNearPixelCoordinates([ev.offsetX, ev.offsetY]);
     if(!body) {
         this.selectedBody = undefined;
@@ -116,8 +132,13 @@ UI.prototype.handleMouse = function (wait, abort, ev) {
         if(ev.altKey) {  // length quantization
             var len   = Math.sqrt(delta[0]*delta[0] + delta[1]*delta[1]);
             var gamma = Math.round(len / 3e6) * 3e6 / len;
+            // var gamma = Math.round(len / 3.06e7) * 3.06e7 / len;
             delta = [ gamma * delta[0], gamma * delta[1] ];
         }
+
+        var scale = 1e-4;
+        var deltaVProposal = scale * Math.sqrt(delta[0]*delta[0] + delta[1]*delta[1]);
+        this.deltaVProposalElement.innerHTML = (deltaVProposal / 1000).toFixed(3);
 
         if(ev.which == 27) {
             if(! wasPaused) this.unpause();
@@ -129,10 +150,9 @@ UI.prototype.handleMouse = function (wait, abort, ev) {
             this.canvas1.lineWidth = 3;
             this.canvas1.stroke();
         } else if(ev.type === "click") {
-            var scale = 3e-4;
             this.model.applyThrust(body, [scale * delta[0], scale * delta[1]]);
             this.totalDeltaV += scale * Math.sqrt(delta[0]*delta[0] + delta[1]*delta[1]);
-            this.deltaVElement.innerHTML = (this.totalDeltaV / 1000).toFixed(2);
+            this.deltaVElement.innerHTML = (this.totalDeltaV / 1000).toFixed(3);
             this.unpause();
             return abort();
         }

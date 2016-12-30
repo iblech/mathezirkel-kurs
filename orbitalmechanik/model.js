@@ -116,18 +116,106 @@ function AppleDropModel() {
 }
 
 function MoonModel() {
-  return new Model({
-    "earth0": {
-        "mass":  5.927e24,
-        "pos":   [0.0, 0.0],
-        "vel":   [7.342e22/5.927e24 * 1022.0, 0.0],
-        "color": "blue",
-    },
-    "moon": {
-        "mass":  7.342e22,
-        "pos":   [0.0, 400000000.0],
-        "vel":   [-1022.0, 0],
-        "color": "red",
-    },
-  });
+    return new Model({
+        "earth0": {
+            "mass":  5.927e24,
+            "pos":   [0.0, 0.0],
+              "vel":   [7.342e22/5.927e24 * 1022.0, 0.0],
+              "color": "blue",
+          },
+          "moon": {
+              "mass":  7.342e22,
+              "pos":   [0.0, 400000000.0],
+              "vel":   [-1022.0, 0],
+              "color": "red",
+          },
+    });
+}
+
+function MoonAndRocketModel() {
+    var rotate = function (phi, pos) {
+        return [ Math.cos(phi)*pos[0] - Math.sin(phi)*pos[1], Math.sin(phi)*pos[0] + Math.cos(phi)*pos[1] ];
+    };
+
+    return new Model({
+        "earth0": {
+            "mass":  5.927e24,
+            "pos":   [0.0, 0.0],
+            "vel":   [7.342e22/5.927e24 * 1022.0, 0.0],
+            "color": "blue",
+        },
+        "moon": {
+            "mass":  7.342e22,
+            "pos":   [0.0, 400000000.0],
+            "vel":   [-1022.0, 0],
+            "color": "red",
+        },
+        "iss": {
+            "mass":  0,  // 419455,
+            "pos":   rotate(-Math.PI / 2 + 0.3, [0.0, 409000 + 6370000]),
+            "vel":   rotate(-Math.PI / 2 + 0.3, [-7660.0 - 3051, 0.0]),
+            "color": "red",
+        },
+    });
+}
+
+function MoonAndRocketModel2() {
+    var rotate = function (phi, pos) {
+        return [ Math.cos(phi)*pos[0] - Math.sin(phi)*pos[1], Math.sin(phi)*pos[0] + Math.cos(phi)*pos[1] ];
+    };
+
+    return new Model({
+        "earth0": {
+            "mass":  5.927e24,
+            "pos":   [0.0, 0.0],
+            "vel":   [7.342e22/5.927e24 * 1022.0, 0.0],
+            "color": "blue",
+        },
+        "moon": {
+            "mass":  7.342e22,
+            "pos":   [0.0, 400000000.0],
+            "vel":   [-1022.0, 0],
+            "color": "red",
+        },
+        "iss": {
+            "mass":  0,  // 419455,
+            "pos":   rotate(-Math.PI / 2 -0.5, [0.0, 409000 + 6370000]),
+            "vel":   rotate(-Math.PI / 2 -0.5, [-7660.0 - 3051, 0.0]),
+            "color": "red",
+        },
+    });
+}
+
+function MoonAndRocketModel3() {  // center of mass in (0,0)
+    var rotate = function (phi, pos) {
+        return [ Math.cos(phi)*pos[0] - Math.sin(phi)*pos[1], Math.sin(phi)*pos[0] + Math.cos(phi)*pos[1] ];
+    };
+
+    var dy = 7.342e22/(5.927e24+7.342e22)*400000000.0;
+    return new Model({
+        "earth0": {
+            "mass":  5.927e24,
+            "pos":   [0.0, -dy],
+            "vel":   [7.342e22/5.927e24 * 1022.0, 0.0],
+            "color": "blue",
+        },
+        "moon": {
+            "mass":  7.342e22,
+            "pos":   [0.0, 400000000.0 - dy],
+            "vel":   [-1022.0, 0],
+            "color": "red",
+        },
+        "iss": {
+            "mass":  0,
+            "pos":   rotate(Math.PI / 3, [0.0, 400000000.0 - dy]),
+            "vel":   rotate(Math.PI / 3, [-1022.0, 0]),
+            "color": "green",
+        },
+        "l1": {
+            "mass":  0,
+            "pos":   [0.0, 400000000.0 * (1 - Math.pow(7.342e22/(3*5.927e24), 1/3))],
+            "vel":   [-1022.0, 0],
+            "color": "green",
+        },
+    });
 }
