@@ -127,7 +127,7 @@ function MoonModel() {
               "mass":  7.342e22,
               "pos":   [0.0, 400000000.0],
               "vel":   [-1022.0, 0],
-              "color": "red",
+              "color": "darkgreen",
           },
     });
 }
@@ -148,7 +148,7 @@ function MoonAndRocketModel() {
             "mass":  7.342e22,
             "pos":   [0.0, 400000000.0],
             "vel":   [-1022.0, 0],
-            "color": "red",
+            "color": "darkgreen",
         },
         "iss": {
             "mass":  0,  // 419455,
@@ -175,7 +175,7 @@ function MoonAndRocketModel2() {
             "mass":  7.342e22,
             "pos":   [0.0, 400000000.0],
             "vel":   [-1022.0, 0],
-            "color": "red",
+            "color": "darkgreen",
         },
         "iss": {
             "mass":  0,  // 419455,
@@ -203,7 +203,7 @@ function MoonAndRocketModel3() {  // center of mass in (0,0)
             "mass":  7.342e22,
             "pos":   [0.0, 400000000.0 - dy],
             "vel":   [-1022.0, 0],
-            "color": "red",
+            "color": "darkgreen",
         },
         "iss": {
             "mass":  0,

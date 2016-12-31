@@ -9,7 +9,7 @@
 \graphicspath{{images/}}
 
 \title[Orbital mechanics and low-energy transfers]{\large How space travel is revolutionized with this one weird trick from chaos theory}
-\author[Ingo Blechschmidt]{\textcolor{white}{Ingo Blechschmidt \\ thanking Sven Prüfer}}
+\author[Ingo Blechschmidt]{\textcolor{white}{Ingo Blechschmidt \\ thanking Sven Prüfer and Matthias Hutzler}}
 \date[2016-12-30]{\vspace*{-5em}\ \\\textcolor{white}{\scriptsize Institut für Mathematik \\ Universität Augsburg \\ December 30th, 2016 \\}}
 
 %\usetheme{Warsaw}
@@ -109,6 +109,7 @@
 \begin{frame}{Basic facts}
   \begin{itemize}
     \item Getting to space is easy. \\ The hard part is staying there.
+    \item Gravitational acceleration at \\ the height of the ISS is still $\approx 8.7 \,\mathrm{m}/\mathrm{s}^2$.
     % Mention: no friction.
   \end{itemize}
 \end{frame}}
@@ -170,16 +171,18 @@
   \end{center}
 
   \begin{itemize}
+    \item Changing the phase
+
+    % Winkel ändern:
+    % Speed away from the central body.
+    % Necessary Δv depends on eccentricity.
+    % If eccentricity is zero, need to Δv.
+
     \item Changing the eccentricity
     % Accelerate in tangential direction
 
     \item Changing the radius
     % Hohmann transfer
-
-    \item Changing the phase
-    % Speed away from the central body.
-    % Necessary Δv depends on eccentricity.
-    % If eccentricity is zero, need to Δv.
 
     \item Changing inclination
     % Easy, just accelerate normal to the plane.
@@ -226,25 +229,41 @@
 \end{frame}}
 
 
-\subsection{Lagrange points}
+\subsection{Lagrangian points}
 
-\begin{frame}{Lagrange points}
+\begin{frame}{Lagrangian points}
   \centering
   \only<1>{\includegraphics[width=0.7\textwidth]{lagrange}}
   \only<2>{\includegraphics[width=0.7\textwidth]{lagrange2}}
   \par
 \end{frame}
 
+
+\subsection{Weak stability boundaries}
+
 \begin{frame}{Weak stability boundaries}
-  % Bild
+  \centering
+  \only<1>{\includegraphics[width=0.6\textwidth]{weak-stability-boundaries}}
+  \only<2>{\includegraphics[width=0.7\textwidth]{weak-stability-boundary-plot}}
+  \par
 \end{frame}
+
+
+\subsection{The rescue of the Hiten}
 
 \begin{frame}{The rescue of the Hiten}
-  % Bild
+  \centering
+  \includegraphics[width=0.7\textwidth]{hiten-trajectory}
+  \par
 \end{frame}
 
+
+\subsection{In nature}
+
 \begin{frame}{In nature}
-  % Bild
+  \centering
+  \includegraphics[width=0.6\textwidth]{intergalactic-transport-network}
+  \par
 \end{frame}
 
 % https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/L4_diagram.svg/403px-L4_diagram.svg.png
