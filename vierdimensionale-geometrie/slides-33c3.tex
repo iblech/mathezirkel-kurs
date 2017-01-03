@@ -31,55 +31,6 @@
 \usefonttheme{serif}
 \usepackage[T1]{fontenc}
 \usepackage{libertine}
-%\usepackage{mathpazo}
-
-\renewcommand{\_}{\mathpunct{.}\,}
-\newcommand{\BB}{\mathbb{B}}
-\newcommand{\M}{\mathcal{M}}
-\newcommand{\R}{\mathrm{R}}
-\newcommand{\NN}{\mathbb{N}}
-\newcommand{\RR}{\mathbb{R}}
-\newcommand{\Eff}{\mathrm{Eff}}
-\newcommand{\TM}{\mathrm{TM}}
-\newcommand{\STM}{\mathrm{STM}}
-\newcommand{\RW}{\mathrm{RW}}
-\newcommand{\lambdaC}{\lambda\mathrm{C}}
-\newcommand{\defeq}{\vcentcolon=}
-\newcommand{\Set}{\mathrm{Set}}
-
-\newcommand{\slogan}[1]{%
-  \begin{center}%
-    \setlength{\fboxrule}{2pt}%
-    \setlength{\fboxsep}{8pt}%
-    {\usebeamercolor[fg]{item}\fbox{\usebeamercolor[fg]{normal text}\parbox{0.91\textwidth}{#1}}}%
-  \end{center}%
-}
-
-\newcommand{\code}[1]{%
-  \begin{center}%
-    \setlength{\fboxrule}{1pt}%
-    \setlength{\fboxsep}{8pt}%
-    {\fbox{\parbox{0.81\textwidth}{#1}}}%
-  \end{center}%
-}
-
-\newcommand{\explanation}[2]{
-  #1 \\
-  \qquad means: \\[0.4em]
-  \qquad\qquad \begin{minipage}{0.84\textwidth}
-  #2
-  \end{minipage}
-}
-
-\newcommand{\explanationspoiler}[3]{
-  \explanation{#1}{#2} \\[0.4em]
-  \qquad\qquad\qquad #3
-}
-
-\newcommand{\fmini}[2]{%
-  \setlength{\fboxrule}{2pt}%
-  \setlength{\fboxsep}{-3pt}%
-  \usebeamercolor[fg]{item}\fbox{\usebeamercolor[fg]{normal text}\parbox{#1}{\begin{center}#2\end{center}}}}
 
 \setbeamertemplate{navigation symbols}{}
 
@@ -105,16 +56,7 @@
   \vskip0pt%
 }
 
-\newcommand{\backupstart}{
-  \newcounter{framenumberpreappendix}
-  \setcounter{framenumberpreappendix}{\value{framenumber}}
-}
-\newcommand{\backupend}{
-  \addtocounter{framenumberpreappendix}{-\value{framenumber}}
-  \addtocounter{framenumber}{\value{framenumberpreappendix}}
-}
-
-\setbeameroption{hide notes}
+\setbeameroption{show notes}
 \setbeamertemplate{note page}[plain]
 
 \begin{document}
@@ -139,9 +81,11 @@
 \subsection{Four dimensions: what is it?}
 
 \begin{frame}{Four dimensions?}
-  \only<1>{\includegraphics[width=\textwidth]{4d-tesseract}}
-  \only<2>{\includegraphics[width=\textwidth]{4d-pentachoron}}
-  \only<3>{\includegraphics[width=\textwidth]{prisoner}}
+  \centering
+  \only<1>{\includegraphics[width=0.9\textwidth]{4d-tesseract}}
+  \only<2>{\includegraphics[width=0.9\textwidth]{4d-pentachoron}}
+  \only<3>{\includegraphics[width=0.9\textwidth]{prisoner}}
+  \par
   % Skizze Punkt, Linie, Quadrat, Würfel, nach \pause Tesserakt
   % Skizze Punkt, Linie, Dreieck, Tetraeder, 4-dimensionales Simplex
   % Sache mit Projektion erklären
@@ -150,6 +94,21 @@
   % Wo erkennt man die drei Dimensionen in der realen Welt?
   % Gefängnisse (Quadrat genügt im Flachland, Würfel genügt in 3D, genügt nicht in 4D)
 \end{frame}
+
+\note{
+  \begin{itemize}
+    \item On the previous slide you see two-dimensional projections of the
+    three-dimensional cube and the four-dimensional hypercube (tesseract).
+    \item We're talking about four spatial dimensions. This is not related to
+    four-dimensional spacetime or eleven-dimensional string theory.
+    \item A flatlander can be imprisoned by enclosing them with a square. But
+    we, as three-dimensional beings, can free them by grabbing them, lifting
+    them up in the third dimension, moving them a little to the side, and
+    putting them back into flatland.
+    \item Similarly, a four-dimensional being could free us if we were imprisoned
+    in a three-dimensional cube.
+  \end{itemize}
+}
 
 
 \subsection{Knot theory}
@@ -161,6 +120,16 @@
   \par
 \end{frame}
 
+\note{
+  \begin{itemize}
+    \item You can untie any knot in four dimensions. Two linked one-dimensional
+    strings can always be separated in four dimensions.
+    \item But it's possible to tangle an one-dimensional string with the
+    two-dimensional surface of a sphere in four dimensions.
+    \item More generally, in $n$ dimensions, one can tangle $a$-dimensional
+    objects with $b$-dimensional objects provided that $a + b \geq n - 1$.
+  \end{itemize}
+}
 
 %Verhedderbar
 %in 3D: Schnur, Schnur; 2, 2; 1, 1
@@ -184,6 +153,26 @@
   \par
 \end{frame}
 
+\note{
+  \begin{itemize}
+    \item The familiar torus (donut) can be obtained from a cylinder by glueing
+    the two bounding circles together.
+    \item The Klein bottle can be obtained in the same way, but with flipping
+    one of the bounding circles first.
+    \item In three dimensions, the Klein bottle can only be realized with a
+    self-intersection. Only in four dimensions it's possible to exhibit the
+    true Klein bottle.
+    \item Like the Möbius strip, the Klein bottle is not orientable: It has
+    only one side. Unlike the Möbius strip, it doesn't have a boundary.
+    \item A mathematician named Klein \\
+    Thought the Möbius band was divine. \\
+    Said he: ``If you glue \\
+    The edges of two, \\
+    You'll get a weird bottle like mine.'' \\
+    \qquad\qquad -- Leo Moser
+  \end{itemize}
+}
+
 
 \section[Sizes]{Sizes in four dimensions}
 
@@ -192,11 +181,13 @@
 \begin{frame}{Hypervolume of hyperballs}
   \centering
   \includegraphics[width=0.4\textwidth]{sizes-1}
+  \bigskip
   % vorher gscheite Definition der Hyperkugel
   % Bild vom Kreis im Quadrat
   % Bild vom Zylinder im Würfel
   % Bild von der Kugel im Würfel
 
+  \small
   \begin{tabular}{lll}
     \toprule
     dimension & hypervolume & \\\midrule
@@ -215,7 +206,29 @@
   \end{tabular}\par
 \end{frame}
 
-% power of negative thinking
+\note{
+  \begin{itemize}
+    \item The portion of the $n$-dimensional unit hypercube which is occupied
+    by the inscribed $n$-dimensional hyperball gets arbitrary small in
+    sufficiently high dimensions.
+    \item The volume of such a hyperball is the answer to the following
+    question: What is the probability that we managed to hit the hyperball with
+    an dart, provided that we managed to hit the enclosing hyperball?
+    \item Wikipedia gives
+    \href{https://en.wikipedia.org/wiki/Volume_of_an_n-ball}{derivations for
+    these formulas}.
+    \item You can use the \emph{power of negative thinking} to motivate that
+    the formula for the n-dimensional volume of the n-dimensional hyperball
+    does \emph{not} contain $\pi^n$ (but rather $\pi^{\lfloor n/2 \rfloor}$):
+    Think about the zero- and one-dimensional case.
+
+    A zero-dimensional ball is just a point. Its zero-dimensional volume
+    is~$1$.
+
+    An one-dimensional ball is just a line segment. Its one-dimensional volume
+    is its length.
+  \end{itemize}
+}
 
 
 \subsection{Kissing hyperspheres}
@@ -232,14 +245,14 @@
   \par
 \end{frame}
 
-
 \begin{frame}{Kissing hyperspheres}
   % Bild vier Kreise an den Ecken des Zweiheitsquadrats und Kreis in der Mitte
   \centering
   \vspace*{-1em}
   \includegraphics[width=0.3\textwidth]{sizes-2}
+  \bigskip
 
-  \centering
+  {\small
   \begin{tabular}{lll}
     \toprule
     dimension & radius of the inner hypersphere & \\\midrule
@@ -251,13 +264,29 @@
     \pause
     $n$ & $\sqrt{n} - 1$ \\
     \bottomrule
-  \end{tabular}\par
+  \end{tabular}\par}
   \bigskip
 
   \centering
   \hil{The distance to the corners gets bigger and bigger.}
   \par
 \end{frame}
+
+\note{
+  \begin{itemize}
+    \item In two dimensions, the distance of a point~$(x,y)$ to the origin is
+    $\sqrt{x^2 + y^2}$ (by the Pythagorean theorem).
+    \item In three dimensions, the distance of a point~$(x,y,z)$ to the origin
+    is~$\sqrt{x^2+y^2+z^2}$.
+    \item The pattern continues to arbitrary dimensions.
+    \item In four dimensions, the ``small hypersphere in the middle'' has
+    exactly the same size as the hyperspheres at the 16 vertices of the
+    hypercube.
+    \item In even greater dimensions, the hyperspheres at the vertices are so
+    small that the ``small hypersphere in the middle'' is bigger than them and
+    in fact bigger than the hypercube!
+  \end{itemize}
+}
 
 
 \section[Intersection]{Intersection theory}
@@ -275,7 +304,7 @@
 
 \begin{frame}{A tesseract arrives}
   \centering
-  \includegraphics[width=\textwidth]{a-tesseract-arrives}
+  \includegraphics[width=0.9\textwidth]{a-tesseract-arrives}
   \par
 \end{frame}
 
@@ -308,7 +337,7 @@
 \newcommand{\solidd}[3]{\begin{column}{0.35\textwidth}\centering\hil{#2}\par#3\\\medskip\includegraphics[height=0.6\textwidth]{#1}\end{column}}
 
 
-\subsection{in 3D}
+\subsection{In 3D}
 
 \begin{frame}{Platonic solids in 3D}
   \begin{columns}[c]
@@ -324,7 +353,7 @@
 \end{frame}
 
 
-\subsection{in 4D}
+\subsection{In 4D}
 
 \begin{frame}{Platonic solids in 4D}
   \begin{columns}[c]
@@ -342,6 +371,23 @@
 \end{frame}
 
 
+\subsection{In arbitrary dimensions}
+
+\begin{frame}{Platonic solids in arbitrary dimensions}
+  \centering
+  \begin{tabular}{ll}
+    \toprule
+    dimension & number of Platonic solids \\ \midrule
+    $n = 1$ & 1 (just the line segment) \\
+    $n = 2$ & $\infty$ (triangle, square, \ldots; any regular polygon) \\
+    $n = 3$ & 5 \\
+    $n = 4$ & 6 \\
+    $n > 4$ & 3 (just the simplex, the hypercube and its dual) \\
+    \bottomrule
+  \end{tabular}
+  \par
+\end{frame}
+
 % Gravitation
 
 \subsection[Glueing]{Glueing four-dimensional shapes}
@@ -352,13 +398,37 @@
   \par
 \end{frame}
 
+
+\appendix
+
+\section{Image sources}
+
+\begin{frame}{Image sources}
+  \tiny
+  Miscellaneous pictures: \\
+  \url{https://commons.wikimedia.org/wiki/File:Blue_Trefoil_Knot.png} \\
+  \url{http://www.gnuplotting.org/figs/klein_bottle.png} \\
+  \url{http://4.bp.blogspot.com/_TbkIC-eqFNM/S-dK9dd1cUI/AAAAAAAAFjA/d8qdTHhKy1U/s320/tesseract+unfolded.png} \\
+  \url{https://en.wikipedia.org/wiki/File:Tetrahedron.svg} \\
+  \url{https://en.wikipedia.org/wiki/File:Hexahedron.svg} \\
+  \url{https://en.wikipedia.org/wiki/File:Octahedron.svg} \\
+  \url{https://en.wikipedia.org/wiki/File:Dodecahedron.svg} \\
+  \url{https://en.wikipedia.org/wiki/File:Icosahedron.svg}
+  \bigskip
+
+  Rendered images of four-dimensional bodies created by Robert Webb with his
+  Stella software: \\
+  \url{https://en.wikipedia.org/wiki/File:Ortho_solid_011-uniform_polychoron_53p-t0.png} \\
+  \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_5-cell.png} \\
+  \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_8-cell.png} \\
+  \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_16-cell.png} \\
+  \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_24-cell.png} \\
+  \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_120-cell.png} \\
+  \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_600-cell_vertex-centered.png} \\
+\end{frame}
+\addtocounter{framenumber}{-1}
+
 \end{document}
-
-Namen für Bewegung in w-Richtung nachschauen
-Würfelnetz auf Englisch
-Wie man ihn zeichnet (schon zu Beginn)
-Fraktale
-
 
 
 Ecken:     2 4  8 16
@@ -366,3 +436,13 @@ Kanten:    1 4 12 32    32 = (16 * 4) / 2    12 = (8 * 3) / 2
 Flächen:   0 1  6 24    (3über2)*8/4 = 6     (4über2)*16/4 = 24 = 2^2 * (4über2)
 Volumina:  0 0  1  8
 4-Vol.:    0 0  0  1
+
+* Raumzeit in 2+1 Dimensionen ist schlecht wegen: Feldgleichung hat zu wenig
+  Unbekannte. Masse müsste immer Null sein. (?)
+* Kommutativität von gewissen Rotationen; Verknüpfungen von Rotationen ist nicht
+  unbedingt Rotation (einer Ebene)! (?)
+* (Rotationen nicht um Achsen, sondern "um Ebenen"; besser: Man rotiert immer "in
+  einer Ebene".)
+* Quaternionen?
+* Ist jedes Element der SO(4) eine Rotation einer Ebene? Nein. (-Id)
+* Ist jedes Element der SO(4) Verknüpfung zweier Spiegelungen an Hyperebenen? Nein.
