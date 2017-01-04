@@ -8,9 +8,9 @@
 
 \graphicspath{{images/}}
 
-\title[Orbital mechanics and low-energy transfers]{\large How space travel is revolutionized with this one weird trick from chaos theory}
-\author[Ingo Blechschmidt]{\textcolor{white}{Ingo Blechschmidt \\ thanking Sven Prüfer and Matthias Hutzler}}
-\date[2016-12-30]{\vspace*{-5em}\ \\\textcolor{white}{\scriptsize Institut für Mathematik \\ Universität Augsburg \\ December 30th, 2016 \\}}
+\title{\large Wie ein seltsamer Trick der Chaostheorie die Raumfahrt revolutioniert}
+\author[Ingo Blechschmidt]{\textcolor{white}{Ingo Blechschmidt \\ mit Dank an Sven Prüfer und Matthias Hutzler}}
+\date[2017-01-04]{\vspace*{-5em}\ \\\textcolor{white}{\scriptsize Institut für Mathematik \\ Universität Augsburg \\ 4. Januar 2017 \\}}
 
 %\usetheme{Warsaw}
 \useinnertheme[shadow=true]{rounded}
@@ -86,43 +86,42 @@
 \frame{\tableofcontents}
 
 
-\section[Crash course]{A crash course on orbital mechanics}
+\section[Crashkurs in Orbitalmechanik]{Ein Crashkurs in Orbitalmechanik}
 
 {\usebackgroundtemplate{\begin{minipage}{\paperwidth}\vspace*{6.5cm}\includegraphics[width=\paperwidth]{images/orbit-wide}\end{minipage}}
 \begin{frame}
   \centering
   \bigskip\bigskip
 
-  \Huge \hil{Part I}
+  \Huge \hil{Teil I}
 
   \bigskip
-  \Large\textbf{A crash course on orbital mechanics}
+  \Large\textbf{Ein Crashkurs in Orbitalmechanik}
   \par
 \end{frame}}
 
 {\usebackgroundtemplate{\begin{minipage}{\paperwidth}\hfill\includegraphics[height=\paperheight]{images/orbit-tall}\end{minipage}}
-\begin{frame}{Basic facts}
+\begin{frame}{Grundlagen}
   \begin{itemize}
-    \item Getting to space is easy. \\ The hard part is staying there.
-    \item Gravitational acceleration at \\ the height of the ISS is still $\approx 8.7 \,\mathrm{m}/\mathrm{s}^2$.
+    \item Es ist leicht, ins Weltall zu kommen. \\ Schwer ist es, dort zu bleiben.
+    \item Die Erdbeschleunigung auf Höhe der ISS ist \\ immer noch $\approx 8{,}7 \,\mathrm{m}/\mathrm{s}^2$.
     % Mention: no friction.
   \end{itemize}
 \end{frame}}
 
 
-\subsection{Basic facts}
+\subsection{Grundlagen}
 
-\begin{frame}{Basic facts}
+\begin{frame}{Grundlagen}
   \begin{itemize}
-    \item<1-> Getting to space is easy. \\ The hard part is staying there.
-    \item<3-> Velocity is very important.
-    \item<4-> In the \hil{one-body problem}, there are only three kinds of
-    orbits: elliptic, parabolic, and hyperbolic.
-    \item<5-> Have your models straight: Earth is \ldots
+    \item<1-> Es ist leicht, ins Weltall zu kommen. \\ Schwer ist es, dort zu bleiben.
+    \item<3-> Geschwindigkeit ist wichtig.
+    \item<4-> Im \hil{Einkörperproblem} gibt es nur drei Arten von Orbiten: elliptische, parabolische und hyperbolische.
+    \item<5-> Sei dir deiner Annahmen bewusst:
     \begin{enumerate}
-      \item a perfect ball?
-      \item has atmosphere?
-      \item rotating?
+      \item Ist die Erde eine perfekte Kugel?
+      \item Hat sie Atmosphäre?
+      \item Dreht sie sich um sich selbst?
     \end{enumerate}
     % instantaneous impulses?
   \end{itemize}
@@ -146,11 +145,11 @@
     \vspace*{-4em}
     \begin{tabular}{ll}
       \toprule
-      body & second escape velocity \\\midrule
-      Earth & $11.2 \,\mathrm{km}/\mathrm{s} \approx 40\,000 \,\mathrm{km}/\mathrm{h}$ \\
-      Moon  & $2.4  \,\mathrm{km}/\mathrm{s}$ \\
-      Sun   & $618  \,\mathrm{km}/\mathrm{s}$ \\
-      Milky Way & $\approx 550 \,\mathrm{km}/\mathrm{s}$ \\
+      Himmelskörper & zweite Fluchtgeschwindigkeit \\\midrule
+      Erde & $11{,}2 \,\mathrm{km}/\mathrm{s} \approx 40\,000 \,\mathrm{km}/\mathrm{h}$ \\
+      Mond  & $2{,}4  \,\mathrm{km}/\mathrm{s}$ \\
+      Sonne & $618  \,\mathrm{km}/\mathrm{s}$ \\
+      Milchstraße & $\approx 550 \,\mathrm{km}/\mathrm{s}$ \\
       \bottomrule
     \end{tabular}
     \par
@@ -158,28 +157,28 @@
 \end{frame}
 
 
-\subsection[Changing orbits]{Changing orbits}
+\subsection{Orbitwechsel}
 
-\begin{frame}{Changing orbits}
+\begin{frame}{Orbitwechsel}
   \begin{center}
-    \hil{``Live demo''}
+    \hil{``Live-Demo''}
   \end{center}
 
   \begin{itemize}
-    \item Changing the phase
+    \item Änderung der Phase
 
     % Winkel ändern:
     % Speed away from the central body.
     % Necessary Δv depends on eccentricity.
     % If eccentricity is zero, need to Δv.
 
-    \item Changing the eccentricity
+    \item Änderung der Exzentrizität
     % Accelerate in tangential direction
 
-    \item Changing the radius
+    \item Änderung des Radius
     % Hohmann transfer
 
-    \item Changing inclination
+    \item Änderung der Ebene
     % Easy, just accelerate normal to the plane.
   \end{itemize}
 \end{frame}
@@ -187,9 +186,9 @@
 \imgslide{clips/02-chinese-space-station}
 
 
-\subsection[Rocket equation]{The tyranny of the rocket equation}
+\subsection[Raketengleichung]{Die Tyrannei der Raketengleichung}
 
-\begin{frame}{The tyranny of the rocket equation}
+\begin{frame}{Die Tyrannei der Raketengleichung}
   \centering
   % http://tsiolkovsky.org/wp-content/uploads/2015/02/icon_en.png
   \includegraphics[width=0.4\textwidth]{images/tsiolkovsky} \\
@@ -211,24 +210,24 @@
 % Gravity assist
 
 
-\section[Chaos theory]{One weird trick from chaos theory}
+\section[Chaostheorie]{Ein seltsamer Trick der Chaostheorie}
 
 {\usebackgroundtemplate{\includegraphics[height=\paperheight]{images/Interplanetary_Superhighway}}
 \begin{frame}
   \centering
   \bigskip\bigskip
 
-  \Huge \hil{Part II}
+  \Huge \hil{Teil II}
 
   \bigskip
-  \Large\textcolor{white}{\textbf{One weird trick from chaos theory}}
+  \Large\textcolor{white}{\textbf{Ein seltsamer Trick der Chaostheorie}}
   \par
 \end{frame}}
 
 
-\subsection{Lagrangian points}
+\subsection{Lagrange-Punkte}
 
-\begin{frame}{Lagrangian points}
+\begin{frame}{Lagrange-Punkte}
   \centering
   \only<1>{\includegraphics[width=0.7\textwidth]{lagrange}}
   \only<2>{\includegraphics[width=0.7\textwidth]{lagrange2}}
@@ -248,18 +247,18 @@
 \imgslide{clips/03-supercomputer-1}
 
 
-\subsection[Hiten]{The rescue of the Hiten}
+\subsection[Hiten]{Die Rettung der Hiten}
 
-\begin{frame}{The rescue of the Hiten}
+\begin{frame}{Die Rettung der Hiten}
   \centering
   \includegraphics[width=0.7\textwidth]{hiten-trajectory}
   \par
 \end{frame}
 
 
-\subsection{In nature}
+\subsection{In der Natur}
 
-\begin{frame}{In nature}
+\begin{frame}{In der Natur}
   \centering
   \includegraphics[width=0.6\textwidth]{intergalactic-transport-network}
   \par
