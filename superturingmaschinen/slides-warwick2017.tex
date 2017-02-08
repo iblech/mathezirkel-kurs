@@ -7,8 +7,11 @@
 
 \graphicspath{{images/}}
 
-\title{Exploring hypercomputation \\ with the ef{}fective topos}
-\author[Ingo Blechschmidt]{\textcolor{white}{Ingo Blechschmidt \\ \scriptsize University of Augsburg \\ Februar 8th, 2017}}
+\DeclareSymbolFont{extraup}{U}{zavm}{m}{n}
+\DeclareMathSymbol{\varheart}{\mathalpha}{extraup}{86}
+
+\title{Exploring hypercomputation \\ $\varheart$ with the ef{}fective topos $\varheart$}
+\author[Ingo Blechschmidt]{\textcolor{white}{Ingo Blechschmidt \\ \scriptsize University of Augsburg \\ February 8th, 2017}}
 \date[2017-02-08]{}
 
 %\usetheme{Warsaw}
@@ -46,14 +49,6 @@
 \newcommand{\defeq}{\vcentcolon=}
 \newcommand{\Set}{\mathrm{Set}}
 
-\newcommand{\slogan}[1]{%
-  \begin{center}%
-    \setlength{\fboxrule}{2pt}%
-    \setlength{\fboxsep}{8pt}%
-    {\usebeamercolor[fg]{item}\fbox{\usebeamercolor[fg]{normal text}\parbox{0.91\textwidth}{#1}}}%
-  \end{center}%
-}
-
 \newcommand{\code}[1]{%
   \begin{center}%
     \setlength{\fboxrule}{1pt}%
@@ -90,7 +85,7 @@
   \vskip1em%
   \leavevmode%
   \begin{beamercolorbox}[dp=1ex,center]{}%
-      \usebeamercolor[fg]{item}{\textbf{\textsf{\Large \insertframetitle}}}
+      \usebeamercolor[fg]{item}{\textbf{\Large \insertframetitle}}
   \end{beamercolorbox}%
 }
 
@@ -142,9 +137,113 @@
 \partslide{infinite-queue}{width=0.4\paperwidth}{4.5cm}{I}{A crash course on ordinal numbers}
 
 
-\section{Turing machines}
+\section{(Super) Turing machines}
 
 \partslide{turing-machine}{width=0.5\paperwidth}{4.5cm}{II}{(Super) Turing machines}
+
+\newcommand{\portrait}[4]{\begin{column}{#3\textwidth}\centering\includegraphics[height=#4\textheight]{#1}\\{\scriptsize #2\par}\end{column}}
+
+\begin{frame}{Basics on Turing machines}
+  \begin{itemize}
+    \item Turing machines are idealised computers operating on an \hil{infinite
+    tape} according to a \hil{finite list} of rules.
+    \item The concept is astoundingly robust.
+    \item A subset of~$\NN$ is \hil{enumerable by a Turing machine} if and only
+    if it's a $\Sigma_1$-set.
+  \end{itemize}
+
+  \bigskip
+  \begin{columns}[t]
+    \begin{column}{0.095\textwidth}\end{column}
+    \portrait{alan-turing}{Alan Turing \\ (* 1912, † 1954)}{0.27}{0.35}
+    \portrait{imitation-game}{worth seeing}{0.27}{0.35}
+    \portrait{alison-bechdel}{Alison Bechdel \\ (* 1960)}{0.27}{0.35}
+    \begin{column}{0.095\textwidth}\end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Super Turing machines}
+  With super Turing machines, the time axis is more interesting:
+  \begin{itemize}
+    \item normal: $0,\ 1,\ 2,\ \ldots$
+    \item super:\phantom{rl} $0,\ 1,\ 2,\ \ldots,\ \omega,\ \omega + 1,\ \ldots,\ \omega\cdot2,\ \omega\cdot2
+    + 1,\ \makebox[\widthof{R}][l]{$\ldots\ldots\ldots\ldots\ldots\ldots$}$
+  \end{itemize}
+  \bigskip
+
+  On reaching a limit ordinal time step like~$\omega$ or~$\omega \cdot 2$,
+  \begin{itemize}
+    \item the machine is put into a designated state,
+    \item the read/write head is moved to the start of the tape, and
+    \item the tape is set to the ``lim sup'' of all its previous contents.
+  \end{itemize}
+
+  \bigskip
+  \begin{columns}[t]
+    \begin{column}{0.03\textwidth}\end{column}
+    \portrait{joel-david-hamkins}{Joel David Hamkins}{0.23}{0.3}
+    \portrait{mathoverflow}{MathOverflow}{0.38}{0.3}
+    \portrait{phantom}{Andy Lewis}{0.23}{0.3}
+    \begin{column}{0.03\textwidth}\end{column}
+  \end{columns}
+\end{frame}
+
+{\usebackgroundtemplate{\includegraphics[height=\paperheight]{who-wants-to-be-a-millionaire}}
+\begin{frame}{A question to you}
+  \centering
+  What's the behaviour of this super Turing machine?
+
+  \code{In the start state and the limit state, check whether the current cell contains an ``1''.
+  \begin{itemize}
+    \item If yes, then stop.
+    \item If not, then flash that cell: set it to ``1'', then reset it to ``0''. Then
+    unremittingly move the head rightwards.
+  \end{itemize}}
+  \pause
+
+  \parbox{0.72\textwidth}{\centering\hil{Super Turing machines can break out of (some kinds of) infinite loops.}\par}
+  \par
+\end{frame}}
+
+\begin{frame}{What can super Turing machines do?}
+  \begin{itemize}
+    \item Everything ordinary Turing machines can do.
+    \item Verify number-theoretic statements.
+    \item Decide whether a given ordinary Turing machine halts.
+    \item Simulate super Turing machines.
+    \item Decide $\Pi_1^1$- and $\Sigma_1^1$-statements:
+    \begin{itemize}
+      \item ``For any function $\NN \to \NN$ it holds that \ldots''
+      \item ``There is a function $\NN \to \NN$ such that \ldots''
+    \end{itemize}
+  \end{itemize}
+  \pause
+
+  \hil{But:} Super Turing machines can't calculate all functions
+  and can't write all 0/1-sequences to the tape.
+
+  \begin{center}
+    \scalebox{0.1}{\input{images/nonwellfounded-tree.pdf_t}}
+  \end{center}
+\end{frame}
+
+{\usebackgroundtemplate{\includegraphics[height=\paperheight]{lost-melody}}
+\begin{frame}{Fun facts}
+  \begin{itemize}
+    \item Any super Turing machine either halts or gets caught in an
+    unbreakable infinite loop after \hil{countably many steps}.
+    \item An ordinal number~$\alpha$ is \hil{clockable} iff there is a super
+    Turing machine which halts precisely after time step~$\alpha$.
+    \begin{itemize}
+      \item Speed-up Lemma: If $\alpha + n$ is clockable, then so is $\alpha$.
+      \item Big Gaps Theorem
+      \item Many Gaps Theorem
+      \item Gapless Blocks Theorem
+    \end{itemize}
+    \item \hil{Lost Melody Theorem:} There are 0/1-sequences which a super Turing
+    machine can recognise, but not write to the tape.
+  \end{itemize}
+\end{frame}}
 
 
 \section{The ef{}fective topos}
@@ -1096,23 +1195,4 @@
 \end{document}
 
 
-Grober Aufbau:
-
-* Es gibt mathematische Alternativuniversen.
-  In ihnen gelten leicht andere Gesetze der Logik und daher sind andere Aussagen wahr.
-  Mit Realisierbarkeitstheorie können wir in diese Universen hineinschauen und
-  so herausfinden, welche Aussagen in ihnen gelten.
-
-  Beispiele: Set; Garbentopoi; effektive Topoi.
-
-* Motivieren, wieso Alternativuniversen interessant sind:
-  * einfach so
-  * ...
-
-* Effektiver Topos:
-  * Erste Beispiele
-  * Metatheorem
-  * Weitere Beispiele
-  * Dabei achten auf:
-    * Abhängigkeit von den Fähigkeiten von Programmiersprachen
-    * Realweltmaschinen
+Unbedingt erwähnen: negneg-Modalität
