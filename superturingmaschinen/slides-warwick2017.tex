@@ -200,7 +200,7 @@
   \centering
   What's the behaviour of this super Turing machine?
 
-  \code{In the start state and the limit state, check whether the current cell contains an ``1''.
+  \code{In the start state and the limit state, check whether the current cell contains a ``1''.
   \begin{itemize}
     \item If yes, then stop.
     \item If not, then flash that cell: set it to ``1'', then reset it to ``0''. Then
@@ -227,10 +227,9 @@
       \item ``There is a function $\NN \to \NN$ such that \ldots''
     \end{itemize}
   \end{itemize}
-  \pause
 
-  \hil{But:} Super Turing machines can't calculate all functions
-  and can't write all 0/1-sequences to the tape.
+  \visible<2>{\hil{But:} Super Turing machines can't calculate all functions
+  and can't write all 0/1-sequences to the tape.}
 
   \begin{center}
     \scalebox{0.1}{\input{images/nonwellfounded-tree.pdf_t}}
@@ -270,27 +269,27 @@
   \begin{itemize}
     \item ``$1 + 1 = 2$.''
 
-    True in $\Set$, true in~$\Eff(\TM)$.
+    \visible<2->{True in $\Set$, true in~$\Eff(\TM)$.}
     \medskip
 
     \item ``Any number is either prime or not.''
 
-    Trivially true in $\Set$, nontrivially true in~$\Eff(\TM)$.
+    \visible<3->{Trivially true in $\Set$, nontrivially true in~$\Eff(\TM)$.}
     \medskip
 
     \item ``Any function $\NN \to \NN$ is either the zero function or not.''
 
-    Trivially true in $\Set$, false in~$\Eff(\TM)$.
+    \visible<4->{Trivially true in $\Set$, false in~$\Eff(\TM)$.}
     \medskip
 
     \item ``Any function $\NN \to \NN$ is computable by a Turing machine.''
 
-    False in $\Set$, trivially true in~$\Eff(\TM)$.
+    \visible<5->{False in $\Set$, trivially true in~$\Eff(\TM)$.}
     \medskip
 
     \item ``Any function $\RR \to \RR$ is continuous.''
 
-    False in $\Set$, true in~$\Eff(\TM)$.
+    \visible<6->{False in $\Set$, true in~$\Eff(\TM)$.}
   \end{itemize}
 \end{frame}
 
@@ -300,6 +299,12 @@
   > n$.''}$}{There is a Turing machine which reads a number~$n$ as input and outputs a
   prime number~$p > n$.}
   \bigskip
+
+  \only<1>{
+    \centering
+    \hil{``Realisability Theory''}
+    \par
+  }
   \pause
 
   \explanation{\mbox{$\Eff(\TM) \models \text{``Any number has a prime factor
@@ -339,15 +344,8 @@
 \subsubsection{Nonconstructive proofs}
 
 \begin{frame}{Nonconstructive proofs}
-  A number is \hil{rational} if and only if its decimal digits eventually repeat.
-  \begin{itemize}
-    \item $\frac{21}{13}$ and $37$ are rational.
-    \item $\sqrt{2}$ and $\pi$ are irrational.
-  \end{itemize}
 
-  \only<1>{\vspace*{3em}\centering\includegraphics[scale=0.25]{images/pythagoras}}
-
-  \pause
+  {\centering\includegraphics[scale=0.20]{pythagoras}\par}
 
   \hil{Theorem.} There are \hil{irrational} numbers~$x$ und~$y$ such that~$x^y$ is rational.
   \medskip
