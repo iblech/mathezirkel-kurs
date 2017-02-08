@@ -129,6 +129,7 @@
 % http://www.ufointernationalproject.com/wp-content/uploads/2015/11/a23.jpg
 {\usebackgroundtemplate{\includegraphics[height=\paperheight]{images/interstellar}}
 \frame{\vspace*{11em}\titlepage}}
+\setcounter{tocdepth}{2}
 \frame{\tableofcontents}
 
 
@@ -140,6 +141,9 @@
 \section{(Super) Turing machines}
 
 \partslide{turing-machine}{width=0.5\paperwidth}{4.5cm}{II}{(Super) Turing machines}
+
+
+\subsection[TM]{Bacis on Turing machines}
 
 \newcommand{\portrait}[4]{\begin{column}{#3\textwidth}\centering\includegraphics[height=#4\textheight]{#1}\\{\scriptsize #2\par}\end{column}}
 
@@ -161,6 +165,9 @@
     \begin{column}{0.095\textwidth}\end{column}
   \end{columns}
 \end{frame}
+
+
+\subsection[STM]{Bacis on super Turing machines}
 
 \begin{frame}{Super Turing machines}
   With super Turing machines, the time axis is more interesting:
@@ -205,6 +212,9 @@
   \par
 \end{frame}}
 
+
+\subsection[Power]{The power of super Turing machines}
+
 \begin{frame}{What can super Turing machines do?}
   \begin{itemize}
     \item Everything ordinary Turing machines can do.
@@ -226,6 +236,9 @@
     \scalebox{0.1}{\input{images/nonwellfounded-tree.pdf_t}}
   \end{center}
 \end{frame}
+
+
+\subsection[Outlook]{Outlook on the bigger theory}
 
 {\usebackgroundtemplate{\includegraphics[height=\paperheight]{lost-melody}}
 \begin{frame}{Fun facts}
@@ -251,63 +264,9 @@
 \partslide{topos-horses}{width=\paperwidth}{4.95cm}{III}{The ef{}fective topos}
 
 
-\end{document}
+\subsection[First steps]{First steps in the ef{}fective topos}
 
-
-\section[Alternate universes]{Alternate mathematical universes}
-
-\subsection{On truth}
-
-\begin{frame}{On truth}
-  \begin{columns}[c]
-    \begin{column}{0.3\textwidth}
-      ``There are infinitely many prime numbers.''
-    \end{column}
-    \begin{column}{0.3\textwidth}
-      ``There are exactly five platonic solids.''
-    \end{column}
-    \begin{column}{0.3\textwidth}
-      ``There are more real numbers than integers.''
-    \end{column}
-  \end{columns}
-  \vfill
-
-  \begin{itemize}
-    \item Mathematical statements are thought to be absolutely objective and
-    independent of human sentiments.
-    \pause
-    \item But in fact, their truth depends on the \hil{choice of mathematical universe} (``topos'').
-    \item The usual axioms of logic hold in the \hil{standard topos}~$\Set$.
-    \item In other topoi, slightly different axioms are true.
-  \end{itemize}
-\end{frame}
-
-
-\subsection{Examples for topoi}
-
-\begin{frame}{Examples}
-  There are topoi in which \ldots
-  \begin{itemize}
-    \item there is an intermediate infinity between~$\NN$ and~$\RR$,
-    \item there is no such intermediate infinity,
-    \item there are \hil{infinitesimal real
-    numbers}~$\varepsilon$ such that~$\varepsilon \neq 0$ but $\varepsilon^2 = 0$, or
-    \item any function $\RR \to \RR$ is a polynomial.
-  \end{itemize}
-  \bigskip
-  \pause
-
-  \begin{center}
-    \fmini{0.19\textwidth}{proving}
-    {\usebeamercolor[fg]{item}$\boldsymbol{\xleftrightarrow{\quad\text{\normalsize effective topos}\quad}}$}
-    \fmini{0.27\textwidth}{programming}
-  \end{center}
-\end{frame}
-
-
-\subsection{The effective topos}
-
-\begin{frame}{The effective topos}
+\begin{frame}{The ef{}fective topos}
   \begin{itemize}
     \item ``$1 + 1 = 2$.''
 
@@ -335,52 +294,31 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{The effective topos}
-  There are many \hil{models of computation}:
-  \begin{itemize}
-    \item Turing machines
-    \item Lambda calculus
-    \item Perl programs (running on idealized computers)
-    \item Computers in the real physical world
-  \end{itemize}
-
-  For any such model~$\M$, there is a special topos~$\Eff(\M)$, the associated
-  \hil{effective topos}.
-  
-  \only<1>{\begin{center}
-    \includegraphics[width=0.4\textwidth]{images/turing-machine}
-  \end{center}}
-
+\begin{frame}{First steps in the ef{}fective topos}
+  \small
+  \explanation{$\Eff(\TM) \models \text{``For any number~$n$ there is a prime~$p
+  > n$.''}$}{There is a Turing machine which reads a number~$n$ as input and outputs a
+  prime number~$p > n$.}
   \bigskip
-  
-  \pause
-  \explanation{$\Eff(\M) \models \text{``For any number~$n$ there is a prime~$p
-  > n$.''}$}{There is a program which reads a number~$n$ as input and outputs a
-  prime number~$p > n$.}
-\end{frame}
-
-\begin{frame}{Our first steps in the effective topos}
-  \explanation{$\Eff(\M) \models \text{``For any number~$n$ there is a prime~$p
-  > n$.''}$}{There is a program which reads a number~$n$ as input and outputs a
-  prime number~$p > n$.}
   \pause
 
-  \explanation{\mbox{$\Eff(\M) \models \text{``Any number has a prime factor
-  decomposition.''}$}}{There is a program which reads a number $n$ as input and
+  \explanation{\mbox{$\Eff(\TM) \models \text{``Any number has a prime factor
+  decomposition.''}$}}{There is a Turing machine which reads a number $n$ as input and
   outputs a list of primes, the product of which is~$n$.}
+  \bigskip
   \pause
 
-  \explanation{$\Eff(\M) \models \text{``Any number is either prime or not
-  prime.''}$}{There is a program which reads a number $n$ as input and outputs
+  \explanation{$\Eff(\TM) \models \text{``Any number is either prime or not
+  prime.''}$}{There is a Turing machine which reads a number $n$ as input and outputs
   YES or NO depending on whether $n$ is prime or not.}
 \end{frame}
 
 
-\section[Constructive logic]{The wonder of constructive logic}
+\subsection[Constructive logic]{The wonder of constructive logic}
 
-\subsection{What's true in alternate topoi?}
+\subsubsection{What's true in alternate toposes?}
 
-\begin{frame}{What's true in alternate topoi?}
+\begin{frame}{What's true in alternate toposes?}
   \hil{Metatheorem:} If a statement has a \hil{constructive proof},
   then it holds in \hil{any topos}.
   \bigskip
@@ -398,7 +336,7 @@
 \end{frame}
 
 
-\subsection{Nonconstructive proofs}
+\subsubsection{Nonconstructive proofs}
 
 \begin{frame}{Nonconstructive proofs}
   A number is \hil{rational} if and only if its decimal digits eventually repeat.
@@ -424,28 +362,8 @@
   \end{enumerate}
 \end{frame}
 
-\note{\justifying\footnotesize
-  Der Beweis ist schön und kurz. Allerdings kennen wir nach dem Beweis immer noch
-  nicht ein konkretes Beispiel für ein Paar irrationaler Zahlen, die potenziert
-  eine rationale Zahl ergeben! Der Beweis war \emph{nichtkonstruktiv}.
 
-  Wenn wir aus einem Beweis explizite Zeugen (witnesses) extrahieren möchten,
-  muss der Beweis konstruktiv sein, zum Beispiel wie folgender:
-
-  \begin{quote}Setze~$x \defeq \sqrt{2}$ und~$y \defeq \log_{\sqrt{2}} 3$.
-  Dann ist~$x^y = 3$ rational. Der Beweis, dass~$y$ irrational ist, führt sich
-  sogar leichter als der übliche Beweis, dass~$\sqrt{2}$ irrational
-  ist.\end{quote}
-
-  Es stellt sich heraus, dass von all den Axiomen klassischer Logik genau eines
-  für Nichtkonstruktivität verantwortlich ist: das auf der nächsten Folie
-  beschriebene Axiom vom ausgeschlossenen Dritten. In dem Beweis auf der
-  vorherigen Folie ging es gleich in der ersten Zeile ein.
-  \par
-}
-
-
-\subsection[Praise]{Appreciating constructive logic}
+\subsubsection[Praise]{Appreciating constructive logic}
 
 \begin{frame}{Appreciating constructive logic}
   At first sight, dropping the axiom of excluded middle looks like a sad thing
@@ -462,30 +380,28 @@
 \end{frame}
 
 
-\section[Tautologies]{Effective content of classical tautologies}
+\subsection[Tautologies]{Ef{}fective content of classical tautologies}
 
-\subsection[Functions]{Equality of functions}
+\subsubsection[Functions]{Equality of functions}
 
 \begin{frame}{LEM for equality of functions}
   \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
   ``Any function~$f : \NN \to \NN$ is either the zero function or
-  not.''\\[-0.7em]\end{minipage}$}{There is a program which reads the source of a program~$M$, which calculates a function $\NN \to \NN$, as input, and finds out whether~$M$ always yields zero or not.}{That's false.}
+  not.''\\[-0.7em]\end{minipage}$}{There is a Turing machine which reads the
+  source of a Turing machine~$M$, which calculates a function $\NN \to \NN$, as input, and finds out whether~$M$ always yields zero or not.}{That's false.}
   \bigskip
   \pause
 
-  The statement is true in~$\Eff(\STM)$, the effective topos associated to
-  \hil{super Turing machines}.
-  \begin{center}
-    \includegraphics[width=0.3\textwidth]{images/ordinal-omega-squared}
-  \end{center}
+  The statement is true in~$\Eff(\STM)$, the ef{}fective topos associated to
+  super Turing machines.
 \end{frame}
 
 
-\subsection[Halting]{The halting problem}
+\subsubsection[Halting]{The halting problem}
 
 \begin{frame}{LEM for the halting problem}
-  \explanationspoiler{$\Eff(\TM) \models \text{``Any program halts or
-  doesn't halt.''}$}{There is a program which reads the source of a program~$M$
+  \explanationspoiler{$\Eff(\TM) \models \text{``Any Turing machine halts or
+  doesn't halt.''}$}{There is a Turing machine which reads the source of a Turing machine~$M$
   as input and finds out whether $M$ halts or not.}{That's false.}
   \bigskip
   \pause
@@ -494,7 +410,7 @@
 \end{frame}
 
 
-\subsection[Reals]{Equality of real numbers}
+\subsubsection[Reals]{Equality of real numbers}
 
 \begin{frame}{LEM for equality of real numbers}
   \justifying
@@ -506,8 +422,8 @@
   \bigskip
   \pause
 
-  For a Turing machine~$M$ consider the real number~$0.000\ldots$, whose~$n$'th
-  decimal digit is a one if and only if~$M$ halts after step~$n$.
+  For a Turing machine~$M$ consider the real number~$0.000\ldots$ whose~$n$'th
+  decimal digit is a one iff~$M$ halts after step~$n$.
   \bigskip
 
   For a real number~$x$ consider the Turing machine which searches the digits
@@ -531,20 +447,20 @@
 }
 
 
-\subsection[Markov]{Markov's principle}
+\subsubsection[Markov]{Markov's principle}
 
 \begin{frame}{Markov's principle}
   \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
   ``For any function~$f : \NN \to \NN$ which is not the zero function,
   there is a number~$n \in \NN$ such that~$f(n) \neq
-  0$.''\\[-0.7em]\end{minipage}$}{There is a program which reads the source of a
-  program~$M$, which calculates a function~$\NN \to \NN$ which is not the zero
+  0$.''\\[-0.7em]\end{minipage}$}{There is a Turing machine which reads the source of a
+  Turing machine~$M$, which calculates a function~$\NN \to \NN$ which is not the zero
   function, as input and outputs a number~$n$ such that~$M(n)$ is not
   zero.}{\pause That's true! By unbounded search.}
 \end{frame}
 
 
-\subsection[Imp.\@]{Searching uncountable sets}
+\subsubsection[Imp.\@]{Searching uncountable sets}
 
 \begin{frame}{Searching uncountable sets}
   \begin{center}\parbox{0.91\textwidth}{
@@ -564,25 +480,28 @@
 \end{frame}
 
 
-\subsection[Church--Turing]{The Church--Turing thesis}
+\subsubsection[Church--Turing]{The Church--Turing thesis}
 
 \begin{frame}{The Church--Turing thesis}
   \justifying
-  The \hil{Church--Turing thesis} states: If a function $f : \NN \to
-  \NN$ is calculable in the real world, then it's also calculable by a program
-  (running on a Turing machine).
+  The \hil{Church--Turing thesis} states:
+  \bigskip
+
+  {\centering\parbox{0.8\textwidth}{If a function $f : \NN \to
+  \NN$ is calculable in the real world, then it's also calculable by a Turing
+  machine.}\par}
   \bigskip
 
   \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
   ``Any function~$f : \NN \to \NN$ is calculable by a
-  program.''\\[-0.7em]\end{minipage}$}{There is a program which reads the source of a
-  program calculating a function~$f : \NN \to \NN$ as input and
-  outputs the source of a program which calculates~$f$.}{That's trivial!
-  ``cat'' is the looked-for program.}
+  Turing machine.''\\[-0.7em]\end{minipage}$}{There is a Turing machine which reads the source of a
+  Turing machine calculating a function~$f : \NN \to \NN$ as input and
+  outputs the source of a Turing machine which calculates~$f$.}{That's trivial,
+  echo the input back to the user.}
   \bigskip
   \pause
 
-  In~$\Eff(\STM)$ and~$\Eff(\lambdaC)$ the statement is false.
+  In~$\Eff(\STM)$ the statement is false.
 \end{frame}
 
 \note{\justifying
@@ -636,7 +555,7 @@
 }
 
 
-\subsection[Cont.\@]{Automatic continuity}
+\subsubsection[Cont.\@]{Automatic continuity}
 
 \begin{frame}{Automatic continuity}
   \justifying
@@ -741,458 +660,25 @@
   Haskell-Programme"' funktionieren.\par
 }
 
-\section{Wrapping up}
 
+\subsection{Wrapping up}
+
+{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\vspace*{4.95cm}\centering\includegraphics[width=\paperwidth]{topos-horses}\end{minipage}}
 \begin{frame}{Wrapping up}
   \begin{itemize}
-    \item Effective topoi are a good vehicle for studying the nature of computation.
-    \item The effective topoi build links between constructive mathematics and programming.
-    \item Topoi allow for curious dream axioms.
-    \item Topoi have a geometric flavour: points, subtopoi, maps between topoi.
+    \item Ef{}fective toposes are a good vehicle for studying the nature of computation.
+    \item The ef{}fective toposes build links between constructive mathematics and programming.
+    \item Toposes allow for curious dream axioms.
+    \item Toposes also have a geometric flavour: points, subtoposes, maps
+    between toposes.
   \end{itemize}
   \pause
 
   \centering
   \bigskip
-  \hil{There is more to mathematics \\
-  than the standard topos.}
+  \hil{\textcolor{white}{There is more to mathematics \\
+  than the standard topos.}}
   \par
-\end{frame}
+\end{frame}}
 
 \end{document}
-
-
-
-% \begin{document}
-
-
-\end{document}
-
-\note{\justifying
-  In klassischer Logik ist man gewohnt, doppelte Verneinungen sofort
-  wegzustreichen. Da das in intuitionistischer Logik nicht möglich ist, muss
-  man etwas mehr sprachliche Sorgfalt walten lassen. Insbesondere muss man
-  zwischen echten Widerspruchsbeweisen und Beweisen von negierten Aussagen
-  unterscheiden, in denen ebenfalls das Wort "`Widerspruch"' vorkommt:
-
-  \begin{itemize}
-  \item\justifying
-  \emph{Beweis einer negierten Aussage (intuitionistisch zulässig):}
-  Wir möchten~$\neg\psi$ zeigen. Angenommen, die Aussage~$\psi$ würde stimmen.
-  Dann \ldots, das wäre ein Widerspruch. Somit~$\neg\psi$.
-
-  In intuitionistischer Logik (wie auch in klassischer Logik) ist~$\neg\psi$
-  nämlich als die Implikation $(\psi \Rightarrow \bot)$ definiert.
-
-  \item \emph{Beweis durch Widerspruch (intuitionistisch nicht pauschal
-  möglich):} Angenommen, die zu zeigende Aussage~$\varphi$ wäre falsch. Dann
-  \ldots, das wäre ein Widerspruch. Somit ist~$\varphi$ wahr.
-
-  Das intuitionistisch zulässige Teil in diesem Argument zeigt nur,
-  dass~$\varphi$ \emph{nicht nicht} gilt: $\neg\neg\varphi$.\par
-  \end{itemize}
-}
-
-\note{\justifying
-  Vor ein paar Jahren tauchte ein Video von Kate Moss auf, das sie beim
-  Konsumieren von Drogen zeigte. Aus dem Video war klar, dass es sich dabei entweder um
-  Drogen von einem gewissen Typ~$A$ oder von einem gewissen Typ~$B$ handelte;
-  aber es gab keinen direkten Beleg für einen der beiden Typen.
-  Kate Moss wurde nicht verfolgt; in diesem Sinn verwendete das Justizsystem
-  also intuitionistische Logik. Siehe
-  \href{http://blog.sigfpe.com/2008/06/drugs-kate-moss-and-intuitionistic.html}{ein
-  Blog-Post von Dan Piponi} über das Thema.
-  \bigskip
-
-  Intuitionistische Logik kann feinere Unterschiede abbilden als klassische Logik.
-  Wenn wir zum Beispiel wissen, dass sich unser Haustürschlüssel irgendwo in
-  der Wohnung befinden muss (da wir ihn letzte Nacht verwendet haben, um die Tür
-  aufzusperren), wir ihn momentan aber nicht finden, so können wir intuitionistisch
-  nicht die Aussage vertreten, dass es eine Stelle gäbe, an der der Schlüssel
-  liege. Denn dazu müssten wir in der Lage sein, einen expliziten Zeugen dieser
-  Existenzbehauptung (also den Aufenthaltsort des Schlüssels) anzugeben.
-  Wir können intuitionistisch nur die durch doppelte Negation abgeschwächte Aussage
-  vertreten.
-  (Die Beispiele hinken etwas, da sie sich auf den Kenntnisstand von gewissen
-  Personen beziehen.)
-  \par
-}
-
-\note{\justifying
-  Nebenbei bemerkt: Intuitionistische Mathematikerinnen behaupten \emph{nicht}, dass
-  das Axiom vom ausgeschlossenen Dritten falsch sei (d.\,h. dass seine Negation
-  gelten würde). Sie setzen es nur nicht in seiner vollen Allgemeinheit voraus.
-  \bigskip
-
-  Tatsächlich lassen sich manche Instanzen des Axioms auch intuitionistisch zeigen:
-  Zum Beispiel folgt mit Induktion, dass jede natürliche Zahl gleich Null oder
-  ungleich Null ist.
-  \bigskip
-
-  Die analoge Behauptung für reelle Zahlen lässt sich intuitionistisch nicht
-  zeigen. Das hat eine Parallele in der Programmierung: Bekanntlich ist es
-  unschicklich, Fließkommazahlen auf Gleichheit zu testen, während das bei
-  Ganzzahlen kein Problem ist. Das wird auf einer späteren Folie noch näher
-  ausgeführt.
-  \par
-}
-
-\note{\justifying
-  Eine letzte Bemerkung. Philosophinnen untersuchen nicht nur was \emph{wahr}
-  ist, sondern auch was stimmen \emph{sollte}, was \emph{möglich} ist, was
-  \emph{notwendig} ist, was jemand \emph{weiß} oder was jemand \emph{glaubt}.
-  Das formalisiert man mit \emph{modalen Operatoren}.
-  \bigskip
-
-  Als Mathematikerin kann man daher manchmal neidisch werden. In
-  intuitionistischer Logik aber gibt es durchaus auch eine Vielzahl von modalen
-  Operatoren! Die Doppelnegation ist das wichtigste Beispiel.\par
-}
-
-\end{document}
-
-\note{\justifying
-  Wenn man ganz normal Mathematik betreibt, so arbeitet man im "`Topos der
-  Mengen"'. Es gibt aber auch andere mathematische Universen neben diesem. In
-  diesen anderen Topoi gelten teilweise leicht andere logische Gesetze als die
-  uns vertrauten; somit sieht die mathematische Landschaft in manchen Topoi
-  etwas anders aus als die bekannte Landschaft im Topos der Mengen.
-  \bigskip
-
-  Jede geometrische Form (jeder topologischer Raum, jeder "`Situs"') gibt
-  Anlass zu jeweils einem Topos (den "`Topos der Garben über der Form"');
-  die entstehenden Topoi heißen "`Grothendieck-Topoi"', da es Grothendieck war,
-  der dieses Konzept in den 1960er Jahren einführte. Topoi anderer Art sind die
-  effektiven Topoi, die es für jeden Rechenmodell gibt: gewöhnliche
-  Turingmaschinen ($\TM$), Superturingmaschinen ($\STM$), untypisiertes
-  $\lambda$-Kalkül ($\lambdaC$), Maschinen in
-  der realen Welt ($\RW$), \ldots\par
-  \bigskip
-
-  Neben der logischen Sicht gibt es auch eine geometrische Sicht auf Topoi:
-  Topoi kann man sich als verallgemeinerte Arten von Räumen vorstellen. Etwa
-  gibt es das Konzept des \emph{Punkts} eines Topos, das von offenen,
-  abgeschlossenen und dichten \emph{Untertopoi} und das von stetigen
-  Abbildungen zwischen Topoi.\par
-}
-
-
-
-\note{\justifying
-  In klassischer Logik ist man gewohnt, doppelte Verneinungen sofort
-  wegzustreichen. Da das in intuitionistischer Logik nicht möglich ist, muss
-  man etwas mehr sprachliche Sorgfalt walten lassen. Insbesondere muss man
-  zwischen echten Widerspruchsbeweisen und Beweisen von negierten Aussagen
-  unterscheiden, in denen ebenfalls das Wort "`Widerspruch"' vorkommt:
-
-  \begin{itemize}
-  \item\justifying
-  \emph{Beweis einer negierten Aussage (intuitionistisch zulässig):}
-  Wir möchten~$\neg\psi$ zeigen. Angenommen, die Aussage~$\psi$ würde stimmen.
-  Dann \ldots, das wäre ein Widerspruch. Somit~$\neg\psi$.
-
-  In intuitionistischer Logik (wie auch in klassischer Logik) ist~$\neg\psi$
-  nämlich als die Implikation $(\psi \Rightarrow \bot)$ definiert.
-
-  \item \emph{Beweis durch Widerspruch (intuitionistisch nicht pauschal
-  möglich):} Angenommen, die zu zeigende Aussage~$\varphi$ wäre falsch. Dann
-  \ldots, das wäre ein Widerspruch. Somit ist~$\varphi$ wahr.
-
-  Das intuitionistisch zulässige Teil in diesem Argument zeigt nur,
-  dass~$\varphi$ \emph{nicht nicht} gilt: $\neg\neg\varphi$.\par
-  \end{itemize}
-}
-
-\note{\justifying
-  Vor ein paar Jahren tauchte ein Video von Kate Moss auf, das sie beim
-  Konsumieren von Drogen zeigte. Aus dem Video war klar, dass es sich dabei entweder um
-  Drogen von einem gewissen Typ~$A$ oder von einem gewissen Typ~$B$ handelte;
-  aber es gab keinen direkten Beleg für einen der beiden Typen.
-  Kate Moss wurde nicht verfolgt; in diesem Sinn verwendete das Justizsystem
-  also intuitionistische Logik. Siehe
-  \href{http://blog.sigfpe.com/2008/06/drugs-kate-moss-and-intuitionistic.html}{ein
-  Blog-Post von Dan Piponi} über das Thema.
-  \bigskip
-
-  Intuitionistische Logik kann feinere Unterschiede abbilden als klassische Logik.
-  Wenn wir zum Beispiel wissen, dass sich unser Haustürschlüssel irgendwo in
-  der Wohnung befinden muss (da wir ihn letzte Nacht verwendet haben, um die Tür
-  aufzusperren), wir ihn momentan aber nicht finden, so können wir intuitionistisch
-  nicht die Aussage vertreten, dass es eine Stelle gäbe, an der der Schlüssel
-  liege. Denn dazu müssten wir in der Lage sein, einen expliziten Zeugen dieser
-  Existenzbehauptung (also den Aufenthaltsort des Schlüssels) anzugeben.
-  Wir können intuitionistisch nur die durch doppelte Negation abgeschwächte Aussage
-  vertreten.
-  (Die Beispiele hinken etwas, da sie sich auf den Kenntnisstand von gewissen
-  Personen beziehen.)
-  \par
-}
-
-\note{\justifying
-  Nebenbei bemerkt: Intuitionistische Mathematikerinnen behaupten \emph{nicht}, dass
-  das Axiom vom ausgeschlossenen Dritten falsch sei (d.\,h. dass seine Negation
-  gelten würde). Sie setzen es nur nicht in seiner vollen Allgemeinheit voraus.
-  \bigskip
-
-  Tatsächlich lassen sich manche Instanzen des Axioms auch intuitionistisch zeigen:
-  Zum Beispiel folgt mit Induktion, dass jede natürliche Zahl gleich Null oder
-  ungleich Null ist.
-  \bigskip
-
-  Die analoge Behauptung für reelle Zahlen lässt sich intuitionistisch nicht
-  zeigen. Das hat eine Parallele in der Programmierung: Bekanntlich ist es
-  unschicklich, Fließkommazahlen auf Gleichheit zu testen, während das bei
-  Ganzzahlen kein Problem ist. Das wird auf einer späteren Folie noch näher
-  ausgeführt.
-  \par
-}
-
-\note{\justifying
-  Eine letzte Bemerkung. Philosophinnen untersuchen nicht nur was \emph{wahr}
-  ist, sondern auch was stimmen \emph{sollte}, was \emph{möglich} ist, was
-  \emph{notwendig} ist, was jemand \emph{weiß} oder was jemand \emph{glaubt}.
-  Das formalisiert man mit \emph{modalen Operatoren}.
-  \bigskip
-
-  Als Mathematikerin kann man daher manchmal neidisch werden. In
-  intuitionistischer Logik aber gibt es durchaus auch eine Vielzahl von modalen
-  Operatoren! Die Doppelnegation ist das wichtigste Beispiel.\par
-}
-
-
-
-\begin{frame}{LEM für Gleichheit reeller Zahlen}
-  \justifying
-  Die Aussage
-  \[ \text{"`Jede reelle Zahl ist Null oder ungleich Null."'} \]
-  ist in intuitionistischer Logik äquivalent zu
-  \[ \text{"`Jede Turingmaschine hält oder hält nicht."'}, \]
-  gilt also nicht in~$\Eff(\TM)$, aber in~$\Eff(\STM)$.
-  \bigskip
-
-  Denn zu einer Turingmaschine~$M$ kann man die reelle Zahl~$0{,}000\ldots$
-  betrachten, deren~$n$-te Nachkommastelle genau dann eine~$1$ ist, wenn~$M$
-  nach Schritt~$n$ hält, und sonst~$0$ ist.
-  \bigskip
-
-  Umgekehrt kann man zu einer reellen Zahl~$x$ diejenige Turingmaschine
-  betrachten, die die Nachkommaziffern von~$x$ nach einer von Null
-  verschiedenen Ziffer absucht und genau dann hält, wenn sie eine solche Ziffer
-  gefunden hat.\par
-\end{frame}
-
-\note{\justifying
-  Stimmt die Aussage in~$\Eff(\RW)$, dem effektiven Topos zu Maschinen der
-  realen Welt? Das heißt: Ist es möglich, in der realen Welt ein Halteorakel zu
-  bauen? Also eine Maschine, welche die Beschreibung einer Turingmaschine einliest
-  und dann korrekt ausgibt, ob die Turingmaschine hält oder nicht?
-  \bigskip
-
-  Da es hier nicht um das Halteproblem für Maschinen der realen Welt geht
-  (welches für Maschinen der realen Welt wegen des üblichen Arguments nicht
-  entscheidbar ist), sondern nur um das Halteproblem für Turingmaschinen, ist
-  die Antwort "`ja"' nicht prinzipiell ausgeschlossen. Vielleicht sind Tricks
-  mit schwarzen Löchern und relativistischer Zeitdilatation möglich.
-  \par
-}
-
-% \begin{document}
-
-\begin{frame}{Automatische Stetigkeit}
-  \justifying
-  Im üblichen Universum stimmt folgende Aussage \hil{nicht}:
-  \[ \text{"`Jede Funktion~$f : \RR \to \RR$ ist stetig."'} \]
-  Eine Funktion~$f$ heißt genau dann \hil{stetig}, falls für jede Zahl~$x$ zur
-  Bestimmung von endlich vielen Nachkomma\-stel\-len von~$f(x)$ schon
-  endlich viele Nachkommastellen von~$x$ genügen.\par
-
-  \centering
-  \includegraphics[width=0.5\textwidth]{images/plot-1}
-  \includegraphics[width=0.5\textwidth]{images/plot-2}
-  \par
-  \pause
-
-  \justifying
-  Stimmt in~$\Eff(\TM)$. \pause
-  Stimmt in~$\Eff(\RW)$, falls private Kommunikationskanäle
-  möglich sind und in endlicher Zeit nur endlich viele Rechenschritte
-  ausgeführt werden können.\par
-\end{frame}
-
-\note{\justifying
-  Gibt es nicht offensichtlich unstetige Funktionen? Wie etwa die
-  Signumfunktion?
-  \[ \mathrm{sgn} : \RR \to \RR, \quad
-    x \mapsto \begin{cases}
-      -1, & \text{falls $x < 0$,} \\
-      0,  & \text{falls $x = 0$,} \\
-      1,  & \text{falls $x > 0$.}
-    \end{cases}
-  \]
-  Ohne Verwendung von LEM ist die Situation nicht so trivial. Ohne es kann man
-  nämlich nicht zeigen, dass diese Zuordnung eine auf ganz~$\RR$ definierte
-  Funktion definiert: Dazu benötigte man das Lemma, dass jede reelle Zahl
-  kleiner, gleich oder größer als Null ist. Dieses Lemma impliziert aber die
-  schwächere Aussage, dass jede reelle Zahl gleich Null oder ungleich Null ist.
-  Wir haben schon gesehen, dass diese Aussage in~$\Eff(\TM)$ nicht stimmt.
-  \medskip
-
-  Ohne LEM definiert obige Zuordnung nur eine Funktion~$M \to \RR$, wobei~$M =
-  \{ x \in \RR \,|\, x < 0 \vee x = 0 \vee x > 0 \}$. Über solche Funktionen
-  geht es hier aber nicht.
-  \par
-}
-
-\note{\justifying
-  Die in der Mathematik üblichen Definitionen des Konzepts reeller Zahlen sind
-  in~$\Eff(\TM)$, $\Eff(\STM)$ und~$\Eff(\RW)$ alle zueinander äquivalent
-  (obwohl sie es unter bloßer Verwendung von intuitionistischer Logik nicht
-  sind).\bigskip
-
-  Aus externer Sicht ist eine reelle Zahl in jedem der drei Fälle durch
-  eine Maschine gegeben, die in sich konsistente, beliebig genaue
-  Approximationen produziert. Etwa kann man eine solche Maschine nach
-  Approximationen auf drei, sieben und zehn Ziffern fragen und die Antworten
-  \[ 3.1417777777, \quad 3.1415926777 \quad\text{und}\quad 3.1415926535 \]
-  erhalten.
-  \bigskip
-
-  Maschinen, welche andere, aber genauso gute Approximationen
-  liefern, stellen dieselbe reelle Zahl dar.\par
-}
-
-\note{\justifying\footnotesize
-  Die Aussage~"`Alle Funktionen~$\RR \to \RR$ sind stetig."' des effektiven
-  Topos bedeutet: Es gibt eine Maschine~$M$, die
-  \begin{enumerate}
-    \item\justifying eine Maschine~$A$, welche eine Funktion~$f : \RR \to \RR$
-    berechnet,
-    \item eine Maschine~$X$, welche eine reelle Zahl~$x$ repräsentiert, sowie
-    \item eine natürliche Zahl~$n$
-  \end{enumerate}
-  als Argumente nimmt und eine natürliche Zahl~$m$ mit folgender Eigenschaft
-  ausgibt: Für jede reelle Zahl~$\tilde x$, deren erste~$m$ Ziffern mit denen
-  von~$x$ übereinstimmen, stimmen die ersten~$n$ Ziffern von~$f(x)$ mit denen
-  von~$f(\tilde x)$ überein.\smallskip
-
-  Im Fall der realen Welt kann man wie folgt versuchen, eine derartige
-  Maschine~$M$ zu konstruieren. Gegeben~$A$, $X$ und~$n$, wendet sie~$A$ auf
-  eine leichte Variante~$X'$ von~$X$ an: Die Maschine~$X'$ soll dasselbe
-  Ausgabeverhalten zeigen wie~$X$, allerdings bei jedem Aufruf über einen
-  privaten Kommunikationskanal an~$M$ die Information übermitteln, wie viele
-  Stellen abgefragt wurden. Da~$X'$ dasselbe Ausgabeverhalten wie~$X$ zeigt,
-  muss~$A$ per Vertrag auf~$X'$ genauso reagieren wie auf~$X$.\smallskip
-
-  Wenn nun in endlicher Zeit nur endlich viele Rechenschritte durchführbar sind, so
-  muss~$M$ nur warten, bis~$A$ die Zahl~$f(x)$ auf~$n$ Stellen genau berechnet
-  hat, und kann dann nachsehen, wie viele Stellen~$A$ für diese Berechnung
-  benötigt hat. Für jede andere Zahl, die~$x$ in diesen Stellen gleicht,
-  produziert somit~$A$ dieselben~$n$ Ziffern.\par
-}
-
-\note{\justifying
-  Kein Fan von reellen Zahlen? Dasselbe Phänomen zeigt sich auch bei Funktionen
-  von anderen Typen. Zum Beispiel für Funktionen~$f : \BB^\NN \to \BB$. Dabei
-  ist~$\BB = \{ 0, 1 \}$ die Menge der Bools. Eine solche Funktion heißt genau
-  dann \emph{stetig}, wenn es für jedes Argument~$x \in \BB^\NN$ (also jede
-  Funktion~$x : \NN \to \BB$) eine natürliche Zahl~$m$ gibt, sodass~$f(x)$ nur
-  von den ersten~$m$ Funktionswerten von~$x$ abhängt.\bigskip
-
-  In~$\Eff(\TM)$ stimmt es, dass jede solche Funktion~$f$ stetig ist. Das ist
-  der tiefere Grund dafür, wieso die "`scheinbar unmöglichen
-  Haskell-Programme"' funktionieren.\par
-}
-
-\begin{frame}{Seltsame Größenverhältnisse}
-  \only<1-2>{
-    Es gibt keine Surjektion~$\NN \to \NN^\NN$; die Menge~$\NN^\NN$ der
-    Funktionen~$\NN \to \NN$ ist viel größer als~$\NN$.
-    \bigskip
-
-    In klassischer Logik folgt: Es gibt auch keine Injektion~$\NN^\NN \to \NN$.
-    Das drückt dieselbe Intuition über das Größenverhältnis aus.
-    \bigskip
-
-    {\centering
-    \includegraphics[width=0.8\textwidth]{images/groessenverhaeltnisse}
-    \par}
-
-    \pause
-    Aber in~$\Eff(\STM)$ gibt es eine solche Injektion!
-  }
-
-  \only<3>{
-    {\centering
-    \includegraphics[width=0.7\textwidth]{images/groessenverhaeltnisse}
-    \par}
-
-    \explanation{$\Eff(\STM) \models \text{"`Es gibt eine Injektion~$\NN^\NN \to
-    \NN$."'}$}{Es gibt eine Superturingmaschine, welche bei Eingabe einer
-    Kodierung einer Superturingmaschine~$A$, welche eine Funktion~$\NN \to \NN$ berechnet,
-    eine Zahl~$n(A)$ berechnet und aufs Band schreibt. Dabei darf nur dann~$n(A)
-    = n(B)$ sein, wenn~$A$ und~$B$ dieselbe Funktion berechnen.}
-  }
-
-  \only<4>{
-    \justifying
-    Die Superturingmaschine
-    \code{
-      Lese die Kodierung einer Superturingmaschine~$A$ vom Band ein.
-      Simuliere nun alle Superturingmaschinen auf verzahnte Art und Weise.
-      Sobald eine gefunden ist, deren Ausgabeverhalten dem von~$A$ gleicht,
-      höre auf und gebe die Nummer~$n$ dieser Maschine aus.
-    }
-    schreibt bei Eingabe einer Kodierung einer Superturingmaschine~$A$, welche
-    eine Funktion~$\NN \to \NN$ berechnet, eine Zahl~$n(A)$ aufs Band. Dabei ist
-    nur dann~$n(A) = n(B)$, wenn~$A$ und~$B$ dieselbe Funktion berechnen.
-    \par
-  }
-\end{frame}
-
-\note{\justifying
-  Die von der beschriebenen Superturingmaschine ausgegebene Zahl~$n$ hängt vom
-  Ausgabeverhalten von~$A$, der gewählten Reihenfolge aller
-  Superturingmaschinen und von den Details der Verzahnung ab -- nicht aber von
-  der Implementierung von~$A$.\medskip
-
-  Die Suche terminiert, da es ja mindestens eine Superturingmaschine gibt, die
-  bei Eingabe einer jeden natürlichen Zahl terminiert und dabei dasselbe
-  Ausgabeverhalten wie~$A$ zeigt: $A$ selbst.\par
-}
-
-\note{\justifying
-  Weil er so schön ist, hier der intuitionistisch zulässige Beweis, dass es
-  keine Surjektion~$\NN \to \NN^\NN$ gibt:\bigskip
-
-  Sei~$s : \NN \to \NN^\NN$ irgendeine Abbildung. Wir möchten nachweisen,
-  dass~$s$ nicht surjektiv ist. Dazu betrachten wir die Abbildung~$f : \NN \to
-  \NN$ mit
-  \[ f(n) := s(n)(n) + 1. \]
-  Dieses Element~$f \in \NN^\NN$ kann von~$s$ nicht getroffen werden: Wenn es
-  eine natürliche Zahl~$m$ mit~$s(m) = f$ gäbe, so wäre
-  \[ s(m)(m) = f(m) = s(m)(m) + 1. \]
-}
-
-\note{\justifying
-  Bei dieser Thematik ist es wichtig, nicht die externe und die interne Sicht
-  durcheinanderzubringen. Sonst landet man bei \emph{Skolems Paradox}: Wie kann
-  es sein, dass es in~$\Eff(\TM)$ keine Surjektion~$\NN \to \NN^\NN$ gibt, wo
-  doch~$\NN^\NN$ nur berechenbare Funktionen enthält und es von diesen nur
-  abzählbar viele gibt?\bigskip
-
-  Die Auflösung ist: Es stimmt zwar, dass aus externer Sicht das
-  Objekt~$\NN^\NN$ von~$\Eff(\TM)$, das ist aus externer Sicht die Menge der
-  berechenbaren Funktionen~$\NN \to \NN$, abzählbar ist und dass es daher eine
-  Surjektion (sogar Bijektion)~$\NN \to \NN^\NN$ gibt.\bigskip
-
-  Diese Surjektion, und auch jede andere, ist aber entweder nicht berechenbar, daher
-  nicht in~$\Eff(\TM)$ enthalten, oder zwar berechenbar, aber so beschaffen,
-  dass es keinen berechenbaren Zeugen ihrer Surjektivität gibt. Daher
-  sieht~$\NN^\NN$ aus der Sicht von~$\Eff(\TM)$ wie eine überabzählbare Menge
-  aus, in Übereinstimmung mit Cantors intuitionistisch zulässigen Beweis.\par
-}
-
-\end{document}
-
-
-Unbedingt erwähnen: negneg-Modalität
