@@ -1,4 +1,5 @@
-Über mich
+# Über mich
+
 * Lebenslauf
 * Was an Mathe fasziniert: Zusammenhänge, Struktur, Verrücktheit. Aha-Momente
   und emotionale Dramen. Vielseitige Anwendbarkeit. Neue Perspektiven.
@@ -7,14 +8,18 @@
   menschlichen Wissens, Vielseitigkeit des Jobs, Kontakt mit Leuten,
   Flexibilität, Arbeitsklima.
 
-Ablauf des Studiums
+
+# Ablauf des Studiums
+
 * Was für Fächer hat man im (Mathe-)Studium? Mathe, Mathe, Mathe, Mathe, Nebenfach.
 * 6 Semester Bachelor plus 4 Semester Master
 * Eignung stellt man schnell fest!
 * Vorlesungen und Übungen
 * Übungsblätter
 
-Inhalt des Studiums
+
+# Inhalt des Studiums
+
 * Grundlagen
 * Reine Mathematik
 * Angewandte Mathematik
@@ -27,7 +32,9 @@ Inhalt des Studiums
   Sachverhalten. Und, klar: mathematische Einsichten und typische mathematische
   Methoden.
 
-Rahmenbedingungen fürs Studium
+
+# Rahmenbedingungen fürs Studium
+
 * Voraussetzungen: meistens kein NC. Gute Noten sind nicht das Wichtigste sind
   für Mathe an der Uni, sondern Interesse und Motivation.  Aber der Schulstoff
   ist teilweise Grundlage und es schadet deshalb nicht ihn zu beherrschen.
@@ -38,13 +45,17 @@ Rahmenbedingungen fürs Studium
 * Nebenbei bemerken: Entfaltungsmöglichkeiten abseits des Studiums!
   Gesellschaftliche Verantwortung übernehmen! Mathezirkel gründen!
 
-Über die Promotion
+
+# Über die Promotion
+
 * Dauer
 * Finanzierung (Uni-Stelle, Stipendium, DFG)
 * Was macht man eigentlich den Tag über?
 * Konferenzen
 
-Berufsmöglichkeiten
+
+# Berufsmöglichkeiten
+
 * Akademische Karriere (bekannte Vor- und Nachteile)
 * Banken, Versicherungen
 * Beratung
@@ -52,16 +63,21 @@ Berufsmöglichkeiten
 * Programmierung
 * Schulen
 
-Offene Probleme und witzige Beispiele
+
+# Offene Probleme und witzige Beispiele
+
 * Pi = 4
 * Orbits
 * Primzahlzwillinge
 * Wurstkatastrophe
 * Homotopiegruppen der Sphären
 
-Werbung für den Mathezirkel
 
-Beim nächsten Mal besser machen
+# Werbung für den Mathezirkel
+
+
+# Beim nächsten Mal besser machen
+
 * Besser an Gliederung halten.
 * Beispiele für interessante mathematische Argument bringen
   (zum Beispiel: Überabzählbarkeit von R, Gleichmächtigkeit von R und den
