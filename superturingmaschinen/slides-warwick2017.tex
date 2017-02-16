@@ -306,7 +306,7 @@
   \end{itemize}
 
   \visible<2>{\hil{But:} Super Turing machines can't calculate all functions
-  and can't write all 0/1-sequences to the tape.}
+  and can't write arbitrary 0/1-sequences to the tape.}
 
   \begin{center}
     \scalebox{0.1}{\input{images/nonwellfounded-tree.pdf_t}}
@@ -334,11 +334,51 @@
   \end{itemize}
 \end{frame}}
 
+\note{\begin{itemize}
+  \item\justifying In view of the fact that super Turing machines always halt
+  at countable ordinal numbers (if they halt at all), the ability of super
+  Turing machines to decide~$\Pi_1^1$- and~$\Sigma_1^1$-statements is even more
+  astounding.
+
+  \item That there are at least some ordinal numbers which are not clockable,
+  can be seen by a simple cardinality argument: There are only countably many
+  super Turing machines, but a proper class worth of ordinal numbers.
+
+  \item The Big Gaps Theorem states: For any clockable ordinal~$\alpha$ there
+  is a gap of length~$\geq \alpha$ in the clockable ordinals.
+\end{itemize}}
+
+\note{\begin{itemize}
+  \item\justifying The \href{https://arxiv.org/abs/math/9808093}{seminal paper}
+  introducing super Turing machines is a joy to read. It contains the
+  statements and proofs of all the cited theorems.
+
+  \item I'm using the adjectives ``super'', ``hyper'', and ``infinite-time''
+  interchangably.
+\end{itemize}}
 
 \section{The ef{}fective topos}
 
 \partslide{topos-horses}{width=\paperwidth}{4.95cm}{III}{The ef{}fective topos}
 
+\note{\justifying
+  For any model~$\mathcal{M}$ of computation, such as Turing machines, super
+  Turing machines, or lambda calculus, there is an associated \hil{ef{}fective
+  topos} $\mathrm{Eff}(\mathcal{M})$. Formally, a topos is a certain kind of
+  category; intuitively, a topos is an alternate mathematical universe in which
+  the usual laws of logic may not necessarily hold.
+  \bigskip
+
+  The standard universe, in which most of mathematics happens, is the
+  topos~$\Set$.
+  \bigskip
+
+  One can even employ machines of the real physical world as the
+  ``model''~$\mathcal{M}$ used for constructing the ef{}fective topos.
+  Statements about the resulting topos are then statements about the real
+  world instead of formal mathematical statements.
+  \par
+}
 
 \subsection[First steps]{First steps in the ef{}fective topos}
 
@@ -417,6 +457,19 @@
   \par
 \end{frame}
 
+\note{\begin{itemize}
+  \item\justifying The technical term for ``constructive logic'' is
+  ``intuitionistic logic''. ``Constructive logic'' or even ``constructive
+  mathematics'' is more of an umbrella term which might mean any of several
+  related, but not equivalent systems.
+
+  \item The law of excluded middle is the axiom which allows us to
+  argue by contradiction. But the word ``contradiction'' is still allowed in
+  constructive mathematics; see below.
+
+  \item The proof of the metatheorem is constructive.
+\end{itemize}}
+
 
 \subsubsection{Nonconstructive proofs}
 
@@ -437,11 +490,26 @@
   \end{enumerate}
 \end{frame}
 
+\note{\justifying
+  The proof is nice and short. However, after having seen the proof, we are still not able
+  to give an example of irrational numbers~$x,y$ such that~$x^y$ is rational!
+  The proof was \emph{non-constructive}. If we want to extract explicit
+  witnesses from the proof, the proof has to be constructive, such as this one:
+
+  \begin{quote}Set~$x \defeq \sqrt{2}$ and~$y \defeq \log_{\sqrt{2}} 3$.
+  Then~$x^y = 3$ is rational. The proof that~$y$ is irrational is even easier
+  than the proof that~$\sqrt{2}$ is irrational.\end{quote}
+
+  It turns out that from all the axioms of classical logic, exactly one is
+  responsible for non-constructivity: the law of excluded middle.
+  \par
+}
+
 
 \subsubsection[Praise]{Appreciating constructive logic}
 
 \begin{frame}{Appreciating constructive logic}
-  At first sight, dropping the axiom of excluded middle looks like a sad thing
+  At first sight, dropping the law of excluded middle looks like a sad thing
   to do. It's a useful axiom! However:
 
   \begin{itemize}\justifying
@@ -454,6 +522,99 @@
   \end{itemize}
 \end{frame}
 
+% \begin{document}
+
+\note{\justifying
+  We're used to immediately cancel double negations. Since that's
+  constructively not possible, we have to exercise a bit of linguistic
+  caution:
+
+  \begin{itemize}
+  \item\justifying
+  \emph{Proof of a negated statement (constructively acceptable):}
+  We want to verify~$\neg\psi$. Assume that~$\psi$ holds. Then \ldots,
+  that's a contradiction. Therefore~$\neg\psi$.
+
+  This constitutes a constructively valid argument, since in constructive (and
+  classical) logic~$\neg\psi$ is defined as the implication~$(\psi \Rightarrow
+  \bot)$, where~$\bot$ is the formal logical symbol for falsity, a
+  contradiction.
+
+  \item \emph{Proof by contradiction (constructively not acceptable a priori):}
+  We want to verify~$\varphi$. Assume that~$\varphi$ is false. Then \ldots,
+  that's a contradiction. Therefore~$\varphi$ holds.
+
+  The constructively valid part of this argument only shows that~$\varphi$ does
+  \emph{not not} hold: $\neg\neg\varphi$.\par
+  \end{itemize}
+}
+
+\note{\justifying
+  Several years ago a video showing Kate Moss consuming drugs surfaced. From
+  the video it was clear that the drugs were either of some type~$A$ or of some
+  type~$B$, but there was no direct evidence for either type. Kate Moss was
+  not prosecuted; in this sense, the judicial system operated on
+  constructive logic. Check out
+  \href{http://blog.sigfpe.com/2008/06/drugs-kate-moss-and-intuitionistic.html}{Dan
+  Piponi's blog post about this topic}.
+  \par
+}
+
+\note{\justifying
+  Constructive logic allows for finer distictions than classical logic.
+  For instance, if we know that the key to our apartment has to be somewhere in
+  the apartment (since we used it to enter last night) but we can't find it
+  right now, we can constructively only justify
+  \[ \neg\neg( \exists x\_ \text{the key is at position $x$} ), \]
+  not the stronger statement
+  \[ \phantom{\neg\neg(} \exists x\_ \text{the key is at position
+  $x$},\phantom{)} \]
+  because for justifying the stronger statement we'd had to give an explicit
+  witness of the existential statement (the position where the key is at).
+  \bigskip
+
+  \scriptsize
+  (Both examples do not quite work, since constructive mathematics is (like
+  classical mathematics) indifferent to our personal state of knowledge.)
+  \par
+}
+
+\note{\justifying
+  Constructive mathematicians do \emph{not} claim that the law of excluded
+  middle is false (that is, that its negation holds). In fact, some instances
+  of the law of excluded middle are true intuitionistically: For example one
+  can show by induction that any natural number is zero or is not zero.
+  Constructive mathematicians simply don't suppose that the law of excluded
+  holds generally.
+  \bigskip
+
+  The analogous statement about real numbers does not have a constructive
+  proof. This is linked with a familiar fact from programming: It's unbeseeming
+  to compare floating point numbers for equality, while there is no such
+  problem with comparing integers.
+  \par
+}
+
+\note{\justifying
+  Philosophers don't only study what's \emph{true}, but also what \emph{should
+  be true}, what's \emph{possible}, what's \emph{necessary}, what
+  somebody \emph{knows} or somebody \emph{believes}. This is formalised using
+  \emph{modal operators}.
+  \bigskip
+
+  Mathematicians don't need to envy that greater scope: In constructive
+  mathematics there is too a multitude of modal operators. Double negation is
+  the most prominent example.\bigskip
+
+  Andrej Bauer gave a very insightful talk about the merits of constructive
+  mathematics at the Institute for Advanced Study. It's a joy to watch!
+  \begin{itemize}
+    \item \href{https://www.youtube.com/watch?v=21qPOReu4FI}{video}
+    \item
+    \href{http://www.ams.org/journals/bull/0000-000-00/S0273-0979-2016-01556-4/S0273-0979-2016-01556-4.pdf}{accompanying
+    article}
+  \end{itemize}
+}
 
 \subsection[Tautologies]{Ef{}fective content of classical tautologies}
 
@@ -507,17 +668,18 @@
 \end{frame}
 
 \note{\justifying
-  Stimmt die Aussage in~$\Eff(\RW)$, dem effektiven Topos zu Maschinen der
-  realen Welt? Das heißt: Ist es möglich, in der realen Welt ein Halteorakel zu
-  bauen? Also eine Maschine, welche die Beschreibung einer Turingmaschine einliest
-  und dann korrekt ausgibt, ob die Turingmaschine hält oder nicht?
+  Is the statement true in~$\Eff(\RW)$, the ef{}fective topos associated to
+  machines of the real world? That means: Is it possible to build a halting
+  oracle in the real world? A machine which reads the description of a Turing
+  machine and then outputs whether the Turing machine halts or not?
   \bigskip
 
-  Da es hier nicht um das Halteproblem für Maschinen der realen Welt geht
-  (welches für Maschinen der realen Welt wegen des üblichen Arguments nicht
-  entscheidbar ist), sondern nur um das Halteproblem für Turingmaschinen, ist
-  die Antwort "`ja"' nicht prinzipiell ausgeschlossen. Vielleicht sind Tricks
-  mit schwarzen Löchern und relativistischer Zeitdilatation möglich.
+  Since this is not about the halting problem for machines of the real world
+  (which is not decidable by machines of the real world, by the
+  \href{https://en.wikipedia.org/wiki/Halting_problem}{usual argument}), but
+  only about the halting problem for Turing machines, the answer \emph{might}
+  be a ``yes''. Tricks using black holes and relativistic time dilation might
+  be possible.
   \par
 }
 
@@ -534,6 +696,69 @@
   zero.}{\pause That's true! By unbounded search.}
 \end{frame}
 
+
+\subsubsection[Choice]{The axiom of choice}
+
+\begin{frame}{The axiom of choice}
+  \justifying
+  A set~$X$ ist \hil{projective} if and only if, for any set~$Y$ and
+  any formula~$\varphi(x,y)$ with parameters~$x \in X$, $y \in Y$ it holds that:
+  \begin{center}\parbox{0.86\textwidth}{
+    If for any~$x \in X$ there is an element~$y \in Y$ such
+    that~$\varphi(x,y)$, then
+    there is a map~$f : X \to Y$ such that~$\varphi(x,f(x))$ for all~$x \in X$.
+  }\end{center}
+  \[ \forall x \in X\_ \exists y \in Y\_ \varphi(x,y) \ \Longrightarrow\
+    \exists f : X \to Y\_ \forall x \in X\_ \varphi(x,f(x)) \]
+  The \hil{axiom of choice} of classical mathematics states that any set is
+  projective.
+
+  \begin{itemize}
+    \item In~$\Eff(\TM)$ the set~$\NN$ is projective, but~$\NN^\NN$ is not.
+    \item In~$\Eff(\STM)$ the sets~$\NN$ and~$\NN^\NN$ are projective.
+    \item In~$\Eff(\RW)$ the set~$\NN^\NN$ is projective if black boxes are
+    possible.
+  \end{itemize}
+\end{frame}
+
+\note{\justifying
+  Auch intuitionistisch ist jede endliche Menge projektiv. Der Beweis, dass~$X =
+  \{ 1, \ldots, n \}$ projektiv ist, geht so: Nach Voraussetzung existiert
+  für jede Zahl~$i = 1,\ldots,n$ je mindestens ein Element~$y_i \in Y$
+  mit~$\varphi(i, y_i)$. Also ist~$f : X \to Y$ mit~$i \mapsto y_i$ eine
+  Abbildung der gewünschten Art.
+  \bigskip
+
+  Der Beweis lässt sich allerdings nicht auf den Fall übertragen, dass die
+  Menge~$X$ unendlich groß ist. Der Grund dafür ist etwas subtil. Es hängt
+  damit zusammen, dass Beweise nicht unendlich lang sein dürfen und dass in
+  einem Geltungsbereich (Scope) nur endlich viele Variablen vorkommen
+  dürfen.\par
+}
+
+\note{\justifying
+  Dass die Aussage des Auswahlaxioms nicht trivial ist, zeigt sich,
+  wenn man die Aussage~"`$\NN^\NN$ ist projektiv"' in~$\Eff(\TM)$
+  interpretiert. Aus
+  \begin{center}\parbox{0.86\textwidth}{
+    Es gibt eine Turingmaschine~$M$, die die Kodierung einer
+    Turingmaschine~$P$, welche eine Funktion~$f : \NN \to \NN$ berechnet, vom Band
+    einliest und die Kodierung eines Elements~$M(P) \in Y$ zusammen mit einem
+    Zeugen von~$\varphi(f,M(P))$ ausgibt.
+  }\end{center}
+  folgt nämlich nicht, dass:
+  \begin{center}\parbox{0.86\textwidth}{
+    Es gibt eine berechenbare Abbildung~$g$ von der Menge der berechenbaren
+    Funktionen~$f : \NN \to \NN$ in die Menge~$Y$ sodass für alle solche
+    Funktionen~$f$ in~$\Eff(\TM)$ gilt, dass~$\varphi(f,g(f))$.
+  }\end{center}
+  Man könnte denken, dass die gesuchte berechenbare Abbildung~$g$ einfach
+  von~$M$ berechnet wird. Aber das stimmt im Allgemeinen nicht. Denn ist~$f :
+  \NN \to \NN$ eine durch eine Turingmaschine~$P$ berechenbare Funktion, so
+  hängt das Element~$M(P)$ im Allgemeinen von der konkreten Umsetzung von~$f$
+  durch~$P$ ab. Verschiedene Umsetzungen können verschiedene Elemente geben.
+  Bei einer Abbildung, wie es~$g$ werden soll, darf das nicht sein.\par
+}
 
 \subsubsection[Imp.\@]{Searching uncountable sets}
 
@@ -733,6 +958,98 @@
   In~$\Eff(\TM)$ stimmt es, dass jede solche Funktion~$f$ stetig ist. Das ist
   der tiefere Grund dafür, wieso die "`scheinbar unmöglichen
   Haskell-Programme"' funktionieren.\par
+}
+
+
+\subsubsection[Sizes]{Curious size phenomena}
+
+\begin{frame}{Curious size phenomena}
+  \only<1-2>{
+    There is no surjection~$\NN \to \NN^\NN$; the set~$\NN^\NN$ of
+    functions~$\NN \to \NN$ is much larger than~$\NN$.
+    \bigskip
+
+    A corollary in classical logic is: There is no injection~$\NN^\NN \to \NN$.
+    This expresses the same intuition about the relative sizes.
+    \bigskip
+
+    %{\centering
+    %  \includegraphics[width=0.8\textwidth]{groessenverhaeltnisse}
+    %  \par}
+
+    \pause
+    In~$\Eff(\STM)$, there is such an injection.
+  }
+
+  \only<3>{
+    %{\centering
+    %  \includegraphics[width=0.7\textwidth]{images/groessenverhaeltnisse}
+    %  \par}
+
+    \explanation{$\Eff(\STM) \models \text{"`Es gibt eine Injektion~$\NN^\NN \to
+      \NN$."'}$}{Es gibt eine Superturingmaschine, welche bei Eingabe einer
+      Kodierung einer Superturingmaschine~$A$, welche eine Funktion~$\NN \to \NN$ berechnet,
+                eine Zahl~$n(A)$ berechnet und aufs Band schreibt. Dabei darf nur dann~$n(A)
+                  = n(B)$ sein, wenn~$A$ und~$B$ dieselbe Funktion berechnen.}
+  }
+
+  \only<4>{
+    \justifying
+      Die Superturingmaschine
+      \code{
+        Lese die Kodierung einer Superturingmaschine~$A$ vom Band ein.
+          Simuliere nun alle Superturingmaschinen auf verzahnte Art und Weise.
+          Sobald eine gefunden ist, deren Ausgabeverhalten dem von~$A$ gleicht,
+                 höre auf und gebe die Nummer~$n$ dieser Maschine aus.
+      }
+    schreibt bei Eingabe einer Kodierung einer Superturingmaschine~$A$, welche
+      eine Funktion~$\NN \to \NN$ berechnet, eine Zahl~$n(A)$ aufs Band. Dabei ist
+      nur dann~$n(A) = n(B)$, wenn~$A$ und~$B$ dieselbe Funktion berechnen.
+      \par
+  }
+  \end{frame}
+
+  \note{\justifying
+    Die von der beschriebenen Superturingmaschine ausgegebene Zahl~$n$ hängt vom
+      Ausgabeverhalten von~$A$, der gewählten Reihenfolge aller
+      Superturingmaschinen und von den Details der Verzahnung ab -- nicht aber von
+      der Implementierung von~$A$.\medskip
+
+      Die Suche terminiert, da es ja mindestens eine Superturingmaschine gibt, die
+      bei Eingabe einer jeden natürlichen Zahl terminiert und dabei dasselbe
+      Ausgabeverhalten wie~$A$ zeigt: $A$ selbst.\par
+  }
+
+  \note{\justifying
+    Weil er so schön ist, hier der intuitionistisch zulässige Beweis, dass es
+      keine Surjektion~$\NN \to \NN^\NN$ gibt:\bigskip
+
+      Sei~$s : \NN \to \NN^\NN$ irgendeine Abbildung. Wir möchten nachweisen,
+      dass~$s$ nicht surjektiv ist. Dazu betrachten wir die Abbildung~$f : \NN \to
+  \NN$ mit
+  \[ f(n) \vcentcolon= s(n)(n) + 1. \]
+  Dieses Element~$f \in \NN^\NN$ kann von~$s$ nicht getroffen werden: Wenn es
+  eine natürliche Zahl~$m$ mit~$s(m) = f$ gäbe, so wäre
+  \[ s(m)(m) = f(m) = s(m)(m) + 1. \]
+}
+
+\note{\justifying
+  Bei dieser Thematik ist es wichtig, nicht die externe und die interne Sicht
+  durcheinanderzubringen. Sonst landet man bei \emph{Skolems Paradox}: Wie kann
+  es sein, dass es in~$\Eff(\TM)$ keine Surjektion~$\NN \to \NN^\NN$ gibt, wo
+  doch~$\NN^\NN$ nur berechenbare Funktionen enthält und es von diesen nur
+  abzählbar viele gibt?\bigskip
+
+  Die Auflösung ist: Es stimmt zwar, dass aus externer Sicht das
+  Objekt~$\NN^\NN$ von~$\Eff(\TM)$, das ist aus externer Sicht die Menge der
+  berechenbaren Funktionen~$\NN \to \NN$, abzählbar ist und dass es daher eine
+  Surjektion (sogar Bijektion)~$\NN \to \NN^\NN$ gibt.\bigskip
+
+  Diese Surjektion, und auch jede andere, ist aber entweder nicht berechenbar, daher
+  nicht in~$\Eff(\TM)$ enthalten, oder zwar berechenbar, aber so beschaffen,
+  dass es keinen berechenbaren Zeugen ihrer Surjektivität gibt. Daher
+  sieht~$\NN^\NN$ aus der Sicht von~$\Eff(\TM)$ wie eine überabzählbare Menge
+  aus, in Übereinstimmung mit Cantors intuitionistisch zulässigen Beweis.\par
 }
 
 
