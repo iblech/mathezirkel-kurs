@@ -10,7 +10,7 @@
 \DeclareSymbolFont{extraup}{U}{zavm}{m}{n}
 \DeclareMathSymbol{\varheart}{\mathalpha}{extraup}{86}
 
-\title{Exploring hypercomputation \\ $\varheart$ with the ef{}fective topos $\varheart$}
+\title[{Exploring hypercomputation with the ef{}fective topos}]{Exploring hypercomputation \\ $\varheart$ with the ef{}fective topos $\varheart$}
 \author[Ingo Blechschmidt]{\textcolor{white}{Ingo Blechschmidt \\ \scriptsize University of Augsburg \\ February 8th, 2017}}
 \date[2017-02-08]{}
 
@@ -121,8 +121,9 @@
 \end{frame}}}
 
 
-\setbeameroption{hide notes}
-\setbeamertemplate{note page}[plain]
+\setbeameroption{show notes}
+%\setbeamercolor{note page}{bg=red!30}
+%\setbeamertemplate{note page}[plain]
 
 \begin{document}
 
@@ -137,13 +138,20 @@
 
 \partslide{infinite-queue}{width=0.4\paperwidth}{4.5cm}{I}{A crash course on ordinal numbers}
 
+\note{
+  The \href{https://en.wikipedia.org/wiki/Ordinal_number}{Wikipedia article on
+  ordinal numbers} is a good starting point. For the purposes of this talk,
+  it suffices to have some intuitive grasp of the ordinal number line:
+  \[ 0,\ 1,\ 2,\ \ldots,\ \omega,\ \omega + 1,\ \omega + 2,\ \ldots,\ \omega\cdot2,\ \omega\cdot2 + 1,\ \ldots \]
+}
+
 
 \section{(Super) Turing machines}
 
 \partslide{turing-machine}{width=0.5\paperwidth}{4.5cm}{II}{(Super) Turing machines}
 
 
-\subsection[TM]{Bacis on Turing machines}
+\subsection[TM]{Bacics on Turing machines}
 
 \newcommand{\portrait}[4]{\begin{column}{#3\textwidth}\centering\includegraphics[height=#4\textheight]{#1}\\{\scriptsize #2\par}\end{column}}
 
@@ -160,11 +168,53 @@
   \begin{columns}[t]
     \begin{column}{0.095\textwidth}\end{column}
     \portrait{alan-turing}{Alan Turing \\ (* 1912, † 1954)}{0.27}{0.35}
-    \portrait{imitation-game}{worth seeing}{0.27}{0.35}
+    \portrait{imitation-game}{worth watching}{0.27}{0.35}
     \portrait{alison-bechdel}{Alison Bechdel \\ (* 1960)}{0.27}{0.35}
     \begin{column}{0.095\textwidth}\end{column}
   \end{columns}
 \end{frame}
+
+\note{
+  \begin{itemize}
+    \item\justifying There are explicit examples for Turing machines with a
+    very small number of states for which their halting behaviour is unknown.
+    There are orther examples for which their halting behaviour is independent
+    of standard Zermelo--Fraenkel set theory.
+
+    \item Besides Turing machines, there are alternative models for
+    computation, for instance lambda calculus and register machines. For
+    functions~$\NN \to \NN$, these models all yield the same notion of
+    computabitility. For higher-order functions, where the domain is a set of
+    functions, the models typically differ in which functions they deem
+    computable.
+  \end{itemize}
+}
+
+\note{\begin{itemize}
+  \item\justifying A set~$M \subseteq \NN$ is \emph{enumerable by a Turing
+  machines} (or \emph{recursively enumerable}) if and only if there is a Turing
+  machine which outputs all the elements of~$M$ (in an arbitrary order, using
+  some fixed encoding).
+
+  \item A set~$M \subseteq \NN$ is a~$\Sigma_1$-set if and only if there is
+  a~$\Sigma_1$-formula~$\varphi$ of first-order arithmetic containing exactly one free
+  variable such that $M = \{ n \in \NN \,|\, \varphi(n) \}$.
+  A formula~$\varphi$ is a~$\Sigma_1$-formula if and only if it is of the form
+  \[ \exists m_1\_ \exists m_2\_ \ldots \exists m_k\_ \heartsuit, \]
+  where the existential quantifiers range over the natural numbers and no
+  further unbounded quantifiers (of any kind) may appear in the
+  subformula~$\heartsuit$.
+\end{itemize}}
+
+\note{\begin{itemize}
+  \item\justifying There is also a deep link between computability and number
+  theory: A set~$M \subseteq \NN$ is enumerable by a Turing machine if and only
+  if it is a \hil{diophantic set}, that is of the form
+  \[ M = \{ n \in \NN \,|\, \text{the eq.\@ $f(n,x_1,\ldots,x_m) = 0$
+  has a solution} \}, \]
+  where $f$ is a polynomial with integral coefficients and ``solution'' means
+  integral solution.
+\end{itemize}}
 
 
 \subsection[STM]{Bacis on super Turing machines}
@@ -195,6 +245,26 @@
   \end{columns}
 \end{frame}
 
+\note{\justifying
+  We can imagine a super Turing machine to take one second for
+  its first computational step, half a second for the next step, a quarter of a
+  second for the step after that, and so on. After two seconds, the machine
+  will have completed infinitely many steps.
+
+  \medskip
+  {\centering\includegraphics[width=0.35\textwidth]{ordinal-omega-squared}\par}
+  \medskip
+
+  \scriptsize
+  The fine print: This visual illustration only
+  works for those ordinals which can be embedded into the ordinary real number
+  line~$\RR$. These are exactly the countable ordinals, those ordinals for
+  which the set of predecessors is countable. Luckily, the interesting
+  behaviour of a super Turing machine always takes place in the realm of
+  countable ordinal numbers (even though this is not a requirement we put on
+  super Turing machines a priori).\par
+}
+
 {\usebackgroundtemplate{\includegraphics[height=\paperheight]{who-wants-to-be-a-millionaire}}
 \begin{frame}{A question to you}
   \centering
@@ -207,10 +277,17 @@
     unremittingly move the head rightwards.
   \end{itemize}}
   \pause
+  This machine halts after time step~$\omega^2$.
+  \bigskip
 
   \parbox{0.72\textwidth}{\centering\hil{Super Turing machines can break out of (some kinds of) infinite loops.}\par}
   \par
 \end{frame}}
+
+\note{
+  There is an \href{https://asciinema.org/a/66yqvm1qjormhj6tgl2wzyvu8}{ASCII
+  video} of a run of that machine.
+}
 
 
 \subsection[Power]{The power of super Turing machines}
@@ -289,7 +366,7 @@
 
     \item ``Any function $\RR \to \RR$ is continuous.''
 
-    \visible<6->{False in $\Set$, true in~$\Eff(\TM)$.}
+    \visible<6->{False in $\Set$, nontrivially true in~$\Eff(\TM)$.}
   \end{itemize}
 \end{frame}
 
