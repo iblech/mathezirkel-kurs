@@ -305,7 +305,7 @@
     \end{itemize}
   \end{itemize}
 
-  \visible<2>{\hil{But:} Super Turing machines can't calculate all functions
+  \visible<2>{\hil{But:} Super Turing machines can't compute all functions
   and can't write arbitrary 0/1-sequences to the tape.}
 
   \begin{center}
@@ -624,7 +624,7 @@
   \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
   ``Any function~$f : \NN \to \NN$ is either the zero function or
   not.''\\[-0.7em]\end{minipage}$}{There is a Turing machine which reads the
-  source of a Turing machine~$M$, which calculates a function $\NN \to \NN$, as input, and finds out whether~$M$ always yields zero or not.}{That's false.}
+  source of a Turing machine~$M$, which computes a function $\NN \to \NN$, as input, and finds out whether~$M$ always yields zero or not.}{That's false.}
   \bigskip
   \pause
 
@@ -691,7 +691,7 @@
   ``For any function~$f : \NN \to \NN$ which is not the zero function,
   there is a number~$n \in \NN$ such that~$f(n) \neq
   0$.''\\[-0.7em]\end{minipage}$}{There is a Turing machine which reads the source of a
-  Turing machine~$M$, which calculates a function~$\NN \to \NN$ which is not the zero
+  Turing machine~$M$, which computes a function~$\NN \to \NN$ which is not the zero
   function, as input and outputs a number~$n$ such that~$M(n)$ is not
   zero.}{\pause That's true! By unbounded search.}
 \end{frame}
@@ -722,43 +722,42 @@
 \end{frame}
 
 \note{\justifying
-  Auch intuitionistisch ist jede endliche Menge projektiv. Der Beweis, dass~$X =
-  \{ 1, \ldots, n \}$ projektiv ist, geht so: Nach Voraussetzung existiert
-  für jede Zahl~$i = 1,\ldots,n$ je mindestens ein Element~$y_i \in Y$
-  mit~$\varphi(i, y_i)$. Also ist~$f : X \to Y$ mit~$i \mapsto y_i$ eine
-  Abbildung der gewünschten Art.
+  Finite sets are projective even in constructive mathematics.
   \bigskip
 
-  Der Beweis lässt sich allerdings nicht auf den Fall übertragen, dass die
-  Menge~$X$ unendlich groß ist. Der Grund dafür ist etwas subtil. Es hängt
-  damit zusammen, dass Beweise nicht unendlich lang sein dürfen und dass in
-  einem Geltungsbereich (Scope) nur endlich viele Variablen vorkommen
-  dürfen.\par
+  By~$\NN^\NN$, we mean the set of all functions~$\NN \to \NN$.
+  \par
 }
 
 \note{\justifying
-  Dass die Aussage des Auswahlaxioms nicht trivial ist, zeigt sich,
-  wenn man die Aussage~"`$\NN^\NN$ ist projektiv"' in~$\Eff(\TM)$
-  interpretiert. Aus
+  \scriptsize
+  A good way to convince oneself that the axiom of choice is indeed a
+  nontrivial statement is to look at what the statement ``$\NN^\NN$ is
+  projective'' means in~$\Eff(\TM)$. It means that
   \begin{center}\parbox{0.86\textwidth}{
-    Es gibt eine Turingmaschine~$M$, die die Kodierung einer
-    Turingmaschine~$P$, welche eine Funktion~$f : \NN \to \NN$ berechnet, vom Band
-    einliest und die Kodierung eines Elements~$M(P) \in Y$ zusammen mit einem
-    Zeugen von~$\varphi(f,M(P))$ ausgibt.
+    There is a Turing machine~$M$, which reads the description of a Turing
+    machine~$P$, which computes a function~$f : \NN \to \NN$, as input, and
+    outputs an element~$M(P) \in Y$ together with a witness
+    of~$\varphi(f,M(P))$.
   }\end{center}
-  folgt nämlich nicht, dass:
+  implies
   \begin{center}\parbox{0.86\textwidth}{
-    Es gibt eine berechenbare Abbildung~$g$ von der Menge der berechenbaren
-    Funktionen~$f : \NN \to \NN$ in die Menge~$Y$ sodass für alle solche
-    Funktionen~$f$ in~$\Eff(\TM)$ gilt, dass~$\varphi(f,g(f))$.
+    There is a computable map~$g$ from the set of computable maps~$f : \NN \to
+    \NN$ to the set~$Y$ such that for all such functions~$f$ the
+    statement~$\varphi(f,g(f))$ holds in~$\Eff(\TM)$.
   }\end{center}
-  Man könnte denken, dass die gesuchte berechenbare Abbildung~$g$ einfach
-  von~$M$ berechnet wird. Aber das stimmt im Allgemeinen nicht. Denn ist~$f :
-  \NN \to \NN$ eine durch eine Turingmaschine~$P$ berechenbare Funktion, so
-  hängt das Element~$M(P)$ im Allgemeinen von der konkreten Umsetzung von~$f$
-  durch~$P$ ab. Verschiedene Umsetzungen können verschiedene Elemente geben.
-  Bei einer Abbildung, wie es~$g$ werden soll, darf das nicht sein.\par
+
+  On first sight, this implications seems to be true:
+  It seems that one could define the looked-for map~$g$ to be simply the map computed by~$M$.
+  But that doesn't necessarily work: If~$f : \NN \to \NN$ is a map which is computed
+  by a Turing machine~$P$, then the element~$M(P)$ might depend on the concrete
+  realisation of~$f$ by the machine~$P$. Different implementations of~$f$ by
+  different Turing machines~$P'$ might yield different elements~$M(P')$.
+  Therefore the resulting ``map''~$g$ might be multi-valued, so not a proper
+  map.
+  \par
 }
+
 
 \subsubsection[Imp.\@]{Searching uncountable sets}
 
@@ -788,15 +787,15 @@
   \bigskip
 
   {\centering\parbox{0.8\textwidth}{If a function $f : \NN \to
-  \NN$ is calculable in the real world, then it's also calculable by a Turing
+  \NN$ is computable in the real world, then it's also computable by a Turing
   machine.}\par}
   \bigskip
 
   \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
-  ``Any function~$f : \NN \to \NN$ is calculable by a
+  ``Any function~$f : \NN \to \NN$ is computable by a
   Turing machine.''\\[-0.7em]\end{minipage}$}{There is a Turing machine which reads the source of a
-  Turing machine calculating a function~$f : \NN \to \NN$ as input and
-  outputs the source of a Turing machine which calculates~$f$.}{That's trivial,
+  Turing machine computing a function~$f : \NN \to \NN$ as input and
+  outputs the source of a Turing machine which computes~$f$.}{That's trivial,
   echo the input back to the user.}
   \bigskip
   \pause
@@ -805,53 +804,50 @@
 \end{frame}
 
 \note{\justifying
-  Der effektive Topos zu Turingmaschinen ist also eine schöne Umgebung für die
-  Informatik, da in ihm \emph{jede Funktion~$\NN \to \NN$ berechenbar ist} und
-  unberechenbare Funktionen aussortiert wurden.
+  The meaning of the statement in~$\Eff(\STM)$ is: ``There is a super Turing
+  machine which reads the source of a super Turing machine computing a
+  function~$f : \NN \to \NN$ as input and outputs the source of an
+  \emph{ordinary} Turing machine which computes~$f$.'' This is false.
   \bigskip
 
-  Vielleicht vermutet man hierbei einen Widerspruch. Sind nicht etwa folgende
-  Funktionen unberechenbar? Was verhindert ihre Existenz im effektiven Topos?
-  \begin{align*}
-    H(n) &= \begin{cases}
-      1, & \text{falls die~$n$-te Turingmaschine hält,} \\
-      0, & \text{sonst.}
-    \end{cases} \\
-    BB(n) &= \text{höchste Anzahl Schritte, die eine haltende Turingmaschine} \\
-    &\qquad\quad \text{mit~$n$ Zuständen durchführt, bevor sie hält.}
-  \end{align*}
-
-  Um zu zeigen, dass~$H$ und~$BB$ beides totale Funktionen~$\NN \to \NN$ sind
-  -- und nur auf solche bezieht sich die Church--Turing-These --, ist LEM nötig!
-  Für~$H$, damit die Fallunterscheidung getroffen werden kann. Für~$BB$, weil
-  implizit das Lemma verwendet wurde, dass eine subendliche Menge natürlicher
-  Zahlen ein größtes Element enthält.\par
+  The statement is also false in~$\Eff(\lambdaC)$, the effective topos
+  associated to lambda calculus.
+  \par
 }
 
 \note{\justifying
-  Die Aussage, dass \emph{jede} Funktion~$\NN \to \NN$ durch eine
-  Turingmaschine berechenbar ist, ist auch als \emph{formale
-  Church--Turing-These} bekannt.
-  \begin{itemize}
-    \item\justifying In~$\Eff(\STM)$ gilt sie nicht, denn aus einer
-    Superturingmaschine, welche eine Funktion~$\NN \to \NN$ berechnet, kann man
-    nur in den seltensten Fällen in eine gewöhnliche Turingmaschine mit
-    demselben Ausgabeverhalten umwandeln.
-    \item In~$\Eff(\lambdaC)$ gilt die formale Church--Turing-These ebenfalls
-    nicht, aber aus einem anderen Grund. Die These lautet in diesem Fall:
-    \begin{center}\parbox{0.83\textwidth}{
-      Es gibt einen~$\lambda$-Term~$T$, sodass für jeden~$\lambda$-Term~$u$,
-      welcher eine Funktion~$f : \NN \to \NN$ berechnet, der~$\lambda$-Term~$T\ u$
-      die Kodierung einer Turingmaschine ist, welche~$f$ berechnet.
-    }\end{center}
-    Der ominöse Term~$T$ kann sein Argument~$u$ nur auf Eingaben auswerten, er
-    hat aber keinen Zugriff auf die syntaktische Struktur von~$u$.
-    (Konventionsgemäß werden in~$\Eff(\TM)$ Turingmaschinen höherer Ordnung
-    dadurch realisiert, dass sie als Argument Kodierungen von
-    Turingmaschinen erhalten. Beim~$\lambda$-Kalkül ist der Umweg über
-    syntaktische Kodierungen nicht nötig und wird in~$\Eff(\lambdaC)$ auch
-    nicht verfolgt.)
-  \end{itemize}
+  The topos~$\Eff(\TM)$ is a nice context for computer science, since in it
+  every uncomputable functions are not present.\bigskip
+
+  By contrast, in classical mathematics, there are many functions which are not
+  computable.  Two of the most famous ones are the ``halting predicate'' and
+  the ``Busy Beaver function'':
+  \begin{align*}
+    H(n) &= \begin{cases}
+      1, & \text{if the~$n$'th Turing machine halts,} \\
+      0, & \text{otherwise.}
+    \end{cases} \\
+    BB(n) &= \text{maximal number of steps which a halting Turing machine} \\
+    &\qquad\quad\text{with $n$ states performs before halting.}
+  \end{align*}
+  Can't we use exactly the same definitions in the effective topos, thereby
+  contradicting the theorem that all functions in the effective topos are
+  computable?\par
+}
+
+\note{\justifying
+  The apparent paradox is resolved in the following way. The theorem only states
+  that total functions~$\NN \to \NN$ are computable. However, to verify
+  that~$H$ and~$BB$ are indeed such total functions, the law of excluded middle
+  is necessary:
+  \bigskip
+
+  For~$H$, in order to be able to make the case distinction.
+  \bigskip
+
+  For~$BB$, because implicitly the lemma that a ``subfinite'' set of natural
+  numbers contains a maximal element was used. This lemma depends on the law of
+  excluded middle.\par
 }
 
 
@@ -1061,7 +1057,7 @@
     \item Ef{}fective toposes are a good vehicle for studying the nature of computation.
     \item The ef{}fective toposes build links between constructive mathematics and programming.
     \item Toposes allow for curious dream axioms.
-    \item Toposes also have a geometric flavour: points, subtoposes, maps
+    \item Toposes also have a geometric flavour: points, subtoposes, continuous maps
     between toposes.
   \end{itemize}
   \pause
