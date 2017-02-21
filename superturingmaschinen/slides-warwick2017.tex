@@ -206,15 +206,29 @@
   subformula~$\heartsuit$.
 \end{itemize}}
 
-\note{\begin{itemize}
-  \item\justifying There is also a deep link between computability and number
+\note{\justifying
+  There is also a deep link between computability and number
   theory: A set~$M \subseteq \NN$ is enumerable by a Turing machine if and only
-  if it is a \hil{diophantic set}, that is of the form
+  if it is a \emph{diophantine set}, that is of the form
   \[ M = \{ n \in \NN \,|\, \text{the eq.\@ $f(n,x_1,\ldots,x_m) = 0$
   has a solution} \}, \]
   where $f$ is a polynomial with integral coefficients and ``solution'' means
   integral solution.
-\end{itemize}}
+}
+
+\note{\justifying
+  Just as \emph{Logicomix: An Epic Search for Truth} illustrates the
+  foundational quest in mathematics (starring Cantor, Hilbert, Gödel, Turing,
+  and others), the graphic novel \emph{The Thrilling Adventures of Lovelace and
+  Babbage} explores the history of programmable computers.\bigskip
+
+  \begin{columns}[t]
+    \begin{column}{0.13\textwidth}\end{column}
+    \portrait{logicomix}{}{0.37}{0.4}
+    \portrait{lovelace-babbage}{}{0.37}{0.4}
+    \begin{column}{0.13\textwidth}\end{column}
+  \end{columns}
+}
 
 
 \subsection[STM]{Bacis on super Turing machines}
@@ -314,7 +328,7 @@
 \end{frame}
 
 
-\subsection[Outlook]{Outlook on the bigger theory}
+\subsection[Outlook]{Outlook on the larger theory}
 
 {\usebackgroundtemplate{\includegraphics[height=\paperheight]{lost-melody}}
 \begin{frame}{Fun facts}
@@ -362,11 +376,12 @@
 \partslide{topos-horses}{width=\paperwidth}{4.95cm}{III}{The ef{}fective topos}
 
 \note{\justifying
-  For any model~$\mathcal{M}$ of computation, such as Turing machines, super
-  Turing machines, or lambda calculus, there is an associated \hil{ef{}fective
-  topos} $\mathrm{Eff}(\mathcal{M})$. Formally, a topos is a certain kind of
-  category; intuitively, a topos is an alternate mathematical universe in which
-  the usual laws of logic may not necessarily hold.
+  For any model~$\mathcal{M}$ of computation, such as Turing machines~($\TM$), super
+  Turing machines~($\STM$), or lambda calculus~($\lambdaC$), there is an
+  associated \emph{ef{}fective topos} $\mathrm{Eff}(\mathcal{M})$. Formally, a
+  topos is a certain kind of category; intuitively, a topos is an alternate
+  mathematical universe in which the usual laws of logic may not necessarily
+  hold.
   \bigskip
 
   The standard universe, in which most of mathematics happens, is the
@@ -374,7 +389,7 @@
   \bigskip
 
   One can even employ machines of the real physical world as the
-  ``model''~$\mathcal{M}$ used for constructing the ef{}fective topos.
+  ``model''~$\mathcal{M}$ used for constructing the ef{}fective topos~($\RW$).
   Statements about the resulting topos are then statements about the real
   world instead of formal mathematical statements.
   \par
@@ -521,8 +536,6 @@
     \item \hil{Dropping the law of excluded middle allows to add curious unconvential axioms.}
   \end{itemize}
 \end{frame}
-
-% \begin{document}
 
 \note{\justifying
   We're used to immediately cancel double negations. Since that's
@@ -679,8 +692,11 @@
   \href{https://en.wikipedia.org/wiki/Halting_problem}{usual argument}), but
   only about the halting problem for Turing machines, the answer \emph{might}
   be ``yes''. Tricks using black holes and relativistic time dilation might
-  be possible.
-  \par
+  be possible.\bigskip
+
+  More details on~$\Eff(\RW)$ are contained in the very accessible book chapter
+  \href{http://math.andrej.com/wp-content/uploads/2014/03/real-world-realizability.pdf}{Intuitionistic
+  Mathematics and Realizability in the Physical World} by Andrej Bauer.\par
 }
 
 
@@ -771,8 +787,8 @@
   \bigskip
 
   \begin{center}\parbox{0.91\textwidth}{
-    ``For any function $P : L(\BB) \to \BB$ from infinite lists of booleans to booleans,
-    there either exists a list~$x$ such that $P(x)$ is true or there is no such list.''
+    ``For any function $P : \BB^\NN \to \BB$ from infinite lists of booleans to booleans,
+    there either exists a list~$x$ such that $P(x) = 1$ or there is no such list.''
   }\end{center}
   \pause
   This statement is true in~$\Eff(\TM)$!
@@ -781,9 +797,9 @@
 \note{\justifying
   It's somewhat miraculous that the countable set~$\NN$ can not be searched,
   but the uncountable set
-  \[ L(\BB) = \prod_{n=0}^\infty \BB = \{ (x_0,x_1,\ldots) \} \]
-  can. There is a deeper topological reason for this fact: The space~$L(\BB)$
-  is compact while~$\NN$ is not.
+  \[ \BB^\NN = \prod_{n=0}^\infty \BB = \{ (x_0,x_1,\ldots) \} \]
+  can. There is a deeper topological reason for this fact: The space~$\BB^\NN$
+  is compact (by Tychonoff's theorem) while~$\NN$ is not.
   \bigskip
 
   Details are available in a
@@ -799,7 +815,7 @@
   The \hil{Church--Turing thesis} states:
   \bigskip
 
-  {\centering\parbox{0.8\textwidth}{If a function $f : \NN \to
+  {\centering\parbox{0.82\textwidth}{If a function $f : \NN \to
   \NN$ is computable in the real world, then it's also computable by a Turing
   machine.}\par}
   \bigskip
@@ -833,6 +849,12 @@
   conventions; a higher-order lambda term has no access to the syntactic
   structure of a passed argument.
   \par
+}
+
+\note{\justifying
+  Whether the formal Church--Turing thesis holds in~$\Eff(\RW)$, the
+  ef{}fective topos associated to machines of the real world, depends on the
+  nature of computation in the real world.\par
 }
 
 \note{\justifying
@@ -954,7 +976,7 @@
 
   as inputs and outputs a natural number~$m$ with the following property:
   For any real number~$\tilde x$ which is the same as~$x$ to~$m$ digits,
-  the numbers~$f(x)$ and~$f(\tilde x)$ are the same to~$n$ digits.\bigskip
+  the numbers~$f(x)$ and~$f(\tilde x)$ are the same to~$n$ digits.\smallskip
 
   In the case of real world machines, one can proceed as follows to construct
   such a machine~$M$. Given~$A$,~$X$, and~$n$, the machine~$M$ should call~$A$
@@ -962,27 +984,29 @@
   input/output behaviour as~$X$, but on each call~$X'$ should tell~$M$ using a
   private communication channel how many digits were asked for. Since~$X'$ has
   the same input/output behaviour as~$X$, the machine~$A$ is bound by contract
-  to react to~$X'$ in the same way as it reacts to~$X$.\bigskip
+  to react to~$X'$ in the same way as it reacts to~$X$.\smallskip
 
   If only finitely many computational steps can be performed in finite time,
-  the machine~$M$ only has to wait till~$A$ has a computed~$f(x)$ to~$n$
-  digits. It can then look at its log to see how many digits of~$x$ $A$ used
-  for the computation. For any number~$\tilde x$, which is equal to~$x$ to this
-  amount of digits, the machine~$A$ produces the same output.\par
+  then~$M$ can determine a suitable number~$m$ as follows: It just
+  has to wait till~$A$ has computed~$f(x)$ to~$n$ digits. It can then look at
+  its log to see how many digits of~$x$ $A$ used for the computation. For any
+  number~$\tilde x$ which is equal to~$x$ to this amount of digits, the
+  number~$f(\tilde x)$ produced by~$A$ is the same as~$f(x)$ to~$n$ digits.\par
 }
 
 \note{\justifying
-  Kein Fan von reellen Zahlen? Dasselbe Phänomen zeigt sich auch bei Funktionen
-  von anderen Typen. Zum Beispiel für Funktionen~$f : \BB^\NN \to \BB$. Dabei
-  ist~$\BB = \{ 0, 1 \}$ die Menge der Bools. Eine solche Funktion heißt genau
-  dann \emph{stetig}, wenn es für jedes Argument~$x \in \BB^\NN$ (also jede
-  Funktion~$x : \NN \to \BB$) eine natürliche Zahl~$m$ gibt, sodass~$f(x)$ nur
-  von den ersten~$m$ Funktionswerten von~$x$ abhängt.\bigskip
+  Not a fan of real numbers? The same phenomenon is visible at other types, for
+  instance for functions~$f : \BB^\NN \to \BB$, where~$\BB = \{ 0,1 \}$ as
+  before. Such a function is continuous if and only if, for any~$x \in \BB^\NN$
+  (that is, any function~$x : \NN \to \BB$) there exists a number~$m$ such
+  that~$f(x)$ depends only on the first~$m$ values of~$x$.\bigskip
 
-  In~$\Eff(\TM)$ stimmt es, dass jede solche Funktion~$f$ stetig ist. Das ist
-  der tiefere Grund dafür, wieso die "`scheinbar unmöglichen
-  Haskell-Programme"' funktionieren.\par
+  In~$\Eff(\TM)$, the statement ``every function~$f : \BB^\NN \to \BB$'' is
+  true.\par
 }
+
+
+% \begin{document}
 
 
 \subsubsection[Sizes]{Curious size phenomena}
@@ -997,83 +1021,95 @@
     This expresses the same intuition about the relative sizes.
     \bigskip
 
-    %{\centering
-    %  \includegraphics[width=0.8\textwidth]{groessenverhaeltnisse}
-    %  \par}
+    \begin{columns}[t]
+      \begin{column}{0.13\textwidth}\end{column}
+      \portrait{surjection}{a surjection \\ ``$X$ is greater than $Y$''}{0.37}{0.25}
+      \portrait{injection}{an injection \\ ``$X$ is smaller than $Y$''}{0.37}{0.25}
+      \begin{column}{0.13\textwidth}\end{column}
+    \end{columns}
+    \bigskip
 
     \pause
-    In~$\Eff(\STM)$, there is such an injection.
+    In~$\Eff(\STM)$, there \hil{is such an injection}.
   }
 
   \only<3>{
-    %{\centering
-    %  \includegraphics[width=0.7\textwidth]{images/groessenverhaeltnisse}
-    %  \par}
+    \begin{columns}[t]
+      \begin{column}{0.13\textwidth}\end{column}
+      \portrait{surjection}{a surjection \\ ``$X$ is greater than $Y$''}{0.37}{0.25}
+      \portrait{injection}{an injection \\ ``$X$ is smaller than $Y$''}{0.37}{0.25}
+      \begin{column}{0.13\textwidth}\end{column}
+    \end{columns}
+    \bigskip
 
-    \explanation{$\Eff(\STM) \models \text{"`Es gibt eine Injektion~$\NN^\NN \to
-      \NN$."'}$}{Es gibt eine Superturingmaschine, welche bei Eingabe einer
-      Kodierung einer Superturingmaschine~$A$, welche eine Funktion~$\NN \to \NN$ berechnet,
-                eine Zahl~$n(A)$ berechnet und aufs Band schreibt. Dabei darf nur dann~$n(A)
-                  = n(B)$ sein, wenn~$A$ und~$B$ dieselbe Funktion berechnen.}
+    \explanation{$\Eff(\STM) \models \text{``There exists an injection~$\NN^\NN \to
+    \NN$.''}$}{There is a super Turing machine which inputs the source of a
+    super Turing machine~$A$ computing a function~$\NN \to \NN$ and
+    outputs a number~$n(A)$ such that~$n(A) = n(B)$ only if~$A$ and~$B$
+    compute the same function.}
   }
 
   \only<4>{
-    \justifying
-      Die Superturingmaschine
-      \code{
-        Lese die Kodierung einer Superturingmaschine~$A$ vom Band ein.
-          Simuliere nun alle Superturingmaschinen auf verzahnte Art und Weise.
-          Sobald eine gefunden ist, deren Ausgabeverhalten dem von~$A$ gleicht,
-                 höre auf und gebe die Nummer~$n$ dieser Maschine aus.
-      }
-    schreibt bei Eingabe einer Kodierung einer Superturingmaschine~$A$, welche
-      eine Funktion~$\NN \to \NN$ berechnet, eine Zahl~$n(A)$ aufs Band. Dabei ist
-      nur dann~$n(A) = n(B)$, wenn~$A$ und~$B$ dieselbe Funktion berechnen.
-      \par
+    \explanation{$\Eff(\STM) \models \text{``There exists an injection~$\NN^\NN \to
+    \NN$.''}$}{There is a super Turing machine which inputs the source of a
+    super Turing machine~$A$ computing a function~$\NN \to \NN$ and
+    outputs a number~$n(A)$ such that~$n(A) = n(B)$ only if~$A$ and~$B$
+    compute the same function.}
+
+    This statement is witnessed by following super Turing machine:
+    \code{
+      Read the source of a super Turing machine~$A$ from the tape.
+      Simulate all super Turing machines in a dovetailing fashion.
+      As soon a machine is found which has the same input/output behaviour
+      as~$A$, output the number of this machine and halt.
+    }
   }
-  \end{frame}
+\end{frame}
 
-  \note{\justifying
-    Die von der beschriebenen Superturingmaschine ausgegebene Zahl~$n$ hängt vom
-      Ausgabeverhalten von~$A$, der gewählten Reihenfolge aller
-      Superturingmaschinen und von den Details der Verzahnung ab -- nicht aber von
-      der Implementierung von~$A$.\medskip
+\note{\justifying
+  The number computed by that super Turing machine depends on the input/output
+  behaviour of~$A$, the chosen order of all super Turing machines, and on
+  details on the way the interleaving simulation works -- but it does
+  \emph{not} depend on the implementation of~$A$.\medskip
 
-      Die Suche terminiert, da es ja mindestens eine Superturingmaschine gibt, die
-      bei Eingabe einer jeden natürlichen Zahl terminiert und dabei dasselbe
-      Ausgabeverhalten wie~$A$ zeigt: $A$ selbst.\par
-  }
+  The search terminates since there is at least one super Turing machine which
+  halts on any natural number input and shows the same input/output behaviour
+  as~$A$: $A$ itself.\medskip
 
-  \note{\justifying
-    Weil er so schön ist, hier der intuitionistisch zulässige Beweis, dass es
-      keine Surjektion~$\NN \to \NN^\NN$ gibt:\bigskip
+  This injection was
+  \href{http://math.andrej.com/2011/06/15/constructive-gem-an-injection-from-baire-space-to-natural-numbers/}{found
+  by Andrej Bauer}.\par
+}
 
-      Sei~$s : \NN \to \NN^\NN$ irgendeine Abbildung. Wir möchten nachweisen,
-      dass~$s$ nicht surjektiv ist. Dazu betrachten wir die Abbildung~$f : \NN \to
-  \NN$ mit
+\note{\justifying
+  Just because it is so nice, here is a constructively valid proof that there
+  is no surjection~$\NN \to \NN^\NN$:\bigskip
+
+  Let~$s : \NN \to \NN^\NN$ be an arbitrary map. We want to verify that~$s$ is
+  not surjective. For this, we consider the map~$f : \NN \to
+  \NN$ given by
   \[ f(n) \vcentcolon= s(n)(n) + 1. \]
-  Dieses Element~$f \in \NN^\NN$ kann von~$s$ nicht getroffen werden: Wenn es
-  eine natürliche Zahl~$m$ mit~$s(m) = f$ gäbe, so wäre
+  This element~$f \in \NN^\NN$ is not in the image of~$s$: If there existed a
+  number~$m$ such that~$s(m) = f$, then
   \[ s(m)(m) = f(m) = s(m)(m) + 1. \]
 }
 
 \note{\justifying
-  Bei dieser Thematik ist es wichtig, nicht die externe und die interne Sicht
-  durcheinanderzubringen. Sonst landet man bei \emph{Skolems Paradox}: Wie kann
-  es sein, dass es in~$\Eff(\TM)$ keine Surjektion~$\NN \to \NN^\NN$ gibt, wo
-  doch~$\NN^\NN$ nur berechenbare Funktionen enthält und es von diesen nur
-  abzählbar viele gibt?\bigskip
+  When thinking about size issues, it's important to not mix up the external
+  and internal point of view -- else one encounters \emph{Skolem's paradox}:
+  How is it possible that~$\Eff(\TM)$ doesn't contain a surjection~$\NN \to
+  \NN^\NN$, even though the object~$\NN^\NN$ of the ef{}fective topos contains
+  only computable functions and there are only countably many of those?\bigskip
 
-  Die Auflösung ist: Es stimmt zwar, dass aus externer Sicht das
-  Objekt~$\NN^\NN$ von~$\Eff(\TM)$, das ist aus externer Sicht die Menge der
-  berechenbaren Funktionen~$\NN \to \NN$, abzählbar ist und dass es daher eine
-  Surjektion (sogar Bijektion)~$\NN \to \NN^\NN$ gibt.\bigskip
+  It's true that the underlying set of the object~$\NN^\NN$ of~$\Eff(\TM)$ is
+  countable, so that there is a surjection (even bijection)~$\NN \to
+  \NN^\NN$.\bigskip
 
-  Diese Surjektion, und auch jede andere, ist aber entweder nicht berechenbar, daher
-  nicht in~$\Eff(\TM)$ enthalten, oder zwar berechenbar, aber so beschaffen,
-  dass es keinen berechenbaren Zeugen ihrer Surjektivität gibt. Daher
-  sieht~$\NN^\NN$ aus der Sicht von~$\Eff(\TM)$ wie eine überabzählbare Menge
-  aus, in Übereinstimmung mit Cantors intuitionistisch zulässigen Beweis.\par
+  But any such surjection is either not computable, therefore not contained
+  in~$\Eff(\TM)$, or is computable, but in a way that there is no computable
+  witness of its surjectivity. Therefore~$\NN^\NN$ looks like an uncountable
+  set from the internal point of view~$\Eff(\TM)$, just as Cantor's theorem
+  predicts.\par
 }
 
 
@@ -1083,7 +1119,7 @@
 \begin{frame}{Wrapping up}
   \begin{itemize}
     \item Ef{}fective toposes are a good vehicle for studying the nature of computation.
-    \item The ef{}fective toposes build links between constructive mathematics and programming.
+    \item Ef{}fective toposes build links between constructive mathematics and programming.
     \item Toposes allow for curious dream axioms.
     \item Toposes also have a geometric flavour: points, subtoposes, continuous maps
     between toposes.
@@ -1096,5 +1132,41 @@
   than the standard topos.}}
   \par
 \end{frame}}
+
+\note{\justifying
+  Any topos has a \emph{largest dense subtopos}. The largest dense subtopos
+  of~$\Eff(\TM)$ is~$\Set$, the standard topos. It is related to the
+  \emph{double negation modality}.\bigskip
+
+  For instance, the statement ``for any number~$n$ there is a prime~$p > n$''
+  holds in~$\Eff(\TM)$ for the nontrivial reason that there exists a Turing
+  machine which can find arbitrarily large prime numbers. The weaker statement
+  ``for any number~$n$ there is \emph{not not} a prime~$p > n$'' holds
+  in~$\Eff(\TM)$ as well, but doesn't require a witness by a machine.
+  \bigskip
+
+  If one prefixes all occurences of~``$\exists$'' and~``$\vee$'' in a formula~$\varphi$
+  with~``$\neg\neg$'''s, then it loses its computational content. This modified
+  formula holds in~$\Eff(\TM)$ if and only if the original formula holds
+  in~$\Set$.\par
+}
+
+\note{\justifying
+  For any \emph{oracle}~$L$ (as studied in computer science), the ef{}fective
+  topos associated to Turing machines with access to~$L$ is a subtopos
+  of~$\Eff(\TM)$. It too corresponds to a certain modal operator.
+  \par
+}
+
+\note{\justifying
+  In the \emph{smooth topos}, employed in synthetic differential geometry, the
+  following statement holds:
+
+  \code{Axiom of microaffinity: For any function~$f : \Delta \to \RR$,
+  where~$\Delta = \{ \varepsilon \in \RR \,|\, \varepsilon^2 = 0 \}$, there
+  exists a unique pair~$(a,b)$ of real numbers such that
+  \[ f(\varepsilon) = a + b \varepsilon \]
+  for all~$\varepsilon \in \Delta$.}
+}
 
 \end{document}
