@@ -128,7 +128,7 @@
 \begin{document}
 
 % http://www.ufointernationalproject.com/wp-content/uploads/2015/11/a23.jpg
-{\usebackgroundtemplate{\includegraphics[height=\paperheight]{images/interstellar}}
+{\usebackgroundtemplate{\includegraphics[height=\paperheight]{interstellar}}
 \frame{\vspace*{11em}\titlepage}}
 \setcounter{tocdepth}{2}
 \frame{\tableofcontents}
@@ -453,7 +453,7 @@
   \end{itemize}
 
   \bigskip\centering
-  \includegraphics[width=0.2\textwidth]{images/lem}
+  \includegraphics[width=0.2\textwidth]{lem}
   \par
 \end{frame}
 
@@ -535,7 +535,7 @@
   We want to verify~$\neg\psi$. Assume that~$\psi$ holds. Then \ldots,
   that's a contradiction. Therefore~$\neg\psi$.
 
-  This constitutes a constructively valid argument, since in constructive (and
+  This is a constructively valid argument, since in constructive (and
   classical) logic~$\neg\psi$ is defined as the implication~$(\psi \Rightarrow
   \bot)$, where~$\bot$ is the formal logical symbol for falsity, a
   contradiction.
@@ -570,7 +570,7 @@
   \[ \phantom{\neg\neg(} \exists x\_ \text{the key is at position
   $x$},\phantom{)} \]
   because for justifying the stronger statement we'd had to give an explicit
-  witness of the existential statement (the position where the key is at).
+  witness of the existential statement (the position of the key).
   \bigskip
 
   \scriptsize
@@ -678,7 +678,7 @@
   (which is not decidable by machines of the real world, by the
   \href{https://en.wikipedia.org/wiki/Halting_problem}{usual argument}), but
   only about the halting problem for Turing machines, the answer \emph{might}
-  be a ``yes''. Tricks using black holes and relativistic time dilation might
+  be ``yes''. Tricks using black holes and relativistic time dilation might
   be possible.
   \par
 }
@@ -703,13 +703,13 @@
   \justifying
   A set~$X$ ist \hil{projective} if and only if, for any set~$Y$ and
   any formula~$\varphi(x,y)$ with parameters~$x \in X$, $y \in Y$ it holds that:
-  \begin{center}\parbox{0.86\textwidth}{
+  \begin{center}\parbox{0.75\textwidth}{
     If for any~$x \in X$ there is an element~$y \in Y$ such
     that~$\varphi(x,y)$, then
     there is a map~$f : X \to Y$ such that~$\varphi(x,f(x))$ for all~$x \in X$.
   }\end{center}
   \[ \forall x \in X\_ \exists y \in Y\_ \varphi(x,y) \ \Longrightarrow\
-    \exists f : X \to Y\_ \forall x \in X\_ \varphi(x,f(x)) \]
+    \exists f \in Y^X\_ \forall x \in X\_ \varphi(x,f(x)) \]
   The \hil{axiom of choice} of classical mathematics states that any set is
   projective.
 
@@ -763,7 +763,7 @@
 
 \begin{frame}{Searching uncountable sets}
   \begin{center}\parbox{0.91\textwidth}{
-    ``For any function $f : \NN \to \NN$ from numbers to numbers,
+    ``For any function $f : \NN \to \BB$ from numbers to~$\BB = \{0,1\}$
     there either exists a number~$n$ such that $f(n)$ is one or there is no such number.''
   }\end{center}
   This statement is false in~$\Eff(\TM)$.
@@ -777,6 +777,19 @@
   \pause
   This statement is true in~$\Eff(\TM)$!
 \end{frame}
+
+\note{\justifying
+  It's somewhat miraculous that the countable set~$\NN$ can not be searched,
+  but the uncountable set
+  \[ L(\BB) = \prod_{n=0}^\infty \BB = \{ (x_0,x_1,\ldots) \} \]
+  can. There is a deeper topological reason for this fact: The space~$L(\BB)$
+  is compact while~$\NN$ is not.
+  \bigskip
+
+  Details are available in a
+  \href{http://math.andrej.com/2007/09/28/seemingly-impossible-functional-programs/}{blog
+  post by Martín Escardó}.\par
+}
 
 
 \subsubsection[Church--Turing]{The Church--Turing thesis}
@@ -804,21 +817,27 @@
 \end{frame}
 
 \note{\justifying
-  The meaning of the statement in~$\Eff(\STM)$ is: ``There is a super Turing
-  machine which reads the source of a super Turing machine computing a
-  function~$f : \NN \to \NN$ as input and outputs the source of an
+  The statement ``any function~$\NN \to \NN$ is computable by a Turing
+  machine'' is the \emph{formal Church--Turing thesis}. It is wrong in the
+  standard topos~$\Set$.
+  \bigskip
+
+  The meaning of the formal Church--Turing thesis in~$\Eff(\STM)$ is: ``There
+  is a super Turing machine which reads the source of a super Turing machine
+  computing a function~$f : \NN \to \NN$ as input and outputs the source of an
   \emph{ordinary} Turing machine which computes~$f$.'' This is false.
   \bigskip
 
-  The statement is also false in~$\Eff(\lambdaC)$, the effective topos
-  associated to lambda calculus.
+  The statement is also false in~$\Eff(\lambdaC)$, the ef{}fective topos
+  associated to lambda calculus. This is because of different calling
+  conventions; a higher-order lambda term has no access to the syntactic
+  structure of a passed argument.
   \par
 }
 
 \note{\justifying
   The topos~$\Eff(\TM)$ is a nice context for computer science, since in it
-  every uncomputable functions are not present.\bigskip
-
+  uncomputable functions are not present.
   By contrast, in classical mathematics, there are many functions which are not
   computable.  Two of the most famous ones are the ``halting predicate'' and
   the ``Busy Beaver function'':
@@ -830,8 +849,8 @@
     BB(n) &= \text{maximal number of steps which a halting Turing machine} \\
     &\qquad\quad\text{with $n$ states performs before halting.}
   \end{align*}
-  Can't we use exactly the same definitions in the effective topos, thereby
-  contradicting the theorem that all functions in the effective topos are
+  Can't we use exactly the same definitions in the ef{}fective topos, thereby
+  contradicting the theorem that all functions in the ef{}fective topos are
   computable?\par
 }
 
@@ -861,8 +880,8 @@
   finitely many digits, finitely many digits of~$x$ suffice.\par
 
   \centering
-  \includegraphics[width=0.5\textwidth]{images/plot-1}
-  \includegraphics[width=0.5\textwidth]{images/plot-2}
+  \includegraphics[width=0.5\textwidth]{plot-1-en}
+  \includegraphics[width=0.5\textwidth]{plot-2-en}
   \par
   \pause
 
@@ -873,74 +892,83 @@
 \end{frame}
 
 \note{\justifying
-  Gibt es nicht offensichtlich unstetige Funktionen? Wie etwa die
-  Signumfunktion?
+  Don't there obviously exist discontinuous functions? Like the sign function?
   \[ \mathrm{sgn} : \RR \to \RR, \quad
     x \mapsto \begin{cases}
-      -1, & \text{falls $x < 0$,} \\
-      0,  & \text{falls $x = 0$,} \\
-      1,  & \text{falls $x > 0$.}
+      -1, & \text{if $x < 0$,} \\
+      0,  & \text{if $x = 0$,} \\
+      1,  & \text{if $x > 0$.}
     \end{cases}
   \]
-  Ohne Verwendung von LEM ist die Situation nicht so trivial. Ohne es kann man
-  nämlich nicht zeigen, dass diese Zuordnung eine auf ganz~$\RR$ definierte
-  Funktion definiert: Dazu benötigte man das Lemma, dass jede reelle Zahl
-  kleiner, gleich oder größer als Null ist. Dieses Lemma impliziert aber die
-  schwächere Aussage, dass jede reelle Zahl gleich Null oder ungleich Null ist.
-  Wir haben schon gesehen, dass diese Aussage in~$\Eff(\TM)$ nicht stimmt.
+  Without the presence of the law of excluded middle, the situation is not so
+  trivial: Without LEM, one cannot show that this rule
+  defines a total function~$\RR \to \RR$, because without LEM, the lemma
+  ``every real number is either $< 0$, $= 0$, or $> 0$'' can't be shown.
+  (This lemma implies the weaker statement that any real number is either zero
+  or not zero. We've already seen that this statement is false in~$\Eff(\TM)$.)
   \medskip
 
-  Ohne LEM definiert obige Zuordnung nur eine Funktion~$M \to \RR$, wobei~$M =
-  \{ x \in \RR \,|\, x < 0 \vee x = 0 \vee x > 0 \}$. Über solche Funktionen
-  geht es hier aber nicht.
+  Without LEM, the rule only defines a function~$M \to \RR$, where~$M =
+  \{ x \in \RR \,|\, x < 0 \vee x = 0 \vee x > 0 \}$.
   \par
 }
 
 \note{\justifying
-  Die in der Mathematik üblichen Definitionen des Konzepts reeller Zahlen sind
-  in~$\Eff(\TM)$, $\Eff(\STM)$ und~$\Eff(\RW)$ alle zueinander äquivalent
-  (obwohl sie es unter bloßer Verwendung von intuitionistischer Logik nicht
-  sind).\bigskip
+  The real numbers can be constructed in several different ways, for instance
+  using Cauchy sequences or Dedekind cuts. Because the axiom of dependent
+  choice holds in~$\Eff(\TM)$,~$\Eff(\STM)$, and~$\Eff(\RW)$, all those
+  constructions coincide.\bigskip
 
-  Aus externer Sicht ist eine reelle Zahl in jedem der drei Fälle durch
-  eine Maschine gegeben, die in sich konsistente, beliebig genaue
-  Approximationen produziert. Etwa kann man eine solche Maschine nach
-  Approximationen auf drei, sieben und zehn Ziffern fragen und die Antworten
-  \[ 3.1417777777, \quad 3.1415926777 \quad\text{und}\quad 3.1415926535 \]
-  erhalten.
-  \bigskip
-
-  Maschinen, welche andere, aber genauso gute Approximationen
-  liefern, stellen dieselbe reelle Zahl dar.\par
+  Externally, a real number in any of these toposes is given by a machine which
+  produces coherent, arbitrarily good approximations. For instance, one could
+  ask such a machine for approximations which are correct to three, seven, or
+  ten digits and obtain the answers
+  \[ 3.1417777777, \quad 3.1415926777, \quad\text{and}\quad 3.1415926535. \]
+  Machines which compute different, but equally good approximations represent
+  the same real number.\par
 }
 
-\note{\justifying\footnotesize
-  Die Aussage~"`Alle Funktionen~$\RR \to \RR$ sind stetig."' des effektiven
-  Topos bedeutet: Es gibt eine Maschine~$M$, die
+\note{\justifying
+  \scriptsize
+  The fine print: By ``correct to~$n$ digits'' we mean ``distance at
+  most~$10^{-n}$ to the true value''. We don't literally refer to the first~$n$
+  digits after the decimal point (which aren't well-defined anyway,
+  $0.999\ldots = 1$).
+  \medskip
+
+  For instance, the approximation~$0.999$ of the number~$1$ is correct to three
+  digits while~$0.998$ is only correct to two digits.\par
+}
+
+\note{\justifying\scriptsize
+  The meaning of the statement ``all functions~$\RR \to \RR$ are continuous''
+  in the ef{}fective topos is: There is a machine~$M$ which takes
+
+  \vspace{-1.2em}
   \begin{enumerate}
-    \item\justifying eine Maschine~$A$, welche eine Funktion~$f : \RR \to \RR$
-    berechnet,
-    \item eine Maschine~$X$, welche eine reelle Zahl~$x$ repräsentiert, sowie
-    \item eine natürliche Zahl~$n$
+    \item\justifying a machine~$A$ which computes a function~$f : \RR \to \RR$, \\[-1.4em]
+    \item a machine~$X$ which represents a real number~$x$, and \\[-1.4em]
+    \item a natural number~$n$
   \end{enumerate}
-  als Argumente nimmt und eine natürliche Zahl~$m$ mit folgender Eigenschaft
-  ausgibt: Für jede reelle Zahl~$\tilde x$, deren erste~$m$ Ziffern mit denen
-  von~$x$ übereinstimmen, stimmen die ersten~$n$ Ziffern von~$f(x)$ mit denen
-  von~$f(\tilde x)$ überein.\smallskip
+  \vspace{-1.2em}
 
-  Im Fall der realen Welt kann man wie folgt versuchen, eine derartige
-  Maschine~$M$ zu konstruieren. Gegeben~$A$, $X$ und~$n$, wendet sie~$A$ auf
-  eine leichte Variante~$X'$ von~$X$ an: Die Maschine~$X'$ soll dasselbe
-  Ausgabeverhalten zeigen wie~$X$, allerdings bei jedem Aufruf über einen
-  privaten Kommunikationskanal an~$M$ die Information übermitteln, wie viele
-  Stellen abgefragt wurden. Da~$X'$ dasselbe Ausgabeverhalten wie~$X$ zeigt,
-  muss~$A$ per Vertrag auf~$X'$ genauso reagieren wie auf~$X$.\smallskip
+  as inputs and outputs a natural number~$m$ with the following property:
+  For any real number~$\tilde x$ which is the same as~$x$ to~$m$ digits,
+  the numbers~$f(x)$ and~$f(\tilde x)$ are the same to~$n$ digits.\bigskip
 
-  Wenn nun in endlicher Zeit nur endlich viele Rechenschritte durchführbar sind, so
-  muss~$M$ nur warten, bis~$A$ die Zahl~$f(x)$ auf~$n$ Stellen genau berechnet
-  hat, und kann dann nachsehen, wie viele Stellen~$A$ für diese Berechnung
-  benötigt hat. Für jede andere Zahl, die~$x$ in diesen Stellen gleicht,
-  produziert somit~$A$ dieselben~$n$ Ziffern.\par
+  In the case of real world machines, one can proceed as follows to construct
+  such a machine~$M$. Given~$A$,~$X$, and~$n$, the machine~$M$ should call~$A$
+  with a slight variant~$X'$ of~$X$: The machine~$X'$ should exhibit the same
+  input/output behaviour as~$X$, but on each call~$X'$ should tell~$M$ using a
+  private communication channel how many digits were asked for. Since~$X'$ has
+  the same input/output behaviour as~$X$, the machine~$A$ is bound by contract
+  to react to~$X'$ in the same way as it reacts to~$X$.\bigskip
+
+  If only finitely many computational steps can be performed in finite time,
+  the machine~$M$ only has to wait till~$A$ has a computed~$f(x)$ to~$n$
+  digits. It can then look at its log to see how many digits of~$x$ $A$ used
+  for the computation. For any number~$\tilde x$, which is equal to~$x$ to this
+  amount of digits, the machine~$A$ produces the same output.\par
 }
 
 \note{\justifying
