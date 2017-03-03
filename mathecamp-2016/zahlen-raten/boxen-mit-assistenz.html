@@ -76,26 +76,6 @@
     var namen = [ 'A', 'B' ];
     var recht = [ 'unrecht', 'recht' ];
 
-    var hist = [];
-
-    function scaled(x) {
-        if(hist.length == 0) return x;
-
-        var sumValues = 0, sumDistances = 0;
-        var j = 0;
-        for(var i = hist.length - 5; i < hist.length; i++) {
-            if(i < 0) continue;
-            sumValues    = sumValues    + hist[i][0] + hist[i][1];
-            sumDistances = sumDistances + Math.abs(hist[i][0] - hist[i][1]);
-            j++;
-        }
-
-        var avgValue    = sumValues / (2*j);
-        var avgDistance = sumDistances / j;
-
-        return((x - avgValue) / avgDistance * 10);
-    }
-
     function run() {
         document.getElementById('zahl-links').value =
             document.getElementById('zahl-links').value.replace(',', '.');
@@ -113,7 +93,7 @@
 
         // In eine der Boxen hineinsehen; ist pick == 0, dann in die linke,
         // ansonsten in die rechte.
-        if(sigmoid(scaled(numbers[pick])) > Math.random()) {
+        if(sigmoid(numbers[pick]) > Math.random()) {
             // Vermutung abgeben, dass die Box mit der größeren Zahl die ist,
             // in die eben hineingesehen wurde.
             guess = pick;
@@ -127,19 +107,18 @@
         if(numbers[guess] > numbers[1 - guess]) {
             won++;
         }
-        hist.push(numbers);
 
         document.getElementById('total').innerHTML = total;
         document.getElementById('won').innerHTML   = won;
-        document.getElementById('rate').innerHTML  = (won / total * 100).toFixed(1);
-        document.getElementById('log').innerHTML   =
-            '' + total + '. ' +
-            'Habe in Box ' + namen[pick] + ' geschaut und daraufhin vermutet, dass Box ' + namen[guess] + ' die größere Zahl enthält. Damit hatte ich ' + recht[numbers[guess] > numbers[1 - guess] ? 1 : 0] + '.<br>' +
-            document.getElementById('log').innerHTML;
+        document.getElementById('rate').innerHTML  = (won / total * 100).toFixed(5);
 
-        if(total == 314) {
-            alert('Ooh, die Anzahl Runden ist aber eine schöne Zahl!');
-        }
+        var a = Math.random() * 200;
+        document.getElementById('zahl-links').value =
+            a + Math.random() * 2;
+        document.getElementById('zahl-rechts').value =
+            a + Math.random() * 2;
+
+        window.setTimeout(run, 1);
     }
 </script>
 </head>
