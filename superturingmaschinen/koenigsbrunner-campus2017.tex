@@ -1,0 +1,285 @@
+\documentclass[12pt,compress,ngerman,utf8,t]{beamer}
+\usepackage{etex}
+\usepackage[ngerman]{babel}
+\usepackage{calc,dashrule,tabto,tikz}
+\usetikzlibrary{arrows}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage[normalem]{ulem}
+
+\graphicspath{{images/}}
+
+\title[Unendlich große Zahlen]{\bf Die wundersame Welt der \\ unendlich großen Zahlen
+\\[0.5em] \normalsize Glaube in der Mathematik?}
+\author[Ingo Blechschmidt]{\textcolor{white}{Königsbrunner Campus \\ 10. Mai 2017}}
+\date[2017-05-10]{\vspace*{6em}\ \\\textcolor{white}{Ingo Blechschmidt \\ \scriptsize
+Lehrstuhl für Algebra und Zahlentheorie an der Universität Augsburg \\}}
+
+\useinnertheme[shadow=true]{rounded}
+\useoutertheme{split}
+\usecolortheme{orchid}
+\usecolortheme{whale}
+\setbeamerfont{block title}{size={}}
+
+\useinnertheme{rectangles}
+
+\usecolortheme{seahorse}
+\definecolor{mypurple}{RGB}{150,0,255}
+\setbeamercolor{structure}{fg=mypurple}
+\definecolor{myred}{RGB}{150,0,0}
+\setbeamercolor*{title}{fg=white}
+\setbeamercolor*{titlelike}{bg=myred,fg=white}
+
+\usefonttheme{serif}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{title page}[default][colsep=-1bp,rounded=false,shadow=false]
+\setbeamertemplate{frametitle}[default][colsep=-2bp,rounded=false,shadow=false,center]
+
+\newcommand{\hil}[1]{{\usebeamercolor[fg]{item}{\textbf{#1}}}}
+\setbeamertemplate{frametitle}{%
+  \vskip1em%
+  \leavevmode%
+  \begin{beamercolorbox}[dp=1ex,center]{}%
+      \usebeamercolor[fg]{item}{\textbf{\textsf{\Large \insertframetitle}}}
+  \end{beamercolorbox}%
+}
+
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hfill%
+  \begin{beamercolorbox}[ht=2.25ex,dp=1ex,right]{}%
+    \usebeamerfont{date in head/foot}
+    \insertframenumber\,/\,\inserttotalframenumber\hspace*{1ex}
+  \end{beamercolorbox}%
+  \vskip0pt%
+}
+
+\begin{document}
+
+{\usebackgroundtemplate{\includegraphics[width=\paperwidth]{infinity-space}}
+\frame{\vspace*{-1em}\titlepage}}
+
+\begin{frame}{Gliederung}
+  \tableofcontents
+
+  \centering
+  Fragen sind während des gesamten Vortrags willkommen. \\
+  Bitte keinesfalls bis zum Ende aufsparen.
+  \par
+\end{frame}
+
+\section{Ordinalzahlen}
+\only<2>{\includegraphics[width=\paperwidth]{buergerbuero-haunstetten}}
+
+% https://commons.wikimedia.org/wiki/File:RathausKoenigsbrunn.jpg
+{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\vspace*{1cm}\includegraphics[width=\paperwidth]{rathaus-koenigsbrunn}\end{minipage}}
+\begin{frame}
+  \centering
+  \bigskip
+
+  \Huge \hil{Teil I}
+
+  \bigskip
+  \Large\textbf{Ordinalzahlen}
+  \par
+
+  messen Anordnung
+  \par
+\end{frame}}
+
+{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\vspace*{5cm}\includegraphics[width=\paperwidth]{buergerbuero-haunstetten}\end{minipage}}
+\begin{frame}
+  \centering
+  \bigskip
+
+  \Huge \hil{Teil I}
+
+  \bigskip
+  \Large\textbf{Ordinalzahlen}
+  \par
+
+  messen Anordnung
+  \par
+\end{frame}}
+
+
+\section{Kardinalzahlen}
+
+\begin{frame}
+  \centering
+  \bigskip
+
+  \Huge \hil{Teil II}
+
+  \bigskip
+  \Large\textbf{Kardinalzahlen}
+  \par
+
+  messen Anzahl
+  \par
+  \bigskip
+  \bigskip
+
+  \only<1>{
+    \begin{columns}[t]
+      \begin{column}{0.2\textwidth}\end{column}
+      \begin{column}{0.3\textwidth}
+        \centering
+        \includegraphics[height=0.33\textheight]{hilbert} \\
+        {\scriptsize David Hilbert \\ * 1862 \\ † 1943\par}
+      \end{column}
+      \begin{column}{0.3\textwidth}
+        \centering
+        \includegraphics[height=0.33\textheight]{noether} \\
+        {\scriptsize Emmy Noether \\ * 1882 \\ † 1935\par}
+      \end{column}
+      \begin{column}{0.2\textwidth}\end{column}
+    \end{columns}
+  }
+
+  \raggedright
+  \only<2->{\begin{columns}[b]
+    \begin{column}{0.05\textwidth}\end{column}
+    \begin{column}{0.65\textwidth}
+      \visible<3->{Es gibt \hil{$\boldsymbol{\aleph_0}$} viele natürliche Zahlen: 1, 2, 3, \ldots}
+      \bigskip
+
+      \visible<4->{$\aleph_0 + 1 = \aleph_0$}
+      \quad
+      \visible<5->{$\aleph_0 \cdot \aleph_0 = \aleph_0$}
+      \bigskip
+
+      \visible<6->{Es gibt \hil{$\boldsymbol{\mathfrak{c}}$} viele reelle Zahlen:
+      $\sqrt{2}$, $\pi$, $e$, \ldots}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \includegraphics[width=5.5cm]{hilberts-hotel}
+      \vspace*{-0.4cm}
+    \end{column}
+  \end{columns}}
+\end{frame}
+
+
+\section{Erkenntnistheorie}
+
+\begin{frame}
+  \centering
+  \bigskip
+
+  \Huge \hil{Teil III}
+
+  \bigskip
+  \Large\textbf{Erkenntnistheorie}
+  \par
+  \normalsize
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+
+  \begin{columns}[t]
+    \begin{column}{0.32\textwidth}
+      \centering\includegraphics[width=0.7\textwidth]{p-adic-numbers}
+      \medskip
+
+      "`Es gibt unendlich viele Primzahlen."'
+    \end{column}
+    \begin{column}{0.32\textwidth}
+      \centering\includegraphics[width=0.9\textwidth]{platonic-solids}
+      \medskip
+
+      "`Es gibt nur fünf platonische Körper."'
+    \end{column}
+    \begin{column}{0.37\textwidth}
+      \centering\includegraphics[width=0.7\textwidth]{hafez-tomb}
+      \medskip
+
+      "`Der goldene Schnitt ist die irrationalste Zahl."'
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Die Kontinuumshypothese}
+  \begin{columns}[t]
+    \begin{column}{0.34\textwidth}
+      \centering\includegraphics[height=0.5\textheight]{georg-cantor} \\
+      {\scriptsize Georg Cantor (* 1845, † 1918)\par}
+      \bigskip
+
+      Gibt es eine Zwischenstufe zwischen $\aleph_0$ und $\mathfrak{c}$?
+    \end{column}
+    \pause
+
+    \begin{column}{0.34\textwidth}
+      \centering\includegraphics[height=0.5\textheight]{kurt-goedel} \\
+      {\scriptsize Kurt Gödel (* 1906, † 1978)\par}
+      \bigskip
+
+      Es gibt keinen Beweis, dass es eine Zwischenstufe gibt.
+    \end{column}
+    \pause
+
+    \begin{column}{0.34\textwidth}
+      \centering\includegraphics[height=0.5\textheight]{paul-cohen} \\
+      {\scriptsize Paul Cohen (* 1934, † 2007)\par}
+      \bigskip
+
+      Es gibt keinen Beweis, dass es keine Zwischenstufe gibt.
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\section*{}
+
+\begin{frame}
+  \centering
+  \bigskip
+
+  \Huge \hil{Abschluss}
+  \bigskip
+
+  \normalsize
+  \raggedright
+
+  \begin{itemize}
+    \item Ordinalzahlen messen Anordnung.
+    $\omega + 1 > \omega$
+
+    \item Kardinalzahlen messen Anzahl.
+    $\aleph_0 + 1 = \aleph_0$
+
+    \item Es gibt mathematische Aussagen, die bewiesenermaßen dauerhaft
+    unkennbar sind.
+  \end{itemize}
+  \pause
+  \bigskip
+
+  \small
+  Weitere Termine in dieser Reihe:
+  \begin{itemize}
+    \item 11.10.: Das Verhältnis von Literatur und (Natur-)Wissenschaft \\[-1em]
+    \item 15.11.: Couchsurfing: Neue Freunde oder New Economy?
+  \end{itemize}
+\end{frame}
+
+{\usebackgroundtemplate{\begin{minipage}{\textwidth}\vspace*{-0.5cm}\includegraphics[width=\paperwidth]{mathecamp-gruppenfoto}\end{minipage}}
+\begin{frame}[plain]
+  \vspace{\textheight}\vspace{0.1em}\centering
+  \hil{Mathecamp vom 19. bis 27. August in Violau}
+  \par
+\end{frame}}
+\addtocounter{framenumber}{-2}
+
+\end{document}
+
+% Grab des Hafez in Shiraz (Iran), Aufnahme von Pentocelo
+% Kontinuumshypothese: Aussage, dass es keine Zwischenstufe gibt.
+% Cantors Begründung der Mengenlehre: 1874 bis 1897
+% Cantors Vermutung: 1878
+% Gödels Beweis: 1938
+% Cohens Beweis: 1963
+% Protagoras: möglicherweise * 490 v. Chr., † 411 v. Chr.
