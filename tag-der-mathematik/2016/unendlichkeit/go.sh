@@ -11,6 +11,6 @@ case "$1" in
     animate -geometry 735x405 harry-potter-bus.gif 
     ;;
   4)
-    mplayer Forest_Rain_\&_Thunderstorm_Sounds_10_Hours___Sleep_or_Study_to_Rain_Falling_White_Noise_Ambiance.mp3
+    mplayer -vo null Forest_Rain_\&_Thunderstorm_Sounds_10_Hours___Sleep_or_Study_to_Rain_Falling_White_Noise_Ambiance.mp4
     ;;
 esac
