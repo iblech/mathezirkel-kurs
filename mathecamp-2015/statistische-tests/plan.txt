@@ -22,6 +22,10 @@
     X_n - 1 ist also binomialverteilt mit den Parametern n - 1 und 1/2.
     Damit sind Erwartungswert und Standardabweichung klar (sd = sqrt(n-1)/2).
 
+    Kann man auch so einsehen: Bei n Münzwürfen die Anzahl Runs zu zählen ist
+    dasselbe wie n-1 Wechsel auszulosen (und Eins dazuzuzählen). Jeder Wechsel
+    ist unabhängig von den vorherigen und hat Wahrscheinlichkeit p = 1/2.
+
 * Logische Argumentation klar formulieren: Mit dem Run-Test kann man
   herausfinden, wie unwahrscheinlich eine Beobachtung wäre, wenn sie durch eine
   echte ideale Münze zustande gekommen wäre. Wenn diese Wahrscheinlichkeit zu
