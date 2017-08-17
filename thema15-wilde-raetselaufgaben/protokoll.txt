@@ -261,6 +261,41 @@ Die Frage lautet: Gibt es eine Strategie, sodass die Zwerge nicht nur
 mit verschwindend geringer Wahrscheinlichkeit überleben und freigelassen
 werden? Lösung: http://www.mast.queensu.ca/~peter/inprocess/prisoners.pdf
 
+* Die Wahrscheinlichkeit, dass eine zufällig gezogene Permutation
+  genau einen (oder mindestens einen, spielt keine Rolle) Zykel der Länge k
+  enthält, wobei k > n/2, ist 1/k.
+
+* Die Wahrscheinlichkeit, dass ein einzelner Zwerg seine Nummer nicht findet,
+  gegeben dass die Länge des längsten Zykels der zufällig gezogenen Permutation
+  höchstens n/2 ist, ist Null.
+
+* Sei k > n/2. Die Wahrscheinlichkeit, dass ein einzelner Zwerg seine Nummer
+  nicht findet, gegeben dass die Länge des längsten Zykels der zufällig
+  gezogenen Permutation k ist, ist k/n. Naiv gesprochen: Denn die
+  Wahrscheinlichkeit, dass die eigene Hutnummer sich in dem (einzigen) k-Zykel
+  befindet, ist k/n. (So kann man nicht argumentieren, denn die Permutation und
+  nicht die eigene Hutnummer ist zufällig.)
+
+* Die Wahrscheinlichkeit, dass ein einzelner Zwerg seine Nummer nicht findet,
+  ist die Summe von k = 1 bis n über
+
+      die Wahrscheinlichkeit, dass der Zwerg seine Nummer nicht findet,
+      gegeben dass die Länge des längsten Zykels genau k ist, mal
+      die Wahrscheinlichkeit, dass die Länge des längsten Zykels genau k ist.
+
+  Die Beitrage für k <= n/2 sind alle Null. Der Beitrag für k mit k > n/2 ist
+
+      k/n * 1/k = 1/n.
+
+  Insgesamt ergibt sich 1/2.
+
+* Die Wahrscheinlichkeit, dass mindestens ein Zwerg seine Nummer nicht findet,
+  ist gleich der Wahrscheinlichkeit, dass mindestens ein Zykel mit Länge mehr
+  als n/2 existiert. Also sum_(k=n/2)^n 1/k, also ln(2).
+
+  Die Wahrscheinlichkeit, dass die Zwerge es schaffen, ist also 1 - ln(2) = 31 %.
+  Krass!
+
 19. Zwei Spieler, einer denkt sich ein Polynom beliebigen Grades mit
 nichtnegativen ganzzahligen Koeffizienten aus. Danach darf der andere Spieler
 eine ganze Zahl nennen, woraufhin der erste den Wert des Polynoms an dieser
