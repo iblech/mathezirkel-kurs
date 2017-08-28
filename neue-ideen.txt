@@ -1,2 +1,5 @@
+* Grahams Zahl (inklusive Berechnung der letzten Ziffer)
+* Ein konkretes Bayes-Experiment von vorne bis hinten durchführen, etwa
+  Psi oder Münzwurf.
 * Quantenmechanische Spieltheorie
 * Quantencomputerprogrammierung
