@@ -1,0 +1,22 @@
+=== Superturingmaschinen
+
+* Kurze Einführung in Turingmaschinen
+
+* Kurze Erklärung von Ordinalzahlen über die übliche Busmetapher
+
+* Drei Vereinbarungen über das Verhalten von Superturingmaschinen an Limestagen:
+
+  * Stift wieder ganz vorne.
+  * Zustand ist ein spezielles Limeszustand.
+  * Zellen, deren Wert sich nicht eingependelt hat, werden auf 1 gesetzt.
+
+* Knobelaufgaben: Entwerfe Superturingmaschinen, welche genau an folgenden
+  Tagen halten: omega, omega + 1, omega + 2, omega*2, omega^2.
+
+* Ausblick: Lücken in den stempelbaren Ordinalzahlen und Lost-Melody-Theorem.
+
+Kam sehr gut an. Kids waren beim Knobeln gut dabei und kamen mit den unendlich
+großen Zahlen sehr gut zurecht. Konzipiert für ab 10. Klasse, aber auch gemacht
+mit einer achten Klasse. Hat auch dort, etwas überraschenderweise, sehr gut
+funktioniert. Manche Gruppen hatten vorher bereits einen Zirkel von Matthias
+über gewöhnliche Turingmaschinen und die Busy-Beaver-Funktion gehört.

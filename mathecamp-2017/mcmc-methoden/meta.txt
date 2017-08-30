@@ -1,0 +1,8 @@
+=== MCMC-Methoden: Wie Zufall beim Zählen hilft
+
+Kurzer Abriss von Max und Ingos Papenburg-2017-Kurs, angelehnt an ein tolles
+Buchkapitel von Mark Jerrum und Alistair Sinclair:
+http://cgm.cs.mcgill.ca/~breed/2014COMP599/mcmc.pdf
+
+Konzipiert als interaktiver Zuhörzirkel (allerdings ohne eigene Übungsaufgaben)
+für die Oberstufe.
