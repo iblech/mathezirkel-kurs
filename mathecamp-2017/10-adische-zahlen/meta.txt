@@ -1,0 +1,21 @@
+p-adische Zahlen: Die Welt aus den Augen einer Primzahl
+
+Hat super funktioniert, wie auch schon oft. Kinder finden am coolsten, dass in
+den 10-adischen Zahlen Divisionen öfter aufgehen. Ablaufplan:
+
+* Kurze allgemeine Erklärung
+* Addition
+* Negation
+* Subtraktion
+* Multiplikation
+* Division
+* Zahl x mit x^2 = x aber x != 0 und x != 1
+* Skizze
+
+Für ältere oder erfahrenere Kids kann man noch mehr machen:
+
+* Nicht nur p = 10, sondern auch p prim
+* p-adische Metrik
+* Grenzwerte
+* Hensels Lemma
+* Monskys Theorem
