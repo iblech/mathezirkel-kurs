@@ -1,0 +1,2 @@
+* Quantenmechanische Spieltheorie
+* Quantencomputerprogrammierung
