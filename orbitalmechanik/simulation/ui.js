@@ -141,7 +141,7 @@ UI.prototype.handleMouse = function (wait, abort, ev) {
             delta = [ gamma * delta[0], gamma * delta[1] ];
         }
 
-        var scale = 1e-4;
+        var scale = 1e-5;  // or 1e-4
         var deltaVProposal = scale * Math.sqrt(delta[0]*delta[0] + delta[1]*delta[1]);
         this.deltaVProposalElement.innerHTML = (deltaVProposal / 1000).toFixed(3);
 
