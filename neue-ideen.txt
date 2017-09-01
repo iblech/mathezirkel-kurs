@@ -13,3 +13,4 @@
 * Quantenmechanische Spieltheorie
 * Quantencomputerprogrammierung
 * Diffie--Hellman in der realen Welt
+* Spiel "Buckets of fish", http://jdh.hamkins.org/buckets-of-fish/
