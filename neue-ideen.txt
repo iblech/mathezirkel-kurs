@@ -1,5 +1,15 @@
 * Grahams Zahl (inklusive Berechnung der letzten Ziffer)
 * Ein konkretes Bayes-Experiment von vorne bis hinten durchführen, etwa
-  Psi oder Münzwurf.
+  Psi oder Münzwurf. Zum Beispiel auch: Eine Urne enthält sehr viele Bälle,
+  gleich viele schwarz wie rot. Nun werden zehn Bälle gezogen. Vier von ihnen
+  waren rot, die restlichen sechs schwarz. Wie viele Bälle enthält die Urne
+  vermutlich insgesamt?
+  http://people.csail.mit.edu/milch/papers/blog-chapter.pdf
+  http://doering.io/posts/2015-01-26-mcmc-metropolis-in-haskell.html
+  http://www.alpheccar.org/content/98.html
+  http://www.randomhacks.net.s3-website-us-east-1.amazonaws.com/2007/02/22/bayes-rule-and-drug-tests/
+  https://news.ycombinator.com/item?id=5642891
+  http://www.randomhacks.net/2007/03/03/smart-classification-with-haskell/
 * Quantenmechanische Spieltheorie
 * Quantencomputerprogrammierung
+* Diffie--Hellman in der realen Welt
