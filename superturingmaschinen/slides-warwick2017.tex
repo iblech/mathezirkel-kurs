@@ -620,7 +620,7 @@
   the most prominent example.\bigskip
 
   Andrej Bauer gave a very insightful talk about the merits of constructive
-  mathematics at the Institute for Advanced Study. It's a joy to watch!
+  mathematics at the Institute for Advanced Study. His talk is a joy to watch!
   \begin{itemize}
     \item \href{https://www.youtube.com/watch?v=21qPOReu4FI}{video}
     \item
@@ -749,10 +749,10 @@
   \scriptsize
   A good way to convince oneself that the axiom of choice is indeed a
   nontrivial statement is to look at what the statement ``$\NN^\NN$ is
-  projective'' means in~$\Eff(\TM)$. It means that
+  projective'' means in~$\Eff(\TM)$. It means that the statement
   \begin{center}\parbox{0.86\textwidth}{
-    There is a Turing machine~$M$, which reads the description of a Turing
-    machine~$P$, which computes a function~$f : \NN \to \NN$, as input, and
+    There is a Turing machine~$M$ which reads the description of a Turing
+    machine~$P$, which computes a function~$f : \NN \to \NN$, as input and
     outputs an element~$M(P) \in Y$ together with a witness
     of~$\varphi(f,M(P))$.
   }\end{center}
@@ -780,7 +780,7 @@
 \begin{frame}{Searching uncountable sets}
   \begin{center}\parbox{0.91\textwidth}{
     ``For any function $f : \NN \to \BB$ from numbers to~$\BB = \{0,1\}$
-    there either exists a number~$n$ such that $f(n)$ is one or there is no such number.''
+    there either exists a number~$n$ such that $f(n) = 1$ or there is no such number.''
   }\end{center}
   This statement is false in~$\Eff(\TM)$.
   \bigskip
@@ -886,7 +886,7 @@
   For~$H$, in order to be able to make the case distinction.
   \bigskip
 
-  For~$BB$, because implicitly the lemma that a ``subfinite'' set of natural
+  For~$BB$, because implicitly the lemma that every ``subfinite'' set of natural
   numbers contains a maximal element was used. This lemma depends on the law of
   excluded middle.\par
 }
@@ -986,7 +986,7 @@
   the same input/output behaviour as~$X$, the machine~$A$ is bound by contract
   to react to~$X'$ in the same way as it reacts to~$X$.\smallskip
 
-  If only finitely many computational steps can be performed in finite time,
+  If the real world is such that only finitely many computational steps can be performed in finite time,
   then~$M$ can determine a suitable number~$m$ as follows: It just
   has to wait till~$A$ has computed~$f(x)$ to~$n$ digits. It can then look at
   its log to see how many digits of~$x$ $A$ used for the computation. For any
@@ -1001,8 +1001,8 @@
   (that is, any function~$x : \NN \to \BB$) there exists a number~$m$ such
   that~$f(x)$ depends only on the first~$m$ values of~$x$.\bigskip
 
-  In~$\Eff(\TM)$, the statement ``every function~$f : \BB^\NN \to \BB$'' is
-  true.\par
+  In~$\Eff(\TM)$, the statement ``every function~$f : \BB^\NN \to \BB$ is
+  continuous'' is true.\par
 }
 
 
