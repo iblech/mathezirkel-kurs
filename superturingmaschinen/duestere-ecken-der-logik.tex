@@ -113,6 +113,32 @@
 \frame{\tableofcontents}
 
 
+\begin{frame}
+  \centering
+  \bigskip
+
+  \Huge \hil{Abschnitt 0}
+
+  \bigskip
+  \Large\textbf{Der effektive Topos}
+  \par
+  \bigskip
+  \bigskip
+
+  \normalsize
+  \raggedright
+
+  Es gibt ein mathematisches Alternativuniversum, in dem \ldots
+
+  \begin{enumerate}
+    \item es nicht trivial ist, dass jede Zahl prim oder nicht prim ist,
+    \item nicht jede Menge leer ist oder nicht leer ist,
+    \item jede Funktion~$\NN \to \NN$ berechenbar ist und
+    \item jede Funktion~$\RR \to \RR$ stetig ist.
+  \end{enumerate}
+\end{frame}
+
+
 \section[Gödel]{Gödels Unvollständigkeitssatz}
 
 \begin{frame}
@@ -124,6 +150,7 @@
   \bigskip
   \Large\textbf{Gödels Unvollständigkeitssatz}
   \par
+  \bigskip
 
   \large
 
@@ -136,6 +163,13 @@
   Zum Beispiel folgende:
 
   "`Diese Aussage ist nicht beweisbar."'
+  \bigskip
+  \bigskip
+  \pause
+
+  Currys Paradoxon mahnt zur Vorsicht:
+
+  \mbox{\!\!\!\!\!\!"`Sollte diese Aussage stimmen, so ist der Mond aus Käse."'}
   \par
 \end{frame}
 
@@ -173,14 +207,14 @@
 
 \begin{frame}{Beweisbarkeit und Wahrheit}
   \vspace*{-1em}
-  \begin{block}{Syntaktisch}
+  \begin{block}{Syntaktische Qualität}
   Eine Aussage~$A$ heißt genau dann \hil{beweisbar}, wenn es in einem
   fixierten formalen System einen \hil{formalen Beweis} von~$A$ gibt:
   \vspace*{-1em}
   \[ \PA \proves A \]
   \end{block}
 
-  \begin{block}{Semantisch}
+  \begin{block}{Semantische Qualität}
   Eine Aussage~$A$ heißt genau dann \hil{wahr}, wenn sie im
   \hil{Standardmodell} gilt:
   $\NN \models A$
@@ -208,7 +242,7 @@
 \begin{frame}{Quines}
   Wir schreiben~$\goedel{A}$ für die \hil{Gödelnummer} einer Aussage~$A$.
 
-  \begin{block}{Reflexion von Beweisbarkeit}
+  \begin{block}{Reflektion von Beweisbarkeit}
     Es gibt eine Aussageform~$\Prov(n)$, sodass für jede Aussage~$A$
     genau dann~$\Prov(\goedel{A})$ wahr ist, wenn~$A$ beweisbar ist:
     \vspace*{-0.8em}
@@ -224,23 +258,46 @@
   \pause
   \justifying
   \begin{enumerate}
-  \item Angenommen $\PA \proves A$. \pause
-  Dann $\PA \proves \neg (\Prov(\goedel{A}))$, \pause
-  also~$\NN \models \neg (\Prov(\goedel{A}))$, \pause
-  also nicht~$\NN \models \Prov(\goedel{A})$, \pause
-  also ist~$A$ nicht beweisbar, \pause
-  also folgt ein Widerspruch.\pause
-  \item Also ist~$A$ nicht beweisbar, \pause
-  somit~$\NN \models \neg\Prov(\goedel{A})$.\pause
+  \item Angenommen $\PA \proves A$.
+  Dann $\PA \proves \neg (\Prov(\goedel{A}))$,
+  also~$\NN \models \neg (\Prov(\goedel{A}))$,
+  also nicht~$\NN \models \Prov(\goedel{A})$,
+  also ist~$A$ nicht beweisbar,
+  also folgt ein Widerspruch.
+  \item Also ist~$A$ nicht beweisbar,
+  somit~$\NN \models \neg\Prov(\goedel{A})$.
   \item Also~$\NN \models A$, d.\,h.~$A$ ist wahr.
   \end{enumerate}
+\end{frame}
+
+\begin{frame}{Goodsteinsche Folgen}
+  \vspace*{-0.5em}
+  Beginne etwa mit~$35$. Schreibe die Zahl in
+  \hil{hereditary base $\boldsymbol{2}$}:
+  \begin{align*}
+    35 &= 1 \cdot 2^5 + 1 \cdot 2^1 + 1 \cdot 2^0 \\
+       &= 1 \cdot 2^{1 \cdot 2^2 + 1 \cdot 2^0} + 1 \cdot 2^1 + 1 \cdot 2^0. \\
+  \intertext{Ersetze alle Vorkommen von~$2$ durch~$3$:}
+       &\mathrel{\phantom{=}} 1 \cdot 3^{1 \cdot 3^3 + 1 \cdot 3^0} + 1 \cdot 3^1 + 1 \cdot 3^0 \\
+       &= 1 \cdot 3^{28} + 3 + 1 \\
+       &= 22876792454965.
+  \intertext{Ziehe dann~$1$ ab:}
+       &\mathrel{\phantom{=}} 22876792454964.
+  \end{align*}
+  Mach immer so weiter.
+  \pause
+
+  \begin{itemize}
+    \item Schlussendlich ist das Ergebnis~$0$.
+    \item $\PA$ kann nicht beweisen, dass dem immer so ist.
+  \end{itemize}
 \end{frame}
 
 
 \subsection[Undefinierbarkeit]{Undefinierbarkeit von Wahrheit}
 
 \begin{frame}{Undefinierbarkeit von Wahrheit}
-  \begin{block}{Reflexion von Beweisbarkeit}
+  \begin{block}{Reflektion von Beweisbarkeit}
     Es gibt eine Aussageform~$\Prov(n)$, sodass für jede Aussage~$A$
     genau dann~$\Prov(\goedel{A})$ wahr ist, wenn~$A$ beweisbar ist:
     \vspace*{-0.8em}
@@ -254,6 +311,7 @@
     \[ \NN \models \True(\goedel{A}) \quad\text{genau dann, wenn}\quad
       \NN \models A \]
   \pause
+  \vspace*{-1em}
 
   \hil{Nein:} Mit dem Diagonallemma gäbe es eine Aussage~$A$ mit
   \[ \PA \models (A \leftrightarrow \neg(\True(\goedel{A}))). \]
@@ -262,9 +320,9 @@
 \end{frame}
 
 
-\subsection[Konsistenz]{Konsistenzreflexion}
+\subsection[Konsistenz]{Konsistenzreflektion}
 
-\begin{frame}{Konsistenzreflexion}
+\begin{frame}{Konsistenzreflektion}
   Sei~$A$ die Aussage~"`Aussage~$A$ ist nicht beweisbar"':
   \[ \PA \proves (A \leftrightarrow \neg (\Prov(\goedel{A}))). \]
 
@@ -281,8 +339,9 @@
 
   \justifying
   Angenommen~$\PA \proves \neg(\Prov(\goedel{1 = 0}))$. Dann~$\PA
-  \proves \neg(\Prov(\goedel{A}))$, das ist falsch. Somit kann~$\PA$ seine
-  Konsistenz nicht beweisen.
+  \proves \neg(\Prov(\goedel{A}))$, das ist falsch. \hil{Somit
+  kann~$\boldsymbol{\PA}$ ihre
+  Konsistenz nicht beweisen.}
 \end{frame}
 
 
@@ -308,7 +367,7 @@
 
 \subsection[Unentscheidbarkeit]{Unentscheidbarkeit des Halteproblems}
 
-\begin{frame}{Unentscheidbarkeit des Halteproblem}
+\begin{frame}{Unentscheidbarkeit des Halteproblems}
   Ein \hil{Halteorakel} ist ein Programm, dass ein Programm~$P$ als Eingabe liest
   und korrekt ausgibt: "`$P$ hält"' oder~"`$P$ hält nicht"'.
   \bigskip
@@ -319,15 +378,32 @@
   \code{
     Befrage das Halteorakel, ob Programm~$Q$ hält.
 
-    Falls ja: Dann gehe in eine Endlosschleife.
+    Falls ja: Gehe in eine Endlosschleife.
 
-    Falls nein: Dann halte.
+    Falls nein: Halte.
   }
   \pause
   Das Programm~$Q$ hält genau dann, wenn es nicht hält.
   \bigskip
 
   Ein Halteorakel gibt es nicht.
+\end{frame}
+
+\begin{frame}{Chaitinsche Haltewahrscheinlichkeit}
+  Sei~$\Omega$ die Zahl
+  \[ \Omega = \sum_p 2^{-|p|} = 2^{-c_0} + 2^{-c_1} + 2^{-c_2} + 2^{-c_3} + \cdots\!, \]
+  wobei~$c_n$ die Anzahl derjenigen Programme der Länge~$n$ ist, welche halten.
+
+  \begin{itemize}
+    \item $\Omega$ ist eine wohldefinierte Zahl zwischen~$0$ und~$1$.
+    \item Sind die ersten~$N$ Nachkommaziffern von~$\Omega$ bekannt,
+    so lässt sich das Halteproblem für alle Programme der Länge~$\leq N$ lösen.
+    \pause
+    \item $\Omega$ ist nicht berechenbar.
+    \pause
+    \item Es gibt eine konkrete Zahl~$N$, sodass~$\PA$ keine Vermutung über
+    mehr als~$N$ Nachkommaziffern beweisen kann.
+  \end{itemize}
 \end{frame}
 
 
@@ -346,8 +422,8 @@
     \item Die Aussage, dass~$P$ nicht hält, ist in~$\PA$ nicht beweisbar.
     \pause
     \item Sei~$n$ die Anzahl Zustände, die eine Umsetzung von~$P$ als
-    Turingmaschine benötigt. Dann entzieht sich~$\mathrm{BB}(n)$ der
-    Beweisbarkeit in~$\PA$.
+    Turingmaschine benötigt. Dann entzieht sich jede Vermutung
+    über~$\mathrm{BB}(n)$ der Beweisbarkeit in~$\PA$.
   \end{itemize}
 \end{frame}
 
@@ -366,7 +442,7 @@
 
   \begin{enumerate}
     \item $\PA$ beweist, dass~$P$ eine endliche Liste von Zahlen ausgibt.
-    \item Für jede endliche Liste von Zahlen gibt ein
+    \item Für jede endliche Liste von Zahlen gibt es ein
     Universum~$M$, sodass~$P$ genau diese Liste ausgibt, wenn man es in~$M$
     ausführt.
   \end{enumerate}
@@ -384,28 +460,27 @@
   \bigskip
   \Large\textbf{Zufall als wertvolle Ressource}
   \par
-  \bigskip
+  \normalsize
+  \raggedright
   \bigskip
 
-  \centering
-  \includegraphics[scale=0.4]{turing-machine}
-  \par
-\end{frame}
-\begin{frame}{Welche Zahl ist größer?}
-  Alice denkt sich zwei verschiedene reelle Zahlen~$x$ und~$y$ aus und verstaut
-  sie in undurchsichtigen Boxen:
   \begin{center}
     \kasten{} \qquad \kasten{}
   \end{center}
-  Bob darf in eine der Boxen hineinschauen und darf dann einen Tipp abgeben,
-  welche der Zahlen größer ist.
+
+  \pause
+  \bigskip
+
+  Alice versteckt zwei verschiedene reelle Zahlen in Boxen.
+  Bob darf in eine der Boxen hineinschauen und dann einen Tipp abgeben,
+  welche der Zahlen größer sei.
   \bigskip
 
   \justifying
   Es gibt eine \hil{randomisierte Strategie}, mit der Bobs
   Gewinnwahrscheinlichkeit bei jeder Wahl
   von~$x$ und~$y$ mehr als~$50\,\%$ beträgt.
-  \bigskip
+ \bigskip
   \pause
 
   \begin{center}\begin{tikzpicture}
@@ -416,8 +491,6 @@
     \draw[shift={(0.5,-0.4)},color=black] node {$r$};
     \draw[shift={(2,-0.4)},color=black] node {$y$};
   \end{tikzpicture}\end{center}
-  
-  \par
 \end{frame}
 
 
