@@ -46,6 +46,7 @@
 \newcommand{\goedel}[1]{\ulcorner #1 \urcorner}
 \newcommand{\Prov}{\mathrm{Prov}}
 \newcommand{\True}{\mathrm{True}}
+\newcommand{\Con}{\mathrm{Con}}
 \newcommand{\proves}{\vdash}
 \newcommand{\defeq}{\vcentcolon=}
 
@@ -553,21 +554,32 @@
 % \[ \PA \proves (G \leftrightarrow \neg (\Prov(\goedel{G}))). \]
 
   Wir wissen: Ist~$\PA$ konsistent (d.\,h. ist~$1 = 0$ nicht beweisbar),
-  so ist~$G$ nicht beweisbar.
+  so stimmt~$G$.
   \bigskip
   \pause
 
   Das dafür präsentierte Argument könnten wir formalisieren. Daher folgt:
-  \[ \PA \proves (\neg(\Prov(\goedel{1 = 0})) \rightarrow
-  \neg(\Prov(\goedel{G}))). \]
+  \[ \PA \proves (\neg(\Prov(\goedel{1 = 0})) \rightarrow G). \]
   \pause\justifying
   Ist~$\PA$ konsistent, so folgt:
   \begin{center}\hil{$\boldsymbol{\PA}$ kann die Konsistenz
   von~$\boldsymbol{\PA}$ nicht beweisen.}\end{center}
-  Denn aus~$\PA \models \neg(\Prov(\goedel{1 = 0}))$
-  folgte $\PA \models \neg(\Prov(\goedel{G}))$, was unter der Konsistenzannahme
+  Denn aus~$\PA \proves \neg(\Prov(\goedel{1 = 0}))$
+  folgte $\PA \proves G$, was unter der Konsistenzannahme
   falsch ist.
   \par
+\end{frame}
+
+\begin{frame}{Going deeper}
+  Wir schreiben~"`$\Con$"' für~"`$\neg(\Prov(\goedel{1=0}))$"'.
+  \bigskip
+
+  Wir wissen: Genau dann ist~$\PA$ konsistent, wenn~$\PA$ die Konsistenz
+  von~$\PA$ nicht beweisen kann.
+  \bigskip
+
+  Das dafür präsentierte Argument könnten wir formalisieren. Daher folgt:
+  \[ \PA \proves (\Con \leftrightarrow \neg(\Prov(\Con))). \]
 \end{frame}
 
 
