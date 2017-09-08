@@ -275,7 +275,7 @@
   anderen Systeme fungieren kann. PRA ist ein solches System.
   \medskip
 
-  Oft verwendet man aber auch starke Systeme wie Zermelo--Fraenkel mit
+  Oft verwendet man aber auch starke Systeme wie Zermelo--Fraenkel-Mengenlehre mit
   Auswahlaxiom und großen Kardinalzahlaxiomen als Metaebene, um interessante
   modelltheoretische Aussagen treffen zu können.
   \par
@@ -286,7 +286,7 @@
 
 \note{\justifying\scriptsize
   Im Folgenden studieren wir \emph{Peano-Arithmetik}~($\PA$), ein wichtiges formales
-  System von Logik erster Ordnung. Genauso gut könnten wir eine Formalisierung
+  System in Logik erster Ordnung. Genauso gut könnten wir eine Formalisierung
   von Mengenlehre in Logik erster Ordnung oder diverse andere Systeme
   verwenden.
   \medskip
@@ -310,7 +310,8 @@
 \note{\justifying\scriptsize
   Die Schlussregeln und Axiome von~$\PA$ sind:
   \begin{itemize}
-    \item die üblichen Schlussregeln von Logik erster Ordnung
+    \item die üblichen Schlussregeln von Logik erster Ordnung, etwa $A \wedge B
+    \rightarrow A$
     \item $0$ ist kein Nachfolger: $\neg (\exists n\_ 0 = S(n))$
     \item Haben Zahlen denselben Nachfolger, so sind sie gleich: $\forall n\_
     \forall m\_ (S(n) = S(m) \rightarrow n = m)$
@@ -322,6 +323,9 @@
       \forall n\_ && n \cdot 0 &= 0 \\
       \forall n\_ \forall m\_ && n \cdot S(m) &= n \cdot m + n
     \end{align*}
+    \item Für jede Aussageform~$A(n)$ je ein Induktionsaxiom:
+    \[ (A(0) \wedge (\forall n\_ (A(n) \rightarrow A(n+1)))) \rightarrow
+      \forall n\_ A(n). \]
   \end{itemize}
 }
 
@@ -371,9 +375,10 @@
   ist sie beweisbar.
   \medskip
 
-  In~$\NN$ gelten die Peano-Axiome, und unsere Metaebene macht die Schlussregeln
-  von Peano-Arithmetik mit. Deswegen sind beweisbare Aussagen auch wahr.
-  Überdies sind beweisbare Aussagen auch in allen Nichtstandardmodellen war.
+  Nur wenig Leute möchten nicht unterstellen, dass die Metaebene die
+  Schlussregeln von Peano-Arithmetik mitmacht und in der~$\NN$ die Peano-Axiome
+  erfüllt. Unterstellt man das, so sind beweisbare Aussagen auch wahr.
+  Überdies sind beweisbare Aussagen auch in allen Nichtstandardmodellen wahr.
   \medskip
 
   Es wird niemals eine Haskell-Bibliothek zum Umgang mit Nichtstandardzahlen
@@ -383,16 +388,24 @@
   \medskip
 
   Mehr zu Nichtstandardmodellen steht auf dem
-  \href{https://boolesrings.org/victoriagitman/2015/04/22/an-introduction-to-nonstandard-models-of-arithmetic/
-  }{Blog von Victoria Gitman}.
+  \href{https://boolesrings.org/victoriagitman/2015/04/22/an-introduction-to-nonstandard-models-of-arithmetic/}{Blog von Victoria Gitman}.
   \par
 }
 
 \note{\justifying\scriptsize
-  Mit unseren Vereinbarungen an die Metaebene ist~$\PA$ \emph{konsistent},
-  d.\,h. die Aussage~$\bot$ (oder äquivalent die Aussage~$0 = 1$) ist nicht
+  Sei~$A$ etwa die formale Aussage~$\forall n\_ \forall m\_ (n+m)^2 = n^2 + 2nm
+  + m^2$. Dann bedeutet~$\NN \models A$, dass für alle gewöhnlichen Zahlen die
+  binomische Formel gilt. Ist~$M$ irgendein Nichtstandardmodell, so bedeutet~$M
+  \models A$, dass für alle Zahlen des Nichtstandardmodells die binomische
+  Formel gilt. (Die Aussage~$A$ ist übrigens beweisbar und daher in allen
+  Modellen gültig.)
+  \medskip
+
+  Die meisten Leute erachten~$\PA$ als \emph{konsistent}, d.\,h. die
+  Aussage~$\bot$ (oder äquivalent die Aussage~$0 = 1$) als nicht
   beweisbar. Denn wenn~$0 = 1$ beweisbar wäre, so wäre auch~$0 = 1$ im
-  Standardmodell~$\NN$; dem ist aber nicht so.
+  Standardmodell~$\NN$ (wenn man akzeptiert, dass~$\NN$ die Peano-Axiome
+  erfüllt); dem ist aber nicht so.
   \medskip
 
   Ein rein syntaktischer und finitistisch zulässiger Beweis der Konsistenz
@@ -416,28 +429,28 @@
   \end{block}
   \pause
 
-  Mit dem \hil{Diagonallemma} gibt es eine Aussage~$A$ mit
+  Mit dem \hil{Diagonallemma} gibt es eine Aussage~$G$ mit
   \vspace*{-0.2em}
-  \[ \PA \proves (A \leftrightarrow \neg (\Prov(\goedel{A}))). \]
+  \[ \PA \proves (G \leftrightarrow \neg (\Prov(\goedel{G}))). \]
   \vspace*{-1em}
   \pause
   \justifying
   \begin{enumerate}
-  \item Angenommen $\PA \proves A$.
-  Dann $\PA \proves \neg (\Prov(\goedel{A}))$,
-  also~$\NN \models \neg (\Prov(\goedel{A}))$,
-  also nicht~$\NN \models \Prov(\goedel{A})$,
-  also ist~$A$ nicht beweisbar,
+  \item Angenommen $\PA \proves G$.
+  Dann $\PA \proves \neg (\Prov(\goedel{G}))$,
+  also~$\NN \models \neg (\Prov(\goedel{G}))$,
+  also nicht~$\NN \models \Prov(\goedel{G})$,
+  also ist~$G$ nicht beweisbar,
   also folgt ein Widerspruch.
-  \item Also ist~$A$ nicht beweisbar,
-  somit~$\NN \models \neg\Prov(\goedel{A})$.
-  \item Also~$\NN \models A$, d.\,h.~$A$ ist wahr.
+  \item Also ist~$G$ nicht beweisbar,
+  somit~$\NN \models \neg\Prov(\goedel{G})$.
+  \item Also~$\NN \models G$, d.\,h.~$G$ ist wahr.
   \end{enumerate}
 \end{frame}
 
 \note{\justifying\scriptsize
-  Die mit dem Diagonallemma konstruierte Aussage~$A$ drückt umgangssprachlich
-  aus: "`Aussage~$A$ ist nicht beweisbar."' Der auf der vorhergehenden Folie
+  Die mit dem Diagonallemma konstruierte Aussage~$G$ drückt umgangssprachlich
+  aus: "`Aussage~$G$ ist nicht beweisbar."' Der auf der vorhergehenden Folie
   gegebene Beweis von Gödels Unvollständigkeitssatz ist also eine
   Ausformalisierung der anfangs gegebenen Beweisskizze. Das Diagonallemma
   ermöglicht, Selbstbezüglichkeit zu elimieren.
@@ -451,6 +464,35 @@
   auf den ersten Blick keinerlei Verbindungen zur mathematischen Logik
   aufzuweisen scheinen, insbesondere nicht Selbstbezüglichkeit oder Begriffe
   wie~"`Beweisbarkeit"' enthalten.
+  \medskip
+
+  Das Argument auf der vorhergehenden Folie für~$\PA \not\proves G$, war
+  semantisch: Es verwendete, dass~$\NN$ ein Modell von~$\PA$ ist. Ein rein
+  syntaktischer Beweis, der nur die Annahme der Konsistenz von~$\PA$ verwendet,
+  ist auch möglich: Angenommen, es gibt einen formalen Beweis von~$G$. Dieser
+  hat eine Gödelnummer, sodass man ihn in das formale System bringen kann: Es
+  folgt~$\PA \proves \Prov(\goedel{G})$. Zugleich gilt~$\PA \proves
+  \neg(\Prov(\goedel{G}))$. Also~$\PA \proves \bot$. Widerspruch.
+  \medskip
+
+  Die Negation von~$G$ ist in $\PA$ ebenfalls nicht beweisbar: Wenn doch, wäre
+  sie wahr, ist sie aber nicht. Ein syntaktischer Beweis ist nicht bekannt,
+  aber \emph{Rossers Trick} liefert eine leichte Variante~$G'$, von der
+  syntaktisch~$\PA \not\proves G'$ und~$\PA \not\proves \neg G'$ nachweisbar
+  sind (nur unter der Konsistenzannahme).
+  \par
+}
+
+\note{\justifying\scriptsize
+  Die Aussage~$G$, die das Diagonallemma liefert, lautet ins Deutsche übersetzt wie
+  folgt:
+  \medskip
+
+  "`Die Aussage, die man erhält, wenn man in der Aussage \glq Die Aussage, die man
+  erhält, wenn man in der Aussage~$x$ die vorkommende Variable durch die
+  Gödelnummer dieser Aussage ersetzt, ist nicht beweisbar.\grq{} die
+  vorkommende Variable durch die Gödelnummer dieser Aussage ersetzt, ist nicht
+  beweisbar."'
   \par
 }
 
@@ -507,25 +549,25 @@
 \subsection[Konsistenz]{Konsistenzreflektion}
 
 \begin{frame}{Konsistenzreflektion}
-  Sei~$A$ die Aussage~"`Aussage~$A$ ist nicht beweisbar"':
-  \[ \PA \proves (A \leftrightarrow \neg (\Prov(\goedel{A}))). \]
+  Sei wie vorher~$G$ die Aussage~"`Aussage~$G$ ist nicht beweisbar"'.
+% \[ \PA \proves (G \leftrightarrow \neg (\Prov(\goedel{G}))). \]
 
-  \begin{block}{Resultat von Gödel--Rosser}
-    Auch ohne die Unterstellung der Existenz von~$\NN$ in der Metatheorie gilt:
-    Ist~$\PA$ konsistent (d.\,h. ist~$1 = 0$ nicht beweisbar),
-    so ist~$A$ nicht beweisbar.
-  \end{block}
+  Wir wissen: Ist~$\PA$ konsistent (d.\,h. ist~$1 = 0$ nicht beweisbar),
+  so ist~$G$ nicht beweisbar.
+  \bigskip
   \pause
 
-  Da sich der Beweis dieses Resultats formalisieren lässt, folgt
+  Das dafür präsentierte Argument könnten wir formalisieren. Daher folgt:
   \[ \PA \proves (\neg(\Prov(\goedel{1 = 0})) \rightarrow
-  \neg(\Prov(\goedel{A}))). \]
-
-  \justifying
-  Angenommen~$\PA \proves \neg(\Prov(\goedel{1 = 0}))$. Dann~$\PA
-  \proves \neg(\Prov(\goedel{A}))$, das ist falsch. \hil{Somit
-  kann~$\boldsymbol{\PA}$ ihre
-  Konsistenz nicht beweisen.}
+  \neg(\Prov(\goedel{G}))). \]
+  \pause\justifying
+  Ist~$\PA$ konsistent, so folgt:
+  \begin{center}\hil{$\boldsymbol{\PA}$ kann die Konsistenz
+  von~$\boldsymbol{\PA}$ nicht beweisen.}\end{center}
+  Denn aus~$\PA \models \neg(\Prov(\goedel{1 = 0}))$
+  folgte $\PA \models \neg(\Prov(\goedel{G}))$, was unter der Konsistenzannahme
+  falsch ist.
+  \par
 \end{frame}
 
 
