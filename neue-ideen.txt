@@ -15,3 +15,4 @@
 * Diffie--Hellman in der realen Welt
 * Spiel "Buckets of fish", http://jdh.hamkins.org/buckets-of-fish/
 * "Jetzt weiß ich es auch", aber transfinit: http://jdh.hamkins.org/transfinite-epistemic-logic-puzzle-challenge/
+* Was zu Expandern? http://www.cs.huji.ac.il/~nati/PAPERS/diskrete_mathematik_06.pdf
