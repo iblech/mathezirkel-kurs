@@ -47,6 +47,7 @@
 \newcommand{\Prov}{\mathrm{Prov}}
 \newcommand{\True}{\mathrm{True}}
 \newcommand{\proves}{\vdash}
+\newcommand{\defeq}{\vcentcolon=}
 
 \newcommand{\kasten}[1]{%
   \setlength{\fboxrule}{2pt}%
@@ -103,7 +104,6 @@
 }
 
 \setbeameroption{show notes}
-\setbeamertemplate{note page}[plain]
 
 \begin{document}
 
@@ -137,6 +137,30 @@
     \item jede Funktion~$\RR \to \RR$ stetig ist.
   \end{enumerate}
 \end{frame}
+
+\note{
+  \justifying\scriptsize
+  Zu jedem Modell von Berechenbarkeit, wie etwa Turingmaschinen oder dem
+  Lambda-Kalkül, gibt es eine Variante des "`effektiven Topos"'. Man kann sogar
+  Maschinen der realen Welt als Grundlage verwenden; dann verlässt man die
+  rigorose Mathematik, erhält aber philosophisch/phy\-si\-ka\-lisch interessante
+  Aussagen.
+  \medskip
+
+  Turingmaschinen und das Lambda-Kalkül liefern zwar denselben
+  Berechenbarkeitsbegriff für Funktionen~$\NN \to \NN$, sie unterscheiden sich
+  aber in Fragen der Berechenbarkeit von Funktionen höherer Ordnung. Daher sind
+  auch die entstehenden Topoi unterschiedlich.
+  \medskip
+
+  Mehr zum Thema:
+  \begin{itemize}
+    \item
+    \url{https://rawgit.com/iblech/mathezirkel-kurs/master/superturingmaschinen/slides.pdf}
+    \item
+    \url{https://rawgit.com/iblech/mathezirkel-kurs/master/superturingmaschinen/slides-warwick2017.pdf}
+  \end{itemize}
+}
 
 
 \section[Gödel]{Gödels Unvollständigkeitssatz}
@@ -173,6 +197,32 @@
   \par
 \end{frame}
 
+\note{
+  \justifying\scriptsize
+  Wie kann es konzeptionell sein, dass es unbeweisbare wahre Aussagen gibt?
+  Woher können wir von einer Aussage wissen, dass sie wahr ist, wenn nicht
+  durch einen Beweis? Dieser Scheinwiderspruch wird auf den nächsten
+  Folien aufgeklärt.
+  \medskip
+
+  Wie die \href{https://de.wikipedia.org/wiki/Currys_Paradoxon}{Wikipedia-} und
+  \href{https://plato.stanford.edu/entries/curry-paradox/}{SEP-Artikel} zu
+  Currys Paradoxon erklären, lässt sich nicht jeder grammatikalisch korrekte
+  Aussagesatz menschlicher Sprache als formale Aussage im Sinne der Logik
+  interpretieren.
+  \medskip
+
+  Deswegen ist die Beweisskizze von Gödels Unvollständigkeitssatz auf der
+  vorherigen Folie unvollständig: Es ist korrekt, aber nicht klar, dass die
+  Aussage "`Diese Aussage ist unbeweisbar"' formal verstanden werden kann.
+  \medskip
+
+  Das Problem bei Currys Paradoxon liegt übrigens nicht an der
+  Selbstbezüglichkeit, sondern am Wort~"`stimmen"'.
+  \par
+}
+
+
 \begin{frame}\frametitle{Vereinbarungen zur Metaebene}
   Auf der Metaebene wissen wir, \ldots
   \begin{enumerate}
@@ -196,14 +246,84 @@
 
   Mögliche Wahlen der Metaebene:
   \begin{itemize}
-    \item Gesunder Menschenverstand mit Platonismus
-    \item Gesunder Menschenverstand mit Formalismus
-    \item Diverse formale Systeme
+    \item gesunder Menschenverstand mit Platonismus
+    \item gesunder Menschenverstand mit Formalismus
+    \item diverse formale Systeme
   \end{itemize}
 \end{frame}
 
+\note{\justifying\scriptsize
+  Wenn man sich entscheidet, die Metaebene formal zu halten, verwendet man oft
+  sehr schwache Systeme wie etwa
+  \href{https://en.wikipedia.org/wiki/Primitive_recursive_arithmetic}{PRA}, die
+  sowohl von ihren sprachlichen Mitteln als auch den erlaubten logischen
+  Schlüsseln sehr eingeschränkt sind. (PRA ist so schwach, dass es noch nicht
+  einmal einen Unterschied zwischen klassischem und intuitionistischem PRA
+  gibt. In PRA gibt es auch keine Realisierung der aktual unendlichen Menge der
+  natürlichen Zahlen.)
+  \medskip
+
+  Das macht man aus zwei Gründen: Zum einen möchte man in diesem Geschäft unter
+  anderem die Konsistenz von gewissen logischen Systemen untersuchen. Um sicher
+  zu gehen, dass solche Untersuchungen aussagekräftig sind, sollten sie selbst
+  keine mächtigen logischen Prinzipien verwenden.
+  \medskip
+
+  Zum anderen möchte man Argumente auf der Metaebene gelegentlich auch in
+  anderen Systemen internalisieren. Dazu ist es hilfreich, auf der Metaebene
+  ein System zu verwenden, dass als größter gemeinsamer Nenner aller relevanten
+  anderen Systeme fungieren kann. PRA ist ein solches System.
+  \medskip
+
+  Oft verwendet man aber auch starke Systeme wie Zermelo--Fraenkel mit
+  Auswahlaxiom und großen Kardinalzahlaxiomen als Metaebene, um interessante
+  modelltheoretische Aussagen treffen zu können.
+  \par
+}
+
 
 \subsection[Beweisbarkeit und Wahrheit]{Beweisbarkeit und Wahrheit}
+
+\note{\justifying\scriptsize
+  Im Folgenden studieren wir \emph{Peano-Arithmetik}~($\PA$), ein wichtiges formales
+  System von Logik erster Ordnung. Genauso gut könnten wir eine Formalisierung
+  von Mengenlehre in Logik erster Ordnung oder diverse andere Systeme
+  verwenden.
+  \medskip
+
+  Die Terme von~$\PA$ werden induktiv aus der Konstante~$0$, der
+  Nachfolgeroperation~$S$ und Funktionssymbolen für jede primitiv-rekursive
+  Funktion zusammengesetzt. Etwa ist~$4 \defeq S(S(S(S(0))))$ ein Term
+  in~$\PA$.
+  \medskip
+
+  Aussagen in~$\PA$ werden induktiv aus folgenden Zutaten zusammengesetzt:
+  \begin{itemize}
+    \item $s = t$, wobei~$s$ und~$t$ beliebige Terme sind
+    \item $\top$ ("`truthhood"') und~$\bot$ ("`falsehood"')
+    \item $A \wedge B$, $A \vee B$, $A \rightarrow B$ und
+          $\neg A$ als Abkürzung für~$A \rightarrow \bot$
+    \item $\forall n\_ A(n)$ und~$\exists n\_ A(n)$
+  \end{itemize}
+}
+
+\note{\justifying\scriptsize
+  Die Schlussregeln und Axiome von~$\PA$ sind:
+  \begin{itemize}
+    \item die üblichen Schlussregeln von Logik erster Ordnung
+    \item $0$ ist kein Nachfolger: $\neg (\exists n\_ 0 = S(n))$
+    \item Haben Zahlen denselben Nachfolger, so sind sie gleich: $\forall n\_
+    \forall m\_ (S(n) = S(m) \rightarrow n = m)$
+    \item Axiome, die die Funktionssymbole für primitiv-rekursive Funktionen
+    regieren, insbesondere:
+    \begin{align*}
+      \forall n\_ && n + 0 &= n \\
+      \forall n\_ \forall m\_ && n + S(m) &= S(n + m) \\
+      \forall n\_ && n \cdot 0 &= 0 \\
+      \forall n\_ \forall m\_ && n \cdot S(m) &= n \cdot m + n
+    \end{align*}
+  \end{itemize}
+}
 
 \begin{frame}{Beweisbarkeit und Wahrheit}
   \vspace*{-1em}
@@ -229,12 +349,57 @@
 
     % https://boolesrings.org/victoriagitman/2015/04/22/an-introduction-to-nonstandard-models-of-arithmetic/
     \includegraphics[scale=0.3]{nonstandard-model-of-arithmetic}
-    % Tennenbaum 1959
 
     %\item In starker Metatheorie: Alle$^\star$ konsistenten formalen Systeme
     %besitzen
   \end{itemize}
 \end{frame}
+
+\note{\justifying\scriptsize
+  Die Axiome von Peano-Arithmetik sind so konzipiert, dass sie genau das Wesen
+  der natürlichen Zahlen einfangen. Dieses Ziel wurde aber nicht erreicht:
+  Nicht nur die üblichen natürlichen Zahlen, das Standardmodell, erfüllen die
+  Peano-Axiome, auch die diversen Nichtstandardmodelle tun es.
+  \medskip
+
+  Das ist ein grundsätzliches Phänomen an Logik erster Ordnung; mit Logik
+  zweiter Ordnung, bei der nicht nur über Elemente, sondern auch über
+  Teilmengen quantifiziert werden kann, kann man Axiome formulieren, die nur
+  von den üblichen natürlichen Zahlen und nicht von weiteren Strukturen erfüllt
+  werden. Vorteile an Logik erster Ordnung sind Einfachheit und die Existenz
+  von Vollständigkeitssätzen: Gilt eine Aussage in \emph{allen} Modellen, so
+  ist sie beweisbar.
+  \medskip
+
+  In~$\NN$ gelten die Peano-Axiome, und unsere Metaebene macht die Schlussregeln
+  von Peano-Arithmetik mit. Deswegen sind beweisbare Aussagen auch wahr.
+  Überdies sind beweisbare Aussagen auch in allen Nichtstandardmodellen war.
+  \medskip
+
+  Es wird niemals eine Haskell-Bibliothek zum Umgang mit Nichtstandardzahlen
+  geben: Tennenbaum bewies 1959, dass es kein Nichtstandardmodell gibt, dessen
+  Elemente man als Bitfolgen kodieren könnte, sodass Addition oder
+  Multiplikation berechenbar sind.
+  \medskip
+
+  Mehr zu Nichtstandardmodellen steht auf dem
+  \href{https://boolesrings.org/victoriagitman/2015/04/22/an-introduction-to-nonstandard-models-of-arithmetic/
+  }{Blog von Victoria Gitman}.
+  \par
+}
+
+\note{\justifying\scriptsize
+  Mit unseren Vereinbarungen an die Metaebene ist~$\PA$ \emph{konsistent},
+  d.\,h. die Aussage~$\bot$ (oder äquivalent die Aussage~$0 = 1$) ist nicht
+  beweisbar. Denn wenn~$0 = 1$ beweisbar wäre, so wäre auch~$0 = 1$ im
+  Standardmodell~$\NN$; dem ist aber nicht so.
+  \medskip
+
+  Ein rein syntaktischer und finitistisch zulässiger Beweis der Konsistenz
+  von~$\PA$ wurde aber noch nicht erbracht. Es macht Spaß, die Inkonsistenz
+  von~$\PA$ in Betracht zu ziehen; sie ist aber extrem unwahrscheinlich.
+  \par
+}
 
 
 \subsection{Quines}
@@ -269,6 +434,25 @@
   \item Also~$\NN \models A$, d.\,h.~$A$ ist wahr.
   \end{enumerate}
 \end{frame}
+
+\note{\justifying\scriptsize
+  Die mit dem Diagonallemma konstruierte Aussage~$A$ drückt umgangssprachlich
+  aus: "`Aussage~$A$ ist nicht beweisbar."' Der auf der vorhergehenden Folie
+  gegebene Beweis von Gödels Unvollständigkeitssatz ist also eine
+  Ausformalisierung der anfangs gegebenen Beweisskizze. Das Diagonallemma
+  ermöglicht, Selbstbezüglichkeit zu elimieren.
+  \medskip
+
+  Dieser (Meta-)Beweis von Gödels Unvollständigkeitssatz liefert ein explizites
+  Beispiel für eine Aussage, die im Standardmodell wahr ist, aber keinen
+  formalen Beweis in~$\PA$ besitzt. Die so erhaltene Aussage wurde aber
+  speziell für diese Argumentation konstruiert. Es gibt viele weitere Beispiele
+  für unbeweisbare wahre Aussagen, die inhaltlich viel interessanter sind und
+  auf den ersten Blick keinerlei Verbindungen zur mathematischen Logik
+  aufzuweisen scheinen, insbesondere nicht Selbstbezüglichkeit oder Begriffe
+  wie~"`Beweisbarkeit"' enthalten.
+  \par
+}
 
 \begin{frame}{Goodsteinsche Folgen}
   \vspace*{-0.5em}
@@ -389,6 +573,16 @@
   Ein Halteorakel gibt es nicht.
 \end{frame}
 
+\note{\justifying\scriptsize
+  Ein praktisch verwendbares Halteorakel wäre extrem nützlich, da man mit ihm
+  auf einen Schlag unzählige offene mathematische Vermutungen klären könnte.
+  Etwa ist momentan noch unbekannt, ob es ungerade perfekte Zahlen gibt. Hätte
+  man ein Halteorakel, könnte man diese Frage sofort klären, indem man es
+  befragt, ob ein Programm, dass alle ungeraden natürlichen Zahlen abläuft und
+  genau dann abbricht, wenn es eine perfekte Zahl gefunden hat, hält.
+  \par
+}
+
 \begin{frame}{Chaitinsche Haltewahrscheinlichkeit}
   Sei~$\Omega$ die Zahl
   \[ \Omega = \sum_p 2^{-|p|} = 2^{-c_0} + 2^{-c_1} + 2^{-c_2} + 2^{-c_3} + \cdots\!, \]
@@ -406,6 +600,40 @@
   \end{itemize}
 \end{frame}
 
+\note{\justifying\scriptsize
+  Der amerikanische Physiker und Informatiker Charles Bennet~(*~1943) und der
+  berühmte Wissenschaftsjournalist Martin Gardner~(*~1914, †~2010) schrieben
+  Folgendes über~$\Omega$:
+  \medskip
+
+  "`Die Konstante~$\Omega$ verkörpert eine enorme Menge an Wissen auf sehr kleinem Raum.
+  Die ersten paar Tausend Ziffern, die problemlos auf einem kleinen Stück Papier
+  Platz finden könnten, enthalten die Antworten auf mehr mathematische Fragen,
+  als man im ganzen Universum aufschreiben könnte.
+  \medskip
+
+  Im Laufe der Menschheitsgeschichte strebten Mystiker und Philosophen stets nach einem
+  kompakten Schlüssel zu universeller Weisheit, einer endlichen Formel
+  oder einem Text, der, wenn bekannt und verstanden, Antworten auf alle Fragen
+  liefern würde; man denke nur an die Versuche, der Bibel, dem Koran oder dem I~Ging
+  Weissagungen zu entlocken [\ldots].
+  \medskip
+
+  Solche Quellen universeller Weisheit sind herkömmlicherweise vor beiläufigem
+  Zugriff ge\-schützt: indem sie schwer zu finden, wenn gefunden schwierig zu
+  verstehen und gefährlich zu benutzen sind, dazu neigend, mehr und
+  tiefere Fragen zu beantworten als sich der Suchende wünschte. Das esoterische
+  Buch ist, wie Gott, einfach und dennoch unbeschreibbar. Es ist allwissend, und
+  verändert alle, die es kennen.
+  \medskip
+
+  $\Omega$ ist in vielerlei Hinsicht eine kabbalistische Zahl. Dem menschlichen
+  Verstand ist sie bekannt, aber unkennbar. Um sie im Detail zu erfahren, müsste
+  man ihre unberechenbare Ziffernfolge als Glaubensgrundsatz einfach hinnehmen,
+  genau wie die Worte eines heiligen Texts."'
+  \par
+}
+
 
 \subsection[Unabhängigkeit]{Unabhängigkeit}
 
@@ -419,7 +647,7 @@
 
   \begin{itemize}
     \item Das Programm~$P$ hält nicht.
-    \item Die Aussage, dass~$P$ nicht hält, ist in~$\PA$ nicht beweisbar.
+    \item Die Aussage, dass~$P$ nicht halte, ist in~$\PA$ nicht beweisbar.
     \pause
     \item Sei~$n$ die Anzahl Zustände, die eine Umsetzung von~$P$ als
     Turingmaschine benötigt. Dann entzieht sich jede Vermutung
@@ -442,11 +670,25 @@
 
   \begin{enumerate}
     \item $\PA$ beweist, dass~$P$ eine endliche Liste von Zahlen ausgibt.
-    \item Für jede endliche Liste von Zahlen gibt es ein
+    \item\justifying Für jede endliche Liste von Zahlen gibt es ein
     Universum~$M$, sodass~$P$ genau diese Liste ausgibt, wenn man es in~$M$
     ausführt.
   \end{enumerate}
 \end{frame}
+
+\note{\justifying\scriptsize
+  In~$\NN$ ausgeführt, wird~$P$ nie halten.
+  \medskip
+
+  In geeigneten Nichtstandardmodellen dagegen wird~$P$ nach einer
+  Nichtstandardzahl von Schritten halten.
+  \medskip
+
+  Mehr dazu steht auf dem
+  \href{http://jdh.hamkins.org/the-universal-algorithm-a-new-simple-proof-of-woodins-theorem/}{Blog
+  der MathOverflow-Legende und Mengentheoretikers Joel David Hamkins}.
+  \par
+}
 
 
 \section[Zufall]{Randomisierte Strategien}
@@ -470,6 +712,7 @@
 
   \pause
   \bigskip
+  \justifying
 
   Alice versteckt zwei verschiedene reelle Zahlen in Boxen.
   Bob darf in eine der Boxen hineinschauen und dann einen Tipp abgeben,
