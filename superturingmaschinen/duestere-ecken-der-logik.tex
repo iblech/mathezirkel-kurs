@@ -520,11 +520,30 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Immunität gegen Gödel}
+  Wir sahen: Im Standardmodell wahre Aussagen besitzen nicht unbedingt einen
+  formalen Beweis.
+  \bigskip
+
+  Für Aussagen, die nur aus folgenden Zutaten zusammengesetzt sind, passiert
+  das nicht:
+  \begin{itemize}
+    \item Gleichheit: $s = t$
+    \item Konjunktion: $\top$ und $\wedge$
+    \item Disjunktion: $\bot$ und $\vee$
+    \item Existenzquantifikation: $\exists$
+    \item Beschränkte Allquantifikation: $\forall n\_ (n \leq t \rightarrow \cdots)$
+  \end{itemize}
+  Nicht vorkommen dürfen: $\rightarrow$, $\neg$, $\forall$.
+  Solche Aussagen heißen \hil{$\boldsymbol{\Sigma}$-Aussagen} oder
+  \hil{geometrische Aussagen}.
+\end{frame}
+
 
 \subsection[Undefinierbarkeit]{Undefinierbarkeit von Wahrheit}
 
 \begin{frame}{Undefinierbarkeit von Wahrheit}
-  \begin{block}{Reflektion von Beweisbarkeit}
+  \begin{block}{Erinnerung: Reflektion von Beweisbarkeit}
     Es gibt eine Aussageform~$\Prov(n)$, sodass für jede Aussage~$A$
     genau dann~$\Prov(\goedel{A})$ wahr ist, wenn~$A$ beweisbar ist:
     \vspace*{-0.8em}
@@ -532,18 +551,25 @@
       \PA \proves A. \]
   \end{block}
 
-  Kann man auch Wahrheit reflektieren? Gibt es eine Aussageform~$\True(n)$,
-  sodass für jede Aussage~$A$ genau dann~$\True(\goedel{A})$ wahr ist, wenn~$A$
-  wahr ist?
+  \begin{block}{Nun: Kann man auch Wahrheit reflektieren?}
+    Gibt es eine Aussageform~$\True(n)$,
+    sodass für jede Aussage~$A$ genau dann~$\True(\goedel{A})$ wahr ist, wenn~$A$
+    wahr ist?
+    \vspace*{-0.8em}
     \[ \NN \models \True(\goedel{A}) \quad\text{genau dann, wenn}\quad
       \NN \models A \]
+  \end{block}
   \pause
-  \vspace*{-1em}
 
   \hil{Nein:} Mit dem Diagonallemma gäbe es eine Aussage~$A$ mit
+  \vspace*{-0.3em}
   \[ \PA \models (A \leftrightarrow \neg(\True(\goedel{A}))). \]
-  Zu deutsch besagte~$A$: "`Aussage~$A$ ist nicht wahr."'
+  \vspace*{-1.5em}
+
+  Zu deutsch besagte~$A$: "`Aussage~$A$ ist nicht wahr."' \\[-0.1em]
+
   Diese Aussage wäre genau dann wahr, wenn sie nicht wahr ist.
+  \par
 \end{frame}
 
 
@@ -699,10 +725,10 @@
   }
   \pause
 
+  Ist~$\PA$ konsistent, so gilt:
   \begin{itemize}
     \item Das Programm~$P$ hält nicht.
     \item Die Aussage, dass~$P$ nicht halte, ist in~$\PA$ nicht beweisbar.
-    \pause
     \item Sei~$n$ die Anzahl Zustände, die eine Umsetzung von~$P$ als
     Turingmaschine benötigt. Dann entzieht sich jede Vermutung
     über~$\mathrm{BB}(n)$ der Beweisbarkeit in~$\PA$.
