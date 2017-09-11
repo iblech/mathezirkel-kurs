@@ -411,7 +411,8 @@
 
   Ein rein syntaktischer und finitistisch zulässiger Beweis der Konsistenz
   von~$\PA$ wurde aber noch nicht erbracht. Es macht Spaß, die Inkonsistenz
-  von~$\PA$ in Betracht zu ziehen; sie ist aber extrem unwahrscheinlich.
+  von~$\PA$ in Betracht zu ziehen; die wenigsten Leute machen das ernsthaft,
+  aber ein paar schon (Nelson, Voevodsky, \ldots).
   \par
 }
 
@@ -422,7 +423,7 @@
   Wir schreiben~$\goedel{A}$ für die \hil{Gödelnummer} einer Aussage~$A$.
 
   \begin{block}{Reflektion von Beweisbarkeit}
-    Es gibt eine Aussageform~$\Prov(n)$, sodass für jede Aussage~$A$
+    Es gibt eine Aussageform~\hil{$\boldsymbol{\Prov(n)}$}, sodass für jede Aussage~$A$
     genau dann~$\Prov(\goedel{A})$ wahr ist, wenn~$A$ beweisbar ist:
     \vspace*{-0.8em}
     \[ \NN \models \Prov(\goedel{A}) \quad\text{genau dann, wenn}\quad
@@ -467,7 +468,7 @@
   wie~"`Beweisbarkeit"' enthalten.
   \medskip
 
-  Das Argument auf der vorhergehenden Folie für~$\PA \not\proves G$, war
+  Das Argument auf der vorhergehenden Folie für~$\PA \not\proves G$ war
   semantisch: Es verwendete, dass~$\NN$ ein Modell von~$\PA$ ist. Ein rein
   syntaktischer Beweis, der nur die Annahme der Konsistenz von~$\PA$ verwendet,
   ist auch möglich: Angenommen, es gibt einen formalen Beweis von~$G$. Dieser
@@ -494,6 +495,22 @@
   Gödelnummer dieser Aussage ersetzt, ist nicht beweisbar.\grq{} die
   vorkommende Variable durch die Gödelnummer dieser Aussage ersetzt, ist nicht
   beweisbar."'
+  \medskip
+
+  Das Diagonallemma sagt aus: Sei~$F(n)$ eine Aussageform. Dann gibt es eine
+  Aussage~$D$ mit
+  \[ \PA \proves (D \leftrightarrow F(\goedel{D})). \]
+  Der Beweis ist konstruktiv und gibt die Aussage~$D$ explizit an. Für den
+  Fall, dass man nicht glaubt, dass beweisbare Aussagen wahr sind -- etwa weil
+  man als Ultrafinitist nicht vom Induktionsaxiom für natürliche Zahlen
+  überzeugt ist --, so ist es noch hilfreich zu wissen, dass für die vom
+  Diagonallemma konstruierte Aussage sogar gilt: Genau dann ist~$D$ wahr,
+  wenn~$F(\goedel{D})$ wahr ist.
+  \medskip
+
+  Das ist noch aus einem anderen Grund gut zu wissen: Argumentationen, die
+  nicht die Wahrheit von beweisbaren Aussagen unterstellen, können
+  \emph{internalisiert} werden. Das wird auf späteren Folien diskutiert.
   \par
 }
 
@@ -544,7 +561,7 @@
 
 \begin{frame}{Undefinierbarkeit von Wahrheit}
   \begin{block}{Erinnerung: Reflektion von Beweisbarkeit}
-    Es gibt eine Aussageform~$\Prov(n)$, sodass für jede Aussage~$A$
+    Es gibt eine Aussageform~\hil{$\boldsymbol{\Prov(n)}$}, sodass für jede Aussage~$A$
     genau dann~$\Prov(\goedel{A})$ wahr ist, wenn~$A$ beweisbar ist:
     \vspace*{-0.8em}
     \[ \NN \models \Prov(\goedel{A}) \quad\text{genau dann, wenn}\quad
@@ -552,7 +569,7 @@
   \end{block}
 
   \begin{block}{Nun: Kann man auch Wahrheit reflektieren?}
-    Gibt es eine Aussageform~$\True(n)$,
+    Gibt es eine Aussageform~\hil{$\boldsymbol{\True(n)}$},
     sodass für jede Aussage~$A$ genau dann~$\True(\goedel{A})$ wahr ist, wenn~$A$
     wahr ist?
     \vspace*{-0.8em}
@@ -607,6 +624,46 @@
   Das dafür präsentierte Argument könnten wir formalisieren. Daher folgt:
   \[ \PA \proves (\Con \leftrightarrow \neg(\Prov(\Con))). \]
 \end{frame}
+
+\begin{frame}{Übungsaufgaben}
+  \footnotesize
+  \begin{enumerate}
+    \item \ \\[-1.2em]\mbox{Sei~$A$ eine Aussage. Sei~$B$ eine vom Diagonallemma gelieferte
+    Aussage mit}
+    \[ \PA \proves (B \leftrightarrow (\Prov(\goedel{B}) \rightarrow A)). \]
+    Zeige: Sollte aus Beweisbarkeit von~$A$ Wahrheit von~$A$ folgen, so ist~$B$
+    wahr. Internalisiere anschließend dein Argument, um zu zeigen, dass
+    \[ \PA \proves ((\Prov(\goedel{A}) \to A) \to B). \]
+
+    {\scriptsize
+    \emph{Tipp.} Dass~$B$ wahr ist, bedeutet, dass aus Beweisbarkeit von~$B$
+    Wahrheit von~$A$ folgt.}
+
+    \item \ \\[-1.2em]\mbox{Sei~$H$ eine ihre eigene Beweisbarkeit behauptende Aussage:}
+    \[ \PA \proves (H \leftrightarrow \Prov(\goedel{H})). \]
+    Zeige, dass~$H$ beweisbar ist.
+
+    \item Zeige: Ist~$\Prov(\goedel{A}) \to A$ beweisbar, so
+    ist schon~$A$ beweisbar.
+
+    \item\justifying Sei~$n$ eine große Zahl. Sei~$L$ eine Aussage, die ausdrückt, dass kein Beweis
+    von ihr kürzere Länge als~$2^n$ hat. Zeige, dass~$L$ unter Annahme der
+    Konsistenz wahr ist. Internalisiere dein Argument, um zu zeigen, dass es
+    in~$\PA$ einen kurzen Beweis von~$(\Con \to L)$ gibt.
+  \end{enumerate}
+\end{frame}
+
+\note{\scriptsize\justifying
+  Punkt~3 drückt ein Theorem von Löb aus. Es gibt einen
+  \href{http://yudkowsky.net/assets/pdf/LobsTheorem.pdf}{Beweis in Cartoonform}
+  von Eliezier Yudkowsky.
+  \medskip
+
+  Punkt~4 zeigt: Die Annahme der Konsistenz kann Beweise deutlich verkürzen:
+  Der kürzeste Beweis von~$L$ hat mindestens Länge~$2^n$; von~$(\Con \to L)$
+  dagegen gibt es kurze Beweise.
+  \par
+}
 
 
 \section[Halteproblem]{Das Halteproblem}
@@ -736,7 +793,7 @@
 \end{frame}
 
 
-\subsection{Das universelle Programm}
+\subsection[Univ. Programm]{Das universelle Programm}
 
 \begin{frame}{Das universelle Programm}
   Wir betrachten folgendes Programm~$P$:
@@ -769,6 +826,28 @@
   der MathOverflow-Legende und Mengentheoretikers Joel David Hamkins}.
   \par
 }
+
+
+\subsection[Univ. Gl.]{Die universelle Gleichung}
+
+\begin{frame}{Ein Rosetta-Stein}
+  Sei~$M$ eine Menge natürlicher Zahlen. Dann sind äquivalent:
+  \begin{enumerate}
+    \item Die Menge~$M$ ist \hil{rekursiv aufzählbar}.
+    \item Es gibt eine Aussageform~$A(n,m)$, in der nur beschränkte
+    Quantifikation vorkommt, sodass
+    \[ M = \{ n \in \NN \,|\,
+      \text{es gibt~$m \in \NN$ mit~$A(n,m)$} \}. \]
+    \item \ \\[-1.2em]\mbox{Es gibt eine \hil{diophantische Gleichung} "`$f(n,x_1,\ldots,x_k) =
+    0$"' mit}
+    \[ M = \{ n \in \NN \,|\,
+      \text{es gibt~$x_1,\ldots,x_k \in \NN$ mit~$f(n,x_1,\ldots,x_k) = 0$}
+      \} \]
+  \end{enumerate}
+
+  % XXX: Weiter mit Folie 24 von
+  % http://www.michaelbeeson.com/teaching/StanfordLogic/Lecture17Slides.pdf.
+\end{frame}
 
 
 \section[Zufall]{Randomisierte Strategien}
