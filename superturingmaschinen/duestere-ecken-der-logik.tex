@@ -9,7 +9,7 @@
 
 \title[Düstere Ecken der Logik]{Düstere Ecken der Logik}
 \author[Ingo Blechschmidt]{\textcolor{white}{Ingo Blechschmidt}}
-\date[2017-09-07]{\vspace*{-4em}\ \\\textcolor{white}{\scriptsize Curry Club Augsburg \\ 7. September 2017}}
+\date[2017-09-07]{\vspace*{-4em}\ \\\textcolor{white}{\scriptsize Curry Club Augsburg \\ 7. September 2017 und 5. Oktober 2017}}
 
 %\usetheme{Warsaw}
 \useinnertheme[shadow=false]{rounded}
@@ -285,6 +285,22 @@
 
 \subsection[Beweisbarkeit und Wahrheit]{Beweisbarkeit und Wahrheit}
 
+\begin{frame}{Peano-Arithmetik}
+  Die Schlussregeln und Axiome von~$\PA$ sind:
+  \begin{itemize}
+    \item die üblichen Schlussregeln von Logik erster Ordnung
+    \item $\neg (\exists n\_ 0 = S(n))$
+    \item $\forall n\_ \forall m\_ (S(n) = S(m) \rightarrow n = m)$
+    \item $\forall n\_ n + 0 = n$ \\
+    \item $\forall n\_ \forall m\_ n + S(m) = S(n + m)$ \\
+    \item $\forall n\_ n \cdot 0 = 0$ \\
+    \item $\forall n\_ \forall m\_ n \cdot S(m) = n \cdot m + n$
+    \item Für jede Aussageform~$A(n)$ je ein Induktionsaxiom:
+    \[ (A(0) \wedge (\forall n\_ (A(n) \rightarrow A(n+1)))) \rightarrow
+      \forall n\_ A(n). \]
+  \end{itemize}
+\end{frame}
+
 \note{\justifying\scriptsize
   Im Folgenden studieren wir \emph{Peano-Arithmetik}~($\PA$), ein wichtiges formales
   System in Logik erster Ordnung. Genauso gut könnten wir eine Formalisierung
@@ -305,28 +321,6 @@
     \item $A \wedge B$, $A \vee B$, $A \rightarrow B$ und
           $\neg A$ als Abkürzung für~$A \rightarrow \bot$
     \item $\forall n\_ A(n)$ und~$\exists n\_ A(n)$
-  \end{itemize}
-}
-
-\note{\justifying\scriptsize
-  Die Schlussregeln und Axiome von~$\PA$ sind:
-  \begin{itemize}
-    \item die üblichen Schlussregeln von Logik erster Ordnung, etwa $A \wedge B
-    \rightarrow A$
-    \item $0$ ist kein Nachfolger: $\neg (\exists n\_ 0 = S(n))$
-    \item Haben Zahlen denselben Nachfolger, so sind sie gleich: $\forall n\_
-    \forall m\_ (S(n) = S(m) \rightarrow n = m)$
-    \item Axiome, die die Funktionssymbole für primitiv-rekursive Funktionen
-    regieren, insbesondere:
-    \begin{align*}
-      \forall n\_ && n + 0 &= n \\
-      \forall n\_ \forall m\_ && n + S(m) &= S(n + m) \\
-      \forall n\_ && n \cdot 0 &= 0 \\
-      \forall n\_ \forall m\_ && n \cdot S(m) &= n \cdot m + n
-    \end{align*}
-    \item Für jede Aussageform~$A(n)$ je ein Induktionsaxiom:
-    \[ (A(0) \wedge (\forall n\_ (A(n) \rightarrow A(n+1)))) \rightarrow
-      \forall n\_ A(n). \]
   \end{itemize}
 }
 
@@ -562,7 +556,7 @@
 \begin{frame}{Undefinierbarkeit von Wahrheit}
   \begin{block}{Erinnerung: Reflektion von Beweisbarkeit}
     Es gibt eine Aussageform~\hil{$\boldsymbol{\Prov(n)}$}, sodass für jede Aussage~$A$
-    genau dann~$\Prov(\goedel{A})$ wahr ist, wenn~$A$ beweisbar ist:
+    genau dann~$\Prov(\goedel{A})$ wahr ist, wenn~$A$ \hil{beweisbar} ist:
     \vspace*{-0.8em}
     \[ \NN \models \Prov(\goedel{A}) \quad\text{genau dann, wenn}\quad
       \PA \proves A. \]
@@ -571,7 +565,7 @@
   \begin{block}{Nun: Kann man auch Wahrheit reflektieren?}
     Gibt es eine Aussageform~\hil{$\boldsymbol{\True(n)}$},
     sodass für jede Aussage~$A$ genau dann~$\True(\goedel{A})$ wahr ist, wenn~$A$
-    wahr ist?
+    \hil{wahr} ist?
     \vspace*{-0.8em}
     \[ \NN \models \True(\goedel{A}) \quad\text{genau dann, wenn}\quad
       \NN \models A \]
@@ -622,7 +616,7 @@
   \bigskip
 
   Das dafür präsentierte Argument könnten wir formalisieren. Daher folgt:
-  \[ \PA \proves (\Con \leftrightarrow \neg(\Prov(\Con))). \]
+  \[ \PA \proves (\Con \leftrightarrow \neg(\Prov(\goedel{\Con}))). \]
 \end{frame}
 
 \begin{frame}{Übungsaufgaben}
@@ -806,9 +800,10 @@
   }
 
   \begin{enumerate}
-    \item $\PA$ beweist, dass~$P$ eine endliche Liste von Zahlen ausgibt.
+    \item $\PA$ beweist, dass~$P$ eine endliche Liste von Zahlen ausgibt
+    (vielleicht die leere Liste, falls~$P$ nicht halten sollte).
     \item\justifying Für jede endliche Liste von Zahlen gibt es ein
-    Universum~$M$, sodass~$P$ genau diese Liste ausgibt, wenn man es in~$M$
+    Universum~$U$, sodass~$P$ genau diese Liste ausgibt, wenn man es in~$U$
     ausführt.
   \end{enumerate}
 \end{frame}
@@ -839,11 +834,14 @@
     \[ M = \{ n \in \NN \,|\,
       \text{es gibt~$m \in \NN$ mit~$A(n,m)$} \}. \]
     \item \ \\[-1.2em]\mbox{Es gibt eine \hil{diophantische Gleichung} "`$f(n,x_1,\ldots,x_k) =
-    0$"' mit}
+    0$"'} mit
     \[ M = \{ n \in \NN \,|\,
       \text{es gibt~$x_1,\ldots,x_k \in \NN$ mit~$f(n,x_1,\ldots,x_k) = 0$}
       \} \]
   \end{enumerate}
+  
+  Eine der Konsequenzen: Es gibt eine diophantische Gleichung, die genau dann
+  eine Lösung hat, wenn~$\PA$ inkonsistent ist.
 
   % XXX: Weiter mit Folie 24 von
   % http://www.michaelbeeson.com/teaching/StanfordLogic/Lecture17Slides.pdf.
