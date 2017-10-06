@@ -683,7 +683,7 @@
 \subsection[Unentscheidbarkeit]{Unentscheidbarkeit des Halteproblems}
 
 \begin{frame}{Unentscheidbarkeit des Halteproblems}
-  Ein \hil{Halteorakel} ist ein Programm, dass ein Programm~$P$ als Eingabe liest
+  Ein \hil{Halteorakel} ist ein Programm, das ein Programm~$P$ als Eingabe liest
   und korrekt ausgibt: "`$P$ hält"' oder~"`$P$ hält nicht"'.
   \bigskip
   \pause
@@ -716,7 +716,8 @@
 
 \begin{frame}{Chaitinsche Haltewahrscheinlichkeit}
   Sei~$\Omega$ die Zahl
-  \[ \Omega = \sum_p 2^{-|p|} = 2^{-c_0} + 2^{-c_1} + 2^{-c_2} + 2^{-c_3} + \cdots\!, \]
+  \[ \Omega = \sum_p 2^{-|p|} = c_0 \cdot 1 + c_1 \cdot \frac{1}{2} + c_2 \cdot
+  \frac{1}{4} + c_3 \cdot \frac{1}{8} + \cdots\!, \]
   wobei~$c_n$ die Anzahl derjenigen Programme der Länge~$n$ ist, welche halten.
 
   \begin{itemize}
