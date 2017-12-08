@@ -1,6 +1,6 @@
 \documentclass{../../zirkelblatt1718}
 \graphicspath{{../}}
-\usepackage{multicol}
+\usepackage{multicol,mathtools,booktabs}
 \usepackage{tikz}
 \usetikzlibrary{arrows,decorations.pathreplacing}
 \usepackage{subfig}
@@ -25,6 +25,7 @@
 \newcommand{\Front}{F}
 \newcommand{\Intersect}{\Delta}
 
+\newcommand{\defeq}{\vcentcolon=}
 
 \begin{document}
 
@@ -35,26 +36,20 @@
 
 \section{Problem}
 
-Mir fehlt hier noch ein guter Aufhänger...
+Mir fehlt hier noch ein guter Aufhänger... XXX
 
 \begin{defn}
-Eine Partition einer natürlichen Zahl $n$ ist ein Tupel $(n_1, n_2, \dots,
-n_k)$ von natürlichen Zahlen mit $n_1  \geq n_2 \geq \dots \geq n_k > 0$
+Eine \emph{Partition} einer natürlichen Zahl $n$ ist ein Tupel $(n_1, n_2, \dots,
+n_k)$ von na\-tür\-li\-chen Zahlen mit $n_1  \geq n_2 \geq \dots \geq n_k > 0$
 sodass $n_1 + n_2 + \dots + n_k = n$. Jedes $n_i$ in einer solchen Partition
-heißt Teil der Partition. Man sagt, dass $(n_1, n_2, \dots, n_k)$ eine
+heißt \emph{Teil} der Partition. Man sagt, dass $(n_1, n_2, \dots, n_k)$ eine
 Partition von $n$ in $k$ Teile ist.
-
-Mit $p(n)$ bezeichnen wir die Anzahl der verschiedenen Partitionen einer
-natürlichen Zahl $n$. Die Funktion $p \colon \NN \to \NN, n \mapsto p(n)$,
-heißt die Partitionsfunktion.
 \end{defn}
 
-\begin{motto}
-Eine Partition von $n$ ist eine Möglichkeit die Zahl $n$ als Summe von
+Eine Partition von $n$ ist also eine Möglichkeit, die Zahl $n$ als Summe von
 positiven natürlichen Zahlen $n_1, n_2, \dots, n_k$ zu schreiben, wobei
 Summen, die sich nur in ihrer Reihenfolge der Summanden unterscheiden, als
 gleich angesehen werden.
-\end{motto}
 
 \begin{bsp}
  Als Beispiel listen wir mal alle $11$ Partitionen von $6$ auf:
@@ -76,19 +71,26 @@ gleich angesehen werden.
  \end{multicols}
 \end{bsp}
 
+\begin{defn}
+Mit $p(n)$ bezeichnen wir die Anzahl der verschiedenen Partitionen einer
+na\-tür\-li\-chen Zahl $n$. Die Funktion $p \colon \NN \to \NN, n \mapsto p(n)$,
+heißt die \emph{Partitionsfunktion}.
+\end{defn}
+
 Einzelne Partitionen sind für uns eher uninteressant. Wir interessieren uns
-dafür umso mehr um die Anzahl $p(n)$ von Partitionen einer beliebigen
+dafür umso mehr für die Anzahl $p(n)$ der Partitionen einer beliebigen
 natürlichen Zahl $n$. Wie Du Dir vorstellen kannst, wächst diese Anzahl
-sehr schnell an. Hier ein paar Beispielswerte: $p(10) = 42$, $p(20) = 627$,
+sehr schnell an. Das Beispiel zeigte, dass~$p(6) = 11$ ist. Hier ein paar
+weitere Beispielwerte: $p(10) = 42$, $p(20) = 627$,
 $p(30) = 5604$, $p(40) = 37 \, 338$ und $p(100) = 190 \, 569 \, 292$. Die
 Anzahl der Partitionen der Zahl $10\,000$ hat bereits $107$ Stellen und die
 Anzahl der Partitionen der Zahl $1\,000\,000$ hat $1108$ Stellen. Zum
 Vergleich: Es wird vermutet, dass die Anzahl der Atome im Universum etwa $80$
-bis $100$ Stellen hat. Lächerlich wenig sozusagen...
+bis $100$ Stellen hat. Lächerlich wenig sozusagen \ldots
 
 An sich ist es nicht schwer, $p(n)$ durch Auflisten aller Partitionen von $n$
-herauszufinden, aber aufgrund der gewaltigen Anzahl an Möglichkeiten ist
-dieser Ansatz praktisch nicht durchführbar. Gibt es andere Möglichkeiten?
+herauszufinden, aber aufgrund der gewaltigen Anzahl der Möglichkeiten ist
+dieser Ansatz in der Praxis nicht durchführbar. Gibt es andere Möglichkeiten?
 Die Antwort ist glücklicherweise ja! Die drei genialen Mathematiker Hardy,
 Ramanujan und Rademacher fanden folgende Formel:
 $$
@@ -98,30 +100,90 @@ wobei
 $$
  A_k(n) = \sum_{h=1}^{k} \delta_{gcd(h,k), 1} \ \exp \! \left( \pi i \sum_{j=1}^{k-1} \frac{j}{k} \left(\frac{hj}{k} - \left\lfloor \frac{hj}{k} \right\rfloor -\frac{1}{2} \right) - \frac{2 \pi i h n}{k} \right).
 $$
-Wow! Bei dieser Formel können wir nur gemeinsam Staunen, denn leider
-verstehen auch wir Zirkelleiter diese Formel nicht. Alleine darüber, wie man
-mithilfe dieser Formel geschickt einen Wert berechnet, haben Mathematiker ganze
-Arbeiten geschrieben.
+Wow! Bei dieser Formel können wir nur gemeinsam staunen, denn leider
+verstehen auch wir Zirkelleiter diese Formel nicht.\footnote{Etwas präziser:
+Wir kennen schon jedes in der Formel vorkommende Symbol. Wieso die Formel
+stimmt oder woher sie kommt, bleibt uns aber verborgen: Denn keiner von uns
+beiden ist Zahlentheoretiker. Mit~"`$i$"' in der Formel ist übrigens die
+\emph{imaginäre Einheit} gemeint, eine \emph{komplexe Zahl} mit der
+wundersamen Eigenschaft~$i^2 = -1$. Was wohl komplexe Zahlen mit Partionen zu tun
+haben? Im weiteren Verlauf werden wir~"`$i$"' übrigens einfach als Platzhalter
+für natürliche Zahlen verwenden, nicht als Bezeichner für die imaginäre
+Einheit.} Alleine darüber, wie man mithilfe dieser Formel geschickt einen Wert
+berechnet, haben Mathematikerinnen und Mathematiker ganze Arbeiten geschrieben.
 
 Es gibt aber noch einen anderen Weg, den wir auch nachvollziehen können: Wir
-können Rekursionen herleiten, mit deren Hilfe wir aus uns bereits bekannten
+können \emph{Rekursionsprinzipien} herleiten, mit deren Hilfe wir aus uns bereits bekannten
 Werten der Partitionsfunktion neue Werte mit relativ wenig Aufwand berechnen
 können. Bevor es die Formel von Hardy, Ramanujan und Rademacher gab, war
-diese Möglichkeit die einzige praktikable, größere Werte der
+diese Möglichkeit die einzige praktikable, um größere Werte der
 Partitionsfunktion zu berechnen. Der Nachteil dieser Methode ist, wie wir sehen
 werden, dass man alle (zumindest viele) kleineren Werte der Partitionsfunktion
 kennen muss, bevor man den nächsten berechnen kann. Das soll uns aber nicht
 stören.
 
-\section{Herleitung von Rekursionsformeln}
+\begin{aufgabe}{Dreifaches Ausmultiplizieren}
+\begin{enumerate}
+\item Überzeuge dich von folgender Regel zum Ausmultiplizieren. Falls sie schon
+in der Schule behandelt wurde, bist du natürlich fein raus. :-)
+
+"`Wenn man ein dreifaches Produkt wie
+\[ (a+A) (b+B) (c+C) \]
+ausmultiplizieren möchte, so ist das Ergebnis
+\[ abc + abC + aBc + aBC + Abc + AbC + aBc + aBC.\text{"'} \]
+Pro Summand des Ergebnisses muss man also für jeden der drei Faktoren
+entscheiden, welchen der beiden Summanden aus ihm man nehmen möchte.
+\item Was ergibt ein vierfaches Produkt wie~$(a+A)(b+B)(c+C)(d+D)$? Schreib
+keinesfalls das Ergebnis aus. Es genügt, wenn du verstehst, wie sich das
+Ergebnis zusammensetzt.
+\item Was ergibt~$(a+A+\alpha)(b+B+\beta)(c+C+\gamma)$?
+\end{enumerate}
+\vspace{-\aufgabenskip}
+\end{aufgabe}
+
+\begin{aufgabe}{Effiziente Notation für Summen}
+Im Folgenden werden wir immer wieder mit Summen bestehend aus vielen Summanden
+zu tun haben. Um Schreibaufwand zu sparen, hat sich dabei folgende Kurznotation
+eingebürgert:
+\begin{align*}
+  \sum_{k=1}^5 k &= 1 + 2 + 3 + 4 + 5 = 15 \\
+  \sum_{k=1}^5 k^2 &= 1^2 + 2^2 + 3^2 + 4^2 + 5^2 = 55 \\
+  \sum_{j=3}^5 2j &= 2\cdot3 + 2\cdot4 + 2\cdot5 = 24 \\
+  \sum_{j=3}^5 2k &= 2k + 2k + 2k \\
+  \sum_{k=4}^2 k &= 0
+\end{align*}
+\begin{enumerate}
+\item Vollziehe anhand dieser Beispiele nach, was diese Notation bedeutet. Wenn
+die Systematik dir gerade nicht klar ist, dann schreib uns eine Mail!
+\item Was ist~$\sum_{i=0}^5 (2i+1)$? Was hat das mit ungeraden Zahlen zu tun?
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Der kleine Gauß}
+Erstsemesterstudierende bezeichnen die folgende für jede natürliche Zahl~$n$
+gültige Formel als "`den kleinen Gauß"', weil es die Anekdote gibt, dass Carl
+Friedrich Gauß sie als kleiner Junge fand.
+\[ 1 + 2 + \cdots + (n-1) + n = \frac{n \cdot (n+1)}{2}. \]
+Oder kürzer: $\sum_{i=1}^n i = n (n+1) / 2$.
+
+Starre folgende Grafik lange genug an, bis du verstehst, wieso diese Formel
+stimmt. Die Grafik illustriert den Spezialfall~$n = 6$.
+\begin{center}
+\includegraphics[scale=0.3]{kleiner-gauss-1}
+\end{center}
+\end{aufgabe}
+
+
+\section{Eine erzeugende Funktion}
 
 Was jetzt kommt, hat auf den ersten Blick rein gar nichts mit unserer
 Fragestellung zu tun: Wir multiplizieren mal
-\footnotesize
-$$
- P(X) := (1 + X + X^2 + \dots + X^i + \dots)(1 + X^2 + X^4 + \dots + X^{2j} + \dots)(1 + X^3 + X^6 + \dots + X^{3k} + \dots) \cdots
-$$
-\normalsize
+\begin{gather}\label{eq:defn-p}\tag{$\star$}\begin{split}
+ P(X) &\defeq (1 + X + X^2 + \cdots + X^i + \cdots) \cdot {} \\
+ &\qquad\qquad (1 + X^2 + X^4 + \cdots + X^{2j} + \cdots) \cdot {} \\
+ &\qquad\qquad (1 + X^3 + X^6 + \cdots + X^{3k} + \cdots) \cdot {} \\
+ &\qquad\qquad (1 + X^4 + X^8 + \cdots + X^{4r} + \cdots) \cdots
+\end{split}\end{gather}
 aus. Vorsicht:
 Dieses Produkt hat unendlich viele Faktoren und jeder Faktor wiederum endlich
 viele Summanden. Das ist vielleicht ungewöhnlich, aber wir können ganz
@@ -137,36 +199,40 @@ aus dem ersten Faktor $X$, aus dem dritten $X^3$ und aus allen anderen $1$
 auswählen und so weiter. Zur besseren Übersicht hier eine Tabelle mit allen
 Möglichkeiten:
 
-$\begin{array}{c|c|c|c|c}
- \text{$1$. Faktor} & \text{$2$. Faktor} & \text{$3$. Faktor} & \text{$4$. Faktor} & \text{alle anderen Faktoren}\\
- \hline
- X^4 & 1 & 1 & 1 & 1 \\
- X^2 & X^2 & 1 & 1 & 1 \\
- X & 1 & X^3 & 1 & 1 \\
- 1 & X^4 & 1 & 1 & 1 \\
- 1 & 1 & 1 & X^4 & 1
-\end{array}$\\[\baselineskip]
+\begin{center}\begin{tabular}{lllll}
+  \toprule
+  (Summand aus dem) $1$. Faktor & $2$. Faktor & $3$. Faktor & $4$. Faktor & allen anderen Faktoren \\
+  \midrule
+  $X^4$ & 1 & 1 & 1 & 1 \\
+  $X^2$ & $X^2$ & 1 & 1 & 1 \\
+  $X$ & 1 & $X^3$ & 1 & 1 \\
+  1 & $X^4$ & 1 & 1 & 1 \\
+  1 & 1 & 1 & $X^4$ & 1 \\
+  \bottomrule
+\end{tabular}\end{center}
 
 Wie Du siehst, steht in der letzten Spalte immer nur eine $1$, da die
 Exponenten aller anderen $X$-Potenzen in diesen Faktoren schon zu groß
-sind.\footnote{ Das ist übrigens der Grund, warum wir so gut mit diesem
-Produkt umgehen können. Zwar ist das Produkt \glqq unendlich lang\grqq\ \!,
+sind.\footnote{Das ist übrigens der Grund, warum wir so gut mit diesem
+Produkt umgehen können. Zwar ist das Produkt "`unendlich lang"',
 aber für jeden einzelnen Koeffizienten in der ausmultiplizierten Form
 brauchen wir nur endlich viele Faktoren zu beachten.} Wir können uns also auf
-die ersten $4$ Faktoren konzentrieren. Wenn wir nur die ersten vier Faktoren
+die ersten vier Faktoren konzentrieren. Wenn wir nur die ersten vier Faktoren
 ausmultiplizieren, so haben die Exponenten $k$ in der ausmultiplizierten Form
 folgende Gestalt:
 $$
  k = 1 k_1 + 2 k_2 + 3 k_3 + 4 k_4
 $$
-Dabei ist $k_i$ der Exponent der $X$-Potenz, welche wir im $i$-ten Faktor
-gewählt haben.\footnote{ Die $1$ sehen wir dabei als $X^0$ an.}
+Dabei ist $i \cdot k_i$ der Exponent der $X$-Potenz, welche wir im $i$-ten Faktor
+gewählt haben.\footnote{Die Zahl~$1$ sehen wir dabei als $X^0$ an.}
 Wir suchen speziell nach solchen Kombinationen, sodass der Exponent gleich $4$
 ist, wir erhalten also die Gleichung
 $$
  4 = 1 k_1 + 2 k_2 + 3 k_3 + 4 k_4.
 $$
-Wir müssen also passende Werte für die $k_i$ finden. Jetzt kommt der Clou:
+Wir müssen also passende Werte für die $k_i$ finden.
+
+Jetzt kommt der Clou:
 Jede solche Lösung entspricht einer Partition der Zahl $4$. Wir können
 nämlich $k_i$ auch als Anzahl der Teile der Größe $i$ sehen. Da die
 $k_i$ eine Lösung der Gleichung sind, summieren sich die Teile dann genau zu
@@ -176,22 +242,21 @@ $$
 $$
 erhalten wir die Partition der $4$ mit einem Teil der Größe $1$ und mit
 einem Teil der Größe $3$, also $4 = 3 + 1$ bzw. $(3,1)$ in der ganz
-korrekten Tupelschreibweise. In der Tabelle ist eine Übersicht über alle
+korrekten Tupelschreibweise. Die folgende Tabelle zeigt eine Übersicht über alle
 Partitionen der $4$.
+\begin{center}\begin{tabular}{llllll}
+  \toprule
+  $1$. Faktor & $2$. Faktor & $3$. Faktor & $4$. Faktor & $(k_1,k_2,k_3,k_4)$ & Partition \\
+  \midrule
+  $X^4$ & 1 & 1 & 1 & $(4,0,0,0)$ & $1+1+1+1$ \\
+  $X^2$ & $X^2$ & 1 & 1 & $(2,1,0,0)$ & $2+1+1$ \\
+  $X$ & 1 & $X^3$ & 1 & $(1,0,1,0)$ & $3+1$ \\
+  1 & $X^4$ & 1 & 1 & $(0,2,0,0)$ & $2+2$ \\
+  1 & 1 & 1 & $X^4$ & $(0,0,0,1)$ & $4$ \\
+  \bottomrule
+\end{tabular}\end{center}
 
-$\begin{array}{c|c|c|c|c|r}
- \text{$1$. Faktor} & \text{$2$. Faktor} & \text{$3$. Faktor} & \text{$4$. Faktor} & (k_1,k_2,k_3,k_4) & \text{Partition}\\
- \hline
- X^4 & 1 & 1 & 1 & (4,0,0,0) & 1+1+1+1\\
- X^2 & X^2 & 1 & 1 & (2,1,0,0) & 2+1+1\\
- X & 1 & X^3 & 1 & (1,0,1,0) & 3+1\\
- 1 & X^4 & 1 & 1 & (0,2,0,0) & 2+2\\
- 1 & 1 & 1 & X^4 & (0,0,0,1) & 4
-\end{array}$\\[\baselineskip]
-
-% Nur zur Hälfte ausfüllen und den Rest als Aufgabe?
-
-Wir erhalten natürlich auch für andere Zahlen als die $4$ Partitionen. Wenn
+Wir erhalten natürlich auch für andere Zahlen als die Zahl~$4$ Partitionen. Wenn
 wir Partitionen für $n$ auf diese Art und Weise finden wollen, können wir
 uns auf die ersten $n$ Faktoren von $P(X)$ beschränken und erhalten
 Gleichungen der Form
@@ -203,34 +268,59 @@ Das Tolle dabei: Wir lassen keine Partition aus, erhalten auf diese Weise also
 wirklich jede Partition! Gleichzeitig erhalten wir jede Partition nur genau
 einmal. Was bedeutet das für den Koeffizienten vor $X^n$ in $P(X)$? Dieser
 ist nichts anderes als $p(n)$, die Anzahl der Partitionen von $n$, d.\,h.
-$$
+\begin{equation}\label{eq:erz}
  P(X) = p(0) + p(1)X + p(2)X^2 + p(3)X^3 + \dots
-$$
+\end{equation}
 Wenn wir also wissen wollen, wie viele Partitionen die Zahl $10$ hat, können
 wir einfach beginnen, die ersten $10$ Faktoren von $P(X)$ auszumultiplizieren
 und uns anschließend ansehen, welcher Koeffizient vor $X^{10}$ steht, das
 ist die Antwort. Das ist aber noch nicht zufriedenstellend, denn kein Mensch
-hat Lust ein solch unübersichtliches Produkt zu berechnen.\\ Man nennt $P(X)$
-auch die erzeugende Funktion der Partitionsfunktion. Das ist aber nicht so zu
+hat Lust ein solch unübersichtliches Produkt zu berechnen. Es ginge auch gar
+nicht schneller, als direkt, ohne Umweg übers Ausmultiplizieren, die Anzahl der
+Partitionen zu bestimmen.
+
+Man nennt $P(X)$
+auch die \emph{erzeugende Funktion} der Partitionsfunktion. Das ist aber nicht so zu
 verstehen, dass wir in diese erzeugende Funktion $P(X)$ irgendwelche Werte
 für $X$ einsetzen möchten, das ergibt in den meisten Fällen überhaupt
-keinen Sinn. Man kann sich eine solche erzeugende Funktion eher als
+keinen Sinn.\footnote{Was zum Beispiel sollte das Ergebnis sein, wenn man in
+die Potenzreihe~$1 - X + X^2 - X^3 + X^4 \mp \cdots$ für~$X$ die Zahl~$1$
+einsetzt? Klammert man als~$(1-1)+(1-1)+(1-1)+\cdots$, so sollte das Ergebnis
+Null sein; klammert man dagegen als~$1+(-1+1)+(-1+1)+\cdots$, so sollte das
+Ergebnis Eins sein. Noch vor gar nicht so langer Zeit stellten Reihen wie diese
+Mathematikerinnen und Mathematiker vor ein Rätsel. Heute wissen wir: Manche
+Reihen sind \emph{konvergent} -- solchen lässt sich ein konkreter Zahlwert
+zuordnen -- und andere sind \emph{divergent}. Da wir an keiner Stelle für~$X$
+eine reelle Zahl einsetzen werden, muss uns das aber gar nicht interessieren.}
+Man kann sich eine solche erzeugende Funktion eher als
 Wäscheleine vorstellen, an der man die Folgenglieder einer Folge der Reihe
-nach neben den Potenzen einer Variable aufhängt, so wie wir es (unbewusst)
-auch getan haben. Die Potenzen dieser Variable haben keine Bedeutung, sie
+nach neben den Potenzen einer Variable aufhängt, so wie wir es (ohne es explizit zu betonen)
+auch getan haben. Die Potenzen dieser Variable haben keine besondere Bedeutung, sie
 helfen uns nur, den Überblick zu behalten und sorgen für Ordnung auf der
-Leine. Das verblüffende ist, dass man mit erzeugenden Funtionen sinnvolle
+Leine.
+
+Das Verblüffende ist, dass man mit erzeugenden Funtionen sinnvolle
 Ergebnisse über die Folge herausfinden kann, indem man einfach mit ihr
 rechnet, als wäre sie eine gewöhnliche Funktion. Dabei hat man oft kein ein
 Gefühl dafür, was diese Rechenoperationen auf der Folge direkt für
-Auswirkungen haben. Genau das werden wir jetzt auch machen.
+Auswirkungen haben. Genau das werden wir gleich auch machen.
+
+\begin{aufgabe}{Konkrete Zahlenwerte}
+Jetzt ist ein guter Moment, um kurz inne zu halten. Verstehst du, was wir in
+diesem Abschnitt bisher entwickelt haben? Fang doch mal an, die
+Formel~\eqref{eq:defn-p} auszumultiplizieren. Am besten per Hand, weil man
+dadurch ein besseres Gefühl für die Systematik erhält, Du kannst aber auch ein
+Computeralgebrasystem wie wolframalpha.com zu Hilfe nehmen. Verifiziere damit
+Formel~\eqref{eq:erz} (bis zu irgendeiner Stelle, bei der Dir die Lust
+vergeht).
+\end{aufgabe}
 
 Betrachten wir den $m$-ten Faktor von $P(X)$. Die Multiplikation von diesem mit
 $(1-X^m)$ liefert:
 \begin{align*}
- &(1 + X^m + X^{2m} + X^{3m} + X^{4m} + \dots ) (1 - X^m) \\
- = &(1 + X^m + X^{2m} + X^{3m} + X^{4m} + \dots ) - (X^m + X^{2m} + X^{3m} + X^{4m} + X^{5m} \dots )
- = 1.
+ &(1 + X^m + X^{2m} + X^{3m} + X^{4m} + \dots) (1 - X^m) \\
+ &\mathrel{=} (1 + X^m + X^{2m} + X^{3m} + X^{4m} + \dots ) - (X^m + X^{2m} + X^{3m} + X^{4m} + X^{5m} \dots) \\
+ &\mathrel{=} 1.
 \end{align*}
 Das ermöglicht es uns, diesen Faktor sehr kompakt zu schreiben, indem wir
 einfach durch $(1-X^m)$ teilen:
@@ -248,20 +338,23 @@ kennen gelernt hast. Durch Ausnutzung dieses Zusammenhangs können wir uns
 dann endlich Rekursionsformeln herleiten. Zunächst sollten wir aber klären,
 was Pentagonalzahlen überhaupt sind.
 
-\begin{defn}\textbf{Pentagonalzahlen}\\
- Als Pentagonalzahlen bezeichnen wir natürliche Zahlen  der Form
+
+\section{Pentagonalzahlen}
+
+\begin{defn}
+ Als \emph{Pentagonalzahlen} bezeichnen wir natürliche Zahlen der Form
  $$
   n = \frac{k(3k \pm 1)}{2}
  $$
  für ein $k$, wobei $\pm$ entweder für $+$ oder für $-$ steht.\footnote{
  Es handelt sich tatsächlich immer um eine natürliche Zahl und nicht um
- einen Bruch.: Wenn $k$ gerade ist, ist das klar. Ansonsten ist aber $3k \pm 1$
- gerade, und somit ist $n$ auch in diesem Fall eine natürliche Zahl.} Oft
- werden die Zahlen der Form $\frac{k(3k - 1)}{2}$ als \glqq echte \grqq\
+ einen Bruch: Wenn~$k$ gerade ist, ist das klar. Ansonsten ist aber $3k \pm 1$
+ gerade, und somit ist~$n$ auch in diesem Fall eine natürliche Zahl.} Oft
+ werden die Zahlen der Form $\frac{k(3k - 1)}{2}$ als \emph{echte}
  Pentagonalzahlen bezeichnet, während die Zahlen der Form $\frac{k(3k +
- 1)}{2}$ als erweiterte Pentagonalzahlen bezeichnet werden. Die Folge der
- echten Pentagonalzahlen beginnt mit $0,\,1,\,5,\,12,\,22,\dots$, die der
- erweiterten Pentagonalzahlen mit $0,\,2,\,7,\,15,\,26,\dots$. Das folgende
+ 1)}{2}$ als \emph{erweiterte} Pentagonalzahlen bezeichnet werden. Die Folge der
+ echten Pentagonalzahlen beginnt mit $0,\,1,\,5,\,12,\,22,\,\dots$, die der
+ erweiterten Pentagonalzahlen mit $0,\,2,\,7,\,15,\,26,\,\dots$. Das folgende
  Bild erklärt die Herkunft des Namens für die echten Pentagonalzahlen.
  \begin{center}
   % http://www.icoachmath.com/math_dictionary/pentagonal_number.html
@@ -269,11 +362,12 @@ was Pentagonalzahlen überhaupt sind.
   \includegraphics[width=4.5cm,scale=0.8]{Pentagonal_Numbers.jpg}
  \end{center}
  Zähle doch mal, aus  wie vielen Punkten die einzelnen regelmäßigen
- Fünfecke (= Pentagon) bestehen. Richtig, aus $1,\,5,\,12,\,22,\dots$
+ Fünfecke (= Pentagone, die kleineren Fünfecke zählen zum nächstgrößeren dazu)
+ bestehen. Richtig, aus $1,\,5,\,12,\,22,\,\dots$
  Punkten.
 \end{defn}
 
-\begin{satz}\textnormal{\textbf{Eulerscher Pentagonalsatz}}\\
+\begin{satz}[Eulerscher Pentagonalsatz]
 Es gilt
 $$
  (1-X)(1-X^2)(1-X^3) \cdots = 1 + \sum_{k=1}^{\infty} (-1)^k \Big(X^{k(3k+1)/2} + X^{k(3k-1)/2}\Big).
@@ -281,7 +375,51 @@ $$
 Beachte: Die Exponenten auf der rechten Seite sind gerade die Pentagonalzahlen.
 \end{satz}
 
-\begin{proof}
+\begin{aufgabe}{Wieder Zahlenwerte}
+Puh! Die Formel im eulerschen Pentagonalsatz sieht nicht völlig einfach aus.
+Multipliziere die linke Seite aus (beachte dabei nur so viele Produkte, wie Du
+Lust hast) und berechne die ersten paar Summanden der rechten Seite. Damit ist
+rein logisch nichts gewonnen. Solche konkreten Rechnungen helfen aber, um
+ein Gefühl dafür zu entwickeln, was die Formel überhaupt aussagt.
+\end{aufgabe}
+
+Die Formel im eulerschen Pentagonalsatz erscheint zunächst kryptisch und
+unmotiviert. Wie wir aber im letzten Abschnitt sehen werden, ist es genau diese
+Formel, die den entscheidenden Durchbruch ermöglicht.
+
+Der Beweis des eulerschen Pentagonalsatzes wird uns den gesamten nächsten
+Abschnitt beschäftigen. Möglicherweise ist das das erste Mal in deinem Leben,
+dass du versuchst, einen Beweis auf universitärem Niveau nachzuvollziehen.
+Falls dem so ist: Willkommen im Club! Studierende und Promovierende verbringen
+viel Zeit damit, Beweise nachzuvollziehen. (Mit viel Kreativität eigene Beweise
+zu finden und als Promovierender dann sogar überhaupt erst interessante
+Behauptungen zu finden, steht ebenfalls auf dem Plan.)
+
+Es ist aber auch eine Warnung angebracht: Einen Beweis wie den folgenden kann
+man nicht einfach so herunterlesen. Man muss jeden einzelnen Satz kritisch
+hinterfragen: Verstehe ich, was gerade ausgesagt wurde? Weiß ich, wieso stimmt,
+was ausgesagt wurde? An manchen Stellen haben wir das explizit gekennzeichnet,
+aber auch an allen übrigen Stellen ist es nötig, dass man sich diese Fragen
+stellt. Das benötigt viel Zeit. Belohnt wird man durch ein tolles Aha-Gefühl,
+wenn man versteht, wie alle Puzzleteile ineinandergreifen.
+
+Es ist auch üblich, Teile des Beweises zunächst zu überfliegen, um ein Gefühl
+für die Grobstruktur der Argumentation zu entwickeln. Wenn Du möchtest, kannst
+Du sogar beim ersten Lesen den Beweis ganz überspringen und gleich beim letzten
+Abschnitt weiterlesen.
+
+Wenn es Dich das Thema aber interessiert, dann ermutigen wir Dich, den Kampf
+mit dem Beweis aufzunehmen. Wenn Du hängenbleibst und nicht weiter weißt, dann
+schreib uns einfach eine Mail!
+
+\begin{center}
+  http://abstrusegoose.com/353
+  \includegraphics[scale=0.6]{saint_curious_george}
+\end{center}
+
+
+\section{Beweis des eulerschen Pentagonalsatzes}
+
  Der erste Schritt zum Durchblick ist es, eine geeignete Interpretation für
  die linke Seite der Gleichung zu finden. Wir wollen schließlich irgendwie
  wieder zu unseren Partitionen kommen. Wir können uns nochmal das Produkt
@@ -378,7 +516,8 @@ Beachte: Die Exponenten auf der rechten Seite sind gerade die Pentagonalzahlen.
   zusammengefasst. Diese werden wir als Schräge bezeichnen. Im Bild sind
   diese Kästchen rot markiert. Es kann sein, dass sich die Front und die
   Schräge ein Kästchen teilen, wie das lila farbene Kästchen bei der
-  rechts abgebildeten Partition.\\
+  rechts abgebildeten Partition.
+
   Die Anzahl der Kästchen der Front, der Schräge bzw. des Schnitts werden
   wir mit $\Front$, $\Slope$ bzw. $\Intersect$ abkürzen.
  \end{defn}
@@ -401,7 +540,7 @@ Beachte: Die Exponenten auf der rechten Seite sind gerade die Pentagonalzahlen.
  verfahren.
 
  Unser Trick wird sein, soweit möglich zu versuchen, jeder Partition $p$ von
- $n$ in verschieden große Teile eine \glqq Partner\grqq\ \!-Partition $p^*$
+ $n$ in verschieden große Teile eine "`Partner"'-Partition $p^*$
  von $n$ zuzuordnen, die ebenfalls nur aus verschieden großen Teilen
  besteht. Dabei soll genau eine der verpartnerten Partitionen $p$ und $p^*$
  ungerade viele Teile besitzen und die andere entsprechend gerade viele Teile
@@ -817,8 +956,10 @@ Beachte: Die Exponenten auf der rechten Seite sind gerade die Pentagonalzahlen.
  $$
  für ein $k$, wobei $k$ die Anzahl der Säulen ist und uns somit das
  Vorzeichen liefert, d.\,h. in diesem Fall gilt $p_{dist}^{g-u}(n)=(-1)^k$. Das
- zeigt gerade den eulerschen Pentagonalsatz.
-\end{proof}
+ zeigt gerade den eulerschen Pentagonalsatz. \hfill$\qed$
+
+
+\section{Herleitung einer Rekursionsformel für die Partitionsfunktion}
 
 Puh! Wir haben den eulerschen Pentagonalsatz bewiesen! Aus diesem können wir
 direkt folgern, dass
@@ -871,10 +1012,10 @@ Mühen endlich eine Rekursionsformel
 \begin{equation}\label{eq_rek}
  p(t) = - \sum_{s=1}^{t} p(t-s) \, a_s.
 \end{equation}
-für $p(t)$.\\
+für $p(t)$.
 
 Mithilfe der folgenden Tabelle sind wir in der Lage, diese Rekursionsformeln
-konkret aufzuschreiben.\\
+konkret aufzuschreiben.
 
 $\begin{array}[h]{c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
  k & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16\\
@@ -906,7 +1047,7 @@ $$
 Diese Summe scheint in dieser Schreibweise aus unendlich vielen Summanden zu
 bestehen, dies ist aber nicht der Fall. Wir wissen nur nicht genau, wie viele
 Summanden tatsächlich auftreten. Sobald aber das Argument in $p(\cdot)$
-kleiner $0$ ist, bricht diese Summe ab.\\
+kleiner $0$ ist, bricht diese Summe ab.
 
 Mithilfe des Startwerts $p(0) = 1$ können wir nun die ersten Werte der
 Partitionsfunktion berechnen:
