@@ -122,10 +122,19 @@ werden, dass man alle (zumindest viele) kleineren Werte der Partitionsfunktion
 kennen muss, bevor man den nächsten berechnen kann. Das soll uns aber nicht
 stören.
 
+\begin{bem}Die üblichen Konventionen in der Mathematik führen dazu, dass es eine
+Partition der Null und eine der Eins gibt, also~$p(0) = 1$ und~$p(1) = 1$. Die
+Partition der Null ist das \emph{leere Tupel} und die Partition der Eins ist
+das einelementige Tupel~$(1)$. Es gibt mehrere gute Gründe, das so zu sehen
+und nicht anders. Einer ist, das alle noch folgenden Formeln in diesem Brief
+schön und elegant funktionieren und keine Sonderbehandlung für die Zahlen~$0$
+und~$1$ benötigen.
+\end{bem}
+
 \begin{aufgabe}{Dreifaches Ausmultiplizieren}
 \begin{enumerate}
 \item Überzeuge dich von folgender Regel zum Ausmultiplizieren. Falls sie schon
-in der Schule behandelt wurde, bist du natürlich fein raus. :-)
+in der Schule behandelt wurde, bist Du natürlich fein raus. :-)
 
 "`Wenn man ein dreifaches Produkt wie
 \[ (a+A) (b+B) (c+C) \]
@@ -134,7 +143,7 @@ ausmultiplizieren möchte, so ist das Ergebnis
 Pro Summand des Ergebnisses muss man also für jeden der drei Faktoren
 entscheiden, welchen der beiden Summanden aus ihm man nehmen möchte.
 \item Was ergibt ein vierfaches Produkt wie~$(a+A)(b+B)(c+C)(d+D)$? Schreib
-keinesfalls das Ergebnis aus. Es genügt, wenn du verstehst, wie sich das
+keinesfalls das Ergebnis aus. Es genügt, wenn Du verstehst, wie sich das
 Ergebnis zusammensetzt.
 \item Was ergibt~$(a+A+\alpha)(b+B+\beta)(c+C+\gamma)$?
 \end{enumerate}
@@ -159,18 +168,25 @@ die Systematik dir gerade nicht klar ist, dann schreib uns eine Mail!
 \end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}{Der kleine Gauß}
+\begin{aufgabe}{Der kleine Gauß}\label{aufg:gauss}
 Erstsemesterstudierende bezeichnen die folgende für jede natürliche Zahl~$n$
 gültige Formel als "`den kleinen Gauß"', weil es die Anekdote gibt, dass Carl
 Friedrich Gauß sie als kleiner Junge fand.
 \[ 1 + 2 + \cdots + (n-1) + n = \frac{n \cdot (n+1)}{2}. \]
 Oder kürzer: $\sum_{i=1}^n i = n (n+1) / 2$.
 
-Starre folgende Grafik lange genug an, bis du verstehst, wieso diese Formel
+Starre folgende Grafik lange genug an, bis Du verstehst, wieso diese Formel
 stimmt. Die Grafik illustriert den Spezialfall~$n = 6$.
 \begin{center}
 \includegraphics[scale=0.3]{kleiner-gauss-1}
 \end{center}
+\end{aufgabe}
+
+\begin{aufgabe}{Bock auf Programmieren?}\label{aufg:progr}
+Kannst Du Programmieren und hast Du Spaß daran? Dann entwickle doch ein
+Programm, das die Partitionsfunktion berechnet. Du wirst leider feststellen,
+dass Dein Programm große Mühe haben wird, die Werte~$p(n)$ für große
+Eingaben~$n$ zu berechnen. Der eulersche Pentagonalsatz wird Abhilfe bringen.
 \end{aufgabe}
 
 
@@ -306,7 +322,7 @@ Gefühl dafür, was diese Rechenoperationen auf der Folge direkt für
 Auswirkungen haben. Genau das werden wir gleich auch machen.
 
 \begin{aufgabe}{Konkrete Zahlenwerte}
-Jetzt ist ein guter Moment, um kurz inne zu halten. Verstehst du, was wir in
+Jetzt ist ein guter Moment, um kurz inne zu halten. Verstehst Du, was wir in
 diesem Abschnitt bisher entwickelt haben? Fang doch mal an, die
 Formel~\eqref{eq:defn-p} auszumultiplizieren. Am besten per Hand, weil man
 dadurch ein besseres Gefühl für die Systematik erhält, Du kannst aber auch ein
@@ -389,7 +405,7 @@ Formel, die den entscheidenden Durchbruch ermöglicht.
 
 Der Beweis des eulerschen Pentagonalsatzes wird uns den gesamten nächsten
 Abschnitt beschäftigen. Möglicherweise ist das das erste Mal in deinem Leben,
-dass du versuchst, einen Beweis auf universitärem Niveau nachzuvollziehen.
+dass Du versuchst, einen Beweis auf universitärem Niveau nachzuvollziehen.
 Falls dem so ist: Willkommen im Club! Studierende und Promovierende verbringen
 viel Zeit damit, Beweise nachzuvollziehen. (Mit viel Kreativität eigene Beweise
 zu finden und als Promovierender dann sogar überhaupt erst interessante
@@ -401,14 +417,18 @@ hinterfragen: Verstehe ich, was gerade ausgesagt wurde? Weiß ich, wieso stimmt,
 was ausgesagt wurde? An manchen Stellen haben wir das explizit gekennzeichnet,
 aber auch an allen übrigen Stellen ist es nötig, dass man sich diese Fragen
 stellt. Das benötigt viel Zeit. Belohnt wird man durch ein tolles Aha-Gefühl,
-wenn man versteht, wie alle Puzzleteile ineinandergreifen.
+wenn man versteht, wie alle Puzzleteile ineinandergreifen.\footnote{Ich, Ingo,
+habe sehr positive Erinnerungen an eine bestimmte Woche während ich meine
+Masterarbeit anfertigte. Ich musste einen gewissen englischen Originalartikel
+verstehen. Mit einem Absatz war ich eine Woche lang beschäftigt. Es war toll,
+jeden Abend einen weiteren Satz verstanden zu haben!}
 
 Es ist auch üblich, Teile des Beweises zunächst zu überfliegen, um ein Gefühl
 für die Grobstruktur der Argumentation zu entwickeln. Wenn Du möchtest, kannst
 Du sogar beim ersten Lesen den Beweis ganz überspringen und gleich beim letzten
 Abschnitt weiterlesen.
 
-Wenn es Dich das Thema aber interessiert, dann ermutigen wir Dich, den Kampf
+Wenn Dich das Thema aber interessiert, dann ermutigen wir Dich, den Kampf
 mit dem Beweis aufzunehmen. Wenn Du hängenbleibst und nicht weiter weißt, dann
 schreib uns einfach eine Mail!
 
@@ -422,29 +442,29 @@ schreib uns einfach eine Mail!
 
  Der erste Schritt zum Durchblick ist es, eine geeignete Interpretation für
  die linke Seite der Gleichung zu finden. Wir wollen schließlich irgendwie
- wieder zu unseren Partitionen kommen. Wir können uns nochmal das Produkt
+ wieder zu unseren Partitionen kommen. Wir können uns noch mal das Produkt
  $$
-  (1 + X + X^2 + \dots + X^i + \dots)(1 + X^2 + X^4 + \dots + X^{2j} + \dots)(1 + X^3 + X^6 + \dots + X^{3k} + \dots) \cdots
+  (1 + X + X^2 + \cdots + X^i + \cdots)(1 + X^2 + X^4 + \cdots + X^{2j} + \cdots)(1 + X^3 + X^6 + \cdots + X^{3k} + \cdots) \cdots
  $$
- betrachten, wo wir bereits einen solchen Zusammenhang herstellen konnten. Die
+ ansehen, wo wir bereits einen solchen Zusammenhang herstellen konnten. Die
  Wahl des $i$-ten Summanden im $j$-ten Faktor entsprach in der zugehörigen
- Partition der Wahl von $i-1$ Teilen der Größe $j$. Im Produkt (wir
- ignorieren erstmal die Minuszeichen)
+ Partition der Wahl von $i-1$ Teilen der Größe $j$. Im Produkt
  $$
   (1+X)(1+X^2)(1+X^3) \cdots
  $$
+ (wir ignorieren erstmal die Minuszeichen)
  haben wir pro Faktor immer nur zwei Summanden zur Auswahl. Für die dadurch
  beschriebenen Partitionen heißt das, dass wir zu jeder Größe
- entweder kein Teil oder genau ein Teil aufnehmen können, nicht aber mehrere.
+ entweder keinen Teil oder genau ein Teil aufnehmen können, nicht aber mehrere.
  Das bedeutet, dass wir so nur Partitionen beschreiben, die aus lauter
  verschieden großen Teilen bestehen. Als erzeugende Funktion geschrieben:
  $$
-  (1+X)(1+X^2)(1+X^3) \cdots = p_{dist}(0) + p_{dist}(1)X + p_{dist}(2)X^2 + p_{dist}(3)X^3 + \dots,
+  (1+X)(1+X^2)(1+X^3) \cdots = p_\text{dist}(0) + p_\text{dist}(1)X + p_\text{dist}(2)X^2 + p_\text{dist}(3)X^3 + \dots,
  $$
- wobei $p_{dist}(n)$ die Anzahl der Partitionen von $n$ in verschieden
- große Teile ist.\footnote{ Zum Beispiel hat die Zahl $4$ genau zwei solche
- Partitionen, nämlich $(3,1)$ und $(4)$. Bei allen anderen Partitionen
- $(1,1,1,1)$, $(2,1,1)$ und $(2,2)$ der $4$ dagegen treten einige Teile
+ wobei $p_\text{dist}(n)$ die Anzahl der Partitionen von $n$ in verschieden
+ große Teile ist.\footnote{Zum Beispiel hat die Zahl $4$ genau zwei solche
+ Partitionen, nämlich $(3,1)$ und $(4)$. Bei allen anderen Partitionen der~$4$,
+ $(1,1,1,1)$, $(2,1,1)$ und $(2,2)$, treten dagegen einige Teile
  gleicher Größe mehrfach auf.} Wenn wir das verstanden haben, können
  wir auch über die Minuszeichen in
  $$
@@ -457,23 +477,35 @@ schreib uns einfach eine Mail!
  mit ungerader Teileanzahl beschreiben, negatives Vorzeichen erhalten.
  Überlege Dir das an ein paar Beispielen. Wir erhalten
  $$
-  (1-X)(1-X^2)(1-X^3) \cdots = p_{dist}^{g-u}(0) + p_{dist}^{g-u}(1)X + p_{dist}^{g-u}(2)X^2 + p_{dist}^{g-u}(3)X^3 + \cdots,
+  (1-X)(1-X^2)(1-X^3) \cdots = p_\text{dist}^{\text{g}-\text{u}}(0) + p_\text{dist}^{\text{g}-\text{u}}(1)X + p_\text{dist}^{\text{g}-\text{u}}(2)X^2 + p_\text{dist}^{\text{g}-\text{u}}(3)X^3 + \cdots,
  $$
- wobei $p_{dist}^{g-u}(n)=p_{dist}^{g}(n) - p_{dist}^{u}(n)$ die Anzahl der
+ wobei $p_\text{dist}^{\text{g}-\text{u}}(n)=p_\text{dist}^\text{g}(n) - p_\text{dist}^\text{u}(n)$ die Anzahl der
  Partitionen von $n$ in verschieden große Teile mit gerader Anzahl von
  Teilen minus die Anzahl der Partitionen von $n$ in verschieden große Teile
  mit ungerader Anzahl von Teilen ist.
 
- Wir werden sehen, dass $p_{dist}^{g-u}(n) \in \{-1, 0 ,1\}$ für alle $n$
- ist, und dass $p_{dist}^{g-u}(n) \neq 0$ nur gilt, wenn $n$ eine
- Pentagonalzahl ist. Dazu benötigen wir Ferrers Diagramme, die Partitionen
+ \begin{aufgabe}{Eine gute Stelle zum Innehalten}
+ Multipliziere die ersten paar Faktoren der linken Seiten der vorhergehenden
+ Gleichung aus und berechne die ersten paar auf der rechten Seite der
+ vorhergehenden Gleichung vorkommenden
+ Zahlen~$p_\text{dist}^{\text{g}-\text{u}}(0)$,
+ $p_\text{dist}^{\text{g}-\text{u}}(1)$,
+ $p_\text{dist}^{\text{g}-\text{u}}(2)$,
+ $p_\text{dist}^{\text{g}-\text{u}}(3)$.
+ \end{aufgabe}
+
+ Wir werden sehen, dass für alle natürlichen Zahlen~$n$ die Differenz
+ $p_\text{dist}^{\text{g}-\text{u}}(n)$ nur~$-1$, $0$ oder~$1$ sein kann und
+ dass $p_\text{dist}^{\text{g}-\text{u}}(n) \neq 0$ nur gilt, wenn $n$ eine
+ Pentagonalzahl ist. Dazu benötigen wir Ferrers-Diagramme, die Partitionen
  visualisieren.
 
- \begin{defn}\textbf{Ferrers Diagramme}\\
-  Ein Ferrer Diagramm zu einer Partition $(n_1, n_2, \dots, n_k)$ von $n$ ist
+ \begin{defn}
+  Ein \emph{Ferrers-Diagramm} (benannt nach dem englischen Mathematiker Norman
+  Ferrers) zu einer Partition $(n_1, n_2, \dots, n_k)$ von $n$ ist
   ein Säulendiagramm mit $k$ Säulen, wobei die $i$-te Säule $n_i$
   Kästchen hoch ist. Wir veranschaulichen dies mal anhand der Partitionen
-  $(8,7,6,6,5,3)$ und $(8,7,6,5,4,3)$ der Zahlen $35$ und $30$:
+  $(8,7,6,6,5,3)$ und $(8,7,6,5,4)$ der Zahlen $35$ und $30$:
 
   \begin{figure}[h]
   \centering
@@ -510,55 +542,56 @@ schreib uns einfach eine Mail!
    \end{tikzpicture}}
   \end{figure}
 
-  Die Kästchen der $k$-ten (letzten) Säule nennen wir Front (im Bild blau
-  markiert). Die jeweils obersten Kästchen der ersten Säulen, sodass die
+  Die Kästchen der $k$-ten (rechtesten) Säule nennen wir \emph{Front} (im Bild blau
+  markiert). Diejenigen jeweils obersten Kästchen der ersten Säulen, sodass die
   jeweils folgende Säule genau ein Kästchen niedriger ist, werden ebenfalls
-  zusammengefasst. Diese werden wir als Schräge bezeichnen. Im Bild sind
+  zusammengefasst. Diese werden wir als \emph{Schräge} bezeichnen. Im Bild sind
   diese Kästchen rot markiert. Es kann sein, dass sich die Front und die
   Schräge ein Kästchen teilen, wie das lila farbene Kästchen bei der
-  rechts abgebildeten Partition.
+  rechts abgebildeten Partition. Es kann auch sein, dass die Schräge leer ist
+  (fällt Dir ein Beispiel ein?).
 
-  Die Anzahl der Kästchen der Front, der Schräge bzw. des Schnitts werden
+  Die Anzahl der Kästchen der Front, der Schräge und des Schnitts der beiden werden
   wir mit $\Front$, $\Slope$ bzw. $\Intersect$ abkürzen.
  \end{defn}
 
 
  Wir halten zunächst einige kleine Beobachtungen fest: Eine Partition von $n$
- ist genau dann eine Partition in verschieden große Teile, wenn alle
- Säulen im zugehörigen Ferrers Diagramm unterschiedlich hoch sind. Ferner
- ist die Anzahl der Kästchen des Ferrers Diagramm gleich $n$. Außerdem
+ ist genau dann eine Partition in lauter verschieden große Teile, wenn alle
+ Säulen im zugehörigen Ferrers-Diagramm unterschiedlich hoch sind. Ferner
+ ist die Gesamtzahl der Kästchen des Ferrers-Diagramms gleich $n$. Außerdem
  ist $\Intersect = 0$ oder $\Intersect = 1$, d.\,h. die Front und Schräge
  können sich maximal ein Kästchen teilen. Die Anzahl der Kästchen der
  Schräge ist kleiner gleich der Anzahl der Säulen $k$, d.\,h. $\Slope \leq
  k$ und Gleichheit tritt genau dann auf, wenn $\Intersect = 1$.
 
  Wie können uns diese Diagramme nun weiterhelfen? Zur Erinnerung: Wir wollten
- herausfinden, was $p_{dist}^{g-u}(n) = p_{dist}^{g}(n) - p_{dist}^{u}(n)$ ist.
- Wir werden uns also nur Ferrers Diagramme mit unterschiedlich hohen Säulen
- ansehen. Wir könnten nun versuchen $p_{dist}^{g}(n)$ und $p_{dist}^{u}(n)$
- seperat zu berechnen und danach die Differenz bilden. Wir werden anders
+ herausfinden, was $p_\text{dist}^{\text{g}-\text{u}}(n) = p_\text{dist}^\text{g}(n) - p_\text{dist}^\text{u}(n)$ ist.
+ Wir werden uns also nur Ferrers-Diagramme mit unterschiedlich hohen Säulen
+ ansehen. Wir könnten nun versuchen, $p_\text{dist}^\text{g}(n)$ und $p_\text{dist}^\text{u}(n)$
+ separat zu berechnen und danach die Differenz bilden. Wir werden aber anders
  verfahren.
 
- Unser Trick wird sein, soweit möglich zu versuchen, jeder Partition $p$ von
+ Unser Trick wird darin bestehen, soweit möglich zu versuchen, jeder Partition $p$ von
  $n$ in verschieden große Teile eine "`Partner"'-Partition $p^*$
  von $n$ zuzuordnen, die ebenfalls nur aus verschieden großen Teilen
- besteht. Dabei soll genau eine der verpartnerten Partitionen $p$ und $p^*$
+ besteht. Dabei soll genau eine der verpartnerten Partitionen~$p$ und $p^*$
  ungerade viele Teile besitzen und die andere entsprechend gerade viele Teile
  haben. Außerdem soll der Partner von $p^*$ wieder $p$ sein (verpartnerte
  Partitionen sind sich treu), d.\,h. $\left(p^*\right)^* = p$. Wie im echten
- Leben werden einige Partitionen keinen Partner finden, aber die meisten
- Partitionen werden nicht alleine bleiben.
+ Leben haben einige Partitionen keinen Partner, aber die meisten
+ Partitionen sind nicht alleine.
 
  Was wird uns das bringen? Wir müssen zu einer Zahl $n$ nur wissen, wie viele
- Partitionen von $n$ partnerlos bleiben. Denn von einem Partitionen-Paar
- $(p,p^*)$ trägt genau eine Partition zu $p_{dist}^{g}(n)$ und die andere zu
- $p_{dist}^{u}(n)$ bei. Zusammen genommen wird das Paar also keinen Beitrag zur
- Differenz $p_{dist}^{g-u}(n) = p_{dist}^{g}(n) - p_{dist}^{u}(n)$ leisten.
+ Partitionen von $n$ partnerlos bleiben. Denn von einem Partitionenpaar
+ $(p,p^*)$ trägt genau eine Partition zu $p_\text{dist}^\text{g}(n)$ und die andere zu
+ $p_\text{dist}^\text{u}(n)$ bei. Zusammengenommen wird das Paar also keinen Beitrag zur
+ Differenz $p_\text{dist}^{\text{g}-\text{u}}(n) = p_\text{dist}^\text{g}(n) - p_\text{dist}^\text{u}(n)$ leisten.
 
  Wir werden die gesuchte Zuordnung nun am Beispiel der Partition $p =
  (11,10,9,8,6,5,3)$ von $52$ motivieren. Wie wir anhand des zugehörigen
- Ferrers Diagramm leicht ablesen können, ist die Front hier kleiner als die
- Schräge:
+ Ferrers-Diagramm leicht ablesen können, ist die Front hier kleiner als die
+ Schräge (besteht aus weniger Kästchen):
 
  \begin{figure}[h]
   \centering
@@ -632,17 +665,20 @@ schreib uns einfach eine Mail!
  \end{cases}
  $$
 
- Wir werden nun zeigen, dass diese Idee tatsächlich zum Erfolg führt. Wir
- werden eine Fallunterscheidung durchführen und die Partitionen von $n$ in
- verschieden große Teile in drei Typen einteilen.
+ \begin{aufgabe}{Partnerlose Partitionen}
+ Finde ein Beispiel für eine Partition ohne Partner.
+ \end{aufgabe}
 
- \begin{itemize}
-  \item[Typ I:] $\Slope \geq \Front + \Intersect$\\[0.5\baselineskip]
+ Wir werden nun zeigen, dass diese Idee tatsächlich zum Erfolg führt. Wir
+ werden eine Fallunterscheidung durchführen und drei Typen von Partitionen von $n$
+ verschieden große Teile separat behandeln: Typ~I, Typ~II und Typ~III.
+
+ \subsection{Typ I: $\boldsymbol{\Slope \geq \Front + \Intersect}$}
    Behauptung: Das sind genau die Partitionen, für welche es möglich ist,
    die Front auf die Schräge zu legen.
 
-   Wir werden die beiden Fälle $\Intersect = 0$ und $\Intersect = 1$
-   gesondert betrachten, um den Überblick zu wahren und uns zunächst zwei
+   Um den Überblick zu wahren, werden wir die beiden Fälle $\Intersect = 0$ und $\Intersect = 1$
+   gesondert betrachten und uns zunächst zwei
    Beispiele ansehen.
 
   \begin{figure}[h]
@@ -681,7 +717,7 @@ schreib uns einfach eine Mail!
   \end{tikzpicture}}
  \end{figure}
 
-  In beiden Beispielen können wir die gesammte Front auf Schräge legen,
+  In beiden Beispielen können wir die gesamte Front auf die Schräge legen,
   diese ist groß genug.
   %Wir können aber nicht Schräge vor die Front stellen, denn diese ist zu
   %klein (die Säulen müssen nach ihrer Höhe sortiert bleiben und echt
@@ -767,35 +803,43 @@ schreib uns einfach eine Mail!
 %     \end{tikzpicture}}
 %    \end{figure}
 
-  Etwas konkreter: Wir müssen sicherstellen, dass die Front aus weniger oder
-  genauso vielen Kästchen besteht wie der Teil von Schräge, der nach
+  Etwas konkreter: Um unsere Behauptung zu beweisen, müssen wir sicherstellen, dass die Front aus weniger oder
+  genauso vielen Kästchen besteht als der Teil der Schräge, der nach
   Entfernen der Front übrig bleibt.
 
-  Falls $\Intersect = 0$, sich die Front und die Schräge also kein Kästchen
-  teilen, bleibt nach Entfernen der Front die gesamte Schräge übrig. In
-  diesem Fall muss folglich $\Slope \geq \Front$ gelten. Ist dagegen
-  $\Intersect = 1$, so bleiben von Schräge nach Entfernen der Front nur noch
-  $\Slope - 1$ Kästchen übrig, also muss in diesem Fall $\Slope - 1 \geq
-  \Front$ gelten. In beiden Fällen gilt also $\Slope - \Intersect \geq
-  \Front$ bzw. $\Slope \geq \Front + \Intersect$. Damit ist obige Behauptung
-  gezeigt.
+  Falls $\Intersect = 0$, falls sich die Front und die Schräge also kein Kästchen
+  teilen, bleibt nach Entfernen der Front die gesamte Schräge übrig. Da
+  $\Slope \geq \Front$, ist das Umlegen also möglich.
 
-  Wir wollen noch mehr: Sei $p=(n_1,n_2,\dots,n_k)$ unsere Partition von Typ I
+  Ist dagegen
+  $\Intersect = 1$, so bleiben von der Schräge nach Entfernen der Front nur noch
+  $\Slope - 1$ Kästchen übrig. Da aus~$\Slope \geq \Front + \Intersect$ folgt,
+  dass~$\Slope - 1 \geq \Front$, ist auch in diesem Fall das Umlegen möglich.
+
+  \begin{aufgabe}{Die Rückrichtung}
+  Die vorangehenden zwei Absätze zeigen: Wenn~$\Slope \geq \Front +
+  \Intersect$, so ist es möglich, die Front auf die Schräge zu legen. Mache Dir
+  nun klar: Wenn es möglich ist, die Front auf die Schräge zu legen, so
+  gilt~$\Slope \geq \Front + \Intersect$.
+  \end{aufgabe}
+
+  Wir wollen nun noch mehr zeigen: Sei $p=(n_1,n_2,\dots,n_k)$ unsere Partition von Typ I
   und $p^* = (n_1^*,n_2^*,\dots,n_{k-1}^*)$ ihr Partner, den wir durch Legen
-  der Front auf die Schräge erhalten. Beachte dass $p^*$ genau eine Säule
+  der Front auf die Schräge erhalten. Beachte, dass $p^*$ genau eine Säule
   weniger als $p$ besitzt. Wir bezeichnen mit $\Slope^*$, $\Front^*$ bzw.
   $\Intersect^*$ die Schräge, die Front bzw. den Schnitt von $p^*$. Damit
   gilt
   \begin{equation}\label{eq_Legen}
    \Slope^* = \Front \qquad \text{und} \qquad \Front^* > \Front.
   \end{equation}
+  Mache Dir das klar!
   Wir werden nun folgende Behauptung zeigen: Es gilt $\Slope^* < \Front^* - \Intersect^*$.
 
   Falls $\Intersect^* = 0$, so folgt dies direkt aus den obigen (Un)gleichungen
   (\ref{eq_Legen}). Betrachten wir also noch den Fall $\Intersect^* = 1$. Wegen
   $\Intersect^* = 1$ wissen wir, dass $\Slope^*$ gleich der Anzahl der Säulen
   von $p^*$ ist, d.\,h. $\Slope^* = k - 1$. Also wurde beim Legen der Front auf
-  Schräge auf jede der Säulen ein Kästchen gelegt, kurz $n_i^* = n_i + 1$
+  die Schräge auf jede der Säulen ein Kästchen gelegt, kurz $n_i^* = n_i + 1$
   für alle $i$ mit $1 \leq i \leq k-1$. Insbesondere gilt das also für die
   $(k-1)$-te Säule von $p^*$, welche zugleich die Front von $p^*$ bildet. Wir
   erhalten
@@ -812,27 +856,25 @@ schreib uns einfach eine Mail!
   $$
    \Front^* = n_{k-1} + 1 = n_{k-1} + \Intersect^* > \Slope^* + \Intersect^*
   $$
-  und daraus durch umstellen
-  $$
-   \Slope^* < \Front^* - \Intersect^*.
-  $$
-  Das zeigt auch die zweite Behauptung. Wir erhalten also aus jeder Typ
-  I-Partition $p$ durch Legen der Front auf ihre Schräge eine Partition $p^*$
+  und daraus durch Umstellen $\Slope^* < \Front^* - \Intersect^*$.
+
+  Somit ist auch die zweite Behauptung gezeigt. Wir erhalten also aus jeder
+  Typ-I-Partition $p$ durch Legen der Front auf ihre Schräge eine Partition~$p^*$
   mit $\Slope^* < \Front^* - \Intersect^*$. Partitionen, die diese Eigenschaft
-  erfüllen werden wir als Typ II-Partition bezeichnen und im nächsten Fall
+  erfüllen, werden wir als Typ-II-Partition bezeichnen und im nächsten Fall
   untersuchen.
 
-  \item[Typ II:] $\Slope < \Front - \Intersect$\\[0.5\baselineskip]
+  \subsection{Typ II: $\boldsymbol{\Slope < \Front - \Intersect}$}
    Zunächst überlegen wir uns, dass eine solche Partition nicht
-   gleichzeitig von \mbox{Typ I} sein kann: Eine solche Partition müsste
+   gleichzeitig von Typ-I sein kann: Eine solche Partition müsste
    $\Front + \Intersect \leq \Slope < \Front - \Intersect$ erfüllen. Falls
    $\Intersect = 0$, würde der Widerspruch $\Front < \Front$ und falls
    $\Intersect = 1$, würde der Widerspruch $\Front + 1 < \Front - 1$ folgen.
    Dies ist also nicht möglich und somit ist es dann, wie wir bei der
-   Untersuchung der Typ I-Partitionen gesehen haben, nicht möglich, die Front
-   auf Schräge zu legen.
+   Untersuchung der Typ-I-Partitionen gesehen haben, nicht möglich, die Front
+   auf die Schräge zu legen.
 
-   Wir stellen aber folgende Behauptung auf: Die Typ II-Partitionen sind genau
+   Wir stellen aber folgende Behauptung auf: Die Typ-II-Partitionen sind genau
    die Partitionen, bei denen es möglich ist, die Schräge vor die Front
    stellen. Dafür muss sichergestellt sein, dass die zusätzliche Säule,
    die aus den Kästchen der Schräge entsteht, kleiner als die
@@ -840,15 +882,16 @@ schreib uns einfach eine Mail!
    verschieden hohen Säulen betrachten.
 
    Ist $\Intersect = 0$, so behält die ursprüngliche Front beim Entfernen
-   der Schräge ihre Höhe. Es muss also lediglich $\Slope < \Front$ gelten.
+   der Schräge ihre Höhe. Das Umlegen ist also genau dann möglich, wenn~$\Slope < \Front$.
    Ist dagegen $\Intersect = 1$, so wird die ursprüngliche Front um ein
-   Kästchen schrumpfen, wenn die Schräge vor die Front gestellt wird. Also
-   muss in diesem Fall $\Slope < \Front -1$ gelten. In beiden Fällen gilt
-   also $\Slope < \Front - \Intersect$, was die Behauptung zeigt.
+   Kästchen schrumpfen, wenn die Schräge vor die Front gestellt wird. Das
+   Umlegen ist also genau dann möglich, wenn~$\Slope < \Front -1$ gelten. In
+   beiden Fällen sehen wir: Das Umlegen ist genau dann möglich, wenn~$\Slope <
+   \Front - \Intersect$. Das zeigt die Behauptung.
 
-   Als nächstes wollen wir zeigen, dass wir aus einer Typ II-Partition
-   $p=(n_1,n_2,\dots,n_k)$ eine Typ I-Partition $p^* =
-   (n_1^*,n_2^*,\dots,n_{k+1}^*)$ erhalten. Beachte, dass $p^*$ diesmal eine
+   Als Nächstes wollen wir zeigen, dass wir aus einer Typ-II-Partition
+   $p=(n_1,n_2,\dots,n_k)$ eine Typ-I-Partition $p^* =
+   (n_1^*,n_2^*,\dots,n_{k+1}^*)$ als Partner erhalten. Beachte, dass $p^*$ diesmal eine
    Säule mehr hat als $p$. Wir bezeichnen wieder mit $\Slope^*$, $\Front^*$
    bzw. $\Intersect^*$ die Anzahl der Kästchen der Schräge, der Front bzw.
    des Schnittes von $p^*$.
@@ -858,7 +901,7 @@ schreib uns einfach eine Mail!
    \end{equation}
    Wir müssen zeigen, dass $\Slope^* \geq \Front^* + \Intersect^*$ gilt.
 
-   Im Fall $\Intersect^* = 0$ folgt aus den (Un)gleichungen (\ref{eq_Stellen})
+   Im Fall $\Intersect^* = 0$ folgt aus den (Un-)gleichungen~\eqref{eq_Stellen}
    sofort $\Slope^* \geq \Front^* + \Intersect^*$. Betrachten wir also noch den
    Fall $\Intersect^* = 1$. Wir wissen, dass die Anzahl der Säulen $k$ von
    $p$ größer oder gleich $S$ ist, d.\,h. $k \geq \Slope$. Wegen
@@ -867,20 +910,21 @@ schreib uns einfach eine Mail!
    + \Intersect^*$. Auch hier folgt also $\Slope^* \geq \Front^* +
    \Intersect^*$.
 
-   Wir erhalten also aus jeder Typ II -Partition durch Stellen der Schräge
-   vor die Front eine Typ I-Partition. Ferner ist klar, dass
-   $\left(p^*\right)^* = p$ für alle \mbox{Typ I} und \mbox{Typ
-   II}-Partitionen $p$ gilt. Eine Frage ist aber noch offen: Gibt es neben den
+   Wir erhalten also aus jeder Typ-II-Partition durch Stellen der Schräge
+   vor die Front eine Typ-I-Partition. Ferner ist klar, dass
+   $\left(p^*\right)^* = p$ für alle Typ-I- und Typ-II-Partitionen $p$ gilt.
+   Eine Frage ist aber noch offen: Gibt es neben den
    Typ I und Typ II-Partitionen noch andere? Ja, gibt es! Diese werden wir nun
-   als letzten Fall betrachten und Typ III-Partitionen nennen.
+   als letzten Fall betrachten und Typ-III-Partitionen nennen.
 
 
-  \item[Typ III:] Alle anderen, d.\,h. $\Front - \Intersect \leq \Slope <
-  \Front + \Intersect$\\[0.5\baselineskip]
+  \subsection{Typ III: Alle anderen, d.\,h. $\boldsymbol{\Front - \Intersect \leq \Slope <
+  \Front + \Intersect}$}
   In diesem Fall gilt schon $\Intersect = 1$ (sonst wäre $\Front < \Front$)
   und somit ist die Anzahl der Säulen $k$ schon gleich $\Slope$. Wir müssen
   also die beiden Unterfälle $\Slope = \Front - 1$ und $\Slope = \Front$
-  betrachten. In der Abbildung haben wir für beide Unterfälle ein Beispiel:
+  betrachten. (Wieso gibt es keine weiteren Unterfälle? Mache Dir das klar!)
+  In der Abbildung haben wir für beide Unterfälle ein Beispiel:
 
   \begin{figure}[h]
   \centering
@@ -925,15 +969,14 @@ schreib uns einfach eine Mail!
 
  Für welche $n$ gibt es solche Partitionen? Um diese Frage zu beantworten,
  müssen wir die Kästchen zählen. In beiden Fällen haben wir oberhalb
- der gestrichelten Linie $1+2+3+ \dots + (k-1) + k$ Kästchen. Wie du
- vielleicht weißt, kann man diese Summe als
+ der gestrichelten Linie $1+2+3+ \dots + (k-1) + k$ Kästchen. Wie Du
+ aus Aufgabe~\ref{aufg:gauss} weißt, kann man diese Summe als
  $$
   \frac{k(k+1)}{2}
- $$ schreiben.\footnote{ Wenn du das noch nicht kennst, informiere dich bei
- Gelegenheit mal über die Gaußsche Summenformel.} Im Fall $\Slope = \Front
+ $$ schreiben. Im Fall $\Slope = \Front
  -1$ haben wir unterhalb der gestrichelten Linie $k^2$ viele Kästchen, im
  Fall $\Slope = \Front$ dagegen nur $k(k-1)$ viele Kästchen. Es gibt also
- \mbox{Typ III}-Partitionen genau für die $n$, die sich als
+ Typ-III-Partitionen genau für die $n$, die sich als
  $$
   n = \frac{k(k+1)}{2} + k^2 = \frac{3k^2+k}{2}
  $$
@@ -942,27 +985,34 @@ schreib uns einfach eine Mail!
   n = \frac{k(k+1)}{2} + k(k-1) = \frac{3k^2-k}{2}
  $$
  für ein $k$ schreiben lassen. Das sind exakt die Pentagonalzahlen!
- \end{itemize}
 
- Fazit: Partner einer Typ I -Partition ist eine Typ II -Partition und
- umgekehrt. Typ III -Partitionen haben keinen Partner. Um
- $p_{dist}^{g-u}(n)=p_{dist}^{g}(n) - p_{dist}^{u}(n)$ zu berechnen, genügt
+ Fazit: Partner einer Typ-I-Partition ist eine Typ-II-Partition und
+ umgekehrt. Typ-III-Partitionen haben keinen Partner. Um
+ $p_\text{dist}^{\text{g}-\text{u}}(n)=p_\text{dist}^\text{g}(n) - p_\text{dist}^\text{u}(n)$ zu berechnen, genügt
  es also, (da sich die Säulenanzahl von verpartnerten Typ I und Typ II
- -Partitionen genau um eins unterscheidet) nur die Typ III -Partitionen zu
- kennen. Für die meisten $n$ gibt es keine solche und es gilt
- $p_{dist}^{g-u}(n)=0$. Gibt es doch eine Typ III-Partition von $n$, so ist
+ -Partitionen genau um eins unterscheidet) nur die Typ-III-Partitionen zu
+ kennen: Die Differenz $p_\text{dist}^{\text{g}-\text{u}}(n)$ ist gleich der
+ Anzahl der Typ-III-Partitionen von~$n$.
+
+ Falls~$n$ keine Pentagonalzahl ist, so gibt es keine Typ-III-Partitionen von~$n$, also
+ ist~$p_\text{dist}^{\text{g}-\text{u}}(n)=0$. Falls~$n$ schon eine
+ Pentagonalzahl ist, so gibt es genau eine Typ-III-Partition von~$n$ (wieso?).
+ In diesem Fall ist also
  $$
   n = \frac{3k^2 \pm k}{2}
  $$
- für ein $k$, wobei $k$ die Anzahl der Säulen ist und uns somit das
- Vorzeichen liefert, d.\,h. in diesem Fall gilt $p_{dist}^{g-u}(n)=(-1)^k$. Das
+ für ein $k$, wobei $k$ die Anzahl der Säulen dieser einen Partition ist.
+ Falls~$k$ gerade ist, ist somit~$p_\text{dist}^{\text{g}-\text{u}}(n)=1$.
+ Falls~$k$ ungerade ist, ist~$p_\text{dist}^{\text{g}-\text{u}}(n)=-1$. Das
+ kann man auch kurz und knapp zusammenfassen:
+ $p_\text{dist}^{\text{g}-\text{u}}(n)=(-1)^k$ (mache Dir das klar!).
  zeigt gerade den eulerschen Pentagonalsatz. \hfill$\qed$
 
 
 \section{Herleitung einer Rekursionsformel für die Partitionsfunktion}
 
 Puh! Wir haben den eulerschen Pentagonalsatz bewiesen! Aus diesem können wir
-direkt folgern, dass
+durch Umstellen direkt folgern, dass
 $$
  P(X) \left(1 + \sum_{k=1}^{\infty} (-1)^k \Big(X^{k(3k+1)/2} + X^{k(3k-1)/2}\Big) \right) = 1.
 $$
@@ -971,12 +1021,12 @@ anschließend einen Koeffizientenvergleich durchführen. Was ist damit
 gemeint? Wir interpretieren beide Seiten der Gleichung als formale Potenzreihe,
 so ist z. B.
 $$
- 1 + \sum_{k=1}^{\infty} (-1)^k \Big(X^{k(3k+1)/2} + X^{k(3k-1)/2} \Big) = 1 - X - X^2 + X^5 + X^7 - X^{12} - X^{15} \pm \dots
+ 1 + \sum_{k=1}^{\infty} (-1)^k \Big(X^{k(3k+1)/2} + X^{k(3k-1)/2} \Big) = 1 - X - X^2 + X^5 + X^7 - X^{12} - X^{15} \pm \cdots
 $$
-Wir werden den $l$-ten Koeffizienten dieser Potenzreihe mit $a_l$ bezeichnen;
+Wir werden den $\ell$-ten Koeffizienten dieser Potenzreihe mit $a_l$ bezeichnen;
 wir können dann
 $$
-  1 + \sum_{k=1}^{\infty} (-1)^k \Big(X^{k(3k+1)/2} + X^{k(3k-1)/2} \Big) = a_0 + a_1 X + a_2 X^2 + \dots = \sum_{l=0}^{\infty} a_l X^l
+  1 + \sum_{k=1}^{\infty} (-1)^k \Big(X^{k(3k+1)/2} + X^{k(3k-1)/2} \Big) = a_0 + a_1 X + a_2 X^2 + \dots = \sum_{\ell=0}^{\infty} a_l X^\ell
 $$
 schreiben. Wir hatten bereits gesehen, dass
 $$
@@ -987,21 +1037,22 @@ a_n =
   0 \text{ in allen anderen Fällen.}\\
  \end{cases}
 $$
-Wenn wir nun diese Summe mit $P(X) = p(0) + p(1)X + p(2)X^2 + p(3)X^3 + \dots$
+Wenn wir nun diese Summe mit $P(X) = p(0) + p(1)X + p(2)X^2 + p(3)X^3 + \cdots$
 multiplizieren, erhalten wir wieder eine Potenzreihe, nämlich
 \footnotesize
 $$
- p(0) a_0 + \Big(p(1) a_0 + p(0) a_1  \Big) X + \Big(p(2) a_0 + p(1) a_1 + p(0) a_2  \Big) X^2 + \Big(p(3) a_0 + p(2) a_1 + p(1) a_2 + p(0) a_3 \Big) X^3 + \dots
+ p(0) a_0 + \Big(p(1) a_0 + p(0) a_1  \Big) X + \Big(p(2) a_0 + p(1) a_1 + p(0) a_2  \Big) X^2 + \Big(p(3) a_0 + p(2) a_1 + p(1) a_2 + p(0) a_3 \Big) X^3 + \cdots
 $$
 \normalsize
-Der Koeffizient vor $X^t$ in diesem Produkt hat die Form
+Der Koeffizient vor $X^t$ in diesem Produkt, also der Vorfaktor vor~$X^t$, hat die Form
 $$
  \sum_{s=0}^{t} p(t-s) \, a_s,
 $$
-überlege dir das. Dank des eulerschen Pentagonalsatzes wissen wir aber
+überlege Dir das. Dank des eulerschen Pentagonalsatzes wissen wir aber
 gleichzeitig, dass diese Koeffizienten alle verschwinden, bis auf den ersten
 vor $X^0$, dieser ist $1$. Wir erhalten also für $t=0$, dass $p(0) \cdot a_0
-= 1$ und daraus $p(0) = 1$. Für alle anderen $t > 0$ erhalten wir dagegen,
+= 1$ und daraus $p(0) = 1$. (Dieses Teilergebnis hätten wir auch ohne den
+Pentagonalsatz erhalten können.) Für alle anderen $t > 0$ erhalten wir dagegen,
 dass
 $$
  \sum_{s=0}^{t} p(t-s) \, a_s = 0.
@@ -1031,7 +1082,7 @@ $\begin{array}[h]{c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
 Aus dieser Tabelle können wir nämlich alle Koeffizienten $a_1$, $a_2$, bis
 $a_{392}$ der Potenzreihe
 $$
- 1 + \sum_{k=1}^{\infty} (-1)^k \Big(X^{k(3k+1)/2} + X^{k(3k-1)/2}\Big)  = a_0 + a_1 X + a_2 X^2 + \dots = \sum_{l=0}^{\infty} a_l X^l
+ 1 + \sum_{k=1}^{\infty} (-1)^k \Big(X^{k(3k+1)/2} + X^{k(3k-1)/2}\Big)  = a_0 + a_1 X + a_2 X^2 + \dots = \sum_{\ell=0}^{\infty} a_l X^\ell
 $$
 ablesen. Wollen wir wissen, welchen Wert $a_m$ für ein $m$ mit $1 \leq m \leq
 392$ hat, so über\-prüfen wir als erstes, ob $m$ im rechten unteren Teil
@@ -1064,14 +1115,21 @@ Partitionsfunktion berechnen:
  p(10) &= p(9) + p(8) - p(5) - p(3) &&= 42, \\
  p(11) &= p(10) + p(9) - p(6) - p(4) &&= 56, \\
  p(12) &= p(11) + p(10) - p(7) - p(5) + p(0) &&= 77, \\
- \dots\\
- \dots
+ &\ \ \vdots
 \end{align*}
 
 Diese Rekursion versetzte Percy Alexander MacMahon noch vor der Entdeckung der
 eingangs erwähnten Formel von Hardy, Ramanujan und Rademacher in die Lage,
 die ersten $200$ Werte der Partitionsfunktion zu berechnen, was eine
 nichttriviale Aufgabe darstellt, denn $p(200) = 3\,972\,999\,029\,388$.
+
+\begin{aufgabe}{Immer noch Bock auf Programmieren?}
+Wenn Du Lust hast, kannst Du dein Programm aus Aufgabe~\ref{aufg:progr}
+verbessern. Es soll nicht mehr "`per Hand"' die Werte der Partitionsfunktion
+bestimmen, sondern die Rekursionsformel aus dem eulerschen Pentagonalsatz
+verwenden. Mit dieser Verbesserung wird Dein Programm viel größere Werte
+bestimmen können!
+\end{aufgabe}
 
 %$p(1000000) = 1471684986358223398631004760609895943484030484439142125334612747351666117418918618276330148873983597555842015374130600288095929387347128232270327849578001932784396072064228659048713020170971840761025676479860846908142829356706929785991290519899445490672219997823452874982974022288229850136767566294781887494687879003824699988197729200632068668735996662273816798266213482417208446631027428001918132198177180646511234542595026728424452592296781193448139994664730105742564359154794989181485285351370551399476719981691459022015599101959601417474075715430750022184895815209339012481734469448319323280150665384042994054179587751761294916248142479998802936507195257074485047571662771763903391442495113823298195263008336489826045837712202455304996382144601028531832004519046591968302787537418118486000612016852593542741980215046267245473237321845833427512524227465399130174076941280847400831542217999286071108336303316298289102444649696805395416791875480010852636774022023128467646919775022348562520747741843343657801534130704761975530375169707999287040285677841619347472368171772154046664303121315630003467104673818$, das sind mehr als $1100$ Stellen.
 
