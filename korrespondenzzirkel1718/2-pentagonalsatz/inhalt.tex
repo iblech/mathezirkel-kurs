@@ -33,14 +33,9 @@
   Der eulersche Pentagonalsatz \\
   \normalsize Korrespondenzzirkel vom 8. Dezember 2017}}}
 
-
-\section{Problem}
-
-Mir fehlt hier noch ein guter Aufhänger... XXX
-
 \begin{defn}
 Eine \emph{Partition} einer natürlichen Zahl $n$ ist ein Tupel $(n_1, n_2, \dots,
-n_k)$ von na\-tür\-li\-chen Zahlen mit $n_1  \geq n_2 \geq \dots \geq n_k > 0$
+n_k)$ von na\-tür\-li\-chen Zahlen mit $n_1 \geq n_2 \geq \dots \geq n_k > 0$
 sodass $n_1 + n_2 + \dots + n_k = n$. Jedes $n_i$ in einer solchen Partition
 heißt \emph{Teil} der Partition. Man sagt, dass $(n_1, n_2, \dots, n_k)$ eine
 Partition von $n$ in $k$ Teile ist.
@@ -88,6 +83,15 @@ Anzahl der Partitionen der Zahl $1\,000\,000$ hat $1108$ Stellen. Zum
 Vergleich: Es wird vermutet, dass die Anzahl der Atome im Universum etwa $80$
 bis $100$ Stellen hat. Lächerlich wenig sozusagen \ldots
 
+Partitionen sind für manche Mathematikerinnen und Mathematiker hochinteressant,
+vor allem deswegen, weil sie Teilgebiete miteinander verknüpfen, die auf den
+ersten Blick überhaupt nichts miteinander gemeinsam haben. Ihr ursprüngliches
+Zuhause war die Kombinatorik. Dann stellten die Leute aber fest, dass sie auch
+in der Theorie der Gruppendarstellungen (dieses Theoriegebäude
+verwendet man, um den Teilchenzoo mit seinen je nach Zählung 17 verschiedenen
+Elementarteilchen in der modernen Physik zu verstehen) und in der statistischen
+Physik wichtig sind.
+
 An sich ist es nicht schwer, $p(n)$ durch Auflisten aller Partitionen von $n$
 herauszufinden, aber aufgrund der gewaltigen Anzahl der Möglichkeiten ist
 dieser Ansatz in der Praxis nicht durchführbar. Gibt es andere Möglichkeiten?
@@ -121,6 +125,15 @@ Partitionsfunktion zu berechnen. Der Nachteil dieser Methode ist, wie wir sehen
 werden, dass man alle (zumindest viele) kleineren Werte der Partitionsfunktion
 kennen muss, bevor man den nächsten berechnen kann. Das soll uns aber nicht
 stören.
+
+Bevor es richtig losgeht, möchten wir noch einen großen Durchbruch nicht
+verschweigen, der 2011 Jan Bruinier, Amanda Folsom, Ken Ono und Zach Kent
+gelang. Sie entdeckten, dass Partitionen in einem gewissen Sinn \emph{fraktalen
+Charakter} haben (so ähnlich wie das Mandelbrotfraktal (nach dessen Bildern Du
+unbedingt im Internet suchen solltest, falls du das noch nie gemacht hast)
+selbstähnlich ist). Damit ist eine noch mal weit effizientere Berechnung der
+Partitionsfunktion möglich. Der eulersche Pentagonalsatz, den wir in diesem
+Zirkelbrief behandeln, war grundlegend für diesen Durchbruch.
 
 \begin{bem}Die üblichen Konventionen in der Mathematik führen dazu, dass es eine
 Partition der Null und eine der Eins gibt, also~$p(0) = 1$ und~$p(1) = 1$. Die
@@ -362,7 +375,7 @@ was Pentagonalzahlen überhaupt sind.
  $$
   n = \frac{k(3k \pm 1)}{2}
  $$
- für ein $k$, wobei $\pm$ entweder für $+$ oder für $-$ steht.\footnote{
+ für ein $k$, wobei $\pm$ entweder für $+$ oder für $-$ steht.\footnote{%
  Es handelt sich tatsächlich immer um eine natürliche Zahl und nicht um
  einen Bruch: Wenn~$k$ gerade ist, ist das klar. Ansonsten ist aber $3k \pm 1$
  gerade, und somit ist~$n$ auch in diesem Fall eine natürliche Zahl.} Oft
@@ -635,8 +648,6 @@ schreib uns einfach eine Mail!
    \draw[ultra thick,<->] (8,6) -- (13,6);
   \end{tikzpicture}}
  \end{figure}
-
- \newpage
 
  Sehen wir uns nun an, was passiert, wenn wir die Front auf Schräge legen,
  wie in der Abbildung eingezeichnet. Die so erhaltene Partition
@@ -986,6 +997,9 @@ schreib uns einfach eine Mail!
  $$
  für ein $k$ schreiben lassen. Das sind exakt die Pentagonalzahlen!
 
+
+ \subsection{Fazit}
+
  Fazit: Partner einer Typ-I-Partition ist eine Typ-II-Partition und
  umgekehrt. Typ-III-Partitionen haben keinen Partner. Um
  $p_\text{dist}^{\text{g}-\text{u}}(n)=p_\text{dist}^\text{g}(n) - p_\text{dist}^\text{u}(n)$ zu berechnen, genügt
@@ -1006,7 +1020,7 @@ schreib uns einfach eine Mail!
  Falls~$k$ ungerade ist, ist~$p_\text{dist}^{\text{g}-\text{u}}(n)=-1$. Das
  kann man auch kurz und knapp zusammenfassen:
  $p_\text{dist}^{\text{g}-\text{u}}(n)=(-1)^k$ (mache Dir das klar!).
- zeigt gerade den eulerschen Pentagonalsatz. \hfill$\qed$
+ Das zeigt gerade den eulerschen Pentagonalsatz. \hfill$\qed$
 
 
 \section{Herleitung einer Rekursionsformel für die Partitionsfunktion}
