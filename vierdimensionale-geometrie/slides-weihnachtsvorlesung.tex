@@ -1,0 +1,497 @@
+\documentclass[12pt,compress,ngerman,utf8,t]{beamer}
+\usepackage[ngerman]{babel}
+\usepackage{calc}
+\usepackage{ragged2e,wasysym,multicol,mathtools}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{booktabs}
+\hypersetup{colorlinks=true}
+
+\graphicspath{{images/}}
+
+\title[Vierdimensionale Geometrie]{Die wundersame Welt der \\ vierdimensionalen Geometrie}
+\author[Ingo Blechschmidt, Matthias Hutzler]{\small Ingo Blechschmidt und
+Matthias Hutzler \\ mit Dank an Sven Prüfer}
+\date[2017-12-18]{\vspace*{-7em}\ \\\scriptsize Universität Augsburg \\ 18. Dezember 2017 \\ \phantom{foo}}
+
+%\usetheme{Warsaw}
+\useinnertheme[shadow=true]{rounded}
+\useoutertheme{split}
+\usecolortheme{orchid}
+\usecolortheme{whale}
+\setbeamerfont{block title}{size={}}
+
+\useinnertheme{rectangles}
+
+\usecolortheme{seahorse}
+\definecolor{mypurple}{RGB}{150,0,255}
+\setbeamercolor{structure}{fg=mypurple}
+\definecolor{myred}{RGB}{150,0,0}
+\setbeamercolor*{title}{bg=myred,fg=white}
+\setbeamercolor*{titlelike}{bg=myred,fg=white}
+
+\usefonttheme{serif}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{title page}[default][colsep=-1bp,rounded=false,shadow=false]
+\setbeamertemplate{frametitle}[default][colsep=-2bp,rounded=false,shadow=false,center]
+
+\newcommand{\hil}[1]{{\usebeamercolor[fg]{item}{\textbf{#1}}}}
+\setbeamertemplate{frametitle}{%
+  \vskip1em%
+  \leavevmode%
+  \begin{beamercolorbox}[dp=1ex,center]{}%
+      \usebeamercolor[fg]{item}{\textbf{\textsf{\Large \insertframetitle}}}
+  \end{beamercolorbox}%
+}
+
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hfill%
+  \begin{beamercolorbox}[ht=2.25ex,dp=1ex,right]{}%
+    \usebeamerfont{date in head/foot}
+    \insertframenumber\,/\,\inserttotalframenumber\hspace*{1ex}
+  \end{beamercolorbox}%
+  \vskip0pt%
+}
+
+\setbeameroption{show notes}
+\setbeamertemplate{note page}[plain]
+
+\begin{document}
+
+\frame{
+  \centering
+  \only<1>{
+    \vspace*{1.15cm}
+    \[ V_n = \int_0^1 \int_0^{2\pi} V_{n-2}(\sqrt{1-r^2})^{n-2} \, r \, d\theta \, dr \]
+    \vspace*{1.15cm}
+  }%
+  \only<2>{\includegraphics[width=0.4\textwidth]{great-grand-120-cell}}
+  \smallskip
+
+  \titlepage
+}
+\frame{\tableofcontents}
+
+
+\section{Grundlagen}
+
+\subsection{Vier Dimension: was ist das?}
+
+\begin{frame}{Vier Dimensionen?}
+  \centering
+  \only<1>{\includegraphics[width=0.9\textwidth]{4d-tesseract}}
+  \only<2>{\includegraphics[width=0.9\textwidth]{4d-pentachoron}}
+  \only<3>{\includegraphics[width=0.9\textwidth]{prisoner}}
+  \par
+  % Skizze Punkt, Linie, Quadrat, Würfel, nach \pause Tesserakt
+  % Skizze Punkt, Linie, Dreieck, Tetraeder, 4-dimensionales Simplex
+  % Sache mit Projektion erklären
+  % klarstellen, dass wir über vierdimensionalen Raum (nicht Raum+Zeit) sprechen
+  % nicht: 11-dimensionaler Quantenschaum
+  % Wo erkennt man die drei Dimensionen in der realen Welt?
+  % Gefängnisse (Quadrat genügt im Flachland, Würfel genügt in 3D, genügt nicht in 4D)
+\end{frame}
+
+\note{
+  \begin{itemize}
+    \item On the previous slide you see two-dimensional projections of the
+    three-dimensional cube and the four-dimensional hypercube (tesseract).
+    \item We're talking about four spatial dimensions. This is not related to
+    four-dimensional spacetime or eleven-dimensional string theory.
+    \item A flatlander can be imprisoned by enclosing them with a square. But
+    we, as three-dimensional beings, can free them by grabbing them, lifting
+    them up in the third dimension, moving them a little to the side, and
+    putting them back into flatland.
+    \item Similarly, a four-dimensional being could free us if we were imprisoned
+    in a three-dimensional cube.
+  \end{itemize}
+}
+
+
+\subsection{Knotentheorie}
+
+\begin{frame}{Schnürsenkel binden}
+  % Erklären, dass Schnürsenkel immer aufgehen würden
+  \centering
+  \includegraphics[width=0.65\textwidth]{trefoil-knot}
+  \par
+\end{frame}
+
+\note{
+  \begin{itemize}
+    \item You can untie any knot in four dimensions. Two linked one-dimensional
+    strings can always be separated in four dimensions.
+    \item But it's possible to tangle an one-dimensional string with the
+    two-dimensional surface of a sphere in four dimensions.
+    \item More generally, in $n$ dimensions, one can tangle $a$-dimensional
+    objects with $b$-dimensional objects provided that $a + b \geq n - 1$.
+  \end{itemize}
+}
+
+%Verhedderbar
+%in 3D: Schnur, Schnur; 2, 2; 1, 1
+%in 3D: Punkt, Fläche;  0, 1; 0, 2
+%in 2D: Schnur, Punkt;  1, 2; 1, 0
+%in 4D: Schnur, Fläche; 3, 2; 1, 2
+%
+%Beh.: Dimensionen addiert muss >= n - 1 sein, damit verhedderung möglich ist
+%
+%Nicht verhedderbar
+%in 3D: Punkt, Schnur; 3, 2; 0, 1
+%in 3D: Punkt, Punkt;  3, 3; 0, 0
+%in 4D: Punkt, Fläche      ; 0, 2
+%in 4D: Schnur, Schnur     ; 1, 1
+
+\subsection{Die Kleinsche Flasche}
+
+\begin{frame}{Die Kleinsche Flasche}
+  \centering
+  \includegraphics[height=0.75\textheight]{klein-bottle}
+  \only<2>{\qquad\qquad
+  \includegraphics[height=0.75\textheight]{klein-bottle-cut}}
+  \par
+\end{frame}
+
+\note{
+  \begin{itemize}
+    \item The familiar torus (donut) can be obtained from a cylinder by glueing
+    the two bounding circles together.
+    \item The Klein bottle can be obtained in the same way, but with flipping
+    one of the bounding circles first.
+    \item In three dimensions, the Klein bottle can only be realized with a
+    self-intersection. Only in four dimensions it's possible to exhibit the
+    true Klein bottle.
+    \item Like the Möbius strip, the Klein bottle is not orientable: It has
+    only one side. Unlike the Möbius strip, it doesn't have a boundary.
+    \item A mathematician named Klein \\
+    Thought the Möbius band was divine. \\
+    Said he: ``If you glue \\
+    The edges of two, \\
+    You'll get a weird bottle like mine.'' \\
+    \qquad\qquad -- Leo Moser
+  \end{itemize}
+}
+
+
+\section[Größen]{Größen in vier Dimensionen}
+
+\subsection{Hypervolumen von Hyperbällen}
+
+\begin{frame}{Hypervolume von Hyperbällen}
+  \centering
+  \vspace*{-0.5em}
+  \includegraphics[width=0.4\textwidth]{sizes-1}
+  \bigskip
+  % vorher gscheite Definition der Hyperkugel
+  % Bild vom Kreis im Quadrat
+  % Bild vom Zylinder im Würfel
+  % Bild von der Kugel im Würfel
+
+  \small
+  \begin{tabular}{lll}
+    \toprule
+    dimension & hypervolume & \\\midrule
+    $n = 2$ & $\pi / 4$ & $\approx 0.785$ \\
+    $n = 3$ & $\pi / 6$ & $\approx 0.524$ \\
+    $n = 4$ & $\pi^2 / 32$ & $\approx 0.308$ \\
+    $n = 5$ & $\pi^2 / 60$ & $\approx 0.164$ \\
+    $n = 6$ & $\pi^3 / 384$ & $\approx 0.081$ \\
+    $n = 7$ & $\pi^3 / 840$ & $\approx 0.037$ \\
+    $n \to \infty$ & $\to 0$ \\
+    \bottomrule
+    \pause
+    $n = 0$ & $1$ & $\approx 1.000$ \\
+    $n = 1$ & $1$ & $\approx 1.000$
+  \end{tabular}\par
+\end{frame}
+
+\note{
+  \begin{itemize}
+    \item The portion of the $n$-dimensional unit hypercube which is occupied
+    by the inscribed $n$-dimensional hyperball gets arbitrary small in
+    sufficiently high dimensions.
+    \item The volume of such a hyperball is the answer to the following
+    question: What is the probability that we managed to hit the hyperball with
+    an dart, provided that we managed to hit the enclosing hyperball?
+    \item Wikipedia gives
+    \href{https://en.wikipedia.org/wiki/Volume_of_an_n-ball}{derivations for
+    these formulas}.
+    \item You can use the \emph{power of negative thinking} to motivate that
+    the formula for the n-dimensional volume of the n-dimensional hyperball
+    does \emph{not} contain $\pi^n$ (but rather $\pi^{\lfloor n/2 \rfloor}$):
+    Think about the zero- and one-dimensional case.
+
+    A zero-dimensional ball is just a point. Its zero-dimensional volume
+    is~$1$.
+
+    An one-dimensional ball is just a line segment. Its one-dimensional volume
+    is its length.
+  \end{itemize}
+}
+
+
+\subsection{Küssende Hypersphären}
+
+\begin{frame}[plain,c]
+  \centering\Huge
+  \scalebox{2.6}{\hil{Liebe ist}} \\[0.6em]
+  \scalebox{2.6}{\hil{wichtig.}}
+
+  \bigskip
+  \bigskip
+
+  \scalebox{2.6}{\hil{$\boldsymbol{\heartsuit}$}}
+  \par
+\end{frame}
+
+\begin{frame}{Küssende Hypersphären}
+  % Bild vier Kreise an den Ecken des Zweiheitsquadrats und Kreis in der Mitte
+  \centering
+  \vspace*{-1em}
+  \includegraphics[width=0.3\textwidth]{sizes-2}
+  \bigskip
+
+  {\small
+  \begin{tabular}{lll}
+    \toprule
+    Dimension & Radius der inneren Hypersphäre & \\\midrule
+    $n = 2$ & \pause $\sqrt{2} - 1$ \\
+    \pause
+    $n = 3$ & \pause $\sqrt{3} - 1$ \\
+    \pause
+    $n = 4$ & $\sqrt{4} - 1$ \\
+    \pause
+    $n$ & $\sqrt{n} - 1$ \\
+    \bottomrule
+  \end{tabular}\par}
+  \bigskip
+
+  \centering
+  \hil{Die Entfernung zu den Ecken wird immer größer.}
+  \par
+\end{frame}
+
+\note{
+  \begin{itemize}
+    \item In two dimensions, the distance of a point~$(x,y)$ to the origin is
+    $\sqrt{x^2 + y^2}$ (by the Pythagorean theorem).
+    \item In three dimensions, the distance of a point~$(x,y,z)$ to the origin
+    is~$\sqrt{x^2+y^2+z^2}$.
+    \item The pattern continues to arbitrary dimensions.
+    \item In four dimensions, the ``small hypersphere in the middle'' has
+    exactly the same size as the hyperspheres at the 16 vertices of the
+    hypercube.
+    \item In even greater dimensions, the hyperspheres at the vertices are so
+    small that the ``small hypersphere in the middle'' is bigger than them and
+    in fact bigger than the hypercube!
+  \end{itemize}
+}
+
+
+\section[Relativität]{Allgemeine Relativitätstheorie}
+
+\begin{frame}{Allgemeine Relativitätstheorie}
+  \vspace*{-1em}
+  \begin{center}
+    \includegraphics[height=0.3\textheight]{einstein}
+    \qquad
+    \includegraphics[height=0.3\textheight]{gravitational-waves}
+  \end{center}
+
+  Einsteins gefeierte \hil{Feldgleichung} besagt
+  \[ G = \kappa \cdot T, \]
+  wobei
+  \begin{itemize}
+    \item $G$ die \hil{Raumkrümmung} angibt,
+    \item $T$ die \hil{Massenverteilung} misst und
+    \item $\kappa$ eine Konstante ist.
+  \end{itemize}
+
+  In $2+1$ Dimensionen impliziert die Gleichung~$T = 0$.
+  Nur in vier und mehr Dimensionen ist die Theorie nichttrivial.
+\end{frame}
+
+\note{
+  Details are in the article
+  \href{http://www.csun.edu/~vcphy00d/PDFPublications/1977\%20GR(2+1).pdf}{General
+  relativity in two and three-dimensional space-times} by Peter Collas.
+}
+
+
+\section[Schnitte]{Schnitttheorie}
+
+\subsection{Ankunft eines Hyperballs}
+
+\begin{frame}{Ankunft eines Hyperballs}
+  \centering
+  \includegraphics[width=0.9\textwidth]{a-hyperball-arrives}
+  \par
+\end{frame}
+
+
+\subsection{Ankunft eines Tesserakts}
+
+\begin{frame}{Ankunft eines Tesserakts}
+  \centering
+  \includegraphics[width=0.9\textwidth]{a-tesseract-arrives}
+  \par
+\end{frame}
+
+% Jetzt Ecken & Co. zählen
+
+
+\subsection{Ein vierdimensionales Fraktal}
+
+\begin{frame}{Ein vierdimensionales Fraktal}
+  Ihr kennt das Mandelbrotfraktal.
+  Vielleicht kennt ihr auch die Juliafraktale, von denen es je eins für jeden
+  Punkt der Ebene gibt.
+  \bigskip
+
+  Aber wusstet ihr, dass diese unendlich vielen Fraktale nur zweidimensionale
+  Schnitte eines vereinheitlichten vierdimensionalen Fraktals ist?
+  Wir laden euch ein,
+  \href{https://rawgit.com/MatthiasHu/FractalsWebGL/4d/page.html}{damit zu spielen}.
+  \bigskip
+
+  \centering
+  \includegraphics[width=0.5\textwidth]{mandelbrot}
+  \par
+\end{frame}
+
+
+\section{Platonische Körper}
+
+\newcommand{\solid}[4]{\begin{column}{0.31\textwidth}\centering\hil{#2}\par#3 faces, #4 vertices\\\medskip\includegraphics[height=0.7\textwidth]{#1}\end{column}}
+\newcommand{\solidd}[3]{\begin{column}{0.35\textwidth}\centering\hil{#2}\par#3\\\medskip\includegraphics[height=0.6\textwidth]{#1}\end{column}}
+
+
+\subsection{In 3d}
+
+\begin{frame}{Platonische Körper in 3d}
+  \begin{columns}[c]
+    \solid{tetrahedron}{Tetraeder}{4}{4}
+    \solid{hexahedron}{Hexaeder}{6}{8}
+    \solid{octahedron}{Oktaeder}{8}{6}
+  \end{columns}
+  \bigskip
+  \begin{columns}[c]
+    \solid{dodecahedron}{Dodekaeder}{12}{20}
+    \solid{icosahedron}{Ikosaeder}{20}{12}
+  \end{columns}
+\end{frame}
+
+
+\subsection{In 4d}
+
+\begin{frame}{Platonische Körper in 4d}
+  \begin{columns}[c]
+    \solidd{005-cell}{Pentachoron}{5v, 10e, 10f, 5c}
+    \solidd{008-cell}{Octachoron}{16v, 32e, 24f, 8c}
+    \solidd{016-cell}{Hexadecachoron}{8v, 24e, 32f, 16c}
+  \end{columns}
+  \bigskip
+  \bigskip
+  \begin{columns}[c]
+    \solidd{120-cell}{Hecatonicosachoron}{600v, 1200e, 720f, 120c}
+    \solidd{600-cell}{Hexacosichoron}{120v, 720e, 1200f, 600c}
+    \only<2>{\solidd{024-cell}{Icositetrachoron}{24v, 96e, 96f, 24c}}
+  \end{columns}
+\end{frame}
+
+
+\subsection{In beliebigen Dimensionen}
+
+\begin{frame}{Platonische Körper in beliebigen Dimensionen}
+  \centering
+  \begin{tabular}{ll}
+    \toprule
+    Dimension & Anzahl platonischer Körper \\ \midrule
+    $n = 1$ & 1 (nur die Linie) \\
+    $n = 2$ & $\infty$ (Dreieck, Quadrat, \ldots; jedes reguläre Vieleck) \\
+    $n = 3$ & 5 \\
+    $n = 4$ & 6 \\
+    $n > 4$ & 3 (nur das Simplex, der Hyperwürfel und sein Duales) \\
+    \bottomrule
+  \end{tabular}
+  \par
+\end{frame}
+
+\note{
+  \begin{itemize}
+    \item The only platonic solid which can be used to tesselate
+    three-dimensional space is the cube.
+    \item In four dimensions, both the tesseract and the 24-cell work.
+    \item This has a deeper reason: In any dimension~$n$, the $n$-dimensional
+    analogue of the rhombic dodecahedron can be used to tesselate
+    $n$-dimensional space. In dimension $n = 3$ the rhombic dodecahedron is not
+    a Platonic solid; in dimension $n = 4$ it is (and is also called the
+    ``24-cell'').
+  \end{itemize}
+}
+
+
+\subsection[Verkleben]{Zusammenkleben vierdimensionaler Formen}
+
+\begin{frame}{Zusammenkleben vierdimensionaler Formen}
+  \centering
+  \includegraphics[width=0.6\textwidth]{tesseract-net}
+  \par
+\end{frame}
+
+
+\appendix
+
+\section{Image sources}
+
+\begin{frame}{Image sources}
+  \tiny
+  Miscellaneous pictures: \\
+  \url{https://commons.wikimedia.org/wiki/File:Blue_Trefoil_Knot.png} \\
+  \url{http://www.gnuplotting.org/figs/klein_bottle.png} \\
+  \url{http://4.bp.blogspot.com/_TbkIC-eqFNM/S-dK9dd1cUI/AAAAAAAAFjA/d8qdTHhKy1U/s320/tesseract+unfolded.png} \\
+  \url{https://en.wikipedia.org/wiki/File:Tetrahedron.svg} \\
+  \url{https://en.wikipedia.org/wiki/File:Hexahedron.svg} \\
+  \url{https://en.wikipedia.org/wiki/File:Octahedron.svg} \\
+  \url{https://en.wikipedia.org/wiki/File:Dodecahedron.svg} \\
+  \url{https://en.wikipedia.org/wiki/File:Icosahedron.svg}
+  \bigskip
+
+  Rendered images of four-dimensional bodies created by Robert Webb with his
+  Stella software: \\
+  \url{https://en.wikipedia.org/wiki/File:Ortho_solid_011-uniform_polychoron_53p-t0.png} \\
+  \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_5-cell.png} \\
+  \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_8-cell.png} \\
+  \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_16-cell.png} \\
+  \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_24-cell.png} \\
+  \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_120-cell.png} \\
+  \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_600-cell_vertex-centered.png} \\
+\end{frame}
+\addtocounter{framenumber}{-1}
+
+\end{document}
+
+
+Ecken:     2 4  8 16
+Kanten:    1 4 12 32    32 = (16 * 4) / 2    12 = (8 * 3) / 2
+Flächen:   0 1  6 24    (3über2)*8/4 = 6     (4über2)*16/4 = 24 = 2^2 * (4über2)
+Volumina:  0 0  1  8
+4-Vol.:    0 0  0  1
+
+* Raumzeit in 2+1 Dimensionen ist schlecht wegen: Feldgleichung hat zu wenig
+  Unbekannte. Masse müsste immer Null sein. (?)
+* Kommutativität von gewissen Rotationen; Verknüpfungen von Rotationen ist nicht
+  unbedingt Rotation (einer Ebene)! (?)
+* (Rotationen nicht um Achsen, sondern "um Ebenen"; besser: Man rotiert immer "in
+  einer Ebene".)
+* Quaternionen?
+* Ist jedes Element der SO(4) eine Rotation einer Ebene? Nein. (-Id)
+* Ist jedes Element der SO(4) Verknüpfung zweier Spiegelungen an Hyperebenen? Nein.
+
+Man könnte den Vortrag auch mit dem bekannten Witz (Mathematikerin, Physikerin,
+Konferenz, Schwierigkeit, ganz einfach: dann n gegen 11) beginnen. Und dann
+gleich dazu sagen, dass es bei uns um räumliche Dimensionen geht.
