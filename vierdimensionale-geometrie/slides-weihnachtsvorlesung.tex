@@ -4,14 +4,21 @@
 \usepackage{ragged2e,wasysym,multicol,mathtools}
 \usepackage[protrusion=true,expansion=true]{microtype}
 \usepackage{booktabs}
+\usepackage{multimedia}
 \hypersetup{colorlinks=true}
+
+\newcommand{\video}[2]{\movie[width=#2,height=#2,autostart,loop,poster]{}{#1}}
 
 \graphicspath{{images/}}
 
 \title[Vierdimensionale Geometrie]{Die wundersame Welt der \\ vierdimensionalen Geometrie}
-\author[Ingo Blechschmidt, Matthias Hutzler]{\small Ingo Blechschmidt und
-Matthias Hutzler \\ mit Dank an Sven Prüfer}
-\date[2017-12-18]{\vspace*{-7em}\ \\\scriptsize Universität Augsburg \\ 18. Dezember 2017 \\ \phantom{foo}}
+\author[Ingo Blechschmidt, Matthias Hutzler]{\scriptsize
+\vspace*{-1em} \\
+\textbf{Weihnachtsvorlesung am 18. Dezember 2017} \\
+\emph{Fragen sind jederzeit willkommen! Bitte nicht bis zum Ende aufsparen.} \\
+\medskip
+Ingo Blechschmidt und Matthias Hutzler \\
+Lehrsuthl für Algebra und Zahlentheorie}
 
 %\usetheme{Warsaw}
 \useinnertheme[shadow=true]{rounded}
@@ -57,25 +64,18 @@ Matthias Hutzler \\ mit Dank an Sven Prüfer}
   \vskip0pt%
 }
 
-\setbeameroption{show notes}
+\setbeameroption{hide notes}
 \setbeamertemplate{note page}[plain]
 
 \begin{document}
 
 \frame{
   \centering
-  \only<1>{
-    \vspace*{1.15cm}
-    \[ V_n = \int_0^1 \int_0^{2\pi} V_{n-2}(\sqrt{1-r^2})^{n-2} \, r \, d\theta \, dr \]
-    \vspace*{1.15cm}
-  }%
-  \only<2>{\includegraphics[width=0.4\textwidth]{great-grand-120-cell}}
+  \includegraphics[width=0.4\textwidth]{great-grand-120-cell}
   \smallskip
 
   \titlepage
 }
-\frame{\tableofcontents}
-
 
 \section{Grundlagen}
 
@@ -83,7 +83,7 @@ Matthias Hutzler \\ mit Dank an Sven Prüfer}
 
 \begin{frame}{Vier Dimensionen?}
   \centering
-  \only<1>{\includegraphics[width=0.9\textwidth]{4d-tesseract}}
+  \only<1>{\includegraphics[width=0.9\textwidth]{4d-tesseract-plain}}
   \only<2>{\includegraphics[width=0.9\textwidth]{4d-pentachoron}}
   \only<3>{\includegraphics[width=0.9\textwidth]{prisoner}}
   \par
@@ -146,40 +146,10 @@ Matthias Hutzler \\ mit Dank an Sven Prüfer}
 %in 4D: Punkt, Fläche      ; 0, 2
 %in 4D: Schnur, Schnur     ; 1, 1
 
-\subsection{Die Kleinsche Flasche}
-
-\begin{frame}{Die Kleinsche Flasche}
-  \centering
-  \includegraphics[height=0.75\textheight]{klein-bottle}
-  \only<2>{\qquad\qquad
-  \includegraphics[height=0.75\textheight]{klein-bottle-cut}}
-  \par
-\end{frame}
-
-\note{
-  \begin{itemize}
-    \item The familiar torus (donut) can be obtained from a cylinder by glueing
-    the two bounding circles together.
-    \item The Klein bottle can be obtained in the same way, but with flipping
-    one of the bounding circles first.
-    \item In three dimensions, the Klein bottle can only be realized with a
-    self-intersection. Only in four dimensions it's possible to exhibit the
-    true Klein bottle.
-    \item Like the Möbius strip, the Klein bottle is not orientable: It has
-    only one side. Unlike the Möbius strip, it doesn't have a boundary.
-    \item A mathematician named Klein \\
-    Thought the Möbius band was divine. \\
-    Said he: ``If you glue \\
-    The edges of two, \\
-    You'll get a weird bottle like mine.'' \\
-    \qquad\qquad -- Leo Moser
-  \end{itemize}
-}
-
 
 \section[Größen]{Größen in vier Dimensionen}
 
-\subsection{Hypervolumen von Hyperkugeln}
+\subsection{Volumenverhältnisse}
 
 \begin{frame}{Hypervolumen von Hyperkugeln}
   \centering
@@ -195,12 +165,12 @@ Matthias Hutzler \\ mit Dank an Sven Prüfer}
   \begin{tabular}{lll}
     \toprule
     Dimension & Hypervolumen & \\\midrule
-    $n = 2$ & $\pi / 4$ & $\approx 0.785$ \\
-    $n = 3$ & $\pi / 6$ & $\approx 0.524$ \\
-    $n = 4$ & $\pi^2 / 32$ & $\approx 0.308$ \\
-    $n = 5$ & $\pi^2 / 60$ & $\approx 0.164$ \\
-    $n = 6$ & $\pi^3 / 384$ & $\approx 0.081$ \\
-    $n = 7$ & $\pi^3 / 840$ & $\approx 0.037$ \\
+    $n = 2$ & $\pi / 4$ & $\approx 0{,}785 \,\mathrm{m}^2$ \\
+    $n = 3$ & $\pi / 6$ & $\approx 0{,}524 \,\mathrm{m}^3$ \\
+    $n = 4$ & $\pi^2 / 32$ & $\approx 0{,}308 \,\mathrm{m}^4$ \\
+    $n = 5$ & $\pi^2 / 60$ & $\approx 0{,}164 \,\mathrm{m}^5$ \\
+    $n = 6$ & $\pi^3 / 384$ & $\approx 0{,}081 \,\mathrm{m}^6$ \\
+    $n = 7$ & $\pi^3 / 840$ & $\approx 0{,}037 \,\mathrm{m}^7$ \\
     $n \to \infty$ & $\to 0$ \\
     \bottomrule
   \end{tabular}\par
@@ -289,7 +259,7 @@ Matthias Hutzler \\ mit Dank an Sven Prüfer}
 }
 
 
-\section[Relativität]{Allgemeine Relativitätstheorie}
+\subsection[Relativität]{Allgemeine Relativitätstheorie}
 
 \begin{frame}{Allgemeine Relativitätstheorie}
   \vspace*{-1em}
@@ -330,7 +300,7 @@ Matthias Hutzler \\ mit Dank an Sven Prüfer}
 \end{frame}
 
 
-\subsection{Ankunft eines Tesserakts}
+\subsection[und eines Tesserakts]{Ankunft eines Tesserakts}
 
 \begin{frame}{Ankunft eines Tesserakts}
   \centering
@@ -341,14 +311,13 @@ Matthias Hutzler \\ mit Dank an Sven Prüfer}
 % Jetzt Ecken & Co. zählen
 
 
-\subsection{Ein vierdimensionales Fraktal}
+\subsection{Ein 4d Fraktal}
 
 \begin{frame}{Ein vierdimensionales Fraktal}
+  \justifying
   Ihr kennt das Mandelbrotfraktal.
   Vielleicht kennt ihr auch die Juliafraktale, von denen es je eins für jeden
   Punkt der Ebene gibt.
-  \bigskip
-
   Aber wusstet ihr, dass diese unendlich vielen Fraktale nur zweidimensionale
   Schnitte eines vereinheitlichten vierdimensionalen Fraktals ist?
   Wir laden euch ein,
@@ -363,22 +332,24 @@ Matthias Hutzler \\ mit Dank an Sven Prüfer}
 
 \section{Platonische Körper}
 
-\newcommand{\solid}[4]{\begin{column}{0.31\textwidth}\centering\hil{#2}\par#3 faces, #4 vertices\\\medskip\includegraphics[height=0.7\textwidth]{#1}\end{column}}
-\newcommand{\solidd}[3]{\begin{column}{0.35\textwidth}\centering\hil{#2}\par#3\\\medskip\includegraphics[height=0.6\textwidth]{#1}\end{column}}
+\newcommand{\solid}[5]{\begin{column}{0.31\textwidth}\centering\hil{#2}\par#5 E, #4 K, #3 F\\\medskip\includegraphics[height=0.7\textwidth]{#1}\end{column}}
+\newcommand{\solidd}[3]{\begin{column}{0.4\textwidth}\centering\hil{#2}\par#3\\\medskip\includegraphics[height=1.9cm]{#1}\end{column}}
+\newcommand{\solidde}[3]{\begin{column}{0.33\textwidth}\centering\hil{#2}\par{\scriptsize#3\\}\medskip\includegraphics[height=1.9cm]{#1}\end{column}}
+\newcommand{\solidv}[1]{\begin{column}{0.3\textwidth}\centering\hil{$\phantom{A}$}\par$\phantom{A}$\\\medskip\video{images/#1.mp4}{1.9cm}\end{column}}
 
 
 \subsection{In 3d}
 
 \begin{frame}{Platonische Körper in 3d}
   \begin{columns}[c]
-    \solid{tetrahedron}{Tetraeder}{4}{4}
-    \solid{hexahedron}{Hexaeder}{6}{8}
-    \solid{octahedron}{Oktaeder}{8}{6}
+    \solid{tetrahedron}{Tetraeder}{4}{6}{4}
+    \solid{hexahedron}{Hexaeder}{6}{12}{8}
+    \solid{octahedron}{Oktaeder}{8}{12}{6}
   \end{columns}
   \bigskip
   \begin{columns}[c]
-    \solid{dodecahedron}{Dodekaeder}{12}{20}
-    \solid{icosahedron}{Ikosaeder}{20}{12}
+    \solid{dodecahedron}{Dodekaeder}{12}{30}{20}
+    \solid{icosahedron}{Ikosaeder}{20}{30}{12}
   \end{columns}
 \end{frame}
 
@@ -386,33 +357,83 @@ Matthias Hutzler \\ mit Dank an Sven Prüfer}
 \subsection{In 4d}
 
 \begin{frame}{Platonische Körper in 4d}
+  \only<1>{
+    \begin{columns}[c]
+      \solidd{tetrahedron}{Tetraeder}{4E, 6K, 4f}
+      \solidd{005-cell}{Pentachoron}{5E, 10K, 10F, 5Z}
+      \solidv{005-cell}
+    \end{columns}
+  }
+
+  \only<2>{
+    \begin{columns}[c]
+      \solidd{hexahedron}{Hexaeder}{8E, 12K, 6f}
+      \solidd{008-cell}{Octachoron}{16E, 32K, 24F, 8Z}
+      \solidv{008-cell}
+    \end{columns}
+    \vspace*{2em}
+    \begin{columns}[c]
+      \solidd{octahedron}{Oktaeder}{6K, 12K, 8f}
+      \solidd{016-cell}{Hexadecachoron}{8E, 24K, 32F, 16Z}
+      \solidv{016-cell}
+    \end{columns}
+  }
+
+  \only<3>{
+    \begin{columns}[c]
+      \solidd{dodecahedron}{Dodekaeder}{20E, 30K, 12f}
+      \solidd{120-cell}{Hecatonicosachoron}{600E, 1200K, 720F, 120Z}
+      \solidv{120-cell}
+    \end{columns}
+    \vspace*{2em}
+    \begin{columns}[c]
+      \solidd{icosahedron}{Ikosaeder}{12E, 30K, 20f}
+      \solidd{600-cell}{Hexacosichoron}{120E, 720K, 1200F, 600Z}
+      \solidv{600-cell}
+    \end{columns}
+  }
+
+  \only<4-5>{
+    \centering
+    \hil{Icositetrachoron}\par
+    24E, 96K, 96F, 24Z\\\medskip
+    \only<4>{\includegraphics[width=0.5\textwidth]{024-cell}}
+    \only<5>{\video{images/024-cell.mp4}{0.5\textwidth}}
+  }
+\end{frame}
+
+\begin{frame}{Übersicht}
   \begin{columns}[c]
-    \solidd{005-cell}{Pentachoron}{5v, 10e, 10f, 5c}
-    \solidd{008-cell}{Octachoron}{16v, 32e, 24f, 8c}
-    \solidd{016-cell}{Hexadecachoron}{8v, 24e, 32f, 16c}
+    \solidde{005-cell}{Pentachoron}{5E, 10K, 10F, 5Z}
+    \solidde{008-cell}{Octachoron}{16E, 32K, 24F, 8Z}
+    \solidde{016-cell}{Hexadecachoron}{8E, 24K, 32F, 16Z}
   \end{columns}
   \bigskip
   \bigskip
   \begin{columns}[c]
-    \solidd{120-cell}{Hecatonicosachoron}{600v, 1200e, 720f, 120c}
-    \solidd{600-cell}{Hexacosichoron}{120v, 720e, 1200f, 600c}
-    \only<2>{\solidd{024-cell}{Icositetrachoron}{24v, 96e, 96f, 24c}}
+    \solidde{120-cell}{Hecatonicosachoron}{600E, 1200K, 720F, 120Z}
+    \solidde{600-cell}{Hexacosichoron}{120E, 720K, 1200F, 600Z}
+    \solidde{024-cell}{Icositetrachoron}{24E, 96K, 96F, 24Z}
   \end{columns}
 \end{frame}
 
 
 \subsection{In beliebigen Dimensionen}
 
-\begin{frame}{Platonische Körper in beliebigen Dimensionen}
+\begin{frame}{In beliebigen Dimensionen}
   \centering
   \begin{tabular}{ll}
     \toprule
     Dimension & Anzahl platonischer Körper \\ \midrule
     $n = 1$ & 1 (nur die Linie) \\
-    $n = 2$ & $\infty$ (Dreieck, Quadrat, \ldots; jedes reguläre Vieleck) \\
+    $n = 2$ & $\infty$ (Dreieck, Quadrat, Fünfeck, Sechseck, \ldots) \\
     $n = 3$ & 5 \\
     $n = 4$ & 6 \\
-    $n > 4$ & 3 (nur das Simplex, der Hyperwürfel und sein Duales) \\
+    $n = 5$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
+    $n = 6$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
+    $n = 7$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
+    $n = 8$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
+    \emph{und so weiter} \\
     \bottomrule
   \end{tabular}
   \par
@@ -434,10 +455,47 @@ Matthias Hutzler \\ mit Dank an Sven Prüfer}
 
 \subsection[Verkleben]{Zusammenkleben vierdimensionaler Formen}
 
-\begin{frame}{Zusammenkleben vierdimensionaler Formen}
+\begin{frame}{Kleben vierdimensionaler Formen}
   \centering
-  \includegraphics[width=0.6\textwidth]{tesseract-net}
-  \par
+  \begin{columns}
+    \begin{column}{0.3\textwidth}
+      \centering
+      \hil{Würfel} \\
+      \smallskip
+      \includegraphics[height=0.35\textheight]{cube-net}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \centering
+      \hil{Tesserakt} \\
+      \smallskip
+      \includegraphics[height=0.35\textheight]{008-cell-net}
+    \end{column}
+  \end{columns}
+  \bigskip
+  \bigskip
+
+  \begin{columns}
+    \begin{column}{0.3\textwidth}
+      \centering
+      \hil{16-Zeller} \\
+      \smallskip
+      \includegraphics[height=0.3\textheight]{016-cell-net}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \centering
+      \hil{24-Zeller} \\
+      \smallskip
+      \includegraphics[height=0.3\textheight]{024-cell-net}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[plain]
+  \centering
+  \medskip
+  \includegraphics[height=0.95\textheight]{salvador-dali} \\
+  \scriptsize
+  Salvador Dalí: \hil{Corpus Hypercubus} (1954)
 \end{frame}
 
 
