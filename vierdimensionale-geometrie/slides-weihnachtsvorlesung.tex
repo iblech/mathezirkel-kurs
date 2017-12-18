@@ -403,6 +403,16 @@ Lehrsuthl für Algebra und Zahlentheorie}
   }
 \end{frame}
 
+\begin{frame}{Pflasterungen}
+  \centering
+  \includegraphics[height=0.6\textheight]{tesselation-squares}
+  \qquad
+  \includegraphics[height=0.6\textheight]{hyperdiamond-3d}
+  \bigskip
+
+  \hil{Der 24-Zeller pflastert den vierdimensionalen Raum.}
+\end{frame}
+
 \begin{frame}{Übersicht}
   \begin{columns}[c]
     \solidde{005-cell}{Pentachoron}{5E, 10K, 10F, 5Z}
@@ -419,26 +429,26 @@ Lehrsuthl für Algebra und Zahlentheorie}
 \end{frame}
 
 
-\subsection{In beliebigen Dimensionen}
-
-\begin{frame}{In beliebigen Dimensionen}
-  \centering
-  \begin{tabular}{ll}
-    \toprule
-    Dimension & Anzahl platonischer Körper \\ \midrule
-    $n = 1$ & 1 (nur die Linie) \\
-    $n = 2$ & $\infty$ (Dreieck, Quadrat, Fünfeck, Sechseck, \ldots) \\
-    $n = 3$ & 5 \\
-    $n = 4$ & 6 \\
-    $n = 5$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
-    $n = 6$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
-    $n = 7$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
-    $n = 8$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
-    \emph{und so weiter} \\
-    \bottomrule
-  \end{tabular}
-  \par
-\end{frame}
+%\subsection{In beliebigen Dimensionen}
+%
+%\begin{frame}{In beliebigen Dimensionen}
+%  \centering
+%  \begin{tabular}{ll}
+%    \toprule
+%    Dimension & Anzahl platonischer Körper \\ \midrule
+%    $n = 1$ & 1 (nur die Linie) \\
+%    $n = 2$ & $\infty$ (Dreieck, Quadrat, Fünfeck, Sechseck, \ldots) \\
+%    $n = 3$ & 5 \\
+%    $n = 4$ & 6 \\
+%    $n = 5$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
+%    $n = 6$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
+%    $n = 7$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
+%    $n = 8$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
+%    \emph{und so weiter} \\
+%    \bottomrule
+%  \end{tabular}
+%  \par
+%\end{frame}
 
 \note{
   \begin{itemize}
@@ -499,6 +509,10 @@ Lehrsuthl für Algebra und Zahlentheorie}
   Salvador Dalí: \hil{Corpus Hypercubus} (1954)
 \end{frame}
 
+\begin{frame}{Ein vierdimensionales Labyrinth}
+  \includegraphics[width=\textwidth]{4d-labyrinth}
+\end{frame}
+
 
 \subsection{Ausblick}
 
@@ -537,7 +551,7 @@ Lehrsuthl für Algebra und Zahlentheorie}
       \smallskip
       \includegraphics[height=0.5\textheight]{catharina-stroppel}
     \end{column}
-    \begin{column}{0.5\textwidth}
+    \begin{column}{0.6\textwidth}
       \centering
       \hil{Julia Grigsby} \\
       niedrigdimensionale Topologin \\
@@ -545,6 +559,34 @@ Lehrsuthl für Algebra und Zahlentheorie}
       \includegraphics[height=0.5\textheight]{julia-grigsby}
     \end{column}
   \end{columns}
+\end{frame}
+
+\newcommand{\hero}[2]{\hil{#2}\\\smallskip\includegraphics[height=4cm]{#1}}
+\newcommand{\specialhero}[2]{\hil{#2}\\\smallskip\includegraphics[height=5cm]{#1}}
+\newcommand{\two}[2]{
+  \begin{columns}
+    \begin{column}{0.4\textwidth}
+      \centering
+      #1
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \centering
+      #2
+    \end{column}
+  \end{columns}
+}
+
+\begin{frame}{Applaus für unsere Helden!}
+  \centering
+  \only<1>{\hero{005-cell}{Pentachoron}}
+  \only<2>{\two{\hero{008-cell}{Tesserakt}}{\hero{016-cell}{Hexadecachoron}}}
+  \only<3>{\two{\hero{120-cell}{Hecatonicosachoron}}{\hero{600-cell}{Hexacosichoron}}}
+  \only<4->{\specialhero{024-cell}{Icositetrachoron}}
+  \bigskip
+
+  \only<5>{
+    \hil{https://4d.speicherleck.de/}
+  }
 \end{frame}
 
 \appendix
