@@ -6,9 +6,9 @@ set vrange [ 0 : pi ]
 
 i = 0
 coolsin(t) = sin(t) < 0 ? 0 : sin(t)**2
-spherex(u,v) = sin(u) * cos(v) * (1 + 0.1 * coolsin(i+u+v) * coolsin(u*5+v*5))
-spherey(u,v) = sin(u) * sin(v) * (1 + 0.1 * coolsin(i+u+v) * coolsin(u*5+v*5))
-spherez(u,v) = cos(u) * (1 + 0.1 * coolsin(i+u+v) * coolsin(u*5+v*5))
+spherex(u,v) = sin(u) * cos(v) # * (1 + 0.1 * coolsin(i+u+v) * coolsin(u*5+v*5))
+spherey(u,v) = sin(u) * sin(v) # * (1 + 0.1 * coolsin(i+u+v) * coolsin(u*5+v*5))
+spherez(u,v) = cos(u) # * (1 + 0.1 * coolsin(i+u+v) * coolsin(u*5+v*5))
 
 triangle(a,b,t) = sin((t-a)/(b-a) * pi)
 triangle(a,b,t) = 1
