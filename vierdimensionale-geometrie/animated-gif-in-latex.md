@@ -2,14 +2,14 @@
 
 Over at the TeX StackExchange, there are diverse recommendations on how to
 include animated GIFs in PDF files produced by LaTeX. Some of these employ
-now-obsolete packages or require the Adobe Acrobat Reader and didn't work for
-me. In particular, solutions proposing the `animate` package didn't work. The
-solution I describe here works on a modern (2017) system.
+now-obsolete packages like `media15` or require the Adobe Acrobat Reader and
+didn't work for me. In particular, solutions proposing the `animate` package
+didn't work. The solution described here works on a modern (2017) system.
 
 
 ## In three steps
 
-1. Convert the GIF to a MP4 video. On your system, the `convert` tool from
+1. Convert the GIF to an MP4 video. On your system, the `convert` tool from
    the excellent ImageMagick suite might do the trick (`convert foo.gif
    foo.mp4`), but it didn't work for me. In any case, you can use `avconv`
    (formerly known as `ffmpeg`, included in the Debian package `libav-tools`
@@ -26,12 +26,14 @@ solution I describe here works on a modern (2017) system.
    Use `pdflatex` to run LaTeX.
 
 4. Use Okular as PDF viewer. Neither MuPDF nor Evince nor Mozilla's PDF.js
-   worked for me.
+   worked for me. You can test whether your favorite PDF viewer supports the
+   technique described here by [having a look at this PDF
+   file](https://rawgit.com/iblech/mathezirkel-kurs/master/vierdimensionale-geometrie/slides-weihnachtsvorlesung.pdf).
 
 
 ## Caveats
 
-* So-called "optimized GIF" files can lead to badly-looking artefacts.
+* So-called "optimized GIF" files can lead to badly-looking artifacts.
   Use `gifsicle --unoptimize` before passing those to `convert`. This tool is
   part of the equally-named Debian and Nix packages. You can use [this shell
   script](gif2mp4.sh) to run `gifsicle`, `convert`, and `avconv` in one step.
