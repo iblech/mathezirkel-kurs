@@ -77,13 +77,24 @@ Lehrstuhl für Algebra und Zahlentheorie}
   \titlepage
 }
 
+
 \section{Grundlagen}
+
+\begin{frame}[plain,c]
+  \centering
+  \Large
+  \hil{Wie geht's weiter?}
+
+  1, $\infty$, 5, 6, \hil{??}
+\end{frame}
+\addtocounter{framenumber}{-1}
+
 
 \subsection{Vier Dimension: was ist das?}
 
 \begin{frame}{Vier Dimensionen?}
   \centering
-  \only<1>{\includegraphics[width=0.8\textwidth]{4d-tesseract-plain}}
+  \only<1>{\includegraphics[width=0.9\textwidth]{4d-tesseract}}
   \only<2>{\includegraphics[width=0.9\textwidth]{4d-pentachoron}}
   \only<3>{\includegraphics[width=0.9\textwidth]{prisoner}}
   \par
@@ -360,7 +371,7 @@ Lehrstuhl für Algebra und Zahlentheorie}
 \begin{frame}{Platonische Körper in 4d}
   \only<1>{
     \begin{columns}[c]
-      \solidd{tetrahedron}{Tetraeder}{4E, 6K, 4f}
+      \solidd{tetrahedron}{Tetraeder}{4E, 6K, 4F}
       \solidd{005-cell}{Pentachoron}{5E, 10K, 10F, 5Z}
       \solidv{005-cell}
     \end{columns}
@@ -368,13 +379,13 @@ Lehrstuhl für Algebra und Zahlentheorie}
 
   \only<2>{
     \begin{columns}[c]
-      \solidd{hexahedron}{Hexaeder}{8E, 12K, 6f}
+      \solidd{hexahedron}{Hexaeder}{8E, 12K, 6F}
       \solidd{008-cell}{Octachoron}{16E, 32K, 24F, 8Z}
       \solidv{008-cell}
     \end{columns}
     \vspace*{2em}
     \begin{columns}[c]
-      \solidd{octahedron}{Oktaeder}{6K, 12K, 8f}
+      \solidd{octahedron}{Oktaeder}{6K, 12K, 8F}
       \solidd{016-cell}{Hexadecachoron}{8E, 24K, 32F, 16Z}
       \solidv{016-cell}
     \end{columns}
@@ -382,13 +393,13 @@ Lehrstuhl für Algebra und Zahlentheorie}
 
   \only<3>{
     \begin{columns}[c]
-      \solidd{dodecahedron}{Dodekaeder}{20E, 30K, 12f}
+      \solidd{dodecahedron}{Dodekaeder}{20E, 30K, 12F}
       \solidd{120-cell}{Hecatonicosachoron}{600E, 1200K, 720F, 120Z}
       \solidv{120-cell}
     \end{columns}
     \vspace*{2em}
     \begin{columns}[c]
-      \solidd{icosahedron}{Ikosaeder}{12E, 30K, 20f}
+      \solidd{icosahedron}{Ikosaeder}{12E, 30K, 20F}
       \solidd{600-cell}{Hexacosichoron}{120E, 720K, 1200F, 600Z}
       \solidv{600-cell}
     \end{columns}
@@ -429,26 +440,26 @@ Lehrstuhl für Algebra und Zahlentheorie}
 \end{frame}
 
 
-%\subsection{In beliebigen Dimensionen}
-%
-%\begin{frame}{In beliebigen Dimensionen}
-%  \centering
-%  \begin{tabular}{ll}
-%    \toprule
-%    Dimension & Anzahl platonischer Körper \\ \midrule
-%    $n = 1$ & 1 (nur die Linie) \\
-%    $n = 2$ & $\infty$ (Dreieck, Quadrat, Fünfeck, Sechseck, \ldots) \\
-%    $n = 3$ & 5 \\
-%    $n = 4$ & 6 \\
-%    $n = 5$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
-%    $n = 6$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
-%    $n = 7$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
-%    $n = 8$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
-%    \emph{und so weiter} \\
-%    \bottomrule
-%  \end{tabular}
-%  \par
-%\end{frame}
+\subsection{In beliebigen Dimensionen}
+
+\begin{frame}{In beliebigen Dimensionen}
+  \centering
+  \begin{tabular}{ll}
+    \toprule
+    Dimension & Anzahl platonischer Körper \\ \midrule
+    $n = 1$ & 1 (nur die Linie) \\
+    $n = 2$ & $\infty$ (Dreieck, Quadrat, Fünfeck, Sechseck, \ldots) \\
+    $n = 3$ & 5 \\
+    $n = 4$ & 6 \\
+    $n = 5$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
+    $n = 6$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
+    $n = 7$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
+    $n = 8$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
+    \emph{und so weiter} \\
+    \bottomrule
+  \end{tabular}
+  \par
+\end{frame}
 
 \note{
   \begin{itemize}
@@ -581,11 +592,12 @@ Lehrstuhl für Algebra und Zahlentheorie}
   \only<1>{\hero{005-cell}{Pentachoron}}
   \only<2>{\two{\hero{008-cell}{Tesserakt}}{\hero{016-cell}{Hexadecachoron}}}
   \only<3>{\two{\hero{120-cell}{Hecatonicosachoron}}{\hero{600-cell}{Hexacosichoron}}}
-  \only<4->{\specialhero{024-cell}{Icositetrachoron}}
+  \only<4>{\specialhero{024-cell}{Icositetrachoron}}
   \bigskip
 
-  \only<5>{
-    \hil{https://4d.speicherleck.de/}
+  \only<4>{
+    Unterlagen zum Vortrag: \\
+    \hil{http://4d.speicherleck.de/}
   }
 \end{frame}
 
@@ -595,18 +607,8 @@ Lehrstuhl für Algebra und Zahlentheorie}
 
 \begin{frame}{Image sources}
   \tiny
-  Miscellaneous pictures: \\
-  \url{https://commons.wikimedia.org/wiki/File:Blue_Trefoil_Knot.png} \\
-  \url{http://www.gnuplotting.org/figs/klein_bottle.png} \\
-  \url{http://4.bp.blogspot.com/_TbkIC-eqFNM/S-dK9dd1cUI/AAAAAAAAFjA/d8qdTHhKy1U/s320/tesseract+unfolded.png} \\
-  \url{https://en.wikipedia.org/wiki/File:Tetrahedron.svg} \\
-  \url{https://en.wikipedia.org/wiki/File:Hexahedron.svg} \\
-  \url{https://en.wikipedia.org/wiki/File:Octahedron.svg} \\
-  \url{https://en.wikipedia.org/wiki/File:Dodecahedron.svg} \\
-  \url{https://en.wikipedia.org/wiki/File:Icosahedron.svg}
-  \bigskip
 
-  Rendered images of four-dimensional bodies created by Robert Webb with his
+  \only<1>{Rendered images of four-dimensional bodies created by Robert Webb with his
   Stella software: \\
   \url{https://en.wikipedia.org/wiki/File:Ortho_solid_011-uniform_polychoron_53p-t0.png} \\
   \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_5-cell.png} \\
@@ -614,7 +616,32 @@ Lehrstuhl für Algebra und Zahlentheorie}
   \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_16-cell.png} \\
   \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_24-cell.png} \\
   \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_120-cell.png} \\
-  \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_600-cell_vertex-centered.png} \\
+  \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_600-cell_vertex-centered.png}}
+
+  \only<2>{Miscellaneous pictures: \\
+  \url{http://4.bp.blogspot.com/_TbkIC-eqFNM/S-dK9dd1cUI/AAAAAAAAFjA/d8qdTHhKy1U/s320/tesseract+unfolded.png} \\
+  \url{http://gwydir.demon.co.uk/jo/tess/optical6.gif}
+  \url{https://commons.wikimedia.org/wiki/File:Blue_Trefoil_Knot.png} \\
+  \url{https://en.wikipedia.org/wiki/File:Dodecahedron.svg} \\
+  \url{https://en.wikipedia.org/wiki/File:Hexahedron.svg} \\
+  \url{https://en.wikipedia.org/wiki/File:Icosahedron.svg} \\
+  \url{https://en.wikipedia.org/wiki/File:Octahedron.svg} \\
+  \url{https://en.wikipedia.org/wiki/File:Tetrahedron.svg} \\
+  \url{https://mathlesstraveled.files.wordpress.com/2017/01/villarceau-torus-small.jpg} \\
+  \url{https://upload.wikimedia.org/wikipedia/commons/1/1e/600-cell.gif} \\
+  \url{https://upload.wikimedia.org/wikipedia/commons/2/24/HC_R1.png} \\
+  \url{https://upload.wikimedia.org/wikipedia/commons/7/72/Rhombic_dodecahedra_b.png} \\
+  \url{https://upload.wikimedia.org/wikipedia/commons/a/a0/16-cell.gif} \\
+  \url{https://upload.wikimedia.org/wikipedia/commons/c/cf/Hexahedron_flat_color.svg} \\
+  \url{https://upload.wikimedia.org/wikipedia/commons/d/d6/8-cell-orig.gif} \\
+  \url{https://upload.wikimedia.org/wikipedia/commons/d/d8/5-cell.gif} \\
+  \url{https://upload.wikimedia.org/wikipedia/commons/f/f4/24-cell.gif} \\
+  \url{https://upload.wikimedia.org/wikipedia/commons/f/f9/120-cell.gif} \\
+  \url{https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Hopf_Fibration.png/250px-Hopf_Fibration.png} \\
+  \url{https://upload.wikimedia.org/wikipedia/en/0/09/Dali_Crucifixion_hypercube.jpg} \\
+  \url{https://www2.bc.edu/julia-grigsby/Eli_Moab_6in.JPG} \\
+  \url{http://www.gnuplotting.org/figs/klein_bottle.png} \\
+  \url{http://www.math.uni-bonn.de/ag/stroppel/Picture_cs2.jpg}}
 \end{frame}
 \addtocounter{framenumber}{-1}
 
