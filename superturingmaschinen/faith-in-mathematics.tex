@@ -138,7 +138,7 @@ with thanks to Matthias Hutzler and Christian Ittner}}
 
 \begin{frame}
   \centering
-  \only<1,3-6>{
+  \only<1,2-5>{
     \bigskip
 
     \Huge \textbf{Part I}
@@ -152,32 +152,36 @@ with thanks to Matthias Hutzler and Christian Ittner}}
 
   \normalsize
 
-  \only<1,3-5>{
-    \includegraphics[width=0.4\textwidth]{principia-mathematica} \\
-    \only<3->{
+  \only<1,2-4>{
+    \includegraphics[width=0.2\textwidth]{frege-arithmetic} \\
+    \visible<2->{
       \mbox{\!\!\!\!``Let $U$ be the set of all those sets which don't contain themselves.''}
     }
-    \only<4->{
+    \vspace*{-1.2em}
+    \visible<3->{
       \mbox{Naive mathematics is \bad{inconsistent}, rendering it \bad{unreliable}. \bad{\frownie}}
     }
-    \only<5>{
+    \visible<4>{
       Thus the \hil{axiomatic method} was born.
     }
   }
 
-  \only<2>{
-    \includegraphics[width=0.5\textwidth]{principia-mathematica-1plus1}
-  }
-
-  \only<6>{
+  \only<5>{
     \begin{columns}[t]
       \begin{column}{0.13\textwidth}\end{column}
-      \portrait{logicomix}{}{0.37}{0.55}
-      \portrait{lovelace-babbage}{}{0.37}{0.55}
+      \portrait{logicomix}{}{0.37}{0.53}
+      \portrait{lovelace-babbage}{}{0.37}{0.53}
       \begin{column}{0.13\textwidth}\end{column}
     \end{columns}
   }
 \end{frame}
+
+\begin{frame}[plain,c]
+  \centering
+  \includegraphics[height=0.9\textheight]{principia-mathematica-1plus1}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
 
 
 \section{Truth and provability}
@@ -260,7 +264,7 @@ with thanks to Matthias Hutzler and Christian Ittner}}
 
     But \bad{take care}: Consider ``This statement is not true''.
 
-    \item ``Hercules can kill any hydra.''
+    \item ``Hercula can kill any hydra.''
     \item ``$\mathrm{BB}(9000) = x$.'' (for the correct value~$x$)
     \item ``There is no proof of~$1 = 0$.'' (``Peano arithmetic is
     consistent.'')
@@ -345,7 +349,7 @@ with thanks to Matthias Hutzler and Christian Ittner}}
 
     \vspace*{-1em}
     \[
-      \!\!\!\!\!\!
+      \!\!\!\!\!\!\!\!
       \xymatrixrowsep{1pc}
       \xymatrixcolsep{1pc}
       \xymatrix{
