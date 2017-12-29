@@ -134,7 +134,7 @@ with thanks to Matthias Hutzler and Christian Ittner}}
 \frame{\tableofcontents}
 
 
-\section[Genesis]{Genesis of mathematical logic}
+\section[Crisis]{The foundational crisis in mathematics}
 
 \begin{frame}
   \centering
@@ -180,7 +180,7 @@ with thanks to Matthias Hutzler and Christian Ittner}}
 \end{frame}
 
 
-\section{Truth and proof}
+\section{Truth and provability}
 
 \begin{frame}
   \centering
@@ -189,7 +189,7 @@ with thanks to Matthias Hutzler and Christian Ittner}}
   \Huge \textbf{Part II}
 
   \bigskip
-  \Large\hil{Truth and proof}
+  \Large\hil{Truth and provability}
   \par
   \bigskip
   \raggedright
@@ -198,7 +198,7 @@ with thanks to Matthias Hutzler and Christian Ittner}}
   \begin{block}{A syntactic quality}
     A statement is \hil{provable} if and only if it has a \hil{formal proof}
     using only the \only<1>{\hil{Peano
-    axioms}}\only<2->{\hil{\pointthis{-0.5cm,-1.7cm}{1.5cm,3.1cm}{Peano
+    axioms}}\only<2->{\hil{\pointthis{-0.5cm,-1.8cm}{1.9cm,3.1cm}{Peano
     axioms}{\textnormal{\textcolor{black}{\begin{minipage}{0.7\textwidth}Mathematical
     induction
     and:\begin{align*}
@@ -216,7 +216,7 @@ with thanks to Matthias Hutzler and Christian Ittner}}
 
   \begin{block}{A semantic quality}
     A statement is \hil{true} if and only if it holds in the
-    \only<1,2>{\hil{standard model}}\only<3>{\hil{\pointthis{0.3cm,0.7cm}{-0.8cm,-1.5cm}{standard
+    \only<1,2>{\hil{standard model}}\only<3->{\hil{\pointthis{0.3cm,0.7cm}{-0.8cm,-1.5cm}{standard
     model}{\textcolor{black}{\begin{minipage}{0.55\textwidth}\vspace*{-1em}
     \begin{tikzpicture}
       \draw[-latex,dotted] (0.0,0) -- (5.5,0);
@@ -229,9 +229,10 @@ with thanks to Matthias Hutzler and Christian Ittner}}
 
   \pause
   \pause
+  \pause
 
   Provable statements are true. \\
-  True statements are \hil{not} \\
+  True statements are \bad{not} \\
   necessarily provable.
 \end{frame}
 
@@ -251,16 +252,20 @@ with thanks to Matthias Hutzler and Christian Ittner}}
   \raggedright
   \normalsize
 
+  For statements about \hil{specific numbers}, there is no difference between
+  provability and truth. But all of the following are unprovable:
+
   \begin{itemize}
     \item ``This statement is not provable.''
 
-          But \bad{take care}: Consider ``This statement is not true''.
+    But \bad{take care}: Consider ``This statement is not true''.
 
     \item ``Hercules can kill any hydra.''
-    \item ``$\mathrm{BB}(9000) = x$.'' (for any number~$x$)
-    \item ``There is no proof of~$1 = 0$.''
-    \item ``There is an infinity between~$\NN$ and~$\RR$.''
+    \item ``$\mathrm{BB}(9000) = x$.'' (for the correct value~$x$)
+    \item ``There is no proof of~$1 = 0$.'' (``Peano arithmetic is
+    consistent.'')
   \end{itemize}
+  Also: ``There is an infinity/no infinity between~$\NN$ and~$\RR$.''
 \end{frame}
 
 
@@ -292,7 +297,7 @@ with thanks to Matthias Hutzler and Christian Ittner}}
       Going deeper:
       \vspace*{-1.5em}
 
-      \slogan{Peano arithmetic \bad{cannot} prove ``Peano arithmetic is
+      \slogan{Peano arithmetic can \bad{not} prove ``Peano arithmetic is
       consistent''.$\phantom{p}$}
     \end{column}}
   \end{columns}
@@ -315,12 +320,13 @@ with thanks to Matthias Hutzler and Christian Ittner}}
     quotation« yields an unprovable statement when preceded by its quotation.''
     \end{quote}
   \end{itemize}
-  \vspace*{-1.6em}
-  That statement is true, but neither it nor its negation are provable.}
+  \vspace*{-1.4em}
+  If the system is consistent, then that statement is true, but neither it nor
+  its negation are provable.}
 \end{frame}
 
 
-\section[Outlook]{Outlook}
+\section*{Outlook}
 
 \backupstart
 
@@ -328,11 +334,8 @@ with thanks to Matthias Hutzler and Christian Ittner}}
   \centering
   \bigskip
 
-  \Huge \textbf{Part V}
+  \Huge \textbf{Outlook}
 
-  \bigskip
-  \Large\hil{Outlook}
-  \par
   \bigskip
   \normalsize
 
@@ -342,17 +345,15 @@ with thanks to Matthias Hutzler and Christian Ittner}}
 
     \vspace*{-1em}
     \[
-      \qquad
-      \qquad
+      \!\!\!\!\!\!
       \xymatrixrowsep{1pc}
       \xymatrixcolsep{1pc}
       \xymatrix{
-        & \mathrm{ZFC}{+}\mathrm{U} \ar@{-}[d] & \mathrm{ZFC}{+}\mathrm{CH}
-        \ar@{-}[ld] &
+        && \mathbf{ZFC}{\boldsymbol{+}}\mathbf{U} \ar@{-}[d] & \mathrm{ZFC}{+}\mathrm{CH} \ar@{-}[ld] &
         \mathrm{ZFC}{+}\neg\mathrm{CH} \ar@{-}[lld] \\
-        & \mathrm{ZFC} \ar@{-}[d] \\
-        \mathrm{HA}{+}\mathrm{CT} \ar@{-}[rd] & \mathrm{PA} \ar@{-}[d] \\
-        & \mathrm{HA} \\
+        && \mathbf{ZFC} \ar@{-}[d] \\
+        \mathrm{HA}{+}{\varepsilon^2{=}0} \ar@{-}[rrd] & \mathrm{HA}{+}\mathrm{CT} \ar@{-}[rd] & \mathbf{PA} \ar@{-}[d] \\
+        && \mathbf{HA} \\
       }
     \]
     \item If a statement holds in \hil{all} models, it's provable.
