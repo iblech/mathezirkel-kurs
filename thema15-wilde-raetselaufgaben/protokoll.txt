@@ -18,11 +18,11 @@ du die Münzen in zwei Gruppen aufteilen, sodass in den beiden Gruppen gleich
 oft Zahl vorkommt? Du darfst die Münzen umdrehen, allerdings nicht erfühlen
 oder anderweitig herausfinden, ob eine Münze gerade Zahl oder Kopf zeigt.
 
-4. Erika und Meru haben ein eine Tute mit 200 roten und eine Tute mit 200
+4. Erika und Meru haben ein eine Tüte mit 200 roten und eine Tute mit 200
 blauen Bonbons. Erika nimmt 50 rote Bonbons aus der Tute und gibt sie in die
-Tute mit den blauen Bonbons. Danach nimmt Meru zufällig 50 Bonbons aus der Tute
-mit den gemischten Bonbons und gibt sie in die Tute mit den roten Bonbons, so
-dass sich jetzt in beiden Tuten wieder je 200 Bonbons befinden. Sind jetzt in der
+Tüte mit den blauen Bonbons. Danach nimmt Meru zufällig 50 Bonbons aus der Tüte
+mit den gemischten Bonbons und gibt sie in die Tüte mit den roten Bonbons, so
+dass sich jetzt in beiden Tüten wieder je 200 Bonbons befinden. Sind jetzt in der
 ursprünglich roten Tüte mehr oder weniger blaue Bonbons als umgekehrt?
 
 5. Zwanzig Zwerge stehen in einer Reihe. Ein böser Troll zwingt sie dazu, nur
