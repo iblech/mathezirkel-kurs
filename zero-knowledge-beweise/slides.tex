@@ -1,7 +1,7 @@
 \documentclass[12pt,compress,ngerman,utf8,t]{beamer}
 \usepackage[ngerman]{babel}
 \usepackage{calc}
-\usepackage{ragged2e,wasysym,multicol,mathtools,txfonts}
+\usepackage{ragged2e,wasysym,multicol,mathtools,txfonts,tikz,ifthen}
 \usepackage[protrusion=true,expansion=true]{microtype}
 \usepackage{booktabs}
 \usepackage{multimedia}
@@ -71,6 +71,8 @@ Universität Augsburg}
 \setbeameroption{hide notes}
 \setbeamertemplate{note page}[plain]
 
+\input{primes}
+
 \begin{document}
 
 {\setbeamertemplate{footline}{}
@@ -126,10 +128,17 @@ Universität Augsburg}
   \end{columns}
 \end{frame}
 
+\begin{frame}{Primzahlen mögen die Sechs}
+  \centering
+  \vspace*{-0.5em}
+  \withsource{\scalebox{0.7}{\sieve{6}{8}}}{Illustration:
+  \href{https://tex.stackexchange.com/a/44920/32372}{Todd Lehman} (CC-BY-SA)}
+\end{frame}
 
-\section{Wo ist Waldo?}
 
-\begin{frame}{Wo ist Waldo?}
+\section{Wo ist Walter?}
+
+\begin{frame}{Wo ist Walter?}
   \centering
   \includegraphics[height=0.8\textheight]{waldo}
 \end{frame}
@@ -151,6 +160,10 @@ Universität Augsburg}
   \medskip
 
   \redheart{} 18. bis 26. August in Violau \redheart{}
+\end{frame}
+
+{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\includegraphics[height=\paperheight]{mathecamp-crazy}\end{minipage}}
+\begin{frame}[plain]
 \end{frame}
 
 \end{document}
