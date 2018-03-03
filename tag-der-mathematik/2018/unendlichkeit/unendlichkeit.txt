@@ -1,0 +1,6 @@
+=== Spiel und Spaß mit Zahlen, die größer als unendlich sind
+
+1. Ordinalzahlen: das übliche bis omega^omega oder so.
+Verletzung der üblichen Rechenregeln.
+
+2. Kardinalzahlen: Hilberts Hotel, 
