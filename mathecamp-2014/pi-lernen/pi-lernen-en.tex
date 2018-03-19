@@ -9,6 +9,13 @@
 
 \selectlanguage{english}
 
+\makeatletter
+\newcommand*{\shifttext}[2]{%
+  \settowidth{\@tempdima}{#2}%
+  \makebox[\@tempdima]{\hspace*{#1}#2}%
+}
+\makeatother
+
 \newcommand{\vorderseite}{
   \begin{minipage}[t][4cm][t]{7.6cm}
     \begin{center}
@@ -16,6 +23,7 @@
       \vspace{0.6em}
       \tiny
 
+      \makebox[0pt]{\shifttext{-6pt}{3.}}%
       \scalebox{1.00}{141 592 6535 897 932 3846 264 338 3279 502 884 1971 693 993 7510}
 
       \scalebox{1.00}{582 097 4944 592 307 8164 062 862 0899 862 803 4825 342 117 0679}
