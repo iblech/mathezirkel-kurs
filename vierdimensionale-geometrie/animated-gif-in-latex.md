@@ -6,6 +6,10 @@ now-obsolete packages like `media15` or require the Adobe Acrobat Reader and
 didn't work for me. In particular, solutions proposing the `animate` package
 didn't work. The solution described here works on a modern (2017) system.
 
+Note that the procedure described here doesn't include the animated GIFs in the
+resulting PDF file. Instead the PDF file will reference the animations by filename.
+I don't know a way to fix this.
+
 
 ## In three steps
 
@@ -26,9 +30,7 @@ didn't work. The solution described here works on a modern (2017) system.
    Use `pdflatex` to run LaTeX.
 
 4. Use Okular as PDF viewer. Neither MuPDF nor Evince nor Mozilla's PDF.js
-   worked for me. You can test whether your favorite PDF viewer supports the
-   technique described here by [having a look at this PDF
-   file](https://rawgit.com/iblech/mathezirkel-kurs/master/vierdimensionale-geometrie/slides-weihnachtsvorlesung.pdf).
+   worked for me.
 
 
 ## Caveats
@@ -42,7 +44,7 @@ didn't work. The solution described here works on a modern (2017) system.
 
 * If in the `\movie` command you don't specify the height, it will be
   automatically calculated from the width so as to preserve the aspect ratio.
-  If on the other you don't specify the width, the movie will be included with
+  If on the other hand you don't specify the width, the movie will be included with
   a width of (what appears to be) zero pixels.
 
 * Okular displays the animations only in presentation mode (Ctrl+Shift+P).
