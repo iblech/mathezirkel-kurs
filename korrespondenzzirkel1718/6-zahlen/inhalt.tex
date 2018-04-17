@@ -1,6 +1,6 @@
 \documentclass{../../zirkelblatt1718}
 \graphicspath{{../}}
-\usepackage{multicol,mathtools,booktabs,xspace}
+\usepackage{multicol,mathtools,booktabs,xspace,wrapfig}
 \usepackage{tikz}
 \usetikzlibrary{arrows,decorations.pathreplacing}
 \usepackage{subfig}
@@ -158,7 +158,7 @@ Beweis, den wir weiter unten präsentieren.
 
 Die kleinstmögliche Zahl~$N$ mit den genannten Eigenschaften schreibt man auch
 als~"`$R(r,g)$"'. Die Eingangsproposition kann man also in folgende Sprache
-kleiden: Die Zahl~$R(3,3)$ ist höchstens sechs. Man kann sich nun zusätzlich
+kleiden: Die Zahl~$R(3,3)$ ist höchstens sechs.~\happy Man kann sich nun zusätzlich
 überlegen, dass es bei nur fünf Gästen mindestens eine Gästekonstellation gibt,
 in der weder ein Dreiergrüppchen aus Leuten, die sich schon kannten, noch ein
 Dreiergrüppchen aus Leuten, die sich noch nicht kannten, gibt.~\happy Daher
@@ -171,20 +171,30 @@ Wie kann man die \emph{Ramsey-Zahlen}~$R(r,g)$ bestimmen? Prinzipiell ist das
 leicht, man muss nur einen Computer beauftragen, alle möglichen
 Gästekonstellationen durchzugehen und dabei zu prüfen, ab welcher Partygröße es
 immer mindestens ein rotes~$r$-Grüppchen oder ein blaues~$b$-Grüppchen gibt.
-Allerdings sind nur wenige Abkürzungen bekannt, die es dem Computer
-ermöglichen, ein paar Fälle nicht überprüfen zu müssen. Deswegen sind die
-meisten Ramsey-Zahlen unbekannt.
+Allerdings gibt es unzählige solcher Konstellationen,\footnote{Lasst uns grob
+überschlagen, wie viele verschiedene Gästekonstellationen es bei insgesamt zehn
+Gästen gibt. Es gibt~$\binom{10}{2} = 10 \cdot 9 / 2 = 45$ viele Paare von je zwei
+Gästen. Also gibt es~$2^{45}$ Möglichkeiten für die "`kannten sich
+schon"'/"`kannten sich noch nicht"'-Optionen, die es für jedes Paar gibt. Das
+sind etwa 35~Trillionen. Die tatsächlich relevante Anzahl Möglichkeiten ist
+etwas geringer, da es auf die Reihenfolge der Personen nicht ankommt.}
+und es sind nur wenige Abkürzungen bekannt, die es dem Computer ermöglichen,
+ein paar Fälle nicht überprüfen zu müssen. Deswegen sind die meisten
+Ramsey-Zahlen unbekannt.
 
 Bis 2012 wusste man von~$R(4,6)$ etwa nur, dass diese Zahl zwischen~35 und~41
 liegt (jeweils einschließlich). Seit einem neuen Ergebnis im Jahr 2012 weiß
 man: Die Zahl~$R(4,6)$ liegt zwischen~\emph{36} und~41 (jeweils
-einschließlich). Diese Erkenntnis war einen mathematischen Fachartikel wert.
+einschließlich). Diese Erkenntnis war einen mathematischen Fachartikel
+wert.\footnote{Interessiert? Eine Suchmaschine wird ihn auftreiben: \emph{On
+the Ramsey Number~$R(4,6)$} von Geoffrey Exoo, The Electronic Journal of
+Combinatorics, 2012.}
 
 Überlege dir, wie man grundsätzlich vorgehen muss, um \emph{untere Schranken}
 für die Ramsey-Zahlen zu finden -- also herauszufinden, dass eine bestimmte
 Ramsey-Zahl mindestens so und so groß ist.~\happy Wie man vorgehen kann, um
-(nicht optimale, aber immerhin) \emph{obere} Schranken zu finden, behandeln wir
-im nächsten Abschnitt.
+(nicht optimale, aber immerhin irgendwelche) \emph{obere} Schranken zu finden,
+behandeln wir im nächsten Abschnitt.
 
 
 \subsection{Obere Schranken}
@@ -269,5 +279,134 @@ Und weiter:
 Wenn du Spaß am Programmieren hast, oder es lernen möchtest, dann schreibe doch
 ein Programm, dass nach diesem Schema obere Schranken für die Ramsey-Zahlen
 ausgibt.~\happy
+
+
+\section{Sehr große Zahlen}
+
+\subsection{Hyperoperationen}
+
+Addition, Multiplikation, Exponentiation -- wie geht es weiter? Mit der
+\emph{Tetration}!
+\begin{align*}
+  2 \cdot 5 &= 2 + 2 + 2 + 2 + 2 \\
+  2 \uparrow 5 &= 2^5 = 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \\
+  2 \uparrow\uparrow 5 &= 2^{2^{2^{2^{2}}}} \quad
+  \text{(eine Zahl mit 19729 Stellen)}
+\end{align*}
+Der Potenzturm könnte missverständlich sein -- ist
+$2^{(2^{(2^{(2^2)})})}$ oder ist~${\Bigl({\bigl({(2^2)}^2\bigr)}^2\Bigr)}^2$ gemeint?
+Man hat sich dazu entschieden, die erste Möglichkeit zu meinen, denn die andere
+Möglichkeit könnte man noch vereinfachen (wozu?~\happy). Übrigens liefert die
+erste Möglichkeit auch den größeren Zahlenwert (wieso?~\happy).
+
+Jedenfalls: Wieso bei zwei Pfeilen aufhören? Nach der Tetration kommt \ldots
+\[
+  2 \uparrow\uparrow\uparrow 5 =
+  2 \uparrow\uparrow 2 \uparrow\uparrow 2 \uparrow\uparrow 2 \uparrow\uparrow 2
+\]
+Auch hier sollte man wieder präzisieren, was gemeint ist: nämlich die Zahl~$2
+\uparrow\uparrow (2 \uparrow\uparrow (2 \uparrow\uparrow (2 \uparrow\uparrow
+2)))$, nicht die Zahl~$(((2 \uparrow\uparrow 2) \uparrow\uparrow 2)
+\uparrow\uparrow 2) \uparrow\uparrow 2$. Die Zahl~$2 \uparrow\uparrow\uparrow
+5$ ist ein gewaltiger Potenzturm aus Zweiern -- genauer gesagt: einer aus~$2
+\uparrow\uparrow (2 \uparrow\uparrow (2 \uparrow\uparrow 2))$ vielen Zweien.
+Die Anzahl dieser Zweien ist also selbst ein riesiger Potenzturm -- einer
+aus~$2 \uparrow\uparrow (2 \uparrow\uparrow 2) = 65536$ Zweien.
+
+Diese Rechenoperationen -- und die weiteren, die man analog definieren kann,
+wie etwa~$\uparrow\uparrow\uparrow\uparrow$ -- heißen auch
+\emph{Hyperoperationen}. Hier ein paar Aufgaben zum Vertrautwerden:
+
+\begin{itemize}
+  \item Welche der Zahlen~$2 \uparrow\uparrow (2 \uparrow\uparrow 2)$ und~$(2
+  \uparrow\uparrow 2) \uparrow\uparrow 2$ ist größer?~\happy
+  \item Wieso ist~$2 \uparrow\uparrow\uparrow\uparrow\uparrow 2 = 4$?~\happy
+  \item Wieso ist~$2 \uparrow\uparrow\uparrow\uparrow\uparrow 1 = 2$?~\happy
+\end{itemize}
+
+
+\subsection{Grahams Zahl}
+
+\begin{wrapfigure}{r}{0.2\textwidth}
+\vspace*{-1em}
+\includegraphics[width=0.2\textwidth]{graham}
+\end{wrapfigure}
+
+Mit den Hyperoperationen ausgerüstet, können wir uns ans Werk machen, um
+\emph{Grahams Zahl} zu definieren -- eine Zahl, die auf eine kombinatorische
+Untersuchung von Ronald Graham zurückgeht und für eine Weile den Titel
+beanspruchte, die größte natürliche Zahl zu sein, die jemals in einem
+mathematischen Beweis explizit verwendet wurde.
+
+Graham fragte sich: Stimmt es eigentlich, dass es, egal mit welchen zwei Farben
+man die~28~Kanten des dreidimensionalen Würfels einfärbt (Flächen- und
+Raumdiagonalen dazugezählt), stets mindestens vier Eckpunkte gibt, die in einer
+gemeinsamen Ebene liegen und deren Verbindungen alle dieselbe Farbe haben?
+
+Das ist etwa bei der Färbung in der oberen Skizze der Fall. Allerdings würde es
+keine solchen vier Eckpunkte geben, wenn die von unten vorne rechts nach unten
+hinten rechts verlaufende Kante blau eingefärbt wäre. Die Antwort auf Grahams
+Frage lautet daher: Nein, das stimmt nicht immer.
+
+Das war auch Graham schnell klar, und so stellte er die analoge Frage für den
+vierdimensionalen Würfel mit seinen 16~Ecken und 135~Querverbindungen. Aber
+auch bei ihm gibt es eine Färbung, sodass kein Satz aus vier in einer
+gemeinsamen Ebene liegenden Eckpunkten mit lauter gleichfarbigen
+Querverbindungen existiert.
+
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{4d-tesseract}
+\end{center}
+
+Beim fünf-, sechs-, \ldots, dreizehndimensionalen Würfel ist das genauso. Für
+den vierzehndimensionalen Würfel ist die Frage offen. Graham zeigte: Zumindest
+wenn man den~$G$-dimensionalen Würfel nimmt, dann stimmt es -- dann gibt es
+immer mindestens vier Eckpunkte gibt, die in einer gemeinsamen Ebene liegen und
+deren Querverbindungen alle dieselbe Farbe haben. Die Zahl~$G$ ist die
+\emph{Grahamsche Zahl}. Sie ist wie folgt definiert:
+\[
+\left.
+ \begin{matrix}
+  G &=&3\underbrace{\uparrow \uparrow \cdots\cdots\cdots\cdots\cdots \uparrow}3 \\
+    & &3\underbrace{\uparrow \uparrow \cdots\cdots\cdots\cdots \uparrow}3 \\
+    & &\underbrace{\qquad\;\; \vdots \qquad\;\;} \\
+    & &3\underbrace{\uparrow \uparrow \cdots\cdot\cdot \uparrow}3 \\
+    & &3\uparrow \uparrow \uparrow \uparrow3
+ \end{matrix}
+\right \} \text{64 Schichten}
+\]
+In Worten: Man beginnt mit der Zahl~$g_1 = 3\uparrow \uparrow \uparrow \uparrow3$.
+Dann nimmt man~$g_2 = 3 \uparrow \uparrow \ldots \uparrow \uparrow 3$ mit
+insgesamt~$g_1$ vielen Pfeilen. Dann folgt~$g_3 = 3 \uparrow \uparrow \ldots
+\uparrow \uparrow 3$ mit insgesamt~$g_2$ vielen Pfeilen. Und so macht man noch
+eine ganz Zeit lang weiter, bis man bei~$g_{64}$ angekommen ist. Das ist
+Grahams Zahl.~\happy
+
+Zu Grahams Zahl ist noch viel, viel mehr zu berichten; wir sind uns aber nicht
+sicher, was euch interessiert. Deswegen hören wir an dieser Stelle auf und
+bitten euch, uns zu schreiben:
+
+\begin{itemize}
+  \item Interessiert ihr euch für vierdimensionale Geometrie? Möchtet ihr mehr
+  über den vierdimensionalen Würfel erfahren? Möchtet ihr wissen, wie die
+  Zahlenfolge~$1, \infty, 5, 6$ weiter geht?
+  \item Die erste Ziffer von Grahams Zahl ist unbekannt. Die letzten Ziffern
+  kann man aber recht einfach berechnen. Möchtet ihr wissen, wie das geht?
+\begin{center}
+\emph{Die letzten 500 Ziffern von Grahams Zahl:}
+
+02425950695064738395657479136519351798334535362521 \\
+43003540126026771622672160419810652263169355188780 \\
+38814483140652526168785095552646051071172000997092 \\
+91249544378887496062882911725063001303622934916080 \\
+25459461494578871427832350829242102091825896753560 \\
+43086993801689249889268099510169055919951195027887 \\
+17830837018340236474548882222161573228010132974509 \\
+27344594504343300901096928025352751833289884461508 \\
+94042482650181938515625357963996189939679054966380 \\
+03222348723967018485186439059104575627262464195387
+\par
+\end{center}
+\end{itemize}
 
 \end{document}
