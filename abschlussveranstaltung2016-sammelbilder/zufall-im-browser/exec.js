@@ -65,7 +65,7 @@ for k in sorted(vars):\n\
 function run(output, spinner, code, repetitions) { 
     // Pressing <Tab> inserts a hard tab character.
     // We expand these to four spaces (the same amount as it looks like),
-    // to be compatible with identation keyed in by <Space>.
+    // to be compatible with indentation keyed in by <Space>.
     var prog = wrap(code.replace(/\t/g, "    "), repetitions);
     Sk.configure({
         output: function(text) {
