@@ -63,8 +63,14 @@ Ingo Blechschmidt und Matthias Hutzler}
   \vskip0pt%
 }
 
-\setbeameroption{hide notes}
-\setbeamertemplate{note page}[plain]
+\newcommand{\backupstart}{
+  \newcounter{framenumberpreappendix}
+  \setcounter{framenumberpreappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+  \addtocounter{framenumberpreappendix}{-\value{framenumber}}
+  \addtocounter{framenumber}{\value{framenumberpreappendix}}
+}
 
 \begin{document}
 
@@ -79,14 +85,14 @@ Ingo Blechschmidt und Matthias Hutzler}
 
 \section{Grundlagen}
 
-%\begin{frame}[plain,c]
-%  \centering
-%  \Large
-%  \hil{Wie geht's weiter?}
-%
-%  1, $\infty$, 5, 6, \hil{??}
-%\end{frame}
-%\addtocounter{framenumber}{-1}
+\begin{frame}[plain,c]
+  \centering
+  \Large
+  \hil{Wie geht's weiter?}
+
+  1, $\infty$, 5, 6, \hil{??}
+\end{frame}
+\addtocounter{framenumber}{-1}
 
 
 \subsection{Vier Dimension: was ist das?}
@@ -106,21 +112,6 @@ Ingo Blechschmidt und Matthias Hutzler}
   % Gefängnisse (Quadrat genügt im Flachland, Würfel genügt in 3D, genügt nicht in 4D)
 \end{frame}
 
-\note{
-  \begin{itemize}
-    \item On the previous slide you see two-dimensional projections of the
-    three-dimensional cube and the four-dimensional hypercube (tesseract).
-    \item We're talking about four spatial dimensions. This is not related to
-    four-dimensional spacetime or eleven-dimensional string theory.
-    \item A flatlander can be imprisoned by enclosing them with a square. But
-    we, as three-dimensional beings, can free them by grabbing them, lifting
-    them up in the third dimension, moving them a little to the side, and
-    putting them back into flatland.
-    \item Similarly, a four-dimensional being could free us if we were imprisoned
-    in a three-dimensional cube.
-  \end{itemize}
-}
-
 
 \subsection{Knotentheorie}
 
@@ -130,17 +121,6 @@ Ingo Blechschmidt und Matthias Hutzler}
   \includegraphics[width=0.65\textwidth]{trefoil-knot}
   \par
 \end{frame}
-
-\note{
-  \begin{itemize}
-    \item You can untie any knot in four dimensions. Two linked one-dimensional
-    strings can always be separated in four dimensions.
-    \item But it's possible to tangle an one-dimensional string with the
-    two-dimensional surface of a sphere in four dimensions.
-    \item More generally, in $n$ dimensions, one can tangle $a$-dimensional
-    objects with $b$-dimensional objects provided that $a + b \geq n - 1$.
-  \end{itemize}
-}
 
 %Verhedderbar
 %in 3D: Schnur, Schnur; 2, 2; 1, 1
@@ -237,9 +217,9 @@ Ingo Blechschmidt und Matthias Hutzler}
   \only<4>{
     \centering
     \hil{Icositetrachoron}\par
-    24E, 96K, 96F, 24Z\\\medskip
-    \includegraphics[width=0.5\textwidth]{024-cell} \qquad
-    \video{images/024-cell.mp4}{0.5\textwidth}
+    24E, 96K, 96F, 24Z\\\medskip\bigskip
+    \includegraphics[width=0.4\textwidth]{024-cell} \qquad
+    \video{images/024-cell.mp4}{0.4\textwidth}
   }
 \end{frame}
 
@@ -251,21 +231,6 @@ Ingo Blechschmidt und Matthias Hutzler}
   \bigskip
 
   \hil{Der 24-Zeller pflastert den vierdimensionalen Raum.}
-\end{frame}
-
-\begin{frame}{Übersicht}
-  \begin{columns}[c]
-    \solidde{005-cell}{Pentachoron}{5E, 10K, 10F, 5Z}
-    \solidde{008-cell}{Octachoron}{16E, 32K, 24F, 8Z}
-    \solidde{016-cell}{Hexadecachoron}{8E, 24K, 32F, 16Z}
-  \end{columns}
-  \bigskip
-  \bigskip
-  \begin{columns}[c]
-    \solidde{120-cell}{Hecatonicosachoron}{600E, 1200K, 720F, 120Z}
-    \solidde{600-cell}{Hexacosichoron}{120E, 720K, 1200F, 600Z}
-    \solidde{024-cell}{Icositetrachoron}{24E, 96K, 96F, 24Z}
-  \end{columns}
 \end{frame}
 
 
@@ -317,23 +282,23 @@ Ingo Blechschmidt und Matthias Hutzler}
 \end{frame}
 
 
-\section[4d-Labyringth]{Ein vierdimensionales Labyrinth}
+\section[4d-Labyrinth]{Ein vierdimensionales Labyrinth}
 
 \begin{frame}{Ein vierdimensionales Labyrinth}
   \includegraphics[width=\textwidth]{4d-labyrinth}
 \end{frame}
 
 
-
+\backupstart
 \appendix
 
-\section{Image sources}
+\section{Bildquellen}
 
-\begin{frame}{Image sources}
+\begin{frame}{Bildquellen}
   \tiny
 
-  \only<1>{Rendered images of four-dimensional bodies created by Robert Webb with his
-  Stella software: \\
+  \only<1>{Bilder vier-dimensionaler Körper von Robert Webb, mit seiner
+  \emph{Stella}-Software erzeugt: \\
   \url{https://en.wikipedia.org/wiki/File:Ortho_solid_011-uniform_polychoron_53p-t0.png} \\
   \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_5-cell.png} \\
   \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_8-cell.png} \\
@@ -342,7 +307,7 @@ Ingo Blechschmidt und Matthias Hutzler}
   \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_120-cell.png} \\
   \url{https://en.wikipedia.org/wiki/File:Schlegel_wireframe_600-cell_vertex-centered.png}}
 
-  \only<2>{Miscellaneous pictures: \\
+  \only<2>{Verschiedene Bilder: \\
   \url{http://4.bp.blogspot.com/_TbkIC-eqFNM/S-dK9dd1cUI/AAAAAAAAFjA/d8qdTHhKy1U/s320/tesseract+unfolded.png} \\
   \url{http://gwydir.demon.co.uk/jo/tess/optical6.gif}
   \url{https://commons.wikimedia.org/wiki/File:Blue_Trefoil_Knot.png} \\
@@ -367,7 +332,6 @@ Ingo Blechschmidt und Matthias Hutzler}
   \url{http://www.gnuplotting.org/figs/klein_bottle.png} \\
   \url{http://www.math.uni-bonn.de/ag/stroppel/Picture_cs2.jpg}}
 \end{frame}
-\addtocounter{framenumber}{-1}
 
 
 \section[Größen]{Größen in vier Dimensionen}
@@ -399,30 +363,6 @@ Ingo Blechschmidt und Matthias Hutzler}
   \end{tabular}\par
 \end{frame}
 
-\note{
-  \begin{itemize}
-    \item The portion of the $n$-dimensional unit hypercube which is occupied
-    by the inscribed $n$-dimensional hyperball gets arbitrary small in
-    sufficiently high dimensions.
-    \item The volume of such a hyperball is the answer to the following
-    question: What is the probability that we managed to hit the hyperball with
-    an dart, provided that we managed to hit the enclosing hyperball?
-    \item Wikipedia gives
-    \href{https://en.wikipedia.org/wiki/Volume_of_an_n-ball}{derivations for
-    these formulas}.
-    \item You can use the \emph{power of negative thinking} to motivate that
-    the formula for the n-dimensional volume of the n-dimensional hyperball
-    does \emph{not} contain $\pi^n$ (but rather $\pi^{\lfloor n/2 \rfloor}$):
-    Think about the zero- and one-dimensional case.
-
-    A zero-dimensional ball is just a point. Its zero-dimensional volume
-    is~$1$.
-
-    An one-dimensional ball is just a line segment. Its one-dimensional volume
-    is its length.
-  \end{itemize}
-}
-
 
 \subsection{Küssende Hyperkugeln}
 
@@ -453,22 +393,6 @@ Ingo Blechschmidt und Matthias Hutzler}
   \par
 \end{frame}
 
-\note{
-  \begin{itemize}
-    \item In two dimensions, the distance of a point~$(x,y)$ to the origin is
-    $\sqrt{x^2 + y^2}$ (by the Pythagorean theorem).
-    \item In three dimensions, the distance of a point~$(x,y,z)$ to the origin
-    is~$\sqrt{x^2+y^2+z^2}$.
-    \item The pattern continues to arbitrary dimensions.
-    \item In four dimensions, the ``small hypersphere in the middle'' has
-    exactly the same size as the hyperspheres at the 16 vertices of the
-    hypercube.
-    \item In even greater dimensions, the hyperspheres at the vertices are so
-    small that the ``small hypersphere in the middle'' is bigger than them and
-    in fact bigger than the hypercube!
-  \end{itemize}
-}
-
 
 \subsection[Relativität]{Allgemeine Relativitätstheorie}
 
@@ -492,12 +416,6 @@ Ingo Blechschmidt und Matthias Hutzler}
   In $2+1$ Dimensionen impliziert die Gleichung~$T = 0$.
   Nur in vier und mehr Dimensionen ist die Theorie nichttrivial.
 \end{frame}
-
-\note{
-  Details are in the article
-  \href{http://www.csun.edu/~vcphy00d/PDFPublications/1977\%20GR(2+1).pdf}{General
-  relativity in two and three-dimensional space-times} by Peter Collas.
-}
 
 
 \section[Schnitte]{Schnitttheorie}
@@ -562,21 +480,23 @@ Ingo Blechschmidt und Matthias Hutzler}
   \par
 \end{frame}
 
-\note{
-  \begin{itemize}
-    \item The only platonic solid which can be used to tesselate
-    three-dimensional space is the cube.
-    \item In four dimensions, both the tesseract and the 24-cell work.
-    \item This has a deeper reason: In any dimension~$n$, the $n$-dimensional
-    analogue of the rhombic dodecahedron can be used to tesselate
-    $n$-dimensional space. In dimension $n = 3$ the rhombic dodecahedron is not
-    a Platonic solid; in dimension $n = 4$ it is (and is also called the
-    ``24-cell'').
-  \end{itemize}
-}
-
 
 \subsection[Verkleben]{Zusammenkleben vierdimensionaler Formen}
+
+\begin{frame}{Übersicht}
+  \begin{columns}[c]
+    \solidde{005-cell}{Pentachoron}{5E, 10K, 10F, 5Z}
+    \solidde{008-cell}{Octachoron}{16E, 32K, 24F, 8Z}
+    \solidde{016-cell}{Hexadecachoron}{8E, 24K, 32F, 16Z}
+  \end{columns}
+  \bigskip
+  \bigskip
+  \begin{columns}[c]
+    \solidde{120-cell}{Hecatonicosachoron}{600E, 1200K, 720F, 120Z}
+    \solidde{600-cell}{Hexacosichoron}{120E, 720K, 1200F, 600Z}
+    \solidde{024-cell}{Icositetrachoron}{24E, 96K, 96F, 24Z}
+  \end{columns}
+\end{frame}
 
 \begin{frame}{Kleben vierdimensionaler Formen}
   \centering
@@ -621,6 +541,7 @@ Ingo Blechschmidt und Matthias Hutzler}
   Salvador Dalí: \hil{Corpus Hypercubus} (1954)
 \end{frame}
 
+\backupend
 
 \end{document}
 
