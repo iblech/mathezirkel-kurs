@@ -25,7 +25,7 @@ http://math.andrej.com/wp-content/uploads/2014/03/real-world-realizability.pdf
 
 * Superturingmaschinen können nicht alle Prädikate auf N berechnen!
   Denn es gibt nur abzählbar viele Superturingmaschinen.
-
+  
   Ein Beispiel für ein solches Prädikat ist das Halteprädikat für
   Superturingmaschinen.
 
@@ -33,7 +33,7 @@ http://math.andrej.com/wp-content/uploads/2014/03/real-world-realizability.pdf
   nach Thm. 1.1 im genannten Artikel.
 
   Zum Beispiel: Falls die Startzelle eine Eins enthält, dann höre auf.
-  Ansonsten flashe die Zelle und laufe ohne Ende nach Rechts.
+  Ansonsten flashe die Zelle und laufe ohne Ende nach rechts.
 
 * STMs können das Halteproblem für gewöhnliche TMs entscheiden. Außerdem
   können sie den Wahrheitsgehalt jeder arithmetischen Aussage entscheiden.
@@ -94,3 +94,17 @@ http://math.andrej.com/wp-content/uploads/2014/03/real-world-realizability.pdf
 
   Wie lange dauert das? Im Fall, dass die Relation eine Wohlordnung war, in
   etwa so lange, wie der Ordnungstyp dieser Relation.
+
+* https://xorshammer.com/2008/08/22/supertasks-and-ordinals/
+
+  You and the devil are taking a train ride together. The train stops at each
+  ordinal. At stop 0, you have countably infinitely many dollar bills. At each
+  stop, the devil does the following two things (in order):
+
+  1. If you have nonzero number of dollar bills, the devil takes one and destroys
+     it.
+
+  2. The devil gives you countably infinitely many dollar bills.
+
+  Prove that no matter what the devil does, when the train reaches stop omega_1 (the
+  first uncountable ordinal), you will have no money.
