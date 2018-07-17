@@ -326,3 +326,10 @@ Koeffizienten" sind 3x² + 5x + 2, 7x³ + x² + 9, 100x³. Nichtbeispiele sind
   every time?
 
 * http://gurmeet.net/puzzles/
+
+* http://nautil.us/blog/-the-logic-puzzle-you-can-only-solve-with-your-brightest-friend
+  graveyard.hs
+
+* http://nautil.us/issue/55/trust/the-bitcoin-paradox
+  Wie man mit einer Art Blockchain es zu Common Knowledge machen kann, dass
+  viele eine Nachricht gesehen haben.
