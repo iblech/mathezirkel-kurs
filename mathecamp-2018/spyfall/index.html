@@ -131,14 +131,14 @@
 
         area.addEventListener("change", saveLocations);
         var useBtn = document.createElement("button");
-        useBtn.appendChild(document.createTextNode("Diese Orte verwenden"));
+        useBtn.appendChild(document.createTextNode("Diese Liste verwenden"));
         var note = document.createElement("div");
         note.appendChild(document.createTextNode("(speichere dir dann die Adresse)"));
         note.style.fontSize = "medium";
         useBtn.appendChild(note);
         useBtn.addEventListener("click", saveLocations);
         var resetBtn = document.createElement("button");
-        resetBtn.appendChild(document.createTextNode("Standard-Mathecamp-Orte laden"));
+        resetBtn.appendChild(document.createTextNode("Standard-Mathecamp-Liste laden"));
         resetBtn.addEventListener("click", resetLocations);
         document.getElementById("box").appendChild(document.createElement("br"));
         document.getElementById("box").appendChild(document.createElement("hr"));
@@ -176,7 +176,7 @@
         var btn    = document.createElement("button");
         var span   = document.createElement("span");
         var info   = document.createTextNode("");
-        var action = document.createTextNode("(antippen, um Ort anzuzeigen)");
+        var action = document.createTextNode("(antippen zum Anzeigen)");
         span.appendChild(info);
         btn.appendChild(span);
         btn.appendChild(document.createElement("br"));
