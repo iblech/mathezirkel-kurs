@@ -27,36 +27,80 @@
         width: 100%;
         flex: 1 1 auto;
         margin-top: 1em;
+        text-align: center;
     }
 
-    button {
+    button, textarea {
         width: 100%;
         padding: 0.5em;
         margin-top: 0.5em;
         border-radius: 20px;
         border-color: black;
+    }
+    button {
         font-size: x-large;
     }
+    textarea { height: 30em; width: 90%; }
 
     .large { min-height: 80vh; }
 </style>
 
 <script type="text/javascript">
-    locations = [
-        "hier", "Internationale Raumstation", "Mordor", "Supermarkt",
+    standardLocations = [
+        "Hier", "Internationale Raumstation", "Mordor", "Supermarkt",
         "Indisches Restaurant", "Mond", "Todesstern", "Universität", "Flugzeug",
         "Zug", "U-Boot", "Theater", "Wald", "Iglu", "Strand", "Berg", "Museum",
         "Bibliothek", "Baustelle", "Gefängnis", "Hochzeit", "Parlament", "Plenum",
         "Planetarium", "Zoo", "Kino", "Bahnhof", "Flughafen", "Eisdiele", "Wohnzimmer",
         "Italienisches Restaurant", "Geburtstagsfeier", "Mensa", "Internetcafé", "Hackathon"
     ];
+    standardLocations.sort();
+
+    locations = [];
 
     function setup() {
+        if(window.location.hash) {
+            locations = decodeURI(window.location.hash.substring(1)).split("_");
+        } else {
+            locations = standardLocations;
+        }
+
         document.getElementById("main").style.backgroundColor = "#ffffff";
         document.getElementById("headline").innerText = "Neues Spiel mit so vielen Mitspielenden:";
+
         for(var i = 3; i < 21; i++) {
             document.getElementById("box").appendChild(mkStartButton(i));
         }
+
+        var area = document.createElement("textarea");
+        area.value = locations.join("\n");
+
+        saveLocations = function () {
+            locations = area.value.replace(/ *\n */g, "\n").split("\n");
+            window.location.hash = "#" + encodeURI(locations.join("_"));
+        };
+
+        resetLocations = function () {
+            area.value = standardLocations.join("\n");
+            saveLocations();
+        };
+
+        area.addEventListener("change", saveLocations);
+        var useBtn = document.createElement("button");
+        useBtn.appendChild(document.createTextNode("Diese Orte verwenden"));
+        var note = document.createElement("div");
+        note.appendChild(document.createTextNode("(speichere dir dann die Adresse)"));
+        note.style.fontSize = "medium";
+        useBtn.appendChild(note);
+        useBtn.addEventListener("click", saveLocations);
+        var resetBtn = document.createElement("button");
+        resetBtn.appendChild(document.createTextNode("Standard-Mathecamp-Orte laden"));
+        resetBtn.addEventListener("click", resetLocations);
+        document.getElementById("box").appendChild(document.createElement("br"));
+        document.getElementById("box").appendChild(document.createElement("hr"));
+        document.getElementById("box").appendChild(area);
+        document.getElementById("box").appendChild(useBtn);
+        document.getElementById("box").appendChild(resetBtn);
     }
 
     function mkStartButton(n) {
