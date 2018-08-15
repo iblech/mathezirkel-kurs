@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Spyfall</title>
+
+<meta name="viewport" content="initial-scale=1">
+
+<style type="text/css">
+    body {
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        font-size: x-large;
+        font-family: sans-serif;
+    }
+
+    #headline {
+        width: 100%;
+        text-align: center;
+        flex: 0 1 auto;
+        font-weight: bold;
+        margin-top: 1em;
+    }
+
+    #box {
+        width: 100%;
+        flex: 1 1 auto;
+        margin-top: 1em;
+    }
+
+    button {
+        width: 100%;
+        padding: 0.5em;
+        margin-top: 0.5em;
+        border-radius: 20px;
+        border-color: black;
+        font-size: x-large;
+    }
+
+    .large { min-height: 80vh; }
+</style>
+
+<script type="text/javascript">
+    locations = [
+        "hier", "Internationale Raumstation", "Mordor", "Supermarkt",
+        "Indisches Restaurant", "Mond", "Todesstern", "Universität", "Flugzeug",
+        "Zug", "U-Boot", "Theater", "Wald", "Iglu", "Strand", "Berg", "Museum",
+        "Bibliothek", "Baustelle", "Gefängnis", "Hochzeit", "Parlament", "Plenum"
+    ];
+
+    function setup() {
+        document.getElementById("main").style.backgroundColor = "#ffffff";
+        document.getElementById("headline").innerText = "Neues Spiel mit so vielen Mitspielenden:";
+        for(var i = 2; i < 21; i++) {
+            document.getElementById("box").appendChild(mkStartButton(i));
+        }
+    }
+
+    function mkStartButton(n) {
+        var btn = document.createElement("button");
+        btn.style.backgroundColor = rainbowColor(19, 21-n, 0.3);
+        btn.style.fontWeight = "bold";
+        btn.appendChild(document.createTextNode("" + n));
+        btn.addEventListener("click", function () { runGame(n); });
+        return btn;
+    }
+
+    function runGame(n) {
+        while (document.getElementById("box").firstChild) {
+            document.getElementById("box").removeChild(document.getElementById("box").firstChild);
+        }
+
+        var game = {
+            numPlayers: n,
+            loc:        locations[Math.floor(Math.random() * locations.length)],
+            spy:        Math.floor(Math.random() * n)
+        };
+
+        infoPlayer(1, game);
+    }
+
+    function infoPlayer(i, game) {
+        document.getElementById("headline").innerText = "Person " + i + " von " + game.numPlayers;
+
+        var btn    = document.createElement("button");
+        var span   = document.createElement("span");
+        var info   = document.createTextNode("");
+        var action = document.createTextNode("(antippen, um Ort anzuzeigen)");
+        span.appendChild(info);
+        btn.appendChild(span);
+        btn.appendChild(document.createElement("br"));
+        btn.appendChild(document.createElement("br"));
+        btn.appendChild(action);
+
+        btn.className = "large";
+        document.getElementById("main").style.backgroundColor = rainbowColor(game.numPlayers, i-1, 0.3);
+        btn.style.backgroundColor = rainbowColor(game.numPlayers, i-1, 0.8);
+        span.style.fontWeight = "bold";
+        span.style.fontSize = "xx-large";
+
+        var shown = false;
+        btn.addEventListener("click", function () {
+            if(! shown) {
+                info.nodeValue = game.spy == i ? "Du spionierst!" : game.loc;
+                action.nodeValue = "(antippen und weitergeben)";
+                shown = true;
+            } else {
+                document.getElementById("box").removeChild(btn);
+                if(i < game.numPlayers) {
+                    infoPlayer(i+1, game);
+                } else {
+                    setup();
+                }
+            }
+        });
+
+        document.getElementById("box").appendChild(btn);
+    }
+
+    // by Adam Cole at https://stackoverflow.com/a/7419630
+    function rainbowColor(numOfSteps, step, lambda) {
+	var r, g, b;
+	var h = step / numOfSteps;
+	var i = ~~(h * 6);
+	var f = h * 6 - i;
+	var q = 1 - f;
+	switch(i % 6) {
+	    case 0: r = 1; g = f; b = 0; break;
+	    case 1: r = q; g = 1; b = 0; break;
+	    case 2: r = 0; g = 1; b = f; break;
+	    case 3: r = 0; g = q; b = 1; break;
+	    case 4: r = f; g = 0; b = 1; break;
+	    case 5: r = 1; g = 0; b = q; break;
+	}
+        r += lambda * (1-r);
+        g += lambda * (1-g);
+        b += lambda * (1-b);
+	var c = "#" + ("00" + (~ ~(r * 255)).toString(16)).slice(-2) + ("00" + (~ ~(g * 255)).toString(16)).slice(-2) + ("00" + (~ ~(b * 255)).toString(16)).slice(-2);
+	return c;
+    }
+</script>
+
+</head>
+<body onload="setup()" id="main">
+
+<div id="headline"></div>
+
+<div id="box"></div>
+
+<noscript>Dieses Spiel funktioniert nur mit aktiviertem JavaScript.
+Sorry!</noscript>
+
+</body>
+</html>
