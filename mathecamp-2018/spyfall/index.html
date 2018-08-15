@@ -46,20 +46,22 @@
         "hier", "Internationale Raumstation", "Mordor", "Supermarkt",
         "Indisches Restaurant", "Mond", "Todesstern", "Universität", "Flugzeug",
         "Zug", "U-Boot", "Theater", "Wald", "Iglu", "Strand", "Berg", "Museum",
-        "Bibliothek", "Baustelle", "Gefängnis", "Hochzeit", "Parlament", "Plenum"
+        "Bibliothek", "Baustelle", "Gefängnis", "Hochzeit", "Parlament", "Plenum",
+        "Planetarium", "Zoo", "Kino", "Bahnhof", "Flughafen", "Eisdiele", "Wohnzimmer",
+        "Italienisches Restaurant", "Geburtstagsfeier", "Mensa", "Internetcafe", "Hackathon"
     ];
 
     function setup() {
         document.getElementById("main").style.backgroundColor = "#ffffff";
         document.getElementById("headline").innerText = "Neues Spiel mit so vielen Mitspielenden:";
-        for(var i = 2; i < 21; i++) {
+        for(var i = 3; i < 21; i++) {
             document.getElementById("box").appendChild(mkStartButton(i));
         }
     }
 
     function mkStartButton(n) {
         var btn = document.createElement("button");
-        btn.style.backgroundColor = rainbowColor(19, 21-n, 0.3);
+        btn.style.backgroundColor = rainbowColor(18, 20-n, 0.3); // 3 to 20, |[3;20]| = 18 steps, starting at 3
         btn.style.fontWeight = "bold";
         btn.appendChild(document.createTextNode("" + n));
         btn.addEventListener("click", function () { runGame(n); });
