@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Beispielspiel</title>
+<meta name="viewport" content="initial-scale=1">
+
+<script type="text/javascript" src="gioco.js"></script>
+
+<body>
+
+<script type="text/javascript">
+    gioco.init();
+
+    x = 30;
+    y = 50;
+
+    function loop () {
+        if(gioco.pressedKeys["ArrowRight"]) {
+            x += 1;
+        } else if(gioco.pressedKeys["ArrowDown"]) {
+            y += 1;
+        }
+
+        for(var ev of gioco.getEvents()) {
+            gioco.drawRect(0,0, ev.x, ev.y, "red");
+        }
+
+        //gioco.drawRect(0, 0, 600, 300, "black");
+        gioco.drawRect(x, y, 200, 100, "blue");
+        gioco.update();
+
+        window.setTimeout(loop, 10);
+    }
+
+    loop();
+</script>
+
+</body>
+</html>
