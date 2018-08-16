@@ -52,6 +52,7 @@
         "Bank",
         "Baustelle",
         "Berg",
+        "Bermudadreieck",
         "Betreuendenzimmer",
         "Bibliothek",
         "Casino",
@@ -73,6 +74,7 @@
         "Krankenhaus",
         "Kreuzschiff",
         "Limousine",
+        "Marathonlauf",
         "Mensa",
         "Militärbasis",
         "Mond",
@@ -81,6 +83,7 @@
         "Parlament",
         "Planetarium",
         "Plenum",
+        "Schwimmbad",
         "Sinkende Titanic",
         "Spitze des Eiffelturms",
         "Strand",
@@ -90,6 +93,7 @@
         "Todesstern",
         "U-Boot",
         "Universität",
+        "Vierte Dimension",
         "Wald",
         "Werwolfspiel",
         "Wohnzimmer",
@@ -98,6 +102,28 @@
         "Zoo",
         "Zug",
         "π-raten-Schiff",
+    ];
+
+    standardChallenges = [
+        "alle Menschen blind",
+        "alle Menschen taub",
+        "alle Menschen verstummt",
+        "attackiert von Tauben",
+        "ausgesperrt",
+        "Dinosaurier plötzlich wieder da",
+        "Druckerprobleme",
+        "Flug verpasst",
+        "gefangen in Schneelawine",
+        "in Frosch verwandelt",
+        "in Unterwäsche in die Schule gegangen",
+        "Klausur/Schulaufgabe",
+        "Leck im Schiff",
+        "Leute in Höhle gefangen",
+        "Loch in der Internationalen Raumstation",
+        "Socken mit Sandalen",
+        "Sternenlicht bei Nacht tödlich",
+        "Wahlbetrug im Gange",
+        "Weltmeere ausgetrocknet",
     ];
 
     locations = [];
@@ -129,7 +155,13 @@
             saveLocations();
         };
 
+        resetLocations2 = function () {
+            area.value = standardChallenges.join("\n");
+            saveLocations();
+        };
+
         area.addEventListener("change", saveLocations);
+
         var useBtn = document.createElement("button");
         useBtn.appendChild(document.createTextNode("Diese Liste verwenden"));
         var note = document.createElement("div");
@@ -137,14 +169,21 @@
         note.style.fontSize = "medium";
         useBtn.appendChild(note);
         useBtn.addEventListener("click", saveLocations);
+
         var resetBtn = document.createElement("button");
-        resetBtn.appendChild(document.createTextNode("Standard-Mathecamp-Liste laden"));
+        resetBtn.appendChild(document.createTextNode("Mathecamp-Ortsliste laden"));
         resetBtn.addEventListener("click", resetLocations);
+
+        var resetBtn2 = document.createElement("button");
+        resetBtn2.appendChild(document.createTextNode("Mathecamp-Herausforderungenliste laden"));
+        resetBtn2.addEventListener("click", resetLocations2);
+
         document.getElementById("box").appendChild(document.createElement("br"));
         document.getElementById("box").appendChild(document.createElement("hr"));
         document.getElementById("box").appendChild(area);
         document.getElementById("box").appendChild(useBtn);
         document.getElementById("box").appendChild(resetBtn);
+        document.getElementById("box").appendChild(resetBtn2);
     }
 
     function mkStartButton(n) {
