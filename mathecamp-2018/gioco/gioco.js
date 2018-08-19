@@ -7,7 +7,7 @@ gioco.init = function () {
     gioco.canvas.height = 300;
 
     gioco.ctx = gioco.canvas.getContext("2d");
-    gioco.ctx.save();
+    // gioco.ctx.save();
 
     var cell = document.createElement("div");
     cell.style.display = "table-cell";
@@ -41,9 +41,13 @@ gioco.init = function () {
     document.getElementsByTagName("body")[0].style.backgroundColor = "#dddddd";
 };
 
-gioco.update = function () {
-    gioco.ctx.restore();
-    gioco.ctx.save();
+// gioco.update = function () {
+//     gioco.ctx.restore();
+//     gioco.ctx.save();
+// };
+
+gioco.fill = function (c) {
+    gioco.drawRect(0,0, gioco.canvas.width,gioco.canvas.height, c);
 };
 
 gioco.drawRect = function (x,y,w,h,c) {

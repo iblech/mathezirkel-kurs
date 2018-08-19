@@ -15,27 +15,6 @@
     x = 30;
     y = 50;
 
-    function loop () {
-        if(gioco.pressedKeys["ArrowRight"]) {
-            x += 1;
-        } else if(gioco.pressedKeys["ArrowDown"]) {
-            y += 1;
-        }
-
-        for(var ev of gioco.getEvents()) {
-            gioco.drawRect(0,0, ev.x, ev.y, "red");
-        }
-
-        //gioco.drawRect(0, 0, 600, 300, "black");
-        gioco.drawRect(x, y, 200, 100, "blue");
-        gioco.drawCircle(x, y, 20, "red");
-        gioco.drawLine(10, 20, 30, 40, "green");
-        gioco.update();
-
-        window.setTimeout(loop, 10);
-    }
-
-    loop();
 </script>
 
 </body>
