@@ -32,7 +32,6 @@ gioco.init = function () {
     });
     gioco.canvas.addEventListener("click", function (ev) {
         var rect = gioco.canvas.getBoundingClientRect();
-        console.log(3);
         if(gioco.events.length < 100) {
             gioco.events.push({ type: "click", x: ev.clientX - rect.left, y: ev.clientY - rect.top });
         }
@@ -50,6 +49,21 @@ gioco.update = function () {
 gioco.drawRect = function (x,y,w,h,c) {
     gioco.ctx.fillStyle = c;
     gioco.ctx.fillRect(x,y,w,h);
+};
+
+gioco.drawLine = function (x1,y1,x2,y2,c) {
+    gioco.ctx.fillStyle = c;
+    gioco.ctx.beginPath();
+    gioco.ctx.moveTo(x1,y1);
+    gioco.ctx.lineTo(x2,y2);
+    gioco.ctx.stroke();
+};
+
+gioco.drawCircle = function (x,y,r,c) {
+    gioco.ctx.fillStyle = c;
+    gioco.ctx.beginPath();
+    gioco.ctx.arc(x, y, r, 0, 2 * Math.PI);
+    gioco.ctx.fill();
 };
 
 gioco.getEvents = function () {
