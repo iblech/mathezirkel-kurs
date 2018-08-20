@@ -55,8 +55,9 @@ gioco.drawRect = function (x,y,w,h,c) {
     gioco.ctx.fillRect(x,y,w,h);
 };
 
-gioco.drawLine = function (x1,y1,x2,y2,c) {
-    gioco.ctx.fillStyle = c;
+gioco.drawLine = function (x1,y1,x2,y2,c,s) {
+    gioco.ctx.strokeStyle = c;
+    if(typeof s !== "undefined") gioco.ctx.lineWidth = s;
     gioco.ctx.beginPath();
     gioco.ctx.moveTo(x1,y1);
     gioco.ctx.lineTo(x2,y2);
