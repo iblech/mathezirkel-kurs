@@ -89,6 +89,14 @@ gioco.drawText = function (x,y,s,t,c) {
     gioco.ctx.fillText(t,x,y+s/2);
 };
 
+gioco.drawImage = function (x,y,url) {
+    var img = document.createElement("img");
+    img.src = url;
+    img.onload = function () {
+        gioco.ctx.drawImage(img, x,y);
+    };
+}
+
 gioco.getEvents = function () {
     var e = gioco.events;
     gioco.events = [];
