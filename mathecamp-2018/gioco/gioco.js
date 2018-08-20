@@ -70,6 +70,13 @@ gioco.drawCircle = function (x,y,r,c) {
     gioco.ctx.fill();
 };
 
+gioco.drawText = function (x,y,s,t,c) {
+    gioco.ctx.fillStyle = c;
+    gioco.ctx.font = "" + s + "px sans-serif";
+    gioco.ctx.textAlign = "center";
+    gioco.ctx.fillText(t,x,y+s/2);
+};
+
 gioco.getEvents = function () {
     var e = gioco.events;
     gioco.events = [];
