@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Mein erstes Mathecampspiel</title>
+<meta name="viewport" content="initial-scale=1">
+<script type="text/javascript" src="gioco.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+    gioco.init();
+
+    gioco.fill("pink");
+
+    gioco.drawText(100,100,10,"Hallo","red");
+    gioco.drawRect(100,100,3,3,"blue");
+
+    gioco.drawLine(10,100, 20,200, "yellow");
+    gioco.drawLine(30,100, 20,200, "yellow", 10);
+
+    function loop () {
+        for(var ev of gioco.getEvents()) {
+            if(ev.type == "mousemove") {
+                gioco.drawCircle(ev.x, ev.y, 4, "red");
+            } else if(ev.type == "click") {
+                gioco.drawCircle(ev.x, ev.y, 4, "blue");
+            } else if(ev.type == "keydown") {
+                gioco.drawCircle(50,50,50, "white");
+            }
+        }
+        window.setTimeout(loop, 50);
+    }
+
+    loop();
+</script>
+
+</body>
+</html>
