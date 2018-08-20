@@ -26,9 +26,15 @@ gioco.init = function () {
     gioco.events = [];
     window.addEventListener("keydown", function (ev) {
         gioco.pressedKeys[ev.key] = true;
+        if(gioco.events.length < 100) {
+            gioco.events.push({ type: "keydown", key: ev.key });
+        }
     });
     window.addEventListener("keyup", function (ev) {
         delete gioco.pressedKeys[ev.key];
+        if(gioco.events.length < 100) {
+            gioco.events.push({ type: "keyup", key: ev.key });
+        }
     });
 
     var mkMouseHandler = function (typ) {
