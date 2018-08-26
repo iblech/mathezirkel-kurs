@@ -1,4 +1,4 @@
-module Main where
+module CF where
 
 -- Berechnet die Kettenbruchentwicklung einer Zahl, in der Annahme, dass alle
 -- auftretenden Reste verschieden von Null sind.
