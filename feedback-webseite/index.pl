@@ -116,7 +116,12 @@ hier haben Sie Gelegenheit für anonymes Feedback: Was ist gut gelaufen, was sch
 Wir danken Ihnen herzlich für Ihre Unterstützung!
 
 Ihr Team vom Mathecamp:
-Meru Alagalingam, Veronika Auer, Martin Baur, Ingo Blechschmidt, Tim Dafler, Justin Gassner, Christoph Gräupner, Kathrin Helmsauer, Andreas Hohl, Matthias Hutzler, Alexander Mai, Dorothea Pörtge, Veronika Pörtge, Sven Prüfer, Lisa Reischmann, Raphael Schlarb, Max Schlögel, Matthias Schlüter, Dominik Schmucker, David Wiedemann, Rolf Wittmann, Carina Ziegler
+Dr. Meru Alagalingam, Stefan Achatz, Tanja Bien, Dr. Ingo Blechschmidt,
+Ferdinand Eitler, Ann-Sophie von Gaisberg, Maximilian Haider, Alexander
+Hilpert, Andreas Hohl, Xaver Hörl, Matthias Hutzler, Lisa Janker, Felix Karg,
+Georg Kastner, Samuel Keplinger, Lisa-Marie Klein, Alexander Mai, Leonie
+Niesseler, Dr. Sven Prüfer, Anna Rubeck, Kilian Rueß, Dominik Schmucker, Carola
+Sinz, Felix Stärk, Louisa Völker, David Wiedemann und Tanja Wolfer
 TMPL
 use constant ANON_GRUSS => "Viele Grüße\neine anonyme Teilnehmerin oder ein anonymer Teilnehmer deines Zirkels";
 
