@@ -117,7 +117,7 @@ Wir danken Ihnen herzlich für Ihre Unterstützung!
 
 Ihr Team vom Mathecamp:
 Dr. Meru Alagalingam, Stefan Achatz, Tanja Bien, Dr. Ingo Blechschmidt,
-Ferdinand Eitler, Ann-Sophie von Gaisberg, Maximilian Haider, Alexander
+Ferdinand Eitler, Ann-Sophie von Gaisberg, Maximilian Heider, Alexander
 Hilpert, Andreas Hohl, Xaver Hörl, Matthias Hutzler, Lisa Janker, Felix Karg,
 Georg Kastner, Samuel Keplinger, Lisa-Marie Klein, Alexander Mai, Leonie
 Niesseler, Dr. Sven Prüfer, Anna Rubeck, Kilian Rueß, Dominik Schmucker, Carola

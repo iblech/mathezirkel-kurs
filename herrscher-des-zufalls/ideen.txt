@@ -1,2 +1,4 @@
 * Keinesfalls Ausgleich
 * Random Secretary: http://www.datagenetics.com/blog/june52013/index.html
+* Wie man nur mit einer Münze ausgestattet eine Zahl zwischen 1 und n auswählt:
+  https://arxiv.org/pdf/1808.07994.pdf
