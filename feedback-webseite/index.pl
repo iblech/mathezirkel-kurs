@@ -138,7 +138,7 @@ my %courses = (
     formal => 1,
   },
   a_05 => {
-    name => "Präsenzzirkel bei und Felix S. und Anja (5./6. Klasse, Mo 17:30)",
+    name => "Präsenzzirkel bei Felix S. und Anja (5./6. Klasse, Mo 17:30)",
     text => PRAESENZ,
     mail => 'anja.draser@t-online.de,felixstaerk@gmail.com',
     anrede => "Lieber Felix, liebe Anja",
