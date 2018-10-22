@@ -161,7 +161,7 @@ my %courses = (
   a_10 => {
     name => "Präsenzzirkel bei Andreas H. und David  (10./11./12. Klasse, Fr 17:30)",
     text => PRAESENZ,
-    mail => 'hohl.andreas@web.de,wiedemann.david.1996@googlemail.com',
+    mail => 'andreas.hohl@math.uni-augsburg.de,wiedemann.david.1996@googlemail.com',
     anrede => "Lieber Andreas, lieber David",
     gruss  => ANON_GRUSS,
   },
