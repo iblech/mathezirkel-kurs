@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Visualisierung komplexer Funktionen</title>
+<meta name="viewport" content="initial-scale=1">
+<script type="text/javascript" src="math.min.js"></script>
+<script type="text/javascript" src="gioco.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+    var fun = "z^2";
+
+    gioco.init();
+
+    gioco.fill("white");
+
+    for(var i = 0; i < 10; i++) {
+        gioco.drawLine(0,30*i, 600,30*i, "gray", 0.5);
+    }
+
+    for(var j = 0; j < 20; j++) {
+        gioco.drawLine(30*j,0, 30*j,300, "gray", 0.5);
+    }
+
+    gioco.drawLine(300,0, 300,300, "black", 3);
+    gioco.drawLine(0,150, 600,150, "black", 0.5);
+    gioco.drawLine(150,0, 150,300, "black", 0.5);
+    gioco.drawLine(450,0, 450,300, "black", 0.5);
+
+    var buttonPressed = false;
+    var previousPosition;
+
+    function drawTrace (oldPos, newPos, f, radius, color) {
+        for(var s = 0; s <= 1; s += 0.1) {
+            var x = oldPos ? s * oldPos.x + (1-s) * newPos.x : newPos.x;
+            var y = oldPos ? s * oldPos.y + (1-s) * newPos.y : newPos.y;
+
+            var pos = f(x,y);
+
+            if(pos) gioco.drawCircle(pos.x,pos.y, radius, color);
+        }
+    }
+
+    function loop () {
+        for(var ev of gioco.getEvents()) {
+            if(ev.type == "mouseup") {
+                buttonPressed = false;
+            } else if(ev.type == "mousedown") {
+                previousPosition = undefined;
+                buttonPressed = true;
+            }
+
+            if((ev.type == "click" || (buttonPressed && ev.type == "mousemove") || ev.type == "touchmove") && ev.x < 300) {
+                drawTrace(previousPosition, ev, function (x,y) { return {x:x,y:y} }, 3, "red");
+                drawTrace(previousPosition, ev, function (x,y) {
+                    var z = math.complex((x-300/2)/(300/2), (300/2-y)/(300/2));
+                    var w = math.eval(fun, {z:z});
+                    var x = math.re(w)*(300/2)+300/2;
+                    var y = 300/2-math.im(w)*(300/2);
+                    if(5 <= x && x <= 300 && 0 <= y && y <= 300) {
+                        return { x: 300 + x, y: y };
+                    }
+                }, 3, "purple");
+                previousPosition = ev;
+            }
+        }
+
+        window.setTimeout(loop, 30);
+    }
+
+    loop();
+</script>
+
+</body>
+</html>

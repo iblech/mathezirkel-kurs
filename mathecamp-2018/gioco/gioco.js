@@ -39,14 +39,23 @@ gioco.init = function () {
 
     var mkMouseHandler = function (typ) {
         return(function (ev) {
-          var rect = gioco.canvas.getBoundingClientRect();
           if(gioco.events.length < 100) {
+              var rect = gioco.canvas.getBoundingClientRect();
               gioco.events.push({ type: typ, x: ev.clientX - rect.left, y: ev.clientY - rect.top });
           }
         });
     };
     gioco.canvas.addEventListener("click", mkMouseHandler("click"));
     gioco.canvas.addEventListener("mousemove", mkMouseHandler("mousemove"));
+    gioco.canvas.addEventListener("mouseup", mkMouseHandler("mouseup"));
+    gioco.canvas.addEventListener("mousedown", mkMouseHandler("mousedown"));
+
+    gioco.canvas.addEventListener("touchmove", function (ev) {
+        if(gioco.events.length < 100) {
+            var rect = gioco.canvas.getBoundingClientRect();
+            gioco.events.push({ type: "touchmove", x: ev.targetTouches[0].clientX - rect.left, y: ev.targetTouches[0].clientY - rect.top });
+        }
+    });
 
     document.getElementsByTagName("body")[0].appendChild(cell);
     document.getElementsByTagName("body")[0].style.backgroundColor = "#dddddd";
