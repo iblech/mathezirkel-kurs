@@ -109,7 +109,7 @@ print <<TMPL;
 
 <h1>35c3 large numbers contest</h1>
 
-<p class="good">Currently @{[ $num_entries ]} submissions.
+<p class="good">Currently there are @{[ $num_entries ]} submissions.
 @{[ $num_entries < 10 ? "Be among the first ten!" : "" ]}</p>
 
 @{[ $current_id ? "<p class=\"thanks\">Thank you for your submission. Your
