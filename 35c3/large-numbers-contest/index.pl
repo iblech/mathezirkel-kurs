@@ -51,7 +51,7 @@ if($q->request_method() eq "POST") {
     print $fh $data or die $!;
     close $fh or die $!;
 
-    if(-e "$prev_id.txt") {
+    if($prev_id ne $id and -e "$prev_id.txt") {
         unlink "$prev_id.txt";
     }
 
