@@ -33,7 +33,9 @@ li.button:hover {
     background-color: #ccc;
 }
 
-.attention { text-shadow: 0px 0px 5px #26bf12; }
+.run  { text-shadow: 0px 0px 5px #26bf12; }
+.stop { text-shadow: 0px 0px 5px #bf2612; display: none; }
+.run, .stop { width: 4em; }
 
 input {
     font-size: inherit;
@@ -91,7 +93,7 @@ ul ul li:last-child { border: none; }
     vertical-align: middle;
 }
 
-#run-button, #help-button {
+#run-button, #stop-button, #help-button {
     -webkit-user-select: none;
     -moz-user-select: none;
     -khtml-user-select: none;

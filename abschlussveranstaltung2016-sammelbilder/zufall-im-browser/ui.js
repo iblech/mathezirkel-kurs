@@ -21,7 +21,7 @@ function loadCode() {
 function loadExample(name) {
     // Hack to hide the menu after click
     document.getElementById("examples-menu").style.display = "none";
-    window.setTimeout(function () {
+    window.setTimeout(function() {
         document.getElementById("examples-menu").style.display = "block";
     }, 500);
 
@@ -36,7 +36,7 @@ function setupExamplesMenu() {
     for(var i = 0; i < names.length; i++) {
         var elem = document.createElement("li");
         elem.className = "button";
-        elem.onclick = (function (i) { return function() { loadExample(names[i]); }; })(i);
+        elem.onclick = (function(i) { return function() { loadExample(names[i]); }; })(i);
         elem.appendChild(document.createTextNode(examples[names[i]].description));
 
         list.appendChild(elem);
@@ -91,15 +91,24 @@ function setupDragbar() {
 
 function setupButtons() {
     document.getElementById("run-button").onclick = function() {
-        run(
+        var abort = run(
             document.getElementById("output"),
             document.getElementById("spinner"),
             editor.getValue(),
-            +document.getElementById("repetitions").value
+            +document.getElementById("batchsize").value
         );
+        document.getElementById("run-button").style.display = "none";
+        document.getElementById("stop-button").style.display = "block";
+        document.getElementById("batchsize").disabled = true;
+        document.getElementById("stop-button").onclick = function() {
+            document.getElementById("run-button").style.display = "block";
+            document.getElementById("stop-button").style.display = "none";
+            document.getElementById("batchsize").disabled = false;
+            abort();
+        };
     };
 
-    document.getElementById("repetitions").onchange = function() {
+    document.getElementById("batchsize").onchange = function() {
         pinningTable = {};
         return true;
     };
