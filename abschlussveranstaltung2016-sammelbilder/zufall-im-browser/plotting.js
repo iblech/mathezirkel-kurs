@@ -57,9 +57,7 @@ function histogram(domID, pinningTable, name, bins) {
     if(smartXMin > 0) smartXMin = 0;
     smartXMin = pin(pinningTable, name, "x-min", "down", smartXMin);
     x.domain([smartXMin, smartXMax]).nice();
-    y.domain([0, smartYMax]);
-    // no nice() for the y domain; it's good for numbers of occurences, not so
-    // much for relative frequencies
+    y.domain([0, smartYMax]).nice();
 
     svg.selectAll(".bin")
         .data(bins)
