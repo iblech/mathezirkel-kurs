@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a3paper,left=0pt,right=0pt]{geometry}
+\usepackage{graphicx}
+\usepackage{tikz,ifthen,tikzpagenodes,amsmath,amssymb,fdsymbol}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\pagestyle{empty}
+
+\input{primes}
+
+\begin{document}
+
+\Huge
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north west] at (current page.north west) {\large\sieve{23}{4}};
+  \node[anchor=south west] at (current page.south west) {\includegraphics[width=\paperwidth]{referenten}};
+
+  \node[anchor=center] at ([yshift=13.5cm]current page.center) {\scalebox{2.5}{\textsc{large number contest}}};
+  \node[anchor=center] at ([xshift=0.5mm,yshift=13.5cm]current page.center) {\scalebox{2.5}{\textsc{large number contest}}};
+  \node[anchor=center] at ([xshift=-0.5mm,yshift=13.5cm]current page.center) {\scalebox{2.5}{\textsc{large number contest}}};
+\end{tikzpicture}
+
+\centering
+
+\sffamily
+
+\vspace{3.8cm}
+
+submit a description of a large number using 4096 bytes or less
+
+$\star$ prize: \textbf{1000 bars of chocolate}, divided by the winning number $\star$
+
+\textit{$\heartsuit$ additional nerdy consolation prize for every participant $\heartsuit$}
+
+\vspace{0.7cm}
+
+\includegraphics[width=0.6\textwidth]{laurel-wreath-qr}
+
+\vspace{-3.3cm}
+{\Large https:/$\!$/www.quasicoherent.io/}
+
+\vspace{2.9cm}
+
+solution and award ceremony on day four at 13:30 in room M1: \\
+\mbox{\includegraphics[height=0.8em]{scream} \textbf{large
+numbers, very large numbers and very very large numbers}
+\includegraphics[height=0.8em]{scream}} \\
+organized by the Curry Club Augsburg
+
+\end{document}

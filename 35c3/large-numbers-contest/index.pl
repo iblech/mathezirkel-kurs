@@ -160,15 +160,16 @@ href=\"...\">at the talk</a>.</p>" : "" ]}
   mathematician and objectively determines a unique (finite) positive natural
   number.</p>
   <p>Hence submissions such as <q>6.28</q>, <q>infinity</q>,
-  <q>&omega;</q> (this refers to the <a href="...">first infinite ordinal
-  number</a>), <q>this large number I was just thinking of</q> are
+  <q>&omega;</q> (this refers to the first <a href="https://events.ccc.de/congress/2018/wiki/index.php/Session:Wondrous_Mathematics:_Fun_with_infinitely_large_numbers">infinite</a> ordinal
+  number) and <q>this large number I was just thinking of</q> are
   disqualified.</p>
   <p>Examples for valid submissions are: <q>47</q>, <q>the number of assemblies
-  as listed on the 35c3 wiki</q>, <q>999*999</q>.</p>
+  as listed on the 35c3 wiki</q>, <q>999*999</q>. None of these examples is
+  particularly large, you can surely do better. :-)</p>
   <p>You may use arbitrary technical terms and constructions in your
   description, as long as the jury will be reasonably able to look up their
-  definitions on Wikipedia or the mathematical literature.
-  </p></li>
+  definitions on Wikipedia or the mathematical literature. Your description may
+  include pseudo code computing the large number you mean.</p></li>
 
   <li><p>You can team up with your friends. Simply enter all your names or a team
   name.</p></li>
@@ -179,7 +180,7 @@ href=\"...\">at the talk</a>.</p>" : "" ]}
 
   <li><p>It's easy to denial-of-service the server. Please don't do it. :-)</p></li>
 
-  <li><p>Enjoy the remaining time on 35c3!</p></li>
+  <li><p>Enjoy your time on 35c3!</p></li>
 </ul>
 
 </body>
