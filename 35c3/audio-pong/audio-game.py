@@ -81,7 +81,7 @@ dorender = True
 dodebug = False
 while not quit:
     # current volume
-    data = stream.read(CHUNK)
+    data = stream.read(CHUNK, exception_on_overflow = False)
     volume = audioop.rms(data, 2)
 
     yy = 1 - (volume-vollower)/(volupper-vollower)
