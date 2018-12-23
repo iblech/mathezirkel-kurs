@@ -27,6 +27,8 @@ my $current_id     = "";
 my $current_author = "";
 my $current_entry  = "";
 
+my $is_404;
+
 if($ENV{REQUEST_URI} =~ /\/(\w{64})$/) {
     my $id = $1;
 
@@ -34,6 +36,8 @@ if($ENV{REQUEST_URI} =~ /\/(\w{64})$/) {
         $current_id = $id;
         my $data = slurp("$id.txt");
         ($current_author, $current_entry) = split "\n", $data, 2;
+    } else {
+        $is_404++;
     }
 }
 
@@ -43,7 +47,7 @@ if($q->request_method() eq "POST") {
     my $prev_id = $q->param("previous-id");
 
     die unless $author =~ /^[^\n]*$/ and length($author) <= MAX_AUTHOR_SIZE;
-    die unless 1 <= length($entry) && length($entry) <= MAX_ENTRY_SIZE;
+    die unless 1 <= length($entry) and length($entry) <= MAX_ENTRY_SIZE;
 
     my $data = "$author\n$entry";
     my $id = sha256_hex(DIGEST_COOKIE . $data);
@@ -51,15 +55,26 @@ if($q->request_method() eq "POST") {
     print $fh $data or die $!;
     close $fh or die $!;
 
-    if($prev_id ne $id and -e "$prev_id.txt") {
-        unlink "$prev_id.txt";
+    my $is_replacement = $prev_id ne $id && -e "$prev_id.txt";
+    unlink "$prev_id.txt" if $is_replacement;
+
+    open my $fh, "|-",
+      "mail", "-s", "New large number submission: " . substr($id, 0, 8),
+      '35c3@speicherleck.de';
+    print $fh "$id\n";
+    if($is_replacement) {
+        print $fh "(replacing $prev_id)\n";
+    } else {
+        print $fh "(new submission)\n";
     }
+    print $fh "\n$data\n";
+    close $fh;
 
     print $q->redirect("./$id");
     exit;
 }
 
-print $q->header(-type => "text/html; charset=UTF-8");
+print $q->header(-type => "text/html; charset=UTF-8", $is_404 ? (-status => "404 Not found") : ());
 
 print <<TMPL;
 <!DOCTYPE html>
@@ -77,6 +92,7 @@ print <<TMPL;
   textarea { height: 15em; }
 
   .thanks { font-weight: bold; color: #a5f; }
+  .error  { font-weight: bold; color: #f00; }
 
   .good { color: #999; }
   .bad  { color: #f00; }
@@ -105,17 +121,22 @@ print <<TMPL;
 
 <body onload="updateStatus()">
 
-<img src="phantoms.jpeg" style="width: 90%">
+<div style="text-align: center"><a href="."><img src="phantoms.jpeg" style="width: 50%"></a></div>
 
 <h1>35c3 large numbers contest</h1>
+
+@{[ $is_404 ? "<p class=\"error\">There is no submission by that id. Perhaps
+you replaced an earlier submission and didn't update your bookmark? You can
+submit a new entry below, or contact us in case you want to hunt down a lost
+submission.</p>" : "" ]}
 
 <p class="good">Currently there are @{[ $num_entries ]} submissions.
 @{[ $num_entries < 10 ? "Be among the first ten!" : "" ]}</p>
 
 @{[ $current_id ? "<p class=\"thanks\">Thank you for your submission. Your
 entry has been saved. In case you later want to edit your entry, bookmark this
-page. The contest results will be announced here and <a
-href=\"...\">at the talk</a>.</p>" : "" ]}
+page. You can also submit <a href=\".\">a new entry</a>. The contest results will be announced here and <a
+href=\"https://events.ccc.de/congress/2018/wiki/index.php/Session:Wondrous_Mathematics:_Large_numbers,_very_large_numbers_and_very_very_large_numbers\">at the talk</a>.</p>" : "" ]}
 
 @{[ $current_id
     ? "<h2>Edit entry</h2>"
@@ -132,13 +153,13 @@ href=\"...\">at the talk</a>.</p>" : "" ]}
   </p>
 
   <p>
-    <label for="entry">Your entry (max. 4096 bytes):</label><br>
+    <label for="entry">Your entry (max. 4096 bytes; will be made public after the contest ends):</label><br>
     <textarea id="entry" name="entry" onkeyup="soon(updateStatus)" onchange="updateStatus()">@{[ $q->escapeHTML($current_entry) ]}</textarea><br>
     <span id="status"></span>
   </p>
 
   <p>
-    <input type="submit" value="submit">
+    <input type="submit" value="@{[ $current_id ? "replace previous submission with this one" : "submit" ]}">
   </p>
 </form>
 
@@ -146,13 +167,14 @@ href=\"...\">at the talk</a>.</p>" : "" ]}
 <h2>Rules</h2>
 
 <ul>
-  <li><p>The contest ends on Day 3 at XX:00 Leipzig local time. The winner is
+  <li><p>The contest ends on Day 3 at 22:00 Leipzig local time. (Late
+  submissions might be considered, but we can't promise that.) The winner is
   whoever submits the <strong>largest number</strong>. They are
   awarded <strong>1000 bars of chocolate</strong>, divided by their winning
   entry. In case of a tie, the prize is shared. Additionally there will be a
   <strong>nerdy consolation prize</strong> for every participant.</p><p>The winner
-  will be announced on this page and in the <a href="...">talk on large
-  numbers, very large numbers and extremely larger numbers</a>. (This talk will
+  will be announced on this page and in the <a href="https://events.ccc.de/congress/2018/wiki/index.php/Session:Wondrous_Mathematics:_Large_numbers,_very_large_numbers_and_very_very_large_numbers">talk on large
+  numbers, very large numbers and extremely larger numbers</a>. (That talk will
   also show you how to win this contest.)</p></li>
 
   <li><p>Submissions may be in English or German. The only requirement is that
@@ -167,9 +189,11 @@ href=\"...\">at the talk</a>.</p>" : "" ]}
   as listed on the 35c3 wiki</q>, <q>999*999</q>. None of these examples is
   particularly large, you can surely do better. :-)</p>
   <p>You may use arbitrary technical terms and constructions in your
-  description, as long as the jury will be reasonably able to look up their
-  definitions on Wikipedia or the mathematical literature. Your description may
-  include pseudo code computing the large number you mean.</p></li>
+  description, as long as we will be reasonably able to look up their
+  definitions on Wikipedia or in the mathematical literature. Your description may
+  include pseudocode or code in a real programming language of your choice
+  which would compute the large number you mean (if executed on a hypothetical
+  computer with enough memory).</p></li>
 
   <li><p>You can team up with your friends. Simply enter all your names or a team
   name.</p></li>
@@ -180,7 +204,10 @@ href=\"...\">at the talk</a>.</p>" : "" ]}
 
   <li><p>It's easy to denial-of-service the server. Please don't do it. :-)</p></li>
 
-  <li><p>Enjoy your time on 35c3!</p></li>
+  <li><p>Enjoy your time on 35c3! In case of questions, don't hesitate to
+  contact us <a href=\"mailto:35c3\@speicherleck.de\">by mail</a> or to <a
+  href="https://events.ccc.de/congress/2018/wiki/index.php/Assembly:Curry_Club_Augsburg">drop
+  by our assembly</a>.</p></li>
 </ul>
 
 </body>
