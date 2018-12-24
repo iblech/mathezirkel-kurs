@@ -174,7 +174,7 @@ href=\"https://events.ccc.de/congress/2018/wiki/index.php/Session:Wondrous_Mathe
   entry. In case of a tie, the prize is shared. Additionally there will be a
   <strong>nerdy consolation prize</strong> for every participant.</p><p>The winner
   will be announced on this page and in the <a href="https://events.ccc.de/congress/2018/wiki/index.php/Session:Wondrous_Mathematics:_Large_numbers,_very_large_numbers_and_very_very_large_numbers">talk on large
-  numbers, very large numbers and extremely larger numbers</a>. (That talk will
+  numbers, very large numbers and extremely large numbers</a>. (That talk will
   also show you how to win this contest.)</p></li>
 
   <li><p>Submissions may be in English or German. The only requirement is that
