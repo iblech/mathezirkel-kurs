@@ -183,7 +183,9 @@ href=\"https://events.ccc.de/congress/2018/wiki/index.php/Session:Wondrous_Mathe
   number.</p>
   <p>Hence submissions such as <q>6.28</q>, <q>infinity</q>,
   <q>&omega;</q> (this refers to the first <a href="https://events.ccc.de/congress/2018/wiki/index.php/Session:Wondrous_Mathematics:_Fun_with_infinitely_large_numbers">infinite</a> ordinal
-  number) and <q>this large number I was just thinking of</q> are
+  number), <q>&epsilon;<sub>0</sub></q> (this refers to a higher infinity than
+  &omega; &ndash; you'll enjoy that talk on infinite numbers if you're intrigued by
+  this notion) and <q>this large number I was just thinking of</q> are
   disqualified.</p>
   <p>Examples for valid submissions are: <q>47</q>, <q>the number of assemblies
   as listed on the 35c3 wiki</q>, <q>999*999</q>. None of these examples is
