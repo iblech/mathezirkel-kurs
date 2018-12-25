@@ -1,0 +1,378 @@
+\documentclass[12pt,compress,english,utf8,t]{beamer}
+\usepackage[english]{babel}
+\usepackage{calc}
+\usepackage{ragged2e,wasysym,multicol,mathtools}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{tikz,ifthen}
+\usetikzlibrary{calc,shapes,shapes.callouts,shapes.arrows,patterns,fit,backgrounds,decorations.pathmorphing}
+\usepackage{booktabs}
+\hypersetup{colorlinks=true}
+
+\graphicspath{{images/}}
+
+\title{Large numbers, very large numbers and very very large numbers}
+\author{Ingo Blechschmidt and Matthias Hutzler}
+\date{December 30th, 2018}
+
+%\usetheme{Warsaw}
+\useinnertheme[shadow=true]{rounded}
+\useoutertheme{split}
+\usecolortheme{orchid}
+\usecolortheme{whale}
+\setbeamerfont{block title}{size={}}
+
+\useinnertheme{rectangles}
+
+\usecolortheme{seahorse}
+\definecolor{mypurple}{RGB}{150,0,255}
+\setbeamercolor{structure}{fg=mypurple}
+\definecolor{myred}{RGB}{150,0,0}
+\setbeamercolor*{title}{bg=myred,fg=white}
+\setbeamercolor*{titlelike}{bg=myred,fg=white}
+
+\usefonttheme{serif}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+
+\renewcommand{\_}{\mathpunct{.}\,}
+\newcommand{\BB}{\mathbb{B}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\R}{\mathrm{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\RR}{\mathbb{R}}
+
+\newcommand{\imgslide}[1]{{\usebackgroundtemplate{\parbox[c][\paperheight][c]{\paperwidth}{\centering\includegraphics[width=\paperwidth]{#1}}}\begin{frame}[plain]\end{frame}}}
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{title page}[default][colsep=-1bp,rounded=false,shadow=false]
+\setbeamertemplate{frametitle}[default][colsep=-2bp,rounded=false,shadow=false,center]
+
+\newcommand{\hil}[1]{{\usebeamercolor[fg]{item}{\textbf{#1}}}}
+\setbeamertemplate{frametitle}{%
+  \vskip1em%
+  \leavevmode%
+  \begin{beamercolorbox}[dp=1ex,center]{}%
+      \usebeamercolor[fg]{item}{\textbf{\textsf{\Large \insertframetitle}}}
+  \end{beamercolorbox}%
+}
+
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hfill%
+  \begin{beamercolorbox}[ht=2.25ex,dp=1ex,right]{}%
+    \usebeamerfont{date in head/foot}
+    \insertframenumber\,/\,\inserttotalframenumber\hspace*{1ex}
+  \end{beamercolorbox}%
+  \vskip0pt%
+}
+
+\newcommand{\backupstart}{
+  \newcounter{framenumberpreappendix}
+  \setcounter{framenumberpreappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+  \addtocounter{framenumberpreappendix}{-\value{framenumber}}
+  \addtocounter{framenumber}{\value{framenumberpreappendix}}
+}
+
+\setbeameroption{show notes}
+\setbeamertemplate{note page}[plain]
+
+\input{images/primes}
+
+\setbeamertemplate{headline}{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex]{}%
+    foo
+  \end{beamercolorbox}
+}
+
+\addtocounter{framenumber}{-1}
+
+\begin{document}
+
+{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\vspace*{0.3cm}\centering\scriptsize\sieve{25}{2}\\\vspace*{3.95cm}\includegraphics[width=\paperwidth]{sun3}\end{minipage}}
+\begin{frame}[c]
+  \centering
+
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+
+  \hil{Large numbers,}
+  
+  \large
+  \hil{very large numbers,}
+  
+  \Large
+  \hil{very very large numbers}
+
+  \bigskip
+  \scriptsize
+  \textit{-- an invitation to advanced goology --}
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \medskip
+
+  \begin{minipage}{4cm}
+    \centering
+    \textcolor{white}{
+      Ingo Blechschmidt \\
+      Università di Verona
+    }
+  \end{minipage}
+  \begin{minipage}{4cm}
+    \centering
+    \textcolor{white}{
+      Matthias Hutzler \\
+      Universität Augsburg
+    }
+  \end{minipage}
+
+  \bigskip
+
+  \textcolor{white}{
+    35th Chaos Communication Congress \\
+    December 30th, 2018
+  }
+  \par
+\end{frame}}
+
+
+\section{Large numbers}
+
+\tikzstyle{card}   = [draw=mypurple, very thick, rectangle, rounded corners, inner sep=5pt, inner ysep=10pt]
+\tikzstyle{author} = [fill=mypurple, text=white]
+\tikzstyle{descr}  = []
+
+\newcommand{\card}[2]{
+  \begin{tikzpicture}
+    \node[descr]  (descr)  {#2};
+    \node[card, tape] [fit = (descr)] (card) {};
+    \node[author] at (card.north) (author) {#1};
+  \end{tikzpicture}
+}
+
+{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\vspace*{6.5cm}\includegraphics[width=\paperwidth]{sandkoerner}\end{minipage}}
+\begin{frame}
+  \centering
+  \bigskip
+
+  \Huge \hil{Part 0}
+
+  \bigskip
+  \Large\textbf{Large numbers}
+  \par
+  \bigskip
+
+  \normalsize
+
+  \hil{15\,000} congress participants
+  \medskip
+
+  \hil{1234} grains of sand on earth
+  \medskip
+
+  \hil{$\boldsymbol{10^{80} = 1\!\underbrace{000\ldots000}_{\text{$80$ zeros}}}$}
+  elementary particles in the universe
+
+  % VIDEO: mass of black hole
+\end{frame}}
+
+\begin{frame}
+  \card{foo}{$9\!\underbrace{!!!!!!!\ldots!!!!!!!}_{\text{4095 factorials}}$}
+\end{frame}
+
+\end{document}
+
+{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\hfill\includegraphics[height=\paperheight]{images/orbit-tall}\end{minipage}}
+\begin{frame}{Basic facts}
+  \begin{itemize}
+    \item Getting to space is easy. \\ The hard part is staying there.
+    \item Gravitational acceleration at \\ the height of the ISS is still $\approx 8.7 \,\mathrm{m}/\mathrm{s}^2$.
+    % Mention: no friction.
+  \end{itemize}
+\end{frame}}
+
+
+\subsection{Basic facts}
+
+\begin{frame}{Basic facts}
+  \begin{itemize}
+    \item<1-> Getting to space is easy. \\ The hard part is staying there.
+    \item<3-> Velocity is very important.
+    \item<4-> In the \hil{one-body problem}, there are only three kinds of
+    orbits: elliptic, parabolic, and hyperbolic.
+    \item<5-> Have your models straight: Earth is \ldots
+    \begin{enumerate}
+      \item a perfect ball?
+      \item has atmosphere?
+      \item rotating?
+    \end{enumerate}
+    % instantaneous impulses?
+  \end{itemize}
+
+  \only<1>{
+    \centering
+    % https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Newton_Cannon.svg/240px-Newton_Cannon.svg.png
+    \vspace*{-7em}
+    \includegraphics[width=0.4\textwidth]{images/newton-cannon}
+
+    $F_{\text{centripetal}} = F_{\text{gravitation}}
+    \leadsto v_1 = \sqrt{GM/r}$
+
+    $E_{\text{kinetic}} = E_{\text{gravitation}}
+    \leadsto v_2 = \sqrt{2} \, v_1$
+    \par
+  }
+
+  \only<2>{
+    \centering
+    \vspace*{-4em}
+    \begin{tabular}{ll}
+      \toprule
+      body & second escape velocity \\\midrule
+      Earth & $11.2 \,\mathrm{km}/\mathrm{s} \approx 40\,000 \,\mathrm{km}/\mathrm{h}$ \\
+      Moon  & $2.4  \,\mathrm{km}/\mathrm{s}$ \\
+      Sun   & $618  \,\mathrm{km}/\mathrm{s}$ \\
+      Milky Way & $\approx 550 \,\mathrm{km}/\mathrm{s}$ \\
+      \bottomrule
+    \end{tabular}
+    \par
+  }
+\end{frame}
+
+
+\subsection[Changing orbits]{Changing orbits}
+
+\begin{frame}{Changing orbits}
+  \begin{center}
+    \hil{``Live demo''}
+  \end{center}
+
+  \begin{itemize}
+    \item Changing the phase
+
+    % Winkel ändern:
+    % Speed away from the central body.
+    % Necessary Δv depends on eccentricity.
+    % If eccentricity is zero, need to Δv.
+
+    \item Changing the eccentricity
+    % Accelerate in tangential direction
+
+    \item Changing the radius
+    % Hohmann transfer
+
+    \item Changing inclination
+    % Easy, just accelerate normal to the plane.
+  \end{itemize}
+\end{frame}
+
+\imgslide{clips/02-chinese-space-station}
+
+
+\subsection[Rocket equation]{The tyranny of the rocket equation}
+
+\begin{frame}{The tyranny of the rocket equation}
+  \centering
+  % http://tsiolkovsky.org/wp-content/uploads/2015/02/icon_en.png
+  \includegraphics[width=0.4\textwidth]{images/tsiolkovsky} \\
+  {\scriptsize Konstantin Tsiolkovsky (* 1857, † 1935)\par}
+  \bigskip
+
+  \scalebox{2}{$m_\text{total} = m_\text{payload} \cdot e^{\Delta v / v_\text{eff.\@ exhaust}}$}
+  \par
+\end{frame}
+
+% Weltall ist nah.
+% Extrem wichtig: (Ort,Geschwindigkeit) des Ziels
+% Erste Fluchtgeschwindigkeit
+% Filmausschnitt Bruce Willis
+% Filmausschnitt Gravity?
+% Arten von Trajektorien (stets Ellipsen, Parabeln oder Hyperbeln)
+% Tyrannei der Raketengleichung
+% Orbitwechsel
+% Gravity assist
+
+
+\section[Chaos theory]{One weird trick from chaos theory}
+
+{\usebackgroundtemplate{\includegraphics[height=\paperheight]{images/Interplanetary_Superhighway}}
+\begin{frame}
+  \centering
+  \bigskip\bigskip
+
+  \Huge \hil{Part II}
+
+  \bigskip
+  \Large\textcolor{white}{\textbf{One weird trick from chaos theory}}
+  \par
+\end{frame}}
+
+
+\subsection{Lagrangian points}
+
+\begin{frame}{Lagrangian points}
+  \centering
+  \only<1>{\includegraphics[width=0.7\textwidth]{lagrange}}
+  \only<2>{\includegraphics[width=0.7\textwidth]{lagrange2}}
+  \par
+\end{frame}
+
+
+\subsection{Weak stability boundaries}
+
+\begin{frame}{Weak stability boundaries}
+  \centering
+  \only<1>{\includegraphics[width=0.6\textwidth]{weak-stability-boundaries}}
+  \only<2>{\includegraphics[width=0.7\textwidth]{weak-stability-boundary-plot}}
+  \par
+\end{frame}
+
+\imgslide{clips/03-supercomputer-1}
+
+
+\subsection[Hiten]{The rescue of the Hiten}
+
+\begin{frame}{The rescue of the Hiten}
+  \centering
+  \includegraphics[width=0.7\textwidth]{hiten-trajectory}
+  \par
+\end{frame}
+
+
+\subsection{In nature}
+
+\begin{frame}{In nature}
+  \centering
+  \includegraphics[width=0.6\textwidth]{intergalactic-transport-network}
+  \par
+\end{frame}
+
+% https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/L4_diagram.svg/403px-L4_diagram.svg.png
+% https://upload.wikimedia.org/wikipedia/commons/5/5f/Lagrangian_points_equipotential.jpg
+
+% Zunächst: Orbiten komplizierter!
+% Probleme mit konventionellem Ansatz (auch Neustartprobleme)
+% Ziel: ballistisches Einfangen
+% Lagrange-Punkte (Krassheit der Punkte nicht vergessen)
+% dazu mitrotierendes Bezugssystem, Zentrifugalkraft, Corioliskraft
+% WSM
+% Wie man sie findet
+% Hiten
+% In der Natur
+
+% Wurmlochnostalgie nicht vergessen!
+% Krasse Rundtourtrajektorien nicht vergessen!
+% Szene aus The Martian nicht vergessen!
+% Szene aus Gravity nicht vergessen!
+% Swing-by-Manöveur nicht vergessen!
+% Hohmann-Transfer nicht vergessen!
+% Krasse Stärke der Gravitation beiläufig erwähnen.
+
+\end{document}
