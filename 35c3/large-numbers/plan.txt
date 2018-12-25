@@ -1,0 +1,9 @@
+* Sandkörner, Elementarteilchen
+* Neuner
+* Hyperoperatoren, Graham's Number
+* TREE(3)
+* Busy Beaver
+* honorable mentions: paradoxes
+* Rayo
+
+fast-growing hierarchy?
