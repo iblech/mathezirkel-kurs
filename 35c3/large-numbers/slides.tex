@@ -1,7 +1,7 @@
 \documentclass[12pt,compress,english,utf8,t]{beamer}
 \usepackage[english]{babel}
 \usepackage{calc}
-\usepackage{ragged2e,wasysym,multicol,mathtools}
+\usepackage{ragged2e,wasysym,multicol,mathtools,mathdots}
 \usepackage[protrusion=true,expansion=true]{microtype}
 \usepackage{tikz,ifthen}
 \usetikzlibrary{calc,shapes,shapes.callouts,shapes.arrows,patterns,fit,backgrounds,decorations.pathmorphing}
@@ -40,8 +40,6 @@
 \newcommand{\R}{\mathrm{R}}
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\RR}{\mathbb{R}}
-
-\newcommand{\imgslide}[1]{{\usebackgroundtemplate{\parbox[c][\paperheight][c]{\paperwidth}{\centering\includegraphics[width=\paperwidth]{#1}}}\begin{frame}[plain]\end{frame}}}
 
 \setbeamertemplate{navigation symbols}{}
 
@@ -89,6 +87,9 @@
 
 \addtocounter{framenumber}{-1}
 
+\newcommand{\imgslideHeight}[1]{{\usebackgroundtemplate{\parbox[c][\paperheight][c]{\paperwidth}{\centering\includegraphics[height=\paperheight]{#1}}}\begin{frame}[plain]\end{frame}}}
+\newcommand{\imgslideWidth}[1]{{\usebackgroundtemplate{\parbox[c][\paperheight][c]{\paperwidth}{\centering\includegraphics[width=\paperwidth]{#1}}}\begin{frame}[plain]\end{frame}}}
+
 \begin{document}
 
 {\usebackgroundtemplate{\begin{minipage}{\paperwidth}\vspace*{0.3cm}\centering\scriptsize\sieve{25}{2}\\\vspace*{3.95cm}\includegraphics[width=\paperwidth]{sun3}\end{minipage}}
@@ -111,7 +112,7 @@
 
   \bigskip
   \scriptsize
-  \textit{-- an invitation to advanced goology --}
+  \textit{-- an invitation to advanced googology --}
   \bigskip
   \bigskip
   \bigskip
@@ -157,10 +158,9 @@
   \end{tikzpicture}
 }
 
-{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\vspace*{6.5cm}\includegraphics[width=\paperwidth]{sandkoerner}\end{minipage}}
+{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\vspace*{6.5cm}\includegraphics[width=\paperwidth]{sandstrand}\end{minipage}}
 \begin{frame}
   \centering
-  \bigskip
 
   \Huge \hil{Part 0}
 
@@ -168,211 +168,183 @@
   \Large\textbf{Large numbers}
   \par
   \bigskip
+  \bigskip
 
   \normalsize
 
   \hil{15\,000} congress participants
   \medskip
 
-  \hil{1234} grains of sand on earth
+  \hil{$\boldsymbol{10^{19} = 1\!\underbrace{0\,000\,000\,000\,000\,000\,000}_{\text{$19$ zeros}}}$}
+  grains of sand on earth
   \medskip
 
   \hil{$\boldsymbol{10^{80} = 1\!\underbrace{000\ldots000}_{\text{$80$ zeros}}}$}
   elementary particles in the universe
 
-  % VIDEO: mass of black hole
+  % ACTION: video of mass of black hole https://youtu.be/TZ56fsTQ1QQ?t=176
 \end{frame}}
+
+\imgslideHeight{milky-way}
 
 \begin{frame}
   \card{foo}{$9\!\underbrace{!!!!!!!\ldots!!!!!!!}_{\text{4095 factorials}}$}
 \end{frame}
 
-\end{document}
 
-{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\hfill\includegraphics[height=\paperheight]{images/orbit-tall}\end{minipage}}
-\begin{frame}{Basic facts}
-  \begin{itemize}
-    \item Getting to space is easy. \\ The hard part is staying there.
-    \item Gravitational acceleration at \\ the height of the ISS is still $\approx 8.7 \,\mathrm{m}/\mathrm{s}^2$.
-    % Mention: no friction.
-  \end{itemize}
-\end{frame}}
+\section{Very large numbers}
 
-
-\subsection{Basic facts}
-
-\begin{frame}{Basic facts}
-  \begin{itemize}
-    \item<1-> Getting to space is easy. \\ The hard part is staying there.
-    \item<3-> Velocity is very important.
-    \item<4-> In the \hil{one-body problem}, there are only three kinds of
-    orbits: elliptic, parabolic, and hyperbolic.
-    \item<5-> Have your models straight: Earth is \ldots
-    \begin{enumerate}
-      \item a perfect ball?
-      \item has atmosphere?
-      \item rotating?
-    \end{enumerate}
-    % instantaneous impulses?
-  \end{itemize}
-
-  \only<1>{
-    \centering
-    % https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Newton_Cannon.svg/240px-Newton_Cannon.svg.png
-    \vspace*{-7em}
-    \includegraphics[width=0.4\textwidth]{images/newton-cannon}
-
-    $F_{\text{centripetal}} = F_{\text{gravitation}}
-    \leadsto v_1 = \sqrt{GM/r}$
-
-    $E_{\text{kinetic}} = E_{\text{gravitation}}
-    \leadsto v_2 = \sqrt{2} \, v_1$
-    \par
-  }
-
-  \only<2>{
-    \centering
-    \vspace*{-4em}
-    \begin{tabular}{ll}
-      \toprule
-      body & second escape velocity \\\midrule
-      Earth & $11.2 \,\mathrm{km}/\mathrm{s} \approx 40\,000 \,\mathrm{km}/\mathrm{h}$ \\
-      Moon  & $2.4  \,\mathrm{km}/\mathrm{s}$ \\
-      Sun   & $618  \,\mathrm{km}/\mathrm{s}$ \\
-      Milky Way & $\approx 550 \,\mathrm{km}/\mathrm{s}$ \\
-      \bottomrule
-    \end{tabular}
-    \par
-  }
-\end{frame}
-
-
-\subsection[Changing orbits]{Changing orbits}
-
-\begin{frame}{Changing orbits}
-  \begin{center}
-    \hil{``Live demo''}
-  \end{center}
-
-  \begin{itemize}
-    \item Changing the phase
-
-    % Winkel ändern:
-    % Speed away from the central body.
-    % Necessary Δv depends on eccentricity.
-    % If eccentricity is zero, need to Δv.
-
-    \item Changing the eccentricity
-    % Accelerate in tangential direction
-
-    \item Changing the radius
-    % Hohmann transfer
-
-    \item Changing inclination
-    % Easy, just accelerate normal to the plane.
-  \end{itemize}
-\end{frame}
-
-\imgslide{clips/02-chinese-space-station}
-
-
-\subsection[Rocket equation]{The tyranny of the rocket equation}
-
-\begin{frame}{The tyranny of the rocket equation}
-  \centering
-  % http://tsiolkovsky.org/wp-content/uploads/2015/02/icon_en.png
-  \includegraphics[width=0.4\textwidth]{images/tsiolkovsky} \\
-  {\scriptsize Konstantin Tsiolkovsky (* 1857, † 1935)\par}
-  \bigskip
-
-  \scalebox{2}{$m_\text{total} = m_\text{payload} \cdot e^{\Delta v / v_\text{eff.\@ exhaust}}$}
-  \par
-\end{frame}
-
-% Weltall ist nah.
-% Extrem wichtig: (Ort,Geschwindigkeit) des Ziels
-% Erste Fluchtgeschwindigkeit
-% Filmausschnitt Bruce Willis
-% Filmausschnitt Gravity?
-% Arten von Trajektorien (stets Ellipsen, Parabeln oder Hyperbeln)
-% Tyrannei der Raketengleichung
-% Orbitwechsel
-% Gravity assist
-
-
-\section[Chaos theory]{One weird trick from chaos theory}
-
-{\usebackgroundtemplate{\includegraphics[height=\paperheight]{images/Interplanetary_Superhighway}}
 \begin{frame}
   \centering
-  \bigskip\bigskip
+
+  \Huge \hil{Part I}
+
+  \bigskip
+  \Large\textbf{Very large numbers}
+  \par
+  \bigskip
+
+  \normalsize
+
+  \only<1-10>{\[\begin{aligned}
+    2 \cdot 4 &= 2 + 2 + 2 + 2 = 8 \\
+    2^4 &= 2 \cdot 2 \cdot 2 \cdot 2 = 16 \\
+    \pause
+    2 \uparrow\uparrow 4 &= 2^{2^{2^2}} = 2^{2^4} = 2^{16} = 65\,536 \\
+    \pause
+    2 \uparrow\uparrow\uparrow 4 &= 2 \uparrow\uparrow (2 \uparrow\uparrow (2
+    \uparrow\uparrow 2)) \pause =
+    2 \uparrow\uparrow (2 \uparrow\uparrow 4) \pause =
+    2 \uparrow\uparrow 65\,536 \\ \pause &
+    \left.\kern-3\nulldelimiterspace
+    \begin{array}{@{}l@{}}{}= 2^{2^{\iddots^2}}\end{array} \right\rbrace \text{\scriptsize 65\,536 many two's} \\
+    \pause
+    2 \uparrow\uparrow\uparrow\uparrow 4 &= 2 \uparrow\uparrow\uparrow (2
+    \uparrow\uparrow\uparrow (2 \uparrow\uparrow\uparrow 2)) \pause =
+    2 \uparrow\uparrow\uparrow (2 \uparrow\uparrow\uparrow 4) \pause \\
+    &= 2 \uparrow\uparrow\uparrow 2^{2^{\iddots^2}} \pause =
+    \underbrace{2 \uparrow\uparrow (2 \uparrow\uparrow (2 \uparrow\uparrow (\cdots
+    \uparrow\uparrow 2)))}_{\text{$2^{2^{\iddots^2}}$ many two's}}
+  \end{aligned}\]}
+
+  \only<11->{\[
+    \left.
+      \begin{matrix}
+        \text{\hil{Graham's number}} &=&3\underbrace{\uparrow \cdots \cdots \cdots \cdots \cdots \uparrow}3 \\
+          & &3\underbrace{\uparrow \cdots \cdots \cdots \cdots \uparrow}3 \\[-0.4em]
+          & & \underbrace{\qquad \quad \vdots \qquad \quad} \\
+          & &3\underbrace{\uparrow \cdots \cdots \uparrow}3 \\
+          & &3\uparrow \uparrow \uparrow \uparrow3
+      \end{matrix}
+    \right \} \text{\small 64 layers}
+  \]}
+
+  \only<12->{
+    \vspace*{-2.5cm}
+    \includegraphics{monophilic-coloring}\hspace*{6cm}
+  }
+\end{frame}
+
+\begin{frame}[plain]
+  \Huge\centering\vfill
+  \scalebox{1.5}{$\sqrt{2}^{\sqrt{2}^{\sqrt{2}^{\sqrt{2}^{\iddots}}}} = 2$}
+  \pause
+  \bigskip
+  \bigskip
+
+  \large
+  $\sqrt{2 + \sqrt{2 + \sqrt{2 + ...}}} = 2$
+  \bigskip
+
+  $\frac{2}{\pi} = \sqrt{\tfrac{1}{2}} \cdot
+    \sqrt{\tfrac{1}{2} + \tfrac{1}{2} \sqrt{\tfrac{1}{2}}} \cdot
+    \sqrt{\tfrac{1}{2} + \tfrac{1}{2} \sqrt{\tfrac{1}{2} + \tfrac{1}{2}
+    \sqrt{\tfrac{1}{2}}}} \cdot \ldots$
+  \vfill
+\end{frame}
+
+
+\section{Very very large numbers}
+
+\begin{frame}
+  \centering
 
   \Huge \hil{Part II}
 
   \bigskip
-  \Large\textcolor{white}{\textbf{One weird trick from chaos theory}}
+  \Large\textbf{Very very large numbers}
   \par
-\end{frame}}
+  \bigskip
 
+  \normalsize
 
-\subsection{Lagrangian points}
+  \includegraphics[width=0.8\textwidth]{tree3}
+  \bigskip
 
-\begin{frame}{Lagrangian points}
-  \centering
-  \only<1>{\includegraphics[width=0.7\textwidth]{lagrange}}
-  \only<2>{\includegraphics[width=0.7\textwidth]{lagrange2}}
-  \par
+  Any forest eventually dies, at a maximum of~\hil{$\boldsymbol{\mathrm{TREE}(3)}$} trees.
 \end{frame}
 
 
-\subsection{Weak stability boundaries}
+\section{Very very very large numbers}
 
-\begin{frame}{Weak stability boundaries}
+\begin{frame}
   \centering
-  \only<1>{\includegraphics[width=0.6\textwidth]{weak-stability-boundaries}}
-  \only<2>{\includegraphics[width=0.7\textwidth]{weak-stability-boundary-plot}}
+
+  \Huge \hil{Part III}
+
+  \bigskip
+  \Large\textbf{Very very very large numbers}
   \par
+  \bigskip
+
+  \normalsize
+
+  \includegraphics[width=0.3\textwidth]{turing-machine}
+
+  \begin{itemize}\justifying
+    \item \hil{$\boldsymbol{\mathrm{BB}(n)}$} is the maximal number of steps a Turing
+    machine with~$n$ states can carry out before halting. 
+    \pause
+    % ACTION: Values on Wikipedia
+    \item The Busy Beaver function is \hil{uncomputable}\only<2>{.}
+    \visible<3->{and \hil{asymptotically dominates} any computable function.}
+    \pause
+    \pause
+    \item \hil{(PRA-)Provably so,} no conjecture regarding the value
+    of~$\mathrm{BB}(1919)$ is (ZFC-)provable, not even~``$\mathrm{BB}(1919) =
+    \heartsuit$'' where~$\heartsuit$ is the true value of $\mathrm{BB}(1919)$.
+  \end{itemize}
 \end{frame}
 
-\imgslide{clips/03-supercomputer-1}
 
+\section{Very very very very large numbers}
 
-\subsection[Hiten]{The rescue of the Hiten}
-
-\begin{frame}{The rescue of the Hiten}
+\begin{frame}
   \centering
-  \includegraphics[width=0.7\textwidth]{hiten-trajectory}
+
+  \Huge \hil{Part IV}
+
+  \bigskip
+  \Large\textbf{Very very very very large numbers}
   \par
+  \bigskip
+  \normalsize
+
+  \begin{itemize}\justifying
+    \item \hil{$\boldsymbol{\mathrm{Rayo}(n)}$} is the largest natural number uniquely
+    definable using~$n$ symbols in the mathematical language of ZFC.
+    \item The Rayo function is \hil{(ZFC-)undefinable}
+    and \hil{asymptotically dominates} any (ZFC-)definable function.
+  \end{itemize}
 \end{frame}
-
-
-\subsection{In nature}
-
-\begin{frame}{In nature}
-  \centering
-  \includegraphics[width=0.6\textwidth]{intergalactic-transport-network}
-  \par
-\end{frame}
-
-% https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/L4_diagram.svg/403px-L4_diagram.svg.png
-% https://upload.wikimedia.org/wikipedia/commons/5/5f/Lagrangian_points_equipotential.jpg
-
-% Zunächst: Orbiten komplizierter!
-% Probleme mit konventionellem Ansatz (auch Neustartprobleme)
-% Ziel: ballistisches Einfangen
-% Lagrange-Punkte (Krassheit der Punkte nicht vergessen)
-% dazu mitrotierendes Bezugssystem, Zentrifugalkraft, Corioliskraft
-% WSM
-% Wie man sie findet
-% Hiten
-% In der Natur
-
-% Wurmlochnostalgie nicht vergessen!
-% Krasse Rundtourtrajektorien nicht vergessen!
-% Szene aus The Martian nicht vergessen!
-% Szene aus Gravity nicht vergessen!
-% Swing-by-Manöveur nicht vergessen!
-% Hohmann-Transfer nicht vergessen!
-% Krasse Stärke der Gravitation beiläufig erwähnen.
 
 \end{document}
+
+
+3 !! 3 = 3^3^3 = 3^{27}
+
+3 !!! 3 = 3 !! (3 !! 3) = 3 !! 3^{27} = 3^3^... (3^27 viele Dreier)
+
+3 !!!! 3 = 3 !!! (3 !!! 3) = 3 !!! 3^3^3^...
+
+3^27 >> 65536
