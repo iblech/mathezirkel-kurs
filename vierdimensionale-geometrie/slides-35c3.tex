@@ -11,14 +11,17 @@
 
 \graphicspath{{images/}}
 
-\title[Vierdimensionale Geometrie]{Die wundersame Welt der \\ vierdimensionalen Geometrie}
-\author[Ingo Blechschmidt, Matthias Hutzler]{\scriptsize
+\title[Fourdimensional geometry]{The curious world of \\ four-dimensional geometry}
+\author[Ingo Blechschmidt, Matthias Hutzler]{\texorpdfstring{\scriptsize
 \vspace*{-1em} \\
-\textbf{Weihnachtsvorlesung am 18. Dezember 2017} \\
-\emph{Fragen sind jederzeit willkommen! Bitte nicht bis zum Ende aufsparen.} \\
+\textbf{Late Night Wondrous Mathematics at 35c3} \\
+\emph{Questions are welcome at any point! Don't save them until the end.} \\
 \medskip
-Ingo Blechschmidt und Matthias Hutzler \\
-Lehrstuhl für Algebra und Zahlentheorie}
+\begin{minipage}{3cm}\centering Ingo Blechschmidt \\ Università di
+Verona\end{minipage}\qquad
+\begin{minipage}{3cm}\centering Matthias Hutzler \\ Universität Augsburg\end{minipage}}{Ingo Blechschmidt and Matthias
+Hutzler}}
+
 
 %\usetheme{Warsaw}
 \useinnertheme[shadow=true]{rounded}
@@ -69,30 +72,30 @@ Lehrstuhl für Algebra und Zahlentheorie}
 
 \begin{document}
 
-\frame{
+\begin{frame}
   \centering
   \includegraphics[width=0.4\textwidth]{great-grand-120-cell}
   \smallskip
 
   \titlepage
-}
+\end{frame}
 
 
-\section{Grundlagen}
+\section{Basics}
 
 \begin{frame}[plain,c]
   \centering
   \Large
-  \hil{Wie geht's weiter?}
+  \hil{How does the sequence continue?}
 
-  1, $\infty$, 5, 6, \hil{??}
+  1, \pause $\infty$, \pause 5, \pause 6, \pause \hil{??}
 \end{frame}
 \addtocounter{framenumber}{-1}
 
 
-\subsection{Vier Dimension: was ist das?}
+\subsection{Four dimensions: what?}
 
-\begin{frame}{Vier Dimensionen?}
+\begin{frame}{Four dimensions?}
   \centering
   \only<1>{\includegraphics[width=0.9\textwidth]{4d-tesseract}}
   \only<2>{\includegraphics[width=0.9\textwidth]{4d-pentachoron}}
@@ -123,9 +126,9 @@ Lehrstuhl für Algebra und Zahlentheorie}
 }
 
 
-\subsection{Knotentheorie}
+\subsection{Knot theory}
 
-\begin{frame}{Schnürsenkel binden}
+\begin{frame}{Tying your shoelaces}
   % Erklären, dass Schnürsenkel immer aufgehen würden
   \centering
   \includegraphics[width=0.65\textwidth]{trefoil-knot}
@@ -158,11 +161,11 @@ Lehrstuhl für Algebra und Zahlentheorie}
 %in 4D: Schnur, Schnur     ; 1, 1
 
 
-\section[Größen]{Größen in vier Dimensionen}
+\section[Sizes]{Sizes in four dimensions}
 
-\subsection{Volumenverhältnisse}
+\subsection{Hypervolume of hyperballs}
 
-\begin{frame}{Hypervolumen von Hyperkugeln}
+\begin{frame}{Hypervolume of hyperballs}
   \centering
   \vspace*{-0.5em}
   \includegraphics[width=0.4\textwidth]{sizes-1}
@@ -175,13 +178,13 @@ Lehrstuhl für Algebra und Zahlentheorie}
   \small
   \begin{tabular}{lll}
     \toprule
-    Dimension & Hypervolumen & \\\midrule
-    $n = 2$ & $\pi / 4$ & $\approx 0{,}785 \,\mathrm{m}^2$ \\
-    $n = 3$ & $\pi / 6$ & $\approx 0{,}524 \,\mathrm{m}^3$ \\
-    $n = 4$ & $\pi^2 / 32$ & $\approx 0{,}308 \,\mathrm{m}^4$ \\
-    $n = 5$ & $\pi^2 / 60$ & $\approx 0{,}164 \,\mathrm{m}^5$ \\
-    $n = 6$ & $\pi^3 / 384$ & $\approx 0{,}081 \,\mathrm{m}^6$ \\
-    $n = 7$ & $\pi^3 / 840$ & $\approx 0{,}037 \,\mathrm{m}^7$ \\
+    dimension & hypervolume & \\\midrule
+    $n = 2$ & $\pi / 4$ & $\approx 0{.}785 \,\mathrm{m}^2$ \\
+    $n = 3$ & $\pi / 6$ & $\approx 0{.}524 \,\mathrm{m}^3$ \\
+    $n = 4$ & $\pi^2 / 32$ & $\approx 0{.}308 \,\mathrm{m}^4$ \\
+    $n = 5$ & $\pi^2 / 60$ & $\approx 0{.}164 \,\mathrm{m}^5$ \\
+    $n = 6$ & $\pi^3 / 384$ & $\approx 0{.}081 \,\mathrm{m}^6$ \\
+    $n = 7$ & $\pi^3 / 840$ & $\approx 0{.}037 \,\mathrm{m}^7$ \\
     $n \to \infty$ & $\to 0$ \\
     \bottomrule
   \end{tabular}\par
@@ -212,12 +215,12 @@ Lehrstuhl für Algebra und Zahlentheorie}
 }
 
 
-\subsection{Küssende Hyperkugeln}
+\subsection{Kissing hyperspheres}
 
 \begin{frame}[plain,c]
   \centering\Huge
-  \scalebox{2.6}{\hil{Liebe ist}} \\[0.6em]
-  \scalebox{2.6}{\hil{wichtig.}}
+  \scalebox{2.6}{\hil{Love is}} \\[0.6em]
+  \scalebox{2.6}{\hil{important.}}
 
   \bigskip
   \bigskip
@@ -227,7 +230,7 @@ Lehrstuhl für Algebra und Zahlentheorie}
 \end{frame}
 \addtocounter{framenumber}{-1}
 
-\begin{frame}{Küssende Hyperkugeln}
+\begin{frame}{Kissing hyperspheres}
   % Bild vier Kreise an den Ecken des Zweiheitsquadrats und Kreis in der Mitte
   \centering
   \vspace*{-1em}
@@ -237,7 +240,7 @@ Lehrstuhl für Algebra und Zahlentheorie}
   {\small
   \begin{tabular}{lll}
     \toprule
-    Dimension & Radius der inneren Hyperkugel & \\\midrule
+    dimension & radius of the inner hypersphere & \\\midrule
     $n = 2$ & \pause $\sqrt{2} - 1$ \\
     \pause
     $n = 3$ & \pause $\sqrt{3} - 1$ \\
@@ -250,7 +253,7 @@ Lehrstuhl für Algebra und Zahlentheorie}
   \bigskip
 
   \centering
-  \hil{Die Entfernung zu den Ecken wird immer größer.}
+  \hil{The distance to the corners gets bigger and bigger.}
   \par
 \end{frame}
 
@@ -271,9 +274,9 @@ Lehrstuhl für Algebra und Zahlentheorie}
 }
 
 
-\subsection[Relativität]{Allgemeine Relativitätstheorie}
+\subsection[Relativity]{General relativity}
 
-\begin{frame}{Allgemeine Relativitätstheorie}
+\begin{frame}{General relativity}
   \vspace*{-1em}
   \begin{center}
     \includegraphics[height=0.3\textheight]{einstein}
@@ -281,17 +284,17 @@ Lehrstuhl für Algebra und Zahlentheorie}
     \includegraphics[height=0.3\textheight]{gravitational-waves}
   \end{center}
 
-  Einsteins gefeierte \hil{Feldgleichung} besagt
+  Einstein's celebrated \hil{field equation} states that
   \[ G = \kappa \cdot T, \]
-  wobei
+  where
   \begin{itemize}
-    \item $G$ die \hil{Raumkrümmung} angibt,
-    \item $T$ die \hil{Massenverteilung} misst und
-    \item $\kappa$ eine Konstante ist.
+    \item $G$ relates to the \hil{curvature} of space,
+    \item $T$ measures the \hil{mass distribution}, and
+    \item $\kappa$ is a constant.
   \end{itemize}
 
-  In $2+1$ Dimensionen impliziert die Gleichung~$T = 0$.
-  Nur in vier und mehr Dimensionen ist die Theorie nichttrivial.
+  In $2+1$ dimensions, the equation implies $T = 0$.
+  The theory is nontrivial only in four or more dimensions.
 \end{frame}
 
 \note{
@@ -301,20 +304,20 @@ Lehrstuhl für Algebra und Zahlentheorie}
 }
 
 
-\section[Schnitte]{Schnitttheorie}
+\section[Intersections]{Intersection theory}
 
-\subsection{Ankunft eines Hyperballs}
+\subsection{A hyperball arrives}
 
-\begin{frame}{Ankunft eines Hyperballs}
+\begin{frame}{A hyperball arrives}
   \centering
   \includegraphics[width=0.9\textwidth]{a-hyperball-arrives}
   \par
 \end{frame}
 
 
-\subsection[und eines Tesserakts]{Ankunft eines Tesserakts}
+\subsection{A tesseract arrives}
 
-\begin{frame}{Ankunft eines Tesserakts}
+\begin{frame}{A tesseract arrives}
   \centering
   \includegraphics[width=0.9\textwidth]{a-tesseract-arrives}
   \par
@@ -323,17 +326,17 @@ Lehrstuhl für Algebra und Zahlentheorie}
 % Jetzt Ecken & Co. zählen
 
 
-\subsection{Ein 4d Fraktal}
-
-\begin{frame}{Ein vierdimensionales Fraktal}
+\subsection{A 4d fractal}
+\begin{frame}{A four-dimensional fractal}
   \justifying
-  Ihr kennt das Mandelbrotfraktal.
-  Vielleicht kennt ihr auch die Juliafraktale, von denen es je eins für jeden
-  Punkt der Ebene gibt.
-  Aber wusstet ihr, dass diese unendlich vielen Fraktale nur zweidimensionale
-  Schnitte eines vereinheitlichten vierdimensionalen Fraktals ist?
-  Wir laden euch ein,
-  \href{https://rawgit.com/MatthiasHu/FractalsWebGL/4d/page.html}{damit zu spielen}.
+  You know the Mandelbrot set.
+  Maybe you also know the Julia sets associated to any point of the plane.
+  \bigskip
+
+  But did you know that these infinitely many fractals are just two-dimensional
+  cuts of an unifying four-dimensional fractal?
+  We invite you to
+  \href{https://rawgit.com/MatthiasHu/FractalsWebGL/4d/page.html}{play with it}.
   \bigskip
 
   \centering
@@ -342,9 +345,9 @@ Lehrstuhl für Algebra und Zahlentheorie}
 \end{frame}
 
 
-\section{Platonische Körper}
+\section{Platonic solids}
 
-\newcommand{\solid}[5]{\begin{column}{0.31\textwidth}\centering\hil{#2}\par#5 E, #4 K, #3 F\\\medskip\includegraphics[height=0.7\textwidth]{#1}\end{column}}
+\newcommand{\solid}[5]{\begin{column}{0.31\textwidth}\centering\hil{#2}\par#5 v, #4 e, #3 f\\\medskip\includegraphics[height=0.7\textwidth]{#1}\end{column}}
 \newcommand{\solidd}[3]{\begin{column}{0.4\textwidth}\centering\hil{#2}\par#3\\\medskip\includegraphics[height=1.9cm]{#1}\end{column}}
 \newcommand{\solidde}[3]{\begin{column}{0.33\textwidth}\centering\hil{#2}\par{\scriptsize#3\\}\medskip\includegraphics[height=1.9cm]{#1}\end{column}}
 \newcommand{\solidv}[1]{\begin{column}{0.3\textwidth}\centering\hil{$\phantom{A}$}\par$\phantom{A}$\\\medskip\video{images/#1.mp4}{1.9cm}\end{column}}
@@ -352,55 +355,55 @@ Lehrstuhl für Algebra und Zahlentheorie}
 
 \subsection{In 3d}
 
-\begin{frame}{Platonische Körper in 3d}
+\begin{frame}{Platonic solids in 3d}
   \begin{columns}[c]
-    \solid{tetrahedron}{Tetraeder}{4}{6}{4}
-    \solid{hexahedron}{Hexaeder}{6}{12}{8}
-    \solid{octahedron}{Oktaeder}{8}{12}{6}
+    \solid{tetrahedron}{Tetrahedron}{4}{6}{4}
+    \solid{hexahedron}{Hexahedron}{6}{12}{8}
+    \solid{octahedron}{Octahedron}{8}{12}{6}
   \end{columns}
   \bigskip
   \begin{columns}[c]
-    \solid{dodecahedron}{Dodekaeder}{12}{30}{20}
-    \solid{icosahedron}{Ikosaeder}{20}{30}{12}
+    \solid{dodecahedron}{Dodecahedron}{12}{30}{20}
+    \solid{icosahedron}{Icosahedron}{20}{30}{12}
   \end{columns}
 \end{frame}
 
 
 \subsection{In 4d}
 
-\begin{frame}{Platonische Körper in 4d}
+\begin{frame}{Platonic solids in 4d}
   \only<1>{
     \begin{columns}[c]
-      \solidd{tetrahedron}{Tetraeder}{4E, 6K, 4F}
-      \solidd{005-cell}{Pentachoron}{5E, 10K, 10F, 5Z}
+      \solidd{tetrahedron}{Tetrahedron}{4v, 6e, 4f}
+      \solidd{005-cell}{Pentachoron}{5v, 10e, 10f, 5c}
       \solidv{005-cell}
     \end{columns}
   }
 
   \only<2>{
     \begin{columns}[c]
-      \solidd{hexahedron}{Hexaeder}{8E, 12K, 6F}
-      \solidd{008-cell}{Octachoron}{16E, 32K, 24F, 8Z}
+      \solidd{hexahedron}{Hexahedron}{8v, 12e, 6f}
+      \solidd{008-cell}{Octachoron}{16v, 32e, 24f, 8c}
       \solidv{008-cell}
     \end{columns}
     \vspace*{2em}
     \begin{columns}[c]
-      \solidd{octahedron}{Oktaeder}{6E, 12K, 8F}
-      \solidd{016-cell}{Hexadecachoron}{8E, 24K, 32F, 16Z}
+      \solidd{octahedron}{Octahedron}{6v, 12e, 8f}
+      \solidd{016-cell}{Hexadecachoron}{8v, 24e, 32f, 16c}
       \solidv{016-cell}
     \end{columns}
   }
 
   \only<3>{
     \begin{columns}[c]
-      \solidd{dodecahedron}{Dodekaeder}{20E, 30K, 12F}
-      \solidd{120-cell}{Hecatonicosachoron}{600E, 1200K, 720F, 120Z}
+      \solidd{dodecahedron}{Dodecahedron}{20v, 30e, 12f}
+      \solidd{120-cell}{Hecatonicosachoron}{600v, 1200e, 720f, 120c}
       \solidv{120-cell}
     \end{columns}
     \vspace*{2em}
     \begin{columns}[c]
-      \solidd{icosahedron}{Ikosaeder}{12E, 30K, 20F}
-      \solidd{600-cell}{Hexacosichoron}{120E, 720K, 1200F, 600Z}
+      \solidd{icosahedron}{Icosahedron}{12v, 30e, 20f}
+      \solidd{600-cell}{Hexacosichoron}{120v, 720e, 1200f, 600c}
       \solidv{600-cell}
     \end{columns}
   }
@@ -408,54 +411,53 @@ Lehrstuhl für Algebra und Zahlentheorie}
   \only<4-5>{
     \centering
     \hil{Icositetrachoron}\par
-    24E, 96K, 96F, 24Z\\\medskip
+    24v, 96e, 96f, 24c\\\medskip
     \only<4>{\includegraphics[width=0.5\textwidth]{024-cell}}
     \only<5>{\video{images/024-cell.mp4}{0.5\textwidth}}
   }
 \end{frame}
 
-\begin{frame}{Pflasterungen}
+\begin{frame}{Tesselation}
   \centering
   \includegraphics[height=0.6\textheight]{tesselation-squares}
   \qquad
   \includegraphics[height=0.6\textheight]{hyperdiamond-3d}
   \bigskip
 
-  \hil{Der 24-Zeller pflastert den vierdimensionalen Raum.}
+  \hil{The 24-cell tesselates four-dimensional space.}
 \end{frame}
 
-\begin{frame}{Übersicht}
+\begin{frame}{Overview}
   \begin{columns}[c]
-    \solidde{005-cell}{Pentachoron}{5E, 10K, 10F, 5Z}
-    \solidde{008-cell}{Octachoron}{16E, 32K, 24F, 8Z}
-    \solidde{016-cell}{Hexadecachoron}{8E, 24K, 32F, 16Z}
+    \solidde{005-cell}{Pentachoron}{5v, 10e, 10f, 5c}
+    \solidde{008-cell}{Octachoron}{16v, 32e, 24f, 8c}
+    \solidde{016-cell}{Hexadecachoron}{8v, 24e, 32f, 16c}
   \end{columns}
   \bigskip
   \bigskip
   \begin{columns}[c]
-    \solidde{120-cell}{Hecatonicosachoron}{600E, 1200K, 720F, 120Z}
-    \solidde{600-cell}{Hexacosichoron}{120E, 720K, 1200F, 600Z}
-    \solidde{024-cell}{Icositetrachoron}{24E, 96K, 96F, 24Z}
+    \solidde{120-cell}{Hecatonicosachoron}{600v, 1200e, 720f, 120c}
+    \solidde{600-cell}{Hexacosichoron}{120v, 720e, 1200f, 600c}
+    \solidde{024-cell}{Icositetrachoron}{24v, 96e, 96f, 24c}
   \end{columns}
 \end{frame}
 
 
-\subsection{In beliebigen Dimensionen}
+\subsection{In arbitrary dimensions}
 
-\begin{frame}{In beliebigen Dimensionen}
+\begin{frame}{In arbitrary dimensions}
   \centering
   \begin{tabular}{ll}
     \toprule
-    Dimension & Anzahl platonischer Körper \\ \midrule
-    $n = 1$ & 1 (nur die Linie) \\
-    $n = 2$ & $\infty$ (Dreieck, Quadrat, Fünfeck, Sechseck, \ldots) \\
+    dimension & number of Platonic solids \\ \midrule
+    $n = 1$ & 1 (just the line segment) \\
+    $n = 2$ & $\infty$ (triangle, square, \ldots; any regular polygon) \\
     $n = 3$ & 5 \\
     $n = 4$ & 6 \\
-    $n = 5$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
-    $n = 6$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
-    $n = 7$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
-    $n = 8$ & 3 (nur Simplex, Hyperwürfel und sein Duales) \\
-    \emph{und so weiter} \\
+    $n = 5$ & 3 (just the simplex, the hypercube and its dual) \\
+    $n = 6$ & 3 (just the simplex, the hypercube and its dual) \\
+    $n = 7$ & 3 (just the simplex, the hypercube and its dual) \\
+    \emph{and so on} \\
     \bottomrule
   \end{tabular}
   \par
@@ -475,20 +477,20 @@ Lehrstuhl für Algebra und Zahlentheorie}
 }
 
 
-\subsection[Verkleben]{Zusammenkleben vierdimensionaler Formen}
+\subsection[Glueing]{Glueing four-dimensional shapes}
 
-\begin{frame}{Kleben vierdimensionaler Formen}
+\begin{frame}{Glueing four-dimensional shapes}
   \centering
   \begin{columns}
     \begin{column}{0.3\textwidth}
       \centering
-      \hil{Würfel} \\
+      \hil{Cube} \\
       \smallskip
       \includegraphics[height=0.35\textheight]{cube-net}
     \end{column}
     \begin{column}{0.3\textwidth}
       \centering
-      \hil{Tesserakt} \\
+      \hil{Tesseract} \\
       \smallskip
       \includegraphics[height=0.35\textheight]{008-cell-net}
     \end{column}
@@ -499,13 +501,13 @@ Lehrstuhl für Algebra und Zahlentheorie}
   \begin{columns}
     \begin{column}{0.3\textwidth}
       \centering
-      \hil{16-Zeller} \\
+      \hil{16-cell} \\
       \smallskip
       \includegraphics[height=0.3\textheight]{016-cell-net}
     \end{column}
     \begin{column}{0.3\textwidth}
       \centering
-      \hil{24-Zeller} \\
+      \hil{24-cell} \\
       \smallskip
       \includegraphics[height=0.3\textheight]{024-cell-net}
     \end{column}
@@ -520,18 +522,18 @@ Lehrstuhl für Algebra und Zahlentheorie}
   Salvador Dalí: \hil{Corpus Hypercubus} (1954)
 \end{frame}
 
-\begin{frame}{Ein vierdimensionales Labyrinth}
+\begin{frame}{A four-dimensional labyrinth}
   \includegraphics[width=\textwidth]{4d-labyrinth}
 \end{frame}
 
 
-\subsection{Ausblick}
+\subsection{Outlook}
 
-\begin{frame}{Die vierte Dimension \ldots}
+\begin{frame}{The fourth dimension \ldots}
   \begin{enumerate}
-    \item ist faszinierend schön,
+    \item is intriguingly beautiful,
 
-    \item hilft beim Verständnis der dritten Dimension,
+    \item helps at understanding the third dimension,
 
     \begin{center}
       \includegraphics[height=0.3\textheight]{torus-circles}
@@ -539,14 +541,14 @@ Lehrstuhl für Algebra und Zahlentheorie}
       \includegraphics[height=0.3\textheight]{hopf-fibration}
     \end{center}
 
-    \item ist unabdingbar für die moderne Physik und
+    \item is indispensible for modern physics,
 
-    \item ist als einzige Dimension noch größtenteils unverstanden.
+    \item is the only dimension which is still largely not understood.
 
     \begin{center}
       \begin{tabular}{l|rrrrrrrrrr}
         Dimension & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & \ldots \\
-        Anzahl Sphären & 1 & 1 & 1 & \hil{??} & 1 & 1 & 28 & 2 & 8 & \ldots
+        Number of spheres & 1 & 1 & 1 & \hil{??} & 1 & 1 & 28 & 2 & 8 & \ldots
       \end{tabular}
     \end{center}
   \end{enumerate}
@@ -558,14 +560,14 @@ Lehrstuhl für Algebra und Zahlentheorie}
     \begin{column}{0.4\textwidth}
       \centering
       \hil{Catharina Stroppel} \\
-      $\phantom{\text{g}}$Knotentheoretikerin$\phantom{\text{g}}$ \\
+      $\phantom{\text{g}}$knot theorist$\phantom{\text{g}}$ \\
       \smallskip
       \includegraphics[height=0.5\textheight]{catharina-stroppel}
     \end{column}
     \begin{column}{0.6\textwidth}
       \centering
       \hil{Julia Grigsby} \\
-      niedrigdimensionale Topologin \\
+      low-dimensional topologist \\
       \smallskip
       \includegraphics[height=0.5\textheight]{julia-grigsby}
     \end{column}
@@ -587,7 +589,7 @@ Lehrstuhl für Algebra und Zahlentheorie}
   \end{columns}
 }
 
-\begin{frame}{Applaus für unsere Helden!}
+\begin{frame}{Applause for our heros!}
   \centering
   \only<1>{\hero{005-cell}{Pentachoron}}
   \only<2>{\two{\hero{008-cell}{Tesserakt}}{\hero{016-cell}{Hexadecachoron}}}
@@ -596,8 +598,9 @@ Lehrstuhl für Algebra und Zahlentheorie}
   \bigskip
 
   \only<4>{
-    Unterlagen zum Vortrag: \\
-    \hil{http://4d.speicherleck.de/}
+    Slides and programs: \\
+    \hil{http://4d.speicherleck.de/} \\
+    (sorry for http)
   }
 \end{frame}
 
