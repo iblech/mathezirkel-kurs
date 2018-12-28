@@ -51,24 +51,28 @@ if($q->request_method() eq "POST") {
 
     my $data = "$author\n$entry";
     my $id = sha256_hex(DIGEST_COOKIE . $data);
-    open my $fh, ">", "$id.txt" or die $!;
-    print $fh $data or die $!;
-    close $fh or die $!;
+    {
+        open my $fh, ">", "$id.txt" or die $!;
+        print $fh $data or die $!;
+        close $fh or die $!;
+    }
 
     my $is_replacement = $prev_id ne $id && -e "$prev_id.txt";
     unlink "$prev_id.txt" if $is_replacement;
 
-    open my $fh, "|-",
-      "mail", "-s", "New large number submission: " . substr($id, 0, 8),
-      '35c3@speicherleck.de';
-    print $fh "$id\n";
-    if($is_replacement) {
-        print $fh "(replacing $prev_id)\n";
-    } else {
-        print $fh "(new submission)\n";
+    {
+        open my $fh, "|-",
+          "mail", "-s", "New large number submission: " . substr($id, 0, 8),
+          '35c3@speicherleck.de';
+        print $fh "$id\n";
+        if($is_replacement) {
+            print $fh "(replacing $prev_id)\n";
+        } else {
+            print $fh "(new submission)\n";
+        }
+        print $fh "\n$data\n";
+        close $fh;
     }
-    print $fh "\n$data\n";
-    close $fh;
 
     print $q->redirect("./$id");
     exit;
