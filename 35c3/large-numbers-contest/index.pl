@@ -42,6 +42,10 @@ if($ENV{REQUEST_URI} =~ /\/(\w{64})$/) {
 }
 
 if($q->request_method() eq "POST") {
+    print $q->header(-type => "text/plain; charset=UTF-8");
+    print "The contest has ended. See you on 36c3!\n";
+    exit;
+
     my $author  = $q->param("author");
     my $entry   = $q->param("entry");
     my $prev_id = $q->param("previous-id");
@@ -129,6 +133,13 @@ print <<TMPL;
 
 <h1>35c3 large numbers contest</h1>
 
+<p class="happy">The contest has ended. We were extremely delighted by the
+multitude of very original and clever submissions, and hope that you had as
+much fun thinking of larger and larger numbers as we had in musing over your
+submissions! <a href=\"submissions.txt\">Here are all the submissions,</a> sorted
+in several categories to eye-ball their size. Within a category, the
+submissions are sorted alphabetically by author name.</p>
+
 @{[ $is_404 ? "<p class=\"error\">There is no submission by that id. Perhaps
 you replaced an earlier submission and didn't update your bookmark? You can
 submit a new entry below, or contact us in case you want to hunt down a lost
@@ -143,8 +154,8 @@ page. You can also submit <a href=\".\">a new entry</a>. The contest results wil
 href=\"https://events.ccc.de/congress/2018/wiki/index.php/Session:Wondrous_Mathematics:_Large_numbers,_very_large_numbers_and_very_very_large_numbers\">at the talk</a>.</p>" : "" ]}
 
 @{[ $current_id
-    ? "<h2>Edit entry</h2>"
-    : "<h2>New entry</h2>"
+    ? "<h2>Show entry</h2>"
+    : "<!--<h2>New entry</h2>"
 ]}
 
 <form method="post" action=".">
@@ -166,6 +177,8 @@ href=\"https://events.ccc.de/congress/2018/wiki/index.php/Session:Wondrous_Mathe
     <input type="submit" value="@{[ $current_id ? "replace previous submission with this one" : "submit" ]}">
   </p>
 </form>
+
+@{[ $current_id ? "" : "-->" ]}
 
 
 <h2>Rules</h2>
