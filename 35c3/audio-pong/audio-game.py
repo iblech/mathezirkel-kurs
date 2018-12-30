@@ -18,7 +18,7 @@ RATE = 44100
 
 width = 1366
 height = 768
-screen = pygame.display.set_mode((width, height), pygame.FULLSCREEN)
+screen = pygame.display.set_mode((width, height))
 
 w = width * 0.0225  # rectangle width
 h = height * 0.2    # rectangle height
