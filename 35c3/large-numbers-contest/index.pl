@@ -173,9 +173,11 @@ href=\"https://events.ccc.de/congress/2018/wiki/index.php/Session:Wondrous_Mathe
     <span id="status"></span>
   </p>
 
-  <p>
-    <input type="submit" value="@{[ $current_id ? "replace previous submission with this one" : "submit" ]}">
-  </p>
+  <!--
+    <p>
+      <input type="submit" value="@{[ $current_id ? "replace previous submission with this one" : "submit" ]}">
+    </p>
+  -->
 </form>
 
 @{[ $current_id ? "" : "-->" ]}
