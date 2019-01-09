@@ -231,5 +231,8 @@ href=\"https://events.ccc.de/congress/2018/wiki/index.php/Session:Wondrous_Mathe
   by our assembly</a>.</p></li>
 </ul>
 
+<p>Impressum: <a href=\"https://www.ingo-blechschmidt.eu/\">Ingo Blechschmidt,
+Arberstraße 5, 86179 Augsburg</a></p>
+
 </body>
 TMPL
