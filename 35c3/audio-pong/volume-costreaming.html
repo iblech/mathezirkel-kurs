@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Volume costreaming</title>
+
+<meta name="viewport" content="initial-scale=1">
+
+<script type="text/javascript">
+    function setup () {
+	window.AudioContext = window.AudioContext || window.webkitAudioContext;
+ 
+	audioContext = new AudioContext();
+
+	try {
+	    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+	    navigator.getUserMedia(
+                {
+                    "audio": {
+                        "mandatory": {
+			    "googTypingNoiseDetection": false,
+                            "googEchoCancellation": "false",
+                            "googAutoGainControl": "false",
+		            "googAutoGainControl2": false,
+                            "googNoiseSuppression": "false",
+                            "googHighpassFilter": "false"
+                        },
+                        "optional": []
+                    },
+                },
+                function (stream) {
+                    var mediaStreamSource = audioContext.createMediaStreamSource(stream);
+
+                    var processor = audioContext.createScriptProcessor(1024);
+                    processor.onaudioprocess = function (ev) {
+                    	var buf = ev.inputBuffer.getChannelData(0);
+			var sum = 0;
+
+			for (var i = 0; i < buf.length; i++) {
+			    sum += buf[i] * buf[i];
+			}
+
+                        try { fetch('/status=' + Math.sqrt(sum / buf.length)); } catch(err) {
+                            document.write(err);
+                        }
+                    };
+
+                    // work around a current Chrome bug
+                    processor.connect(audioContext.destination);
+
+                    mediaStreamSource.connect(processor);
+                },
+                function () {
+                    document.write("Didn't get stream.");
+                },
+            );
+	} catch (e) {
+	    document.write(e);
+	}
+    }
+
+    function costream (meter) {
+        document.write(meter.checkClipping() + " " + meter.volume + "<br>");
+        window.requestAnimationFrame(function () { costream(meter); });
+    }
+</script>
+
+</head>
+<body>
+
+<button onclick="setup()" style="width: 100%; height: 100%">foo</button>
+
+<span id="foo"></span>
+
+</body>
+</html>
