@@ -1,0 +1,9 @@
+* Audio Pong
+* Hydra an Tafel
+* Hydra-Applet
+* Konzept von Anzahl Leben einer Hydra
+* Mirzakhani und Insa Thiele-Eich
+* Busvisualisierung von Ordinalzahlen
+* Hedwig-Anekdote
+* Fundierungsspiel
+* Hydra-Verständnis
