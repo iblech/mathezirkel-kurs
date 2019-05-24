@@ -12,7 +12,7 @@ function pin(pinningTable, name, type, direction, value) {
     return pinningTable[name][type] = value;
 }
 
-function histogram(domID, pinningTable, name, bins) {
+function histogram(domID, pinningTable, name, trials, bins) {
     var average = 0;
     var maximum = 0;
     for(var i = 0; i < bins.length; i++) {
@@ -35,7 +35,7 @@ function histogram(domID, pinningTable, name, bins) {
         .attr("y", 0)
         .attr("text-anchor", "end")
         .attr("font-weight", "bold")
-        .text(name);
+        .text(name + " (" + trials.toString() + " trials)");
     svg.append("text")
         .attr("x", width)
         .attr("y", "1.2em")

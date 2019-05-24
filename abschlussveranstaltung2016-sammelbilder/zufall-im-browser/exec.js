@@ -55,14 +55,14 @@ while True:\n\
         vars[v][localVars[v]] = vars[v][localVars[v]] + 1\n\
     iteration_number += 1\n\
     if iteration_number % N == 0:\n\
-        # Suspend before trying to draw so we have a chance of getting # aborted\n\
+        # Suspend before trying to draw so we have a chance of getting aborted\n\
         # before drawing obsolete results\n\
         __js.suspend()\n\
         __js.evaljs('clearPlots()')\n\
         for k in sorted(vars):\n\
             if len(vars[k]) > 1:\n\
                 data = [ { 'x': i, 'y': vars[k][i]/float(iteration_number) } for i in vars[k] ]\n\
-                __js.evaljs(\"histogram('plots', pinningTable, '\" + k + \"', \" + str(data) + \")\")\n\
+                __js.evaljs(\"histogram('plots', pinningTable, '\" + k + \"', \" + str(iteration_number) + \", \" + str(data) + \")\")\n\
 "
 
     return code;
