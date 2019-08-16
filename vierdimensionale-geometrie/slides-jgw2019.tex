@@ -113,6 +113,28 @@ Ingo Blechschmidt und Matthias Hutzler}
 \end{frame}
 
 
+\section[Schnitte]{Schnitttheorie}
+
+\subsection{Ankunft eines Hyperballs}
+
+\begin{frame}{Ankunft eines Hyperballs}
+  \centering
+  \includegraphics[width=0.9\textwidth]{a-hyperball-arrives}
+  \par
+\end{frame}
+
+
+\subsection[und eines Tesserakts]{Ankunft eines Tesserakts}
+
+\begin{frame}{Ankunft eines Tesserakts}
+  \centering
+  \includegraphics[width=0.9\textwidth]{a-tesseract-arrives}
+  \par
+\end{frame}
+
+% Jetzt Ecken & Co. zählen
+
+
 \subsection{Knotentheorie}
 
 \begin{frame}{Schnürsenkel binden}
@@ -137,8 +159,37 @@ Ingo Blechschmidt und Matthias Hutzler}
 %in 4D: Schnur, Schnur     ; 1, 1
 
 
+\section[Größen]{Größen in vier Dimensionen}
 
-\section{Platonische Körper}
+\subsection{Volumenverhältnisse}
+
+\begin{frame}{Hypervolumen von Hyperkugeln}
+  \centering
+  \vspace*{-0.5em}
+  \includegraphics[width=0.4\textwidth]{sizes-1}
+  \bigskip
+  % vorher gscheite Definition der Hyperkugel
+  % Bild vom Kreis im Quadrat
+  % Bild vom Zylinder im Würfel
+  % Bild von der Kugel im Würfel
+
+  \small
+  \begin{tabular}{lll}
+    \toprule
+    Dimension & Hypervolumen & \\\midrule
+    $n = 2$ & $\pi / 4$ & $\approx 0{,}785 \,\mathrm{m}^2$ \\
+    $n = 3$ & $\pi / 6$ & $\approx 0{,}524 \,\mathrm{m}^3$ \\
+    $n = 4$ & $\pi^2 / 32$ & $\approx 0{,}308 \,\mathrm{m}^4$ \\
+    $n = 5$ & $\pi^2 / 60$ & $\approx 0{,}164 \,\mathrm{m}^5$ \\
+    $n = 6$ & $\pi^3 / 384$ & $\approx 0{,}081 \,\mathrm{m}^6$ \\
+    $n = 7$ & $\pi^3 / 840$ & $\approx 0{,}037 \,\mathrm{m}^7$ \\
+    $n \to \infty$ & $\to 0$ \\
+    \bottomrule
+  \end{tabular}\par
+\end{frame}
+
+
+\subsection{Küssende Hyperkugeln}
 
 \begin{frame}[plain,c]
   \centering\Huge
@@ -152,6 +203,62 @@ Ingo Blechschmidt und Matthias Hutzler}
   \par
 \end{frame}
 \addtocounter{framenumber}{-1}
+
+
+\begin{frame}{Küssende Hyperkugeln}
+  % Bild vier Kreise an den Ecken des Zweiheitsquadrats und Kreis in der Mitte
+  \centering
+  \vspace*{-1em}
+  \includegraphics[width=0.3\textwidth]{sizes-2}
+  \bigskip
+
+  {\small
+  \begin{tabular}{lll}
+    \toprule
+    Dimension & Radius der inneren Hyperkugel & \\\midrule
+    $n = 2$ & \pause $\sqrt{2} - 1$ \\
+    \pause
+    $n = 3$ & \pause $\sqrt{3} - 1$ \\
+    \pause
+    $n = 4$ & $\sqrt{4} - 1$ \\
+    \pause
+    $n$ & $\sqrt{n} - 1$ \\
+    \bottomrule
+  \end{tabular}\par}
+  \bigskip
+
+  \centering
+  \hil{Die Entfernung zu den Ecken wird immer größer.}
+  \par
+\end{frame}
+
+
+\subsection[Relativität]{Allgemeine Relativitätstheorie}
+
+\begin{frame}{Allgemeine Relativitätstheorie}
+  \vspace*{-1em}
+  \begin{center}
+    \includegraphics[height=0.3\textheight]{einstein}
+    \qquad
+    \includegraphics[height=0.3\textheight]{gravitational-waves}
+  \end{center}
+
+  Einsteins gefeierte \hil{Feldgleichung} besagt
+  \[ G = \kappa \cdot T, \]
+  wobei
+  \begin{itemize}
+    \item $G$ die \hil{Raumkrümmung} angibt,
+    \item $T$ die \hil{Massenverteilung} misst und
+    \item $\kappa$ eine Konstante ist.
+  \end{itemize}
+
+  In $2+1$ Dimensionen impliziert die Gleichung~$T = 0$.
+  Nur in vier und mehr Dimensionen ist die Theorie nichttrivial.
+\end{frame}
+
+
+
+\section{Platonische Körper}
 
 \newcommand{\solid}[5]{\begin{column}{0.31\textwidth}\centering\hil{#2}\par#5E, #4K, #3F\\\medskip\includegraphics[height=0.7\textwidth]{#1}\end{column}}
 \newcommand{\solidd}[3]{\begin{column}{0.4\textwidth}\centering\hil{#2}\par#3\\\medskip\includegraphics[height=1.9cm]{#1}\end{column}}
@@ -333,111 +440,6 @@ Ingo Blechschmidt und Matthias Hutzler}
   \url{http://www.math.uni-bonn.de/ag/stroppel/Picture_cs2.jpg}}
 \end{frame}
 
-
-\section[Größen]{Größen in vier Dimensionen}
-
-\subsection{Volumenverhältnisse}
-
-\begin{frame}{Hypervolumen von Hyperkugeln}
-  \centering
-  \vspace*{-0.5em}
-  \includegraphics[width=0.4\textwidth]{sizes-1}
-  \bigskip
-  % vorher gscheite Definition der Hyperkugel
-  % Bild vom Kreis im Quadrat
-  % Bild vom Zylinder im Würfel
-  % Bild von der Kugel im Würfel
-
-  \small
-  \begin{tabular}{lll}
-    \toprule
-    Dimension & Hypervolumen & \\\midrule
-    $n = 2$ & $\pi / 4$ & $\approx 0{,}785 \,\mathrm{m}^2$ \\
-    $n = 3$ & $\pi / 6$ & $\approx 0{,}524 \,\mathrm{m}^3$ \\
-    $n = 4$ & $\pi^2 / 32$ & $\approx 0{,}308 \,\mathrm{m}^4$ \\
-    $n = 5$ & $\pi^2 / 60$ & $\approx 0{,}164 \,\mathrm{m}^5$ \\
-    $n = 6$ & $\pi^3 / 384$ & $\approx 0{,}081 \,\mathrm{m}^6$ \\
-    $n = 7$ & $\pi^3 / 840$ & $\approx 0{,}037 \,\mathrm{m}^7$ \\
-    $n \to \infty$ & $\to 0$ \\
-    \bottomrule
-  \end{tabular}\par
-\end{frame}
-
-
-\subsection{Küssende Hyperkugeln}
-
-\begin{frame}{Küssende Hyperkugeln}
-  % Bild vier Kreise an den Ecken des Zweiheitsquadrats und Kreis in der Mitte
-  \centering
-  \vspace*{-1em}
-  \includegraphics[width=0.3\textwidth]{sizes-2}
-  \bigskip
-
-  {\small
-  \begin{tabular}{lll}
-    \toprule
-    Dimension & Radius der inneren Hyperkugel & \\\midrule
-    $n = 2$ & \pause $\sqrt{2} - 1$ \\
-    \pause
-    $n = 3$ & \pause $\sqrt{3} - 1$ \\
-    \pause
-    $n = 4$ & $\sqrt{4} - 1$ \\
-    \pause
-    $n$ & $\sqrt{n} - 1$ \\
-    \bottomrule
-  \end{tabular}\par}
-  \bigskip
-
-  \centering
-  \hil{Die Entfernung zu den Ecken wird immer größer.}
-  \par
-\end{frame}
-
-
-\subsection[Relativität]{Allgemeine Relativitätstheorie}
-
-\begin{frame}{Allgemeine Relativitätstheorie}
-  \vspace*{-1em}
-  \begin{center}
-    \includegraphics[height=0.3\textheight]{einstein}
-    \qquad
-    \includegraphics[height=0.3\textheight]{gravitational-waves}
-  \end{center}
-
-  Einsteins gefeierte \hil{Feldgleichung} besagt
-  \[ G = \kappa \cdot T, \]
-  wobei
-  \begin{itemize}
-    \item $G$ die \hil{Raumkrümmung} angibt,
-    \item $T$ die \hil{Massenverteilung} misst und
-    \item $\kappa$ eine Konstante ist.
-  \end{itemize}
-
-  In $2+1$ Dimensionen impliziert die Gleichung~$T = 0$.
-  Nur in vier und mehr Dimensionen ist die Theorie nichttrivial.
-\end{frame}
-
-
-\section[Schnitte]{Schnitttheorie}
-
-\subsection{Ankunft eines Hyperballs}
-
-\begin{frame}{Ankunft eines Hyperballs}
-  \centering
-  \includegraphics[width=0.9\textwidth]{a-hyperball-arrives}
-  \par
-\end{frame}
-
-
-\subsection[und eines Tesserakts]{Ankunft eines Tesserakts}
-
-\begin{frame}{Ankunft eines Tesserakts}
-  \centering
-  \includegraphics[width=0.9\textwidth]{a-tesseract-arrives}
-  \par
-\end{frame}
-
-% Jetzt Ecken & Co. zählen
 
 
 \subsection{Ein 4d Fraktal}
