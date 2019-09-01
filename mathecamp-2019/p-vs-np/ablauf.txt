@@ -1,0 +1,60 @@
+* Kurz vorstellen, worum es geht: um die größte offene Frage der theoretischen
+  Informatik, vielleicht sogar die größte offene Frage der Mathematik. "P ist
+  die Menge der effizient lösbaren Probleme, NP die Menge der schwer lösbaren
+  Probleme, man vermutet P ≠ NP." Ziel des Zirkels vorstellen: den
+  vorhergehenden Satz präzise zu machen.
+
+* Erklären, was Entscheidungsprobleme sind, an Beispielen wie:
+  TSP, SAT, 3SAT, Sudoku, Primalitätsprüfung, Beweisfindung, ... Grob
+  vorstellen, wie man diese Entscheidungsprobleme lösen kann. Kurz auch das
+  Halteproblem vorstellen und erklären, wieso dieses algorithmisch überhaupt
+  nicht lösbar ist.
+
+* Die Komplexitätsklassen P und NP präzise einführen: P ist die Menge
+  derjenigen Entscheidungsprobleme, für die es ein Algorithmus gibt, welcher
+  sie in polynomieller Zeit löst. NP ist die Menge derjenigen Probleme, für die
+  es ein Algorithmus gibt, der Möchtegernzertifikate für eine positive Antwort
+  in polynomieller Zeit verifiziert.
+
+  Dazu erklären, was "in polynomieller Zeit" bedeutet, und dabei auf
+  Abhängigkeit von der Wahl der Kodierung eingehen.
+
+* Beispielprobleme zu P und NP zuordnen. Praktische Relevanz dieser
+  Klassifikation diskutieren (asymptotisches Verhalten prinzipiell irrelevant
+  für tatsächliche Probleme; in der Praxis aber große Korrelation zwischen
+  "effizient lösbar" und "P").
+
+* Proposition diskutieren und beweisen: P ⊆ NP.
+
+* Das Konzept der NP-Vollständigkeit einführen (dazu Reduktion thematisieren,
+  "rechnet Kodierungen von Instanzen von Problem A in Kodierungen von Instanzen
+  von Problem B um") und Beispiele für NP-vollständige Probleme anführen.
+
+* PSPACE und EXP als weitere Klassen einführen.
+
+* Diskutieren und beweisen: NP ⊆ PSPACE ⊆ EXP. Außerdem zumindest diskutieren:
+  P ≠ EXP. Daraus (mit klassischer Logik) folgern, dass P ≠ NP oder NP ≠ PSPACE
+  oder PSPACE ≠ EXP.
+
+* Relativierte Komplexitätsklassen einführen und ein paar Grundtatsachen
+  feststellen, etwa: P^A ⊆ NP^A für jedes Orakel A oder NP ⊆ P^A für jedes
+  Orakel A für ein NP-vollständiges Problem.
+
+* Die Relativierungsbarriere thematisieren, in Form des folgenden Theorems:
+
+  Es gibt ein Orakel A, sodass P^A = NP^A; und es gibt ein Orakel B, sodass P^B ≠ NP^B.
+
+  Für A kann man dabei irgendein PSPACE-vollständiges Problem wählen. Denn:
+  PSPACE ⊆ P^A ⊆ NP^A ⊆ PSPACE^A ⊆ PSPACE. Die zweite Inklusion ist trivial,
+  die dritte analog zu NP ⊆ PSPACE, die vierte nutzt aus, dass A in PSPACE
+  liegt, und die erste, dass A PSPACE-vollständig ist.
+
+  Für B kann man ein Zufallsorakel wählen (das man nach seiner n-ten
+  Zufallsantwort befragen kann). Das Entscheidungsproblem "kommen unter den
+  ersten 2^n Ziehungen des Orakels n konsekutive Einer vor?" liegt dann in NP^B
+  (ein Zertifikat ist durch Angabe der Startposition des Einerblocks gegeben),
+  aber nicht in P^B. (Wie geht der letzte Schritt genau?)
+
+* Mögliche Abschweifungen: BB(1919), Löbs Theorem fürs Gefangenendilemma.
+  Ideen für aufbauende Zirkel: Quines, die Nerd-Sniping-Sache aus Garben und
+  Logik, ...
