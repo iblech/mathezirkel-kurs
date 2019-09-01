@@ -36,9 +36,17 @@
   P ≠ EXP. Daraus (mit klassischer Logik) folgern, dass P ≠ NP oder NP ≠ PSPACE
   oder PSPACE ≠ EXP.
 
+* Außerdem PSPACE-Vollständigkeit einführen und (auf planare Graphen
+  verallgemeinertes) Hex als Beispiel anführen.
+
 * Relativierte Komplexitätsklassen einführen und ein paar Grundtatsachen
-  feststellen, etwa: P^A ⊆ NP^A für jedes Orakel A oder NP ⊆ P^A für jedes
-  Orakel A für ein NP-vollständiges Problem.
+  feststellen, etwa:
+  - P^A ⊆ NP^A für jedes Orakel A
+  - NP ⊆ P^A für Orakel A NP-vollständiger Probleme
+  - A ∈ P^B falls A in polynomieller Zeit auf B reduzierbar ist
+    (die Umkehrung muss so wie ich das sehe nicht gelten, denn ein
+    polynomieller B-Algorithmus, der A löst, muss nicht unbedingt so vorgehen,
+    dass er Instanzkodierungen umrechnet)
 
 * Die Relativierungsbarriere thematisieren, in Form des folgenden Theorems:
 
@@ -56,5 +64,8 @@
   aber nicht in P^B. (Wie geht der letzte Schritt genau?)
 
 * Mögliche Abschweifungen: BB(1919), Löbs Theorem fürs Gefangenendilemma.
+
   Ideen für aufbauende Zirkel: Quines, die Nerd-Sniping-Sache aus Garben und
   Logik, ...
+
+* Quelle natürlich: https://www.scottaaronson.com/papers/pnp.pdf
