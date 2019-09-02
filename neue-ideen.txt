@@ -23,3 +23,7 @@
 * Was zu Expandern? http://www.cs.huji.ac.il/~nati/PAPERS/diskrete_mathematik_06.pdf
 
 * KI für https://mathwithbaddrawings.com/2013/06/16/ultimate-tic-tac-toe/?
+
+* Mehr zu P vs. NP
+* Mehr zu transfiniter Kombinatorik
+* Mehr zu Philosophie der Mathematik
