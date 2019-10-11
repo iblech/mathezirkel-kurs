@@ -2,9 +2,8 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<title>Visualisierung komplexer Funktionen</title>
+<title>Buffons Nadeln und Nudeln</title>
 <meta name="viewport" content="initial-scale=1">
-<script type="text/javascript" src="math.min.js"></script>
 <script type="text/javascript" src="gioco.js"></script>
 <style type="text/css">
   body { font-family: Ubuntu, sans-serif; }
@@ -34,7 +33,7 @@
     var ruleDistance = gioco.canvas.height/numStrips;
 
     var circleTy = [];
-    var numCircleCorners = 5;
+    var numCircleCorners = 150;
     for(var i = 0; i <= numCircleCorners; i++) {
         circleTy.push([Math.cos(i/numCircleCorners*2*Math.PI)*ruleDistance/2, Math.sin(i/numCircleCorners*2*Math.PI)*ruleDistance/2]);
     }
