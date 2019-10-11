@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Visualisierung komplexer Funktionen</title>
+<meta name="viewport" content="initial-scale=1">
+<script type="text/javascript" src="math.min.js"></script>
+<script type="text/javascript" src="gioco.js"></script>
+<style type="text/css">
+  body { font-family: Ubuntu, sans-serif; }
+  th { text-align: left;  }
+  td { text-align: right; }
+  a  { text-decoration: none; }
+</style>
+</head>
+
+<body>
+
+<div style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: xx-large;
+    width: 900px;
+    height: 100px;
+    z-index: 1;
+" id="stats"></div>
+
+<script type="text/javascript">
+    gioco.init();
+    gioco.canvas.width  = 1024;
+    gioco.canvas.height = 768;
+    var numStrips = 5;
+    var ruleDistance = gioco.canvas.height/numStrips;
+
+    var circleTy = [];
+    var numCircleCorners = 5;
+    for(var i = 0; i <= numCircleCorners; i++) {
+        circleTy.push([Math.cos(i/numCircleCorners*2*Math.PI)*ruleDistance/2, Math.sin(i/numCircleCorners*2*Math.PI)*ruleDistance/2]);
+    }
+
+    function genNoodleTy () {
+        var noodleTy = [];
+        var x = 0;
+        var y = 0;
+
+        for(var i = 0; i <= 4; i++) {
+            var newx = x + (Math.random() - 0.5) * 300;
+            var newy = y + (Math.random() - 0.5) * 300;
+
+            for(var k = 0; k < 10; k++) {
+                noodleTy.push([x + (newx-x)*k/10 + Math.random()*10, y + (newy-y)*k/10 + Math.random()*10]);
+            }
+
+            x = newx;
+            y = newy;
+        }
+
+        return noodleTy;
+    }
+
+    var tys =
+        [ [[0,0], [ruleDistance,0]]
+        , [[0,0], [ruleDistance*2,0]]
+        , [[0,0], [ruleDistance*3,0]]
+        , [[0,0], [ruleDistance,0], [ruleDistance,ruleDistance]]
+        , circleTy
+        ];
+
+    var numCrossings, numDroppings;
+
+    function dropNeedle (ty) {
+        if(typeof(ty) == "function") ty = ty();
+
+        var x0  = (0.25 + Math.random() * 0.5) * gioco.canvas.width;
+        var y0  = (0.25 + Math.random() * 0.5) * gioco.canvas.height;
+        var phi = Math.random() * 2 * Math.PI;
+
+        gioco.ctx.strokeStyle = "hsla(" + Math.random()*360 + ",60%,70%,0.8)";
+        gioco.ctx.lineWidth = 15;
+        gioco.ctx.beginPath();
+
+        gioco.ctx.moveTo(x0,y0);
+        var xold;
+        var yold;
+        var len  = 0;
+        for(var p of ty) {
+            var x = x0 + Math.cos(phi)*p[0] + Math.sin(phi)*p[1];
+            var y = y0 - Math.sin(phi)*p[0] + Math.cos(phi)*p[1];
+
+            if(typeof xold == "undefined") {
+                gioco.ctx.moveTo(x,y);
+            } else {
+                gioco.ctx.lineTo(x,y);
+
+                len += Math.sqrt((x - xold)**2 + (y - yold)**2);
+
+                for(var i = 0; i < numStrips; i++) {
+                    if((yold <= ruleDistance*i && y >= ruleDistance*i) || (yold >= ruleDistance*i && y <= ruleDistance*i)) {
+                        numCrossings++;
+                    }
+                }
+            }
+
+            xold = x;
+            yold = y;
+        }
+        gioco.ctx.stroke();
+
+        numDroppings++;
+        document.getElementById("stats").innerHTML =
+            "<table>" +
+            "<tr><th>Dielenabstand:</th><td>" + (ruleDistance/ruleDistance).toFixed(0) + " dm</td></tr>" +
+            "<tr><th>Nadellänge:</th><td>" + (len/ruleDistance).toFixed(1) + " dm</td></tr>" +
+            "<tr><td>&nbsp;</td></tr>" +
+            "<tr><th>Gesamtzahl Nadeln:</th><td>" + numDroppings + "</td></tr>" +
+            "<tr><th>Gesamtzahl Kreuzungen:</th><td>" + numCrossings + "</td></tr>" +
+            "<tr><th>Durchschnittliche Anzahl Kreuzungen:</th><td>" + (numCrossings / numDroppings).toFixed(5) + "</td></tr>" +
+            "</table>";
+    }
+
+    var delay, batchSize;
+    var currentTy = tys[0];
+    var timerId;
+
+    function reset () {
+        gioco.fill("white");
+        for(var i = 0; i < numStrips; i++) {
+            gioco.drawLine(0,ruleDistance*i, gioco.canvas.width,ruleDistance*i, "black", 3);
+        }
+
+        numDroppings = 0;
+        numCrossings = 0;
+
+        delay     = 2000;
+        batchSize = 1;
+
+        if(timerId) window.clearTimeout(timerId);
+        loop();
+    }
+
+    function loop () {
+        for(var k = 0; k < batchSize; k++) dropNeedle(currentTy);
+
+        if(delay > 20) {
+            delay *= 0.97;
+        } else {
+            batchSize *= 1.01;
+        }
+        timerId = window.setTimeout(loop, delay);
+    }
+
+    reset();
+</script>
+
+<div style="
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100px;
+    z-index: 1;
+    font-size: xx-large;
+">
+    <a href="#" onclick="currentTy = tys[0]; reset(); return false">0</a>
+    <a href="#" onclick="currentTy = tys[1]; reset(); return false">1</a>
+    <a href="#" onclick="currentTy = tys[2]; reset(); return false">2</a>
+    <a href="#" onclick="currentTy = tys[3]; reset(); return false">3</a>
+    <a href="#" onclick="currentTy = genNoodleTy(); reset(); return false">4</a>
+    <a href="#" onclick="currentTy = tys[4]; reset(); return false">5</a>
+    <a href="#" onclick="delay = 20; return false">+</a>
+</div>
+
+
+</body>
+</html>
