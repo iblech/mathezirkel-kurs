@@ -211,7 +211,7 @@ my %courses = (
     name => "Korrespondenzzirkel bei Cat (9. Klasse)",
     text => KORRESPONDENZ,
     mail => 'cat.cozzi@gmx.de',
-    anrede => "Liebe Cat",
+    anrede => "Lieber Cat",
     gruss  => ANON_GRUSS,
   },
   k_10 => {
