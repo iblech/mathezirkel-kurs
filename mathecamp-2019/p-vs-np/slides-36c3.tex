@@ -143,6 +143,11 @@ University of Augsburg}}
   \bigskip
   \bigskip
   \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
   \Large
 
   \hil{$\varheartsuit$ P vs. NP $\varheartsuit$}
@@ -154,8 +159,6 @@ University of Augsburg}}
   
   \footnotesize
   \textit{-- an invitation --}
-  \bigskip
-  \bigskip
   \bigskip
   \bigskip
   \medskip
@@ -184,9 +187,10 @@ University of Augsburg}}
   \textbf{Def.} An algorithm~$A$
   \hil{runs in polynomial time} if and only if there is some polynomial~$p$
   such that, for every input~$I$
-  \[ \text{number of steps for~$A(I)$} \quad\leq\quad p(|I|), \] where~$|I|$ is
+  \[ \text{number of steps for computing~$A(I)$} \quad\leq\quad p(|I|), \] where~$|I|$ is
   the length of an encoding of~$I$ in bits.
   \medskip
+  \pause
 
   \begin{columns}
     \begin{column}{0.42\textwidth}
@@ -198,6 +202,7 @@ University of Augsburg}}
       \textbf{Ex.} Primality testing, node reachability, \ldots
     \end{column}
 
+    \pause
     \begin{column}{0.57\textwidth}
       \justifying
       \textbf{Def.} A problem is \hil{in NP} if and only if
@@ -210,6 +215,7 @@ University of Augsburg}}
   \end{columns}
   \medskip
 
+  \pause
   \textbf{Prop.} Every~$\P$-problem is also in~$\NP$: $\P \subseteq \NP$.
 \end{frame}
 
@@ -223,43 +229,67 @@ University of Augsburg}}
   A problem~$T$ is in \ldots
   \begin{itemize}\justifying
     \item \hil{$\P$} iff there is a \hil{polynomial-time} decision algorithm.
-    \item \hil{$\NPC$} iff it is in~$\NP$ and if
-    every~$\NP$-problem is \hil{reducible} to~$T$ in polynomial time.
     \item \hil{$\NP$} iff there is a polynomial-time algorithm which verifies wannabe
     certificates for a positive answer.
+    \pause
+    \item \hil{$\NPC$} iff it is in~$\NP$ and if
+    every~$\NP$-problem is \hil{reducible} to~$T$ in polynomial time.
+    \pause
     \item \mbox{\hil{$\PSPACE$} iff there is a \hil{polynomial-space} decision
     algorithm.}
+    \pause
     \item \hil{$\PSPACEC$} iff it is in~$\PSPACE$ and if
     every~$\PSPACE$-problem is reducible to~$T$ in polynomial time.
+    \pause
     \item \hil{$\EXP$} iff there is an \hil{exponential-time} decision algorithm.
   \end{itemize}
+  \pause
 
-  \textbf{Rem.} $\P \neq \EXP$, hence $\P \neq \NP$ or $\NP \neq \PSPACE$ or
+  $\P \neq \EXP$, hence $\P \neq \NP$ or $\NP \neq \PSPACE$ or
   $\PSPACE \neq \EXP$.
 \end{frame}
 
 \begin{frame}{The relativization barrier}
   \justifying
-  Let~$A$ be a problem.
+  Let~$B$ be a problem. A \hil{$\boldsymbol{B}$-algorithm} is an algorithm which has access
+  to an \hil{oracle for~$\boldsymbol{B}$}.
   \bigskip
+  \pause
 
-  \textbf{Def.} A problem is in~$\P^A$ iff there is a polynomial-time decision
-  algorithm which may ask an \hil{oracle for~$A$}.
+  \begin{columns}
+    \begin{column}{0.36\textwidth}\justifying
+      \textbf{Def.} A problem is in~$\P^B$ iff there is a polynomial-time decision
+      $B$-algorithm.
+    \end{column}
+    \begin{column}{0.6\textwidth}\justifying
+      \textbf{Def.} A problem is in~$\NP^B$ iff there is a polynomial-time
+      $B$-algorithm which verifies wannabe certificates for a positive answer
+      algorithm.
+    \end{column}
+  \end{columns}
   \bigskip
+  \pause
 
-  \textbf{Def.} A problem is in~$\NP^A$ iff there is a polynomial-time
-  algorithm which verifies wannabe certificates for a positive answer
-  algorithm which may ask an \hil{oracle for~$A$}. XXX
+  \textbf{Prop.} $\P^B \subseteq \NP^B \subseteq \PSPACE^B$.
+  \pause
+
+  \textbf{Prop.} If~$B$ is in~$\NPC$, then~$\NP \subseteq \P^B$.
   \bigskip
+  \pause
 
-  \textbf{Prop.} $\P^A \subseteq \NP^A \subseteq \PSPACE^A$.
-  \bigskip
+  \textbf{Thm.} % (relativization barrier) \\
+  For some~$B$, $\P^B = \NP^B$;
+  and for some~$B$, $\P^B \neq \NP^B$.
+  \pause
 
-  \textbf{Prop.} If~$A$ is in~$\NPC$, then~$\NP \subseteq \P^A$.
-  \bigskip
+  \textbf{Proof, first part.} Pick for~$B$ some problem in~$\PSPACEC$. Then
+  $\PSPACE \subseteq P^B \subseteq \NP^B \subseteq \PSPACE^B \subseteq
+  \PSPACE$.
+  \pause
 
-  \textbf{Thm.} For some~$A$, $\P^A = \NP^A$; and for some other~$A$, $\P^A \neq
-  \NP^A$.
+  \textbf{Proof, second part.} Pick for~$B$ a zero/one \hil{random oracle}. Then the problem
+  ``do~$n$ consecutive ones occur in the first~$2^n$ drawings of~$B$?'' is
+  in~$\NP^B$ but not in~$\P^B$.
 \end{frame}
 
 \end{document}
