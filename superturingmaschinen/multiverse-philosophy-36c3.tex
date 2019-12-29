@@ -260,7 +260,7 @@ University of Augsburg}}
 
   \begin{hilblock}\justifying
     \textbf{Gödel's first incompleteness theorem.}
-    Let~$S$ be a reasonable formal system (such as~$\ZFC$).
+    Let~$S$ be a ``reasonable'' formal system (such as~$\ZFC$).
     Then there are mathematical statements~$\varphi$ such that, if there is
     an~$S$-proof of~$\varphi$ or if there is an~$S$-proof of~$\neg\varphi$ (the
     negation of~$\varphi$), then~$S$ is inconsistent.
@@ -279,8 +279,7 @@ University of Augsburg}}
 \end{frame}
 
 \begin{frame}{The continuum hypothesis and \\ its traditional dream solution}
-  --- cardinal number line ---
-  \bigskip
+  \includegraphics[width=\textwidth]{cardinal-number-line}
   \pause
 
   \textbf{Def.} The size of the set~$\RR$ of real numbers
@@ -358,6 +357,9 @@ University of Augsburg}}
   \end{enumerate}
   \bigskip
 
+  \only<1>{\bigskip\bigskip\centering\includegraphics[width=0.4\textwidth]{multiverse}}
+  \pause
+
   \textbf{Def.}
   \begin{enumerate}\justifying
     \item A \hil{switch} is a statement~$\varphi$ such
@@ -382,18 +384,22 @@ University of Augsburg}}
   \textbf{Example.} \CH is a switch.
 \end{frame}
 
+{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\centering\includegraphics[height=\paperheight]{geology-light}\end{minipage}}
 \begin{frame}{Notable features of the multiverse}
   \begin{enumerate}\justifying
-    \item The \hil{mirage of uncountability}: Any model is merely countable
+    \item The \hil{mirage of uncountability}: Any model is \hil{merely countable}
     from the point of view of a sufficiently larger model.
-    \item The \hil{mirage of well-foundedness}: Any model is ill-founded from
+    \item The \hil{mirage of well-foundedness}: Any model is \hil{ill-founded} from
     the perspective of an appropriate other model.
-    \item Some models validate~$(\Diamond(\Box\varphi)) \Rightarrow
+    \item Some models are maximally rich in that they validate~$(\Diamond(\Box\varphi)) \Rightarrow
     (\Box\varphi)$.
-    \item A \hil{ground} of a model~$M$ is a model~$M'$ such that~$M$ is an
-    extension of~$M'$. The \hil{mantle} of~$M$ is the intersection of all its
-    grounds. \ldots{} an ancient paradise?
+    \item There is a certain Turing machine~$P$ such that for any
+    function~$f : \NN \to \NN$, there is some model in
+    which~$P$ computes~$f$.
+    \item Set-theoretic geology: A \hil{ground} of a model~$M$ is a model~$M'$
+    such that~$M$ is an extension of~$M'$. The \hil{mantle} of~$M$ is the
+    intersection of all its grounds. \ldots{} an ancient paradise?
   \end{enumerate}
-\end{frame}
+\end{frame}}
 
 \end{document}
