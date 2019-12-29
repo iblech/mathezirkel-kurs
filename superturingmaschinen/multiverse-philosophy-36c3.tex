@@ -283,10 +283,11 @@ University of Augsburg}}
   \bigskip
   \pause
 
-  \textbf{Def.} The size of the set~$\RR$ of real numbers is~$\ccc$.
+  \textbf{Def.} The size of the set~$\RR$ of real numbers
+  is~\hil{$\boldsymbol{\ccc}$}.
   \medskip
 
-  \textbf{Cantor's diagonal argument.} $\ccc > \aleph_0$ (in fact, $\ccc =
+  \textbf{Thm. (Cantor's diagonal argument).} $\ccc > \aleph_0$ (in fact, $\ccc =
   2^{\aleph_0}$).
 
   \begin{hilblock}
@@ -294,7 +295,7 @@ University of Augsburg}}
   \end{hilblock}
   \vspace*{-0.5em}
 
-  -- The \hil{continuum hypothesis}~\CH states: ``$\ccc = \aleph_1$.'' Alas:
+  The \hil{continuum hypothesis}~\CH states: ``$\ccc = \aleph_1$.'' Alas:
 
   \begin{enumerate}\small
     \item \ \\[-1.2em]\mbox{If there is a~\ZFC-proof of~$\neg\CH$, then~\ZFC is
@@ -307,7 +308,92 @@ University of Augsburg}}
   \centering
   Hence the traditional dream solution:
 
-  \hil{Devise additional axioms.}
+  \hil{Devise additional axioms to settle~\CH.}
+\end{frame}
+
+\begin{frame}{Models of~\ZFC}
+  \justifying
+  \textbf{Def.} A \hil{model} of~\ZFC is a collection~$M$ together with a
+  binary relation on~$M$ for which the axioms of~\ZFC are satisfied.
+  \begin{itemize}
+    \item Elements of~$M$ are called ``sets of~$M$'', ``what~$M$
+    believes to be sets'' or~``$M$-sets''. The relation is written ``$\in$''.
+    \item ``$M \models \varphi$'' means: The statement~$\varphi$ holds
+    for~$M$-sets.
+  \end{itemize}
+  \bigskip
+  \pause
+
+  \footnotesize
+  \textbf{Non-example 1.} Let~$M = \{ \heartsuit \}$ and declare~$\heartsuit
+  \in \heartsuit$.
+
+  \textbf{Non-example 2.} Let~$M = \{ \heartsuit \}$ and declare~$\heartsuit
+  \not\in \heartsuit$.
+
+  \textbf{Example.} Let~$M$ be the collection of all sets in the platonic
+  heaven. Declare~$x \in y$ if and only if~$x$ is actually an
+  element of~$y$. \\[0em]
+  \bigskip
+  \normalsize
+  \pause
+
+  \textbf{Rem.} Any model~$M$ of~\ZFC takes a definitive stance on each
+  statement: For any mathematical statement~$\varphi$, the
+  expression~``$M \models \varphi$'' has a definite truth value.
+  \bigskip
+  \pause
+
+  \centering
+  Embrace the \hil{multiverse}, \\ the entirety of all models of~\ZFC.
+\end{frame}
+
+\begin{frame}{Traveling the multiverse}
+  \textbf{Def.} (modal operators)
+  \begin{enumerate}
+    \item \ \\[-1.2em]\mbox{``$\Diamond\varphi$'' means that~$\varphi$ holds in \hil{some}
+    extension of the universe.}
+    \item \ \\[-1.2em]\mbox{``$\Box\varphi$'' means that~$\varphi$ holds in \hil{every}
+    extension of the universe.}
+  \end{enumerate}
+  \bigskip
+
+  \textbf{Def.}
+  \begin{enumerate}\justifying
+    \item A \hil{switch} is a statement~$\varphi$ such
+    that~$\Box((\Diamond\varphi) \wedge (\Diamond(\neg\varphi)))$:
+
+    \small
+    No matter where we  travel to from the current universe, there will always
+    be a road to a universe in which~$\varphi$ holds and there will always be a
+    road to a universe in which~$\varphi$ does not hold.
+
+    \normalsize
+    \item A \hil{button} is a statement~$\varphi$ such
+    that~$\Box(\Diamond(\Box\varphi))$:
+
+    \small
+    No matter where we travel to from the current universe, there will always
+    be a road to a universe such that~$\varphi$ holds there and in any further universe
+    reachable from there.
+  \end{enumerate}
+  \bigskip
+
+  \textbf{Example.} \CH is a switch.
+\end{frame}
+
+\begin{frame}{Notable features of the multiverse}
+  \begin{enumerate}\justifying
+    \item The \hil{mirage of uncountability}: Any model is merely countable
+    from the point of view of a sufficiently larger model.
+    \item The \hil{mirage of well-foundedness}: Any model is ill-founded from
+    the perspective of an appropriate other model.
+    \item Some models validate~$(\Diamond(\Box\varphi)) \Rightarrow
+    (\Box\varphi)$.
+    \item A \hil{ground} of a model~$M$ is a model~$M'$ such that~$M$ is an
+    extension of~$M'$. The \hil{mantle} of~$M$ is the intersection of all its
+    grounds. \ldots{} an ancient paradise?
+  \end{enumerate}
 \end{frame}
 
 \end{document}
