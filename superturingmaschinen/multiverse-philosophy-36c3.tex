@@ -197,7 +197,6 @@ University of Augsburg}}
 
 \begin{frame}{Prehistory}
   \centering
-  \large
   \scalebox{3}{\frownie} \\
   \hil{Inconsistency} \\
   at the \textcolor{darkdarkred}{heart} of mathematics $\sim$ 1900 \\
@@ -248,7 +247,7 @@ University of Augsburg}}
   \textbf{Def.} ``$\ZFC \vdash \varphi$'' means: There is a~\ZFC-proof
   of~$\varphi$.
 
-  \textbf{Ex.} $\ZFC \vdash 2+2=4$,
+  \textbf{Ex.} $\ZFC \vdash 2+2=4$, $\ZFC \vdash 2+2\neq5$,
   $\ZFC \not\vdash 2+2=5$.
 \end{frame}
 
@@ -261,8 +260,8 @@ University of Augsburg}}
   \begin{hilblock}\justifying
     \textbf{Gödel's first incompleteness theorem.}
     Let~$S$ be a ``reasonable'' formal system (such as~$\ZFC$).
-    Then there are mathematical statements~$\varphi$ such that, if there is
-    an~$S$-proof of~$\varphi$ or if there is an~$S$-proof of~$\neg\varphi$ (the
+    Then there are mathematical statements~$\varphi$ such that, if~$S \vdash
+    \varphi$ or if~$S \vdash \neg\varphi$ (the
     negation of~$\varphi$), then~$S$ is inconsistent.
   \end{hilblock}
   \medskip
@@ -278,8 +277,26 @@ University of Augsburg}}
   \end{enumerate}
 \end{frame}
 
+\newcommand{\rr}{$\quad\longleftrightarrow\quad$}
 \begin{frame}{The continuum hypothesis and \\ its traditional dream solution}
   \includegraphics[width=\textwidth]{cardinal-number-line}
+  \only<2>{
+    \centering
+    \bigskip
+    \begin{tabular}{ccc}
+      \underline{\quad all natural numbers \quad} && \underline{\quad all integers \quad} \\
+      $0$ & \rr & $\phantom{+}0$ \\
+      $1$ & \rr & $\phantom{+}1$ \\
+      $2$ & \rr & $-1$ \\
+      $3$ & \rr & $\phantom{+}2$ \\
+      $4$ & \rr & $-2$ \\
+      $5$ & \rr & $\phantom{+}3$ \\
+      $6$ & \rr & $-3$ \\
+      $\vdots$ && $\vdots$
+    \end{tabular}
+    \par
+  }%
+  \pause
   \pause
 
   \textbf{Def.} The size of the set~$\RR$ of real numbers
@@ -403,3 +420,5 @@ University of Augsburg}}
 \end{frame}}
 
 \end{document}
+
+% Explain the platonic heaven more carefully.
