@@ -1,0 +1,40 @@
+\documentclass{article}
+
+\usepackage{color,tikz,graphics,geometry}
+
+\geometry{left=1.5cm,top=2cm,right=2cm,bottom=2cm}
+
+\newcommand{\square}[2]{
+  \begin{tikzpicture}
+    \fill[#2] (0,0) rectangle (#1,#1);
+    \node at (#1/2+0.2cm,#1/2+0.1cm) {\includegraphics[width=1cm]{gregor}};
+  \end{tikzpicture}
+}
+
+\newcommand{\lineofsquares}[2]{
+  \square{#1}{#2}\quad
+  \square{#1}{#2}\quad
+  \square{#1}{#2}\quad
+  \square{#1}{#2}
+  \par
+  \bigskip
+}
+
+\newcommand{\boardofsquares}[2]{
+  \lineofsquares{#1}{#2}
+  \lineofsquares{#1}{#2}
+  \lineofsquares{#1}{#2}
+  \lineofsquares{#1}{#2}
+  \lineofsquares{#1}{#2}
+  \newpage
+}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\boardofsquares{4cm}{red!80}
+
+\boardofsquares{4cm}{blue!80}
+
+\end{document}
