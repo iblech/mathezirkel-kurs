@@ -222,10 +222,10 @@ my %courses = (
     gruss  => ANON_GRUSS,
   },
   k_11 => {
-    name => "Korrespondenzzirkel bei Matthias (11. und 12. Klasse)",
+    name => "Korrespondenzzirkel bei Ferdinand (11. und 12. Klasse)",
     text => KORRESPONDENZ,
-    mail => 'matthias.ralph.hutzler@student.uni-augsburg.de',
-    anrede => "Lieber Matthias",
+    mail => 'ferdinand.eitler@student.uni-augsburg.de',
+    anrede => "Lieber Ferdinand",
     gruss  => ANON_GRUSS,
   },
 );
