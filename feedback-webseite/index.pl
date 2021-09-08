@@ -116,12 +116,11 @@ hier haben Sie Gelegenheit für anonymes Feedback: Was ist gut gelaufen, was sch
 Wir danken Ihnen herzlich für Ihre Unterstützung!
 
 Ihr Team vom Mathecamp:
-Dr. Meru Alagalingam, Stefan Achatz, Tanja Bien, Dr. Ingo Blechschmidt,
-Ferdinand Eitler, Ann-Sophie von Gaisberg, Maximilian Heider, Alexander
-Hilpert, Andreas Hohl, Xaver Hörl, Matthias Hutzler, Lisa Janker, Felix Karg,
-Georg Kastner, Samuel Keplinger, Lisa-Marie Klein, Alexander Mai, Leonie
-Niesseler, Dr. Sven Prüfer, Anna Rubeck, Kilian Rueß, Dominik Schmucker, Carola
-Sinz, Felix Stärk, Louisa Völker, David Wiedemann und Tanja Wolfer
+Dr. Meru Alagalingam ۰ Prof. Dr. Lisa Beck ۰ Tanja Bien ۰ Dr. Ingo Blechschmidt ۰ Ferdinand Eitler ۰
+Kathrin Gimmi ۰ Kathrin Helmsauer ۰ Prof. Dr. Marco Hien ۰ Alexander Hilpert ۰ Matthias Hutzler ۰
+Dr. Lisa Janker ۰ Alicia Kammerer ۰ Georg Kastner ۰ Jonas Kell ۰ Samuel Keplinger ۰ Maximilian Keßler ۰
+Susanne Kürsten ۰ Alexander Mai ۰ Thanh Mai Pham ۰ Jeanette Plechinger ۰ Dr. Sven Prüfer ۰ Anna Rubeck ۰
+Jonas Rubeck, Kilian Rueß ۰ Katharina Schmid ۰ Dominik Schmucker ۰ Felix Stärk ۰ Louisa Völker
 TMPL
 use constant ANON_GRUSS => "Viele Grüße\neine anonyme Teilnehmerin oder ein anonymer Teilnehmer deines Zirkels";
 
@@ -131,12 +130,12 @@ my %courses = (
 #   text => CAMPTERMIN,
 #   mail => 'iblech@speicherleck.de',
 # },
-# a00_camp => {
-#   name => "Mathecamp",
-#   text => CAMP,
-#  mail => 'iblech@speicherleck.de',
-#   formal => 1,
-# },
+ a00_camp => {
+   name => "Mathecamp",
+   text => CAMP,
+  mail => 'mathezirkel@math.uni-augsburg.de',
+   formal => 1,
+ },
   #a_05a => {
    # name => "Präsenzzirkel bei Anja und Barbara (5./6. Klasse, Mo 17:30)",
    # text => PRAESENZ,
@@ -179,55 +178,55 @@ my %courses = (
    # anrede => "Lieber Ferdinand, liebe Lorena, lieber Xaver",
    # gruss  => ANON_GRUSS,
   #},
-  k_05 => {
-    name => "Korrespondenzzirkel bei Giacomo und Louisa (5. Klasse)",
-    text => KORRESPONDENZ,
-    mail => 'giacomo.cozzi@student.uni-augsburg.de,louisa.voelker@gmail.com',
-    anrede => "Lieber Giacomo, liebe Louisa",
-    gruss  => ANON_GRUSS,
-  },
-  k_06 => {
-    name => "Korrespondenzzirkel bei Katharina (6. Klasse)",
-    text => KORRESPONDENZ,
-    mail => 'katha.schmid-erkheim@outlook.de',
-    anrede => "Liebe Katharina",
-    gruss  => ANON_GRUSS,
-  },
-  k_07 => {
-    name => "Korrespondenzzirkel bei Jonas K. (7. Klasse)",
-    text => KORRESPONDENZ,
-    mail => 'jonas-kell@web.de',
-    anrede => "Lieber Jonas",
-    gruss  => ANON_GRUSS,
-  },
-  k_08 => {
-    name => "Korrespondenzzirkel bei Jonas R. und Meru (8. Klasse)",
-    text => KORRESPONDENZ,
-    mail => 'jonas.rubeck@gmail.com,alagalingam@posteo.de',
-    anrede => "Lieber Jonas, lieber Meru",
-    gruss  => ANON_GRUSS,
-  },
-  k_09 => {
-    name => "Korrespondenzzirkel bei Samuel und Sven (9. Klasse)",
-    text => KORRESPONDENZ,
-    mail => 'sven@musmehl.de,Antz.Samuel@gmx.de',
-    anrede => "Lieber Samuel, lieber Sven",
-    gruss  => ANON_GRUSS,
-  },
-  k_10 => {
-    name => "Korrespondenzzirkel bei Felix und Kilian (10. Klasse)",
-    text => KORRESPONDENZ,
-    mail => 'felix.staerk@posteo.de,kilian.ruess@student.uni-augsburg.de',
-    anrede => "Lieber Felix, lieber Kilian",
-    gruss  => ANON_GRUSS,
-  },
-  k_11 => {
-    name => "Korrespondenzzirkel bei Matthias (11. und 12. Klasse)",
-    text => KORRESPONDENZ,
-    mail => 'matthias.ralph.hutzler@student.uni-augsburg.de',
-    anrede => "Lieber Matthias",
-    gruss  => ANON_GRUSS,
-  },
+  #k_05 => {
+  #  name => "Korrespondenzzirkel bei Giacomo und Louisa (5. Klasse)",
+  #  text => KORRESPONDENZ,
+  #  mail => 'giacomo.cozzi@student.uni-augsburg.de,louisa.voelker@gmail.com',
+  #  anrede => "Lieber Giacomo, liebe Louisa",
+  #  gruss  => ANON_GRUSS,
+  #},
+  #k_06 => {
+  #  name => "Korrespondenzzirkel bei Katharina (6. Klasse)",
+  #  text => KORRESPONDENZ,
+  #  mail => 'katha.schmid-erkheim@outlook.de',
+  #  anrede => "Liebe Katharina",
+  #  gruss  => ANON_GRUSS,
+  #},
+  #k_07 => {
+  #  name => "Korrespondenzzirkel bei Jonas K. (7. Klasse)",
+  #  text => KORRESPONDENZ,
+  #  mail => 'jonas-kell@web.de',
+  #  anrede => "Lieber Jonas",
+  #  gruss  => ANON_GRUSS,
+  #},
+  #k_08 => {
+  #  name => "Korrespondenzzirkel bei Jonas R. und Meru (8. Klasse)",
+  #  text => KORRESPONDENZ,
+  #  mail => 'jonas.rubeck@gmail.com,alagalingam@posteo.de',
+  #  anrede => "Lieber Jonas, lieber Meru",
+  #  gruss  => ANON_GRUSS,
+  #},
+  #k_09 => {
+  #  name => "Korrespondenzzirkel bei Samuel und Sven (9. Klasse)",
+  #  text => KORRESPONDENZ,
+  #  mail => 'sven@musmehl.de,Antz.Samuel@gmx.de',
+  #  anrede => "Lieber Samuel, lieber Sven",
+  #  gruss  => ANON_GRUSS,
+  #},
+  #k_10 => {
+  #  name => "Korrespondenzzirkel bei Felix und Kilian (10. Klasse)",
+  #  text => KORRESPONDENZ,
+  #  mail => 'felix.staerk@posteo.de,kilian.ruess@student.uni-augsburg.de',
+  #  anrede => "Lieber Felix, lieber Kilian",
+  #  gruss  => ANON_GRUSS,
+  #},
+  #k_11 => {
+  #  name => "Korrespondenzzirkel bei Matthias (11. und 12. Klasse)",
+  #  text => KORRESPONDENZ,
+  #  mail => 'matthias.ralph.hutzler@student.uni-augsburg.de',
+  #  anrede => "Lieber Matthias",
+  #  gruss  => ANON_GRUSS,
+  #},
 );
 
 my $q   = CGI->new;
