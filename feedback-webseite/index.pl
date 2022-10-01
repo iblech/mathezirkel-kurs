@@ -108,7 +108,7 @@ Meru Alagalingam, Tim Baumann, Martin Baur, Ingo Blechschmidt, Philipp Düren, A
 TMPL
 
 use constant CAMP => <<TMPL;
-Liebe Eltern,
+Liebe Teilnehmer:innen, liebe Eltern,
 
 hier haben Sie Gelegenheit für anonymes Feedback: Was ist gut gelaufen, was schlecht, was können wir nächstes Jahr besser machen?:
 /SONSTIGES/
@@ -116,11 +116,12 @@ hier haben Sie Gelegenheit für anonymes Feedback: Was ist gut gelaufen, was sch
 Wir danken Ihnen herzlich für Ihre Unterstützung!
 
 Ihr Team vom Mathecamp:
-Dr. Meru Alagalingam ۰ Prof. Dr. Lisa Beck ۰ Tanja Bien ۰ Dr. Ingo Blechschmidt ۰ Ferdinand Eitler ۰
-Kathrin Gimmi ۰ Kathrin Helmsauer ۰ Prof. Dr. Marco Hien ۰ Alexander Hilpert ۰ Matthias Hutzler ۰
-Dr. Lisa Janker ۰ Alicia Kammerer ۰ Georg Kastner ۰ Jonas Kell ۰ Samuel Keplinger ۰ Maximilian Keßler ۰
-Susanne Kürsten ۰ Alexander Mai ۰ Thanh Mai Pham ۰ Jeanette Plechinger ۰ Dr. Sven Prüfer ۰ Anna Rubeck ۰
-Jonas Rubeck, Kilian Rueß ۰ Katharina Schmid ۰ Dominik Schmucker ۰ Felix Stärk ۰ Louisa Völker
+Dr. Meru Alagalingam ۰ Adrian Antz ۰ Tanja Bien ۰ Prof. Dr. Lisa Beck ۰ Prof. Dr. Kai Cielibak ۰
+Dr. Ingo Blechschmidt ۰ Giacomo Cozzi ۰ Prof. Dr. Mirjam Dür ۰ Ferdinand Eitler ۰ Prof. Dr. Urs Frauenfelder ۰
+Prof. Dr. Sarah Friedrich ۰ Kathrin Gimmi ۰ Prof. Dr. Marco Hien ۰ Alexander Hilpert ۰ Jonas Kell ۰
+Samuel Keplinger ۰ Maximilian Keßler ۰ Georgi Kocharyan ۰ Godo Kurten ۰ David Lisson ۰ Alexander Mai ۰
+Prof. Dr. Marc Nieper-Wißkirchen ۰ Leonie Nießeler ۰ Thanh Mai Pham ۰ Jeanette Plechinger ۰ Dr. Sven Prüfer ۰
+Anna Rubeck ۰ Kilian Rueß ۰ Dominik Schmucker ۰ Felix Stärk ۰ Louisa Völker
 TMPL
 use constant ANON_GRUSS => "Viele Grüße\nein:e anonyme:r Teilnehmer:in deines Zirkels";
 
@@ -130,12 +131,12 @@ my %courses = (
 #   text => CAMPTERMIN,
 #   mail => 'iblech@speicherleck.de',
 # },
-# a00_camp => {
-#   name => "Mathecamp",
-#   text => CAMP,
-#   mail => 'mathezirkel@math.uni-augsburg.de',
-#   formal => 1,
-# },
+a00_camp => {
+  name => "Mathecamp",
+  text => CAMP,
+  mail => 'mathezirkel@math.uni-augsburg.de',
+  formal => 1,
+},
   #a_05a => {
    # name => "Präsenzzirkel bei Anja und Barbara (5./6. Klasse, Mo 17:30)",
    # text => PRAESENZ,
@@ -178,55 +179,55 @@ my %courses = (
    # anrede => "Lieber Ferdinand, liebe Lorena, lieber Xaver",
    # gruss  => ANON_GRUSS,
   #},
-  k_05 => {
-    name => "Korrespondenzzirkel bei Louisa und Samuel (5. Klasse)",
-    text => KORRESPONDENZ,
-    mail => 'samuel antz <samuel.antz@student.uni-augsburg.de>,louisa.voelker@gmail.com',
-    anrede => "Liebe Louisa, lieber Samuel",
-    gruss  => ANON_GRUSS,
-  },
-  k_06 => {
-    name => "Korrespondenzzirkel bei Lukas (6. Klasse)",
-    text => KORRESPONDENZ,
-    mail => 'lukas.graf@math.uni-augsburg.de',
-    anrede => "Lieber Lukas",
-    gruss  => ANON_GRUSS,
-  },
-  k_07 => {
-    name => "Korrespondenzzirkel bei Jonas (7. Klasse)",
-    text => KORRESPONDENZ,
-    mail => 'jonas-kell@web.de',
-    anrede => "Lieber Jonas",
-    gruss  => ANON_GRUSS,
-  },
-  k_08 => {
-    name => "Korrespondenzzirkel bei Jonas und Katha (8. Klasse)",
-    text => KORRESPONDENZ,
-    mail => 'jonas.rubeck@gmail.com,katha.schmid-erkheim@outlook.de',
-    anrede => "Lieber Jonas, liebe Katha",
-    gruss  => ANON_GRUSS,
-  },
-  k_09 => {
-    name => "Korrespondenzzirkel bei Giacomo (9. Klasse)",
-    text => KORRESPONDENZ,
-    mail => 'giacomo.cozzi@student.uni-augsburg.de',
-    anrede => "Hey Giacomo",
-    gruss  => ANON_GRUSS,
-  },
-  k_10 => {
-    name => "Korrespondenzzirkel bei Julius und Kilian (10. Klasse)",
-    text => KORRESPONDENZ,
-    mail => 'julius.natrup@math.uni-augsburg.de,kilian.ruess@student.uni-augsburg.de',
-    anrede => "Lieber Julius, lieber Kilian",
-    gruss  => ANON_GRUSS,
-  },
-  k_11 => {
-    name => "Korrespondenzzirkel bei Ferdinand und Rainer (11. und 12. Klasse)",
-    text => KORRESPONDENZ,
-    mail => 'ferdinand.eitler@student.uni-augsburg.de,endresrainer@gmail.com',
-    anrede => "Lieber Ferdinand, lieber Rainer",
-    gruss  => ANON_GRUSS,
-  },
+  #k_05 => {
+    #name => "Korrespondenzzirkel bei Louisa und Samuel (5. Klasse)",
+    #text => KORRESPONDENZ,
+    #mail => 'samuel antz <samuel.antz@student.uni-augsburg.de>,louisa.voelker@gmail.com',
+    #anrede => "Liebe Louisa, lieber Samuel",
+    #gruss  => ANON_GRUSS,
+  #},
+  #k_06 => {
+    #name => "Korrespondenzzirkel bei Lukas (6. Klasse)",
+    #text => KORRESPONDENZ,
+    #mail => 'lukas.graf@math.uni-augsburg.de',
+    #anrede => "Lieber Lukas",
+    #gruss  => ANON_GRUSS,
+  #},
+  #k_07 => {
+    #name => "Korrespondenzzirkel bei Jonas (7. Klasse)",
+    #text => KORRESPONDENZ,
+    #mail => 'jonas-kell@web.de',
+    #anrede => "Lieber Jonas",
+    #gruss  => ANON_GRUSS,
+  #},
+  #k_08 => {
+    #name => "Korrespondenzzirkel bei Jonas und Katha (8. Klasse)",
+    #text => KORRESPONDENZ,
+    #mail => 'jonas.rubeck@gmail.com,katha.schmid-erkheim@outlook.de',
+    #anrede => "Lieber Jonas, liebe Katha",
+    #gruss  => ANON_GRUSS,
+  #},
+  #k_09 => {
+    #name => "Korrespondenzzirkel bei Giacomo (9. Klasse)",
+    #text => KORRESPONDENZ,
+    #mail => 'giacomo.cozzi@student.uni-augsburg.de',
+    #anrede => "Hey Giacomo",
+    #gruss  => ANON_GRUSS,
+  #},
+  #k_10 => {
+    #name => "Korrespondenzzirkel bei Julius und Kilian (10. Klasse)",
+    #text => KORRESPONDENZ,
+    #mail => 'julius.natrup@math.uni-augsburg.de,kilian.ruess@student.uni-augsburg.de',
+    #anrede => "Lieber Julius, lieber Kilian",
+    #gruss  => ANON_GRUSS,
+  #},
+  #k_11 => {
+    #name => "Korrespondenzzirkel bei Ferdinand und Rainer (11. und 12. Klasse)",
+    #text => KORRESPONDENZ,
+    #mail => 'ferdinand.eitler@student.uni-augsburg.de,endresrainer@gmail.com',
+    #anrede => "Lieber Ferdinand, lieber Rainer",
+    #gruss  => ANON_GRUSS,
+  #},
 );
 
 my $q   = CGI->new;
