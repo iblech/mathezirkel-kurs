@@ -108,3 +108,6 @@ http://math.andrej.com/wp-content/uploads/2014/03/real-world-realizability.pdf
 
   Prove that no matter what the devil does, when the train reaches stop omega_1 (the
   first uncountable ordinal), you will have no money.
+
+* Als Challenge stellen: Fundierte Bäume hinmalen, für die ITTMs mächtig lange
+  brauchen, um die Fundiertheit einzusehen :-)
