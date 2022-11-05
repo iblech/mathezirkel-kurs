@@ -193,8 +193,7 @@
 \note{\begin{itemize}
   \item\justifying A set~$M \subseteq \NN$ is \emph{enumerable by a Turing
   machines} (or \emph{recursively enumerable}) if and only if there is a Turing
-  machine which outputs all the elements of~$M$ (in an arbitrary order, using
-  some fixed encoding).
+  machine which outputs all the elements of~$M$ (in an arbitrary order).
 
   \item A set~$M \subseteq \NN$ is a~$\Sigma_1$-set if and only if there is
   a~$\Sigma_1$-formula~$\varphi$ of first-order arithmetic containing exactly one free
@@ -314,13 +313,13 @@
     \item Simulate super Turing machines.
     \item Decide $\Pi_1^1$- and $\Sigma_1^1$-statements:
     \begin{itemize}
-      \item ``For any function $\NN \to \NN$ it holds that \ldots''
+      \item ``For every function $\NN \to \NN$ it holds that \ldots''
       \item ``There is a function $\NN \to \NN$ such that \ldots''
     \end{itemize}
   \end{itemize}
 
   \visible<2>{\hil{But:} Super Turing machines can't compute all functions
-  and can't write arbitrary 0/1-sequences to the tape.}
+  and can't write every 0/1-sequence to the tape.}
 
   \begin{center}
     \scalebox{0.1}{\input{images/nonwellfounded-tree.pdf_t}}
@@ -333,7 +332,7 @@
 {\usebackgroundtemplate{\includegraphics[height=\paperheight]{lost-melody}}
 \begin{frame}{Fun facts}
   \begin{itemize}
-    \item Any super Turing machine either halts or gets caught in an
+    \item Every super Turing machine either halts or gets caught in an
     unbreakable infinite loop after \hil{countably many steps}.
     \item An ordinal number~$\alpha$ is \hil{clockable} iff there is a super
     Turing machine which halts precisely after time step~$\alpha$.
@@ -358,7 +357,7 @@
   can be seen by a simple cardinality argument: There are only countably many
   super Turing machines, but a proper class worth of ordinal numbers.
 
-  \item The Big Gaps Theorem states: For any clockable ordinal~$\alpha$ there
+  \item The Big Gaps Theorem states: For every clockable ordinal~$\alpha$ there
   is a gap of length~$\geq \alpha$ in the clockable ordinals.
 \end{itemize}}
 
@@ -404,22 +403,22 @@
     \visible<2->{True in $\Set$, true in~$\Eff(\TM)$.}
     \medskip
 
-    \item ``Any number is either prime or not.''
+    \item ``Every number is either prime or not.''
 
     \visible<3->{Trivially true in $\Set$, nontrivially true in~$\Eff(\TM)$.}
     \medskip
 
-    \item ``Any function $\NN \to \NN$ is either the zero function or not.''
+    \item ``Every function $\NN \to \NN$ is either the zero function or not.''
 
     \visible<4->{Trivially true in $\Set$, false in~$\Eff(\TM)$.}
     \medskip
 
-    \item ``Any function $\NN \to \NN$ is computable by a Turing machine.''
+    \item ``Every function $\NN \to \NN$ is computable by a Turing machine.''
 
     \visible<5->{False in $\Set$, trivially true in~$\Eff(\TM)$.}
     \medskip
 
-    \item ``Any function $\RR \to \RR$ is continuous.''
+    \item ``Every function $\RR \to \RR$ is continuous.''
 
     \visible<6->{False in $\Set$, nontrivially true in~$\Eff(\TM)$.}
   \end{itemize}
@@ -427,7 +426,7 @@
 
 \begin{frame}{First steps in the ef{}fective topos}
   \small
-  \explanation{$\Eff(\TM) \models \text{``For any number~$n$ there is a prime~$p
+  \explanation{$\Eff(\TM) \models \text{``For every number~$n$ there is a prime~$p
   > n$.''}$}{There is a Turing machine which reads a number~$n$ as input and outputs a
   prime number~$p > n$.}
   \bigskip
@@ -439,13 +438,13 @@
   }
   \pause
 
-  \explanation{\mbox{$\Eff(\TM) \models \text{``Any number has a prime factor
+  \explanation{\mbox{$\Eff(\TM) \models \text{``Every number has a prime factor
   decomposition.''}$}}{There is a Turing machine which reads a number $n$ as input and
-  outputs a list of primes, the product of which is~$n$.}
+  outputs a list of primes the product of which is~$n$.}
   \bigskip
   \pause
 
-  \explanation{$\Eff(\TM) \models \text{``Any number is either prime or not
+  \explanation{$\Eff(\TM) \models \text{``Every number is either prime or not
   prime.''}$}{There is a Turing machine which reads a number $n$ as input and outputs
   YES or NO depending on whether $n$ is prime or not.}
 \end{frame}
@@ -463,7 +462,7 @@
   Constructive logic is like classical logic, except we don't suppose the
   \hil{law of excluded middle} (LEM), which says:
   \begin{itemize}
-    \item ``Any statement is either true or not true.''
+    \item ``Every statement is either true or not true.''
     \item ``If a statement is \emph{not not} true, then it's true.''
   \end{itemize}
 
@@ -635,9 +634,9 @@
 
 \begin{frame}{LEM for equality of functions}
   \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
-  ``Any function~$f : \NN \to \NN$ is either the zero function or
+  ``Every function~$f : \NN \to \NN$ is either the zero function or
   not.''\\[-0.7em]\end{minipage}$}{There is a Turing machine which reads the
-  source of a Turing machine~$M$, which computes a function $\NN \to \NN$, as input, and finds out whether~$M$ always yields zero or not.}{That's false.}
+  source of a Turing machine~$M$ computing a function $\NN \to \NN$ as input, and finds out whether~$M$ always yields zero or not.}{That's false.}
   \bigskip
   \pause
 
@@ -649,7 +648,7 @@
 \subsubsection[Halting]{The halting problem}
 
 \begin{frame}{LEM for the halting problem}
-  \explanationspoiler{$\Eff(\TM) \models \text{``Any Turing machine halts or
+  \explanationspoiler{$\Eff(\TM) \models \text{``Every Turing machine halts or
   doesn't halt.''}$}{There is a Turing machine which reads the source of a Turing machine~$M$
   as input and finds out whether $M$ halts or not.}{That's false.}
   \bigskip
@@ -665,19 +664,19 @@
   \justifying
   The statement
   \[ \text{``Every real number is either zero or not zero.''} \]
-  is in constructive logic equivalent to
+  entails in constructive logic
   \[ \text{``Every Turing machine halts or doesn't halt.''}, \]
-  so it's not true in~$\Eff(\TM)$, but in~$\Eff(\STM)$.
+  so it's not true in~$\Eff(\TM)$. (But it is in~$\Eff(\STM)$.)
   \bigskip
   \pause
 
   For a Turing machine~$M$ consider the real number~$0.000\ldots$ whose~$n$'th
   decimal digit is a one iff~$M$ halts after step~$n$.
-  \bigskip
+  %\bigskip
 
-  For a real number~$x$ consider the Turing machine which searches the digits
-  of~$x$ for a nonzero digit.
-  \par
+  %For a real number~$x$ consider the Turing machine which searches the digits
+  %of~$x$ for a nonzero digit.
+  %\par
 \end{frame}
 
 \note{\justifying
@@ -704,11 +703,11 @@
 
 \begin{frame}{Markov's principle}
   \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
-  ``For any function~$f : \NN \to \NN$ which is not the zero function,
+  ``For every function~$f : \NN \to \NN$ which is not the zero function,
   there is a number~$n \in \NN$ such that~$f(n) \neq
   0$.''\\[-0.7em]\end{minipage}$}{There is a Turing machine which reads the source of a
-  Turing machine~$M$, which computes a function~$\NN \to \NN$ which is not the zero
-  function, as input and outputs a number~$n$ such that~$M(n)$ is not
+  Turing machine~$M$ computing a function~$\NN \to \NN$ which is not the zero
+  function as input and outputs a number~$n$ such that~$M(n)$ is not
   zero.}{\pause That's true! By unbounded search.}
 \end{frame}
 
@@ -717,7 +716,7 @@
 
 \begin{frame}{The axiom of choice}
   \justifying
-  A set~$X$ ist \hil{projective} if and only if, for any set~$Y$ and
+  A set~$X$ ist \hil{projective} if and only if, for every set~$Y$ and
   any formula~$\varphi(x,y)$ with parameters~$x \in X$, $y \in Y$ it holds that:
   \begin{center}\parbox{0.75\textwidth}{
     If for any~$x \in X$ there is an element~$y \in Y$ such
@@ -726,7 +725,7 @@
   }\end{center}
   \[ \forall x \in X\_ \exists y \in Y\_ \varphi(x,y) \ \Longrightarrow\
     \exists f \in Y^X\_ \forall x \in X\_ \varphi(x,f(x)) \]
-  The \hil{axiom of choice} of classical mathematics states that any set is
+  The \hil{axiom of choice} of classical mathematics states that every set is
   projective.
 
   \begin{itemize}
@@ -779,7 +778,7 @@
 
 \begin{frame}{Searching uncountable sets}
   \begin{center}\parbox{0.91\textwidth}{
-    ``For any function $f : \NN \to \BB$ from numbers to~$\BB = \{0,1\}$
+    ``For every function $f : \NN \to \BB$ from numbers to~$\BB = \{0,1\}$
     there either exists a number~$n$ such that $f(n) = 1$ or there is no such number.''
   }\end{center}
   This statement is false in~$\Eff(\TM)$.
@@ -787,7 +786,7 @@
   \bigskip
 
   \begin{center}\parbox{0.91\textwidth}{
-    ``For any function $P : \BB^\NN \to \BB$ from infinite lists of booleans to booleans,
+    ``For every function $P : \BB^\NN \to \BB$ from infinite sequences of booleans to booleans,
     there either exists a list~$x$ such that $P(x) = 1$ or there is no such list.''
   }\end{center}
   \pause
@@ -821,7 +820,7 @@
   \bigskip
 
   \explanationspoiler{$\Eff(\TM) \models \begin{minipage}[t]{0.7\textwidth}
-  ``Any function~$f : \NN \to \NN$ is computable by a
+  ``Every function~$f : \NN \to \NN$ is computable by a
   Turing machine.''\\[-0.7em]\end{minipage}$}{There is a Turing machine which reads the source of a
   Turing machine computing a function~$f : \NN \to \NN$ as input and
   outputs the source of a Turing machine which computes~$f$.}{That's trivial,
