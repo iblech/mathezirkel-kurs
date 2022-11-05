@@ -24,17 +24,21 @@
   für tatsächliche Probleme; in der Praxis aber große Korrelation zwischen
   "effizient lösbar" und "P").
 
+  P: Addition, Multiplikation (Polynom sichtbar machen!)
+  NP: TSP, Sudoku, SAT, ...
+
 * Proposition diskutieren und beweisen: P ⊆ NP.
 
 * Das Konzept der NP-Vollständigkeit einführen (dazu Reduktion thematisieren,
   "rechnet Kodierungen von Instanzen von Problem A in Kodierungen von Instanzen
-  von Problem B um") und Beispiele für NP-vollständige Probleme anführen.
+  von Problem B um") und Beispiele für NP-vollständige Probleme anführen
+  (Beispiel: Sudoku auf SAT).
 
 * PSPACE und EXP als weitere Klassen einführen.
 
 * Diskutieren und beweisen: NP ⊆ PSPACE ⊆ EXP. Außerdem zumindest diskutieren:
-  P ≠ EXP. Daraus (mit klassischer Logik) folgern, dass P ≠ NP oder NP ≠ PSPACE
-  oder PSPACE ≠ EXP.
+  P ≠ EXP (Beispiel: Schach/Dame). Daraus (mit klassischer Logik) folgern, dass
+  P ≠ NP oder NP ≠ PSPACE oder PSPACE ≠ EXP.
 
 * Außerdem PSPACE-Vollständigkeit einführen und (auf planare Graphen
   verallgemeinertes) Hex als Beispiel anführen.
