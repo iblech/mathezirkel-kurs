@@ -5,3 +5,23 @@ Wie Zufall beim Zählen hilft
 - Wie viele Comics?
 
 https://www.quora.com/How-have-mathematicians-determined-Tree-3-to-be-far-larger-than-Graham-Number
+https://codegolf.stackexchange.com/questions/18912/lifetime-of-a-worm/18931
+Fast-growing hierarchy, damit Graham, TREE usw. einordnen
+
+"Für sehr große endliche Zahlen brauchen wir das Unendliche"
+- Goodstein-Funktion
+- TREE
+- collapsing ordinal
+
+reflection principle in set theory?
+
+graph minor theorem and unknown fast algorithms?
+
+Do we need to worry about the axiom of choice?
+
+Catching laws like catching the cold?
+
+Geiles Zitat am Anfang von:
+http://www1.maths.leeds.ac.uk/~rathjen/realm.pdf
+
+Reverse mathematics
