@@ -25,7 +25,7 @@
 \usepackage[all]{xy}
 \xyoption{rotate}
 \usepackage{tikz}
-\usetikzlibrary{calc,shapes,shapes.callouts,shapes.arrows,patterns,fit,backgrounds,decorations.pathmorphing,positioning,svg.path}
+\usetikzlibrary{tikzmark,decorations.pathreplacing,calc,shapes,shapes.callouts,shapes.arrows,patterns,fit,backgrounds,decorations.pathmorphing,positioning,svg.path}
 \hypersetup{colorlinks=true}
 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{%
@@ -392,14 +392,96 @@
 \definecolor{mypurple}{RGB}{150,0,255}
 \setbeamercolor{structure}{fg=mypurple}
 
+{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\centering\includegraphics[width=\paperwidth]{lightning-lighter}\end{minipage}}
 \begin{frame}{Choice functions}
   \setbeamercolor{block body}{bg=white!100}
-  \centering\begin{minipage}{0.62\textwidth}\begin{block}{}
+  {\centering\emph{\scriptsize The axiom of choice asserts:}\\[-0.5em]\begin{minipage}{0.62\textwidth}\begin{block}{}
     \centering
     ``For \hil{every} collection of inhabited sets, \\
     there is a \hil{choice function} picking \\
     \hil{representatives} from each set.''
-  \end{block}\end{minipage}
+  \end{block}\end{minipage}\par}
+  \bigskip
+
+  Examples for functions:
+  \vspace*{-0.2em}
+  \begin{enumerate}
+    \small
+    \item sine function: $x \mapsto \sin(x)$
+    \item squaring function: $x \mapsto x^2$, so $1 \mapsto 2,\ 2 \mapsto 4,\
+    3 \mapsto 9,\ \ldots$
+    \item \textsf{computeAreaOfCircle}: $r \mapsto \pi r^2$, so $1 \mapsto
+    \pi,\ 2 \mapsto 4 \pi,\ \ldots$
+    \item \textsf{document.getElementById}
+    \pause
+    \item \textsf{lookupMayorOfCity}\tikzmark{start}
+    \item \textsf{getYoungestStudentOfClass}\tikzmark{end}
+  \end{enumerate}
+
+  \begin{tikzpicture}[remember picture,overlay]
+    \draw[decorate,decoration={brace,raise=12pt}]
+      ([yshift=2ex]{{pic cs:end}|-{pic cs:start}}) --
+      node[xshift=15pt,anchor=west] {``choice functions'' \qquad \includegraphics[valign=m,width=7em]{choice-function}}
+      ([yshift=-0.5ex]pic cs:end);
+  \end{tikzpicture}
+  \vspace*{-1.5em}
+
+  \hil{Note.} The axiom of choice is \hil{superfluous} for \ldots
+  \vspace*{-2em}
+  \begin{columns}
+    \small
+    \begin{column}{0.25\textwidth}
+      \begin{enumerate}
+        \item[\bignumber{A}] \hil{finite} collections
+      \end{enumerate}
+    \end{column}
+    \begin{column}{0.67\textwidth}
+      \begin{enumerate}
+        \item[\bignumber{B}] collections of inhabited decidable sets of natural numbers
+      \end{enumerate}
+    \end{column}
+  \end{columns}
+\end{frame}}
+
+\newcommand{\Fbox}[1]{{\color{gray!50}\fbox{\color{black}#1}}}
+\newcommand{\konfig}[7]{\cdots \Fbox{#1}\ \Fbox{#2}\ \Fbox{#3}\ \Fbox{#4}\ \Fbox{#5}\ \Fbox{#6}\ \Fbox{#7} \cdots}
+
+\begin{frame}{What a choice function can do for us in the riddle}
+  \small
+  For the collection of \hil{sets of almost-identical scenarios}, a choice function
+  could look like this:
+  \[
+    \small
+    \begin{array}{ccc}
+      \left\{
+        \begin{array}{c}
+          \konfig{3}{3}{3}{3}{3}{3}{3} \\
+          \konfig{3}{3}{3}{1}{3}{3}{3} \\
+          \konfig{3}{3}{3}{1}{1}{3}{3} \\
+          \konfig{3}{3}{9}{9}{9}{3}{3} \\
+          \vdots
+        \end{array}
+      \right\} &\longmapsto&
+      \konfig{3}{3}{3}{3}{3}{3}{3} \\
+      \\[-1em]
+      \left\{
+        \begin{array}{c}
+          \konfig{1}{2}{1}{2}{1}{2}{1} \\
+          \konfig{1}{2}{1}{4}{1}{2}{1} \\
+          \konfig{1}{2}{1}{5}{1}{2}{1} \\
+          \konfig{1}{2}{1}{6}{1}{2}{1} \\
+          \vdots
+        \end{array}
+      \right\} &\longmapsto&
+      \konfig{1}{2}{1}{2}{1}{2}{1} \\
+      \\[-1em]
+      \vdots && \vdots
+    \end{array}
+  \]
+  \vspace*{-1.0em}
+
+  If the mathematicians use a \hil{common choice function} to make
+  their guesses, \hil{only finitely many} will be incorrect.
 \end{frame}
 
 \end{document}
