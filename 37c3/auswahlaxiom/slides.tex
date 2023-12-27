@@ -478,10 +478,16 @@
       \vdots && \vdots
     \end{array}
   \]
-  \vspace*{-1.0em}
 
-  If the mathematicians use a \hil{common choice function} to make
-  their guesses, \hil{only finitely many} will be incorrect.
+  \begin{columns}[c]
+    \begin{column}{0.00\textwidth}
+      \includegraphics[valign=m,height=1.0em]{lightbulb}
+    \end{column}
+    \begin{column}{0.9\textwidth}
+      If the players use a \hil{common choice function} to make
+      their guesses, \\ \hil{only finitely many} will be incorrect.
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Consequences of the axiom of choice}
@@ -506,9 +512,10 @@
     \end{column}
   \end{columns}
   \bigskip
+  \bigskip
 
   \hil{``Good/procrastinatory'':}
-  \bigskip
+  \medskip
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \centering
@@ -521,6 +528,143 @@
       Every vector space has a basis.
     \end{column}
   \end{columns}
+\end{frame}
+
+\newcommand{\expl}[2]{
+  \justifying
+  ``$\!\text{\normalnumber{#1}}$'' in the effective topos amounts to: #2
+}
+\newcommand{\qswitch}[3]{\only<1-#1>{\includegraphics[height=0.7em]{question-mark}}\only<#2->{#3}}
+\newcommand{\ccmark}{\good{\cmark}}
+\newcommand{\cxmark}{\bad{\xmark}}
+\newcommand{\notnot}{\emph{not~not}}
+\begin{frame}{An alternative universe: the effective topos}
+  \centering
+  \includegraphics[width=7em]{turing-machine}
+  \small
+
+  \begin{tabular}{@{\!\!\!\!\!\!}l@{\,}llp{1.8cm}}
+    \toprule
+    & statement & in $\mathsf{Std}$ & in $\mathsf{Eff}$ \\
+    \midrule
+    \normalnumber{1} & Every number is prime or not prime. & \ccmark{}
+    (trivially) & \ccmark \\
+    \normalnumber{2} & After every number there is a prime. & \ccmark & \ccmark \\
+    \normalnumber{3} & Every map $\NN \to \NN$ has a zero or not. & \ccmark{} (trivially) & \cxmark \\
+    \normalnumber{4} & Every map $\NN \to \NN$ is computable. & \cxmark &
+    \qswitch{4}{5}{\ccmark}\only<1-4>{\,} \visible<5->{(trivially)} \\
+    \normalnumber{5} & Every map $\RR \to \RR$ is continuous. & \cxmark &
+    \qswitch{5}{6}{\ccmark{} (if MP)} \\
+    \normalnumber{6} & Every map $\NN \to \NN$ which does \notnot{} have a zero
+    has a zero. & \ccmark{} (trivially) &
+    \qswitch{6}{7}{\ccmark{} (if MP)} \\
+    %\normalnumber{7} & Countable choice holds. & \ccmark &
+    %\qswitch{7}{8}{\ccmark{} (always!)} \\
+    %\normalnumber{8} & Heyting arithmetic is categorical. & \cxmark &
+    %\qswitch{8}{9}{\ccmark{} (if MP)} \\
+    %\normalnumber{9} & A statement holds iff it is realized. & \cxmark &
+    %\qswitch{9}{10}{\ccmark} \\
+    \bottomrule
+  \end{tabular}
+  \medskip
+
+  \only<1>{\color{white}There is a machine which determines of any given
+  number whether it is prime or not. \\\ \\\ }
+  \only<2>{\expl{1}{There is a machine which determines of any given
+  number whether it is prime or not. \\\ \\\ }}
+  \only<3>{\expl{2}{There is a machine which, given a number~$n$, computes a
+  prime larger than~$n$. \\\ \\\ }}
+  \only<4>{\expl{3}{There is a machine which, given a machine
+  computing a map~$f : \NN \to \NN$, determines whether~$f$ has a
+  zero or not. \\\ \\\ }}
+  \only<5>{\expl{4}{There is a machine which, given a machine
+  computing a map~$f : \NN \to \NN$, outputs a machine
+  computing~$f$. \\\ \\\ }}
+  \only<6>{\ \\\ \\\ \\\ }
+  %\only<7>{\expl{6}{There is a machine which, given a machine
+  %computing a map~$f : \NN \to \NN$ and given the promise that it is \notnot
+  %the case that~$f$ has a zero, determines a zero of~$f$.}}
+  %\only<8>{\expl{7}{\justifying There is a machine which, given a machine
+  %computing for every~$x \in \NN$ some~$y \in A$ together with a realizer
+  %of~$\varphi(x,y)$, outputs a machine computing a suitable choice
+  %function~$\NN \to A$.}}
+  %\only<9>{\ \\\ \\\ \\\ }
+  \bigskip
+  \pause
+
+  \begin{columns}
+    \begin{column}{0.00\textwidth}
+      \dbend
+    \end{column}
+    \begin{column}{0.9\textwidth}
+      In $\mathsf{Eff}$, there is \hil{no choice function} for the collection of \\
+      \hil{sets of behaviourally identical programs}.
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{A counterexample to the axiom of choice}
+  A \hil{choice function} for the collection of \hil{sets of behaviourally
+  identical programs} would look like this:
+  \[
+    \small
+    \begin{array}{lll}
+      \left\{
+        \begin{array}{l}
+          \textsf{while True: pass} \\
+          \textsf{while 2 == 1 + 1: pass} \\
+          \textsf{s = ""; while len(s) > 0: s = s + "a"} \\
+          \vdots
+        \end{array}
+      \right\} &\longmapsto&
+      \textsf{while True: pass} \\
+      \\[-0.5em]
+      \left\{
+        \begin{array}{l}
+          \textsf{print(2+2)} \\
+          \textsf{print(4)} \\
+          \textsf{print(len("37c3"))} \\
+          \vdots
+        \end{array}
+      \right\} &\longmapsto&
+      \textsf{print(4)} \\
+      \\[-0.5em]
+      \vdots && \vdots
+    \end{array}
+  \]
+
+  With such a choice function~\textsf{c}, a \hil{halting oracle} can be built: \\
+  A program~$p$ loops if and only if~$\textsf{c}(p) = \textsf{c}(\textsf{"while True: pass"})$.
+\end{frame}
+
+\begin{frame}{Beyond the axiom of choice}
+  \begin{enumerate}
+    \item There is an alternate opposing axiom, the \hil{axiom of determinacy}: \\
+    ``Every instance of the \hil{sequence game} is \hil{determined}.''
+    \bigskip
+    \pause
+
+    \item Introducing the axiom of choice does not yield new inconsistencies.
+    \bigskip
+    \pause
+
+    \item Even if the axiom of choice fails, it always holds in~$L$, \hil{Gödel's sandbox}.
+    \pause
+    \justifying
+    \medskip
+
+    Since~\textsf{Std}'s and~$L$'s $\NN$ coincide, \textsf{Std} and
+    $L$ share the same \hil{arithmetic truths}.
+    \medskip
+
+    From every proof of such a truth using the axiom of choice, the axiom of
+    choice can be \hil{mechanically eliminated}.
+    \bigskip
+    \pause
+
+    \item Much more severe than the axiom of choice is the \hil{powerset axiom}.
+    \includegraphics[height=0.8em]{scream}
+  \end{enumerate}
 \end{frame}
 
 \end{document}
