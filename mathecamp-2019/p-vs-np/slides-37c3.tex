@@ -1,0 +1,301 @@
+\documentclass[12pt,compress,ngerman,utf8,t]{beamer}
+\usepackage[ngerman]{babel}
+\usepackage{calc}
+\usepackage{ragged2e,wasysym,multicol,mathtools,tikz,txfonts,ifthen}
+\usepackage[all]{xy}
+\usetikzlibrary{calc,shapes.callouts,shapes.arrows}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\hypersetup{colorlinks=true}
+
+\graphicspath{{images/}}
+
+\title[P vs. NP]{$\varheartsuit$ P vs. NP $\varheartsuit$}
+\author[Ingo Blechschmidt]{\scriptsize\textcolor{white}{
+\vspace*{-1em} \\
+\textbf{36th Chaos Communication Congress} \\
+\emph{Questions are very much welcome! Please interrupt me mid-sentence.} \\
+\medskip
+Ingo Blechschmidt}}
+
+%\usetheme{Warsaw}
+\useinnertheme[shadow=false]{rounded}
+\useoutertheme{split}
+\usecolortheme{orchid}
+\usecolortheme{whale}
+\setbeamerfont{block title}{size={}}
+
+\useinnertheme{rectangles}
+
+\usecolortheme{seahorse}
+\definecolor{mypurple}{RGB}{150,0,255}
+\setbeamercolor{structure}{fg=mypurple}
+\definecolor{myred}{RGB}{150,0,0}
+\definecolor{darkred}{RGB}{240,0,0}
+\setbeamercolor*{title}{bg=myred,fg=white}
+\setbeamercolor*{titlelike}{bg=myred,fg=white}
+
+\usefonttheme{serif}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+
+\renewcommand{\_}{\mathpunct{.}\,}
+\renewcommand{\P}{\text{P}}
+\newcommand{\NP}{\text{NP}}
+\newcommand{\NPC}{\text{NP{-}C}}
+\newcommand{\PSPACE}{\text{PSPACE}}
+\newcommand{\PSPACEC}{\text{PSPACE{-}C}}
+\newcommand{\EXP}{\text{EXP}}
+\newcommand{\BB}{\mathbb{B}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\R}{\mathrm{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\Eff}{\mathrm{Eff}}
+\newcommand{\TM}{\mathrm{TM}}
+\newcommand{\STM}{\mathrm{STM}}
+\newcommand{\RW}{\mathrm{RW}}
+\newcommand{\lambdaC}{\lambda\mathrm{C}}
+\newcommand{\PA}{\mathrm{PA}}
+\newcommand{\goedel}[1]{\ulcorner #1 \urcorner}
+\newcommand{\Prov}{\mathrm{Prov}}
+\newcommand{\True}{\mathrm{True}}
+\newcommand{\Con}{\mathrm{Con}}
+\newcommand{\proves}{\vdash}
+\newcommand{\defeq}{\vcentcolon=}
+
+\newcommand{\pointthis}[4]{%
+  \tikz[remember picture,baseline]{\node[anchor=base,inner sep=0,outer sep=0]%
+    (#3) {#3};\node[overlay,rectangle callout,%
+      callout relative pointer={(#1)},fill=blue!20] at
+        ($(#3.north)+(#2)$) {#4};}}
+
+\newcommand{\kasten}[1]{%
+  \setlength{\fboxrule}{2pt}%
+  \setlength{\fboxsep}{8pt}%
+  {\usebeamercolor[fg]{item}\fbox{\usebeamercolor[fg]{normal text}\parbox{0.2cm}{#1}}}}%
+
+\newcommand{\slogan}[1]{%
+  \begin{center}%
+    \setlength{\fboxrule}{2pt}%
+    \setlength{\fboxsep}{8pt}%
+    {\usebeamercolor[fg]{item}\fbox{\usebeamercolor[fg]{normal text}\parbox{0.88\textwidth}{#1}}}%
+  \end{center}%
+}
+
+\newcommand{\code}[1]{%
+  \begin{center}%
+    \setlength{\fboxrule}{1pt}%
+    \setlength{\fboxsep}{8pt}%
+    {\fbox{\parbox{0.81\textwidth}{#1}}}%
+  \end{center}%
+}
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{title page}[default][colsep=-1bp,rounded=false,shadow=false]
+\setbeamertemplate{frametitle}[default][colsep=-2bp,rounded=false,shadow=false,center]
+
+\newcommand{\hil}[1]{{\usebeamercolor[fg]{item}{\textbf{#1}}}}
+\newcommand{\bad}[1]{\textbf{\textcolor{darkred}{#1}}}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{frametitle}{%
+  \vskip0.6em%
+  \leavevmode%
+  \begin{beamercolorbox}[dp=1ex,center]{}%
+      \usebeamercolor[fg]{item}{\textbf{\textsf{\Large \insertframetitle}}}
+  \end{beamercolorbox}%
+}
+
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hfill%
+  \begin{beamercolorbox}[ht=2.25ex,dp=1ex,right]{}%
+    \usebeamerfont{date in head/foot}
+    \insertframenumber\,/\,\inserttotalframenumber\hspace*{1ex}
+  \end{beamercolorbox}%
+  \vskip0pt%
+}
+
+\newcommand{\backupstart}{
+  \newcounter{framenumberpreappendix}
+  \setcounter{framenumberpreappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+  \addtocounter{framenumberpreappendix}{-\value{framenumber}}
+  \addtocounter{framenumber}{\value{framenumberpreappendix}}
+}
+
+\newcommand{\portrait}[4]{\begin{column}{#3\textwidth}\centering\includegraphics[height=#4\textheight]{#1}\\{\scriptsize #2\par}\end{column}}
+
+\setbeameroption{show notes}
+
+\input{images/primes}
+
+\begin{document}
+
+\addtocounter{framenumber}{-1}
+
+{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\vspace*{0.3cm}\centering\scriptsize\sieve{25}{2}\\\vspace*{3.95cm}\includegraphics[width=\paperwidth]{sun3}\end{minipage}}
+\begin{frame}[c]
+  \centering
+
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \Large
+
+  \hil{$\varheartsuit$ P vs. NP $\varheartsuit$}
+  \medskip
+
+  \normalsize
+  the biggest open question in computer science
+  \bigskip
+  
+  \footnotesize
+  \textit{-- an invitation --}
+  \bigskip
+  \bigskip
+  \medskip
+
+  \textcolor{black}{
+    \textbf{37th Chaos Communication Congress} \\
+    \emph{Questions are very much welcome! Please interrupt me mid-sentence.}
+  }
+  \bigskip
+  \bigskip
+
+  \tiny
+  \textcolor{white}{
+    Ingo Blechschmidt
+  }
+
+  \par
+\end{frame}}
+
+
+% \begin{document}
+
+\begin{frame}{The landscape of complexity classes}
+  \justifying
+  \textbf{Def.} An algorithm~$A$
+  \hil{runs in polynomial time} if and only if there is some polynomial~$p$
+  such that, for every input~$I$
+  \[ \text{number of steps for computing~$A(I)$} \quad\leq\quad p(|I|), \] where~$|I|$ is
+  the length of an encoding of~$I$ in bits.
+  \medskip
+  \pause
+
+  \begin{columns}
+    \begin{column}{0.42\textwidth}
+      \justifying
+      \textbf{Def.} A problem is \hil{in P} if and only if there is
+      is a decision algorithm which \hil{runs in polynomial time}.
+      \medskip
+
+      \textbf{Ex.} Primality testing, node reachability, \ldots
+    \end{column}
+
+    \pause
+    \begin{column}{0.57\textwidth}
+      \justifying
+      \textbf{Def.} A problem is \hil{in NP} if and only if
+      there is an algorithm which verifies \hil{wannabe certificates for a positive
+      answer} in polynomial time.
+      \medskip
+
+      \textbf{Ex.} 3SAT, Sudoku, TSP, graph coloring, proof search, \ldots
+    \end{column}
+  \end{columns}
+  \medskip
+
+  \pause
+  \textbf{Prop.} Every~$\P$-problem is also in~$\NP$: $\P \subseteq \NP$.
+\end{frame}
+
+\begin{frame}{Further complexity classes}
+  \vspace*{-1.6em}\justifying
+  \[ \P \ \subseteq
+  \begin{array}[t]{@{}c@{}}\NP\\\rotatebox{90}{$\subseteq$}\\\NPC\end{array} \subseteq
+  \begin{array}[t]{@{}c@{}}\PSPACE\\\rotatebox{90}{$\subseteq$}\\\PSPACEC\end{array} \subseteq\
+  \EXP \]
+
+  A problem~$T$ is in \ldots
+  \begin{itemize}\justifying
+    \item \hil{$\P$} iff there is a \hil{polynomial-time} decision algorithm.
+    \item \hil{$\NP$} iff there is a polynomial-time algorithm which verifies wannabe
+    certificates for a positive answer.
+    \pause
+    \item \hil{$\NPC$} iff it is in~$\NP$ and if
+    every~$\NP$-problem is \hil{reducible} to~$T$ in polynomial time.
+    \pause
+    \item \mbox{\hil{$\PSPACE$} iff there is a \hil{polynomial-space} decision
+    algorithm.}
+    \pause
+    \item \hil{$\PSPACEC$} iff it is in~$\PSPACE$ and if
+    every~$\PSPACE$-problem is reducible to~$T$ in polynomial time.
+    \pause
+    \item \hil{$\EXP$} iff there is an \hil{exponential-time} decision algorithm.
+  \end{itemize}
+  \pause
+
+  $\P \neq \EXP$, hence $\P \neq \NP$ or $\NP \neq \PSPACE$ or
+  $\PSPACE \neq \EXP$.
+\end{frame}
+
+\begin{frame}{The relativization barrier}
+  \justifying
+  Let~$B$ be a problem. A \hil{$\boldsymbol{B}$-algorithm} is an algorithm which has access
+  to an \hil{oracle for~$\boldsymbol{B}$}.
+  \bigskip
+  \pause
+
+  \begin{columns}
+    \begin{column}{0.36\textwidth}\justifying
+      \textbf{Def.} A problem is in~$\P^B$ iff there is a polynomial-time decision
+      $B$-algorithm.
+    \end{column}
+    \begin{column}{0.6\textwidth}\justifying
+      \textbf{Def.} A problem is in~$\NP^B$ iff there is a polynomial-time
+      $B$-algorithm which verifies wannabe certificates for a positive answer.
+    \end{column}
+  \end{columns}
+  \bigskip
+  \pause
+
+  \textbf{Prop.} $\P^B \subseteq \NP^B \subseteq \PSPACE^B$.
+  \pause
+
+  \textbf{Prop.} If~$B$ is in~$\NPC$, then~$\NP \subseteq \P^B$.
+  \bigskip
+  \pause
+
+  \textbf{Thm.} % (relativization barrier) \\
+  For some~$B$, $\P^B = \NP^B$;
+  and for some~$B$, $\P^B \neq \NP^B$.
+  \pause
+
+  \textbf{Proof, first part.} Pick for~$B$ some problem in~$\PSPACEC$. Then
+  $\PSPACE \subseteq P^B \subseteq \NP^B \subseteq \PSPACE^B \subseteq
+  \PSPACE$.
+  \pause
+
+  \textbf{Proof, second part.} Pick for~$B$ a zero/one \hil{random oracle}. Then the problem
+  ``do~$n$ consecutive ones occur in the first~$2^n$ drawings of~$B$?'' is
+  in~$\NP^B$ but not in~$\P^B$.
+\end{frame}
+
+\end{document}
+
+
+Ideen fürs nächste Mal:
+
+* Mit konkreten Beispielproblemen starten
+* Am Ende mehr Zeit für die Relativisierungsbarriere haben
+* Folie zu wie "P = NP" aussehen könnte
+* Grafik aller Komplexitätsklassen einbauen:
+  https://mathoverflow.net/questions/159468/how-many-complexity-classes-do-you-know/159469#159469
