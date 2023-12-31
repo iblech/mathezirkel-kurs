@@ -21,6 +21,7 @@
 \usepackage{multicol}
 \usepackage{tabto}
 \usepackage{xstring}
+\usepackage{xspace}
 \usepackage{proof}
 \usepackage[all]{xy}
 \xyoption{rotate}
@@ -73,8 +74,9 @@
 \author{Ingo Blechschmidt}
 \date{December 27th, 2023}
 
-%\setbeameroption{show notes on second screen=bottom}
-\newcommand{\jnote}[2]{\only<#1>{\note{\setlength\parskip{\medskipamount}\footnotesize\justifying#2\par}}}
+\setbeameroption{show notes on second screen=bottom}
+\newcommand{\jnote}[2]{\only<#1>{\note{\usebackgroundtemplate{x}\setlength\parskip{\medskipamount}\footnotesize\justifying#2\par}}}
+\setbeamertemplate{note page}[plain]
 
 %\useinnertheme[shadow=true]
 \setbeamerfont{block title}{size={}}
@@ -361,6 +363,35 @@
 
 {\usebackgroundtemplate{\begin{minipage}{\paperwidth}\centering\includegraphics[width=\paperwidth]{lightning}\end{minipage}}
 \begin{frame}[c]
+  \jnote{2-}{
+    An evil monster conjures numbers atop all members of an infinite team of
+    mathematicians. They can see and cognitively process the numbers placed on
+    everyone else, but are strictly forbidden to peek at their own number.
+    Instead, the monster will ask every one of them to privately venture a
+    guess regarding the value of their number.
+
+    Is there a strategy which, if followed by the mathematicians, ensures that
+    \emph{only finitely many} of them guess their number incorrectly? The
+    strategy must be universal, applicable regardless of the specific numbers
+    assigned by the monster.
+
+    Communication among the team is allowed only beforehand. Nothing is known
+    about the distribution of numbers chosen by the monster. Also note that
+    infinitely many mathematicians being right does not yet mean that only finitely many
+    guess incorrectly. For instance, if every second guess is right, then every
+    other second guess is incorrect.
+  }
+
+  \jnote{3-}{
+    The challenge posed by the monster seems impossible to satisfy: The monster
+    is free in its distribution of numbers; observing the numbers hovering on
+    all the other mathematicians does not restrict the amount of possibilities
+    for your own number in any way.
+
+    Surprisingly, despite appearances, there \emph{is} a suitable strategy---%
+    if and only if (a certain instance of) the axiom of choice holds.
+  }
+
   \centering
 
   \bigskip
@@ -394,14 +425,44 @@
 
 {\usebackgroundtemplate{\begin{minipage}{\paperwidth}\centering\includegraphics[width=\paperwidth]{lightning-lighter}\end{minipage}}
 \begin{frame}{Choice functions}
+  \jnote{1-}{
+    The slides uses the terms ``collection'' and ``set'' interchangeably. A set
+    is called ``inhabited'' if and only if it contains at least one element.
+  }
+
+  \jnote{2-}{
+    By ``function'', we always mean pure deterministic function. Hence
+    JavaScript's \textsf{document.getElementById} is only an example if
+    the DOM never changes.
+  }
+
+  \jnote{3-}{
+    The two examples for choice functions provided on the slide don't compute
+    arbitrary representatives, but representatives which are singled out by
+    special properties---being the mayor or being the youngest member. However,
+    choice functions are also allowed to return representatives with no
+    discernible special attributes.
+  }
+
+  \jnote{4-}{
+    In case~A, we could just write down a full specification of a choice
+    function by randomly drawing representatives. In order for the resulting
+    choice function to be deterministic, as required for functions, the random
+    sampling needs to be done once, beforehand, not anew for each call.
+
+    In case~B, we can write down a choice function by picking the smallest
+    possible representatives.
+  }
+
   \setbeamercolor{block body}{bg=white!100}
-  {\centering\emph{\scriptsize The axiom of choice asserts:}\\[-0.5em]\begin{minipage}{0.62\textwidth}\begin{block}{}
+  {\centering\emph{\scriptsize The axiom of choice (\textsc{ac}) asserts:}\\[-0.5em]\begin{minipage}{0.62\textwidth}\begin{block}{}
     \centering
     ``For \hil{every} collection of inhabited sets, \\
     there is a \hil{choice function} picking \\
     \hil{representatives} from each set.''
   \end{block}\end{minipage}\par}
   \bigskip
+  \pause
 
   Examples for functions:
   \vspace*{-0.2em}
@@ -425,6 +486,7 @@
       ([yshift=-0.5ex]pic cs:end);
   \end{tikzpicture}
   \vspace*{-1.5em}
+  \pause
 
   \hil{Note.} The axiom of choice is \hil{superfluous} for \ldots
   \vspace*{-2em}
@@ -447,6 +509,23 @@
 \newcommand{\konfig}[7]{\cdots \Fbox{#1}\ \Fbox{#2}\ \Fbox{#3}\ \Fbox{#4}\ \Fbox{#5}\ \Fbox{#6}\ \Fbox{#7} \cdots}
 
 \begin{frame}{What a choice function can do for us in the riddle}
+  \jnote{1-}{
+    For the purposes of the slide, two scenarios being ``almost-identical''
+    means that they differ at most at finitely many positions.
+
+    As every team member knows the numbers of all the others, every team member
+    can identify with certainty the correct set of almost-identical scenarios.
+    If they would now each pick an inhabitant of that set independently of each
+    other, nothing would be gained. But if they all know a common choice
+    function, they can use it to coordinate their guesses without violating
+    the rule of no-communication.
+
+    The existence of such a choice function is guaranteed by the axiom of
+    choice. Hence, assuming the axiom of choice, there at least \emph{exists} a
+    winning strategy for the mathematicians. (Whether they have access to this
+    strategy is a different question.)
+  }
+
   \small
   For the collection of \hil{sets of almost-identical scenarios}, a choice function
   could look like this:
@@ -459,7 +538,7 @@
           \konfig{3}{3}{3}{1}{3}{3}{3} \\
           \konfig{3}{3}{3}{1}{1}{3}{3} \\
           \konfig{3}{3}{9}{9}{9}{3}{3} \\
-          \vdots
+          \text{(and many more scenarios)}
         \end{array}
       \right\} &\longmapsto&
       \konfig{3}{3}{3}{3}{3}{3}{3} \\
@@ -470,12 +549,12 @@
           \konfig{1}{2}{1}{4}{1}{2}{1} \\
           \konfig{1}{2}{1}{5}{1}{2}{1} \\
           \konfig{1}{2}{1}{6}{1}{2}{1} \\
-          \vdots
+          \text{(and many more scenarios)}
         \end{array}
       \right\} &\longmapsto&
       \konfig{1}{2}{1}{2}{1}{2}{1} \\
       \\[-1em]
-      \vdots && \vdots
+      \text{(and many more sets)} && \text{(and many more representatives)}
     \end{array}
   \]
 
@@ -492,6 +571,47 @@
 % FUTURE: Use images of players so relative position is visible.
 
 \begin{frame}{Consequences of the axiom of choice}
+  \jnote{1}{
+    To properly assess a proposed axiom for mathematics, we should not only
+    philosophically connect with its statement, but also explore its
+    consequences. One reason that the axiom of choice is somehow contested is
+    that it entails both consequences which are commonly considered ``bad'' and
+    consequences which are considered ``good'' (but which I personally prefare
+    to reframe as ``procrastinatory'').
+
+    Among the ``bad'' consequences are the following counterintuitive results:
+    \begin{enumerate}
+      \item There is a winning strategy for the mathematicians challenged by the evil monster.
+      \item There are shapes in the usual three-dimensional space of such weird form that,
+      provably so, there is no reasonable way of assigning them a volume (not
+      even the extremal values $0$ or~$\infty$ cubic units).
+      \item A solid three-dimensional ball can be disassembled into five number
+      of pieces in such a way that these pieces can be reassembled (after
+      rotation and translation) to form two disjoint copies of the original
+      ball, each of the same size as the original ball.
+      \item A certain form of prophecy is possible (see link).
+    \end{enumerate}
+  }
+
+  \jnote{2-}{
+    In many cases, a more detailed analysis enables us to cope with losing the
+    consequences usually deemed ``good''. For instance:
+    \begin{enumerate}\justifying
+      \item While~\textsc{ac} is required to ensure that every field has an
+      algebraic closure, the following fact can be established without it:
+      Every field has an algebraic closure \emph{in a certain extension of the
+      mathematical universe}. This ``sheaf-theoretic substitute'' can serve
+      similar purposes as a true algebraic closure existing in the same
+      universe. \emph{Some results otherwise obtained using the axiom of choice can be
+      recovered if we are prepared to travel the toposophic multiverse and pass
+      to extensions of the universe.}
+      \item While~\textsc{ac} is required for several infrastructural tools,
+      concrete results obtained with these tools can often be recovered without
+      appealing to~\textsc{ac}. This is ascertained by certain meta theorems
+      concerning Gödel's sandbox (introduced below).
+    \end{enumerate}
+  }
+
   \centering
   \hil{``Weird'':}
   \medskip
@@ -538,7 +658,7 @@
 \newcommand{\qswitch}[3]{\only<1-#1>{\includegraphics[height=0.7em]{question-mark}}\only<#2->{#3}}
 \newcommand{\ccmark}{\good{\cmark}}
 \newcommand{\cxmark}{\bad{\xmark}}
-\newcommand{\notnot}{\emph{not~not}}
+\newcommand{\notnot}{\emph{not~not}\xspace}
 \begin{frame}{An alternative universe: the effective topos}
   \centering
   \includegraphics[width=7em]{turing-machine}
@@ -580,17 +700,23 @@
   zero or not. \\\ \\\ }}
   \only<5>{\expl{4}{There is a machine which, given a machine
   computing a map~$f : \NN \to \NN$, outputs a machine
-  computing~$f$. \\\ \\\ }}
-  \only<6>{\ \\\ \\\ \\\ }
-  %\only<7>{\expl{6}{There is a machine which, given a machine
-  %computing a map~$f : \NN \to \NN$ and given the promise that it is \notnot
-  %the case that~$f$ has a zero, determines a zero of~$f$.}}
+  computing~$f$. \hfill \emph{cat!} \\\ \\\ }}
+  \only<7>{\expl{6}{There is a machine which, given a machine
+  computing a map~$f : \NN \to \NN$ and given the promise that it is \notnot
+  the case that~$f$ has a zero, determines a zero of~$f$. \hfill \emph{unbounded
+  search!}}}
   %\only<8>{\expl{7}{\justifying There is a machine which, given a machine
   %computing for every~$x \in \NN$ some~$y \in A$ together with a realizer
   %of~$\varphi(x,y)$, outputs a machine computing a suitable choice
   %function~$\NN \to A$.}}
   %\only<9>{\ \\\ \\\ \\\ }
   \bigskip
+  \pause
+  \pause
+  \pause
+  \pause
+  \pause
+  \pause
   \pause
 
   \begin{columns}
@@ -638,34 +764,66 @@
   A program~$p$ loops if and only if~$\textsf{c}(p) = \textsf{c}(\textsf{"while True: pass"})$.
 \end{frame}
 
-\begin{frame}{Beyond the axiom of choice}
-  \begin{enumerate}
-    \item There is an alternate opposing axiom, the \hil{axiom of determinacy}: \\
-    ``Every instance of the \hil{sequence game} is \hil{determined}.''
-    \bigskip
-    \pause
+\begin{frame}{A varied perspective on the axiom of choice}
+  \jnote{2-}{
+    The standard foundational system for mathematics commonly accepted by
+    logicians is~\textsc{zfc}, Zermelo--Fraenkel set theory with the axiom of
+    choice. \textsc{zf} is the variant without~\textsc{ac}. \textsc{pra} is a
+    certain base theory so weak that it is contested just by ultrafinitists and
+    hence often used for metamathematical pursuits.
+  }
 
-    \item Introducing the axiom of choice does \hil{not} yield \hil{new} inconsistencies. \\
-    (If~\textsc{zfc} is inconsistent, then~\textsc{zf} is as well---provably so.)
-    \bigskip
-    \pause
-
-    \item Even if the axiom of choice fails, it always holds in~$L$, \hil{Gödel's sandbox}.
-    \pause
-    \justifying
-    \medskip
-
-    Since~\textsf{Std}'s and~$L$'s $\NN$ coincide, \textsf{Std} and
-    $L$ share the same \hil{arithmetic truths}.
-    \medskip
-
-    From every proof of such a truth using the axiom of choice, the axiom of
-    choice can be \hil{mechanically eliminated}.
-    \bigskip
-    \pause
-
-    \item Much more severe than the axiom of choice is the \hil{powerset axiom}.
+  \jnote{4-}{
+    Much more severe than the axiom of choice is the \hil{powerset axiom},
+    commonly adopted but enabling \hil{impredicative reasoning}.
     \includegraphics[height=0.8em]{scream}
+
+    Provably so, a sandbox for emulating the powerset axiom in case it is not
+    assumed on the meta level is \hil{impossible}: Unlike \textsc{ac} (or the
+    also-debated law of excluded middle, which incidentally is implied by
+    \textsc{ac}), the powerset axiom vastly increases proof-theoretic strength.
+
+    The strength of predicative set theories can be
+    \href{https://en.wikipedia.org/wiki/Bachmann\%E2\%80\%93Howard_ordinal}{looked up on
+    Wikipedia}, whereas precisely calibrating the strength of impredicative
+    formal systems such as \textsc{zf} is currently well out of reach.
+  }
+
+  \begin{enumerate}
+    \item There is an alternate opposing axiom, the \hil{axiom of determinacy}
+    (\textsc{ad}): \\
+    ``Every instance of the \hil{infinite sequence game} is \hil{determined}.''
+
+    {\small\justifying
+    Just as with \textsc{ac}, the finitary version of \textsc{ad}
+    follows from uncontested basic axioms.
+    \emph{\textsc{ac} and \textsc{ad} constitute different
+    extrapolations from the finite to the general domain.}\par}
+    \bigskip
+    \pause
+
+    \item\justifying Introducing the axiom of choice does \hil{not} yield \hil{new} inconsistencies
+    (if~\textsc{zfc} is inconsistent, then~\textsc{zf} is as well---provably so
+    in weak metatheories such as~\textsc{pra}).
+
+    {\small\emph{Hence worries about inconsistency arising from the axiom of choice are
+    unfounded.}}
+    \bigskip
+    \pause
+
+    \item Even if \textsc{ac} fails, it always holds in~$L$, \hil{Gödel's sandbox}.
+    Amazingly, \textsf{Std}'s and~$L$'s~$\NN$ coincide, hence \textsf{Std} and
+    $L$ share the same \hil{arithmetic truths} and hence
+    from every proof of such a truth, any appeals to \textsc{ac}
+    can be \hil{mechanically eliminated}.
+
+    {\small\emph{Thus \textsc{ac}
+    can be regarded as \hil{convenient fiction}, similar to how negative
+    numbers are useful but we could always make do with tracking assets and
+    debts separately. \textsc{ac} is required for certain general infrastructural
+    tools, but superfluous for arithmetic consequences of such tools.}\par}
+    \bigskip
+    \pause
   \end{enumerate}
 \end{frame}
 
