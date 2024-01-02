@@ -2,11 +2,25 @@
 \usepackage{etex}
 
 \usepackage{pgfpages}
+\usepackage{calc}
 \usepackage[export]{adjustbox}
 
 % Workaround for the issue described at
 % https://tex.stackexchange.com/questions/164406/beamer-using-href-in-notes.
-\newcommand{\fixedhref}[2]{\makebox[0pt][l]{\hspace*{\paperwidth}\href{#1}{#2}}\href{#1}{#2}}
+
+\newlength\tbheight
+\newcommand{\fixedhref}[2]{%
+  \begingroup%
+    \setlength{\tbheight}{\heightof{\phantom{#2}}}
+    \parbox[t][0pt][t]{0pt}{%
+      \hfuzz=\maxdimen%
+      \vspace*{-\paperheight}%
+      \vspace*{-\tbheight}%
+      \vbox{\href{#1}{\phantom{#2}}}%
+    }%
+    #2%
+  \endgroup%
+}
 
 \usepackage[english]{babel}
 
@@ -388,7 +402,7 @@
     all the other mathematicians does not restrict the amount of possibilities
     for your own number in any way.
 
-    Surprisingly, despite appearances, there \emph{is} a suitable strategy---%
+    Surprisingly, despite appearances, there does exist a suitable winning strategy---%
     if and only if (a certain instance of) the axiom of choice holds.
   }
 
@@ -416,7 +430,7 @@
   \vspace*{9.9em}
   \pause
   \raisebox{0pt}[0pt][0pt]{\hspace*{-2.4em}\begin{minipage}[0em]{\paperwidth}
-    \includegraphics[width=\paperwidth]{long-queue}
+    \fixedhref{https://www.spikedmath.com/}{\includegraphics[width=\paperwidth]{long-queue}}
   \end{minipage}}
 \end{frame}}
 
@@ -426,7 +440,7 @@
 {\usebackgroundtemplate{\begin{minipage}{\paperwidth}\centering\includegraphics[width=\paperwidth]{lightning-lighter}\end{minipage}}
 \begin{frame}{Choice functions}
   \jnote{1-}{
-    The slides uses the terms ``collection'' and ``set'' interchangeably. A set
+    The slide uses the terms ``collection'' and ``set'' interchangeably. A set
     is called ``inhabited'' if and only if it contains at least one element.
   }
 
@@ -450,8 +464,8 @@
     choice function to be deterministic, as required for functions, the random
     sampling needs to be done once, beforehand, not anew for each call.
 
-    In case~B, we can write down a choice function by picking the smallest
-    possible representatives.
+    In case~B, the function which determines the smallest
+    possible representatives is a suitable choice function.
   }
 
   \setbeamercolor{block body}{bg=white!100}
@@ -573,9 +587,9 @@
 \begin{frame}{Consequences of the axiom of choice}
   \jnote{1}{
     To properly assess a proposed axiom for mathematics, we should not only
-    philosophically connect with its statement, but also explore its
-    consequences. One reason that the axiom of choice is somehow contested is
-    that it entails both consequences which are commonly considered ``bad'' and
+    philosophically connect with its statement, but also explore the
+    consequences it entails. One reason that the axiom of choice is somehow contested is
+    that, somehow unusual for a foundational axiom, it entails both consequences which are commonly considered ``bad'' and
     consequences which are considered ``good'' (but which I personally prefare
     to reframe as ``procrastinatory'').
 
@@ -585,8 +599,8 @@
       \item There are shapes in the usual three-dimensional space of such weird form that,
       provably so, there is no reasonable way of assigning them a volume (not
       even the extremal values $0$ or~$\infty$ cubic units).
-      \item A solid three-dimensional ball can be disassembled into five number
-      of pieces in such a way that these pieces can be reassembled (after
+      \item A solid three-dimensional ball can be disassembled into five
+      pieces in such a way that these pieces can be reassembled (after
       rotation and translation) to form two disjoint copies of the original
       ball, each of the same size as the original ball.
       \item A certain form of prophecy is possible (see link).
@@ -602,7 +616,9 @@
       Every field has an algebraic closure \emph{in a certain extension of the
       mathematical universe}. This ``sheaf-theoretic substitute'' can serve
       similar purposes as a true algebraic closure existing in the same
-      universe. \emph{Some results otherwise obtained using the axiom of choice can be
+      universe.
+
+      \emph{Some results otherwise obtained using the axiom of choice can be
       recovered if we are prepared to travel the toposophic multiverse and pass
       to extensions of the universe.}
       \item While~\textsc{ac} is required for several infrastructural tools,
@@ -618,17 +634,17 @@
   \begin{columns}
     \begin{column}{0.2\textwidth}
       \centering
-      \href{https://infinityplusonemath.wordpress.com/2017/10/31/non-measurable-sets-that-go-bump-in-the-night/}{\includegraphics[height=4em]{non-measurable-monster}} \\
+      \fixedhref{https://infinityplusonemath.wordpress.com/2017/10/31/non-measurable-sets-that-go-bump-in-the-night/}{\includegraphics[height=4em]{non-measurable-monster}} \\
       Vitali fractal
     \end{column}
     \begin{column}{0.6\textwidth}
       \centering
-      \href{https://en.wikipedia.org/wiki/Banach\%E2\%80\%93Tarski_paradox}{\includegraphics[height=4em]{banach-tarski}}
+      \fixedhref{https://en.wikipedia.org/wiki/Banach\%E2\%80\%93Tarski_paradox}{\includegraphics[height=4em]{banach-tarski}}
       Banach--Tarski paradox
     \end{column}
     \begin{column}{0.15\textwidth}
       \centering
-      \href{https://mathoverflow.net/questions/151286/probabilities-in-a-riddle-involving-axiom-of-choice}{\includegraphics[height=4em]{crystal-ball}}
+      \fixedhref{https://mathoverflow.net/questions/151286/probabilities-in-a-riddle-involving-axiom-of-choice}{\includegraphics[height=4em]{crystal-ball}}
       Prophecy
     \end{column}
   \end{columns}
@@ -660,6 +676,39 @@
 \newcommand{\cxmark}{\bad{\xmark}}
 \newcommand{\notnot}{\emph{not~not}\xspace}
 \begin{frame}{An alternative universe: the effective topos}
+  \jnote{1-}{
+    Besides the standard mathematical universe we are introduced to in school,
+    there is a host of alternative mathematical universes (models of set
+    theory, or, more generally, toposes, or even more generally models of type
+    theory). Every such universe has its own stock of mathematical objects like
+    numbers, shapes and functions, any none of these universes is too alien---in all
+    alternative mathematical universes it holds that $2 + 2 = 4$ and that there
+    are infinitely many prime numbers. However, in certain other aspects
+    mathematics unfolds differently in those alternative universes.
+
+    In the particular alternative universe known as the \hil{effective topos},
+    exactly those statements are true which have a computational witness (by a
+    Turing machine). As sketched on the next slide,~\textsc{ac} has no
+    such witness---\emph{the effective topos harbors a counterexample to the
+    axiom of choice}.
+
+    All mathematical universes support \hil{constructive reasoning}, that is
+    reasoning without using the axiom of choice and without using the law of
+    excluded middle. Universes in which these axioms do hold are rather
+    special. This fact of life (unrelated to philosophical beliefs) is one of
+    the main reasons to do without the axiom of choice:
+
+    \begin{quote}
+      Appealing to the axiom of choice restricts the scope of our mathematical
+      arguments to the few universes supporting that axiom. The axiom of choice,
+      and also already the law of excluded middle, precludes computational (and
+      geometric) interpretations of the logical connectives.
+    \end{quote}
+
+    \href{https://arxiv.org/abs/2204.00948}{Check here for a primer on
+    alternative mathematical universes.}
+  }
+
   \centering
   \includegraphics[width=7em]{turing-machine}
   \small
@@ -732,7 +781,7 @@
 
 \begin{frame}{A counterexample to the axiom of choice}
   A \hil{choice function} for the collection of \hil{sets of behaviourally
-  identical programs} would look like this:
+  identical programs} could look like this:
   \[
     \small
     \begin{array}{lll}
@@ -760,17 +809,31 @@
     \end{array}
   \]
 
-  With such a choice function~\textsf{c}, a \hil{halting oracle} can be built: \\
+  With such a choice function~\textsf{c}, a \hil{halting oracle} could be built: \\
   A program~$p$ loops if and only if~$\textsf{c}(p) = \textsf{c}(\textsf{"while True: pass"})$.
 \end{frame}
 
 \begin{frame}{A varied perspective on the axiom of choice}
-  \jnote{2-}{
-    The standard foundational system for mathematics commonly accepted by
-    logicians is~\textsc{zfc}, Zermelo--Fraenkel set theory with the axiom of
-    choice. \textsc{zf} is the variant without~\textsc{ac}. \textsc{pra} is a
-    certain base theory so weak that it is contested just by ultrafinitists and
-    hence often used for metamathematical pursuits.
+  \jnote{2-3}{
+    Glossary of foundational systems mentioned on the slide:
+    \begin{itemize}
+      \item {\justify \textsc{zfc}, Zermelo--Fraenkel set theory with the axiom of choice,
+      is often quoted as the standard foundational system for mathematics
+      commonly accepted by logicians. (This claim should be taken with a grain
+      of salt: While it is true that most of contemporary mathematics can be
+      formalized in~\textsc{zfc}, there are important exceptions (such as large
+      structures in category theory), and other systems (such as certain
+      flavors of type theory) are also up to that task. Most mathematicians
+      work informally, on a higher level, polymorphically in the foundation,
+      and couldn't recite the~\textsc{zfc} axioms when asked.)\par}
+      \item \textsc{zf} is the variant of~\textsc{zfc} without~\textsc{ac}.
+      \item \textsc{pra} is a certain base theory so weak that it is contested
+      just by ultrafinitists and hence often used as a super-safe basis for
+      metamathematical pursuits.
+    \end{itemize}
+    \href{https://iblech.gitlab.io/bb/multiverse.html}{Check here for a recap
+    why these systems were put into place and how they are riddled by
+    fundamental incompleteness.}
   }
 
   \jnote{4-}{
