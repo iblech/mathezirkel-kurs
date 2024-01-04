@@ -1,5 +1,9 @@
 * Wieso die letzte Ziffer von Grahams Zahl eine 7 ist
-
+* Large numbers contest:
+  - eine Kategorie mit Beschränkung auf 20 Bytes (o.Ä.)
+  - eine Kategorie, die unendlich große Zahlen erlaubt
+* Universal algorithm
+ 
 Samuel-Ideen:
 * How to Schuhe fetten
 * Drei niedrigschwellige Aktionen
