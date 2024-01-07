@@ -3,6 +3,8 @@
   - eine Kategorie mit Beschränkung auf 20 Bytes (o.Ä.)
   - eine Kategorie, die unendlich große Zahlen erlaubt
 * Universal algorithm
+* "A skyscraper fractal" (Joel David Hamkins über unendliche
+  Kardinalzahlen, https://mathoverflow.net/a/160282/31233)
  
 Samuel-Ideen:
 * How to Schuhe fetten
