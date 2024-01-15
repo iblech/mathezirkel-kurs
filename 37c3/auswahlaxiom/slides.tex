@@ -24,6 +24,7 @@
 \hypersetup{colorlinks=true}
 \usepackage[protrusion=true,expansion=true]{microtype}
 \usepackage{pifont}
+\usepackage[skins]{tcolorbox}
 
 \setbeamersize{text margin left=1.60em,text margin right=1.60em}
 
@@ -41,6 +42,27 @@
     }%
     #2%
   \endgroup%
+}
+
+% from Dominik Kirst
+\newtcolorbox{emptybox}{
+  beamer,
+  width=(0.62\textwidth),
+  % enlarge left by=-3pt,
+  titlerule=0mm,
+  colframe=white,
+  coltitle=black,
+  bottom=6pt,
+  top=-12pt,
+  left=6pt,
+  right=6pt,
+  notitle,
+  adjusted title={},
+  outer arc=.5mm,
+  arc=.5mm,
+  no shadow,
+  fuzzy shadow={1mm}{-1mm}{-1.2mm}{.7mm}{black!20},
+  interior titled code={}
 }
 
 \newcommand{\cmark}{\ding{51}}
@@ -220,12 +242,12 @@
   }
 
   \setbeamercolor{block body}{bg=white!100}
-  {\centering\emph{\scriptsize The axiom of choice (\textsc{ac}) asserts:}\\[-0.5em]\begin{minipage}{0.62\textwidth}\begin{block}{}
+  {\centering\emph{\scriptsize The axiom of choice (\textsc{ac}) asserts:}\\[-0.5em]\begin{emptybox}
     \centering
     ``For \hil{every} collection of inhabited sets, \\
     there is a \hil{choice function} picking \\
     \hil{representatives} from each set.''
-  \end{block}\end{minipage}\par}
+  \end{emptybox}\par}
   \bigskip
   \pause
 
