@@ -94,6 +94,9 @@ http://machinelevel.com/qc/siggraph/hello_siggraph_2016.html
 
 Teslaspulenexperiment
 
+Primzahlen, Bertrands Postulat:
+https://www2.cms.math.ca/crux/v42/n4/Malikic_42_4.pdf
+
 
 --- nicht beim ersten Treffen angeschrieben:
 
