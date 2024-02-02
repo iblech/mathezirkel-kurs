@@ -1,0 +1,97 @@
+\documentclass{uebblatt}
+
+\input{pascal-triangle.tex}
+\input{primes.tex}
+
+\begin{document}
+
+\begin{blatt}{Primzahlen}
+
+\begin{aufgabe}{Die Mysterien der Ulam-Spirale}
+\begin{wrapfigure}{r}{4cm}
+\vspace*{-1.5cm}
+\includegraphics[width=6cm]{ulam}
+\end{wrapfigure}
+Rechts abgebildet ist der Beginn der \emph{Ulam-Spirale}. 
+\begin{enumerate}
+\item Vielleicht macht es dir Spaß, sie weiter zu zeichnen. Primzahlen häufen
+sich an den Diagonal- und Querachsen.
+\item Was passiert, wenn du statt der~$1$ die~$41$ als Ausgangspunkt nimmst?
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Ein verstecktes Fraktal im Pascalschen Dreieck}
+\begin{enumerate}
+\item Die Grafik zeigt die ersten 12 Zeilen des sog. Pascalschen Dreiecks. Nach
+welchem Bildungsprinzip ergeben sich die Zahlen?
+\item Färbe alle Vielfachen der Zahl~2 ein. Was stellst du fest?
+\item Ein ähnliches Fraktal ergibt sich, wenn man die Vielfachen einer anderen
+Primzahl einfärbt. Probiere es aus.
+\end{enumerate}
+\centering\pascaltriangle
+\end{aufgabe}
+
+\enlargethispage{2em}
+\begin{aufgabe}{Das Sieb des Eratosthenes}
+Vielleicht macht es dir Spaß, das Sieb des Eratosthenes länger als
+abgebildet durchzuführen.
+\smallskip
+
+\centering
+\scalebox{0.8}{\sieve{10}{6}}
+\end{aufgabe}
+
+\begin{aufgabe}{Beliebig große Lücken zwischen Primzahlen}
+Zeige: Zu jeder Lauflänge~$n \geq 1$ gibt es eine Folge von~$n$ direkt
+aufeinanderfolgenden Zahlen, welche alle keine Primzahlen sind.
+
+Mit anderen Worten: Irgendwo auf dem Zahlenstrahl gibt es fünf
+aufeinanderfolgende Zahlen, die alle keine Primzahlen sind; irgendwo anders
+gibt es hundert aufeinanderfolgende Zahlen, die alle keine Primzahlen sind; und
+so weiter.
+
+{\scriptsize\emph{Tipp.} Kannst du den Zahlen~$m! + 2$ bis~$m! + m$ ansehen, welche Teiler
+sie auf jeden Fall haben? Dabei ist~$m! = m \cdot (m-1) \cdot \ldots
+\cdot 2 \cdot 1$ (gesprochen: "`$m$ Fakultät"').\par}
+\end{aufgabe}
+
+\begin{aufgabe}{Primzahlen mögen die 6 und die 24}
+\begin{enumerate}
+\item Zeige: Jede Primzahl größer als~$3$ liegt benachbart zu einem Vielfachen
+von~$6$. Mit anderen Worten: Ist~$p > 3$ eine Primzahl, so~$6 \mid p - 1$
+oder~$6 \mid p + 1$.
+
+{\scriptsize\emph{Tipp.} Eine Zahl ist genau dann ein Vielfaches von~$6$, wenn sie ein
+Vielfaches von~$2$ und von~$3$ ist. Weißt du von den drei Zahlen~$p-1$,~$p$
+und~$p+1$, ob sie ein Vielfaches von~$3$ sind?\par}
+
+\item Sei~$p$ eine beliebige Primzahl größer als~$3$.
+Zeige: Die Zahl~$p^2 - 1$ ist ein ganzzahliges Vielfaches von~$24$.
+(In anderen Worten: $24 \mid p^2 - 1$.)
+\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}{Eine stumpfe obere Schranke an die Größen von Primzahlen}
+Euklid bewies die Unendlichkeit der Primzahlen wie folgt:
+\begin{quote}
+\emph{Sind Primzahlen~$p_1,\ldots,p_n$ gegeben, so hat die Zahl~$p_1 \cdot p_2 \cdot \ldots \cdot p_n
++ 1$ wie jede natürliche Zahl, die mindestens~2 ist, irgendwelche Primfaktoren
+-- aber die gegebenen Primzahlen~$p_1,\ldots,p_n$ können das nicht sein, also
+sind diese Primfaktoren neue Primzahlen.}
+\end{quote}
+Sei im Folgenden~$p_1 = 2$ die erste Primzahl, $p_2 = 3$ die zweite und so
+weiter.
+\begin{enumerate}
+\item Zeige: Für die~$(r+1)$-te Primzahl gilt die Abschätzung
+$p_{r+1} \leq p_1 \cdots p_r + 1$.
+\item Folgere mit vollständiger Induktion: $p_r < 2^{(2^r)}$.
+
+{\scriptsize\emph{Tipp.} Verwende, dass für alle Zahlen~$m \geq 2$ gilt: $m/4 +
+1 \leq m$. Verwende außerdem die Formel~$2^1 + 2^2 + \cdots + 2^k = 2^{k+1} -
+2$.\par}
+\end{enumerate}
+\end{aufgabe}
+
+\end{blatt}
+
+\end{document}
