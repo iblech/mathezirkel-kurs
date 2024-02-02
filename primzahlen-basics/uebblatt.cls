@@ -18,7 +18,7 @@
 %\RequirePackage{libertine}
 
 \RequirePackage{geometry}
-\geometry{tmargin=1.5cm,bmargin=2cm,lmargin=3.1cm,rmargin=3.1cm}
+\geometry{tmargin=1.5cm,bmargin=2cm,lmargin=2.1cm,rmargin=2.1cm}
 
 \setlength\parskip{\medskipamount}
 \setlength\parindent{0pt}
@@ -34,7 +34,7 @@
   Begabungsstützpunkt Mathematik \hfill Ingo Blechschmidt \\
   Schuljahr 2023/2024
 
-  \begin{center}\Large \textbf{#1} \\[1em]
+  \begin{center}\Large \textbf{\textsf{#1}} \\[1em]
   \end{center}
   \vspace{\titleskip}
 }{}

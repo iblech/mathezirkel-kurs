@@ -2,6 +2,11 @@
 
 \input{pascal-triangle.tex}
 \input{primes.tex}
+\pagestyle{empty}
+
+\AddToHook{shipout/background}{%
+  \put(0in,-\paperheight){\includegraphics[width=\paperwidth]{fr1}}%
+}
 
 \begin{document}
 
@@ -39,6 +44,29 @@ abgebildet durchzuführen.
 
 \centering
 \scalebox{0.8}{\sieve{10}{6}}
+\end{aufgabe}
+
+\begin{aufgabe}{Lucas--Lehmer-Test in Aktion}
+Die Lucas--Lehmer-Zahlenfolge ist folgende unendliche Zahlenfolge:
+\[ 4,\quad 14,\quad 194,\quad 37634,\quad 1416317954,\quad \ldots \]
+Die jeweils nächste Zahl ist zwei weniger als das Quadrat der vorherigen: $s_{n+1} = s_n^2 - 2$.
+Der \emph{LL-Rest} einer Mersenne-Zahl~$2^p-1$ ist der Rest bei Division
+der~$(p-1)$-ten Lucas--Lehmer-Zahl durch~$2^p-1$. Zum Beispiel:
+\begin{itemize}
+\item Der LL-Rest von~$2^3 - 1 = 7$ ist der Divisionsrest bei~$14 :
+7$, also Null.
+\item Der LL-Rest von~$2^4 - 1 = 15$ ist der Divisionsrest bei~$194
+: 15$, also~$14$ (da~$194 = 12 \cdot 15 + 14$).
+\item Der LL-Rest von~$2^5 - 1 = 31$ der Divisionsrest bei~$37634 :
+31$, also Null (da $37634 = 31 \cdot 1214$).
+\end{itemize}
+Dass die LL-Reste von~$7$ und~$31$ jeweils Null sind, ist kein Zufall:
+\emph{Ist~$p$ eine ungerade Primzahl, so ist die Zahl~$2^p - 1$ dann und nur
+dann ebenfalls prim, wenn ihr LL-Rest Null ist.}
+\begin{enumerate}
+\item Was ist der~LL-Rest von~$2^6 - 1 = 63$?
+\item Verwende den LL-Test, um zu prüfen, ob~$2^{11} - 1 = 2047$ prim ist.
+\end{enumerate}
 \end{aufgabe}
 
 \begin{aufgabe}{Beliebig große Lücken zwischen Primzahlen}

@@ -30,7 +30,7 @@
 \newcommand{\pascaltriangle}{
   \newdimen\R
   \R=.4cm
-  \newcommand\mycolor{gray}
+  \newcommand\mycolor{red}
   \begin{tikzpicture}[line width=.8pt]
     \foreach \k in {0,...,12}{
       \begin{scope}[shift={(-60:{sqrt(3)*\R*\k})}]
@@ -44,7 +44,7 @@
 	  %\ifthenelse{\k=8 \AND \n < 4}{\def\mycolor{purple}}{}
 	  %\ifthenelse{\k=9 \AND \n = 3}{\def\mycolor{purple}}{}
 	  \begin{scope}[shift={(-120:{sqrt(3)*\R*\n})}]
-	     \draw[top color=\mycolor!3,bottom color=\mycolor!10] 
+	     \draw[top color=\mycolor!1,bottom color=\mycolor!3] 
 	       (30:\R) \foreach \x in {90,150,...,330} {
 		  -- (\x:\R)}
 		  -- cycle (90:0)
