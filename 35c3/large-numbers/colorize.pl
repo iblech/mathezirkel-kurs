@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 # Usage: ./graham 3 100 | ./colorize.pl i=0
-# Usage: ./graham 3 100 | ./colorize.pl | while read; do echo "$REPLY"; perl -MTime::HiRes=sleep -we "sleep $i/200"; : $((i++)); done
+# Usage: i=0; ./graham 3 100 | ./colorize.pl | while read; do echo "$REPLY"; perl -MTime::HiRes=sleep -we "sleep $i/200"; : $((i++)); done
 
 use warnings;
 use strict;
