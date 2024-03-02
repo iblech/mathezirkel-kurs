@@ -3,14 +3,13 @@
 # License: GNU GPL version 3 or newer
 
 import pygame
-import audioop
 import random
 import math
 
 # setup pygame
 
-width = 1024
-height = 768
+width = 1920
+height = 1200
 screen = pygame.display.set_mode((width, height))
 
 w = width * 0.0225  # rectangle width
@@ -27,13 +26,13 @@ bally = height/2
 vx = 0
 vy = 0
 
-nomvx = 3
+nomvx = 2
 factvy = 2.4
 maxvy = 5
 startvy = 0.9
 
-vollower = 2000
-volupper = 15000
+vollower = 20
+volupper = 300
 factvol = 1.1
 factmisc = 1.25
 sumrad = 3
@@ -68,6 +67,7 @@ while not quit:
     # current volume
     with open("/tmp/current-volume") as f:
         volume = float(f.read()) * 20000
+        print(volume)
 
     yy = 1 - (volume-vollower)/(volupper-vollower)
     if yy < 0:
