@@ -1,0 +1,28 @@
+(1) Quantenmechanik
+    * Interferenz an Schallwellen vorführen
+    * Schrödingers Katze
+      * Vermeintliches Padoxon auflösen durch Miteinbeziehung des Beobachters
+        als weiteren Tensorfaktor
+    * Interferometer-Beispiel von https://www.lesswrong.com/posts/PjEgxtzWMbonKeTbw/a-new-intro-to-quantum-physics-with-the-math-fixed
+
+(2) Digitaltechnik
+    * Filmempfehlungen: Hidden Figures, Imitation Game
+    * nandgame.com, Turing Complete
+    * Binärsystem
+      * Subtraktion durch Addition des Komplements
+    * Halbaddierer
+
+(3) Quantencomputer
+    * Münzspiel: Münze wird in Zustand |0⟩ initialisiert. Dann dürfen, in dieser
+      Reihenfolge, Alice, Bob und dann wieder Alice etwas mit der Münze machen.
+      Klassisch sind die einzigen Optionen Id und NOT. Alice kann höchstens mit
+      50% Wahrscheinlichkeit erreichen, dass der Zustand am Ende wieder |0⟩ ist.
+      Aber wenn Alice die Möglichkeit hat (und Bob nicht), das H-Gatter zu
+      verwenden, wird die Wahrscheinlichkeit 1. Denn H-NOT-H und H-Id-H sind
+      beide Id.
+    * Quantenbits
+    * Quantengatter
+      * Wieso AND nicht als Quantengatter realisiert werden kann: |-⟩ AND |0⟩ = 0
+    * Spukhafte Fernwirkung
+    * Quantenteleportation
+    * Deutsch-Algorithmus
