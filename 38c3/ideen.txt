@@ -14,6 +14,10 @@
 * Arithmetische Komprimierung
 * exp(pi √163)
 * ((1+√5)/2)ⁿ -- wieso ist das nahezu eine Ganzzahl?
+* Wie Zufall beim Zählen hilft.
+  - Rehe, Comics, Panzer & Co
+  - self-avoiding walks
+* Probabilistische Beweise bei Collatz?
  
 Samuel-Ideen:
 * How to Schuhe fetten

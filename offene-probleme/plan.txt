@@ -1,0 +1,38 @@
+Primzahlzwillinge
+- Sieb des Eratosthenes
+- PrimeGrid.com
+- 70.000.000 durch Yitang Zhang; nun 246 (Polymath)
+
+Collatz
+- bis 2^68 (circa 10^20) geprüft
+- Anzahl sicherer Zahlen ≤ X mindestens X^0.84
+- Für alle Funktionen f mit lim_{N → ∞} f(N) = ∞ gilt: Col_min(N) < f(N) für fast alle N
+
+Pi-Mysterien
+- normal?
+- Erklärung Rationalität und DIN-Trick
+- Calkin–Wilf-Baum
+- π + e, πe
+- 1/1 + 1/4 + 1/9 + 1/16 + ... = π² / 6
+- 3/4 * 8/9 * 24/25 * 48/49 * ... = 6 / π²
+
+Mandelbrot
+- lokal zusammenhängend?
+
+Chomp
+- https://charcoding.github.io/Chomp/
+- Erster Spieler hat Gewinnstrategie
+- aber wie sieht sie aus?
+
+3-Körper-Problem
+- https://de.wikipedia.org/wiki/Lagrange-Punkte
+- Sonnensystem stabil? https://en.wikipedia.org/wiki/Lyapunov_time
+- https://en.wikipedia.org/wiki/Three-body_problem
+- Buch
+
+Ramsey-Theory
+- Regularity amid disorder, Ordnung inmitten von Chaos
+- R(3,3) = 6
+- R(5,5)? liegt zwischen 43 und 48.
+
+Kakeya
