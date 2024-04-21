@@ -2,3 +2,44 @@
 * Random Secretary: http://www.datagenetics.com/blog/june52013/index.html
 * Wie man nur mit einer Münze ausgestattet eine Zahl zwischen 1 und n auswählt:
   https://arxiv.org/pdf/1808.07994.pdf
+
+
+Beim Plus-Kurs am 19.4.2024 durchgeführt:
+
+* Rekorde
+  * "Nennt mal jeder eine Zahl zwischen 0 und 1", dann Anzahl Rekorde prüfen
+    (am besten vorab das erwartete Ergebnis mitteilen, natürlich ohne die
+    verzerrende Info, dass es sich um die Anzahl Rekorde handeln wird)
+  * "Wenn wir das Spiel mit allen 8 Mrd. Menschen spielen würden, wie viele
+    Rekorde würden dann wohl aufgestellt werden?" (23)
+  * Beispiel: Rekorde beim Berlin-Marathon (30; nach Formel erwartet 5 ± 1.7)
+  * Beispiel: Jahresdurchschnittstemperatur (bzw. -anomalie) seit 1960 (18;
+    nach Formel erwartet 4.7 ± 1.7)
+  * Animation mittels Zeitreihe
+  * Animation mittels Histogram
+  * Erklärung für Erwartungswert sum_n 1/n (und zum Schluss noch Näherungformel
+    ln(n) + γ)
+
+* Run-Test
+  * Wie beim Mathecamp 2015
+
+* χ²-Test
+  * Wie beim Mathecamp 2015
+  * Beispiel von https://en.wikipedia.org/wiki/Chi-squared_test
+  * Haskell-Simulation
+
+
+Nicht mehr durchgeführt, aber für später notiert:
+
+* Hellsehen
+  * gewöhnlicher one-tailed Hypothesentest
+
+* Münzwurf über Telefon
+
+* Arbeitsblatt austeilen! Mit Aufgaben wie: "Beim jährlich stattfindenden
+  Berlin-Marathon wurde seit 1974 50 Mal ein neuer Rekord aufgestellt. Ist auf
+  dieser Datengrundlage die Annahme haltbar, dass es keine systematischen
+  Verbesserungen gab, sondern diese Rekorde allein auf zufällige Schwankungen
+  zurückführbar sind?"
+
+* Benford
