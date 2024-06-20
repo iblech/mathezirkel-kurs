@@ -80,11 +80,11 @@ totals = dict((k, 0) for k in strategies)
 for s1 in strategies:
     for s2 in strategies:
         score1, score2 = tournament(strategies[s1], strategies[s2], 100)
-        print "%25s gegen %25s: (%3d, %3d)" % (s1, s2, score1, score2)
+        print("%25s gegen %25s: (%3d, %3d)" % (s1, s2, score1, score2))
         totals[s1] = totals[s1] + score1
         totals[s2] = totals[s2] + score2
 
-print ""
+print("")
 
 for w in sorted(totals, key=totals.get):
-  print "* %25s: %4d" % (w, totals[w])
+  print("* %25s: %4d" % (w, totals[w]))
