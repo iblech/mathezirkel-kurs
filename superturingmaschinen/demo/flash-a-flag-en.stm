@@ -1,9 +1,9 @@
-# state   cell contents   move  new cell contents  new state
+# state   current cell contents   new cell contents  move  new state
 
-start     0               _     1                  go
-start     1               _     _                  halt
+start     0                       1                  _     go
+start     1                       _                  _     halt
 
-limit     0               _     1                  go
-limit     1               _     _                  halt
+limit     0                       1                  _     go
+limit     1                       _                  _     halt
 
-go        _               R     0                  go
+go        _                       0                  R     go
