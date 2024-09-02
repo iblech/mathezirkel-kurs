@@ -12,6 +12,8 @@ Fast-growing hierarchy, damit Graham, TREE usw. einordnen
 - Goodstein-Funktion
 - TREE
 - collapsing ordinal
+- https://www.quantamagazine.org/an-easy-sounding-problem-yields-numbers-too-big-for-our-universe-20231204/
+  (via esclear)
 
 reflection principle in set theory?
 
