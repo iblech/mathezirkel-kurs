@@ -4,7 +4,8 @@
   - eine Kategorie, die unendlich große Zahlen erlaubt
 * Universal algorithm
 * "A skyscraper fractal" (Joel David Hamkins über unendliche
-  Kardinalzahlen, https://mathoverflow.net/a/160282/31233)
+  Kardinalzahlen, https://mathoverflow.net/a/160282/31233,
+  https://mathoverflow.net/questions/178139/examples-of-unexpected-mathematical-images/257366#257366)
 * Was reine Stochastik zur Klimakrise sagen kann,
   etwa erwartete Anzahl Rekorde (H_n mit Varianz sum_{i=1}^n 1/i (1-1/i))
 * Kosmische Distanzleiter
