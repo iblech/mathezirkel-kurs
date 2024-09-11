@@ -19,6 +19,8 @@
   - Rehe, Comics, Panzer & Co
   - self-avoiding walks
 * Probabilistische Beweise bei Collatz?
+* Auf den Spuren von Joel David Hamkins, GCH als fundamentales Prinzip?
+* Transfinite Kombinatorik
  
 Samuel-Ideen:
 * How to Schuhe fetten
