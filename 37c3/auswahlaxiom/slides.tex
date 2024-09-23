@@ -368,7 +368,7 @@
     philosophically connect with its statement, but also explore the
     consequences it entails. One reason that the axiom of choice is somehow contested is
     that, somehow unusual for a foundational axiom, it entails both consequences which are commonly considered ``bad'' and
-    consequences which are considered ``good'' (but which I personally prefare
+    consequences which are considered ``good'' (but which I personally prefer
     to reframe as ``procrastinatory'').
 
     Among the ``bad'' consequences are the following counterintuitive results:
@@ -456,10 +456,11 @@
 \begin{frame}{An alternative universe: the effective topos}
   \jnote{1-}{
     Besides the standard mathematical universe we are introduced to in school,
+    dubbed~$\mathsf{Set}$,
     there is a host of alternative mathematical universes (models of set
     theory, or, more generally, toposes, or even more generally models of type
     theory). Every such universe has its own stock of mathematical objects like
-    numbers, shapes and functions, any none of these universes is too alien---in all
+    numbers, shapes and functions, and none of these universes is too alien---in all
     alternative mathematical universes it holds that $2 + 2 = 4$ and that there
     are infinitely many prime numbers. However, in certain other aspects
     mathematics unfolds differently in those alternative universes.
@@ -493,7 +494,7 @@
 
   \begin{tabular}{@{\!\!\!\!\!\!}l@{\,}llp{1.8cm}}
     \toprule
-    & statement & in $\mathsf{Std}$ & in $\mathsf{Eff}$ \\
+    & statement & in $\mathsf{Set}$ & in $\mathsf{Eff}$ \\
     \midrule
     \normalnumber{1} & Every number is prime or not prime. & \ccmark{}
     (trivially) & \ccmark \\
@@ -613,6 +614,13 @@
     \href{https://iblech.gitlab.io/bb/multiverse.html}{Check here for a recap
     why these systems were put into place and how they are riddled by
     fundamental incompleteness.}
+
+    An \emph{arithmetical statement} is a statement in which all quantifiers
+    range over the natural numbers (and not other sets such as~$\mathbb{R}$ or
+    the powerset of the natural numbers). Many important statements in
+    mathematics are arithmetical (like Goldbach's conjecture or the Collatz
+    conjecture) or can be equivalently arithmetically rewritten (such as the
+    Riemann hypothesis or $\mathsf{P} = \mathsf{NP}$).
   }
 
   \jnote{4}{
@@ -684,7 +692,7 @@
     \pause
 
     \item Even if \textsc{ac} fails, it always holds in~$L$, \hil{Gödel's sandbox}.
-    Amazingly, \textsf{Std}'s and~$L$'s~$\NN$ coincide, hence \textsf{Std} and
+    Amazingly, \textsf{Set}'s and~$L$'s~$\NN$ coincide, hence \textsf{Set} and
     $L$ share the same \hil{arithmetic truths} and hence
     from every proof of such a truth, any appeals to \textsc{ac}
     can be \hil{mechanically eliminated}.
