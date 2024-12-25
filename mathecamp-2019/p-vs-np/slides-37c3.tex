@@ -282,6 +282,8 @@ Ingo Blechschmidt}}
   \textbf{Proof, first part.} Pick for~$B$ some problem in~$\PSPACEC$. Then
   $\PSPACE \subseteq P^B \subseteq \NP^B \subseteq \PSPACE^B \subseteq
   \PSPACE$.
+  % Für B in NP-C klappt es fast auch: Denn NP ⊆ P^B ⊆ NP^B. Aber NP^B ⊆ NP
+  % gilt nicht!
   \pause
 
   \textbf{Proof, second part.} Pick for~$B$ a zero/one \hil{random oracle}. Then the problem
@@ -304,3 +306,64 @@ Ideen fürs nächste Mal:
 * Algorithmus, der in Polynomialzeit läuft, sofern P = NP gilt:
   https://en.wikipedia.org/wiki/P_versus_NP_problem#Polynomial-time_algorithms
   (Levin's universal algorithm)
+
+
+Unabhängig von ZFC?
+
+1. Frage ist äquivalent zur Existenz eines P-Entscheiders für 3SAT.
+
+   Logische Form:
+     ∃Algorithmus. ∃Polynom. ∀3SAT-Instanz.
+       (Terminierung innerhalb Zeitvorgabe und Ausgabe korrekt).
+
+   Also Σ₂-Aussage.
+
+2. Siehe Seite 28 von Scott.
+
+3. Jedenfalls ist P = NP also eine arithmetische Frage und damit absolut
+   zwischen V und L, d.h. AC und GCH wären mit der L-Übersetzung eliminierbar.
+   LEM aber nicht unbedingt.
+
+4. LEM wäre aber aus Korrektheitsbeweisen eines gegebenen 3SAT-Entscheiders
+   (mit ebenfalls gegebener polynomieller Laufzeitschranke) eliminierbar,
+   da dann nur noch eine Π₁-Aussage übrig bleibt.
+
+5. P ≠ NP, stark negiert als ∀Algorithmen. ∀Polynome. ∃3SAT-Instanz.
+   (Terminierung nicht innerhalb Zeitvorgabe oder Ausgabe inkorrekt),
+   ist eine arithmetische Π₂-Aussage, aus ZFC-Beweisen ließen sich also
+   IZF-Beweise machen.
+
+
+EXP und nicht in P: Ist es NICHT der Fall, dass eine gegebene Turingmaschine,
+gegeben durch ein binäres Wort w, auf der Eingabe von w in höchstens 2^|w|
+Schritten mit der Ausgabe "ja" hält?
+
+Lässt sich in Exponentialzeit durch Simulation entscheiden, braucht etwa 2^|w|
+Schritte.
+
+Und geht nicht in Polynomialzeit: Angenommen doch, d.h. angenommen es gäbe
+einen Entscheider E mit polynomieller Laufzeit p für sie. Dann finden wir eine
+Kodierung w von E mit 2^|w| ≥ p(|w|). Das ist möglich, wenn wir unser
+Kodierungssystem so arrangieren, dass Slack möglich ist.
+
+Nach Voraussetzung terminiert die durch w gegebene Turingmaschine bei Eingabe
+von w in höchstens p(|w|) Schritten. Wenn die Ausgabe "ja" lautet, dann
+bräuchte diese Maschine aber mehr als 2^|w| Schritte, Widerspruch. Wenn die
+Ausgabe "nein" lautet, dann würde sie doch "ja" ausgeben, Widerspruch.
+https://www.informatik.uni-bremen.de/tdki/lehre/ss09/kt/Kapitel6.pdf
+
+
+Ein Entscheidungsproblem A ist in NP genau dann, wenn eine Maschine M
+existiert, die auf jeder Eingabe in Polynomialzeit hält, sodass A eine positive
+Lösung genau dann hat, wenn es eine Eingabe für M gibt, mit der M mit "ja"
+terminiert.
+
+Denn: Wenn ein nichtdeterministischer Entscheider E für A mit
+Polynomiallaufzeitschranke p existiert, dann nimm für M eine Maschine, die die
+Eingabe als Ablaufpfad für E interpretiert und gemäß diesem E simuliert und
+genau dann "ja" ausgibt, wenn diese Simulation nach der durch p vorhergesagten
+Anzahl Schritte mit "ja" endet.
+
+Umgekehrt: Ist so eine Maschine M gegeben, dann simuliere sie und entscheide
+nichtdeterministisch, immer wenn sie versucht, ein Bit vom Band zu lesen. Das
+wird sie höchstens polynomiell oft machen.
