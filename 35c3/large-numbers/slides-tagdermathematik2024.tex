@@ -1,0 +1,293 @@
+\documentclass[12pt,compress,english,utf8,t,aspectratio=169]{beamer}
+\usepackage[ngerman]{babel}
+\usepackage{calc}
+\usepackage{ragged2e,wasysym,multicol,mathtools,mathdots}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{tikz,ifthen}
+\usetikzlibrary{calc,shapes,shapes.callouts,shapes.arrows,patterns,fit,backgrounds,decorations.pathmorphing}
+\usepackage{booktabs}
+\hypersetup{colorlinks=true}
+
+\graphicspath{{images/}}
+
+\title{Large numbers, very large numbers and very very large numbers}
+\author{Ingo Blechschmidt}
+\date{December 17th, 2019}
+
+%\usetheme{Warsaw}
+\useinnertheme[shadow=true]{rounded}
+\useoutertheme{split}
+\usecolortheme{orchid}
+\usecolortheme{whale}
+\setbeamerfont{block title}{size={}}
+
+\useinnertheme{rectangles}
+
+\usecolortheme{seahorse}
+\definecolor{mypurple}{RGB}{150,0,255}
+\setbeamercolor{structure}{fg=mypurple}
+\definecolor{myred}{RGB}{150,0,0}
+\setbeamercolor*{title}{bg=myred,fg=white}
+\setbeamercolor*{titlelike}{bg=myred,fg=white}
+
+\usefonttheme{serif}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+
+\renewcommand{\_}{\mathpunct{.}\,}
+\newcommand{\BB}{\mathbb{B}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\R}{\mathrm{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\RR}{\mathbb{R}}
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{title page}[default][colsep=-1bp,rounded=false,shadow=false]
+\setbeamertemplate{frametitle}[default][colsep=-2bp,rounded=false,shadow=false,center]
+
+\newcommand{\hil}[1]{{\usebeamercolor[fg]{item}{\textbf{#1}}}}
+\setbeamertemplate{frametitle}{%
+  \vskip1em%
+  \leavevmode%
+  \begin{beamercolorbox}[dp=1ex,center]{}%
+      \usebeamercolor[fg]{item}{\textbf{\textsf{\Large \insertframetitle}}}
+  \end{beamercolorbox}%
+}
+
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hfill%
+  \begin{beamercolorbox}[ht=2.25ex,dp=1ex,right]{}%
+    \usebeamerfont{date in head/foot}
+    \insertframenumber\,/\,\inserttotalframenumber\hspace*{1ex}
+  \end{beamercolorbox}%
+  \vskip0pt%
+}
+
+\newcommand{\backupstart}{
+  \newcounter{framenumberpreappendix}
+  \setcounter{framenumberpreappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+  \addtocounter{framenumberpreappendix}{-\value{framenumber}}
+  \addtocounter{framenumber}{\value{framenumberpreappendix}}
+}
+
+\setbeameroption{show notes}
+\setbeamertemplate{note page}[plain]
+
+\input{images/primes}
+
+\setbeamertemplate{headline}{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex]{}%
+  \end{beamercolorbox}
+}
+
+\addtocounter{framenumber}{-1}
+
+\newcommand{\imgslideHeight}[1]{{\usebackgroundtemplate{\parbox[c][\paperheight][c]{\paperwidth}{\centering\includegraphics[height=\paperheight]{#1}}}\begin{frame}[plain]\end{frame}}}
+\newcommand{\imgslideWidth}[1]{{\usebackgroundtemplate{\parbox[c][\paperheight][c]{\paperwidth}{\centering\includegraphics[width=\paperwidth]{#1}}}\begin{frame}[plain]\end{frame}}}
+
+\begin{document}
+
+{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\vspace*{0.3cm}\centering\scriptsize\sieve{25}{2}\\\vspace*{3.95cm}\includegraphics[width=\paperwidth]{sun3}\end{minipage}}
+\begin{frame}[c]
+  \centering
+
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+
+  \hil{Große Zahlen,}
+  
+  \large
+  \hil{sehr große Zahlen,}
+  
+  \Large
+  \hil{sehr sehr große Zahlen und}
+
+  \Large
+  \scalebox{1.2}{\hil{mehr als unendlich große Zahlen}}
+
+  \bigskip
+  \scriptsize
+  \textit{-- eine Einladung in fortgeschrittene Googologie --}
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \medskip
+
+  \textcolor{black}{
+    \textbf{Tag der Mathematik am 2. März 2024} \\
+    \emph{Fragen sind jederzeit willkommen! Bitte nicht bis zum Ende aufsparen.}
+  }
+  \bigskip
+  \bigskip
+
+  \tiny
+  \textcolor{white}{
+    Ingo Blechschmidt \\
+  }
+
+  \par
+\end{frame}}
+
+
+\section{Large numbers}
+
+\tikzstyle{card}   = [draw=mypurple, very thick, rectangle, rounded corners, inner sep=5pt, inner ysep=10pt]
+\tikzstyle{author} = [fill=mypurple, text=white]
+\tikzstyle{descr}  = []
+
+\newcommand{\card}[2]{
+  \begin{tikzpicture}
+    \node[descr]  (descr)  {#2};
+    \node[card, tape] [fit = (descr)] (card) {};
+    \node[author] at (card.north) (author) {#1};
+  \end{tikzpicture}
+}
+
+{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\vspace*{6.0cm}\includegraphics[width=\paperwidth]{sandstrand}\end{minipage}}
+\begin{frame}
+  \centering
+
+  \Huge \hil{Teil I}
+
+  \bigskip
+  \Large\textbf{Große Zahlen}
+  \par
+  \bigskip
+  \bigskip
+
+  \normalsize
+
+  \hil{300\,000} Augsburger*innen
+  \medskip
+
+  \hil{$\boldsymbol{10^{19} = 1\!\underbrace{0\,000\,000\,000\,000\,000\,000}_{\text{$19$ Nullen}}}$}
+  Sandkörner auf der Erde
+  \medskip
+
+  \hil{$\boldsymbol{10^{80} = 1\!\underbrace{000\ldots000}_{\text{$80$ Nullen}}}$}
+  Elementarteilchen im Universum
+
+  % ACTION: video of mass of black hole https://www.youtube.com/watch?v=aIg8gAbqqZc?t=176
+  % ACTION: 52!
+\end{frame}}
+
+\imgslideHeight{milky-way}
+\imgslideWidth{ocean}
+
+
+\section{Sehr große Zahlen}
+
+\begin{frame}
+  \centering
+
+  \Huge \hil{Teil II}
+
+  \Large\textbf{Sehr große Zahlen}
+  \par
+
+  \normalsize
+
+  \only<1-10>{\[\begin{aligned}
+    2 \cdot 4 &= 2 + 2 + 2 + 2 = 8 \\
+    2^4 &= 2 \cdot 2 \cdot 2 \cdot 2 = 16 \\
+    \pause
+    2 \uparrow\uparrow 4 &= 2^{2^{2^2}} = 2^{2^4} = 2^{16} = 65\,536 \\
+    \pause
+    2 \uparrow\uparrow\uparrow 4 &= 2 \uparrow\uparrow (2 \uparrow\uparrow (2
+    \uparrow\uparrow 2)) \pause =
+    2 \uparrow\uparrow (2 \uparrow\uparrow 4) \pause =
+    2 \uparrow\uparrow 65\,536 \\ \pause &
+    \left.\kern-3\nulldelimiterspace
+    \begin{array}{@{}l@{}}{}= 2^{2^{\iddots^2}}\end{array} \right\rbrace \text{\scriptsize 65\,536 viele Zweien} \\
+    \pause
+    2 \uparrow\uparrow\uparrow\uparrow 4 &= 2 \uparrow\uparrow\uparrow (2
+    \uparrow\uparrow\uparrow (2 \uparrow\uparrow\uparrow 2)) \pause =
+    2 \uparrow\uparrow\uparrow (2 \uparrow\uparrow\uparrow 4) \pause \\
+    &= 2 \uparrow\uparrow\uparrow 2^{2^{\iddots^2}} \pause =
+    \underbrace{2 \uparrow\uparrow (2 \uparrow\uparrow (2 \uparrow\uparrow (\cdots
+    \uparrow\uparrow 2)))}_{\text{$2^{2^{\iddots^2}}$ viele Zweien}}
+  \end{aligned}\]}
+
+  \only<11->{\[
+    \left.
+      \begin{matrix}
+        \text{\hil{Grahams Zahl}} &=&3\underbrace{\uparrow \cdots \cdots \cdots \cdots \cdots \uparrow}3 \\
+          & &3\underbrace{\uparrow \cdots \cdots \cdots \cdots \uparrow}3 \\[-0.4em]
+          & & \underbrace{\qquad \quad \vdots \qquad \quad} \\
+          & &3\underbrace{\uparrow \cdots \cdots \uparrow}3 \\
+          & &3\uparrow \uparrow \uparrow \uparrow3
+      \end{matrix}
+    \right \} \text{\small 64 Ebenen}
+  \]}
+
+  \only<12->{
+    \vspace*{-2.5cm}
+    \includegraphics{monophilic-coloring}\hspace*{6cm}
+  }
+\end{frame}
+
+\begin{frame}[plain]
+  \Huge\centering\vfill
+  \scalebox{1.5}{$\sqrt{2}^{\sqrt{2}^{\sqrt{2}^{\sqrt{2}^{\iddots}}}} = 2$}
+  \pause
+  \bigskip
+  \bigskip
+
+  \large
+  $\sqrt{2 + \sqrt{2 + \sqrt{2 + ...}}} = 2$
+  \bigskip
+
+  $\frac{2}{\pi} = \sqrt{\tfrac{1}{2}} \cdot
+    \sqrt{\tfrac{1}{2} + \tfrac{1}{2} \sqrt{\tfrac{1}{2}}} \cdot
+    \sqrt{\tfrac{1}{2} + \tfrac{1}{2} \sqrt{\tfrac{1}{2} + \tfrac{1}{2}
+    \sqrt{\tfrac{1}{2}}}} \cdot \ldots$
+  \vfill
+\end{frame}
+
+
+\section{Unendlich große Zahlen}
+
+{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\vspace*{0.3cm}\centering\scriptsize\sieve{25}{2}\\\vspace*{3.95cm}\includegraphics[width=\paperwidth]{buergerbuero-haunstetten}\end{minipage}}
+\begin{frame}
+  \centering
+
+  \Huge \hil{\phantom{Teil III}}
+
+  \bigskip
+  \Large\textbf{Unendlich große Zahlen}
+  \par
+  \bigskip
+
+  \large\hil{Ordinalzahlen}
+  \par
+
+  messen Anordnung
+\end{frame}}
+
+\end{document}
+
+
+BEACHTEN:
+* Black hole
+* Wikipedia-Werte BB
+* Nutzen
+* Ziffern Graham
+
+NÄCHSTES MAL BESSER MACHEN:
+* Beim BB- und Rayo-Kapitel mehr Drive haben.
+* Krassheit von Rayo besser zur Geltung bringen.
+* Nutzen vorbringen!
+* Ruhiger formale Systeme erklären?
+* "Calbrating the finite by using the infinite" (fast-growing hierarchy)
