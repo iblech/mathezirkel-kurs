@@ -1,0 +1,15 @@
+Münzspiel
+- Alice und Bob
+- 100 Mal wird eine Münze geworfen
+- Alice bekommt immer bei ZZ einen Punkt
+- Bob bekommt immer bei ZK einen Punkt
+
+ZKZZKZZZ
+
+Alice 3
+Bob   2
+
+Wer hat bei diesem Spiel einen Vorteil?
+(a) Alice
+(b) Bob
+(c) keiner
