@@ -21,6 +21,19 @@
 * Probabilistische Beweise bei Collatz?
 * Auf den Spuren von Joel David Hamkins, GCH als fundamentales Prinzip?
 * Transfinite Kombinatorik
+* Ax–Grothendieck
+* Riemannsche Vermutung...?
+* https://www.quantamagazine.org/mathematicians-bridge-finite-infinite-divide-20160524/
+* Physikalische Grundlagen der Klimakrise
+* glibc/privoxy-Bug
+* Mathematische Zaubertricks
+
+Noch einzubuchen:
+* Zaubertricks
+* Agda
+* Extracting programs from infinitary proofs
+* Multiversum
+* ITTM
  
 Samuel-Ideen:
 * How to Schuhe fetten

@@ -1,0 +1,74 @@
+Die kosmische Distanzleiter
+
+Stufe 1: Unser Sonnensystem
+
+- Erde ist rund!
+  via Betrachtung des Erdschattens auf dem Mond bei
+  Sonnenfinsternissen
+
+- Erde kann keine Scheibe sein!
+  weil in verschiedenen Regionen der Erde verschiedene Sterne
+  sichtbar sind
+
+- Erdradius
+
+  Gesamtumfang 2 π r sind 40.000 Stadia
+  Anteil 7,2° / 360° sind 5000 Stadia
+
+- Der Mond ist eine Kugel
+  via Betrachtung des Terminators (elliptischer Bogen)
+
+- Entfernung zum Mond
+
+  Mondgeschwindigkeit
+  bei Mondfinsternis: 2 Erdradien        / 3 Stunden
+  insgesamt:          2 π Mondentfernung / 1 Monat
+
+  2 π Mondentfernung / 1 Monat = 2 Erdradien / 3 Stunden
+  nach Auflösen: Mondentfernung = 60 Erdradien
+
+- Mondradius
+
+  Mondgeschwindigkeit
+  bei Monduntergang: 2 Mondradien       / 2 min
+  insgesamt:         2 π Mondentfernung / 24 h
+
+  2 π Mondentfernung / 24 h = 2 Mondradien / 2 min
+  nach Auflösen: Mondradius = ⅓ Erdradius = 1/180 Mondentfernung
+
+- Sonnenradius
+  via Sonnenfinsternisbeobachtung
+
+  Sonnenradius = 1/180 Sonnenentfernung
+
+- Sonnenentfernung
+
+  cos w = Mondentfernung / Sonnenentfernung
+  durch Beobachtung, dass Halbmond um 12 Stunden
+  (tatsächlich: 30 Minuten) näher am Neumond liegt als am Vollmond
+
+  Sonnenentfernung = Mondentfernung / cos w = 20 Mondentfernung
+  (tatsächlich: Sonnenentfernung = 390 Mondentfernung)
+
+- Entfernungen zu den Planeten unseres Sonnensystems
+
+
+Stufe 2: Nahe Sterne
+
+via Parallaxeffekt
+
+
+Stufe 3: Milchstraße
+
+via Hertzsprung–Russell-Diagramm
+
+
+Stufe 4: Andere Galaxien
+
+via Standardkerzen (Henrietta Leavitt)
+
+
+Stufe 5: Galaxiencluster
+
+
+Stufe 6: Universum
