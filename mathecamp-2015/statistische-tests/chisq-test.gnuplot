@@ -7,3 +7,4 @@ set boxwidth binwidth
 bin(x,width)=width*floor(x/width) + binwidth/2.0
 
 plot "<./chisq-test" using (bin($1,binwidth)):(1.0) smooth freq with boxes
+pause -1
