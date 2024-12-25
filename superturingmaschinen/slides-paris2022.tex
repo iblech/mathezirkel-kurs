@@ -230,7 +230,8 @@
   \end{itemize}
   \bigskip
 
-  On reaching a limit ordinal time step like~$\omega$ or~$\omega \cdot 2$,
+  On reaching a limit ordinal time step like~$\omega$ or~$\omega \cdot 2$, \ldots
+  \pause
   \begin{itemize}
     \item the machine is put into a designated state,
     \item the read/write head is moved to the start of the tape, and
@@ -372,7 +373,12 @@
   \only<6>{\sexpl{4}{There is a super Turing machine which, given a \emph{super} Turing machine
   computing a map~$f : \NN \to \NN$, outputs an (\emph{ordinary}) Turing machine
   computing~$f$. \\\ \\\ }}
-  \only<7>{\ \\\ \\\ \\\ }
+  \only<7-8>{\justifying A real number of~$\Eff(\TM)$ is externally represented by a Turing
+  machine~$M$ which on input~$n$ outputs a rational approximation~$M(n)$.
+  These approximations need to be compatible in
+  that~$|M(n)-M(m)|\leq2^{-n}+2^{-m}$ for all~$n,m$. \par\medskip Two such machines~$M$
+  and~$M'$ represent the same real number iff~$|M(n)-M'(m)|\leq2^{-n}+2^{-m}$
+  for all~$n,m$.}
   \only<9-10>{\expl{6}{There is a Turing machine which, given a Turing machine
   computing a map~$f : \NN \to \NN$ and given the promise that it is \notnot
   the case that~$f$ has a zero, determines a zero of~$f$.}}
@@ -388,19 +394,19 @@
 \subsection{Curious size phenomena}
 
 \begin{frame}{Curious size phenomena}
-  \explanation{$\Eff(\STM) \models \text{``There exists an injection~$\NN^\NN \hookrightarrow
+  \explanation{$\Eff(\STM) \models \text{``There exists an injection~$\RR \hookrightarrow
   \NN$.''}$}{There is a super Turing machine which inputs the source of a
-  super Turing machine~$A$ computing a function~$\NN \to \NN$ and
-  outputs a number~$n(A)$ such that~$n(A) = n(B)$ if and only if~$A$ and~$B$
-  compute the same function.}
+  super Turing machine~$A$ representing a real number and
+  outputs a natural number~$n(A)$ such that~$n(A) = n(B)$ if and only if~$A$ and~$B$
+  represent the same real.}
   \pause
 
   This statement is witnessed by following super Turing machine:
   \code{
     Read the source of a super Turing machine~$A$ from the tape.
     Simulate all super Turing machines in a dovetailing fashion.
-    As soon a machine is found which has the same input/output behaviour
-    as~$A$, output the number of this machine and halt.
+    As soon a machine is found which represents the same real
+    as~$A$, output the index of this machine and halt.
   }
 \end{frame}
 
