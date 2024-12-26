@@ -34,6 +34,14 @@ Noch einzubuchen:
 * Extracting programs from infinitary proofs
 * Multiversum
 * ITTM
+* Mathematical phantoms?
+* Large numbers grow on trees
+  * "Purpose is to explain TREE(3)"
+  * Anfang wie immer
+  * Graham und letzte Ziffer
+  * TREE(3) und Endlichkeit
+  * Graph Minor Theorem
+* Separater Vortrag zu unendlich großen Zahlen und Multiversum?
  
 Samuel-Ideen:
 * How to Schuhe fetten
