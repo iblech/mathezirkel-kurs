@@ -3,4 +3,13 @@
 * QED
   * Spiegel
   * Licht gerade
+  * leider vergessen: Feynman-Diagramme
+* Mach--Zehnder:
+  https://www.lesswrong.com/posts/PjEgxtzWMbonKeTbw/a-new-intro-to-quantum-physics-with-the-math-fixed
 * Algorithmus
+  * Halbaddierer
+  * Quantengatter
+  * Penny Game
+    https://homes.psd.uchicago.edu/~sethi/Teaching/P243-W2020/final-papers/price.pdf
+    https://algassert.com/quirk#circuit={%22cols%22:[[%22H%22,%22H%22],[%22%E2%80%A2%22,%22X%22],[%22H%22],[%22Measure%22]],%22init%22:[0,1]}
+  * Deutsch-Jozsa
