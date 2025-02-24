@@ -1,0 +1,450 @@
+\documentclass[12pt,compress,english,utf8,t,aspectratio=169]{beamer}
+\usepackage[english]{babel}
+\usepackage{calc}
+\usepackage{ragged2e,wasysym,multicol,mathtools,booktabs,xspace}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\hypersetup{colorlinks=true}
+
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+\DeclareSymbolFont{extraup}{U}{zavm}{m}{n}
+\DeclareMathSymbol{\varheart}{\mathalpha}{extraup}{86}
+
+\graphicspath{{images/}}
+
+\title[{Exploring hypercomputation with the ef{}fective topos}]{The curious world of infinite time Turing machines}
+\author[Ingo Blechschmidt]{\textcolor{white}{Ingo Blechschmidt \\ \scriptsize
+University of Antwerp \\ February 26th, 2025}}
+\date[2025-02-26]{}
+
+%\usetheme{Warsaw}
+\useinnertheme[shadow=false]{rounded}
+\useoutertheme{split}
+\usecolortheme{orchid}
+\usecolortheme{whale}
+\setbeamerfont{block title}{size={}}
+
+\useinnertheme{rectangles}
+
+\usecolortheme{seahorse}
+\definecolor{mypurple}{RGB}{150,0,255}
+\setbeamercolor{structure}{fg=mypurple}
+\definecolor{myred}{RGB}{150,0,0}
+\setbeamercolor*{title}{bg=myred,fg=white}
+\setbeamercolor*{titlelike}{bg=myred,fg=white}
+
+\usefonttheme{serif}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+%\usepackage{mathpazo}
+
+\renewcommand{\_}{\mathpunct{.}\,}
+\newcommand{\BB}{\mathbb{B}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\R}{\mathrm{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\Eff}{\mathrm{Eff}}
+\newcommand{\TM}{\mathrm{TM}}
+\newcommand{\ITTM}{\mathrm{ITTM}}
+\newcommand{\RW}{\mathrm{RW}}
+\newcommand{\lambdaC}{\lambda\mathrm{C}}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\Set}{\mathrm{Set}}
+
+\newcommand{\code}[1]{%
+  \begin{center}%
+    \setlength{\fboxrule}{1pt}%
+    \setlength{\fboxsep}{8pt}%
+    {\fbox{\parbox{0.81\textwidth}{#1}}}%
+  \end{center}%
+}
+
+\newcommand{\explanation}[2]{
+  #1 \\
+  \qquad means: \\[0.4em]
+  \qquad\qquad \begin{minipage}{0.84\textwidth}
+  #2
+  \end{minipage}
+}
+
+\newcommand{\explanationspoiler}[3]{
+  \explanation{#1}{#2} \\[0.4em]
+  \qquad\qquad\qquad #3
+}
+
+\newcommand{\fmini}[2]{%
+  \setlength{\fboxrule}{2pt}%
+  \setlength{\fboxsep}{-3pt}%
+  \usebeamercolor[fg]{item}\fbox{\usebeamercolor[fg]{normal text}\parbox{#1}{\begin{center}#2\end{center}}}}
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{title page}[default][colsep=-1bp,rounded=false,shadow=false]
+\setbeamertemplate{frametitle}[default][colsep=-2bp,rounded=false,shadow=false,center]
+
+\newcommand{\hil}[1]{{\usebeamercolor[fg]{item}{\textbf{#1}}}}
+\newcommand{\bad}[1]{\textcolor{red!90}{\textnormal{#1}}}
+\newcommand{\good}[1]{\textcolor{mypurple}{\textnormal{#1}}}
+\setbeamertemplate{frametitle}{%
+  \vskip0.6em%
+  \leavevmode%
+  \begin{beamercolorbox}[dp=1ex,center]{}%
+      \usebeamercolor[fg]{item}{\textbf{\Large \insertframetitle}}
+  \end{beamercolorbox}%
+  \vspace*{-0.3em}%
+}
+
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hfill%
+  \begin{beamercolorbox}[ht=2.25ex,dp=1ex,right]{}%
+    \usebeamerfont{date in head/foot}
+    \insertframenumber\,/\,\inserttotalframenumber\hspace*{1ex}
+  \end{beamercolorbox}%
+  \vskip0pt%
+}
+
+\newcommand{\backupstart}{
+  \newcounter{framenumberpreappendix}
+  \setcounter{framenumberpreappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+  \addtocounter{framenumberpreappendix}{-\value{framenumber}}
+  \addtocounter{framenumber}{\value{framenumberpreappendix}}
+}
+
+\newcommand{\partslide}[5]{{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\vspace*{#3}\centering\includegraphics[#2]{#1}\end{minipage}}
+\begin{frame}
+  \centering
+  \bigskip\bigskip
+
+  \Huge \hil{Part #4}
+
+  \bigskip
+  \Large\textbf{#5}
+  \par
+\end{frame}}}
+
+\newcommand{\normalnumber}[1]{%
+  {\renewcommand{\insertenumlabel}{#1}\!\usebeamertemplate{enumerate item}\!}
+}
+\newcommand{\notnot}{\emph{not~not}\xspace}
+
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}}
+%\definecolor{myred}{RGB}{250,0,0}
+\definecolor{mypurpleblack}{RGB}{30,0,50}
+
+\begin{document}
+
+% http://www.ufointernationalproject.com/wp-content/uploads/2015/11/a23.jpg
+{\usebackgroundtemplate{\includegraphics[width=\paperwidth]{lost-melody-2}}
+\addtocounter{framenumber}{-2}
+\begin{frame}[plain,c]
+  \centering
+
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+
+  \color{white}
+
+  \setbeamercolor{block body}{bg=mypurpleblack!100}
+  \begin{minipage}{0.55\textwidth}\begin{block}{}
+    \centering\normalsize\color{white}
+    \bf
+    The curious world of \\
+    \phantom{g}infinite time Turing machines\phantom{g}
+  \end{block}\end{minipage}
+
+  \smallskip
+  \color{black}
+  \scriptsize
+  \textit{-- an invitation --}
+  \color{white}
+
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+
+  Logique à Paris \\
+  February 26th, 2025
+  \bigskip
+
+  Ingo Blechschmidt \\
+  University of Antwerp
+  \par
+\end{frame}}
+\setcounter{tocdepth}{2}
+\frame{\tableofcontents}
+
+
+\section[Ordinal numbers]{Crash course on ordinal numbers}
+
+\partslide{infinite-queue}{width=0.3\paperwidth}{4.5cm}{I}{A crash course on ordinal numbers}
+
+\section{(Infinite time) Turing machines}
+
+\partslide{turing-machine}{width=0.4\paperwidth}{4.5cm}{II}{(Infinite time) Turing machines}
+
+
+\subsection[TM]{Bacics on Turing machines}
+
+\newcommand{\portrait}[4]{\begin{column}{#3\textwidth}\centering\includegraphics[height=#4\textheight]{#1}\\{\scriptsize #2\par}\end{column}}
+
+\begin{frame}{Basics on Turing machines}
+  \begin{itemize}
+    \item Turing machines are idealized computers operating on an \hil{infinite
+    tape} according to a \hil{finite list} of rules.
+    \item The concept is astoundingly robust.
+    \item \ \\[-1.2em]\mbox{A subset of~$\NN$ is \hil{enumerable by a Turing machine} if and only
+    if it is a $\Sigma_1$-set.}
+  \end{itemize}
+
+  \bigskip
+  \begin{columns}[t]
+    \begin{column}{0.095\textwidth}\end{column}
+    \portrait{alan-turing}{Alan Turing \\ (* 1912, † 1954)}{0.27}{0.35}
+    \portrait{imitation-game}{worth watching}{0.27}{0.35}
+    \portrait{alison-bechdel}{Alison Bechdel \\ (* 1960)}{0.27}{0.35}
+    \begin{column}{0.095\textwidth}\end{column}
+  \end{columns}
+\end{frame}
+
+
+\subsection[ITTM]{Basics on infinite time Turing machines}
+
+\begin{frame}{Infinite time Turing machines}
+  With infinite time Turing machines, the time axis is more interesting:
+  \begin{itemize}
+    \item normal: $0,\ 1,\ 2,\ \ldots$
+    \item infinite time:\phantom{rl} $0,\ 1,\ 2,\ \ldots,\ \omega,\ \omega + 1,\ \ldots,\ \omega\cdot2,\ \omega\cdot2 + 1,\
+    \makebox[\widthof{R}][l]{$\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots$}$
+  \end{itemize}
+  \bigskip
+
+  On reaching a \hil{limit ordinal} time step like~$\omega$ or~$\omega \cdot 2$, \ldots
+  \pause
+  \begin{itemize}
+    \item the machine is put into a \hil{designated state},
+    \item the read/write head is \hil{moved to the start} of the tape, and
+    \item the tape is set to the \hil{``lim sup''} of all its previous contents.
+  \end{itemize}
+
+  \bigskip
+  \begin{columns}[t]
+    \begin{column}{0.03\textwidth}\end{column}
+    \portrait{joel-david-hamkins}{Joel David Hamkins}{0.23}{0.3}
+    \portrait{mathoverflow}{MathOverflow}{0.38}{0.3}
+    \portrait{phantom}{Andy Lewis}{0.23}{0.3}
+    \begin{column}{0.03\textwidth}\end{column}
+  \end{columns}
+\end{frame}
+
+{\usebackgroundtemplate{\includegraphics[height=\paperheight]{who-wants-to-be-a-millionaire}}
+\begin{frame}{A question for you}
+  \centering
+  What's the behaviour of this infinite time Turing machine?
+
+  \code{In the start state and the limit state, check whether the current cell contains a ``1''.
+  \begin{itemize}
+    \item If yes, then stop.
+    \item If not, then flash that cell: set it to ``1'', then reset it to ``0''. Then
+    unremittingly move the head rightwards.
+  \end{itemize}}
+  \pause
+  This machine halts after time step~$\omega^2$.
+  \bigskip
+
+  \parbox{0.72\textwidth}{\centering\hil{Infinite time Turing machines can break out of
+  \\ (some kinds of) infinite loops.}\par}
+  \par
+\end{frame}}
+
+
+\subsection[Power]{The power of infinite time Turing machines}
+
+\begin{frame}{What can infinite time Turing machines do?}
+  \begin{itemize}
+    \item Everything ordinary Turing machines can do.
+    \item Verify number-theoretic statements.
+    \item Decide whether a given ordinary Turing machine halts.
+    \item Simulate infinite time Turing machines.
+    \item Decide $\Pi_1^1$- and $\Sigma_1^1$-statements:
+    \begin{itemize}
+      \item ``For every function $\NN \to \NN$ it holds that \ldots''
+      \item ``There is a function $\NN \to \NN$ such that \ldots''
+    \end{itemize}
+  \end{itemize}
+
+  \visible<2>{\hil{But:} Infinite time Turing machines cannot compute all functions
+  and cannot write arbitrary 0/1-sequences to the tape.}
+
+  \begin{center}
+    \scalebox{0.2}{\input{images/nonwellfounded-tree.pdf_t}}
+  \end{center}
+\end{frame}
+
+
+\subsection[Outlook]{Outlook on the larger theory}
+
+{\usebackgroundtemplate{\includegraphics[width=\paperwidth]{lost-melody}}
+\begin{frame}{Fun facts}
+  \begin{itemize}
+    \item Every infinite time Turing machine either halts or gets caught in an
+    unbreakable infinite loop after \hil{countably many steps}.
+    \item An ordinal number~$\alpha$ is \hil{clockable} iff there is an infinite time
+    Turing machine which halts precisely after time step~$\alpha$.
+    \begin{itemize}
+      \item Speed-up Lemma: If $\alpha + n$ is clockable, then so is $\alpha$.
+      \item Big Gaps Theorem
+      \item Many Gaps Theorem
+      \item Gapless Blocks Theorem
+    \end{itemize}
+    \item \hil{Lost Melody Theorem:} There are 0/1-sequences which a \mbox{infinite time Turing
+    machine can recognize, but not write to the tape.}
+  \end{itemize}
+\end{frame}}
+
+
+\section{The ef{}fective topos}
+
+\partslide{topos-horses}{width=\paperwidth}{3.25cm}{III}{The ef{}fective topos}
+
+\subsection[First steps]{First steps in the ef{}fective topos}
+
+\newcommand{\expl}[2]{
+  \justifying
+  ``$\mathrm{Eff}(\mathrm{TM}) \models \!\text{\normalnumber{#1}}$'' amounts to: #2
+}
+\newcommand{\sexpl}[2]{
+  \justifying
+  ``$\mathrm{Eff}(\mathrm{ITTM}) \models \!\text{\normalnumber{#1}}$'' amounts to: #2
+}
+\newcommand{\qswitch}[3]{\only<1-#1>{\includegraphics[height=0.7em]{question-mark}}\only<#2->{#3}}
+\newcommand{\ccmark}{\good{\cmark}}
+\newcommand{\cxmark}{\bad{\xmark}}
+\begin{frame}{The ef{}fective topos}
+  \fontsize{11pt}{13.2pt}\selectfont
+  %\begin{changemargin}{-1.5em}{-0.5em}
+  {\centering\begin{tabular}{@{\!\!\!\!\!\!}l@{\,}lp{2.0cm}p{2.0cm}p{2.0cm}}
+    \toprule
+    & statement & in~$\Set$ & in~$\Eff(\TM)$ & in~$\Eff(\ITTM)$ \\
+    \midrule
+    \normalnumber{1} & Every number is prime or not prime. & \ccmark{}
+    (trivially) & \ccmark & \ccmark \\
+    \normalnumber{2} & Beyond every number there is a prime. & \ccmark & \ccmark & \ccmark \\
+    \normalnumber{3} & Every map $\NN \to \NN$ has a zero or not. & \ccmark{} (trivially) & \cxmark & \ccmark \\
+    \normalnumber{4} & Every map $\NN \to \NN$ is computable. & \cxmark &
+    \qswitch{4}{5}{\ccmark}\only<1-4>{\,} \visible<5->{(trivially)} &
+    \qswitch{5}{6}{\cxmark} \\
+    \normalnumber{5} & Every map $\RR \to \RR$ is continuous. & \cxmark &
+    \qswitch{6}{7}{\ccmark{} (if MP)} & \qswitch{7}{8}{\cxmark} \\
+    \normalnumber{6} & Markov's principle holds. & \ccmark{} (trivially) &
+    \qswitch{8}{9}{\ccmark{} (if MP)} & \qswitch{9}{10}{\ccmark{} (if MP)} \\
+    \normalnumber{7} & Countable choice holds. & \ccmark &
+    \qswitch{10}{11}{\ccmark{} (always!)} &
+    \qswitch{11}{12}{\ccmark{} (always!)} \\
+    \normalnumber{8} & There is an injection $\RR \hookrightarrow \NN$. & \cxmark &
+    \qswitch{12}{13}{\cxmark} &
+    \qswitch{13}{14}{\ccmark} \\
+    \bottomrule
+  \end{tabular}\par}
+  \medskip
+
+  \only<1>{\color{white}There is a Turing machine which determines of any given
+  number whether it is prime or not. \\\ \\\ }
+  \only<2>{\expl{1}{There is a Turing machine which determines of any given
+  number whether it is prime or not. \\\ \\\ }}
+  \only<3>{\expl{2}{There is a Turing machine which, given a number~$n$, computes a
+  prime larger than~$n$. \\\ \\\ }}
+  \only<4>{\expl{3}{There is a Turing machine which, given a Turing machine
+  computing a map~$f : \NN \to \NN$, determines whether~$f$ has a
+  zero or not. \\\ \\\ }}
+  \only<5>{\expl{4}{There is a Turing machine which, given a Turing machine
+  computing a map~$f : \NN \to \NN$, outputs a Turing machine
+  computing~$f$. \\\ \\\ }}
+  \only<6>{\sexpl{4}{There is an infinite time Turing machine which, given an \emph{infinite time} Turing machine
+  computing a map~$f : \NN \to \NN$, outputs an (\emph{ordinary}) Turing machine
+  computing~$f$. \\\ \\\ }}
+  \only<7-8>{\justifying A real number of~$\Eff(\TM)$ is externally represented by a Turing
+  machine~$M$ which on input~$n$ outputs a rational approximation~$M(n)$.
+  These approximations need to be compatible in
+  that~$|M(n)-M(m)|\leq2^{-n}+2^{-m}$ for all~$n,m$. \par\medskip Two such machines~$M$
+  and~$M'$ represent the same real number iff~$|M(n)-M'(m)|\leq2^{-n}+2^{-m}$
+  for all~$n,m$.}
+  \only<9-10>{
+    Markov's principle states: $\forall f : \NN \to \NN\_ \neg\neg(\exists n
+    \in \NN\_ f(n) = 0) \Rightarrow (\exists n \in \NN\_ f(n) = 0)$. \par\medskip
+    \expl{6}{There is a Turing machine which, given a Turing machine
+    computing a map~$f : \NN \to \NN$ and given the promise that it is \notnot
+    the case that~$f$ has a zero, determines a zero of~$f$.}}
+  \only<11-12>{
+    \mbox{Countable choice states: $\bigl(\forall x \in \NN\_ \exists y \in A\_
+    \varphi(x,y)\bigr) \Rightarrow \bigl(\exists f : \NN \to A\_ \forall x \in
+    \NN\_ \varphi(x,f(x))\bigr)$.}\par\medskip
+    \expl{7}{\justifying There is a Turing machine which, given a Turing machine
+    computing for every~$x \in \NN$ some~$y \in A$ together with a witness
+    of~$\varphi(x,y)$, outputs a Turing machine computing a suitable choice
+    function~$\NN \to A$.}}
+  \only<13>{\ \\\ \\\ \\\ }
+  %\end{changemargin}
+\end{frame}
+
+
+\subsection{Curious size phenomena}
+
+\begin{frame}{Curious size phenomena}
+  \explanation{$\Eff(\ITTM) \models \text{``There exists an injection~$\RR \hookrightarrow
+  \NN$.''}$}{There is an infinite time Turing machine which inputs the source of an
+  infinite time Turing machine~$A$ representing a real number and
+  outputs a natural number~$n(A)$ such that~$n(A) = n(B)$ if and only if~$A$ and~$B$
+  represent the same real.}
+  \pause
+  \bigskip
+
+  This statement is witnessed by following infinite time Turing machine:
+  \code{
+    Read the source of an infinite time Turing machine~$A$ from the tape.
+    Simulate all infinite time Turing machines in a dovetailing fashion.
+    As soon a machine is found which represents the same real
+    as~$A$, output the index of this machine and halt.
+  }
+\end{frame}
+
+
+\subsection{Wrapping up}
+
+{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\vspace*{3.25cm}\centering\includegraphics[width=\paperwidth]{topos-horses}\end{minipage}}
+\begin{frame}{Wrapping up}
+  \begin{itemize}
+    \item Ef{}fective toposes are a good vehicle for studying the nature of computation.
+    \item Ef{}fective toposes build links between constructive mathematics and programming.
+    \item Toposes allow for curious dream axioms.
+    \item Toposes also have a geometric flavor: \\
+    points, subtoposes, continuous maps between toposes.
+  \end{itemize}
+  \pause
+
+  \centering
+  \bigskip
+  \colorbox{white!70}{\hil{\textcolor{mypurple}{There is more to mathematics
+  than the standard topos.}}}
+  \par
+\end{frame}}
+
+\end{document}
