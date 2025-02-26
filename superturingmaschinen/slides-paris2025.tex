@@ -3,6 +3,7 @@
 \usepackage{calc}
 \usepackage{ragged2e,wasysym,multicol,mathtools,booktabs,xspace}
 \usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage[export]{adjustbox}
 \hypersetup{colorlinks=true}
 
 \usepackage{pifont}
@@ -190,6 +191,22 @@ University of Antwerp \\ February 26th, 2025}}
   \par
 \end{frame}}
 \setcounter{tocdepth}{2}
+
+% https://tex.stackexchange.com/a/198372/32372
+% \includegraphics[width=3cm]{lovelace-babbage}
+% \includegraphics[width=3cm]{first-program}
+\addtocounter{framenumber}{-1}
+{\usebackgroundtemplate{\begin{minipage}{\paperwidth}\includegraphics[height=\paperheight,valign=t]{ada-lovelace}\includegraphics[width=10.5cm,valign=t]{first-program}\end{minipage}}
+\begin{frame}[plain]
+  \vspace*{7.4cm}\hspace*{5cm}\begin{minipage}{8.7cm}
+    \Large\hil{Ada Lovelace} (* 1815, † 1852),
+
+    \large
+    the world's first
+    computer programmer
+  \end{minipage}
+\end{frame}}
+
 \frame{\tableofcontents}
 
 
@@ -202,7 +219,7 @@ University of Antwerp \\ February 26th, 2025}}
 \partslide{turing-machine}{width=0.4\paperwidth}{4.5cm}{II}{(Infinite time) Turing machines}
 
 
-\subsection[TM]{Bacics on Turing machines}
+\subsection[TM]{Basics on Turing machines}
 
 \newcommand{\portrait}[4]{\begin{column}{#3\textwidth}\centering\includegraphics[height=#4\textheight]{#1}\\{\scriptsize #2\par}\end{column}}
 
@@ -258,7 +275,7 @@ University of Antwerp \\ February 26th, 2025}}
 {\usebackgroundtemplate{\includegraphics[height=\paperheight]{who-wants-to-be-a-millionaire}}
 \begin{frame}{A question for you}
   \centering
-  What's the behaviour of this infinite time Turing machine?
+  What's the behavior of this infinite time Turing machine?
 
   \code{In the start state and the limit state, check whether the current cell contains a ``1''.
   \begin{itemize}
@@ -317,6 +334,8 @@ University of Antwerp \\ February 26th, 2025}}
     \end{itemize}
     \item \hil{Lost Melody Theorem:} There are 0/1-sequences which a \mbox{infinite time Turing
     machine can recognize, but not write to the tape.}
+    \item Infinite time Turing machines can be \hil{simulated by
+    ordinary~differential~equations} [Olivier Bournez, Sabrina Ouazzani]
   \end{itemize}
 \end{frame}}
 
@@ -432,7 +451,8 @@ University of Antwerp \\ February 26th, 2025}}
 {\usebackgroundtemplate{\begin{minipage}{\paperwidth}\vspace*{3.25cm}\centering\includegraphics[width=\paperwidth]{topos-horses}\end{minipage}}
 \begin{frame}{Wrapping up}
   \begin{itemize}
-    \item Ef{}fective toposes are a good vehicle for studying the nature of computation.
+    \item Ef{}fective toposes are a good vehicle for studying the nature of computation,
+    in particular its higher-order aspects.
     \item Ef{}fective toposes build links between constructive mathematics and programming.
     \item Toposes allow for curious dream axioms.
     \item Toposes also have a geometric flavor: \\
@@ -442,8 +462,8 @@ University of Antwerp \\ February 26th, 2025}}
 
   \centering
   \bigskip
-  \colorbox{white!70}{\hil{\textcolor{mypurple}{There is more to mathematics
-  than the standard topos.}}}
+  \colorbox{white!70}{\hil{\textcolor{mypurple}{You are welcome to explore the
+  toposophic landscape!}}}
   \par
 \end{frame}}
 
