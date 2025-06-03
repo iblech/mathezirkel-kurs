@@ -1,7 +1,7 @@
 \documentclass[12pt,compress,english,utf8,t,aspectratio=169]{beamer}
 \usepackage[english]{babel}
 \usepackage{calc}
-\usepackage{ragged2e,wasysym,multicol,mathtools,booktabs,xspace}
+\usepackage{ragged2e,wasysym,multicol,mathtools,booktabs,xspace,tabto}
 \usepackage[protrusion=true,expansion=true]{microtype}
 \usepackage[export]{adjustbox}
 \hypersetup{colorlinks=true}
@@ -161,6 +161,13 @@ University of Antwerp \\ February 26th, 2025}}
 
   \color{white}
 
+  \color{black}
+  \scriptsize
+  \color{white}
+  \textit{-- an invitation --}
+
+  \vspace*{-0.5em}
+
   \setbeamercolor{block body}{bg=mypurpleblack!100}
   \begin{minipage}{0.55\textwidth}\begin{block}{}
     \centering\normalsize\color{white}
@@ -168,12 +175,6 @@ University of Antwerp \\ February 26th, 2025}}
     The curious world of \\
     \phantom{g}infinite time Turing machines\phantom{g}
   \end{block}\end{minipage}
-
-  \smallskip
-  \color{black}
-  \scriptsize
-  \textit{-- an invitation --}
-  \color{white}
 
   \bigskip
   \bigskip
@@ -248,8 +249,8 @@ University of Antwerp \\ February 26th, 2025}}
 \begin{frame}{Infinite time Turing machines}
   With infinite time Turing machines, the time axis is more interesting:
   \begin{itemize}
-    \item normal: $0,\ 1,\ 2,\ \ldots$
-    \item infinite time:\phantom{rl} $0,\ 1,\ 2,\ \ldots,\ \omega,\ \omega + 1,\ \ldots,\ \omega\cdot2,\ \omega\cdot2 + 1,\
+    \item ordinary:\tabto{2.5cm} $0,\ 1,\ 2,\ \ldots$
+    \item infinite time:\tabto{2.5cm} $0,\ 1,\ 2,\ \ldots,\ \omega,\ \omega + 1,\ \ldots,\ \omega\cdot2,\ \omega\cdot2 + 1,\
     \makebox[\widthof{R}][l]{$\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots$}$
   \end{itemize}
   \bigskip
@@ -275,7 +276,7 @@ University of Antwerp \\ February 26th, 2025}}
 {\usebackgroundtemplate{\includegraphics[height=\paperheight]{who-wants-to-be-a-millionaire}}
 \begin{frame}{A question for you}
   \centering
-  What's the behavior of this infinite time Turing machine?
+  What is the behavior of this infinite time Turing machine?
 
   \code{In the start state and the limit state, check whether the current cell contains a ``1''.
   \begin{itemize}
@@ -440,11 +441,13 @@ University of Antwerp \\ February 26th, 2025}}
   \code{
     Read the source of an infinite time Turing machine~$A$ from the tape.
     Simulate all infinite time Turing machines in a dovetailing fashion.
-    As soon a machine is found which represents the same real
+    As soon as a machine is found which represents the same real
     as~$A$, output the index of this machine and halt.
   }
 \end{frame}
 
+
+\backupstart
 
 \subsection{Wrapping up}
 
@@ -453,18 +456,22 @@ University of Antwerp \\ February 26th, 2025}}
   \begin{itemize}
     \item Ef{}fective toposes are a good vehicle for studying the nature of computation,
     in particular its higher-order aspects.
-    \item Ef{}fective toposes build links between constructive mathematics and programming.
+    \item Ef{}fective toposes build links between constructive mathematics and programming,
+    check out Laura's talk for more.
     \item Toposes allow for curious dream axioms.
     \item Toposes also have a geometric flavor: \\
-    points, subtoposes, continuous maps between toposes.
+    points, open and closed subtoposes, continuous maps between toposes,
+    cohomology, \ldots
   \end{itemize}
   \pause
 
   \centering
   \bigskip
   \colorbox{white!70}{\hil{\textcolor{mypurple}{You are welcome to explore the
-  toposophic landscape!}}}
+  toposophic landscape :-)}}}
   \par
 \end{frame}}
+
+\backupend
 
 \end{document}
