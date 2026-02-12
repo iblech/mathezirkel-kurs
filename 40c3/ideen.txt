@@ -1,2 +1,9 @@
 - Fermi paradox
 - Wachstumszwang
+- Statistik allgemein
+  - mit Markov und Chebyshev, https://www.ethanepperly.com/index.php/2022/08/02/big-ideas-in-applied-math-concentration-inequalities/
+  - und Run-Test?
+  - allgemein Tests
+- p-Hacking
+- Anatomy of a multi-stage hack (phpbb) for beginners
+- Game of Life, insb. auch https://mvr.github.io/posts/xs23.html
