@@ -4,6 +4,11 @@
   - mit Markov und Chebyshev, https://www.ethanepperly.com/index.php/2022/08/02/big-ideas-in-applied-math-concentration-inequalities/
   - und Run-Test?
   - allgemein Tests
+  - Aus Coinflip uniformen Zufallszahlengenerator machen
+  - https://link.springer.com/content/pdf/10.1007/s00145-003-0051-5.pdf
 - p-Hacking
 - Anatomy of a multi-stage hack (phpbb) for beginners
 - Game of Life, insb. auch https://mvr.github.io/posts/xs23.html
+- Knoten, insb. https://mathstodon.xyz/@gregeganSF/116474978687963380
+- https://www.quantamagazine.org/physicists-solve-a-muon-mystery-now-old-results-dont-add-up-20260729/
+- https://vertex.degree/
